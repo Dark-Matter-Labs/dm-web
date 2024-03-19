@@ -1,20 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+  background-color: #151414;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -29,4 +23,37 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+@font-face {
+  font-family: 'FKGroteskTrial-Regular';
+  src:
+    local('FKGroteskTrial-Regular'),
+    local('FKGroteskTrial-Regular'),
+    url('../fonts/FKGroteskTrial-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'FKGroteskTrial-Medium';
+  src:
+    local('FKGroteskTrial-Medium'),
+    local('FKGroteskTrial-Medium'),
+    url('../fonts/FKGroteskTrial-Medium.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'FKGroteskTrial-Light';
+  src:
+    local('FKGroteskTrial-Light'),
+    local('FKGroteskTrial-Light'),
+    url('../fonts/FKGroteskTrial-Light.otf') format('otf');
+}
+
+.test {
+  transform: rotateX(61deg) rotateY(0) rotateZ(7deg) skew(60deg, -60deg)
+    scale3d(0.3, 0.5, 1);
+}
+
+.test2 {
+  background: rgba(37, 36, 36, 1);
 }
