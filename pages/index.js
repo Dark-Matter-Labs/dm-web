@@ -7,7 +7,7 @@ import dmLogo from '../images/DML.gif';
 import '../styles/Home.module.css';
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  const [openCS, setOpenCS] = useState(false);
 
   const [openLEE, setOpenLEE] = useState(false);
   const [openMC, setOpenMC] = useState(false);
@@ -19,8 +19,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-20" onClose={setOpen}>
+      <Transition.Root show={openCS} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenCS}>
           <div className="fixed left-36 top-40 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
@@ -376,6 +376,7 @@ export default function Home() {
                       <p className="text-base font-medium ">Radicle Civics</p>
                     </div>
                   )}
+                  
                   <div className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2">
                     <p className="text-base font-medium text-[#FFF]">
                       Net Zero Cities
@@ -490,15 +491,26 @@ export default function Home() {
                 </div>
 
                 <div>
+                  {openCS ?
                   <div
+                  className="group max-w-28 px-2 pb-8 pt-2 hover:cursor-pointer bg-[#EBEBEB] text-[#5965A3]"
+                  onClick={() => setOpenCS(false)}
+                >
+                  <p className="mb-2 min-h-16 text-base font-medium">
+                    Capital Systems
+                    <span className="inline">↗</span>
+                  </p>
+                </div>
+                :
+                <div
                     className="group max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                    onClick={() => setOpen(true)}
+                    onClick={() => setOpenCS(true)}
                   >
                     <p className="mb-2 min-h-16 text-base font-medium">
                       Capital Systems
                       <span className="hidden group-hover:inline">↗</span>
                     </p>
-                  </div>
+                  </div>}
                   {RCactive ? (
                     <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
                   ) : (
