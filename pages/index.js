@@ -12,6 +12,13 @@ export default function Home() {
   const [openLEE, setOpenLEE] = useState(false);
   const [openMC, setOpenMC] = useState(false);
   const [RCactive, setRCActive] = useState(false);
+  const [NZactive, setNZActive] = useState(false);
+  const [SGactive, setSGActive] = useState(false);
+  const [M0active, setM0Active] = useState(false);
+  const [REactive, setREActive] = useState(false);
+  const [BEactive, setBEActive] = useState(false);
+  const [PCactive, setPCActive] = useState(false);
+
   return (
     <div>
       <Head>
@@ -35,7 +42,7 @@ export default function Home() {
                 <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
-                    <p className="text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#353535]">
                       DmCS Lab is working to reframe what is possible within the
                       financial capital markets. This Lab is working with the
                       hypothesis that the investment logic of the current system
@@ -77,7 +84,7 @@ export default function Home() {
                 <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
-                    <p className="text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#353535]">
                       The NE lab is exploring the interaction between our
                       monetary systems and societal behaviour. To ground the
                       conceptual provocations, NE Lab has been collaborating
@@ -376,12 +383,28 @@ export default function Home() {
                       <p className="text-base font-medium ">Radicle Civics</p>
                     </div>
                   )}
-                  
-                  <div className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2">
-                    <p className="text-base font-medium text-[#FFF]">
+                  {NZactive ? (
+                     <div className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                     onClick={() => setNZActive(false)}
+                     onMouseLeave={() => setNZActive(false)}
+                     >
+                     <p className="text-base font-medium ">
+                       Net Zero Cities
+                     </p>
+                   </div>
+
+                  ) : (
+                    <div className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                    onMouseOver={() => setNZActive(true)}
+                    onClick={() => setNZActive(true)}
+                    onMouseLeave={() => setNZActive(false)}>
+                    <p className="text-base font-medium ">
                       Net Zero Cities
                     </p>
                   </div>
+
+                  )}
+                 
                   <div className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2">
                     <p className="text-base font-medium text-[#FFF]">
                       7Gen Cities
