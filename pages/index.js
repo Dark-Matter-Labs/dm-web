@@ -666,7 +666,7 @@ export default function Home() {
           </p>
         </div>
 
-        <ScrollParallax strength={0.9} lerpEase={0.06}>
+        <ScrollParallax strength={0.14} lerpEase={0.06}>
           <div className="h-screen w-full snap-mandatory overflow-auto scroll-smooth">
             <div className="relative h-screen w-full snap-start">
               <div className="-ml-20">
