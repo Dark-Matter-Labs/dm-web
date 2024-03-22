@@ -3,8 +3,74 @@ import Image from 'next/image';
 import { Fragment, useState } from 'react';
 import { Disclosure, Dialog, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  ChatBubbleLeftEllipsisIcon,
+  TagIcon,
+  UserCircleIcon,
+} from '@heroicons/react/20/solid';
+import { ScrollParallax } from 'react-just-parallax';
 import dmLogo from '../images/DML.gif';
 import '../styles/Home.module.css';
+
+const activity = [
+  {
+    id: 1,
+    active: true,
+    title: 'Ecosystem Matrix',
+    description:
+      'We are not a think tank, consultancy, or design studio. We  and we do not have a single, neat theory of change. Instead, we arrange our efforts across an ecosystem of collaborations, and ground our approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, through multi-scalar global collaborationwith the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world.',
+  },
+  {
+    id: 2,
+    active: false,
+    title: 'Labs',
+    description: 'Short snappy description',
+  },
+  {
+    id: 3,
+    active: false,
+    title: 'Arcs',
+    description: 'Short snappy description',
+  },
+  {
+    id: 4,
+    active: false,
+    title: 'Studios',
+    description: 'Short snappy description',
+  },
+];
+
+const activity2 = [
+  {
+    id: 1,
+    active: false,
+    title: 'Ecosystem Matrix',
+    description: 'Organizational response strategy',
+  },
+  {
+    id: 2,
+    active: true,
+    title: 'Labs',
+    description:
+      'Each of our Labs is focused on a specific area of the socio-economic system and the everyday codes (e.g. norms, behaviours and institutional logic) that form its structural backbone. The Labs are exploring what might be possible, both within and beyond the current structures, and working to develop technical expertise in those areas. For example, the Beyond The RulesLab focuses on aspects such as demonstrating multi-actor governance structures whereas the Capital SystemsLab is working to enable strategic ecosystem investments.',
+  },
+  {
+    id: 3,
+    active: false,
+    title: 'Arcs',
+    description: 'Short snappy description',
+  },
+  {
+    id: 4,
+    active: false,
+    title: 'Studios',
+    description: 'Short snappy description',
+  },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 export default function Home() {
   // arcs states
@@ -29,8 +95,22 @@ export default function Home() {
   // open modal states
   const [openLEE, setOpenLEE] = useState(false);
   const [openMC, setOpenMC] = useState(false);
-  const [openCS, setOpenCS] = useState(false);
   const [openRC, setOpenRC] = useState(false);
+  const [openNZ, setOpenNZ] = useState(false);
+  const [openSG, setOpenSG] = useState(false);
+  const [openM0, setOpenM0] = useState(false);
+  const [openRE, setOpenRE] = useState(false);
+  const [openBE, setOpenBE] = useState(false);
+  const [openPC, setOpenPC] = useState(false);
+
+  const [openNE, setOpenNE] = useState(false);
+  const [openBL, setOpenBL] = useState(false);
+  const [openCS, setOpenCS] = useState(false);
+  const [openPF, setOpenPF] = useState(false);
+  const [openPB, setOpenPB] = useState(false);
+  const [openQD, setOpenQD] = useState(false);
+  const [openBR, setOpenBR] = useState(false);
+  const [openSM, setOpenSM] = useState(false);
 
   return (
     <div>
@@ -98,6 +178,198 @@ export default function Home() {
                       support three new ways of being in the world: from assets
                       to agents, from externalities to entanglements, and from
                       public/public to commoning.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openNZ} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenNZ}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The NZC Arc aspires to create smart cities that are carbon
+                      neutral. This involves supporting cities to develop local
+                      portfolios of coordinated actions across multiple domains
+                      (e.g. technology, governance, policy, finance innovation,
+                      social innovation) which accelerate emission reductions.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openSG} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenSG}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      This collaborative arc fosters transformative thinking and
+                      action for future cities. The aspiration is to create the
+                      infrastructures for cities, inviting the next seven
+                      generations of city dwellers to thrive in radically caring
+                      and regenerative communities.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openM0} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenM0}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The M0 Arc is aiming to reimagine how we use and steward
+                      materials in service of a regenerative built environment.
+                      The Arc is asking questions around how we can innovate our
+                      material inputs, adjust our understanding of comfort
+                      (heating and cooling) and intelligently share existing
+                      spaces.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openRE} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenRE}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The Rn Arc is working towards resilient, sustainable and
+                      high quality food systems. Within this aspiration, cities
+                      are a key area of focus and the team are working across
+                      diverse sectors to identify and respond to likey pressure
+                      points.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openBE} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenBE}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The Be Arc is aiming to support the creation of nested
+                      economies that protect and steward the integral health of
+                      their base bioregions. This Arc works closely with the Sm
+                      Lab to collate, map and visualise the value stocks and
+                      flows of a bioregion. It also intersects with the Ne Lab
+                      to propose how these entangled forms of value can be
+                      integrated into our investment frameworks and decision
+                      making structures.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openPC} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenPC}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The Pc Arc is looking at how we can match the scale of our
+                      planetary challenges with our global ambition to respond.
+                      For example, how can we build bold, ambitious models of
+                      meaningful repair for our earth systems? What would it
+                      mean to embrace the idea of relatable hyperobjects
+                      (dimensions of a scale that historically have been beyond
+                      the scope of human understanding)?
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -339,7 +611,7 @@ export default function Home() {
               understand these codes to be physical (e.g. biodiversity, energy,
               labour and materials), structural (e.g. money creation, embedded
               inequality and private property rights) and psychological (e.g.
-              failure of the imagination). 
+              failure of the imagination).
             </p>
 
             <p className="pt-10 font-FKregular text-2xl text-white">
@@ -394,24 +666,1409 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mx-10 my-10 font-FKmedium">
+        <ScrollParallax strength={0.9} lerpEase={0.06}>
+          <div className="h-screen w-full snap-mandatory overflow-auto scroll-smooth">
+            <div className="relative h-screen w-full snap-start">
+              <div className="-ml-20">
+                <div className="test  absolute top-0 z-40 w-full opacity-100">
+                  <div className=" grid max-w-4xl grid-cols-8 gap-2">
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="test  absolute top-20 z-40 w-full opacity-40">
+                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="test  absolute top-40 z-20 w-full opacity-20">
+                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute left-3/4 mt-20">
+                <div className="flow-root">
+                  <ul role="list" className="-mb-8">
+                    {activity.map((activityItem, activityItemIdx) => (
+                      <li key={activityItem.id}>
+                        <div className="relative pb-8">
+                          {activityItemIdx !== activity.length - 1 ? (
+                            <span
+                              className="absolute left-2 top-2 -ml-px h-full w-0.5 bg-[#9F9F9F]"
+                              aria-hidden="true"
+                            />
+                          ) : null}
+                          <div className="relative flex items-start space-x-3">
+                            <>
+                              <div>
+                                <div className="relative px-1">
+                                  <div className="mt-3 flex h-2 w-2 items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
+                                </div>
+                              </div>
+                              <div className="min-w-0 flex-1 ">
+                                {activityItem.active ? (
+                                  <div className="">
+                                    <h4 className="font-FKmedium text-2xl text-white">
+                                      {activityItem.title}
+                                    </h4>
+                                    <p className="font-FKregular text-sm text-[#C1C1C1]">
+                                      {activityItem.description}
+                                    </p>
+                                  </div>
+                                ) : (
+                                  <div className="">
+                                    <h4 className="font-FKmedium text-xl text-[#6A6A6A]">
+                                      {activityItem.title}
+                                    </h4>
+                                    <p className="font-FKregular text-sm text-[#6A6A6A]">
+                                      {activityItem.description}
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative h-screen w-full snap-start">
+              <div className="-ml-20">
+                <div className="test  absolute top-0 z-40 w-full opacity-100">
+                  <div className=" grid max-w-4xl grid-cols-8 gap-2">
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="test  absolute top-20 z-40 w-full opacity-40">
+                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="test  absolute top-40 z-20 w-full opacity-20">
+                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                    <div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
+                        {' '}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute left-3/4 mt-20">
+                <div className="flow-root">
+                  <ul role="list" className="-mb-8">
+                    {activity2.map((activityItem, activityItemIdx) => (
+                      <li key={activityItem.id}>
+                        <div className="relative pb-8">
+                          {activityItemIdx !== activity2.length - 1 ? (
+                            <span
+                              className="absolute left-2 top-2 -ml-px h-full w-0.5 bg-[#9F9F9F]"
+                              aria-hidden="true"
+                            />
+                          ) : null}
+                          <div className="relative flex items-start space-x-3">
+                            <>
+                              <div>
+                                <div className="relative px-1">
+                                  <div className="mt-3 flex h-2 w-2 items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
+                                </div>
+                              </div>
+                              <div className="min-w-0 flex-1 ">
+                                {activityItem.active ? (
+                                  <div className="">
+                                    <h4 className="font-FKmedium text-2xl text-white">
+                                      {activityItem.title}
+                                    </h4>
+                                    <p className="font-FKregular text-sm text-[#C1C1C1]">
+                                      {activityItem.description}
+                                    </p>
+                                  </div>
+                                ) : (
+                                  <div className="">
+                                    <h4 className="font-FKmedium text-xl text-[#6A6A6A]">
+                                      {activityItem.title}
+                                    </h4>
+                                    <p className="font-FKregular text-sm text-[#6A6A6A]">
+                                      {activityItem.description}
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollParallax>
+
+        <div className="mx-10 my-10 font-FKmedium ">
           <div className="grid grid-cols-12">
             <div className="col-span-11">
-              <div className="grid max-w-6xl grid-cols-9 gap-0">
+              <div className="grid max-w-6xl grid-cols-9 gap-0 ">
                 <div className="col-span-8"></div>
                 <h2 className="pb-4 text-4xl font-medium text-[#9F9F9F]">
                   Labs
                 </h2>
               </div>
 
-              <div className="test2 z-20 grid max-w-6xl grid-cols-9 gap-0">
+              <div className=" test2 grid max-w-6xl grid-cols-9 gap-0">
                 <div className="">
                   <div className="bg-[#151414]">
                     <h2 className="pb-4 pt-14 text-4xl font-medium text-[#9F9F9F]">
                       Arcs
                     </h2>
                   </div>
-
                   {RCactive || openRC ? (
                     <div
                       className="max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
@@ -430,10 +2087,10 @@ export default function Home() {
                       <p className="text-base font-medium ">Radicle Civics</p>
                     </div>
                   )}
-                  {NZactive ? (
+                  {NZactive || openNZ ? (
                     <div
                       className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setNZActive(false)}
+                      onClick={() => setOpenNZ(true)}
                       onMouseLeave={() => setNZActive(false)}
                     >
                       <p className="text-base font-medium ">Net Zero Cities</p>
@@ -442,17 +2099,17 @@ export default function Home() {
                     <div
                       className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
                       onMouseOver={() => setNZActive(true)}
-                      onClick={() => setNZActive(true)}
+                      onClick={() => setOpenNZ(true)}
                       onMouseLeave={() => setNZActive(false)}
                     >
                       <p className="text-base font-medium ">Net Zero Cities</p>
                     </div>
                   )}
 
-                  {SGactive ? (
+                  {SGactive || openSG ? (
                     <div
                       className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setSGActive(false)}
+                      onClick={() => setOpenSG(true)}
                       onMouseLeave={() => setSGActive(false)}
                     >
                       <p className="text-base font-medium ">7Gen Cities</p>
@@ -461,7 +2118,7 @@ export default function Home() {
                     <div
                       className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
                       onMouseOver={() => setSGActive(true)}
-                      onClick={() => setSGActive(true)}
+                      onClick={() => setOpenSG(true)}
                       onMouseLeave={() => setSGActive(false)}
                     >
                       <p className="text-base font-medium ">7Gen Cities</p>
