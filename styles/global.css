@@ -49,11 +49,77 @@ img {
     url('../fonts/FKGroteskTrial-Light.otf') format('otf');
 }
 
-.test {
-  transform: rotateX(61deg) rotateY(0) rotateZ(7deg) skew(60deg, -60deg)
-    scale3d(0.3, 0.5, 1);
+.threeD {
+  transform: rotateX(60deg) rotateY(0) rotateZ(6deg) skew(60deg, -60deg)
+    scale3d(0.5, 0.5, 1);
+
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-direction: alternate;
+  animation-timeline: scroll(block nearest);
+}
+
+@keyframes threeDAnimate {
+  to {
+    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0) scale3d(1, 1, 0);
+  }
 }
 
 .test2 {
   background: rgba(37, 36, 36, 1);
+}
+
+@layer components {
+  .base {
+    @apply border;
+    @apply border-[#151414];
+  }
+
+  .labs {
+    @apply border-y-2 border-y-[#666666];
+  }
+
+  .labs-left {
+    @apply border-y-2 border-l-2 border-y-[#666666] border-l-[#666666];
+  }
+
+  .labs-right {
+    @apply border-y-2 border-r-2 border-y-[#666666] border-r-[#666666];
+  }
+
+  .arcs {
+    @apply border-x-2 border-x-[#666666];
+  }
+
+  .arcs-top {
+    @apply border-t-2 border-t-[#666666];
+  }
+
+  .arcs-bottom {
+    @apply border-b-2 border-b-[#666666];
+  }
+
+  .studio {
+    @apply border-4 border-[#666666] opacity-70;
+  }
+
+  .t2 {
+    @apply sticky bottom-0;
+  }
+
+  .t1 {
+    @apply relative;
+  }
+}
+
+.capability-bg {
+  background: rgb(63, 59, 45);
+  background: linear-gradient(
+    90deg,
+    rgba(63, 59, 45, 1) 0%,
+    rgba(81, 88, 79, 1) 20%,
+    rgba(72, 83, 67, 1) 40%,
+    rgba(65, 71, 80, 1) 60%,
+    rgba(49, 35, 45, 1) 80%,
+    rgba(69, 69, 69, 1) 100%
+  );
 }

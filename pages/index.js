@@ -1,78 +1,163 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { Disclosure, Dialog, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import {
-  ChatBubbleLeftEllipsisIcon,
-  TagIcon,
-  UserCircleIcon,
-} from '@heroicons/react/20/solid';
-import { ScrollParallax } from 'react-just-parallax';
 import dmLogo from '../images/DML.gif';
 import '../styles/Home.module.css';
 
-const activity = [
+const pageNav = [
   {
     id: 1,
-    active: true,
+    title: 'Real world options',
+    description: '',
+    link: '#',
+    sub: [],
+  },
+  {
+    id: 2,
     title: 'Ecosystem Matrix',
     description:
       'We are not a think tank, consultancy, or design studio. We  and we do not have a single, neat theory of change. Instead, we arrange our efforts across an ecosystem of collaborations, and ground our approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, through multi-scalar global collaborationwith the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world.',
+    link: '#',
+    sub: [
+      {
+        title: 'Labs',
+        description:
+          'Each of our Labs is focused on a specific area of the socio-economic system and the everyday codes (e.g. norms, behaviours and institutional logic) that form its structural backbone. The Labs are exploring what might be possible, both within and beyond the current structures, and working to develop technical expertise in those areas. For example, the Beyond The RulesLab focuses on aspects such as demonstrating multi-actor governance structures whereas the Capital SystemsLab is working to enable strategic ecosystem investments.',
+        link: '#',
+        id: 3,
+      },
+      {
+        title: 'Arcs',
+        description:
+          'Our Directional Arc workflows are designed with clear, directional goals that guide our efforts toward impactful outcomes. For instance, Net Zero CitiesArc aims to enable smart, carbon-neutral cities by 2030, while Radicle CivicsArc seeks to foster specific shifts in civic worldviews. These Arcs often involve collaboration with multiple Labs, integrating their technical expertise with tangible, real-world contexts.',
+        link: '#',
+        id: 4,
+      },
+      {
+        title: 'Studios',
+        description:
+          'Studios are the connective tissue that support both the Labs and Arcs. The studios explore themes that help our work to be implemented and more widely understood. For instance, the Civ TechStudio develops the technological tools and knowledge for prototypes tested across the Dm ecosystem. Meanwhile, the Org DevStudio, positioned at the base of the Matrix, provides critical infrastructure support for the entire Dm Ecosystem.',
+        link: '#',
+        id: 5,
+      },
+      {
+        title: 'How it works',
+        link: '#',
+        id: 6,
+      },
+    ],
   },
   {
-    id: 2,
-    active: false,
-    title: 'Labs',
-    description: 'Short snappy description',
+    id: 8,
+    title: 'Contexts weaving',
+    description: '',
+    link: '#',
+    sub: [],
   },
   {
-    id: 3,
-    active: false,
-    title: 'Arcs',
-    description: 'Short snappy description',
-  },
-  {
-    id: 4,
-    active: false,
-    title: 'Studios',
-    description: 'Short snappy description',
+    id: 9,
+    title: 'Deep Paradigm',
+    description: '',
+    link: '#',
+    sub: [],
   },
 ];
-
-const activity2 = [
-  {
-    id: 1,
-    active: false,
-    title: 'Ecosystem Matrix',
-    description: 'Organizational response strategy',
-  },
-  {
-    id: 2,
-    active: true,
-    title: 'Labs',
-    description:
-      'Each of our Labs is focused on a specific area of the socio-economic system and the everyday codes (e.g. norms, behaviours and institutional logic) that form its structural backbone. The Labs are exploring what might be possible, both within and beyond the current structures, and working to develop technical expertise in those areas. For example, the Beyond The RulesLab focuses on aspects such as demonstrating multi-actor governance structures whereas the Capital SystemsLab is working to enable strategic ecosystem investments.',
-  },
-  {
-    id: 3,
-    active: false,
-    title: 'Arcs',
-    description: 'Short snappy description',
-  },
-  {
-    id: 4,
-    active: false,
-    title: 'Studios',
-    description: 'Short snappy description',
-  },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
 
 export default function Home() {
+  const [classT, setClassT] = useState('base');
+  const [classL, setClassL] = useState('base');
+  const [classR, setClassR] = useState('base');
+
+  const [classA, setClassA] = useState('');
+  const [classAT, setClassAT] = useState('');
+  const [classAB, setClassAB] = useState('');
+
+  const [classStudio, setClassStudio] = useState('');
+
+  const [classT2, setClassT2] = useState('t1');
+  const [activeState, setActiveState] = useState(1);
+
+  const listenScrollEvent = () => {
+    console.log(window.scrollY);
+    if (window.scrollY < 1300) {
+      setClassT('base');
+      setClassL('base');
+      setClassR('base');
+      setClassA('');
+      setClassAT('');
+      setClassAB('');
+
+      setActiveState(1);
+      setClassStudio('');
+
+      setClassT2('t1');
+    } else if (window.scrollY > 1300 && window.scrollY < 1400) {
+      setActiveState(2);
+      setClassStudio('');
+
+      setClassT2('t2');
+    } else if (window.scrollY > 1400 && window.scrollY < 1500) {
+      setActiveState(3);
+      setClassT('labs');
+      setClassL('labs-left');
+      setClassR('labs-right');
+      setClassA('');
+      setClassAT('');
+      setClassAB('');
+
+      setClassStudio('');
+
+      setClassT2('t2');
+    } else if (window.scrollY > 1500 && window.scrollY < 1600) {
+      setActiveState(4);
+      setClassT('base');
+      setClassL('base');
+      setClassR('base');
+
+      setClassA('arcs');
+      setClassAT('arcs-top');
+      setClassAB('arcs-bottom');
+
+      setClassStudio('');
+
+      setClassT2('t2');
+    } else if (window.scrollY > 1600 && window.scrollY < 1700) {
+      setClassStudio('studio');
+      setActiveState(5);
+      setClassT('base');
+      setClassL('base');
+      setClassR('base');
+
+      setClassA('');
+      setClassAT('');
+      setClassAB('');
+
+      setClassT2('t2');
+    } else if (window.scrollY > 1800 && window.scrollY < 2500) {
+      setClassStudio('');
+      setActiveState(6);
+      setClassT('base');
+      setClassL('base');
+      setClassR('base');
+
+      setClassA('');
+      setClassAT('');
+      setClassAB('');
+
+      setClassT2('t2');
+    } else if (window.scrollY > 2500) {
+      setClassT2('t1');
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+
+    return () => window.removeEventListener('scroll', listenScrollEvent);
+  }, []);
+
   // arcs states
   const [RCactive, setRCActive] = useState(false);
   const [NZactive, setNZActive] = useState(false);
@@ -579,2387 +664,2266 @@ export default function Home() {
             </Disclosure>
           </div>
         </div>
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2">
-          <div>
-            <h1 className="font-FKmedium text-4xl text-white">
-              Dark matter labs{' '}
-              <span className="align-super text-3xl text-[#6D6D6D]">
-                season 4
-              </span>
-            </h1>
-            <h2 className="max-w-[28rem] pb-10 pt-20 font-FKlight text-4xl text-white">
-              We are building options for the next economies
-            </h2>
-            <p className="font-FKregular text-xl text-[#6A6A6A]">
-              ↘ Real world options
-            </p>
-            <p className="font-FKregular text-xl text-[#6A6A6A]">
-              ↘ Ecosystem matrix
-            </p>
-            <p className="font-FKregular text-xl text-[#6A6A6A]">
-              ↘ Contexts weaving
-            </p>
-            <p className="font-FKregular text-xl text-[#6A6A6A]">
-              ↘ Deep paradigm
-            </p>
-          </div>
-
-          <div>
-            <p className="font-FKregular text-2xl text-white">
-              We believe that the interconnected crises of our time are symptoms
-              of a deeper, structural miscoding of our economic systems. We
-              understand these codes to be physical (e.g. biodiversity, energy,
-              labour and materials), structural (e.g. money creation, embedded
-              inequality and private property rights) and psychological (e.g.
-              failure of the imagination).
-            </p>
-
-            <p className="pt-10 font-FKregular text-2xl text-white">
-              Recognising the complex, entangled reality of living systems, we
-              are exploring alternative pathways for organising society and
-              stewarding the shared planetary commons. Our working hypothesis is
-              that these pathways must be rooted in a radical reframing of our
-              relationship to everything; from technology and money to land and
-              the other-than-human world. We are framing this transformation as
-              a shift towards what we call:{' '}
-              <span
-                className="text-[#A28CC6] hover:cursor-pointer"
-                onClick={() => setOpenLEE(true)}
-              >
-                Life-Ennobling Economies.
-              </span>
-            </p>
-
-            <h3 className="max-w-md pt-20 font-FKregular text-3xl text-white">
-              Economic options are bold directional aspirations
-            </h3>
-            <p className="pt-10 font-FKregular text-lg text-white">
-              What would it mean to align societal ambition to the magnitude of
-              the transformation that is required? We cannot possibly know how
-              the future will play out or the specific infrastructures that we
-              will need, but we can build towards a range of options. We are
-              imaging new investment opportunities for{' '}
-              <span className="text-[#A28CC6]">city-scale tree canopies</span>,
-              community endowments and{' '}
-              <span className="text-[#A28CC6]">
-                resilient bioregional food systems
-              </span>
-              . Perhaps the city-wide electrification of transport networks, the
-              mental health of a community or the{' '}
-              <span className="text-[#A28CC6]">
-                collective intelligence of a city
-              </span>{' '}
-              will become recognisable assets, understood as commitments to a
-              regenerative future. What would be unleashed if houses were
-              self-owning and affordable in perpetuity and rivers could express
-              their need for care? At Dark Matter Labs, we believe all these
-              things are both possible and necessary. These are bold aspirations
-              and will only be achieved by a collective movement of diverse
-              communities and unusual allies. This is a story of practical
-              empowerment that we are proud to put our energy behind.
-            </p>
-          </div>
-        </div>
-        <div className="py-20 text-center">
-          <p className="font-FKRegular text-xl text-white">
-            How do we structure our response? ↓
-          </p>
-        </div>
-
-        <ScrollParallax strength={0.14} lerpEase={0.06}>
-          <div className="h-screen w-full snap-mandatory overflow-auto scroll-smooth">
-            <div className="relative h-screen w-full snap-start">
-              <div className="-ml-20">
-                <div className="test  absolute top-0 z-40 w-full opacity-100">
-                  <div className=" grid max-w-4xl grid-cols-8 gap-2">
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="test  absolute top-20 z-40 w-full opacity-40">
-                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="test  absolute top-40 z-20 w-full opacity-20">
-                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute left-3/4 mt-20">
-                <div className="flow-root">
-                  <ul role="list" className="-mb-8">
-                    {activity.map((activityItem, activityItemIdx) => (
-                      <li key={activityItem.id}>
-                        <div className="relative pb-8">
-                          {activityItemIdx !== activity.length - 1 ? (
-                            <span
-                              className="absolute left-2 top-2 -ml-px h-full w-0.5 bg-[#9F9F9F]"
-                              aria-hidden="true"
-                            />
-                          ) : null}
-                          <div className="relative flex items-start space-x-3">
-                            <>
-                              <div>
-                                <div className="relative px-1">
-                                  <div className="mt-3 flex h-2 w-2 items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
-                                </div>
-                              </div>
-                              <div className="min-w-0 flex-1 ">
-                                {activityItem.active ? (
-                                  <div className="">
-                                    <h4 className="font-FKmedium text-2xl text-white">
-                                      {activityItem.title}
-                                    </h4>
-                                    <p className="font-FKregular text-sm text-[#C1C1C1]">
-                                      {activityItem.description}
-                                    </p>
-                                  </div>
-                                ) : (
-                                  <div className="">
-                                    <h4 className="font-FKmedium text-xl text-[#6A6A6A]">
-                                      {activityItem.title}
-                                    </h4>
-                                    <p className="font-FKregular text-sm text-[#6A6A6A]">
-                                      {activityItem.description}
-                                    </p>
-                                  </div>
-                                )}
-                              </div>
-                            </>
+        <div className={`relative mt-20 grid grid-cols-12`}>
+          <div className="right-3/4 col-span-5 mt-20 max-w-xs">
+            <div className="sticky left-0 top-20 flow-root ">
+              <ul role="list" className="">
+                {pageNav.map((activityItem) => (
+                  <li key={activityItem.id}>
+                    <div className="relative pb-4">
+                      <div className="relative flex items-start space-x-3">
+                        <>
+                          <div>
+                            <div className="relative px-1">
+                              <div className="mt-3 flex h-1 w-1 items-center justify-center bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                          <div className="min-w-0 flex-1 ">
+                            {activityItem.id === activeState ? (
+                              <div className="">
+                                <h4 className="font-FKmedium text-2xl text-white">
+                                  {activityItem.title}
+                                </h4>
+                                <p className="font-FKregular text-sm text-[#C1C1C1]">
+                                  {activityItem.description}
+                                </p>
+                              </div>
+                            ) : (
+                              <div className="">
+                                <h4 className="font-FKmedium text-2xl text-[#6A6A6A]">
+                                  {activityItem.title}
+                                </h4>
+                              </div>
+                            )}
+                          </div>
+                        </>
+                      </div>
+                      {activityItem.sub.length > 0 &&
+                        activityItem.sub.map((sub, subIndex) => (
+                          <span key={sub.title}>
+                            <div className="relative pb-4">
+                              {subIndex !== activityItem.sub.length - 1 ? (
+                                <span
+                                  className="absolute left-1 top-2 h-full w-0.5 bg-[#9F9F9F] "
+                                  aria-hidden="true"
+                                />
+                              ) : null}
+                              <div className="relative flex items-start space-x-3">
+                                <>
+                                  <div>
+                                    <div className="relative px-1">
+                                      <div className="mt-3 flex h-0.5 w-0.5 items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
+                                    </div>
+                                  </div>
+                                  <div className="min-w-0 flex-1 ">
+                                    {sub.id === activeState ? (
+                                      <div className="">
+                                        <h5 className="font-FKmedium text-xl text-white">
+                                          {sub.title}
+                                        </h5>
+                                        <p className="font-FKregular text-sm text-[#C1C1C1]">
+                                          {sub.description}
+                                        </p>
+                                      </div>
+                                    ) : (
+                                      <div className="">
+                                        <h5 className="font-FKmedium text-xl text-[#6A6A6A]">
+                                          {sub.title}
+                                        </h5>
+                                      </div>
+                                    )}
+                                  </div>
+                                </>
+                              </div>
+                            </div>
+                          </span>
+                        ))}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className={`relative col-span-7`}>
+            <div className="">
+              <h1 className="font-FKmedium text-4xl text-white">
+                Dark matter labs{' '}
+                <span className="align-super text-3xl text-[#6D6D6D]">
+                  season 4
+                </span>
+              </h1>
+              <h2 className="max-w-[28rem] pb-10 pt-4 font-FKlight text-4xl text-white">
+                We are building options for the next economies
+              </h2>
+              <p className="font-FKregular text-lg text-white">
+                We believe that the interconnected crises of our time are
+                symptoms of a deeper, structural miscoding of our economic
+                systems. We understand these codes to be physical (e.g.
+                biodiversity, energy, labour and materials), structural (e.g.
+                money creation, embedded inequality and private property rights)
+                and psychological (e.g. failure of the imagination).
+              </p>
+
+              <p className="pt-10 font-FKregular text-lg text-white">
+                Recognising the complex, entangled reality of living systems, we
+                are exploring alternative pathways for organising society and
+                stewarding the shared planetary commons. Our working hypothesis
+                is that these pathways must be rooted in a radical reframing of
+                our relationship to everything; from technology and money to
+                land and the other-than-human world. We are framing this
+                transformation as a shift towards what we call:{' '}
+                <span
+                  className="text-[#A28CC6] hover:cursor-pointer"
+                  onClick={() => setOpenLEE(true)}
+                >
+                  Life-Ennobling Economies.
+                </span>
+              </p>
+
+              <h3 className="max-w-md pt-20 font-FKregular text-3xl text-white">
+                Economic options are bold directional aspirations
+              </h3>
+              <p className="pt-10 font-FKregular text-lg text-white">
+                What would it mean to align societal ambition to the magnitude
+                of the transformation that is required? We cannot possibly know
+                how the future will play out or the specific infrastructures
+                that we will need, but we can build towards a range of options.
+                We are imaging new investment opportunities for{' '}
+                <span className="text-[#A28CC6]">city-scale tree canopies</span>
+                , community endowments and{' '}
+                <span className="text-[#A28CC6]">
+                  resilient bioregional food systems
+                </span>
+                . Perhaps the city-wide electrification of transport networks,
+                the mental health of a community or the{' '}
+                <span className="text-[#A28CC6]">
+                  collective intelligence of a city
+                </span>{' '}
+                will become recognisable assets, understood as commitments to a
+                regenerative future. What would be unleashed if houses were
+                self-owning and affordable in perpetuity and rivers could
+                express their need for care? At Dark Matter Labs, we believe all
+                these things are both possible and necessary. These are bold
+                aspirations and will only be achieved by a collective movement
+                of diverse communities and unusual allies. This is a story of
+                practical empowerment that we are proud to put our energy
+                behind.
+              </p>
+
+              <div className="py-10 text-center">
+                <p className="font-FKRegular text-xl text-white">
+                  How do we structure our response? ↓
+                </p>
+              </div>
+            </div>
+
+            <div className={`${classT2}`}>
+              <div className="h-screen ">
+                <div className={`my-40 -ml-10`}>
+                  <div className="threeD absolute top-0 z-40 w-full opacity-100">
+                    <div className="grid grid-cols-8 gap-0.5">
+                      <div>
+                        {RCactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseLeave={() => setRCActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseOver={() => setRCActive(true)}
+                            onMouseLeave={() => setRCActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {RCactive || NEactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+
+                        {RCactive || BLactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {RCactive || CSactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {RCactive || PFactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {RCactive || PBactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {RCactive || QDactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classL} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {RCactive || BRactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classL} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classL} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+
+                      <div>
+                        {NZactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseLeave={() => setNZActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseOver={() => setNZActive(true)}
+                            onMouseLeave={() => setNZActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {NZactive || NEactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {NZactive || BLactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {NZactive || CSactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {NZactive || PFactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {NZactive || PBactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {NZactive || QDactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {NZactive || BRactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        {SGactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseLeave={() => setSGActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseOver={() => setSGActive(true)}
+                            onMouseLeave={() => setSGActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {SGactive || NEactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {SGactive || BLactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {SGactive || CSactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {SGactive || PFactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {SGactive || PBactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {SGactive || QDactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {SGactive || BRactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        {M0active ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseLeave={() => setM0Active(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseOver={() => setM0Active(true)}
+                            onMouseLeave={() => setM0Active(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {M0active || NEactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {M0active || BLactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {M0active || CSactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {M0active || PFactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {M0active || PBactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {M0active || QDactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {M0active || BRactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        {REactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseLeave={() => setREActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseOver={() => setREActive(true)}
+                            onMouseLeave={() => setREActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {REactive || NEactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {REactive || BLactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {REactive || CSactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {REactive || PFactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {REactive || PBactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {REactive || QDactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {REactive || BRactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        {BEactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseLeave={() => setBEActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseOver={() => setBEActive(true)}
+                            onMouseLeave={() => setBEActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BEactive || NEactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BEactive || BLactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BEactive || CSactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BEactive || PFactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BEactive || PBactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BEactive || QDactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BEactive || BRactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        {PCactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseLeave={() => setPCActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-t hover:border-t-white hover:bg-[#414041] ${classA} ${classAT}`}
+                            onMouseOver={() => setPCActive(true)}
+                            onMouseLeave={() => setPCActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PCactive || NEactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PCactive || BLactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PCactive || CSactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PCactive || PFactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PCactive || PBactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PCactive || QDactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PCactive || BRactive ? (
+                          <div
+                            className={`bg-[#4C4B4B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#2C2B2B] py-8 ${classT} ${classA} ${classAB}`}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <div className=" bg-[#151414] py-8 "> </div>
+                        {NEactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseLeave={() => setNEActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseOver={() => setNEActive(true)}
+                            onMouseLeave={() => setNEActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BLactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseLeave={() => setBLActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseOver={() => setBLActive(true)}
+                            onMouseLeave={() => setBLActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {CSactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseLeave={() => setCSActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseOver={() => setCSActive(true)}
+                            onMouseLeave={() => setCSActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PFactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseLeave={() => setPFActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseOver={() => setPFActive(true)}
+                            onMouseLeave={() => setPFActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {PBactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseLeave={() => setPBActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseOver={() => setPBActive(true)}
+                            onMouseLeave={() => setPBActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {QDactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseLeave={() => setQDActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseOver={() => setQDActive(true)}
+                            onMouseLeave={() => setQDActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                        {BRactive ? (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseLeave={() => setBRActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        ) : (
+                          <div
+                            className={`bg-[#232222] py-8 hover:border-r hover:border-r-white hover:bg-[#414041]  ${classR}`}
+                            onMouseOver={() => setBRActive(true)}
+                            onMouseLeave={() => setBRActive(false)}
+                          >
+                            {' '}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    className={`threeD absolute top-20 z-40 w-full opacity-40 ${classStudio}`}
+                  >
+                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className="bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="threeD capability-bg absolute top-40 z-20 w-full opacity-60">
+                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className=" py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                      </div>
+
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8  "> </div>
+                        <div className="  py-8 "> </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="threeD absolute top-60 z-20 w-full opacity-20">
+                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className="bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8 "> </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative h-screen w-full snap-start">
-              <div className="-ml-20">
-                <div className="test  absolute top-0 z-40 w-full opacity-100">
-                  <div className=" grid max-w-4xl grid-cols-8 gap-2">
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-l-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-[#666666] bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="max-w-28 border-2 border-[#151414] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 border-y-2 border-r-2 border-[#666666] bg-[#232222] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="test  absolute top-20 z-40 w-full opacity-40">
-                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="test  absolute top-40 z-20 w-full opacity-20">
-                  <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className="max-w-28 bg-[#2C2B2B] py-12 pt-2 "> </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                    <div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                      <div className=" max-w-28 bg-[#2C2B2B] py-12 pt-2 ">
-                        {' '}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute left-3/4 mt-20">
-                <div className="flow-root">
-                  <ul role="list" className="-mb-8">
-                    {activity2.map((activityItem, activityItemIdx) => (
-                      <li key={activityItem.id}>
-                        <div className="relative pb-8">
-                          {activityItemIdx !== activity2.length - 1 ? (
-                            <span
-                              className="absolute left-2 top-2 -ml-px h-full w-0.5 bg-[#9F9F9F]"
-                              aria-hidden="true"
-                            />
-                          ) : null}
-                          <div className="relative flex items-start space-x-3">
-                            <>
-                              <div>
-                                <div className="relative px-1">
-                                  <div className="mt-3 flex h-2 w-2 items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
-                                </div>
-                              </div>
-                              <div className="min-w-0 flex-1 ">
-                                {activityItem.active ? (
-                                  <div className="">
-                                    <h4 className="font-FKmedium text-2xl text-white">
-                                      {activityItem.title}
-                                    </h4>
-                                    <p className="font-FKregular text-sm text-[#C1C1C1]">
-                                      {activityItem.description}
-                                    </p>
-                                  </div>
-                                ) : (
-                                  <div className="">
-                                    <h4 className="font-FKmedium text-xl text-[#6A6A6A]">
-                                      {activityItem.title}
-                                    </h4>
-                                    <p className="font-FKregular text-sm text-[#6A6A6A]">
-                                      {activityItem.description}
-                                    </p>
-                                  </div>
-                                )}
-                              </div>
-                            </>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ScrollParallax>
-
-        <div className="mx-10 my-10 font-FKmedium ">
-          <div className="grid grid-cols-12">
-            <div className="col-span-11">
-              <div className="grid max-w-6xl grid-cols-9 gap-0 ">
-                <div className="col-span-8"></div>
-                <h2 className="pb-4 text-4xl font-medium text-[#9F9F9F]">
-                  Labs
-                </h2>
-              </div>
-
-              <div className=" test2 grid max-w-6xl grid-cols-9 gap-0">
-                <div className="">
-                  <div className="bg-[#151414]">
-                    <h2 className="pb-4 pt-14 text-4xl font-medium text-[#9F9F9F]">
-                      Arcs
+            <div className="font-FKmedium ">
+              <div className="grid grid-cols-12">
+                <div className="col-span-11">
+                  <div className="grid max-w-6xl grid-cols-9 gap-0 ">
+                    <div className="col-span-8"></div>
+                    <h2 className="pb-4 text-3xl font-medium text-[#9F9F9F]">
+                      Labs
                     </h2>
                   </div>
-                  {RCactive || openRC ? (
-                    <div
-                      className="max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setOpenRC(true)}
-                      onMouseLeave={() => setRCActive(false)}
-                    >
-                      <p className="text-base font-medium ">Radicle Civics</p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setRCActive(true)}
-                      onClick={() => setOpenRC(true)}
-                      onMouseLeave={() => setRCActive(false)}
-                    >
-                      <p className="text-base font-medium ">Radicle Civics</p>
-                    </div>
-                  )}
-                  {NZactive || openNZ ? (
-                    <div
-                      className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setOpenNZ(true)}
-                      onMouseLeave={() => setNZActive(false)}
-                    >
-                      <p className="text-base font-medium ">Net Zero Cities</p>
-                    </div>
-                  ) : (
-                    <div
-                      className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setNZActive(true)}
-                      onClick={() => setOpenNZ(true)}
-                      onMouseLeave={() => setNZActive(false)}
-                    >
-                      <p className="text-base font-medium ">Net Zero Cities</p>
-                    </div>
-                  )}
 
-                  {SGactive || openSG ? (
-                    <div
-                      className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setOpenSG(true)}
-                      onMouseLeave={() => setSGActive(false)}
-                    >
-                      <p className="text-base font-medium ">7Gen Cities</p>
-                    </div>
-                  ) : (
-                    <div
-                      className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setSGActive(true)}
-                      onClick={() => setOpenSG(true)}
-                      onMouseLeave={() => setSGActive(false)}
-                    >
-                      <p className="text-base font-medium ">7Gen Cities</p>
-                    </div>
-                  )}
+                  <div className=" test2 grid max-w-6xl grid-cols-9 gap-0.5">
+                    <div className="">
+                      <div className="bg-[#151414]">
+                        <h2 className="pb-2 pt-11 text-3xl font-medium text-[#9F9F9F]">
+                          Arcs
+                        </h2>
+                      </div>
+                      {RCactive || openRC ? (
+                        <div
+                          className="max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenRC(true)}
+                          onMouseLeave={() => setRCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">Radicle Civics</p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setRCActive(true)}
+                          onClick={() => setOpenRC(true)}
+                          onMouseLeave={() => setRCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">Radicle Civics</p>
+                        </div>
+                      )}
+                      {NZactive || openNZ ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenNZ(true)}
+                          onMouseLeave={() => setNZActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setNZActive(true)}
+                          onClick={() => setOpenNZ(true)}
+                          onMouseLeave={() => setNZActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      )}
 
-                  {M0active ? (
-                    <div
-                      className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setM0Active(false)}
-                      onMouseLeave={() => setM0Active(false)}
-                    >
-                      <p className="text-base font-medium ">
-                        M0
-                        <br /> Cities
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setM0Active(true)}
-                      onClick={() => setM0Active(true)}
-                      onMouseLeave={() => setM0Active(false)}
-                    >
-                      <p className="text-base font-medium ">
-                        M0
-                        <br /> Cities
-                      </p>
-                    </div>
-                  )}
+                      {SGactive || openSG ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenSG(true)}
+                          onMouseLeave={() => setSGActive(false)}
+                        >
+                          <p className="text-xs font-medium ">7Gen Cities</p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setSGActive(true)}
+                          onClick={() => setOpenSG(true)}
+                          onMouseLeave={() => setSGActive(false)}
+                        >
+                          <p className="text-xs font-medium ">7Gen Cities</p>
+                        </div>
+                      )}
 
-                  {REactive ? (
-                    <div
-                      className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setREActive(false)}
-                      onMouseLeave={() => setREActive(false)}
-                    >
-                      <p className="text-base font-medium ">Regen Nutrition</p>
-                    </div>
-                  ) : (
-                    <div
-                      className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setREActive(true)}
-                      onClick={() => setREActive(true)}
-                      onMouseLeave={() => setREActive(false)}
-                    >
-                      <p className="text-base font-medium ">Regen Nutrition</p>
-                    </div>
-                  )}
+                      {M0active ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setM0Active(false)}
+                          onMouseLeave={() => setM0Active(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            M0
+                            <br /> Cities
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setM0Active(true)}
+                          onClick={() => setM0Active(true)}
+                          onMouseLeave={() => setM0Active(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            M0
+                            <br /> Cities
+                          </p>
+                        </div>
+                      )}
 
-                  {BEactive ? (
-                    <div
-                      className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setBEActive(false)}
-                      onMouseLeave={() => setBEActive(false)}
-                    >
-                      <p className="text-base font-medium ">
-                        Bioregional Economics
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setBEActive(true)}
-                      onClick={() => setBEActive(true)}
-                      onMouseLeave={() => setBEActive(false)}
-                    >
-                      <p className="text-base font-medium ">
-                        Bioregional Economics
-                      </p>
-                    </div>
-                  )}
+                      {REactive ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setREActive(false)}
+                          onMouseLeave={() => setREActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Regen Nutrition
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setREActive(true)}
+                          onClick={() => setREActive(true)}
+                          onMouseLeave={() => setREActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Regen Nutrition
+                          </p>
+                        </div>
+                      )}
 
-                  {PCactive ? (
-                    <div
-                      className="my-2 max-w-32 bg-[#EBEBEB] pb-8 pl-4 pr-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setPCActive(false)}
-                      onMouseLeave={() => setPCActive(false)}
-                    >
-                      <p className="text-base font-medium ">Planetary Civics</p>
+                      {BEactive ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setBEActive(false)}
+                          onMouseLeave={() => setBEActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Bioregional Economics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setBEActive(true)}
+                          onClick={() => setBEActive(true)}
+                          onMouseLeave={() => setBEActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Bioregional Economics
+                          </p>
+                        </div>
+                      )}
+
+                      {PCactive ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setPCActive(false)}
+                          onMouseLeave={() => setPCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Planetary Civics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setPCActive(true)}
+                          onClick={() => setPCActive(true)}
+                          onMouseLeave={() => setPCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Planetary Civics
+                          </p>
+                        </div>
+                      )}
                     </div>
-                  ) : (
-                    <div
-                      className="my-2 max-w-32 bg-[#2C2B2B] pb-8 pl-4 pr-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setPCActive(true)}
-                      onClick={() => setPCActive(true)}
-                      onMouseLeave={() => setPCActive(false)}
-                    >
-                      <p className="text-base font-medium ">Planetary Civics</p>
+                    <div>
+                      {NEactive ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setNEActive(false)}
+                          onMouseLeave={() => setNEActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Next Economics Lab
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setNEActive(true)}
+                          onClick={() => setNEActive(true)}
+                          onMouseLeave={() => setNEActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Next Economics Lab
+                          </p>
+                        </div>
+                      )}
+                      {(RCactive || NEactive || openRC) && !openMC ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2">
+                          {' '}
+                        </div>
+                      ) : openMC ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-4 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">
+                            Multivalent currencies
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="group bg-[#414040] py-10 pl-2 pt-2 hover:cursor-pointer hover:bg-[#EBEBEB] hover:py-0 hover:text-[#5965A3]"
+                          onClick={() => {
+                            setRCActive(true);
+                            setNEActive(true);
+                            setOpenMC(true);
+                          }}
+                        >
+                          <p className="hidden text-xs font-medium group-hover:inline">
+                            Multivalent currencies
+                          </p>
+                        </div>
+                      )}
+                      {NZactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+
+                      {SGactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+
+                      {BEactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
                     </div>
-                  )}
+
+                    <div>
+                      {BLactive ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setBLActive(false)}
+                          onMouseLeave={() => setBLActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Beyond Labour
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setBLActive(true)}
+                          onClick={() => setBLActive(true)}
+                          onMouseLeave={() => setBLActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Beyond Labour
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || BLactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {openCS || CSactive ? (
+                        <div
+                          className="group max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenCS(true)}
+                          onMouseLeave={() => setCSActive(false)}
+                        >
+                          <p className="mb-4 text-xs font-medium">
+                            Capital Systems
+                            <span className="inline">↗</span>
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="group max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onClick={() => {
+                            setOpenCS(true);
+                            setCSActive(true);
+                          }}
+                          onMouseOver={() => setCSActive(true)}
+                          onMouseLeave={() => setCSActive(false)}
+                        >
+                          <p className="mb-4 text-xs font-medium">
+                            Capital Systems
+                            <span className="hidden group-hover:inline">
+                              ↗
+                            </span>
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || CSactive || openCS ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {PFactive ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setPFActive(false)}
+                          onMouseLeave={() => setPFActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Philanthrop. Futures
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setPFActive(true)}
+                          onClick={() => setPFActive(true)}
+                          onMouseLeave={() => setPFActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Philanthrop. Futures
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || PFactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {PBactive ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setPBActive(false)}
+                          onMouseLeave={() => setPBActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Property & Beyond
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setPBActive(true)}
+                          onClick={() => setPBActive(true)}
+                          onMouseLeave={() => setPBActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Property & Beyond
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || PBactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {QDactive ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setQDActive(false)}
+                          onMouseLeave={() => setQDActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            {' '}
+                            Quantum Decisions
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setQDActive(true)}
+                          onClick={() => setQDActive(true)}
+                          onMouseLeave={() => setQDActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            {' '}
+                            Quantum Decisions
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || QDactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {BRactive ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setBRActive(false)}
+                          onMouseLeave={() => setBRActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Beyond the Rules
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setBRActive(true)}
+                          onClick={() => setBRActive(true)}
+                          onMouseLeave={() => setBRActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Beyond the Rules
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || BRactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {SMactive ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setSMActive(false)}
+                          onMouseLeave={() => setSMActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Sensing, Modeling, Mapping
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setSMActive(true)}
+                          onClick={() => setSMActive(true)}
+                          onMouseLeave={() => setSMActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Sensing, Modeling, Mapping
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || SMactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  {NEactive ? (
-                    <div
-                      className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setNEActive(false)}
-                      onMouseLeave={() => setNEActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium ">
-                        Next Economics Lab
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setNEActive(true)}
-                      onClick={() => setNEActive(true)}
-                      onMouseLeave={() => setNEActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium">
-                        Next Economics Lab
-                      </p>
-                    </div>
-                  )}
-                  {(RCactive || NEactive || openRC) && !openMC ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2"> </div>
-                  ) : openMC ? (
-                    <div className=" max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
-                      <p className=" text-base font-medium">
-                        Multivalent currencies
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="group max-w-28 bg-[#414040] py-20 pl-2 pt-2 hover:cursor-pointer hover:bg-[#EBEBEB] hover:py-5 hover:text-[#5965A3]"
-                      onClick={() => {
-                        setRCActive(true);
-                        setNEActive(true);
-                        setOpenMC(true);
-                      }}
-                    >
-                      <p className="hidden text-base font-medium group-hover:inline">
-                        Multivalent currencies
-                      </p>
-                    </div>
-                  )}
-                  {NZactive || NEactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-
-                  {SGactive || NEactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || NEactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-
-                  {REactive || NEactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-
-                  {BEactive || NEactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || NEactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
+                <div className="pt-11">
+                  <div className="mt-2 max-w-6 bg-[#252424] py-10 "> </div>
+                  <div className=" max-w-6 bg-[#252424] py-10 "> </div>
+                  <div className=" max-w-6 bg-[#252424] ">
+                    <h2 className="pl-10 pt-4 text-3xl font-medium text-[#9F9F9F]">
+                      Studios
+                    </h2>
+                  </div>
+                  <div className="max-w-28 bg-[#252424] px-2 pb-8 pt-2 ">
+                    <p className=" pt-2 text-xs font-medium text-[#fff]">
+                      Civic Tech
+                    </p>
+                  </div>
+                  <div className="max-w-6 bg-[#252424] py-2 "> </div>
+                  <div className=" max-w-28 bg-[#252424] px-2 pb-8 ">
+                    <p className=" pt-2 text-xs font-medium text-[#fff]">
+                      Conversat-
+                      <br /> ional Design
+                    </p>
+                  </div>
+                  <div className="max-w-6 bg-[#252424] py-2 "> </div>
+                  <div className=" max-w-28 bg-[#252424] px-2 pb-8 ">
+                    <p className=" pt-2 text-xs font-medium text-[#fff]">
+                      Org Dev
+                    </p>
+                  </div>
                 </div>
-
-                <div>
-                  {BLactive ? (
-                    <div
-                      className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setBLActive(false)}
-                      onMouseLeave={() => setBLActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium ">
-                        Beyond Labour
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setBLActive(true)}
-                      onClick={() => setBLActive(true)}
-                      onMouseLeave={() => setBLActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium">
-                        Beyond Labour
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  )}
-                  {RCactive || openRC || BLactive ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
-                  ) : (
-                    <div className="max-w-28 bg-[#414040] py-20 pt-2 "> </div>
-                  )}
-                  {NZactive || BLactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {SGactive || BLactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || BLactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {REactive || BLactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {BEactive || BLactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || BLactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  {openCS || CSactive ? (
-                    <div
-                      className="group max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setOpenCS(true)}
-                      onMouseLeave={() => setCSActive(false)}
-                    >
-                      <p className="mb-2 min-h-16 text-base font-medium">
-                        Capital Systems
-                        <span className="inline">↗</span>
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="group max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onClick={() => {
-                        setOpenCS(true);
-                        setCSActive(true);
-                      }}
-                      onMouseOver={() => setCSActive(true)}
-                      onMouseLeave={() => setCSActive(false)}
-                    >
-                      <p className="mb-2 min-h-16 text-base font-medium">
-                        Capital Systems
-                        <span className="hidden group-hover:inline">↗</span>
-                      </p>
-                    </div>
-                  )}
-                  {RCactive || openRC || CSactive || openCS ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
-                  ) : (
-                    <div className="max-w-28 bg-[#414040] py-20 pt-2 "> </div>
-                  )}
-                  {NZactive || CSactive || openCS ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {SGactive || CSactive || openCS ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || CSactive || openCS ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {REactive || CSactive || openCS ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {BEactive || CSactive || openCS ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || CSactive || openCS ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  {PFactive ? (
-                    <div
-                      className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setPFActive(false)}
-                      onMouseLeave={() => setPFActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium ">
-                        Philanthrop. Futures
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setPFActive(true)}
-                      onClick={() => setPFActive(true)}
-                      onMouseLeave={() => setPFActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium">
-                        Philanthrop. Futures
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  )}
-                  {RCactive || openRC || PFactive ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
-                  ) : (
-                    <div className="max-w-28 bg-[#414040] py-20 pt-2 "> </div>
-                  )}
-                  {NZactive || PFactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {SGactive || PFactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || PFactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {REactive || PFactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {BEactive || PFactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || PFactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  {PBactive ? (
-                    <div
-                      className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setPBActive(false)}
-                      onMouseLeave={() => setPBActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium ">
-                        Property & Beyond
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setPBActive(true)}
-                      onClick={() => setPBActive(true)}
-                      onMouseLeave={() => setPBActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium">
-                        Property & Beyond
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  )}
-                  {RCactive || openRC || PBactive ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
-                  ) : (
-                    <div className="max-w-28 bg-[#414040] py-20 pt-2 "> </div>
-                  )}
-                  {NZactive || PBactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {SGactive || PBactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || PBactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {REactive || PBactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {BEactive || PBactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || PBactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  {QDactive ? (
-                    <div
-                      className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setQDActive(false)}
-                      onMouseLeave={() => setQDActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium ">
-                        {' '}
-                        Quantum Decisions
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setQDActive(true)}
-                      onClick={() => setQDActive(true)}
-                      onMouseLeave={() => setQDActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium">
-                        {' '}
-                        Quantum Decisions
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  )}
-                  {RCactive || openRC || QDactive ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
-                  ) : (
-                    <div className="max-w-28 bg-[#414040] py-20 pt-2 "> </div>
-                  )}
-                  {NZactive || QDactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {SGactive || QDactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || QDactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {REactive || QDactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {BEactive || QDactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || QDactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  {BRactive ? (
-                    <div
-                      className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setBRActive(false)}
-                      onMouseLeave={() => setBRActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium ">
-                        Beyond the Rules
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setBRActive(true)}
-                      onClick={() => setBRActive(true)}
-                      onMouseLeave={() => setBRActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium">
-                        Beyond the Rules
-                        <br />
-                        <br />
-                      </p>
-                    </div>
-                  )}
-                  {RCactive || openRC || BRactive ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
-                  ) : (
-                    <div className="max-w-28 bg-[#414040] py-20 pt-2 "> </div>
-                  )}
-                  {NZactive || BRactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {SGactive || BRactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || BRactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {REactive || BRactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {BEactive || BRactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || BRactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  {SMactive ? (
-                    <div
-                      className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                      onClick={() => setSMActive(false)}
-                      onMouseLeave={() => setSMActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium ">
-                        Sensing, Modeling, Mapping
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
-                      onMouseOver={() => setSMActive(true)}
-                      onClick={() => setSMActive(true)}
-                      onMouseLeave={() => setSMActive(false)}
-                    >
-                      <p className="min-h-16 text-base font-medium">
-                        Sensing, Modeling, Mapping
-                      </p>
-                    </div>
-                  )}
-                  {RCactive || openRC || SMactive ? (
-                    <div className="max-w-28 bg-[#575657] py-20 pt-2 "> </div>
-                  ) : (
-                    <div className="max-w-28 bg-[#414040] py-20 pt-2 "> </div>
-                  )}
-                  {NZactive || SMactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {SGactive || SMactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {M0active || SMactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {REactive || SMactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {BEactive || SMactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                  {PCactive || SMactive ? (
-                    <div className="mt-2 max-w-28 bg-[#575657] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  ) : (
-                    <div className="mt-2 max-w-28 bg-[#414040] py-20 pt-2 ">
-                      {' '}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="pt-40">
-              <div className="mt-2 max-w-6 bg-[#252424] py-14 "> </div>
-              <div className=" max-w-6 bg-[#252424] py-20 "> </div>
-              <div className=" max-w-6 bg-[#252424] ">
-                <h2 className="pl-10 pt-4 text-4xl font-medium text-[#9F9F9F]">
-                  Studios
-                </h2>
-              </div>
-              <div className="max-w-28 bg-[#252424] px-2 pb-8 pt-2 ">
-                <p className="min-h-16 pt-2 text-base font-medium text-[#fff]">
-                  Civic Tech
-                </p>
-              </div>
-              <div className="max-w-6 bg-[#252424] py-2 "> </div>
-              <div className=" max-w-28 bg-[#252424] px-2 pb-8 ">
-                <p className="min-h-16 pt-2 text-base font-medium text-[#fff]">
-                  Conversat-
-                  <br /> ional Design
-                </p>
-              </div>
-              <div className="max-w-6 bg-[#252424] py-2 "> </div>
-              <div className=" max-w-28 bg-[#252424] px-2 pb-8 ">
-                <p className="min-h-16 pt-2 text-base font-medium text-[#fff]">
-                  Org Dev
-                </p>
               </div>
             </div>
           </div>
         </div>
+        <div className="py-80"></div>
       </main>
     </div>
   );
