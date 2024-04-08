@@ -97,6 +97,13 @@ export default function Home() {
       setActiveState(2);
       setClassStudio('');
 
+      setClassT('base');
+      setClassL('base');
+      setClassR('base');
+      setClassA('');
+      setClassAT('');
+      setClassAB('');
+
       setClassT2('t2');
     } else if (window.scrollY > 1400 && window.scrollY < 1500) {
       setActiveState(3);

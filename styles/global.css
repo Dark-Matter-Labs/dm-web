@@ -53,14 +53,16 @@ img {
   transform: rotateX(60deg) rotateY(0) rotateZ(6deg) skew(60deg, -60deg)
     scale3d(0.5, 0.5, 1);
 
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-direction: alternate;
-  animation-timeline: scroll(block nearest);
+    animation-name: threeDAnimate;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-direction: alternate;
+    animation-timeline: scroll(block nearest);
 }
 
 @keyframes threeDAnimate {
   to {
-    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0) scale3d(1, 1, 0);
+    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0)
+      scale3d(1, 1, 0);
   }
 }
 
