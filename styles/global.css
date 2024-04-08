@@ -53,7 +53,6 @@ img {
   transform: rotateX(60deg) rotateY(0) rotateZ(6deg) skew(60deg, -60deg)
     scale3d(0.5, 0.5, 1);
 
-    animation-name: threeDAnimate;
     animation-duration: 1ms; /* Firefox requires this to apply the animation */
     animation-direction: alternate;
     animation-timeline: scroll(block nearest);
