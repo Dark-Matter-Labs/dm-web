@@ -1,70 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
 import { Fragment, useState, useEffect } from 'react';
-import { Disclosure, Dialog, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import dmLogo from '../images/DML.gif';
-import '../styles/Home.module.css';
+import { Dialog, Transition } from '@headlessui/react';
 
-const pageNav = [
-  {
-    id: 1,
-    title: 'Real world options',
-    description: '',
-    link: '#real',
-    sub: [],
-  },
-  {
-    id: 2,
-    title: 'Ecosystem Matrix',
-    description:
-      'We are not a think tank, consultancy, or design studio. We and we do not have a single, neat theory of change. Instead, we arrange our efforts across an ecosystem of collaborations, and ground our approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, through multi-scalar global collaborationwith the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world.',
-    link: '#eco',
-    sub: [
-      {
-        title: 'Labs',
-        description:
-          'Each of our Labs is focused on a specific area of the socio-economic system and the everyday codes (e.g. norms, behaviours and institutional logic) that form its structural backbone. The Labs are exploring what might be possible, both within and beyond the current structures, and working to develop technical expertise in those areas. For example, the Beyond The RulesLab focuses on aspects such as demonstrating multi-actor governance structures whereas the Capital SystemsLab is working to enable strategic ecosystem investments.',
-        link: '#',
-        id: 3,
-      },
-      {
-        title: 'Arcs',
-        description:
-          'Our Directional Arc workflows are designed with clear, directional goals that guide our efforts toward impactful outcomes. For instance, Net Zero CitiesArc aims to enable smart, carbon-neutral cities by 2030, while Radicle CivicsArc seeks to foster specific shifts in civic worldviews. These Arcs often involve collaboration with multiple Labs, integrating their technical expertise with tangible, real-world contexts.',
-        link: '#',
-        id: 4,
-      },
-      {
-        title: 'Studios',
-        description:
-          'Studios are the connective tissue that support both the Labs and Arcs. The studios explore themes that help our work to be implemented and more widely understood. For instance, the Civ TechStudio develops the technological tools and knowledge for prototypes tested across the Dm ecosystem. Meanwhile, the Org DevStudio, positioned at the base of the Matrix, provides critical infrastructure support for the entire Dm Ecosystem.',
-        link: '#',
-        id: 5,
-      },
-      {
-        title: 'How it works',
-        link: '#',
-        id: 6,
-      },
-    ],
-  },
-  {
-    id: 8,
-    title: 'Contexts weaving',
-    description: '',
-    link: '#',
-    sub: [],
-  },
-  {
-    id: 9,
-    title: 'Deep Paradigm',
-    description: '',
-    link: '#',
-    sub: [],
-  },
-];
+import Navbar from '../components/Navbar';
+import SideNav from '../components/SideNav';
+import '../styles/Home.module.css';
 
 export default function Home() {
   const [classT, setClassT] = useState('base');
@@ -200,7 +140,9 @@ export default function Home() {
 
   // arcs states
   const [RCactive, setRCActive] = useState(false);
+  const [RCHover, setRCHover] = useState(false);
   const [NZactive, setNZActive] = useState(false);
+  const [NZHover, setNZHover] = useState(false);
   const [SGactive, setSGActive] = useState(false);
   const [M0active, setM0Active] = useState(false);
   const [REactive, setREActive] = useState(false);
@@ -209,8 +151,10 @@ export default function Home() {
 
   //labs states
   const [NEactive, setNEActive] = useState(false);
+  const [NEHover, setNEHover] = useState(false);
   const [BLactive, setBLActive] = useState(false);
   const [CSactive, setCSActive] = useState(false);
+  const [CSHover, setCSHover] = useState(false);
   const [PFactive, setPFActive] = useState(false);
   const [PBactive, setPBActive] = useState(false);
   const [QDactive, setQDActive] = useState(false);
@@ -220,6 +164,7 @@ export default function Home() {
   // open modal states
   const [openLEE, setOpenLEE] = useState(false);
   const [openMC, setOpenMC] = useState(false);
+  const [openTAI, setOpenTAI] = useState(false);
   const [openRC, setOpenRC] = useState(false);
   const [openNZ, setOpenNZ] = useState(false);
   const [openSG, setOpenSG] = useState(false);
@@ -543,6 +488,47 @@ export default function Home() {
         </Dialog>
       </Transition.Root>
 
+      <Transition.Root show={openTAI} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-20"
+          onClose={() => {
+            setOpenTAI(false);
+            setNZActive(false);
+            setCSActive(false);
+          }}
+        >
+          <div className="fixed right-28 top-48  w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      Trees As Infrastructure (TreesAI) is a cloud-based
+                      platform that aims to embed nature as a critical part of
+                      urban infrastructure (alongside more traditional
+                      structures such as bridges, roads and rail). Working with
+                      the Dcs Lab in urban locations, the team is working to
+                      develop strong business cases for scaled, sustainable
+                      investment.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
       <Transition.Root show={openLEE} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenLEE}>
           <div className="fixed inset-0 w-screen overflow-y-auto">
@@ -588,210 +574,9 @@ export default function Home() {
       </Transition.Root>
 
       <main className="mx-auto max-w-screen-xl">
-        <div className="mt-20 grid grid-cols-12 justify-items-center">
-          <div className="col-span-4 ">
-            <Image
-              src={dmLogo}
-              alt="Dm logo animation in multiple languages"
-              height={500}
-              width={500}
-            />
-          </div>
-          <div className="col-span-8">
-            <Disclosure as="nav">
-              {({ open }) => (
-                <>
-                  <div className=" max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex h-16 items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="hidden sm:block">
-                          <div className="flex space-x-4">
-                            <a
-                              href="#"
-                              className=" text-md px-3 py-2 font-FKmedium text-white"
-                            >
-                              Feed
-                            </a>
-                            <a
-                              href="#"
-                              className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                            >
-                              Team
-                            </a>
-                            <a
-                              href="#"
-                              className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                            >
-                              Partnerships
-                            </a>
-                            <a
-                              href="#"
-                              className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                            >
-                              Jobs
-                            </a>
-                            <a
-                              href="#"
-                              className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                            >
-                              Contact
-                            </a>
-                            <a
-                              href="#"
-                              className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                            >
-                              Provocations↗
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="-mr-2 flex sm:hidden">
-                        {/* Mobile menu button */}
-                        <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                          <span className="absolute -inset-0.5" />
-                          <span className="sr-only">Open main menu</span>
-                          {open ? (
-                            <XMarkIcon
-                              className="block h-6 w-6"
-                              aria-hidden="true"
-                            />
-                          ) : (
-                            <Bars3Icon
-                              className="block h-6 w-6"
-                              aria-hidden="true"
-                            />
-                          )}
-                        </Disclosure.Button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Disclosure.Panel className="sm:hidden">
-                    <div className="space-y-1 px-2 pb-3 pt-2">
-                      {/* TODO: update mobile menu */}
-                      <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-                      >
-                        Dashboard
-                      </Disclosure.Button>
-                      <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                      >
-                        Team
-                      </Disclosure.Button>
-                      <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                      >
-                        Projects
-                      </Disclosure.Button>
-                      <Disclosure.Button
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                      >
-                        Calendar
-                      </Disclosure.Button>
-                    </div>
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
-          </div>
-        </div>
+        <Navbar />
         <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
-          <div className="right-3/4 col-span-5 mt-20 max-w-xs">
-            <div className="sticky left-0 top-[20%] flow-root ">
-              <ul role="list" className="">
-                {pageNav.map((activityItem) => (
-                  <li key={activityItem.id}>
-                    <div className="relative pb-4">
-                      <div className="relative flex items-start space-x-3">
-                        <>
-                          <div>
-                            <div className="relative px-1">
-                              <div className="mt-3 flex h-1 w-1 items-center justify-center bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
-                            </div>
-                          </div>
-                          <div className="min-w-0 flex-1 ">
-                            {activityItem.id === activeState ? (
-                              <div className="">
-                                <h4 className="font-FKmedium text-2xl text-white">
-                                  <Link href={activityItem.link}>
-                                    {activityItem.title}
-                                  </Link>
-                                </h4>
-                                <p className="font-FKregular text-sm text-[#C1C1C1]">
-                                  {activityItem.description}
-                                </p>
-                              </div>
-                            ) : (
-                              <div className="">
-                                <h4 className="font-FKmedium text-2xl text-[#6A6A6A]">
-                                  <Link href={activityItem.link}>
-                                    {activityItem.title}
-                                  </Link>
-                                </h4>
-                              </div>
-                            )}
-                          </div>
-                        </>
-                      </div>
-                      {activityItem.sub.length > 0 &&
-                        activityItem.sub.map((sub, subIndex) => (
-                          <span key={sub.title}>
-                            <div className="relative pb-4">
-                              {subIndex !== activityItem.sub.length - 1 ? (
-                                <span
-                                  className="absolute left-1 top-2 h-full w-0.5 bg-[#9F9F9F] "
-                                  aria-hidden="true"
-                                />
-                              ) : null}
-                              <div className="relative flex items-start space-x-3">
-                                <>
-                                  <div>
-                                    <div className="relative px-1">
-                                      <div className="mt-3 flex h-0.5 w-0.5 items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
-                                    </div>
-                                  </div>
-                                  <div className="min-w-0 flex-1 ">
-                                    {sub.id === activeState ? (
-                                      <div className="">
-                                        <h5 className="font-FKmedium text-xl text-white">
-                                          <Link href={sub.link}>
-                                            {sub.title}
-                                          </Link>
-                                        </h5>
-                                        <p className="font-FKregular text-sm text-[#C1C1C1]">
-                                          {sub.description}
-                                        </p>
-                                      </div>
-                                    ) : (
-                                      <div className="">
-                                        <h5 className="font-FKmedium text-xl text-[#6A6A6A]">
-                                          <Link href={sub.link}>
-                                            {sub.title}
-                                          </Link>
-                                        </h5>
-                                      </div>
-                                    )}
-                                  </div>
-                                </>
-                              </div>
-                            </div>
-                          </span>
-                        ))}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <SideNav activeState={activeState} />
 
           <div className={`relative col-span-7`}>
             <div id="real" className="">
@@ -867,7 +652,7 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
-              <div id="eco" className="h-screen ">
+              <div id="eco" className="h-screen">
                 <div className={`my-20 -ml-10 `}>
                   <div
                     className={`threeD absolute top-0 z-40 w-full opacity-100 ${animateOn}`}
@@ -2026,16 +1811,16 @@ export default function Home() {
               <div className="grid h-screen grid-cols-12">
                 <div className="col-span-11">
                   <div className="grid max-w-6xl grid-cols-9 gap-0 ">
-                    <div className="col-span-8"></div>
-                    <h2 className="pb-4 text-3xl font-medium text-[#9F9F9F]">
+                    <div className="col-span-1"></div>
+                    <h2 className="pb-4 text-xl font-light text-[#9F9F9F]">
                       Labs
                     </h2>
                   </div>
 
-                  <div className=" test2 grid max-w-6xl grid-cols-9 gap-0.5">
+                  <div className="test2 grid max-w-6xl grid-cols-9 gap-0.5">
                     <div className="">
                       <div className="bg-[#151414]">
-                        <h2 className="pb-2 pt-11 text-3xl font-medium text-[#9F9F9F]">
+                        <h2 className="pb-2 pt-[3.25rem] text-xl font-light text-[#9F9F9F]">
                           Arcs
                         </h2>
                       </div>
@@ -2045,6 +1830,10 @@ export default function Home() {
                           onClick={() => setOpenRC(true)}
                           onMouseLeave={() => setRCActive(false)}
                         >
+                          <p className="text-xs font-medium ">Radicle Civics</p>
+                        </div>
+                      ) : RCHover ? (
+                        <div className="max-w-32 border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
                           <p className="text-xs font-medium ">Radicle Civics</p>
                         </div>
                       ) : (
@@ -2063,6 +1852,12 @@ export default function Home() {
                           onClick={() => setOpenNZ(true)}
                           onMouseLeave={() => setNZActive(false)}
                         >
+                          <p className="text-xs font-medium ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      ) : NZHover ? (
+                        <div className="mt-2 max-w-32 border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
                           <p className="text-xs font-medium ">
                             Net Zero Cities
                           </p>
@@ -2204,6 +1999,12 @@ export default function Home() {
                             Next Economics Lab
                           </p>
                         </div>
+                      ) : NEHover ? (
+                        <div className="max-w-28 border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-8 pt-1.5 text-[#FFF]">
+                          <p className=" text-xs font-medium">
+                            Next Economics Lab
+                          </p>
+                        </div>
                       ) : (
                         <div
                           className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
@@ -2216,26 +2017,41 @@ export default function Home() {
                           </p>
                         </div>
                       )}
-                      {(RCactive || NEactive || openRC) && !openMC ? (
-                        <div className="max-w-28 bg-[#575657] py-10 pt-2">
+
+                      {(RCactive || NEactive) && !openMC ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
                           {' '}
                         </div>
+                      ) : RCHover || NEHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-2 pl-1 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setRCHover(false);
+                            setNEHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenMC(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Multivalent currencies
+                          </p>
+                        </div>
                       ) : openMC ? (
-                        <div className=" max-w-28 bg-[#EBEBEB] py-4 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                        <div className=" max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
                           <p className=" text-xs font-medium">
                             Multivalent currencies
                           </p>
                         </div>
                       ) : (
                         <div
-                          className="group bg-[#414040] py-10 pl-2 pt-2 hover:cursor-pointer hover:bg-[#EBEBEB] hover:py-0 hover:text-[#5965A3]"
-                          onClick={() => {
-                            setRCActive(true);
-                            setNEActive(true);
-                            setOpenMC(true);
+                          className="group bg-[#414040] py-10 pl-1 pt-2 hover:cursor-pointer hover:bg-[#EBEBEB] hover:py-2 hover:text-[#5965A3]"
+                          onMouseEnter={() => {
+                            setRCHover(true);
+                            setNEHover(true);
                           }}
                         >
-                          <p className="hidden text-xs font-medium group-hover:inline">
+                          <p className="hidden text-xs font-medium group-hover:block">
                             Multivalent currencies
                           </p>
                         </div>
@@ -2403,6 +2219,12 @@ export default function Home() {
                             <span className="inline">↗</span>
                           </p>
                         </div>
+                      ) : CSHover ? (
+                        <div className="max-w-28 border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-[2.8rem] pt-2 text-[#FFF] ">
+                          <p className=" text-xs font-medium">
+                            Capital Systems
+                          </p>
+                        </div>
                       ) : (
                         <div
                           className="group max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
@@ -2430,13 +2252,38 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {NZactive || CSactive || openCS ? (
-                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                      {(NZactive || CSactive) && !openTAI ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2">
                           {' '}
                         </div>
+                      ) : NZHover || CSHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-8 pl-1 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setNZHover(false);
+                            setCSHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenTAI(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">TreesAI</p>
+                        </div>
+                      ) : openTAI ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">TreesAI</p>
+                        </div>
                       ) : (
-                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
-                          {' '}
+                        <div
+                          className="group mt-2 bg-[#414040] py-10 pt-2"
+                          onMouseEnter={() => {
+                            setNZHover(true);
+                            setCSHover(true);
+                          }}
+                        >
+                          <p className="hidden text-xs font-medium group-hover:block">
+                            TreesAI
+                          </p>
                         </div>
                       )}
                       {SGactive || CSactive || openCS ? (
@@ -2945,30 +2792,22 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="pt-11">
-                  <div className="mt-2 max-w-6 bg-[#252424] py-10 "> </div>
-                  <div className=" max-w-6 bg-[#252424] py-10 "> </div>
-                  <div className=" max-w-6 bg-[#252424] ">
-                    <h2 className="pl-10 pt-4 text-3xl font-medium text-[#9F9F9F]">
+                <div className="pt-[5.5rem]">
+                  <div className="  ">
+                    <h2 className="pl-4 pt-4 text-xl font-light text-[#9F9F9F]">
                       Studios
                     </h2>
                   </div>
-                  <div className="max-w-28 bg-[#252424] px-2 pb-8 pt-2 ">
+                  <div className="h-14 w-20 bg-[#252424] px-2 py-3 ">
                     <p className=" pt-2 text-xs font-medium text-[#fff]">
                       Civic Tech
                     </p>
                   </div>
-                  <div className="max-w-6 bg-[#252424] py-2 "> </div>
-                  <div className=" max-w-28 bg-[#252424] px-2 pb-8 ">
-                    <p className=" pt-2 text-xs font-medium text-[#fff]">
+                  <div className="max-w-8 bg-[#252424] py-1 "> </div>
+                  <div className=" h-14 w-20 bg-[#252424] px-2 py-1  ">
+                    <p className=" text-xs font-medium text-[#fff]">
                       Conversat-
                       <br /> ional Design
-                    </p>
-                  </div>
-                  <div className="max-w-6 bg-[#252424] py-2 "> </div>
-                  <div className=" max-w-28 bg-[#252424] px-2 pb-8 ">
-                    <p className=" pt-2 text-xs font-medium text-[#fff]">
-                      Org Dev
                     </p>
                   </div>
                 </div>
