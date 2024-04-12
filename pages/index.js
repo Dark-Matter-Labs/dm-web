@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Fragment, useState, useEffect } from 'react';
 import { Disclosure, Dialog, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -11,15 +12,15 @@ const pageNav = [
     id: 1,
     title: 'Real world options',
     description: '',
-    link: '#',
+    link: '#real',
     sub: [],
   },
   {
     id: 2,
     title: 'Ecosystem Matrix',
     description:
-      'We are not a think tank, consultancy, or design studio. We  and we do not have a single, neat theory of change. Instead, we arrange our efforts across an ecosystem of collaborations, and ground our approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, through multi-scalar global collaborationwith the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world.',
-    link: '#',
+      'We are not a think tank, consultancy, or design studio. We and we do not have a single, neat theory of change. Instead, we arrange our efforts across an ecosystem of collaborations, and ground our approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, through multi-scalar global collaborationwith the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world.',
+    link: '#eco',
     sub: [
       {
         title: 'Labs',
@@ -79,6 +80,11 @@ export default function Home() {
   const [classT2, setClassT2] = useState('t1');
   const [activeState, setActiveState] = useState(1);
 
+  const [animateOn, setAnimateOn] = useState('');
+  const [animateOnLayer2, setAnimateOnLayer2] = useState('');
+  const [animateOnLayer3, setAnimateOnLayer3] = useState('');
+  const [animateOnLayer4, setAnimateOnLayer4] = useState('');
+
   const listenScrollEvent = () => {
     console.log(window.scrollY);
     if (window.scrollY < 1300) {
@@ -93,6 +99,10 @@ export default function Home() {
       setClassStudio('');
 
       setClassT2('t1');
+      setAnimateOn('');
+      setAnimateOnLayer2('');
+      setAnimateOnLayer3('');
+      setAnimateOnLayer4('');
     } else if (window.scrollY > 1300 && window.scrollY < 1400) {
       setActiveState(2);
       setClassStudio('');
@@ -105,6 +115,10 @@ export default function Home() {
       setClassAB('');
 
       setClassT2('t2');
+      setAnimateOn('');
+      setAnimateOnLayer2('');
+      setAnimateOnLayer3('');
+      setAnimateOnLayer4('');
     } else if (window.scrollY > 1400 && window.scrollY < 1500) {
       setActiveState(3);
       setClassT('labs');
@@ -117,6 +131,10 @@ export default function Home() {
       setClassStudio('');
 
       setClassT2('t2');
+      setAnimateOn('');
+      setAnimateOnLayer2('');
+      setAnimateOnLayer3('');
+      setAnimateOnLayer4('');
     } else if (window.scrollY > 1500 && window.scrollY < 1600) {
       setActiveState(4);
       setClassT('base');
@@ -130,6 +148,10 @@ export default function Home() {
       setClassStudio('');
 
       setClassT2('t2');
+      setAnimateOn('');
+      setAnimateOnLayer2('');
+      setAnimateOnLayer3('');
+      setAnimateOnLayer4('');
     } else if (window.scrollY > 1600 && window.scrollY < 1700) {
       setClassStudio('studio');
       setActiveState(5);
@@ -142,6 +164,10 @@ export default function Home() {
       setClassAB('');
 
       setClassT2('t2');
+      setAnimateOn('');
+      setAnimateOnLayer2('');
+      setAnimateOnLayer3('');
+      setAnimateOnLayer4('');
     } else if (window.scrollY > 1800 && window.scrollY < 2500) {
       setClassStudio('');
       setActiveState(6);
@@ -156,6 +182,13 @@ export default function Home() {
       setClassT2('t2');
     } else if (window.scrollY > 2500) {
       setClassT2('t1');
+    }
+
+    if (window.scrollY > 1650) {
+      setAnimateOn('animate');
+      setAnimateOnLayer2('animateLayer2');
+      setAnimateOnLayer3('animateLayer3');
+      setAnimateOnLayer4('animateLayer4');
     }
   };
 
@@ -555,8 +588,8 @@ export default function Home() {
       </Transition.Root>
 
       <main className="mx-auto max-w-screen-xl">
-        <div className="mt-20 flex justify-between gap-x-0">
-          <div className="">
+        <div className="mt-20 grid grid-cols-12 justify-items-center">
+          <div className="col-span-4 ">
             <Image
               src={dmLogo}
               alt="Dm logo animation in multiple languages"
@@ -564,14 +597,14 @@ export default function Home() {
               width={500}
             />
           </div>
-          <div className="">
+          <div className="col-span-8">
             <Disclosure as="nav">
               {({ open }) => (
                 <>
-                  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                  <div className=" max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 items-center justify-between">
                       <div className="flex items-center">
-                        <div className="hidden sm:ml-6 sm:block">
+                        <div className="hidden sm:block">
                           <div className="flex space-x-4">
                             <a
                               href="#"
@@ -671,9 +704,9 @@ export default function Home() {
             </Disclosure>
           </div>
         </div>
-        <div className={`relative mt-20 grid grid-cols-12`}>
+        <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
           <div className="right-3/4 col-span-5 mt-20 max-w-xs">
-            <div className="sticky left-0 top-20 flow-root ">
+            <div className="sticky left-0 top-[20%] flow-root ">
               <ul role="list" className="">
                 {pageNav.map((activityItem) => (
                   <li key={activityItem.id}>
@@ -689,7 +722,9 @@ export default function Home() {
                             {activityItem.id === activeState ? (
                               <div className="">
                                 <h4 className="font-FKmedium text-2xl text-white">
-                                  {activityItem.title}
+                                  <Link href={activityItem.link}>
+                                    {activityItem.title}
+                                  </Link>
                                 </h4>
                                 <p className="font-FKregular text-sm text-[#C1C1C1]">
                                   {activityItem.description}
@@ -698,7 +733,9 @@ export default function Home() {
                             ) : (
                               <div className="">
                                 <h4 className="font-FKmedium text-2xl text-[#6A6A6A]">
-                                  {activityItem.title}
+                                  <Link href={activityItem.link}>
+                                    {activityItem.title}
+                                  </Link>
                                 </h4>
                               </div>
                             )}
@@ -726,7 +763,9 @@ export default function Home() {
                                     {sub.id === activeState ? (
                                       <div className="">
                                         <h5 className="font-FKmedium text-xl text-white">
-                                          {sub.title}
+                                          <Link href={sub.link}>
+                                            {sub.title}
+                                          </Link>
                                         </h5>
                                         <p className="font-FKregular text-sm text-[#C1C1C1]">
                                           {sub.description}
@@ -735,7 +774,9 @@ export default function Home() {
                                     ) : (
                                       <div className="">
                                         <h5 className="font-FKmedium text-xl text-[#6A6A6A]">
-                                          {sub.title}
+                                          <Link href={sub.link}>
+                                            {sub.title}
+                                          </Link>
                                         </h5>
                                       </div>
                                     )}
@@ -753,7 +794,7 @@ export default function Home() {
           </div>
 
           <div className={`relative col-span-7`}>
-            <div className="">
+            <div id="real" className="">
               <h1 className="font-FKmedium text-4xl text-white">
                 Dark matter labs{' '}
                 <span className="align-super text-3xl text-[#6D6D6D]">
@@ -826,9 +867,11 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
-              <div className="h-screen ">
-                <div className={`my-40 -ml-10`}>
-                  <div className="threeD absolute top-0 z-40 w-full opacity-100">
+              <div id="eco" className="h-screen ">
+                <div className={`my-20 -ml-10 `}>
+                  <div
+                    className={`threeD absolute top-0 z-40 w-full opacity-100 ${animateOn}`}
+                  >
                     <div className="grid grid-cols-8 gap-0.5">
                       <div>
                         {RCactive ? (
@@ -1714,7 +1757,7 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-20 z-40 w-full opacity-40 ${classStudio}`}
+                    className={`threeD absolute top-20 z-40 w-full opacity-40 ${classStudio} ${animateOnLayer2}`}
                   >
                     <div className=" grid max-w-4xl grid-cols-8 gap-0">
                       <div>
@@ -1801,7 +1844,9 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="threeD capability-bg absolute top-40 z-20 w-full opacity-60">
+                  <div
+                    className={`threeD capability-bg absolute top-40 z-20 w-full opacity-60 ${animateOnLayer3}`}
+                  >
                     <div className=" grid max-w-4xl grid-cols-8 gap-0">
                       <div>
                         <div className="  py-8  "> </div>
@@ -1887,7 +1932,9 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="threeD absolute top-60 z-20 w-full opacity-20">
+                  <div
+                    className={`threeD absolute top-60 z-20 w-full opacity-20 ${animateOnLayer4}`}
+                  >
                     <div className=" grid max-w-4xl grid-cols-8 gap-0">
                       <div>
                         <div className=" bg-[#2C2B2B] py-8  "> </div>
@@ -1975,9 +2022,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            <div className="font-FKmedium ">
-              <div className="grid grid-cols-12">
+            <div className="mt-40 font-FKmedium">
+              <div className="grid h-screen grid-cols-12">
                 <div className="col-span-11">
                   <div className="grid max-w-6xl grid-cols-9 gap-0 ">
                     <div className="col-span-8"></div>
