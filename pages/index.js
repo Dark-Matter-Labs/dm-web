@@ -25,6 +25,8 @@ export default function Home() {
   const [animateOnLayer3, setAnimateOnLayer3] = useState('');
   const [animateOnLayer4, setAnimateOnLayer4] = useState('');
 
+  const [animate2DOn, setAnimate2DOn] = useState('');
+
   const listenScrollEvent = () => {
     console.log(window.scrollY);
     if (window.scrollY < 1300) {
@@ -43,6 +45,7 @@ export default function Home() {
       setAnimateOnLayer2('');
       setAnimateOnLayer3('');
       setAnimateOnLayer4('');
+      setAnimate2DOn('');
     } else if (window.scrollY > 1300 && window.scrollY < 1400) {
       setActiveState(2);
       setClassStudio('');
@@ -59,6 +62,7 @@ export default function Home() {
       setAnimateOnLayer2('');
       setAnimateOnLayer3('');
       setAnimateOnLayer4('');
+      setAnimate2DOn('');
     } else if (window.scrollY > 1400 && window.scrollY < 1500) {
       setActiveState(3);
       setClassT('labs');
@@ -75,6 +79,7 @@ export default function Home() {
       setAnimateOnLayer2('');
       setAnimateOnLayer3('');
       setAnimateOnLayer4('');
+      setAnimate2DOn('');
     } else if (window.scrollY > 1500 && window.scrollY < 1600) {
       setActiveState(4);
       setClassT('base');
@@ -92,6 +97,7 @@ export default function Home() {
       setAnimateOnLayer2('');
       setAnimateOnLayer3('');
       setAnimateOnLayer4('');
+      setAnimate2DOn('');
     } else if (window.scrollY > 1600 && window.scrollY < 1700) {
       setClassStudio('studio');
       setActiveState(5);
@@ -108,6 +114,7 @@ export default function Home() {
       setAnimateOnLayer2('');
       setAnimateOnLayer3('');
       setAnimateOnLayer4('');
+      setAnimate2DOn();
     } else if (window.scrollY > 1800 && window.scrollY < 2500) {
       setClassStudio('');
       setActiveState(6);
@@ -129,6 +136,11 @@ export default function Home() {
       setAnimateOnLayer2('animateLayer2');
       setAnimateOnLayer3('animateLayer3');
       setAnimateOnLayer4('animateLayer4');
+      setAnimate2DOn('');
+    }
+
+    if (window.scrollY > 2200) {
+      setAnimate2DOn('animate2DLayer');
     }
   };
 
@@ -1807,8 +1819,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-40 font-FKmedium">
-              <div className="grid h-screen grid-cols-12">
+            <div className={`mt-80 font-FKmedium`}>
+              <div
+                className={`grid h-screen grid-cols-12 opacity-0 ${animate2DOn}`}
+              >
                 <div className="col-span-11">
                   <div className="grid max-w-6xl grid-cols-9 gap-0 ">
                     <div className="col-span-1"></div>
@@ -1817,7 +1831,7 @@ export default function Home() {
                     </h2>
                   </div>
 
-                  <div className="test2 grid max-w-6xl grid-cols-9 gap-0.5">
+                  <div className="bg-alpha grid max-w-6xl grid-cols-9 gap-0.5">
                     <div className="">
                       <div className="bg-[#151414]">
                         <h2 className="pb-2 pt-[3.25rem] text-xl font-light text-[#9F9F9F]">
@@ -2045,16 +2059,12 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="group bg-[#414040] py-10 pl-1 pt-2 hover:cursor-pointer hover:bg-[#EBEBEB] hover:py-2 hover:text-[#5965A3]"
+                          className="hover:cursor-pointer] bg-[#414040] py-10 pl-1 pt-2"
                           onMouseEnter={() => {
                             setRCHover(true);
                             setNEHover(true);
                           }}
-                        >
-                          <p className="hidden text-xs font-medium group-hover:block">
-                            Multivalent currencies
-                          </p>
-                        </div>
+                        ></div>
                       )}
                       {NZactive || NEactive ? (
                         <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
@@ -2220,7 +2230,7 @@ export default function Home() {
                           </p>
                         </div>
                       ) : CSHover ? (
-                        <div className="max-w-28 border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-[2.8rem] pt-2 text-[#FFF] ">
+                        <div className="max-w-28 border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-[2.87rem] pt-2 text-[#FFF] ">
                           <p className=" text-xs font-medium">
                             Capital Systems
                           </p>
@@ -2258,7 +2268,7 @@ export default function Home() {
                         </div>
                       ) : NZHover || CSHover ? (
                         <div
-                          className="max-w-28 bg-[#EBEBEB] py-8 pl-1 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          className="max-w-28 bg-[#EBEBEB] py-8 pl-1 pt-2  text-[#5965A3] hover:cursor-pointer"
                           onMouseLeave={() => {
                             setNZHover(false);
                             setCSHover(false);
@@ -2275,16 +2285,12 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="group mt-2 bg-[#414040] py-10 pt-2"
+                          className="mt-2 bg-[#414040] py-10 pt-2"
                           onMouseEnter={() => {
                             setNZHover(true);
                             setCSHover(true);
                           }}
-                        >
-                          <p className="hidden text-xs font-medium group-hover:block">
-                            TreesAI
-                          </p>
-                        </div>
+                        ></div>
                       )}
                       {SGactive || CSactive || openCS ? (
                         <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">

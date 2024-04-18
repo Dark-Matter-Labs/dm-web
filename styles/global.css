@@ -161,7 +161,38 @@ img {
   }
 }
 
-.test2 {
+.animate2DLayer {
+  animation: twoDAnimateLayer;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-direction: alternate;
+  animation-timeline: scroll(block nearest);
+}
+
+@keyframes twoDAnimateLayer {
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.1;
+  }
+  60% {
+    opacity: 0.1;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bg-alpha {
   background: rgba(37, 36, 36, 1);
 }
 
@@ -200,7 +231,7 @@ img {
   }
 
   .t2 {
-    @apply sticky top-[15%];
+    @apply sticky top-[20%];
   }
 
   .t1 {
