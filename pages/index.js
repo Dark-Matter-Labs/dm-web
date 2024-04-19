@@ -220,7 +220,7 @@ export default function Home() {
 
       <Transition.Root show={openCS} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenCS}>
-          <div className="fixed left-36 top-40 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[28.2rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -237,7 +237,14 @@ export default function Home() {
                     <p className="font-FKregular text-base text-[#353535]">
                       DmCS Lab is working to reframe what is possible within the
                       financial capital markets. This Lab is working with the
-                      hypothesis that the investment logic of the current system
+                      hypothesis that the{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://uploads-ssl.webflow.com/5ddbd6d8c8721f339f8284ef/5ea18eb53e44c4667e1cfebf_0411_Building%20Civic%20Capital%20(compressed).pdf"
+                      >
+                        investment logic of the current system
+                      </a>
                       needs to be rewired to catch up with the scale of societal
                       transition that is underway. The Lab is developing a
                       portfolio of investable projects and new asset classes
@@ -268,16 +275,29 @@ export default function Home() {
               >
                 <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
+                  <div className="">
                     <p className="font-FKregular text-base text-[#353535]">
                       Radicle Civics is a playful nod towards emergent shoots of
                       possibility (in botany, the radicle is the first part of a
                       seedling to emerge during the process of germination).
                       This arc aims to build cultural demonstrations that
-                      support three new ways of being in the world: from assets
-                      to agents, from externalities to entanglements, and from
+                      support{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://provocations.darkmatterlabs.org/radicle-civics-building-proofs-of-possibilities-for-a-civic-economy-and-society-ee28baeeec70"
+                      >
+                        three
+                      </a>{' '}
+                      new ways of being in the world: from assets to agents,
+                      from externalities to entanglements, and from
                       public/public to commoning.
                     </p>
+                    <a target="_blank" href="https://radiclecivics.cc/">
+                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
+                        Read more.
+                      </p>
+                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -288,7 +308,7 @@ export default function Home() {
 
       <Transition.Root show={openNZ} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenNZ}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-56 top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -304,10 +324,18 @@ export default function Home() {
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
                       The NZC Arc aspires to create smart cities that are carbon
-                      neutral. This involves supporting cities to develop local
-                      portfolios of coordinated actions across multiple domains
-                      (e.g. technology, governance, policy, finance innovation,
-                      social innovation) which accelerate emission reductions.
+                      neutral. This involves{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://netzerocities.eu/"
+                      >
+                        supporting cities
+                      </a>{' '}
+                      to develop local portfolios of coordinated actions across
+                      multiple domains (e.g. technology, governance, policy,
+                      finance innovation, social innovation) which accelerate
+                      emission reductions.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -319,7 +347,7 @@ export default function Home() {
 
       <Transition.Root show={openSG} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenSG}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-56 top-96 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -332,7 +360,7 @@ export default function Home() {
               >
                 <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
+                  <div className="">
                     <p className="font-FKregular text-base text-[#353535]">
                       This collaborative arc fosters transformative thinking and
                       action for future cities. The aspiration is to create the
@@ -340,6 +368,11 @@ export default function Home() {
                       generations of city dwellers to thrive in radically caring
                       and regenerative communities.
                     </p>
+                    <a target="_blank" href="https://www.7gencities.org/">
+                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
+                        Read more.
+                      </p>
+                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -350,7 +383,7 @@ export default function Home() {
 
       <Transition.Root show={openM0} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenM0}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-56 top-96 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -366,9 +399,16 @@ export default function Home() {
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
                       The M0 Arc is aiming to reimagine how we use and steward
-                      materials in service of a regenerative built environment.
-                      The Arc is asking questions around how we can innovate our
-                      material inputs, adjust our understanding of comfort
+                      materials in service of{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        herf="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+                      >
+                        a regenerative built environment
+                      </a>
+                      . The Arc is asking questions around how we can innovate
+                      our material inputs, adjust our understanding of comfort
                       (heating and cooling) and intelligently share existing
                       spaces.
                     </p>
@@ -382,7 +422,7 @@ export default function Home() {
 
       <Transition.Root show={openRE} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenRE}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-56 top-[31rem] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -413,7 +453,7 @@ export default function Home() {
 
       <Transition.Root show={openBE} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenBE}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-56 top-[31rem] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -447,7 +487,7 @@ export default function Home() {
 
       <Transition.Root show={openPC} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenPC}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-56 top-[31.2rem] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -460,7 +500,7 @@ export default function Home() {
               >
                 <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
+                  <div className="">
                     <p className="font-FKregular text-base text-[#353535]">
                       The Pc Arc is looking at how we can match the scale of our
                       planetary challenges with our global ambition to respond.
@@ -470,6 +510,14 @@ export default function Home() {
                       (dimensions of a scale that historically have been beyond
                       the scope of human understanding)?
                     </p>
+                    <a
+                      target="_blank"
+                      href="https://www.youtube.com/watch?v=zQJjfCSPvJI"
+                    >
+                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
+                        Watch keynote.
+                      </p>
+                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -480,7 +528,7 @@ export default function Home() {
 
       <Transition.Root show={openNE} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenNE}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -500,13 +548,20 @@ export default function Home() {
                       we relate to the world and the implications for a
                       desirable future economy. The Lab is actively testing
                       three core worldview philosophies: what would a future
-                      economy look and feel like if it was rooted in the
-                      recognition of the full web of life, grounded by a
-                      non-bounded theory of value and enabled by technological
-                      ecosystems of care? In parallel, the NE Lab is building
-                      practical pathways towards systemic goals such as
-                      replacing profit as the collective goal and demonstrating
-                      entangled value.
+                      economy look and feel like if it was{' '}
+                      <b>rooted in the recognition of the full web of life</b>,
+                      grounded by a<b>non-bounded theory of value</b> and
+                      enabled by <b>technological ecosystems of care</b>? In
+                      parallel, the NE Lab is building practical pathways
+                      towards systemic goals such as
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
+                      >
+                        replacing profit as the collective goal
+                      </a>{' '}
+                      and demonstrating entangled value.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -518,7 +573,7 @@ export default function Home() {
 
       <Transition.Root show={openPB} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenPB}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -531,7 +586,7 @@ export default function Home() {
               >
                 <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
+                  <div className="">
                     <p className="font-FKregular text-base text-[#353535]">
                       The Pb Lab rejects the values of control and dominion as a
                       basis for private property systems. Instead this Lab aims
@@ -539,6 +594,14 @@ export default function Home() {
                       forms of property; from collective ownership of land to
                       self-owning houses, land, and cameras.
                     </p>
+                    <a
+                      target="_blank"
+                      href="https://www.darkmatterlabs.property/"
+                    >
+                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
+                        Read more.
+                      </p>
+                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -549,7 +612,7 @@ export default function Home() {
 
       <Transition.Root show={openBR} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenBR}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -562,7 +625,7 @@ export default function Home() {
               >
                 <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
+                  <div className="">
                     <p className="font-FKregular text-base text-[#353535]">
                       the Btr Lab practises new forms of organising and
                       governance. The Lab is particularly interested in the
@@ -573,6 +636,14 @@ export default function Home() {
                       new forms of open contracts and multi-actor governance
                       structures.
                     </p>
+                    <a
+                      target="_blank"
+                      href="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
+                    >
+                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
+                        Read more.
+                      </p>
+                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -583,7 +654,7 @@ export default function Home() {
 
       <Transition.Root show={openSM} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenSM}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -598,11 +669,18 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                      The Sm Lab is working to improve the visibility of our
-                      interactions with the physical world. From material and
-                      energy flows to land use, the Lab is building tools and
-                      mapping systems that leverage technology to build a
-                      dynamic understanding of how the system is responding.
+                      The Sm Lab is working to improve the{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://docs.google.com/presentation/d/1fq-hmMDV5DnaDk8fSYhsQmQbvw_yo4SAzsGozWzWhw0/edit#slide=id.g1dcfb843b9e_0_167"
+                      >
+                        visibility of our interactions with the physical world
+                      </a>
+                      . From material and energy flows to land use, the Lab is
+                      building tools and mapping systems that leverage
+                      technology to build a dynamic understanding of how the
+                      system is responding.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -614,7 +692,7 @@ export default function Home() {
 
       <Transition.Root show={openBL} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenBL}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -644,7 +722,7 @@ export default function Home() {
 
       <Transition.Root show={openPF} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenPF}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -673,7 +751,7 @@ export default function Home() {
 
       <Transition.Root show={openQD} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenQD}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -702,7 +780,7 @@ export default function Home() {
 
       <Transition.Root show={openCT} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenCT}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -733,7 +811,7 @@ export default function Home() {
 
       <Transition.Root show={openCD} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenCD}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -773,7 +851,7 @@ export default function Home() {
             setNEActive(false);
           }}
         >
-          <div className="fixed right-28 top-48  w-screen overflow-y-auto">
+          <div className="fixed left-72 top-96  w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -792,7 +870,14 @@ export default function Home() {
                       monetary systems and societal behaviour. To ground the
                       conceptual provocations, NE Lab has been collaborating
                       with the Radicle Civics Arc to prototype the first
-                      distributed bioregional bank.{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
+                      >
+                        distributed bioregional bank
+                      </a>
+                      .{' '}
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -812,7 +897,7 @@ export default function Home() {
             setCSActive(false);
           }}
         >
-          <div className="fixed right-28 top-48  w-screen overflow-y-auto">
+          <div className="fixed left-96 top-[27.6rem]  w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -827,13 +912,19 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                      Trees As Infrastructure (TreesAI) is a cloud-based
-                      platform that aims to embed nature as a critical part of
-                      urban infrastructure (alongside more traditional
-                      structures such as bridges, roads and rail). Working with
-                      the Dcs Lab in urban locations, the team is working to
-                      develop strong business cases for scaled, sustainable
-                      investment.
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://treesasinfrastructure.com/"
+                      >
+                        Trees As Infrastructure (TreesAI)
+                      </a>{' '}
+                      is a cloud-based platform that aims to embed nature as a
+                      critical part of urban infrastructure (alongside more
+                      traditional structures such as bridges, roads and rail).
+                      Working with the Dcs Lab in urban locations, the team is
+                      working to develop strong business cases for scaled,
+                      sustainable investment.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -853,7 +944,7 @@ export default function Home() {
             setM0Active(false);
           }}
         >
-          <div className="fixed right-28 top-48  w-screen overflow-y-auto">
+          <div className="fixed left-72 top-[34.6rem]  w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -868,12 +959,20 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                      he New Economic Thinking work provided mapping and
-                      analysis of a just transition in relation to Europe’s
-                      built environment. The work sat at the intersection of the
-                      Ne Lab and M0 Arc, exploring the physical constraints and
-                      potential response strategies for a material light and
-                      socially just transition.
+                      The
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+                      >
+                        {' '}
+                        New Economic Thinking
+                      </a>{' '}
+                      work provided mapping and analysis of a just transition in
+                      relation to Europe’s built environment. The work sat at
+                      the intersection of the Ne Lab and M0 Arc, exploring the
+                      physical constraints and potential response strategies for
+                      a material light and socially just transition.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -954,11 +1053,26 @@ export default function Home() {
                       is that whilst we indisputably need to shift to a new
                       economy, we will not get there using the mental models,
                       tools or value systems of the current one. Instead, LEE
-                      responds to the underlying drivers of the polycrisis by
-                      proposing a philosophical and action oriented framework,
-                      centred on reconfiguring our relationships with each
-                      other, with the planet and to our collective futures. You
-                      can read more about LEE here.
+                      responds to the underlying drivers of the{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://www.pik-potsdam.de/en/news/latest-news/covid-19-climate-change-armed-conflicts-world2019s-crises-can-lead-to-interconnected-polycrisis"
+                      >
+                        polycrisis
+                      </a>{' '}
+                      by proposing a philosophical and action oriented
+                      framework, centred on reconfiguring our relationships with
+                      each other, with the planet and to our collective futures.
+                      You can read more about{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://lee.darkmatterlabs.org/"
+                      >
+                        LEE here
+                      </a>
+                      .
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -986,9 +1100,17 @@ export default function Home() {
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
                       City-scale tree canopies: as a pathway towards this
-                      ambition, the TreesAI (Trees As Infrastructure) Team has
-                      been working to create investable asset classes for the
-                      planting and maintenance of trees.
+                      ambition, the{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://treesasinfrastructure.com/"
+                      >
+                        TreesAI
+                      </a>{' '}
+                      (Trees As Infrastructure) Team has been working to create
+                      investable asset classes for the planting and maintenance
+                      of trees.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -1015,15 +1137,21 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                      Collective intelligence of a city: the Cornerstone
-                      Indicator initiative was developed to strengthen citizen
-                      engagement networks that can sense what it means to thrive
-                      in different contexts. The resultant indicators empower
-                      communities to have agency over decisions and express
-                      their voices in a continuous cycle of participatory
-                      governance. As this work progresses we are aiming to link
-                      the indicators to smart data to build a more coherent
-                      picture of civic experience.
+                      Collective intelligence of a city: the{' '}
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
+                      >
+                        Cornerstone Indicator initiative
+                      </a>{' '}
+                      was developed to strengthen citizen engagement networks
+                      that can sense what it means to thrive in different
+                      contexts. The resultant indicators empower communities to
+                      have agency over decisions and express their voices in a
+                      continuous cycle of participatory governance. As this work
+                      progresses we are aiming to link the indicators to smart
+                      data to build a more coherent picture of civic experience.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -1057,7 +1185,14 @@ export default function Home() {
                       parallel, we are working with communities to design and
                       implement multi-sensory indicators that can be linked to
                       participatory governance systems, with the aim of
-                      stewarding the regenerative health of a bioregion.
+                      <a
+                        className="text-[#A28CC6]"
+                        target="_blank"
+                        href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
+                      >
+                        stewarding the regenerative health of a bioregion
+                      </a>
+                      .
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -2496,7 +2631,7 @@ export default function Home() {
                       )}
                     </div>
                     <div>
-                      {NEactive ? (
+                      {NEactive || openNE ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenNE(true)}
@@ -2579,7 +2714,7 @@ export default function Home() {
                         </div>
                       )}
                       {(M0active || NEactive) && !openNET ? (
-                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2">
                           {' '}
                         </div>
                       ) : M0Hover && NEHover ? (
@@ -2644,7 +2779,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {BLactive ? (
+                      {BLactive || openBL ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenBL(true)}
@@ -2858,7 +2993,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {PFactive ? (
+                      {PFactive || openPF ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenPF(true)}
@@ -2950,7 +3085,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {PBactive ? (
+                      {PBactive || openPB ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenPB(true)}
@@ -3042,7 +3177,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {QDactive ? (
+                      {QDactive || openQD ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenQD(true)}
@@ -3136,7 +3271,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {BRactive ? (
+                      {BRactive || openBR ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenBR(true)}
@@ -3228,7 +3363,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {SMactive ? (
+                      {SMactive || openSM ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenSM(true)}
@@ -3343,7 +3478,7 @@ export default function Home() {
                       Studios
                     </h2>
                   </div>
-                  {CTactive ? (
+                  {CTactive || openCT ? (
                     <div
                       className="h-14 w-20 bg-[#EBEBEB] px-2 py-3 hover:cursor-pointer"
                       onClick={() => setOpenCT(true)}
@@ -3372,7 +3507,7 @@ export default function Home() {
                     </div>
                   )}
                   <div className="max-w-8 bg-[#252424] py-1 "> </div>
-                  {CDactive ? (
+                  {CDactive || openCD ? (
                     <div
                       className="h-14 w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
                       onClick={() => setOpenCD(true)}
@@ -3432,7 +3567,7 @@ export default function Home() {
               <h3 className="max-w-xl  font-FKregular text-3xl text-white">
                 Political landscapes
               </h3>
-              <p className="pb-8 pt-10 font-FKregular text-lg text-white">
+              <p className="pb-8 pt-4 font-FKregular text-lg text-white">
                 A right wing context may provide more fertile ground for rapidly
                 mobilising complex technologies than a liberal context. Or
                 perhaps in a context like Ukraine where crisis and instability
@@ -3446,7 +3581,7 @@ export default function Home() {
               <h3 className="max-w-xl  font-FKregular text-3xl text-white">
                 Geographical landscapes
               </h3>
-              <p className="pb-8 pt-10 font-FKregular text-lg text-white">
+              <p className="pb-8 pt-4 font-FKregular text-lg text-white">
                 In some cases we may need to look to edge communities for an
                 idea to gain traction (e.g. a distributed currency), whereas in
                 others a supportive social infrastructure is needed to establish
@@ -3459,7 +3594,7 @@ export default function Home() {
               <h3 className="max-w-xl  font-FKregular text-3xl text-white">
                 Time horizons
               </h3>
-              <p className="pb-8 pt-10 font-FKregular text-lg text-white">
+              <p className="pb-8 pt-4 font-FKregular text-lg text-white">
                 Recognising that a speculative policy in one context might
                 already be triage response in another can increase our
                 collective learning and ability to test edge ideas. This could
@@ -3473,7 +3608,7 @@ export default function Home() {
               <h3 className="max-w-xl  font-FKregular text-3xl text-white">
                 Alliances
               </h3>
-              <p className="pt-10 font-FKregular text-lg text-white">
+              <p className="pt-4 font-FKregular text-lg text-white">
                 On the surface a central bank and an ecological activist may
                 have little in common. Yet, central banks have a mandate to
                 preserve stability, which in the future could involve recoupling
