@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        FKregular: ['"FKGroteskTrial-Regular"', 'sans-serif'],
-        FKmedium: ['"FKGroteskTrial-Medium"', 'sans-serif'],
-        FKlight: ['"FKGroteskTrial-Light"', 'sans-serif'],
+        FKregular: ['"FKGroteskTrial-Regular"', 'system-ui'],
+        FKmedium: ['"FKGroteskTrial-Medium"', 'system-ui'],
+        FKlight: ['"FKGroteskTrial-Light"', 'system-ui'],
       },
     },
   },

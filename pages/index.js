@@ -157,6 +157,7 @@ export default function Home() {
   const [NZHover, setNZHover] = useState(false);
   const [SGactive, setSGActive] = useState(false);
   const [M0active, setM0Active] = useState(false);
+  const [M0Hover, setM0Hover] = useState(false);
   const [REactive, setREActive] = useState(false);
   const [BEactive, setBEActive] = useState(false);
   const [PCactive, setPCActive] = useState(false);
@@ -172,15 +173,22 @@ export default function Home() {
   const [QDactive, setQDActive] = useState(false);
   const [BRactive, setBRActive] = useState(false);
   const [SMactive, setSMActive] = useState(false);
+  const [CTHover, setCTHover] = useState(false);
+
+  //studio states
+  const [CTactive, setCTActive] = useState(false);
+  const [CDactive, setCDActive] = useState(false);
 
   // open modal states
   const [openLEE, setOpenLEE] = useState(false);
   const [openMC, setOpenMC] = useState(false);
   const [openTAI, setOpenTAI] = useState(false);
+  const [openCL, setOpenCL] = useState(false);
   const [openRC, setOpenRC] = useState(false);
   const [openNZ, setOpenNZ] = useState(false);
   const [openSG, setOpenSG] = useState(false);
   const [openM0, setOpenM0] = useState(false);
+  const [openNET, setOpenNET] = useState(false);
   const [openRE, setOpenRE] = useState(false);
   const [openBE, setOpenBE] = useState(false);
   const [openPC, setOpenPC] = useState(false);
@@ -193,6 +201,9 @@ export default function Home() {
   const [openQD, setOpenQD] = useState(false);
   const [openBR, setOpenBR] = useState(false);
   const [openSM, setOpenSM] = useState(false);
+
+  const [openCT, setOpenCT] = useState(false);
+  const [openCD, setOpenCD] = useState(false);
 
   return (
     <div>
@@ -214,7 +225,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -238,7 +249,7 @@ export default function Home() {
 
       <Transition.Root show={openRC} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={setOpenRC}>
-          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-56 top-80 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -249,7 +260,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -282,7 +293,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -313,7 +324,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -344,7 +355,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -376,7 +387,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -407,7 +418,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -441,7 +452,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -452,6 +463,291 @@ export default function Home() {
                       mean to embrace the idea of relatable hyperobjects
                       (dimensions of a scale that historically have been beyond
                       the scope of human understanding)?
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openNE} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenNE}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      the Ne Lab embodies the core philosophies of LEE. It aims
+                      to stimulate a continuous and inclusive dialogue about how
+                      we relate to the world and the implications for a
+                      desirable future economy. The Lab is actively testing
+                      three core worldview philosophies: what would a future
+                      economy look and feel like if it was rooted in the
+                      recognition of the full web of life, grounded by a
+                      non-bounded theory of value and enabled by technological
+                      ecosystems of care? In parallel, the NE Lab is building
+                      practical pathways towards systemic goals such as
+                      replacing profit as the collective goal and demonstrating
+                      entangled value.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openPB} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenPB}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The Pb Lab rejects the values of control and dominion as a
+                      basis for private property systems. Instead this Lab aims
+                      to build a diverse and proactive portfolio of alternative
+                      forms of property; from collective ownership of land to
+                      self-owning houses, land, and cameras.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openBR} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenBR}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      the Btr Lab practises new forms of organising and
+                      governance. The Lab is particularly interested in the
+                      deep, thoughtful and highly creative work required to
+                      rewrite, reinvent or reimagine rules, norms and laws that
+                      hold us in the current system. The Lab is working closely
+                      with an ecosystem of partners to prototype and demonstrate
+                      new forms of open contracts and multi-actor governance
+                      structures.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openSM} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenSM}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The Sm Lab is working to improve the visibility of our
+                      interactions with the physical world. From material and
+                      energy flows to land use, the Lab is building tools and
+                      mapping systems that leverage technology to build a
+                      dynamic understanding of how the system is responding.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openBL} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenBL}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      We are interested in exploring the future of work in
+                      relation to a rapidly changing world. What would it mean
+                      if we shifted from humans being employed as resources to
+                      vocations of creativity, purpose and care?
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openPF} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenPF}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The Pf Lab will explore the potential for philanthropic
+                      capital to catalyse radical pathways in parallel to the
+                      wider capital markets.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openQD} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenQD}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The Qd Lab is still nascent. Once launched, it will aim to
+                      build pathways towards distributed, data assisted decision
+                      making.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openCT} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenCT}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      Civic Tech Studio helps mould theory and vision from the
+                      Dm ecosystem to testable prototypes and applications
+                      geared towards long-term impact & maintenance. We see tech
+                      with a critical and open-source lens rather than as an
+                      extractive and inevitable solution.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openCD} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenCD}>
+          <div className="fixed right-60 top-60 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      This studio is fundamental to how we communicate. What
+                      exactly is Conversational Design? This is a good question
+                      and we would like to invite you to explore it with us. The
+                      ambition is to embed conversational frameworks at every
+                      level of our work that help people to explore and
+                      interrogate our thinking.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -482,7 +778,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -521,7 +817,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -532,6 +828,87 @@ export default function Home() {
                       the Dcs Lab in urban locations, the team is working to
                       develop strong business cases for scaled, sustainable
                       investment.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openNET} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-20"
+          onClose={() => {
+            setOpenNET(false);
+            setNEActive(false);
+            setM0Active(false);
+          }}
+        >
+          <div className="fixed right-28 top-48  w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      he New Economic Thinking work provided mapping and
+                      analysis of a just transition in relation to Europe’s
+                      built environment. The work sat at the intersection of the
+                      Ne Lab and M0 Arc, exploring the physical constraints and
+                      potential response strategies for a material light and
+                      socially just transition.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openCL} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-20"
+          onClose={() => {
+            setOpenCL(false);
+            setNZActive(false);
+            setSMActive(false);
+          }}
+        >
+          <div className="fixed right-28 top-48  w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      CircuLaw emerged from Dm’s relationship with the City of
+                      Amsterdam. The initiative aims to accelerate the
+                      transition to a circular economy by identifying
+                      opportunities within existing laws and regulations.
+                      Working in partnership with legal experts and policy
+                      makers, Dm has built an interactive legal knowledge
+                      platform.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -554,7 +931,7 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-r from-[#F4F4F4] to-[#A7A7A7] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
@@ -1840,7 +2217,7 @@ export default function Home() {
                       </div>
                       {RCactive || openRC ? (
                         <div
-                          className="max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          className="max-w-32 bg-[#FFFFFF] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onClick={() => setOpenRC(true)}
                           onMouseLeave={() => setRCActive(false)}
                         >
@@ -1852,7 +2229,7 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
                           onMouseOver={() => setRCActive(true)}
                           onClick={() => setOpenRC(true)}
                           onMouseLeave={() => setRCActive(false)}
@@ -1878,7 +2255,7 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] "
                           onMouseOver={() => setNZActive(true)}
                           onClick={() => setOpenNZ(true)}
                           onMouseLeave={() => setNZActive(false)}
@@ -1899,7 +2276,7 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] "
                           onMouseOver={() => setSGActive(true)}
                           onClick={() => setOpenSG(true)}
                           onMouseLeave={() => setSGActive(false)}
@@ -1908,10 +2285,10 @@ export default function Home() {
                         </div>
                       )}
 
-                      {M0active ? (
+                      {M0active || openM0 ? (
                         <div
                           className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setM0Active(false)}
+                          onClick={() => setOpenM0(true)}
                           onMouseLeave={() => setM0Active(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -1921,9 +2298,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
                           onMouseOver={() => setM0Active(true)}
-                          onClick={() => setM0Active(true)}
+                          onClick={() => setOpenM0(true)}
                           onMouseLeave={() => setM0Active(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -1936,7 +2313,7 @@ export default function Home() {
                       {REactive ? (
                         <div
                           className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setREActive(false)}
+                          onClick={() => setOpenRE(true)}
                           onMouseLeave={() => setREActive(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -1947,7 +2324,7 @@ export default function Home() {
                         <div
                           className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
                           onMouseOver={() => setREActive(true)}
-                          onClick={() => setREActive(true)}
+                          onClick={() => setOpenRE(true)}
                           onMouseLeave={() => setREActive(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -1959,7 +2336,7 @@ export default function Home() {
                       {BEactive ? (
                         <div
                           className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setBEActive(false)}
+                          onClick={() => setOpenBE(true)}
                           onMouseLeave={() => setBEActive(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -1968,9 +2345,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
                           onMouseOver={() => setBEActive(true)}
-                          onClick={() => setBEActive(true)}
+                          onClick={() => setOpenBE(true)}
                           onMouseLeave={() => setBEActive(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -1982,7 +2359,7 @@ export default function Home() {
                       {PCactive ? (
                         <div
                           className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setPCActive(false)}
+                          onClick={() => setOpenPC(true)}
                           onMouseLeave={() => setPCActive(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -1991,9 +2368,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
                           onMouseOver={() => setPCActive(true)}
-                          onClick={() => setPCActive(true)}
+                          onClick={() => setOpenPC(true)}
                           onMouseLeave={() => setPCActive(false)}
                         >
                           <p className="text-xs font-medium ">
@@ -2006,7 +2383,7 @@ export default function Home() {
                       {NEactive ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setNEActive(false)}
+                          onClick={() => setOpenNE(true)}
                           onMouseLeave={() => setNEActive(false)}
                         >
                           <p className=" text-xs font-medium ">
@@ -2023,7 +2400,7 @@ export default function Home() {
                         <div
                           className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
                           onMouseOver={() => setNEActive(true)}
-                          onClick={() => setNEActive(true)}
+                          onClick={() => setOpenNE(true)}
                           onMouseLeave={() => setNEActive(false)}
                         >
                           <p className=" text-xs font-medium">
@@ -2036,9 +2413,9 @@ export default function Home() {
                         <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
                           {' '}
                         </div>
-                      ) : RCHover || NEHover ? (
+                      ) : RCHover && NEHover ? (
                         <div
-                          className="max-w-28 bg-[#EBEBEB] py-2 pl-1 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          className="max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
                           onMouseLeave={() => {
                             setRCHover(false);
                             setNEHover(false);
@@ -2085,14 +2462,39 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {M0active || NEactive ? (
-                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                      {(M0active || NEactive) && !openNET ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
                           {' '}
+                        </div>
+                      ) : M0Hover && NEHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setM0Hover(false);
+                            setNEHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenNET(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">
+                            New Economic Thinking
+                          </p>
+                        </div>
+                      ) : openNET ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">
+                            New Economic Thinking
+                          </p>
                         </div>
                       ) : (
-                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
-                          {' '}
-                        </div>
+                        <div
+                          className="hover:cursor-pointer] mt-2 bg-[#414040] py-10 pl-1 pt-2"
+                          onMouseEnter={() => {
+                            setM0Hover(true);
+                            setNEHover(true);
+                          }}
+                        ></div>
                       )}
 
                       {REactive || NEactive ? (
@@ -2129,7 +2531,7 @@ export default function Home() {
                       {BLactive ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setBLActive(false)}
+                          onClick={() => setOpenBL(true)}
                           onMouseLeave={() => setBLActive(false)}
                         >
                           <p className=" text-xs font-medium ">
@@ -2140,9 +2542,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
                           onMouseOver={() => setBLActive(true)}
-                          onClick={() => setBLActive(true)}
+                          onClick={() => setOpenBL(true)}
                           onMouseLeave={() => setBLActive(false)}
                         >
                           <p className=" text-xs font-medium">
@@ -2266,9 +2668,9 @@ export default function Home() {
                         <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2">
                           {' '}
                         </div>
-                      ) : NZHover || CSHover ? (
+                      ) : NZHover && CSHover ? (
                         <div
-                          className="max-w-28 bg-[#EBEBEB] py-8 pl-1 pt-2  text-[#5965A3] hover:cursor-pointer"
+                          className="max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
                           onMouseLeave={() => {
                             setNZHover(false);
                             setCSHover(false);
@@ -2343,7 +2745,7 @@ export default function Home() {
                       {PFactive ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setPFActive(false)}
+                          onClick={() => setOpenPF(true)}
                           onMouseLeave={() => setPFActive(false)}
                         >
                           <p className=" text-xs font-medium ">
@@ -2354,9 +2756,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
                           onMouseOver={() => setPFActive(true)}
-                          onClick={() => setPFActive(true)}
+                          onClick={() => setOpenPF(true)}
                           onMouseLeave={() => setPFActive(false)}
                         >
                           <p className=" text-xs font-medium">
@@ -2435,7 +2837,7 @@ export default function Home() {
                       {PBactive ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setPBActive(false)}
+                          onClick={() => setOpenPB(true)}
                           onMouseLeave={() => setPBActive(false)}
                         >
                           <p className=" text-xs font-medium ">
@@ -2446,9 +2848,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
                           onMouseOver={() => setPBActive(true)}
-                          onClick={() => setPBActive(true)}
+                          onClick={() => setOpenPB(true)}
                           onMouseLeave={() => setPBActive(false)}
                         >
                           <p className=" text-xs font-medium">
@@ -2527,7 +2929,7 @@ export default function Home() {
                       {QDactive ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setQDActive(false)}
+                          onClick={() => setOpenQD(true)}
                           onMouseLeave={() => setQDActive(false)}
                         >
                           <p className=" text-xs font-medium ">
@@ -2541,7 +2943,7 @@ export default function Home() {
                         <div
                           className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
                           onMouseOver={() => setQDActive(true)}
-                          onClick={() => setQDActive(true)}
+                          onClick={() => setOpenQD(true)}
                           onMouseLeave={() => setQDActive(false)}
                         >
                           <p className=" text-xs font-medium">
@@ -2621,7 +3023,7 @@ export default function Home() {
                       {BRactive ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setBRActive(false)}
+                          onClick={() => setOpenBR(true)}
                           onMouseLeave={() => setBRActive(false)}
                         >
                           <p className=" text-xs font-medium ">
@@ -2632,9 +3034,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
                           onMouseOver={() => setBRActive(true)}
-                          onClick={() => setBRActive(true)}
+                          onClick={() => setOpenBR(true)}
                           onMouseLeave={() => setBRActive(false)}
                         >
                           <p className=" text-xs font-medium">
@@ -2713,7 +3115,7 @@ export default function Home() {
                       {SMactive ? (
                         <div
                           className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
-                          onClick={() => setSMActive(false)}
+                          onClick={() => setOpenSM(true)}
                           onMouseLeave={() => setSMActive(false)}
                         >
                           <p className=" text-xs font-medium ">
@@ -2722,9 +3124,9 @@ export default function Home() {
                         </div>
                       ) : (
                         <div
-                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
                           onMouseOver={() => setSMActive(true)}
-                          onClick={() => setSMActive(true)}
+                          onClick={() => setOpenSM(true)}
                           onMouseLeave={() => setSMActive(false)}
                         >
                           <p className=" text-xs font-medium">
@@ -2732,7 +3134,7 @@ export default function Home() {
                           </p>
                         </div>
                       )}
-                      {RCactive || openRC || SMactive ? (
+                      {RCactive || SMactive ? (
                         <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
                           {' '}
                         </div>
@@ -2741,14 +3143,35 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {NZactive || SMactive ? (
-                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                      {(NZactive || SMactive) && !openCL ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2">
                           {' '}
+                        </div>
+                      ) : NZHover && CTHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setNZHover(false);
+                            setCTHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenCL(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">CircuLaw</p>
+                        </div>
+                      ) : openCL ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">CircuLaw</p>
                         </div>
                       ) : (
-                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
-                          {' '}
-                        </div>
+                        <div
+                          className="mt-2 bg-[#414040] py-10 pt-2"
+                          onMouseEnter={() => {
+                            setNZHover(true);
+                            setCTHover(true);
+                          }}
+                        ></div>
                       )}
                       {SGactive || SMactive ? (
                         <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
@@ -2804,18 +3227,59 @@ export default function Home() {
                       Studios
                     </h2>
                   </div>
-                  <div className="h-14 w-20 bg-[#252424] px-2 py-3 ">
-                    <p className=" pt-2 text-xs font-medium text-[#fff]">
-                      Civic Tech
-                    </p>
-                  </div>
+                  {CTactive ? (
+                    <div
+                      className="h-14 w-20 bg-[#EBEBEB] px-2 py-3 hover:cursor-pointer"
+                      onClick={() => setOpenCT(true)}
+                      onMouseLeave={() => setCTActive(false)}
+                    >
+                      <p className=" pt-2 text-xs font-medium text-[#5965A3] ">
+                        Civic Tech
+                      </p>
+                    </div>
+                  ) : CTHover ? (
+                    <div className="h-14 w-20 border-r-2 border-r-white bg-[#252424] px-2 py-3">
+                      <p className=" pt-2 text-xs font-medium text-[#fff]">
+                        Civic Tech
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className="h-14 w-20 bg-[#252424] px-2 py-3"
+                      onMouseOver={() => setCTActive(true)}
+                      onClick={() => setOpenCT(true)}
+                      onMouseLeave={() => setCTActive(false)}
+                    >
+                      <p className=" pt-2 text-xs font-medium text-[#fff]">
+                        Civic Tech
+                      </p>
+                    </div>
+                  )}
                   <div className="max-w-8 bg-[#252424] py-1 "> </div>
-                  <div className=" h-14 w-20 bg-[#252424] px-2 py-1  ">
-                    <p className=" text-xs font-medium text-[#fff]">
-                      Conversat-
-                      <br /> ional Design
-                    </p>
-                  </div>
+                  {CDactive ? (
+                    <div
+                      className="h-14 w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                      onClick={() => setOpenCD(true)}
+                      onMouseLeave={() => setCDActive(false)}
+                    >
+                      <p className="text-xs font-medium text-[#5965A3] ">
+                        Conversat-
+                        <br /> ional Design
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className="h-14 w-20 bg-[#252424] px-2 py-1"
+                      onMouseOver={() => setCDActive(true)}
+                      onClick={() => setOpenCD(true)}
+                      onMouseLeave={() => setCDActive(false)}
+                    >
+                      <p className="text-xs font-medium text-[#fff]">
+                        Conversat-
+                        <br /> ional Design
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
