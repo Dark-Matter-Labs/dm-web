@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import { Fragment, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import Image from 'next/image';
 
 import Navbar from '../components/Navbar';
 import SideNav from '../components/SideNav';
 import '../styles/Home.module.css';
+import landscapeImg from '../images/landscape.png';
 
 export default function Home() {
   const [classT, setClassT] = useState('base');
@@ -141,6 +143,7 @@ export default function Home() {
 
     if (window.scrollY > 2200) {
       setAnimate2DOn('animate2DLayer');
+      setActiveState(7);
     }
   };
 
@@ -181,6 +184,9 @@ export default function Home() {
 
   // open modal states
   const [openLEE, setOpenLEE] = useState(false);
+  const [openCTC, setOpenCTC] = useState(false);
+  const [openCIC, setOpenCIC] = useState(false);
+  const [openRBF, setOpenRBF] = useState(false);
   const [openMC, setOpenMC] = useState(false);
   const [openTAI, setOpenTAI] = useState(false);
   const [openCL, setOpenCL] = useState(false);
@@ -962,6 +968,105 @@ export default function Home() {
         </Dialog>
       </Transition.Root>
 
+      <Transition.Root show={openCTC} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenCTC}>
+          <div className="fixed inset-0 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      City-scale tree canopies: as a pathway towards this
+                      ambition, the TreesAI (Trees As Infrastructure) Team has
+                      been working to create investable asset classes for the
+                      planting and maintenance of trees.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openCIC} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenCIC}>
+          <div className="fixed inset-0 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      Collective intelligence of a city: the Cornerstone
+                      Indicator initiative was developed to strengthen citizen
+                      engagement networks that can sense what it means to thrive
+                      in different contexts. The resultant indicators empower
+                      communities to have agency over decisions and express
+                      their voices in a continuous cycle of participatory
+                      governance. As this work progresses we are aiming to link
+                      the indicators to smart data to build a more coherent
+                      picture of civic experience.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openRBF} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={setOpenRBF}>
+          <div className="fixed inset-0 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      Resilient bioregional food systems: we are working towards
+                      this option in varied threads of our work. On the broader
+                      topic of bioregional transitions we are exploring what a
+                      regenerative bioregional economy might even look like. In
+                      parallel, we are working with communities to design and
+                      implement multi-sensory indicators that can be linked to
+                      participatory governance systems, with the aim of
+                      stewarding the regenerative health of a bioregion.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
       <main className="mx-auto max-w-screen-xl">
         <Navbar />
         <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
@@ -1012,14 +1117,25 @@ export default function Home() {
                 how the future will play out or the specific infrastructures
                 that we will need, but we can build towards a range of options.
                 We are imaging new investment opportunities for{' '}
-                <span className="text-[#A28CC6]">city-scale tree canopies</span>
+                <span
+                  className="text-[#A28CC6] hover:cursor-pointer"
+                  onClick={() => setOpenCTC(true)}
+                >
+                  city-scale tree canopies
+                </span>
                 , community endowments and{' '}
-                <span className="text-[#A28CC6]">
+                <span
+                  className="text-[#A28CC6] hover:cursor-pointer"
+                  onClick={() => setOpenRBF(true)}
+                >
                   resilient bioregional food systems
                 </span>
                 . Perhaps the city-wide electrification of transport networks,
                 the mental health of a community or the{' '}
-                <span className="text-[#A28CC6]">
+                <span
+                  className="text-[#A28CC6] hover:cursor-pointer"
+                  onClick={() => setOpenCIC(true)}
+                >
                   collective intelligence of a city
                 </span>{' '}
                 will become recognisable assets, understood as commitments to a
@@ -3282,6 +3398,90 @@ export default function Home() {
                   )}
                 </div>
               </div>
+            </div>
+
+            <div>
+              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+                The overarching LEE Mission allows us to contextually adjust the
+                horizons  of our interactions and interventions, whilst building
+                towards a coherent field of influence and change. 
+              </h3>
+              <p className="pt-10 font-FKregular text-lg text-white">
+                How can we interact with the stunning complexity of life? Is it
+                possible to combine a deep awe and respect for emergence with a
+                desire to shift and mould the world we live in? It would be an
+                understatement to say that we have no solid answers to these
+                questions. And yet... the aspiration to strive and work towards
+                a survivable future is a yearning that outweighs everything
+                else. Holding that perspective, we are organising across
+                multiple dimensions and working concurrently with varied
+                cultural frames, geographical contexts and time horizons. 
+              </p>
+              <p className="pt-10 font-FKregular text-lg text-white">
+                A single theory of change feels wildly inadequate; instead we
+                using the following framework to structure a continuous process
+                of landscape scanning and action:
+              </p>
+              <Image
+                src={landscapeImg}
+                className="mx-auto my-10"
+                alt="world map with dm matrix"
+                height={500}
+                width={500}
+              />
+              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+                Political landscapes
+              </h3>
+              <p className="pb-8 pt-10 font-FKregular text-lg text-white">
+                A right wing context may provide more fertile ground for rapidly
+                mobilising complex technologies than a liberal context. Or
+                perhaps in a context like Ukraine where crisis and instability
+                has become an everyday reality, the motivation for citizens to
+                drive alternative governance models is heightened. This could
+                start from a desire to support the military via voluntary
+                crowdfunding and extend to new sectors and patterns of
+                behaviour.
+              </p>
+
+              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+                Geographical landscapes
+              </h3>
+              <p className="pb-8 pt-10 font-FKregular text-lg text-white">
+                In some cases we may need to look to edge communities for an
+                idea to gain traction (e.g. a distributed currency), whereas in
+                others a supportive social infrastructure is needed to establish
+                agency (e.g. a material registry). Each country has something to
+                teach us; from land laws in Scotland to open data systems in
+                Taiwan, we are open to how our work can weave and adapt to local
+                contexts.
+              </p>
+
+              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+                Time horizons
+              </h3>
+              <p className="pb-8 pt-10 font-FKregular text-lg text-white">
+                Recognising that a speculative policy in one context might
+                already be triage response in another can increase our
+                collective learning and ability to test edge ideas. This could
+                mean working with Indigenous communities on Turtle Island (North
+                America) to urgently finance the regeneration of indigenous
+                lands. It could also entail supporting marginalised communities
+                in England to seed alternative housing models in response to the
+                systemic crisis crisis.
+              </p>
+
+              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+                Alliances
+              </h3>
+              <p className="pt-10 font-FKregular text-lg text-white">
+                On the surface a central bank and an ecological activist may
+                have little in common. Yet, central banks have a mandate to
+                preserve stability, which in the future could involve recoupling
+                money issuance to ecological rights? This logic might also
+                extend to cultural intersectional points, such as indigenous
+                perspectives and state mandates in locations such as Australia
+                and India.
+              </p>
             </div>
           </div>
         </div>

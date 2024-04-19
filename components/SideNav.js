@@ -44,14 +44,14 @@ const pageNav = [
     ],
   },
   {
-    id: 8,
+    id: 7,
     title: 'Contexts weaving',
     description: '',
     link: '#',
     sub: [],
   },
   {
-    id: 9,
+    id: 8,
     title: 'Deep Paradigm',
     description: '',
     link: '#',
