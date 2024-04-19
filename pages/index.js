@@ -143,6 +143,9 @@ export default function Home() {
 
     if (window.scrollY > 2200) {
       setAnimate2DOn('animate2DLayer');
+    }
+
+    if (window.scrollY > 3000) {
       setActiveState(7);
     }
   };
