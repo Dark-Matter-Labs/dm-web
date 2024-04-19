@@ -60,11 +60,16 @@ img {
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
   animation-direction: alternate;
   animation-timeline: scroll(block nearest);
+
+  -webkit-animation-name: threeDAnimate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes threeDAnimate {
   20% {
-    transform: rotateX(58deg) rotateY(0) rotateZ(5deg) skew(58deg, -58deg);
+    transform: rotateX(58deg) rotateY(0) rotateZ(5deg) skew(58deg, -58deg)
+      scale3d(0.5, 0.5, 1);
     opacity: 1;
   }
   40% {
@@ -88,6 +93,10 @@ img {
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
   animation-direction: alternate;
   animation-timeline: scroll(block nearest);
+
+  -webkit-animation-name: threeDAnimateLayer2;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes threeDAnimateLayer2 {
@@ -112,6 +121,10 @@ img {
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
   animation-direction: alternate;
   animation-timeline: scroll(block nearest);
+
+  -webkit-animation-name: threeDAnimateLayer3;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes threeDAnimateLayer3 {
@@ -139,6 +152,10 @@ img {
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
   animation-direction: alternate;
   animation-timeline: scroll(block nearest);
+
+  -webkit-animation-name: threeDAnimateLayer4;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes threeDAnimateLayer4 {
@@ -166,6 +183,10 @@ img {
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
   animation-direction: alternate;
   animation-timeline: scroll(block nearest);
+
+  -webkit-animation-name: twoDAnimateLayer;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes twoDAnimateLayer {
@@ -175,8 +196,11 @@ img {
   40% {
     opacity: 0.2;
   }
+  50% {
+    opacity: 1;
+  }
   60% {
-    opacity: 0.3;
+    opacity: 1;
   }
   70% {
     opacity: 1;
