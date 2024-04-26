@@ -56,7 +56,7 @@ img {
 }
 
 .threeD {
-  transform: rotateX(60deg) rotateY(0) rotateZ(6deg) skew(60deg, -60deg)
+  transform: rotateX(55deg) rotateY(0) rotateZ(6deg) skew(60deg, -60deg)
     scale3d(0.5, 0.5, 1);
 }
 
@@ -72,114 +72,14 @@ img {
 }
 
 @keyframes threeDAnimate {
-  20% {
-    transform: rotateX(58deg) rotateY(0) rotateZ(5deg) skew(58deg, -58deg)
+  0% {
+    transform: rotateX(55deg) rotateY(0) rotateZ(6deg) skew(60deg, -60deg)
       scale3d(0.5, 0.5, 1);
     opacity: 1;
   }
-  40% {
-    transform: rotateX(48deg) rotateY(0) rotateZ(4deg) skew(50deg, -50deg)
-      scale3d(0.6, 0.6, 0.8);
-    opacity: 1;
-  }
-  60% {
-    transform: rotateX(20deg) rotateY(0) rotateZ(2deg) skew(20deg, -20deg)
-      scale3d(0.8, 0.8, 0.4);
-    opacity: 0.4;
-  }
   100% {
-    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0) scale3d(1, 1, 0);
+    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0) scale3d(1, 1, 1);
     opacity: 0;
-  }
-}
-
-.animateLayer2 {
-  animation: threeDAnimateLayer2;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-direction: alternate;
-  animation-timeline: scroll(block nearest);
-
-  -webkit-animation-name: threeDAnimateLayer2;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-}
-
-@keyframes threeDAnimateLayer2 {
-  40% {
-    transform: rotateX(50deg) rotateY(0) rotateZ(4deg) skew(50deg, -50deg)
-      scale3d(0.6, 0.6, 0.8);
-    opacity: 0.4;
-  }
-  60% {
-    transform: rotateX(20deg) rotateY(0) rotateZ(2deg) skew(20deg, -20deg)
-      scale3d(0.8, 0.8, 0.4);
-    opacity: 0.2;
-  }
-  100% {
-    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0) scale3d(1, 1, 0);
-    opacity: 0;
-  }
-}
-
-.animateLayer3 {
-  animation: threeDAnimateLayer3;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-direction: alternate;
-  animation-timeline: scroll(block nearest);
-
-  -webkit-animation-name: threeDAnimateLayer3;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-}
-
-@keyframes threeDAnimateLayer3 {
-  40% {
-    transform: rotateX(50deg) rotateY(0) rotateZ(4deg) skew(50deg, -50deg)
-      scale3d(0.6, 0.6, 0.8);
-    opacity: 0.6;
-    top: 10px;
-  }
-  60% {
-    transform: rotateX(20deg) rotateY(0) rotateZ(2deg) skew(20deg, -20deg)
-      scale3d(0.8, 0.8, 0.4);
-    opacity: 0.4;
-    top: 0;
-  }
-  100% {
-    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0) scale3d(1, 1, 0);
-    opacity: 0;
-    top: 0;
-  }
-}
-
-.animateLayer4 {
-  animation: threeDAnimateLayer4;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-direction: alternate;
-  animation-timeline: scroll(block nearest);
-
-  -webkit-animation-name: threeDAnimateLayer4;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-}
-
-@keyframes threeDAnimateLayer4 {
-  40% {
-    transform: rotateX(50deg) rotateY(0) rotateZ(4deg) skew(50deg, -50deg)
-      scale3d(0.6, 0.6, 0.8);
-    opacity: 0.2;
-    top: 30px;
-  }
-  60% {
-    transform: rotateX(20deg) rotateY(0) rotateZ(2deg) skew(20deg, -20deg)
-      scale3d(0.8, 0.8, 0.4);
-    opacity: 0.1;
-    top: 20px;
-  }
-  100% {
-    transform: rotateX(0) rotateY(0) rotateZ(0) skew(0) scale3d(1, 1, 0);
-    opacity: 0;
-    top: 0;
   }
 }
 

@@ -23,9 +23,6 @@ export default function Home() {
   const [activeState, setActiveState] = useState(1);
 
   const [animateOn, setAnimateOn] = useState('');
-  const [animateOnLayer2, setAnimateOnLayer2] = useState('');
-  const [animateOnLayer3, setAnimateOnLayer3] = useState('');
-  const [animateOnLayer4, setAnimateOnLayer4] = useState('');
 
   const [animate2DOn, setAnimate2DOn] = useState('');
 
@@ -44,9 +41,6 @@ export default function Home() {
 
       setClassT2('t1');
       setAnimateOn('');
-      setAnimateOnLayer2('');
-      setAnimateOnLayer3('');
-      setAnimateOnLayer4('');
       setAnimate2DOn('');
     } else if (window.scrollY > 1300 && window.scrollY < 1400) {
       setActiveState(2);
@@ -61,9 +55,6 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setAnimateOnLayer2('');
-      setAnimateOnLayer3('');
-      setAnimateOnLayer4('');
       setAnimate2DOn('');
     } else if (window.scrollY > 1400 && window.scrollY < 1500) {
       setActiveState(3);
@@ -78,9 +69,6 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setAnimateOnLayer2('');
-      setAnimateOnLayer3('');
-      setAnimateOnLayer4('');
       setAnimate2DOn('');
     } else if (window.scrollY > 1500 && window.scrollY < 1600) {
       setActiveState(4);
@@ -96,9 +84,6 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setAnimateOnLayer2('');
-      setAnimateOnLayer3('');
-      setAnimateOnLayer4('');
       setAnimate2DOn('');
     } else if (window.scrollY > 1600 && window.scrollY < 1700) {
       setClassStudio('studio');
@@ -113,9 +98,6 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setAnimateOnLayer2('');
-      setAnimateOnLayer3('');
-      setAnimateOnLayer4('');
       setAnimate2DOn();
     } else if (window.scrollY > 1800 && window.scrollY < 2500) {
       setClassStudio('');
@@ -135,9 +117,6 @@ export default function Home() {
 
     if (window.scrollY > 1650) {
       setAnimateOn('animate');
-      setAnimateOnLayer2('animateLayer2');
-      setAnimateOnLayer3('animateLayer3');
-      setAnimateOnLayer4('animateLayer4');
       setAnimate2DOn('');
     }
 
@@ -2184,8 +2163,1094 @@ export default function Home() {
                     </div>
                   </div>
 
+                                <div
+                className={`grid h-screen grid-cols-12 opacity-0 ${animate2DOn}`}
+              >
+                <div className="col-span-11">
+                  <div className="grid max-w-6xl grid-cols-9 gap-0 ">
+                    <div className="col-span-1"></div>
+                    <h2 className="pb-4 text-xl font-light text-[#9F9F9F]">
+                      Labs
+                    </h2>
+                  </div>
+
+                  <div className="bg-alpha grid max-w-6xl grid-cols-9 gap-0.5">
+                    <div className="">
+                      <div className="bg-[#151414]">
+                        <h2 className="pb-2 pt-[3.25rem] text-xl font-light text-[#9F9F9F]">
+                          Arcs
+                        </h2>
+                      </div>
+                      {RCactive || openRC ? (
+                        <div
+                          className="max-w-32 bg-[#FFFFFF] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenRC(true)}
+                          onMouseLeave={() => setRCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">Radicle Civics</p>
+                        </div>
+                      ) : RCHover ? (
+                        <div className="max-w-32 border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
+                          <p className="text-xs font-medium ">Radicle Civics</p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
+                          onMouseOver={() => setRCActive(true)}
+                          onClick={() => setOpenRC(true)}
+                          onMouseLeave={() => setRCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">Radicle Civics</p>
+                        </div>
+                      )}
+                      {NZactive || openNZ ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenNZ(true)}
+                          onMouseLeave={() => setNZActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      ) : NZHover ? (
+                        <div className="mt-2 max-w-32 border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
+                          <p className="text-xs font-medium ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] "
+                          onMouseOver={() => setNZActive(true)}
+                          onClick={() => setOpenNZ(true)}
+                          onMouseLeave={() => setNZActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      )}
+
+                      {SGactive || openSG ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenSG(true)}
+                          onMouseLeave={() => setSGActive(false)}
+                        >
+                          <p className="text-xs font-medium ">7Gen Cities</p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] "
+                          onMouseOver={() => setSGActive(true)}
+                          onClick={() => setOpenSG(true)}
+                          onMouseLeave={() => setSGActive(false)}
+                        >
+                          <p className="text-xs font-medium ">7Gen Cities</p>
+                        </div>
+                      )}
+
+                      {M0active || openM0 ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenM0(true)}
+                          onMouseLeave={() => setM0Active(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            M0
+                            <br /> Cities
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
+                          onMouseOver={() => setM0Active(true)}
+                          onClick={() => setOpenM0(true)}
+                          onMouseLeave={() => setM0Active(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            M0
+                            <br /> Cities
+                          </p>
+                        </div>
+                      )}
+
+                      {REactive ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenRE(true)}
+                          onMouseLeave={() => setREActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Regen Nutrition
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setREActive(true)}
+                          onClick={() => setOpenRE(true)}
+                          onMouseLeave={() => setREActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Regen Nutrition
+                          </p>
+                        </div>
+                      )}
+
+                      {BEactive ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenBE(true)}
+                          onMouseLeave={() => setBEActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Bioregional Economics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
+                          onMouseOver={() => setBEActive(true)}
+                          onClick={() => setOpenBE(true)}
+                          onMouseLeave={() => setBEActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Bioregional Economics
+                          </p>
+                        </div>
+                      )}
+
+                      {PCactive ? (
+                        <div
+                          className="my-2 max-w-32 bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenPC(true)}
+                          onMouseLeave={() => setPCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Planetary Civics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="my-2 max-w-32 bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]"
+                          onMouseOver={() => setPCActive(true)}
+                          onClick={() => setOpenPC(true)}
+                          onMouseLeave={() => setPCActive(false)}
+                        >
+                          <p className="text-xs font-medium ">
+                            Planetary Civics
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      {NEactive || openNE ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenNE(true)}
+                          onMouseLeave={() => setNEActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Next Economics Lab
+                          </p>
+                        </div>
+                      ) : NEHover ? (
+                        <div className="max-w-28 border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-8 pt-1.5 text-[#FFF]">
+                          <p className=" text-xs font-medium">
+                            Next Economics Lab
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setNEActive(true)}
+                          onClick={() => setOpenNE(true)}
+                          onMouseLeave={() => setNEActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Next Economics Lab
+                          </p>
+                        </div>
+                      )}
+
+                      {(RCactive || NEactive) && !openMC ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : RCHover && NEHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setRCHover(false);
+                            setNEHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenMC(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Multivalent currencies
+                          </p>
+                        </div>
+                      ) : openMC ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">
+                            Multivalent currencies
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="hover:cursor-pointer] bg-[#414040] py-10 pl-1 pt-2"
+                          onMouseEnter={() => {
+                            setRCHover(true);
+                            setNEHover(true);
+                          }}
+                        ></div>
+                      )}
+                      {NZactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+
+                      {SGactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {(M0active || NEactive) && !openNET ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2">
+                          {' '}
+                        </div>
+                      ) : M0Hover && NEHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setM0Hover(false);
+                            setNEHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenNET(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">
+                            New Economic Thinking
+                          </p>
+                        </div>
+                      ) : openNET ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">
+                            New Economic Thinking
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="hover:cursor-pointer] mt-2 bg-[#414040] py-10 pl-1 pt-2"
+                          onMouseEnter={() => {
+                            setM0Hover(true);
+                            setNEHover(true);
+                          }}
+                        ></div>
+                      )}
+
+                      {REactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+
+                      {BEactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || NEactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {BLactive || openBL ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenBL(true)}
+                          onMouseLeave={() => setBLActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Beyond Labour
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
+                          onMouseOver={() => setBLActive(true)}
+                          onClick={() => setOpenBL(true)}
+                          onMouseLeave={() => setBLActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Beyond Labour
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || BLactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || BLactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {openCS || CSactive ? (
+                        <div
+                          className="group max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenCS(true)}
+                          onMouseLeave={() => setCSActive(false)}
+                        >
+                          <p className="mb-4 text-xs font-medium">
+                            Capital Systems
+                            <span className="inline">↗</span>
+                          </p>
+                        </div>
+                      ) : CSHover ? (
+                        <div className="max-w-28 border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-[2.87rem] pt-2 text-[#FFF] ">
+                          <p className=" text-xs font-medium">
+                            Capital Systems
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="group max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onClick={() => {
+                            setOpenCS(true);
+                            setCSActive(true);
+                          }}
+                          onMouseOver={() => setCSActive(true)}
+                          onMouseLeave={() => setCSActive(false)}
+                        >
+                          <p className="mb-4 text-xs font-medium">
+                            Capital Systems
+                            <span className="hidden group-hover:inline">
+                              ↗
+                            </span>
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || CSactive || openCS ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {(NZactive || CSactive) && !openTAI ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2">
+                          {' '}
+                        </div>
+                      ) : NZHover && CSHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setNZHover(false);
+                            setCSHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenTAI(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">TreesAI</p>
+                        </div>
+                      ) : openTAI ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">TreesAI</p>
+                        </div>
+                      ) : (
+                        <div
+                          className="mt-2 bg-[#414040] py-10 pt-2"
+                          onMouseEnter={() => {
+                            setNZHover(true);
+                            setCSHover(true);
+                          }}
+                        ></div>
+                      )}
+                      {SGactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || CSactive || openCS ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {PFactive || openPF ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenPF(true)}
+                          onMouseLeave={() => setPFActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Philanthrop. Futures
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
+                          onMouseOver={() => setPFActive(true)}
+                          onClick={() => setOpenPF(true)}
+                          onMouseLeave={() => setPFActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Philanthrop. Futures
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || PFactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || PFactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {PBactive || openPB ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenPB(true)}
+                          onMouseLeave={() => setPBActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Property & Beyond
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
+                          onMouseOver={() => setPBActive(true)}
+                          onClick={() => setOpenPB(true)}
+                          onMouseLeave={() => setPBActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Property & Beyond
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || PBactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || PBactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {QDactive || openQD ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenQD(true)}
+                          onMouseLeave={() => setQDActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            {' '}
+                            Quantum Decisions
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]"
+                          onMouseOver={() => setQDActive(true)}
+                          onClick={() => setOpenQD(true)}
+                          onMouseLeave={() => setQDActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            {' '}
+                            Quantum Decisions
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || QDactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || QDactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {BRactive || openBR ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenBR(true)}
+                          onMouseLeave={() => setBRActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Beyond the Rules
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
+                          onMouseOver={() => setBRActive(true)}
+                          onClick={() => setOpenBR(true)}
+                          onMouseLeave={() => setBRActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Beyond the Rules
+                            <br />
+                            <br />
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || openRC || BRactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || BRactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {SMactive || openSM ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                          onClick={() => setOpenSM(true)}
+                          onMouseLeave={() => setSMActive(false)}
+                        >
+                          <p className=" text-xs font-medium ">
+                            Sensing, Modeling, Mapping
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="max-w-28 bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF]"
+                          onMouseOver={() => setSMActive(true)}
+                          onClick={() => setOpenSM(true)}
+                          onMouseLeave={() => setSMActive(false)}
+                        >
+                          <p className=" text-xs font-medium">
+                            Sensing, Modeling, Mapping
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || SMactive ? (
+                        <div className="max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {(NZactive || SMactive) && !openCL ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2">
+                          {' '}
+                        </div>
+                      ) : NZHover && CTHover ? (
+                        <div
+                          className="max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setNZHover(false);
+                            setCTHover(false);
+                          }}
+                          onClick={() => {
+                            setOpenCL(true);
+                          }}
+                        >
+                          <p className=" text-xs font-medium ">CircuLaw</p>
+                        </div>
+                      ) : openCL ? (
+                        <div className=" max-w-28 bg-[#EBEBEB] py-8 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
+                          <p className=" text-xs font-medium">CircuLaw</p>
+                        </div>
+                      ) : (
+                        <div
+                          className="mt-2 bg-[#414040] py-10 pt-2"
+                          onMouseEnter={() => {
+                            setNZHover(true);
+                            setCTHover(true);
+                          }}
+                        ></div>
+                      )}
+                      {SGactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {REactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || SMactive ? (
+                        <div className="mt-2 max-w-28 bg-[#575657] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      ) : (
+                        <div className="mt-2 max-w-28 bg-[#414040] py-10 pt-2 ">
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-[5.5rem]">
+                  <div className="  ">
+                    <h2 className="pl-4 pt-4 text-xl font-light text-[#9F9F9F]">
+                      Studios
+                    </h2>
+                  </div>
+                  {CTactive || openCT ? (
+                    <div
+                      className="h-14 w-20 bg-[#EBEBEB] px-2 py-3 hover:cursor-pointer"
+                      onClick={() => setOpenCT(true)}
+                      onMouseLeave={() => setCTActive(false)}
+                    >
+                      <p className=" pt-2 text-xs font-medium text-[#5965A3] ">
+                        Civic Tech
+                      </p>
+                    </div>
+                  ) : CTHover ? (
+                    <div className="h-14 w-20 border-r-2 border-r-white bg-[#252424] px-2 py-3">
+                      <p className=" pt-2 text-xs font-medium text-[#fff]">
+                        Civic Tech
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className="h-14 w-20 bg-[#252424] px-2 py-3"
+                      onMouseOver={() => setCTActive(true)}
+                      onClick={() => setOpenCT(true)}
+                      onMouseLeave={() => setCTActive(false)}
+                    >
+                      <p className=" pt-2 text-xs font-medium text-[#fff]">
+                        Civic Tech
+                      </p>
+                    </div>
+                  )}
+                  <div className="max-w-8 bg-[#252424] py-1 "> </div>
+                  {CDactive || openCD ? (
+                    <div
+                      className="h-14 w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                      onClick={() => setOpenCD(true)}
+                      onMouseLeave={() => setCDActive(false)}
+                    >
+                      <p className="text-xs font-medium text-[#5965A3] ">
+                        Conversat-
+                        <br /> ional Design
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className="h-14 w-20 bg-[#252424] px-2 py-1"
+                      onMouseOver={() => setCDActive(true)}
+                      onClick={() => setOpenCD(true)}
+                      onMouseLeave={() => setCDActive(false)}
+                    >
+                      <p className="text-xs font-medium text-[#fff]">
+                        Conversat-
+                        <br /> ional Design
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
                   <div
-                    className={`threeD absolute top-20 z-40 w-full opacity-40 ${classStudio} ${animateOnLayer2}`}
+                    className={`threeD absolute top-20 z-40 w-full opacity-40 ${classStudio} ${animateOn}`}
                   >
                     <div className=" grid max-w-4xl grid-cols-8 gap-0">
                       <div>
@@ -2273,7 +3338,7 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD capability-bg absolute top-40 z-20 w-full opacity-60 ${animateOnLayer3}`}
+                    className={`threeD capability-bg absolute top-40 z-20 w-full opacity-60 ${animateOn}`}
                   >
                     <div className=" grid max-w-4xl grid-cols-8 gap-0">
                       <div>
@@ -2361,7 +3426,7 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-60 z-20 w-full opacity-20 ${animateOnLayer4}`}
+                    className={`threeD absolute top-60 z-20 w-full opacity-20 ${animateOn}`}
                   >
                     <div className=" grid max-w-4xl grid-cols-8 gap-0">
                       <div>
@@ -2449,8 +3514,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className={`mt-80 font-FKmedium`}>
+              <div className={`mt-80 font-FKmedium`}>
               <div
                 className={`grid h-screen grid-cols-12 opacity-0 ${animate2DOn}`}
               >
@@ -3537,6 +4601,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </div>
+
 
             <div>
               <h3 className="max-w-xl  font-FKregular text-3xl text-white">
@@ -3623,7 +4689,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="py-80"></div>
+        <div className="py-80">
+
+        </div>
       </main>
     </div>
   );
