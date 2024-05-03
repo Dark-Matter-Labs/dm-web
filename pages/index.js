@@ -11,7 +11,6 @@ import landscapeImg from '../images/landscape.png';
 export default function Home() {
   const [classT, setClassT] = useState('base');
   const [classL, setClassL] = useState('base');
-  const [classR, setClassR] = useState('base');
 
   const [classA, setClassA] = useState('');
   const [classAT, setClassAT] = useState('');
@@ -28,13 +27,11 @@ export default function Home() {
   const step = 100;
   const animationStart = 1600;
   const stopSticky = 1700;
-  const animationStop = 1700;
 
   const listenScrollEvent = () => {
     if (window.scrollY < startSticky) {
       setClassT('base');
       setClassL('base');
-      setClassR('base');
       setClassA('');
       setClassAT('');
       setClassAB('');
@@ -53,7 +50,6 @@ export default function Home() {
 
       setClassT('base');
       setClassL('base');
-      setClassR('base');
       setClassA('');
       setClassAT('');
       setClassAB('');
@@ -80,11 +76,9 @@ export default function Home() {
       setActiveState(4);
       setClassT('base');
       setClassL('base');
-      setClassR('base');
 
       setClassT('labs');
       setClassL('labs-left');
-      setClassR('labs-right');
       setClassA('');
       setClassAT('');
       setClassAB('');
@@ -101,7 +95,6 @@ export default function Home() {
       setActiveState(5);
       setClassT('base');
       setClassL('base');
-      setClassR('base');
 
       setClassA('');
       setClassAT('');
@@ -117,7 +110,6 @@ export default function Home() {
       setActiveState(6);
       setClassT('base');
       setClassL('base');
-      setClassR('base');
 
       setClassA('');
       setClassAT('');
@@ -1282,7 +1274,7 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
-              <div id="eco" className="h-screen">
+              <div className="h-screen">
                 <div className={`my-20 -ml-10 `}>
                   <div
                     className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn}`}
@@ -1320,7 +1312,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#2C2B2B] px-2 py-2 text-[#FFF]  ${classL}`}
+                              className={`h-[4rem] bg-[#2C2B2B] px-2 py-2 text-[#FFF] drop-shadow-xl ${classL}`}
                               onMouseOver={() => setRCActive(true)}
                               onClick={() => setOpenRC(true)}
                               onMouseLeave={() => setRCActive(false)}
@@ -1348,7 +1340,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL}`}
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 drop-shadow-xl text-[#FFF] ${classL}`}
                               onMouseOver={() => setNZActive(true)}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
@@ -2865,7 +2857,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-40">
+            <div className="mt-80">
               <h3 className="max-w-xl  font-FKregular text-3xl text-white">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons  of our interactions and interventions, whilst building

@@ -5,27 +5,26 @@ import dmLogo from '../images/DML.gif';
 
 export default function Navbar() {
   return (
-    <div className="mt-20 grid grid-cols-12 justify-items-center">
-      <div className="col-span-4 ">
+    <div className="mt-20 grid grid-cols-12 gap-0 ">
+      <div className="justify-self-start col-span-5">
         <Image
           src={dmLogo}
           alt="Dm logo animation in multiple languages"
-          height={500}
-          width={500}
+          width={400}
         />
       </div>
-      <div className="col-span-8">
+      <div className="justify-self-start col-span-7">
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className=" max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className=" max-w-7xl ">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="hidden sm:block">
                       <div className="flex space-x-4">
                         <a
                           href="#"
-                          className=" text-md px-3 py-2 font-FKmedium text-white"
+                          className=" text-md pr-3 py-2 font-FKmedium text-white"
                         >
                           Feed
                         </a>

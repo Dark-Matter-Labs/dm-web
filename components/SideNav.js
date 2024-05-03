@@ -14,6 +14,7 @@ const pageNav = [
     description:
       'We are not a think tank, consultancy, or design studio. We and we do not have a single, neat theory of change. Instead, we arrange our efforts across an ecosystem of collaborations, and ground our approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, through multi-scalar global collaborationwith the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world.',
     link: '#eco',
+    scrollPos: 1245,
     sub: [
       {
         title: 'Labs',
@@ -21,6 +22,7 @@ const pageNav = [
           'Each of our Labs is focused on a specific area of the socio-economic system and the everyday codes (e.g. norms, behaviours and institutional logic) that form its structural backbone. The Labs are exploring what might be possible, both within and beyond the current structures, and working to develop technical expertise in those areas. For example, the Beyond The RulesLab focuses on aspects such as demonstrating multi-actor governance structures whereas the Capital SystemsLab is working to enable strategic ecosystem investments.',
         link: '#',
         id: 3,
+        scrollPos: 1345,
       },
       {
         title: 'Arcs',
@@ -28,6 +30,7 @@ const pageNav = [
           'Our Directional Arc workflows are designed with clear, directional goals that guide our efforts toward impactful outcomes. For instance, Net Zero CitiesArc aims to enable smart, carbon-neutral cities by 2030, while Radicle CivicsArc seeks to foster specific shifts in civic worldviews. These Arcs often involve collaboration with multiple Labs, integrating their technical expertise with tangible, real-world contexts.',
         link: '#',
         id: 4,
+        scrollPos: 1445,
       },
       {
         title: 'Studios',
@@ -35,11 +38,13 @@ const pageNav = [
           'Studios are the connective tissue that support both the Labs and Arcs. The studios explore themes that help our work to be implemented and more widely understood. For instance, the Civ TechStudio develops the technological tools and knowledge for prototypes tested across the Dm ecosystem. Meanwhile, the Org DevStudio, positioned at the base of the Matrix, provides critical infrastructure support for the entire Dm Ecosystem.',
         link: '#',
         id: 5,
+        scrollPos: 1545,
       },
       {
         title: 'How it works',
         link: '#',
         id: 6,
+        scrollPos: 1645,
       },
     ],
   },
@@ -77,7 +82,7 @@ export default function SideNav({ activeState }) {
                     <div className="min-w-0 flex-1 ">
                       {activityItem.id === activeState ? (
                         <div className="">
-                          <h4 className="font-FKmedium text-2xl text-white">
+                          <h4 className="font-FKmedium text-2xl text-white" onClick={() => window.scrollTo({ top: activityItem.scrollPos, behavior: "smooth" })}>
                             <Link href={activityItem.link}>
                               {activityItem.title}
                             </Link>
@@ -88,7 +93,7 @@ export default function SideNav({ activeState }) {
                         </div>
                       ) : (
                         <div className="">
-                          <h4 className="font-FKmedium text-2xl text-[#6A6A6A]">
+                          <h4 className="font-FKmedium text-2xl text-[#6A6A6A]" onClick={() => window.scrollTo({ top: activityItem.scrollPos, behavior: "smooth" })}>
                             <Link href={activityItem.link}>
                               {activityItem.title}
                             </Link>
@@ -118,8 +123,8 @@ export default function SideNav({ activeState }) {
                             <div className="min-w-0 flex-1 ">
                               {sub.id === activeState ? (
                                 <div className="">
-                                  <h5 className="font-FKmedium text-xl text-white">
-                                    <Link href={sub.link}>{sub.title}</Link>
+                                  <h5 className="font-FKmedium text-xl text-white cursor-pointer" onClick={() => window.scrollTo({ top: sub.scrollPos, behavior: "smooth" })}>
+                                   {sub.title}
                                   </h5>
                                   <p className="font-FKregular text-sm text-[#C1C1C1]">
                                     {sub.description}
@@ -127,8 +132,8 @@ export default function SideNav({ activeState }) {
                                 </div>
                               ) : (
                                 <div className="">
-                                  <h5 className="font-FKmedium text-xl text-[#6A6A6A]">
-                                    <Link href={sub.link}>{sub.title}</Link>
+                                  <h5 className="font-FKmedium text-xl text-[#6A6A6A] cursor-pointer" onClick={() => window.scrollTo({ top: sub.scrollPos, behavior: "smooth" })}>
+                                    {sub.title}
                                   </h5>
                                 </div>
                               )}

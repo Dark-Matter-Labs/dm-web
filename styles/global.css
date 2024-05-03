@@ -125,7 +125,7 @@ img {
   }
 
   .t3 {
-    @apply relative top-[27rem];
+    @apply relative top-[30rem];
   }
 }
 
