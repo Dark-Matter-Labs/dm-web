@@ -12,22 +12,22 @@ const pageNav = [
     id: 2,
     title: 'Ecosystem Matrix',
     description:
-      'We are not a think tank, consultancy, or design studio. We and we do not have a single, neat theory of change. Instead, we arrange our efforts across an ecosystem of collaborations, and ground our approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, through multi-scalar global collaborationwith the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world.',
+      'We are not a think tank or consultancy with a single, neat theory of change. Instead, our collaborative approach is firmly grounded in the complex, messy reality of our existing socio-economic systems. Step-by-step, with the support of a growing ecosystem, we aim to build tangible pathways towards the options that we would like to manifest in the world. We have visualised our organisation’s response strategy across a three-dimensional matrix. The Matrix represents the dynamic interplay of our systemic goals, collaborations and context specific initiatives. ',
     link: '#eco',
     scrollPos: 1245,
     sub: [
       {
         title: 'Labs',
         description:
-          'Each of our Labs is focused on a specific area of the socio-economic system and the everyday codes (e.g. norms, behaviours and institutional logic) that form its structural backbone. The Labs are exploring what might be possible, both within and beyond the current structures, and working to develop technical expertise in those areas. For example, the Beyond The RulesLab focuses on aspects such as demonstrating multi-actor governance structures whereas the Capital SystemsLab is working to enable strategic ecosystem investments.',
+          'Each of our Labs is focused on a specific area of the socio-economic system and the everyday codes (e.g. norms, behaviours and institutional logic) that form its structural backbone. The Labs are exploring what might be possible, both within and beyond the current structures, and working to develop technical expertise in those areas. For example, the Beyond The Rules Lab focuses on aspects such as demonstrating multi-actor governance structures whereas the Capital Systems Lab is working to enable strategic ecosystem investments.',
         link: '#',
         id: 3,
         scrollPos: 1345,
       },
       {
-        title: 'Arcs',
+        title: 'Directional Arcs',
         description:
-          'Our Directional Arc workflows are designed with clear, directional goals that guide our efforts toward impactful outcomes. For instance, Net Zero CitiesArc aims to enable smart, carbon-neutral cities by 2030, while Radicle CivicsArc seeks to foster specific shifts in civic worldviews. These Arcs often involve collaboration with multiple Labs, integrating their technical expertise with tangible, real-world contexts.',
+          'Our Arc workflows are designed with clear, directional goals that guide our efforts toward impactful outcomes. For instance, Net Zero Cities aims to enable smart, carbon-neutral cities by 2030, while Radicle Civics seeks to foster specific shifts in civic worldviews. These Arcs often involve collaboration with multiple Labs, integrating their technical expertise with tangible, real-world contexts.',
         link: '#',
         id: 4,
         scrollPos: 1445,
@@ -35,13 +35,14 @@ const pageNav = [
       {
         title: 'Studios',
         description:
-          'Studios are the connective tissue that support both the Labs and Arcs. The studios explore themes that help our work to be implemented and more widely understood. For instance, the Civ TechStudio develops the technological tools and knowledge for prototypes tested across the Dm ecosystem. Meanwhile, the Org DevStudio, positioned at the base of the Matrix, provides critical infrastructure support for the entire Dm Ecosystem.',
+          'Studios are the connective tissue that support both the Labs and Missions. The studios explore themes that help our work to be implemented and more widely understood. For instance, the Civ Tech Studio develops the technological tools and knowledge for prototypes tested across the Dm ecosystem. Meanwhile, the Org DevStudio, positioned at the base of the Matrix, provides critical infrastructure support for the entire Dm Ecosystem.',
         link: '#',
         id: 5,
         scrollPos: 1545,
       },
       {
-        title: 'How it works',
+        title: 'Projects',
+        description: 'Each project in our portfolio contributes to a number of systemic capabilities. In doing so they intersect with the Labs, Arcs and Studios in various configurations. This allows us to prioritise flexible, compound learning across our internal and external ecosystems. Some projects are not part of an Arc, but each is attached to a Lab (or multiple Labs) where they contribute to building systemic capabilities.',
         link: '#',
         id: 6,
         scrollPos: 1645,
