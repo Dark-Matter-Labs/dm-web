@@ -42,7 +42,8 @@ const pageNav = [
       },
       {
         title: 'Projects',
-        description: 'Each project in our portfolio contributes to a number of systemic capabilities. In doing so they intersect with the Labs, Arcs and Studios in various configurations. This allows us to prioritise flexible, compound learning across our internal and external ecosystems. Some projects are not part of an Arc, but each is attached to a Lab (or multiple Labs) where they contribute to building systemic capabilities.',
+        description:
+          'Each project in our portfolio contributes to a number of systemic capabilities. In doing so they intersect with the Labs, Arcs and Studios in various configurations. This allows us to prioritise flexible, compound learning across our internal and external ecosystems. Some projects are not part of an Arc, but each is attached to a Lab (or multiple Labs) where they contribute to building systemic capabilities.',
         link: '#',
         id: 6,
         scrollPos: 1645,
@@ -51,14 +52,21 @@ const pageNav = [
   },
   {
     id: 7,
-    title: 'Contexts weaving',
+    title: 'Systemic Capabilities',
     description: '',
     link: '#',
     sub: [],
   },
   {
     id: 8,
-    title: 'Deep Paradigm',
+    title: 'Deep Context Weaving',
+    description: '',
+    link: '#',
+    sub: [],
+  },
+  {
+    id: 9,
+    title: 'Deep Why',
     description: '',
     link: '#',
     sub: [],
@@ -83,7 +91,15 @@ export default function SideNav({ activeState }) {
                     <div className="min-w-0 flex-1 ">
                       {activityItem.id === activeState ? (
                         <div className="">
-                          <h4 className="font-FKmedium text-2xl text-white" onClick={() => window.scrollTo({ top: activityItem.scrollPos, behavior: "smooth" })}>
+                          <h4
+                            className="font-FKmedium text-2xl text-white"
+                            onClick={() =>
+                              window.scrollTo({
+                                top: activityItem.scrollPos,
+                                behavior: 'smooth',
+                              })
+                            }
+                          >
                             <Link href={activityItem.link}>
                               {activityItem.title}
                             </Link>
@@ -94,7 +110,15 @@ export default function SideNav({ activeState }) {
                         </div>
                       ) : (
                         <div className="">
-                          <h4 className="font-FKmedium text-2xl text-[#6A6A6A]" onClick={() => window.scrollTo({ top: activityItem.scrollPos, behavior: "smooth" })}>
+                          <h4
+                            className="font-FKmedium text-2xl text-[#6A6A6A]"
+                            onClick={() =>
+                              window.scrollTo({
+                                top: activityItem.scrollPos,
+                                behavior: 'smooth',
+                              })
+                            }
+                          >
                             <Link href={activityItem.link}>
                               {activityItem.title}
                             </Link>
@@ -124,8 +148,16 @@ export default function SideNav({ activeState }) {
                             <div className="min-w-0 flex-1 ">
                               {sub.id === activeState ? (
                                 <div className="">
-                                  <h5 className="font-FKmedium text-xl text-white cursor-pointer" onClick={() => window.scrollTo({ top: sub.scrollPos, behavior: "smooth" })}>
-                                   {sub.title}
+                                  <h5
+                                    className="cursor-pointer font-FKmedium text-xl text-white"
+                                    onClick={() =>
+                                      window.scrollTo({
+                                        top: sub.scrollPos,
+                                        behavior: 'smooth',
+                                      })
+                                    }
+                                  >
+                                    {sub.title}
                                   </h5>
                                   <p className="font-FKregular text-sm text-[#C1C1C1]">
                                     {sub.description}
@@ -133,7 +165,15 @@ export default function SideNav({ activeState }) {
                                 </div>
                               ) : (
                                 <div className="">
-                                  <h5 className="font-FKmedium text-xl text-[#6A6A6A] cursor-pointer" onClick={() => window.scrollTo({ top: sub.scrollPos, behavior: "smooth" })}>
+                                  <h5
+                                    className="cursor-pointer font-FKmedium text-xl text-[#6A6A6A]"
+                                    onClick={() =>
+                                      window.scrollTo({
+                                        top: sub.scrollPos,
+                                        behavior: 'smooth',
+                                      })
+                                    }
+                                  >
                                     {sub.title}
                                   </h5>
                                 </div>

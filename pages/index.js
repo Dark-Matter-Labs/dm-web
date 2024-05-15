@@ -225,7 +225,9 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                    the DmCS Lab is working to reframe what is possible within the financial capital markets. This Lab is working with the hypothesis that the{' '}
+                      the DmCS Lab is working to reframe what is possible within
+                      the financial capital markets. This Lab is working with
+                      the hypothesis that the{' '}
                       <a
                         className="text-[#A28CC6]"
                         target="_blank"
@@ -233,7 +235,12 @@ export default function Home() {
                       >
                         investment logic of the current system
                       </a>
-                      needs to be rewired to catch up with the scale of societal transition that is underway. The Lab is developing a portfolio of investable projects and new asset classes (for example a swimmable river in Austria and microgrids in Africa), that recognise that long term value is grounded in our biophysical and social reality. 
+                      needs to be rewired to catch up with the scale of societal
+                      transition that is underway. The Lab is developing a
+                      portfolio of investable projects and new asset classes
+                      (for example a swimmable river in Austria and microgrids
+                      in Africa), that recognise that long term value is
+                      grounded in our biophysical and social reality.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -526,7 +533,12 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                    the Ne Lab embodies the core philosophies of LEE. It aims to stimulate a continuous and inclusive dialogue about how we relate to the world and the implications for a desirable future economy. The Lab is actively testing three core worldview philosophies: what would a future economy look and feel like if it was{' '}
+                      the Ne Lab embodies the core philosophies of LEE. It aims
+                      to stimulate a continuous and inclusive dialogue about how
+                      we relate to the world and the implications for a
+                      desirable future economy. The Lab is actively testing
+                      three core worldview philosophies: what would a future
+                      economy look and feel like if it was{' '}
                       <b>rooted in the recognition of the full web of life</b>,
                       grounded by a <b>non-bounded theory of value</b> and
                       enabled by <b>technological ecosystems of care</b>? In
@@ -566,7 +578,11 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="">
                     <p className="font-FKregular text-base text-[#353535]">
-                    the Pb Lab rejects the values of control and dominion as a basis for private property systems. Instead this Lab aims to build a diverse and proactive portfolio of alternative forms of property; from collective ownership of land to self-owning houses, land, and cameras.
+                      the Pb Lab rejects the values of control and dominion as a
+                      basis for private property systems. Instead this Lab aims
+                      to build a diverse and proactive portfolio of alternative
+                      forms of property; from collective ownership of land to
+                      self-owning houses, land, and cameras.
                     </p>
                     <a
                       target="_blank"
@@ -601,7 +617,14 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="">
                     <p className="font-FKregular text-base text-[#353535]">
-                    the Btr Lab practises new forms of organising and governance. The Lab is particularly interested in the deep, thoughtful and highly creative work required to rewrite, reinvent or reimagine rules, norms and laws that hold us in the current system. The Lab is working closely with an ecosystem of partners to prototype and demonstrate new forms of open contracts and multi-actor governance structures. 
+                      the Btr Lab practises new forms of organising and
+                      governance. The Lab is particularly interested in the
+                      deep, thoughtful and highly creative work required to
+                      rewrite, reinvent or reimagine rules, norms and laws that
+                      hold us in the current system. The Lab is working closely
+                      with an ecosystem of partners to prototype and demonstrate
+                      new forms of open contracts and multi-actor governance
+                      structures.
                     </p>
                     <a
                       target="_blank"
@@ -636,7 +659,7 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                    the Sm Lab is working to improve the{' '}
+                      the Sm Lab is working to improve the{' '}
                       <a
                         className="text-[#A28CC6]"
                         target="_blank"
@@ -644,7 +667,10 @@ export default function Home() {
                       >
                         visibility of our interactions with the physical world
                       </a>
-                      . From material and energy flows to land use, the Lab is building tools and mapping systems that leverage technology to build a dynamic understanding of how the system is responding. 
+                      . From material and energy flows to land use, the Lab is
+                      building tools and mapping systems that leverage
+                      technology to build a dynamic understanding of how the
+                      system is responding.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -790,7 +816,12 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                      this Arc recognises the transformative potential of communities and neighbourhoods to design and steward their own futures. There are a diverse range of initiatives driving towards this goal; from citizen designed indicators and city scale goals to neighbourhood retrofitting and energy programmes. 
+                      this Arc recognises the transformative potential of
+                      communities and neighbourhoods to design and steward their
+                      own futures. There are a diverse range of initiatives
+                      driving towards this goal; from citizen designed
+                      indicators and city scale goals to neighbourhood
+                      retrofitting and energy programmes.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -832,6 +863,69 @@ export default function Home() {
         </Dialog>
       </Transition.Root>
 
+      <Transition.Root show={openFF} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenFF}>
+          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      This studio works across the ecosystem to build the craft
+                      of speculative design and future scenario building. The
+                      team has close links to the Sm Studio where they support
+                      the mapping and visualisation of future value flows. They
+                      also work across the Arcs to develop potential strategic
+                      directions.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openOD} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenOD}>
+          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#353535]">
+                      The OrgDev (organisational development) Studio provides
+                      the critical infrastructure for the entire Dm ecosystem
+                      and mission. This team is the foundational rock. Their
+                      work unleashes and nourishes the creative potential of
+                      Dm’s people and those who intersect with our work.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
       <Transition.Root show={openWI} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenWI}>
           <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
@@ -849,8 +943,11 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                    the Wi Arc is developing practical pathways to support regenerative, respectful and resilient collaborations between human and natural infrastructures. These interventions are grounded in system dynamics such as finance, regulation and data enabled decision making. 
-
+                      the Wi Arc is developing practical pathways to support
+                      regenerative, respectful and resilient collaborations
+                      between human and natural infrastructures. These
+                      interventions are grounded in system dynamics such as
+                      finance, regulation and data enabled decision making.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -1059,7 +1156,20 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                    Life-Ennobling Economics is a propositional vision and a call to action. It is an ennobling invitation to break free from ideological constraints, to embrace the radical potential of emergent technologies, and to challenge the structural codes of our current socio-economic systems. Implicit in this opening position is an understanding that the structure and values of the economy must be in service to all forms of life (present, future, human, non-human and machine) providing an inclusive scaffold of care and respect. The central argument being put forward by the LEE is that whilst we indisputably need to shift to a new economy, we will not get there using the mental models, tools or value systems of the current one. Instead, LEE responds to the underlying drivers of the{' '}
+                      Life-Ennobling Economics is a propositional vision and a
+                      call to action. It is an ennobling invitation to break
+                      free from ideological constraints, to embrace the radical
+                      potential of emergent technologies, and to challenge the
+                      structural codes of our current socio-economic systems.
+                      Implicit in this opening position is an understanding that
+                      the structure and values of the economy must be in service
+                      to all forms of life (present, future, human, non-human
+                      and machine) providing an inclusive scaffold of care and
+                      respect. The central argument being put forward by the LEE
+                      is that whilst we indisputably need to shift to a new
+                      economy, we will not get there using the mental models,
+                      tools or value systems of the current one. Instead, LEE
+                      responds to the underlying drivers of the{' '}
                       <a
                         className="text-[#A28CC6]"
                         target="_blank"
@@ -1067,7 +1177,10 @@ export default function Home() {
                       >
                         polycrisis
                       </a>{' '}
-                      by proposing a philosophical and action oriented framework, centred on reconfiguring our relationships with each other, with the planet and to our collective futures. You can read more about{' '}
+                      by proposing a philosophical and action oriented
+                      framework, centred on reconfiguring our relationships with
+                      each other, with the planet and to our collective futures.
+                      You can read more about{' '}
                       <a
                         className="text-[#A28CC6]"
                         target="_blank"
@@ -1111,7 +1224,9 @@ export default function Home() {
                       >
                         TreesAI
                       </a>{' '}
-                      (Trees As Infrastructure) team has been working to create investable asset classes for the planting and maintenance of trees.
+                      (Trees As Infrastructure) team has been working to create
+                      investable asset classes for the planting and maintenance
+                      of trees.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -1146,7 +1261,13 @@ export default function Home() {
                       >
                         Cornerstone Indicator initiative
                       </a>{' '}
-                      was developed to strengthen citizen engagement networks that can sense what it means to thrive in different contexts. The resultant indicators empower communities to have agency over decisions and express their voices in a continuous cycle of participatory governance. As this work progresses we are aiming to link the indicators to smart data to build a more coherent picture of civic experience. 
+                      was developed to strengthen citizen engagement networks
+                      that can sense what it means to thrive in different
+                      contexts. The resultant indicators empower communities to
+                      have agency over decisions and express their voices in a
+                      continuous cycle of participatory governance. As this work
+                      progresses we are aiming to link the indicators to smart
+                      data to build a more coherent picture of civic experience.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -1173,7 +1294,13 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                    Resilient bioregional food systems: we are working towards this option in varied threads of our work. On the broader topic of bioregional transitions we are exploring what a regenerative bioregional economy might even look like. In parallel, we are working with communities to design and implement multi-sensory indicators that can be linked to participatory governance systems, with the aim of{' '}
+                      Resilient bioregional food systems: we are working towards
+                      this option in varied threads of our work. On the broader
+                      topic of bioregional transitions we are exploring what a
+                      regenerative bioregional economy might even look like. In
+                      parallel, we are working with communities to design and
+                      implement multi-sensory indicators that can be linked to
+                      participatory governance systems, with the aim of{' '}
                       <a
                         className="text-[#A28CC6]"
                         target="_blank"
@@ -1208,11 +1335,22 @@ export default function Home() {
                 We are building options for the next economies
               </h2>
               <p className="font-FKregular text-lg text-white">
-              We believe that the interconnected crises of our time are symptoms of a deeper, structural miscoding of our economic systems. We understand these codes to be physical (e.g. biodiversity, energy and materials), structural (e.g. money creation and private property rights) and psychological (e.g. failure of the imagination).
+                We believe that the interconnected crises of our time are
+                symptoms of a deeper, structural miscoding of our economic
+                systems. We understand these codes to be physical (e.g.
+                biodiversity, energy and materials), structural (e.g. money
+                creation and private property rights) and psychological (e.g.
+                failure of the imagination).
               </p>
 
               <p className="pt-10 font-FKregular text-lg text-white">
-              Recognising the complex, entangled reality of living systems, we are exploring alternative pathways for organising society and stewarding the shared planetary commons. Our working hypothesis is that these pathways must be rooted in a radical reframing of our relationship to everything; from technology and money to land and the other-than-human world. We are framing this transformation as a shift towards{' '}
+                Recognising the complex, entangled reality of living systems, we
+                are exploring alternative pathways for organising society and
+                stewarding the shared planetary commons. Our working hypothesis
+                is that these pathways must be rooted in a radical reframing of
+                our relationship to everything; from technology and money to
+                land and the other-than-human world. We are framing this
+                transformation as a shift towards{' '}
                 <span
                   className="text-[#A28CC6] hover:cursor-pointer"
                   onClick={() => setOpenLEE(true)}
@@ -1225,7 +1363,12 @@ export default function Home() {
                 Economic options are bold directional aspirations
               </h3>
               <p className="pt-10 font-FKregular text-lg text-white">
-              What would it mean to align societal ambition to the magnitude of the transformation that is required? We cannot be sure how the future will play out or the specific infrastructures that will be required. However, we can build towards a range of economic options that are likely to be needed. We are imaging new investment opportunities for{' '}
+                What would it mean to align societal ambition to the magnitude
+                of the transformation that is required? We cannot be sure how
+                the future will play out or the specific infrastructures that
+                will be required. However, we can build towards a range of
+                economic options that are likely to be needed. We are imaging
+                new investment opportunities for{' '}
                 <span
                   className="text-[#A28CC6] hover:cursor-pointer"
                   onClick={() => setOpenCTC(true)}
@@ -1239,14 +1382,23 @@ export default function Home() {
                 >
                   resilient bioregional food systems
                 </span>
-                . We envisage that the electrification of transport networks, the mental health of communities and the{' '}
+                . We envisage that the electrification of transport networks,
+                the mental health of communities and the{' '}
                 <span
                   className="text-[#A28CC6] hover:cursor-pointer"
                   onClick={() => setOpenCIC(true)}
                 >
                   collective intelligence of cites
                 </span>{' '}
-                {' '}will become recognisable assets, understood as commitments to a regenerative future. We are also considering what might be unleashed if houses were self-owning and affordable in perpetuity. Or if rivers could express their need for care. At Dark Matter Labs, we believe all these things are both possible and necessary. These are bold aspirations and will only be achieved by a collective movement of diverse communities and unusual allies. This is a story of practical empowerment that we are excited to put our energy behind.
+                will become recognisable assets, understood as commitments to a
+                regenerative future. We are also considering what might be
+                unleashed if houses were self-owning and affordable in
+                perpetuity. Or if rivers could express their need for care. At
+                Dark Matter Labs, we believe all these things are both possible
+                and necessary. These are bold aspirations and will only be
+                achieved by a collective movement of diverse communities and
+                unusual allies. This is a story of practical empowerment that we
+                are excited to put our energy behind.
               </p>
 
               <div className="py-10 text-center">
@@ -1313,7 +1465,7 @@ export default function Home() {
                               onMouseLeave={() => setETCActive(false)}
                             >
                               <p className="text-xs font-medium ">
-                              Empowered, Thriving Communities
+                                Empowered, Thriving Communities
                               </p>
                             </div>
                           ) : (
@@ -1324,11 +1476,11 @@ export default function Home() {
                               onMouseLeave={() => setETCActive(false)}
                             >
                               <p className="text-xs font-medium ">
-                              Empowered, Thriving Communities
+                                Empowered, Thriving Communities
                               </p>
                             </div>
                           )}
-                          
+
                           {NZactive || openNZ ? (
                             <div
                               className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL}`}
@@ -1347,7 +1499,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 drop-shadow-xl text-[#FFF] ${classL}`}
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] drop-shadow-xl ${classL}`}
                               onMouseOver={() => setNZActive(true)}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
@@ -1444,7 +1596,7 @@ export default function Home() {
                               onMouseLeave={() => setWIActive(false)}
                             >
                               <p className="text-xs font-medium ">
-                              Wild Infrastructure
+                                Wild Infrastructure
                               </p>
                             </div>
                           ) : (
@@ -1455,7 +1607,7 @@ export default function Home() {
                               onMouseLeave={() => setWIActive(false)}
                             >
                               <p className="text-xs font-medium ">
-                              Wild Infrastructure
+                                Wild Infrastructure
                               </p>
                             </div>
                           )}
@@ -1542,12 +1694,16 @@ export default function Home() {
                             <div className="h-[4rem] bg-[#575657] py-10 pt-2 ">
                               {' '}
                             </div>
-                          ) : RCHover && NEHover ? (
+                          ) : (RCHover && NEHover) || activeState === 6 ? (
                             <div
                               className="h-[4rem] bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setRCHover(false);
                                 setNEHover(false);
+                              }}
+                              onMouseEnter={() => {
+                                setRCHover(true);
+                                setNEHover(true);
                               }}
                               onClick={() => {
                                 setOpenMC(true);
@@ -1572,7 +1728,7 @@ export default function Home() {
                               }}
                             ></div>
                           )}
-                                {ETCactive || NEactive ? (
+                          {ETCactive || NEactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -1616,12 +1772,16 @@ export default function Home() {
                             <div className="mt-2 h-[4rem] bg-[#575657] py-10 pt-2">
                               {' '}
                             </div>
-                          ) : M0Hover && NEHover ? (
+                          ) : (M0Hover && NEHover) || activeState === 6 ? (
                             <div
                               className="mt-2 h-[4rem] bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setM0Hover(false);
                                 setNEHover(false);
+                              }}
+                              onMouseEnter={() => {
+                                setM0Hover(true);
+                                setNEHover(true);
                               }}
                               onClick={() => {
                                 setOpenNET(true);
@@ -1661,7 +1821,7 @@ export default function Home() {
                             </div>
                           )}
 
-{WIactive || NEactive ? (
+                          {WIactive || NEactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -1743,7 +1903,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                          {ETCactive || BLactive ? (
+                          {ETCactive || BLactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -1809,7 +1969,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                     {WIactive || BLactive ? (
+                          {WIactive || BLactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -1899,7 +2059,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                          {ETCactive || CSactive ? (
+                          {ETCactive || CSactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -1916,12 +2076,18 @@ export default function Home() {
                             <div className="mt-2 h-[4rem] bg-[#575657] py-10 pt-2">
                               {' '}
                             </div>
-                          ) : NZHover && CSHover ? (
+                          ) : (NZHover && CSHover) || activeState === 6 ? (
                             <div
                               className="mt-2 h-[4rem] bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setNZHover(false);
                                 setCSHover(false);
+                                setCTHover(false);
+                              }}
+                              onMouseEnter={() => {
+                                setNZHover(true);
+                                setCSHover(true);
+                                setCTHover(true);
                               }}
                               onClick={() => {
                                 setOpenTAI(true);
@@ -1968,7 +2134,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                           
+
                           {REactive || CSactive || openCS ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
@@ -2063,7 +2229,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                          {ETCactive || PFactive ? (
+                          {ETCactive || PFactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -2129,7 +2295,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                     {WIactive || PFactive ? (
+                          {WIactive || PFactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -2210,7 +2376,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                          {ETCactive || PBactive ? (
+                          {ETCactive || PBactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -2262,7 +2428,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                           
+
                           {REactive || PBactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
@@ -2359,7 +2525,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                          {ETCactive || QDactive ? (
+                          {ETCactive || QDactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -2411,7 +2577,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                           
+
                           {REactive || QDactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2  ${classT} ${classA}`}
@@ -2506,7 +2672,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                          {ETCactive || BRactive ? (
+                          {ETCactive || BRactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -2558,7 +2724,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                           
+
                           {REactive || BRactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
@@ -2649,7 +2815,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                                                          {ETCactive || SMactive ? (
+                          {ETCactive || SMactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
                             >
@@ -2666,7 +2832,7 @@ export default function Home() {
                             <div className="mt-2 h-[4rem] bg-[#575657] py-10 pt-2">
                               {' '}
                             </div>
-                          ) : NZHover && CTHover ? (
+                          ) : (NZHover && CTHover) || activeState === 6 ? (
                             <div
                               className="mt-2 h-[4rem] bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
                               onMouseLeave={() => {
@@ -2675,6 +2841,10 @@ export default function Home() {
                               }}
                               onClick={() => {
                                 setOpenCL(true);
+                              }}
+                              onMouseEnter={() => {
+                                setNZHover(true);
+                                setCTHover(true);
                               }}
                             >
                               <p className=" text-xs font-medium ">CircuLaw</p>
@@ -2718,7 +2888,7 @@ export default function Home() {
                               {' '}
                             </div>
                           )}
-                           
+
                           {REactive || SMactive ? (
                             <div
                               className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
@@ -2833,99 +3003,57 @@ export default function Home() {
                           </p>
                         </div>
                       )}
+                      <div className="max-w-8 bg-[#252424] py-1 "> </div>
+                      {FFactive || openFF ? (
+                        <div
+                          className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                          onClick={() => setOpenFF(true)}
+                          onMouseLeave={() => setFFActive(false)}
+                        >
+                          <p className="text-xs font-medium text-[#5965A3] ">
+                            Foresight & Futuring Studio
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                          onMouseOver={() => setFFActive(true)}
+                          onClick={() => setOpenFF(true)}
+                          onMouseLeave={() => setFFActive(false)}
+                        >
+                          <p className="text-xs font-medium text-[#fff]">
+                            Foresight & Futuring Studio
+                          </p>
+                        </div>
+                      )}
+                      <div className="max-w-8 bg-[#252424] py-1 "> </div>
+                      {ODactive || openOD ? (
+                        <div
+                          className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                          onClick={() => setOpenOD(true)}
+                          onMouseLeave={() => setODActive(false)}
+                        >
+                          <p className="text-xs font-medium text-[#5965A3] ">
+                            Org Dev Studio
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                          onMouseOver={() => setODActive(true)}
+                          onClick={() => setOpenOD(true)}
+                          onMouseLeave={() => setODActive(false)}
+                        >
+                          <p className="text-xs font-medium text-[#fff]">
+                            Org Dev Studio
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   <div
-                    className={`threeD absolute top-20 z-40 w-full opacity-40 ${classStudio} ${animateOn}`}
-                  >
-                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className="bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    className={`threeD capability-bg absolute top-40 z-30 w-full opacity-60 ${animateOn}`}
+                    className={`threeD capability-bg absolute top-40 z-40 w-full opacity-60 ${animateOn}`}
                   >
                     <div className=" grid max-w-4xl grid-cols-8 gap-0">
                       <div>
@@ -3008,6 +3136,94 @@ export default function Home() {
                         <div className="  py-8  "> </div>
                         <div className="  py-8  "> </div>
                         <div className="  py-8 "> </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    className={`threeD absolute top-20 z-30 w-full opacity-40 ${classStudio} ${animateOn}`}
+                  >
+                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className="bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                      </div>
+                      <div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                        <div className=" bg-[#2C2B2B] py-8  "> </div>
                       </div>
                     </div>
                   </div>

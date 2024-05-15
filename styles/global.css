@@ -63,16 +63,15 @@ img {
   animation: threeDAnimate;
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
 
+  animation-name: threeDAnimate;
   -webkit-animation-name: threeDAnimate;
   -webkit-animation-duration: 1s;
+  animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes threeDAnimate {
-  0% {
-    transform: rotateX(55deg) rotateY(0) rotateZ(45deg);
-  }
-  100% {
+  to {
     transform: rotateX(0) rotateY(0) rotateZ(0);
     top: 0;
   }

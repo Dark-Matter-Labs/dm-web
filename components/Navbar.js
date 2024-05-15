@@ -6,14 +6,14 @@ import dmLogo from '../images/DML.gif';
 export default function Navbar() {
   return (
     <div className="mt-20 grid grid-cols-12 gap-0 ">
-      <div className="justify-self-start col-span-5">
+      <div className="col-span-5 justify-self-start">
         <Image
           src={dmLogo}
           alt="Dm logo animation in multiple languages"
           width={400}
         />
       </div>
-      <div className="justify-self-start col-span-7">
+      <div className="col-span-7 justify-self-start">
         <Disclosure as="nav">
           {({ open }) => (
             <>
@@ -24,7 +24,7 @@ export default function Navbar() {
                       <div className="flex space-x-4">
                         <a
                           href="#"
-                          className=" text-md pr-3 py-2 font-FKmedium text-white"
+                          className=" text-md py-2 pr-3 font-FKmedium text-white"
                         >
                           Feed
                         </a>
