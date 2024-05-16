@@ -48,14 +48,16 @@ const pageNav = [
         id: 6,
         scrollPos: 1645,
       },
+      {
+        id: 7,
+        title: 'Systemic Capabilities',
+        description:
+          'The capabilities form the core of Dm’s Mission and sit at the centre of the Matrix. These are the systemic goals that we have set for ourselves as we strive to build pathways towards Life-Ennobling Economies. Some examples include decolonising currency stewardship, embedding data-augmented decision making and building the foundations for planetary stewardship institutions.',
+        link: '#',
+        sub: [],
+        scrollPos: 1745,
+      },
     ],
-  },
-  {
-    id: 7,
-    title: 'Systemic Capabilities',
-    description: '',
-    link: '#',
-    sub: [],
   },
   {
     id: 8,

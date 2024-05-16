@@ -62,6 +62,7 @@ img {
 .animate {
   animation: threeDAnimate;
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-timing-function: ease-in-out;
 
   animation-name: threeDAnimate;
   -webkit-animation-name: threeDAnimate;
@@ -116,7 +117,7 @@ img {
   }
 
   .t2 {
-    @apply sticky top-[20%];
+    @apply sticky top-[12%];
   }
 
   .t1 {
@@ -125,6 +126,22 @@ img {
 
   .t3 {
     @apply relative top-[30rem];
+  }
+
+  .capability-base {
+    @apply z-30;
+  }
+
+  .capability-active {
+    @apply z-[60];
+  }
+
+  .capability-arcs-base {
+    @apply hidden;
+  }
+
+  .capability-arcs-active {
+    @apply block;
   }
 }
 

@@ -22,11 +22,13 @@ export default function Home() {
   const [activeState, setActiveState] = useState(1);
 
   const [animateOn, setAnimateOn] = useState('');
+  const [capacity, setCapacity] = useState('capability-base');
+  const [capacityArcs, setCapacityArcs] = useState('capability-arcs-base');
 
   const startSticky = 1244;
   const step = 100;
-  const animationStart = 1600;
-  const stopSticky = 1700;
+  const animationStart = 1640;
+  const stopSticky = 1800;
 
   const listenScrollEvent = () => {
     if (window.scrollY < startSticky) {
@@ -41,6 +43,8 @@ export default function Home() {
 
       setClassT2('t1');
       setAnimateOn('');
+      setCapacity('capability-base');
+      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky &&
       window.scrollY < startSticky + step
@@ -56,6 +60,8 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
+      setCapacity('capability-base');
+      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + step &&
       window.scrollY < startSticky + 2 * step
@@ -69,6 +75,8 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
+      setCapacity('capability-base');
+      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + 2 * step &&
       window.scrollY < startSticky + 3 * step
@@ -87,6 +95,8 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
+      setCapacity('capability-base');
+      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + 3 * step &&
       window.scrollY < startSticky + 4 * step
@@ -102,6 +112,8 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
+      setCapacity('capability-base');
+      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + 4 * step &&
       window.scrollY < startSticky + 5 * step
@@ -116,6 +128,24 @@ export default function Home() {
       setClassAB('');
 
       setClassT2('t2');
+      setCapacity('capability-base');
+      setCapacityArcs('capability-arcs-base');
+    } else if (
+      window.scrollY > startSticky + 5 * step &&
+      window.scrollY < startSticky + 6 * step
+    ) {
+      setClassStudio('');
+      setActiveState(7);
+      setClassT('base');
+      setClassL('base');
+
+      setClassA('');
+      setClassAT('');
+      setClassAB('');
+
+      setClassT2('t2');
+      setCapacity('capability-active');
+      setCapacityArcs('capability-arcs-active');
     } else if (window.scrollY > stopSticky) {
       setClassT2('t3');
     }
@@ -124,8 +154,11 @@ export default function Home() {
       setAnimateOn('animate');
     }
 
-    if (window.scrollY > animationStart + 1000) {
-      setActiveState(7);
+    if (window.scrollY > animationStart + 500) {
+      setActiveState(8);
+    }
+    if (window.scrollY > animationStart + 2000) {
+      setActiveState(9);
     }
   };
 
@@ -756,7 +789,7 @@ export default function Home() {
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#353535]">
-                      The Qd Lab is still nascent. Once launched, it will aim to
+                      The Sd Lab is still nascent. Once launched, it will aim to
                       build pathways towards distributed, data assisted decision
                       making.
                     </p>
@@ -1410,7 +1443,7 @@ export default function Home() {
 
             <div className={`${classT2}`}>
               <div className="h-screen">
-                <div className={`my-20 -ml-10 `}>
+                <div className={` -ml-10 `}>
                   <div
                     className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn}`}
                   >
@@ -2492,7 +2525,7 @@ export default function Home() {
                             >
                               <p className=" text-xs font-medium ">
                                 {' '}
-                                Quantum Decisions
+                                Societal Decisions
                                 <br />
                                 <br />
                               </p>
@@ -2506,7 +2539,7 @@ export default function Home() {
                             >
                               <p className=" text-xs font-medium">
                                 {' '}
-                                Quantum Decisions
+                                Societal Decisions
                                 <br />
                                 <br />
                               </p>
@@ -2944,7 +2977,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="pt-[5.5rem]">
+                    <div className="hidden pt-[5.5rem]">
                       <div className="  ">
                         <h2 className="pl-4 pt-4 text-xl font-light text-[#9F9F9F]">
                           Studios
@@ -3053,265 +3086,1375 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD capability-bg absolute top-40 z-40 w-full opacity-60 ${animateOn}`}
+                    className={`threeD absolute right-[4rem] top-[10rem]  ${capacity} w-full opacity-100 ${animateOn}`}
                   >
-                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className=" py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
+                    <div className="">
+                      <div className="grid grid-cols-7 gap-0 ">
+                        <div className=""></div>
+                        <h2 className="pb-4 text-xl font-light text-[#9F9F9F]">
+                          Capabilities
+                        </h2>
                       </div>
 
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8  "> </div>
-                        <div className="  py-8 "> </div>
+                      <div className="capability-bg grid grid-cols-7 gap-1">
+                        <div className={capacityArcs}>
+                          <div className="bg-[#151414]">
+                            <h2 className="pb-2 pt-[2.5rem] text-xl font-light text-transparent">
+                              Arcs
+                            </h2>
+                          </div>
+                          {RCactive || openRC ? (
+                            <div
+                              className={`h-[4rem] bg-[#FFFFFF] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classAT}`}
+                              onClick={() => setOpenRC(true)}
+                              onMouseLeave={() => setRCActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Radicle Civics
+                              </p>
+                            </div>
+                          ) : RCHover ? (
+                            <div className="h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
+                              <p className="text-xs font-medium ">
+                                Radicle Civics
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`h-[4rem] bg-[#2C2B2B] px-2 py-2 text-[#FFF] drop-shadow-xl ${classL}`}
+                              onMouseOver={() => setRCActive(true)}
+                              onClick={() => setOpenRC(true)}
+                              onMouseLeave={() => setRCActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Radicle Civics
+                              </p>
+                            </div>
+                          )}
+
+                          {ETCactive || openETC ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              onClick={() => setOpenETC(true)}
+                              onMouseLeave={() => setETCActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Empowered, Thriving Communities
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              onMouseOver={() => setETCActive(true)}
+                              onClick={() => setOpenETC(true)}
+                              onMouseLeave={() => setETCActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Empowered, Thriving Communities
+                              </p>
+                            </div>
+                          )}
+
+                          {NZactive || openNZ ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL}`}
+                              onClick={() => setOpenNZ(true)}
+                              onMouseLeave={() => setNZActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Net Zero Cities
+                              </p>
+                            </div>
+                          ) : NZHover ? (
+                            <div className="mt-2 h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
+                              <p className="text-xs font-medium ">
+                                Net Zero Cities
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] drop-shadow-xl ${classL}`}
+                              onMouseOver={() => setNZActive(true)}
+                              onClick={() => setOpenNZ(true)}
+                              onMouseLeave={() => setNZActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Net Zero Cities
+                              </p>
+                            </div>
+                          )}
+
+                          {SGactive || openSG ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              onClick={() => setOpenSG(true)}
+                              onMouseLeave={() => setSGActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                7Gen Cities
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              onMouseOver={() => setSGActive(true)}
+                              onClick={() => setOpenSG(true)}
+                              onMouseLeave={() => setSGActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                7Gen Cities
+                              </p>
+                            </div>
+                          )}
+
+                          {M0active || openM0 ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              onClick={() => setOpenM0(true)}
+                              onMouseLeave={() => setM0Active(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                M0
+                                <br /> Cities
+                              </p>
+                            </div>
+                          ) : M0Hover ? (
+                            <div className="h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
+                              <p className="text-xs font-medium ">
+                                {' '}
+                                M0
+                                <br /> Cities
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              onMouseOver={() => setM0Active(true)}
+                              onClick={() => setOpenM0(true)}
+                              onMouseLeave={() => setM0Active(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                M0
+                                <br /> Cities
+                              </p>
+                            </div>
+                          )}
+
+                          {REactive ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              onClick={() => setOpenRE(true)}
+                              onMouseLeave={() => setREActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Regen Nutrition
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3] ${classL}`}
+                              onMouseOver={() => setREActive(true)}
+                              onClick={() => setOpenRE(true)}
+                              onMouseLeave={() => setREActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Regen Nutrition
+                              </p>
+                            </div>
+                          )}
+
+                          {WIactive || openWI ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              onClick={() => setOpenWI(true)}
+                              onMouseLeave={() => setWIActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Wild Infrastructure
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              onMouseOver={() => setWIActive(true)}
+                              onClick={() => setOpenWI(true)}
+                              onMouseLeave={() => setWIActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Wild Infrastructure
+                              </p>
+                            </div>
+                          )}
+
+                          {BEactive ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              onClick={() => setOpenBE(true)}
+                              onMouseLeave={() => setBEActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Bioregional Economics
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-1 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              onMouseOver={() => setBEActive(true)}
+                              onClick={() => setOpenBE(true)}
+                              onMouseLeave={() => setBEActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Bioregional Economics
+                              </p>
+                            </div>
+                          )}
+
+                          {PCactive ? (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL}`}
+                              onClick={() => setOpenPC(true)}
+                              onMouseLeave={() => setPCActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Planetary Civics
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              onMouseOver={() => setPCActive(true)}
+                              onClick={() => setOpenPC(true)}
+                              onMouseLeave={() => setPCActive(false)}
+                            >
+                              <p className="text-xs font-medium ">
+                                Planetary Civics
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                        <div className="">
+                          <div
+                            className={` mb-1 box-border h-[4rem] bg-[#E3CC8933] pb-8 pl-1 pt-1 text-[#FFF] `}
+                          >
+                            <p className=" text-xs font-light">Domain A</p>
+                            <p className=" text-xs font-medium">
+                              Ontology & Epistimology
+                            </p>
+                            <div className="grid grid-cols-4 gap-x-1">
+                              <p className=" text-[12px] font-light">A1</p>
+                              <p className=" text-[12px] font-light">A2</p>
+                              <p className=" text-[12px] font-light">A3</p>
+                              <p className=" text-[12px] font-light">A4</p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div className="">
+                          <div
+                            className={` mb-1 box-border h-[4rem] bg-[#6A7366B2] pb-8 pl-1 pt-1 text-[#FFF] `}
+                          >
+                            <p className=" text-xs font-light">Domain B</p>
+                            <p className=" text-xs font-medium">
+                              Money & valuation logic
+                            </p>
+                            <div className="grid grid-cols-4 gap-x-1">
+                              <p className=" text-[12px] font-light">A1</p>
+                              <p className=" text-[12px] font-light">A2</p>
+                              <p className=" text-[12px] font-light">A3</p>
+                              <p className=" text-[12px] font-light">A4</p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div className="">
+                          <div
+                            className={` mb-1 box-border h-[4rem] bg-[#485343] pb-8 pl-1 pt-1 text-[#FFF] `}
+                          >
+                            <p className=" text-xs font-light">Domain C</p>
+                            <p className=" text-[10px] font-medium">
+                              Financial processes & investment
+                            </p>
+                            <div className="grid grid-cols-4 gap-x-1">
+                              <p className=" text-[12px] font-light">A1</p>
+                              <p className=" text-[12px] font-light">A2</p>
+                              <p className=" text-[12px] font-light">A3</p>
+                              <p className=" text-[12px] font-light">A4</p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div className="">
+                          <div
+                            className={` mb-1 box-border h-[4rem] bg-[#414750] pb-8 pl-1 pt-1 text-[#FFF] `}
+                          >
+                            <p className=" text-xs font-light">Domain D</p>
+                            <p className=" text-xs font-medium">
+                              Ownership, law & governance
+                            </p>
+                            <div className="grid grid-cols-4 gap-x-1">
+                              <p className=" text-[12px] font-light">A1</p>
+                              <p className=" text-[12px] font-light">A2</p>
+                              <p className=" text-[12px] font-light">A3</p>
+                              <p className=" text-[12px] font-light">A4</p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div className="">
+                          <div
+                            className={` mb-1 box-border h-[4rem] bg-[#9A558733] pb-8 pl-1 pt-1 text-[#FFF] `}
+                          >
+                            <p className=" text-xs font-light">Domain E</p>
+                            <p className=" text-xs font-medium">
+                              Institutional logic & policy
+                            </p>
+                            <div className="grid grid-cols-4 gap-x-1">
+                              <p className=" text-[12px] font-light">A1</p>
+                              <p className=" text-[12px] font-light">A2</p>
+                              <p className=" text-[12px] font-light">A3</p>
+                              <p className=" text-[12px] font-light">A4</p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div className="">
+                          <div
+                            className={` mb-1 box-border h-[4rem] bg-[#7373732F] pb-8 pl-1 pt-1 text-[#FFF] `}
+                          >
+                            <p className=" text-xs font-light">Domain F</p>
+                            <p className=" text-xs font-medium">
+                              Material, energy & land use
+                            </p>
+                            <div className="grid grid-cols-4 gap-x-1">
+                              <p className=" text-[12px] font-light">A1</p>
+                              <p className=" text-[12px] font-light">A2</p>
+                              <p className=" text-[12px] font-light">A3</p>
+                              <p className=" text-[12px] font-light">A4</p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                          <div className="grid grid-cols-4 gap-x-1 pt-2">
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+
+                            <div
+                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
+                            ></div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   <div
-                    className={`threeD absolute top-20 z-30 w-full opacity-40 ${classStudio} ${animateOn}`}
+                    className={`threeD absolute top-[10rem] z-30 w-full opacity-100  ${classStudio} ${animateOn}`}
                   >
-                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className="bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
+                    <div className="grid max-w-4xl grid-cols-12 gap-0">
+                      <div className="col-span-11">
+                        <div className=" bg-[#252424] py-80 "> </div>
                       </div>
-
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    className={`threeD absolute top-60 z-20 w-full opacity-20 ${animateOn}`}
-                  >
-                    <div className=" grid max-w-4xl grid-cols-8 gap-0">
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className="bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                      </div>
-                      <div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8  "> </div>
-                        <div className=" bg-[#2C2B2B] py-8 "> </div>
+                      <div className="">
+                        <div className="  ">
+                          <h2 className="pl-4 pt-4 text-xl font-light text-[#9F9F9F]">
+                            Studios
+                          </h2>
+                        </div>
+                        {CTactive || openCT ? (
+                          <div
+                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-3 hover:cursor-pointer"
+                            onClick={() => setOpenCT(true)}
+                            onMouseLeave={() => setCTActive(false)}
+                          >
+                            <p className=" pt-2 text-xs font-medium text-[#5965A3] ">
+                              Civic Tech
+                            </p>
+                          </div>
+                        ) : CTHover ? (
+                          <div className="h-[4rem] w-20 border-r-2 border-r-white bg-[#252424] px-2 py-3">
+                            <p className=" pt-2 text-xs font-medium text-[#fff]">
+                              Civic Tech
+                            </p>
+                          </div>
+                        ) : (
+                          <div
+                            className="h-[4rem] w-20 bg-[#252424] px-2 py-3"
+                            onMouseOver={() => setCTActive(true)}
+                            onClick={() => setOpenCT(true)}
+                            onMouseLeave={() => setCTActive(false)}
+                          >
+                            <p className=" pt-2 text-xs font-medium text-[#fff]">
+                              Civic Tech
+                            </p>
+                          </div>
+                        )}
+                        <div className="max-w-8 bg-[#252424] py-1 "> </div>
+                        {CDactive || openCD ? (
+                          <div
+                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                            onClick={() => setOpenCD(true)}
+                            onMouseLeave={() => setCDActive(false)}
+                          >
+                            <p className="text-xs font-medium text-[#5965A3] ">
+                              Conversat-
+                              <br /> ional Design
+                            </p>
+                          </div>
+                        ) : (
+                          <div
+                            className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                            onMouseOver={() => setCDActive(true)}
+                            onClick={() => setOpenCD(true)}
+                            onMouseLeave={() => setCDActive(false)}
+                          >
+                            <p className="text-xs font-medium text-[#fff]">
+                              Conversat-
+                              <br /> ional Design
+                            </p>
+                          </div>
+                        )}
+                        <div className="max-w-8 bg-[#252424] py-1 "> </div>
+                        {FFactive || openFF ? (
+                          <div
+                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                            onClick={() => setOpenFF(true)}
+                            onMouseLeave={() => setFFActive(false)}
+                          >
+                            <p className="text-xs font-medium text-[#5965A3] ">
+                              Foresight & Futuring Studio
+                            </p>
+                          </div>
+                        ) : (
+                          <div
+                            className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                            onMouseOver={() => setFFActive(true)}
+                            onClick={() => setOpenFF(true)}
+                            onMouseLeave={() => setFFActive(false)}
+                          >
+                            <p className="text-xs font-medium text-[#fff]">
+                              Foresight & Futuring Studio
+                            </p>
+                          </div>
+                        )}
+                        <div className="max-w-8 bg-[#252424] py-1 "> </div>
+                        {ODactive || openOD ? (
+                          <div
+                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                            onClick={() => setOpenOD(true)}
+                            onMouseLeave={() => setODActive(false)}
+                          >
+                            <p className="text-xs font-medium text-[#5965A3] ">
+                              Org Dev Studio
+                            </p>
+                          </div>
+                        ) : (
+                          <div
+                            className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                            onMouseOver={() => setODActive(true)}
+                            onClick={() => setOpenOD(true)}
+                            onMouseLeave={() => setODActive(false)}
+                          >
+                            <p className="text-xs font-medium text-[#fff]">
+                              Org Dev Studio
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -3319,92 +4462,203 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-80">
+            <div className="mt-[30rem]">
               <h3 className="max-w-xl  font-FKregular text-3xl text-white">
                 The overarching LEE Mission allows us to contextually adjust the
-                horizons  of our interactions and interventions, whilst building
+                horizons of our interactions and interventions, whilst building
                 towards a coherent field of influence and change. 
               </h3>
               <p className="pt-10 font-FKregular text-lg text-white">
-                How can we interact with the stunning complexity of life? Is it
-                possible to combine a deep awe and respect for emergence with a
-                desire to shift and mould the world we live in? It would be an
-                understatement to say that we have no solid answers to these
-                questions. And yet... the aspiration to strive and work towards
-                a survivable future is a yearning that outweighs everything
-                else. Holding that perspective, we are organising across
-                multiple dimensions and working concurrently with varied
-                cultural frames, geographical contexts and time horizons. 
+                The overarching LEE Mission allows us to contextually adjust the
+                horizons of our interactions and interventions, whilst building
+                towards a coherent field of influence and change. A single
+                theory of change feels wildly inadequate; instead we are holding
+                open questions in a continuous process of landscape scanning and
+                action:
               </p>
+              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
+                <li>
+                  <b>Political landscapes</b>: how can we work intelligently
+                  with the constraints and opportunities of political
+                  ideologies? A right wing context may provide more fertile
+                  ground for rapidly mobilising complex technologies than a
+                  liberal context. Or perhaps in a context like Ukraine where
+                  crisis and instability has become an everyday reality, the
+                  motivation for citizens to drive alternative governance models
+                  is heightened. This could start from a desire to support the
+                  military via voluntary crowdfunding and extend to new sectors
+                  and patterns of behaviour.
+                </li>
+                <li>
+                  <b>Geographical landscapes</b>: what can we leverage by
+                  deliberating targeting lead or established markets to test a
+                  tool or concept? In some cases we may need to look to edge
+                  communities for an idea to gain traction (e.g. a distributed
+                  currency), whereas in others a supportive social
+                  infrastructure is needed to establish agency (e.g. a material
+                  registry). Each country has something to teach us; from land
+                  laws in Scotland to open data systems in Taiwan, we are open
+                  to how our work can weave and adapt to local contexts.
+                </li>
+                <li>
+                  <b>Time horizons</b>: how can we leverage the broad spectrum
+                  of realities represented across the global context?
+                  Recognising that a speculative policy in one context might
+                  already be triage response in another can increase our
+                  collective learning and ability to test edge ideas. This could
+                  mean working with Indigenous communities on Turtle Island
+                  (North America) to urgently finance the regeneration of
+                  indigenous lands. It could also entail supporting marginalised
+                  communities in England to seed alternative housing models in
+                  response to the systemic crisis crisis.
+                </li>
+                <li>
+                  <b>Alliances</b>: what could be unleashed if we can identify
+                  and engage unusual (and often powerful actors) with converging
+                  aspirations? On the surface a central bank and an ecological
+                  activist may have little in common. Yet, central banks have a
+                  mandate to preserve stability, which in the future could
+                  involve recoupling money issuance to ecological rights? This
+                  logic might also extend to cultural intersectional points,
+                  such as indigenous perspectives and state mandates in
+                  locations such as Australia and India.
+                </li>
+              </ul>
+            </div>
+
+            <div className="my-40">
+              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+                ‘Climate change is yet another rapid assault on our way of life.
+                It cannot be separated from the first waves of changes and
+                assaults at the very core of the human spirit that have come our
+                way’ - Aime Cesaire
+              </h3>
               <p className="pt-10 font-FKregular text-lg text-white">
-                A single theory of change feels wildly inadequate; instead we
-                using the following framework to structure a continuous process
-                of landscape scanning and action:
+                The Enlightenment, Industrial and Scientific revolutions created
+                many advances for society. But what about their impact on deep
+                ways of being and knowing? From the concept of thingification to
+                the devaluation of mother earth, the psychological baseline of
+                our many societies was fundamentally altered. From our
+                perspective, the worldview that condoned the treatment of land
+                and living beings as disposable, exploitable resources, was also
+                at play in the coding of our dominant socioeconomic systems.
+                Dark Matter Labs sets out to reject the concept of separation
+                and to reimagine our foundational economic relationships. For
+                example:
               </p>
-              <Image
-                src={landscapeImg}
-                className="mx-auto my-10"
-                alt="world map with dm matrix"
-                height={500}
-                width={500}
-              />
-              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
-                Political landscapes
-              </h3>
-              <p className="pb-8 pt-4 font-FKregular text-lg text-white">
-                A right wing context may provide more fertile ground for rapidly
-                mobilising complex technologies than a liberal context. Or
-                perhaps in a context like Ukraine where crisis and instability
-                has become an everyday reality, the motivation for citizens to
-                drive alternative governance models is heightened. This could
-                start from a desire to support the military via voluntary
-                crowdfunding and extend to new sectors and patterns of
-                behaviour.
-              </p>
+              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
+                <li>
+                  <b>Property</b>:words like property and ownership are often
+                  associated with ideas of dominion and control, allowing us to
+                  treat elements of the living world (such as land and rare
+                  earth minerals) as objects. Deep down though, do we really
+                  believe that timber holds more value than a forest? Or that a
+                  whale’s life is interchangeable with a barrel of oil? What
+                  would it mean to explore systems of organising that move
+                  beyond the paradigm of control?
+                </li>
+                <li>
+                  <b>Technology</b>: emergent technologies can be framed as a
+                  threat, but they could also facilitate a new freedom to care.
+                  The field of quantum physics has enabled a granular
+                  visualisation of the shapeshifting and relational nature of
+                  living systems. Perhaps what we have previously framed as{' '}
+                  <a
+                    className="text-[#A28CC6]"
+                    target="_blank"
+                    href="https://provocations.darkmatterlabs.org/the-necessity-of-a-boring-revolution-a71b1ae6f956"
+                  >
+                    a boring revolution
+                  </a>{' '}
+                  is also an invitation to sense and see the world through a
+                  quantum lens. Perhaps in the future our governing institutions
+                  will exist to advance and scaffold the continuous learning of
+                  a self-aware system.
+                </li>
+                <li>
+                  <b>Money</b>: recognising that financial capital is
+                  intertwined and enabled by living and social systems is
+                  foundational to our work. Imagine how our relationship to
+                  finance might change if we understood the act of investing to
+                  be a commitment to our collective futures? What would a system
+                  look like where the ways of creating and stewarding money are
+                  decentralised and respectful of non-comparable value flows?
+                </li>
+              </ul>
 
-              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
-                Geographical landscapes
-              </h3>
-              <p className="pb-8 pt-4 font-FKregular text-lg text-white">
-                In some cases we may need to look to edge communities for an
-                idea to gain traction (e.g. a distributed currency), whereas in
-                others a supportive social infrastructure is needed to establish
-                agency (e.g. a material registry). Each country has something to
-                teach us; from land laws in Scotland to open data systems in
-                Taiwan, we are open to how our work can weave and adapt to local
+              <h3 className="max-w-2xl  pt-8 font-FKregular text-3xl text-white">
+                Based on this new paradigm we are proposing three worldview
+                philosophies that we think could underpin a desirable future
+                economy. From there, we have identified six structural shifts
+                that we are hypothesising would need to occur for that to become
+                a reality. The philosophies and shifts are not fixed, instead
+                they are narratives that thread through the different dimensions
+                of our Ecosystem Matrix, as we seek to test them in different
                 contexts.
-              </p>
-
-              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
-                Time horizons
               </h3>
-              <p className="pb-8 pt-4 font-FKregular text-lg text-white">
-                Recognising that a speculative policy in one context might
-                already be triage response in another can increase our
-                collective learning and ability to test edge ideas. This could
-                mean working with Indigenous communities on Turtle Island (North
-                America) to urgently finance the regeneration of indigenous
-                lands. It could also entail supporting marginalised communities
-                in England to seed alternative housing models in response to the
-                systemic crisis crisis.
-              </p>
+              <h4 className="max-w-2xl  pt-4 font-FKregular text-2xl text-white">
+                Worldview philosophies
+              </h4>
+              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
+                <li>
+                  Rooted in the recognition of the full web of life: From
+                  violence, scarcity and separation to a thriving planetary
+                  community of interbecoming. [Ne Lab, Radicle Civics &
+                  Planetary Civics Arc, Conversational Design Studio]
+                </li>
+                <li>
+                  Grounded in a non-bounded understanding of value: From
+                  extractive profit-driven goals to entangled, intergenerational
+                  and distributed value systems. [Ne & Cs Labs, Bioregional
+                  Economies and M0 Cities Arc, Conversational Design Studio)
+                </li>
+                <li>
+                  Enabled by technological ecosystems of care: From the
+                  utilitarian ‘othering’ of technology to animistic interfaces
+                  of wisdom and care. [Ne Lab, NZC Arc, CivTech Studio)
+                </li>
+              </ul>
 
-              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
-                Alliances
-              </h3>
-              <p className="pt-4 font-FKregular text-lg text-white">
-                On the surface a central bank and an ecological activist may
-                have little in common. Yet, central banks have a mandate to
-                preserve stability, which in the future could involve recoupling
-                money issuance to ecological rights? This logic might also
-                extend to cultural intersectional points, such as indigenous
-                perspectives and state mandates in locations such as Australia
-                and India.
-              </p>
+              <h4 className="max-w-2xl  pt-4 font-FKregular text-2xl text-white">
+                Proposed structural shifts
+              </h4>
+              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
+                <li>
+                  Beyond Property: From exerting control over ‘objects’ to
+                  seeking reciprocal relationships with the full web of life.
+                  [Pb Lab, Radicle Civics]
+                </li>
+                <li>
+                  Beyond Labour: From humans employed as resources to vocations
+                  of creativity, purpose and care. [Ne Lab, 7-Gen Cities, &
+                  Empowered Thriving Communities Arc, OrgDev Studio]
+                </li>
+                <li>
+                  Beyond Extraction: From extractive resource claims to the
+                  infinite guardianship of the global commons. [Sm Lab M0
+                  Cities, Planetary Civics, Regenerative Nutrition Arcs]
+                </li>
+                <li>
+                  Beyond Private Contracts: From linear agreements that optimise
+                  for the few to multi-party, dynamic, digital treaties of
+                  respect. [BTR Lab, Radicle Civics & Empowered Thriving
+                  Communities Arc]
+                </li>
+                <li>
+                  Beyond Governance: From centralised enforcement to nurturing
+                  institutions of stewardship. [Qd & BTR Lab, NZC Arc)
+                </li>
+
+                <li>
+                  Beyond Monetary Capital: From the accumulation of financial
+                  wealth to a social contract that regeneratively stewards the
+                  diverse capitals of life. [Cs & Ne Lab, 7-Gen Cities Arc]
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-        <div className="py-80"></div>
+        <div className="py-20"></div>
       </main>
     </div>
   );
