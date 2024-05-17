@@ -1,3 +1,5 @@
+import dmlien from "./schemas/dmlien"
+
 export const schema = {
-  types: [],
+  types: [dmlien],
 }
