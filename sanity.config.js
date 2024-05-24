@@ -5,7 +5,6 @@
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
-import {countryStateListPlugin} from 'sanity-plugin-country-state-select'
 
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -20,7 +19,6 @@ export default defineConfig({
   schema,
   plugins: [
     deskTool(),
-    countryStateListPlugin(),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
