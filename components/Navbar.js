@@ -31,12 +31,12 @@ export default function Navbar() {
                         >
                           Feed
                         </a>
-                        <a
+                        <Link
                           href="/team"
                           className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
                         >
                           Team
-                        </a>
+                        </Link>
                         <a
                           href="#"
                           className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
