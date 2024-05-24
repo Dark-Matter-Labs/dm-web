@@ -31,7 +31,7 @@ export default function TeamPage({dmliens}) {
             </div>
             <ul className="w-full grid grid-cols-12 gap-6 items-start justify-center mt-12 text-white pb-32">
                 {dmliens.map((dmlien, id) => (
-                    <li key={id} className="col-span-3">
+                    <li key={id} className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 flex flex-col items-center justify-center">
                         <Image 
                             src={urlForImage(dmlien.image)}
                             alt ={dmlien.fullName}
@@ -39,12 +39,13 @@ export default function TeamPage({dmliens}) {
                             height ={340}
                             className="mb-6"
                         />
-                        <h2 className="font-FKlight font-normal text-[24px]">
+                        <div className="flex flex-col items-start w-full">
+                        <h2 className="font-FKlight font-normal text-[24px] ">
                             {dmlien.fullName}
                         </h2>
                         <h3 className="text-[#A8A8A8] font-FKlight font-normal text-[24px]">
                            {dmlien.location}
-                        </h3>
+                        </h3></div>
                         <p className="mt-6 font-FKlight font-normal text-[18px]">
                             {dmlien.bio}
                         </p>
