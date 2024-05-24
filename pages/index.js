@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import SideNav from '../components/SideNav';
 import '../styles/Home.module.css';
-import landscapeImg from '../images/landscape.png';
+import webIcon from '../images/website.svg';
 
 export default function Home() {
   const [classT, setClassT] = useState('base');
@@ -174,6 +174,7 @@ export default function Home() {
   const [RCHover, setRCHover] = useState(false);
   const [NZactive, setNZActive] = useState(false);
   const [NZHover, setNZHover] = useState(false);
+  const [WIHover, setWIHover] = useState(false);
   const [SGactive, setSGActive] = useState(false);
   const [M0active, setM0Active] = useState(false);
   const [M0Hover, setM0Hover] = useState(false);
@@ -296,17 +297,28 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <h3 className="font-FKmedium text-2xl text-[#F5F5F5]">
+                      Radicle Civics Arc
+                    </h3>
+                    <div className="flex py-2">
+                      <Image src={webIcon} alt="website icon" />
+                      <a target="_blank" href="https://radiclecivics.cc/">
+                        <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                          Website
+                        </p>
+                      </a>
+                    </div>
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       Radicle Civics is a playful nod towards emergent shoots of
                       possibility (in botany, the radicle is the first part of a
                       seedling to emerge during the process of germination).
                       This arc aims to build cultural demonstrations that
                       support{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://provocations.darkmatterlabs.org/radicle-civics-building-proofs-of-possibilities-for-a-civic-economy-and-society-ee28baeeec70"
                       >
@@ -316,11 +328,6 @@ export default function Home() {
                       from externalities to entanglements, and from
                       public/public to commoning.
                     </p>
-                    <a target="_blank" href="https://radiclecivics.cc/">
-                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
-                        Read more.
-                      </p>
-                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -1185,10 +1192,10 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-b from-[#1B1B1B] to-[#303030] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       Life-Ennobling Economics is a propositional vision and a
                       call to action. It is an ennobling invitation to break
                       free from ideological constraints, to embrace the radical
@@ -1204,7 +1211,7 @@ export default function Home() {
                       tools or value systems of the current one. Instead, LEE
                       responds to the underlying drivers of the{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://www.pik-potsdam.de/en/news/latest-news/covid-19-climate-change-armed-conflicts-world2019s-crises-can-lead-to-interconnected-polycrisis"
                       >
@@ -1215,7 +1222,7 @@ export default function Home() {
                       each other, with the planet and to our collective futures.
                       You can read more about{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://lee.darkmatterlabs.org/"
                       >
@@ -1358,16 +1365,16 @@ export default function Home() {
 
           <div className={`relative col-span-7`}>
             <div id="real" className="">
-              <h1 className="font-FKmedium text-4xl text-white">
+              <h1 className="font-FKmedium text-[41.58px] leading-[64.97px] text-white">
                 Dark matter labs{' '}
                 <span className="align-super text-3xl text-[#6D6D6D]">
                   season 4
                 </span>
               </h1>
-              <h2 className="max-w-[28rem] pb-10 pt-4 font-FKlight text-4xl text-white">
+              <h2 className="max-w-[30rem] pb-10 font-FKlight text-[41.58px] leading-[54.6px] text-white">
                 We are building options for the next economies
               </h2>
-              <p className="font-FKregular text-lg text-white">
+              <p className="font-FKregular text-[22px] leading-[34px] text-white">
                 We believe that the interconnected crises of our time are
                 symptoms of a deeper, structural miscoding of our economic
                 systems. We understand these codes to be physical (e.g.
@@ -1376,7 +1383,7 @@ export default function Home() {
                 failure of the imagination).
               </p>
 
-              <p className="pt-10 font-FKregular text-lg text-white">
+              <p className="pt-10 font-FKregular text-[22px] leading-[34px] text-white">
                 Recognising the complex, entangled reality of living systems, we
                 are exploring alternative pathways for organising society and
                 stewarding the shared planetary commons. Our working hypothesis
@@ -1442,50 +1449,52 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
-              <div className="h-screen">
+              <div className="h-screen font-FKregular">
                 <div className={` -ml-10 `}>
                   <div
                     className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn}`}
                   >
                     <div className="col-span-11">
-                      <div className="grid grid-cols-9 gap-0 ">
-                        <div className="col-span-1"></div>
-                        <h2 className="pb-4 text-xl font-light text-[#9F9F9F]">
+                      <div className="text-center ">
+                        <h2 className="pb-4 text-base font-normal text-[#A8A8A8]">
                           Labs
                         </h2>
                       </div>
 
-                      <div className="bg-alpha grid grid-cols-9 gap-1">
+                      <div className="grid grid-cols-9 gap-1 bg-[#151414]">
                         <div className="">
                           <div className="bg-[#151414]">
-                            <h2 className="pb-2 pt-[2rem] text-xl font-light text-[#9F9F9F]">
+                            <h2 className="py-[1.4rem] pl-2 text-base font-normal text-[#A8A8A8]">
                               Arcs
                             </h2>
                           </div>
                           {RCactive || openRC ? (
                             <div
-                              className={`h-[4rem] bg-[#FFFFFF] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classAT}`}
+                              className={`my-1 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classAT}`}
                               onClick={() => setOpenRC(true)}
                               onMouseLeave={() => setRCActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">RC</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
                                 Radicle Civics
                               </p>
                             </div>
                           ) : RCHover ? (
-                            <div className="h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
-                              <p className="text-xs font-medium ">
+                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                              <p className="text-base font-normal ">RC</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
                                 Radicle Civics
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#2C2B2B] px-2 py-2 text-[#FFF] drop-shadow-xl ${classL}`}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
                               onMouseOver={() => setRCActive(true)}
                               onClick={() => setOpenRC(true)}
                               onMouseLeave={() => setRCActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">RC</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
                                 Radicle Civics
                               </p>
                             </div>
@@ -1493,51 +1502,57 @@ export default function Home() {
 
                           {ETCactive || openETC ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
                               onClick={() => setOpenETC(true)}
                               onMouseLeave={() => setETCActive(false)}
                             >
-                              <p className="text-xs font-medium ">
-                                Empowered, Thriving Communities
+                              <p className="text-base font-normal ">LC</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
+                                Local <br />
+                                Civics
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setETCActive(true)}
                               onClick={() => setOpenETC(true)}
                               onMouseLeave={() => setETCActive(false)}
                             >
-                              <p className="text-xs font-medium ">
-                                Empowered, Thriving Communities
+                              <p className="text-base font-normal ">LC</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
+                                Local <br /> Civics
                               </p>
                             </div>
                           )}
 
                           {NZactive || openNZ ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL}`}
+                              className={`my-1 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}`}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">NZC</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Net Zero Cities
                               </p>
                             </div>
                           ) : NZHover ? (
-                            <div className="mt-2 h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
-                              <p className="text-xs font-medium ">
+                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                              <p className="text-base font-normal ">NZC</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Net Zero Cities
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] drop-shadow-xl ${classL}`}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
                               onMouseOver={() => setNZActive(true)}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">NZC</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Net Zero Cities
                               </p>
                             </div>
@@ -1545,41 +1560,45 @@ export default function Home() {
 
                           {SGactive || openSG ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
                             >
-                              <p className="text-xs font-medium ">
-                                7Gen Cities
+                              <p className="text-base font-normal ">7G</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
+                                7Gen <br /> Cities
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`mmy-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setSGActive(true)}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
                             >
-                              <p className="text-xs font-medium ">
-                                7Gen Cities
+                              <p className="text-base font-normal ">7G</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
+                                7Gen <br /> Cities
                               </p>
                             </div>
                           )}
 
                           {M0active || openM0 ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
                               onClick={() => setOpenM0(true)}
                               onMouseLeave={() => setM0Active(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">M0</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 M0
                                 <br /> Cities
                               </p>
                             </div>
                           ) : M0Hover ? (
-                            <div className="h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
-                              <p className="text-xs font-medium ">
+                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                              <p className="text-base font-normal ">M0</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 {' '}
                                 M0
                                 <br /> Cities
@@ -1587,12 +1606,13 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setM0Active(true)}
                               onClick={() => setOpenM0(true)}
                               onMouseLeave={() => setM0Active(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">M0</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
                                 M0
                                 <br /> Cities
                               </p>
@@ -1601,22 +1621,24 @@ export default function Home() {
 
                           {REactive ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
                               onClick={() => setOpenRE(true)}
                               onMouseLeave={() => setREActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">RN</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Regen Nutrition
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3] ${classL}`}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
                               onMouseOver={() => setREActive(true)}
                               onClick={() => setOpenRE(true)}
                               onMouseLeave={() => setREActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">RN</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Regen Nutrition
                               </p>
                             </div>
@@ -1624,22 +1646,31 @@ export default function Home() {
 
                           {WIactive || openWI ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">WI</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
+                                Wild Infrastructure
+                              </p>
+                            </div>
+                          ) : WIHover ? (
+                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                              <p className="text-base font-normal ">WI</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Wild Infrastructure
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setWIActive(true)}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">WI</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Wild Infrastructure
                               </p>
                             </div>
@@ -1647,22 +1678,24 @@ export default function Home() {
 
                           {BEactive ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
                               onClick={() => setOpenBE(true)}
                               onMouseLeave={() => setBEActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">BE</p>
+                              <p className="text-[9.6px] font-normal leading-normal ">
                                 Bioregional Economics
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-1 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setBEActive(true)}
                               onClick={() => setOpenBE(true)}
                               onMouseLeave={() => setBEActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">BE</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
                                 Bioregional Economics
                               </p>
                             </div>
@@ -1670,22 +1703,24 @@ export default function Home() {
 
                           {PCactive ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL}`}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}`}
                               onClick={() => setOpenPC(true)}
                               onMouseLeave={() => setPCActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">PC</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
                                 Planetary Civics
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setPCActive(true)}
                               onClick={() => setOpenPC(true)}
                               onMouseLeave={() => setPCActive(false)}
                             >
-                              <p className="text-xs font-medium ">
+                              <p className="text-base font-normal ">PC</p>
+                              <p className="text-[9.6px] font-normal leading-normal">
                                 Planetary Civics
                               </p>
                             </div>
@@ -1694,42 +1729,55 @@ export default function Home() {
                         <div>
                           {NEactive || openNE ? (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer ${classA} ${classAT}`}
+                              className={` flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}`}
                               onClick={() => setOpenNE(true)}
                               onMouseLeave={() => setNEActive(false)}
                             >
-                              <p className=" text-xs font-medium ">
-                                Next Economics Lab
+                              <p className="text-base font-normal ">NE</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Next Economics
                               </p>
                             </div>
                           ) : NEHover ? (
                             <div
-                              className={`mb-1 h-[4rem] border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-8 pt-1.5 text-[#FFF]`}
+                              className={` flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]`}
                             >
-                              <p className=" text-xs font-medium">
-                                Next Economics Lab
+                              <p className="text-base font-normal ">NE</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Next Economics
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 box-border h-[4rem] bg-[#2C2B2B] pb-8 pl-1 pt-1 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
                               onMouseOver={() => setNEActive(true)}
                               onClick={() => setOpenNE(true)}
                               onMouseLeave={() => setNEActive(false)}
                             >
-                              <p className=" text-xs font-medium">
-                                Next Economics Lab
+                              <p className="text-base font-normal ">NE</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Next Economics
                               </p>
                             </div>
                           )}
 
                           {(RCactive || NEactive) && !openMC ? (
-                            <div className="h-[4rem] bg-[#575657] py-10 pt-2 ">
-                              {' '}
+                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959] ">
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                RC
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + NE
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
+                              </p>
                             </div>
-                          ) : (RCHover && NEHover) || activeState === 6 ? (
+                          ) : RCHover && NEHover ? (
                             <div
-                              className="h-[4rem] bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem] text-white hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setRCHover(false);
                                 setNEHover(false);
@@ -1742,47 +1790,59 @@ export default function Home() {
                                 setOpenMC(true);
                               }}
                             >
-                              <p className=" text-xs font-medium ">
+                              <p className=" text-[9.6px] font-normal leading-normal ">
                                 Multivalent currencies
                               </p>
                             </div>
                           ) : openMC ? (
-                            <div className=" h-[4rem] bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
-                              <p className=" text-xs font-medium">
+                            <div className=" my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem] text-white ">
+                              <p className=" text-[9.6px] font-normal leading-normal ">
                                 Multivalent currencies
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`hover:cursor-pointer] h-[4rem] bg-[#414040] py-10 pl-1 pt-2 ${classT} ${classA}`}
+                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
                               onMouseEnter={() => {
                                 setRCHover(true);
                                 setNEHover(true);
                               }}
-                            ></div>
+                            >
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                RC
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + NE
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
+                              </p>
+                            </div>
                           )}
                           {ETCactive || NEactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || NEactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -1790,24 +1850,34 @@ export default function Home() {
 
                           {SGactive || NEactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {(M0active || NEactive) && !openNET ? (
-                            <div className="mt-2 h-[4rem] bg-[#575657] py-10 pt-2">
-                              {' '}
+                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959]">
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                MO
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + NE
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
+                              </p>
                             </div>
-                          ) : (M0Hover && NEHover) || activeState === 6 ? (
+                          ) : M0Hover && NEHover ? (
                             <div
-                              className="mt-2 h-[4rem] bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem] text-white hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setM0Hover(false);
                                 setNEHover(false);
@@ -1820,35 +1890,47 @@ export default function Home() {
                                 setOpenNET(true);
                               }}
                             >
-                              <p className=" text-xs font-medium ">
+                              <p className=" text-[9.6px] font-normal leading-normal ">
                                 New Economic Thinking
                               </p>
                             </div>
                           ) : openNET ? (
-                            <div className="mt-2 h-[4rem] bg-[#EBEBEB] py-2 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
-                              <p className=" text-xs font-medium">
+                            <div className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem] text-white">
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 New Economic Thinking
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`hover:cursor-pointer] mt-2 h-[4rem] bg-[#414040] py-10 pl-1 pt-2 ${classT} ${classA}`}
+                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
                               onMouseEnter={() => {
                                 setM0Hover(true);
                                 setNEHover(true);
                               }}
-                            ></div>
+                            >
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                M0
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + NE
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
+                              </p>
+                            </div>
                           )}
 
                           {REactive || NEactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -1856,13 +1938,13 @@ export default function Home() {
 
                           {WIactive || NEactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -1870,26 +1952,26 @@ export default function Home() {
 
                           {BEactive || NEactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || NEactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classA} ${classT} ${classAB}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA} ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
@@ -1899,91 +1981,89 @@ export default function Home() {
                         <div>
                           {BLactive || openBL ? (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer ${classA} ${classAT}`}
+                              className={`flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}`}
                               onClick={() => setOpenBL(true)}
                               onMouseLeave={() => setBLActive(false)}
                             >
-                              <p className=" text-xs font-medium ">
+                              <p className="text-base font-normal ">BL</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Beyond Labour
-                                <br />
-                                <br />
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
                               onMouseOver={() => setBLActive(true)}
                               onClick={() => setOpenBL(true)}
                               onMouseLeave={() => setBLActive(false)}
                             >
-                              <p className=" text-xs font-medium">
+                              <p className="text-base font-normal ">BL</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Beyond Labour
-                                <br />
-                                <br />
                               </p>
                             </div>
                           )}
                           {RCactive || openRC || BLactive ? (
                             <div
-                              className={`h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -1991,52 +2071,52 @@ export default function Home() {
 
                           {REactive || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || BLactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
@@ -2046,24 +2126,25 @@ export default function Home() {
                         <div>
                           {openCS || CSactive ? (
                             <div
-                              className="group mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="group flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
                               onClick={() => setOpenCS(true)}
                               onMouseLeave={() => setCSActive(false)}
                             >
-                              <p className="mb-4 text-xs font-medium">
+                              <p className="text-base font-normal ">CS</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Capital Systems
-                                <span className="inline">↗</span>
                               </p>
                             </div>
                           ) : CSHover ? (
-                            <div className="mb-1 h-[4rem] border-t-2 border-t-white bg-[#2C2B2B] px-2 pb-[2.87rem] pt-2 text-[#FFF] ">
-                              <p className=" text-xs font-medium">
+                            <div className="flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8] ">
+                              <p className="text-base font-normal ">CS</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Capital Systems
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`group mb-1 h-[4rem] bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3]  ${classA} ${classAT}`}
+                              className={` mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}`}
                               onClick={() => {
                                 setOpenCS(true);
                                 setCSActive(true);
@@ -2071,98 +2152,75 @@ export default function Home() {
                               onMouseOver={() => setCSActive(true)}
                               onMouseLeave={() => setCSActive(false)}
                             >
-                              <p className="mb-4 text-xs font-medium">
+                              <p className="text-base font-normal ">CS</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Capital Systems
-                                <span className="hidden group-hover:inline">
-                                  ↗
-                                </span>
                               </p>
                             </div>
                           )}
                           {RCactive || openRC || CSactive || openCS ? (
                             <div
-                              className={`h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || CSactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
-                          {(NZactive || CSactive) && !openTAI ? (
-                            <div className="mt-2 h-[4rem] bg-[#575657] py-10 pt-2">
-                              {' '}
-                            </div>
-                          ) : (NZHover && CSHover) || activeState === 6 ? (
+
+                          {NZactive || CSactive ? (
                             <div
-                              className="mt-2 h-[4rem] bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
-                              onMouseLeave={() => {
-                                setNZHover(false);
-                                setCSHover(false);
-                                setCTHover(false);
-                              }}
-                              onMouseEnter={() => {
-                                setNZHover(true);
-                                setCSHover(true);
-                                setCTHover(true);
-                              }}
-                              onClick={() => {
-                                setOpenTAI(true);
-                              }}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
-                              <p className=" text-xs font-medium ">TreesAI</p>
-                            </div>
-                          ) : openTAI ? (
-                            <div className="mt-2 h-[4rem] bg-[#EBEBEB] py-8 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
-                              <p className=" text-xs font-medium">TreesAI</p>
+                              {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
-                              onMouseEnter={() => {
-                                setNZHover(true);
-                                setCSHover(true);
-                              }}
-                            ></div>
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                            >
+                              {' '}
+                            </div>
                           )}
+
                           {SGactive || CSactive || openCS ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || CSactive || openCS ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -2170,52 +2228,101 @@ export default function Home() {
 
                           {REactive || CSactive || openCS ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
-                          {WIactive || CSactive ? (
+                          {(WIactive || CSactive) && !openTAI ? (
+                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959]">
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                NZ
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + CS
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
+                              </p>
+                            </div>
+                          ) : WIHover && CSHover ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white hover:cursor-pointer"
+                              onMouseLeave={() => {
+                                setWIHover(false);
+                                setCSHover(false);
+                                setCTHover(false);
+                              }}
+                              onMouseEnter={() => {
+                                setWIHover(true);
+                                setCSHover(true);
+                                setCTHover(true);
+                              }}
+                              onClick={() => {
+                                setOpenTAI(true);
+                              }}
                             >
-                              {' '}
+                              <p className=" text-[9.6px] font-normal leading-normal ">
+                                TreesAI
+                              </p>
+                            </div>
+                          ) : openTAI ? (
+                            <div className=" my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white">
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                TreesAI
+                              </p>
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
+                              onMouseEnter={() => {
+                                setWIHover(true);
+                                setCSHover(true);
+                              }}
                             >
-                              {' '}
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                NZ
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + CS
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
+                              </p>
                             </div>
                           )}
                           {BEactive || CSactive || openCS ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || CSactive || openCS ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
@@ -2225,91 +2332,89 @@ export default function Home() {
                         <div>
                           {PFactive || openPF ? (
                             <div
-                              className="mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
                               onClick={() => setOpenPF(true)}
                               onMouseLeave={() => setPFActive(false)}
                             >
-                              <p className=" text-xs font-medium ">
-                                Philanthrop. Futures
-                                <br />
-                                <br />
+                              <p className="text-base font-normal ">PF</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Philanthropic Futures
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
                               onMouseOver={() => setPFActive(true)}
                               onClick={() => setOpenPF(true)}
                               onMouseLeave={() => setPFActive(false)}
                             >
-                              <p className=" text-xs font-medium">
-                                Philanthrop. Futures
-                                <br />
-                                <br />
+                              <p className="text-base font-normal ">PF</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Philanthropic Futures
                               </p>
                             </div>
                           )}
                           {RCactive || openRC || PFactive ? (
                             <div
-                              className={`h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -2317,52 +2422,52 @@ export default function Home() {
 
                           {REactive || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || PFactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classA}  ${classT} ${classAB} `}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB} `}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
@@ -2372,91 +2477,89 @@ export default function Home() {
                         <div>
                           {PBactive || openPB ? (
                             <div
-                              className="mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
                               onClick={() => setOpenPB(true)}
                               onMouseLeave={() => setPBActive(false)}
                             >
-                              <p className=" text-xs font-medium ">
+                              <p className="text-base font-normal ">PB</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Property & Beyond
-                                <br />
-                                <br />
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
                               onMouseOver={() => setPBActive(true)}
                               onClick={() => setOpenPB(true)}
                               onMouseLeave={() => setPBActive(false)}
                             >
-                              <p className=" text-xs font-medium">
+                              <p className="text-base font-normal ">PB</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Property & Beyond
-                                <br />
-                                <br />
                               </p>
                             </div>
                           )}
                           {RCactive || openRC || PBactive ? (
                             <div
-                              className={`h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -2464,52 +2567,52 @@ export default function Home() {
 
                           {REactive || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || PBactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
@@ -2519,93 +2622,91 @@ export default function Home() {
                         <div>
                           {QDactive || openQD ? (
                             <div
-                              className="mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
                               onClick={() => setOpenQD(true)}
                               onMouseLeave={() => setQDActive(false)}
                             >
-                              <p className=" text-xs font-medium ">
+                              <p className="text-base font-normal ">SD</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 Societal Decisions
-                                <br />
-                                <br />
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}`}
                               onMouseOver={() => setQDActive(true)}
                               onClick={() => setOpenQD(true)}
                               onMouseLeave={() => setQDActive(false)}
                             >
-                              <p className=" text-xs font-medium">
+                              <p className="text-base font-normal ">SD</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 Societal Decisions
-                                <br />
-                                <br />
                               </p>
                             </div>
                           )}
                           {RCactive || openRC || QDactive ? (
                             <div
-                              className={`h-[4rem] bg-[#575657] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#414040] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -2613,52 +2714,52 @@ export default function Home() {
 
                           {REactive || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2  ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || QDactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2  ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2  ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
@@ -2668,91 +2769,89 @@ export default function Home() {
                         <div>
                           {BRactive || openBR ? (
                             <div
-                              className="mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
                               onClick={() => setOpenBR(true)}
                               onMouseLeave={() => setBRActive(false)}
                             >
-                              <p className=" text-xs font-medium ">
+                              <p className="text-base font-normal ">BTR</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Beyond the Rules
-                                <br />
-                                <br />
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
                               onMouseOver={() => setBRActive(true)}
                               onClick={() => setOpenBR(true)}
                               onMouseLeave={() => setBRActive(false)}
                             >
-                              <p className=" text-xs font-medium">
+                              <p className="text-base font-normal ">BTR</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
                                 Beyond the Rules
-                                <br />
-                                <br />
                               </p>
                             </div>
                           )}
                           {RCactive || openRC || BRactive ? (
                             <div
-                              className={`h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -2760,52 +2859,52 @@ export default function Home() {
 
                           {REactive || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || BRactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classA}  ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classA}  ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -2815,59 +2914,71 @@ export default function Home() {
                         <div>
                           {SMactive || openSM ? (
                             <div
-                              className="mb-1 h-[4rem] bg-[#EBEBEB] px-2 pb-8 pt-2 text-[#5965A3] hover:cursor-pointer"
+                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
                               onClick={() => setOpenSM(true)}
                               onMouseLeave={() => setSMActive(false)}
                             >
-                              <p className=" text-xs font-medium ">
-                                Sensing, Modeling, Mapping
+                              <p className="text-base font-normal ">SMM</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Sensing, Modeling
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 h-[4rem] bg-[#2C2B2B] px-2 pb-8 pt-2 text-[#FFF] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
                               onMouseOver={() => setSMActive(true)}
                               onClick={() => setOpenSM(true)}
                               onMouseLeave={() => setSMActive(false)}
                             >
-                              <p className=" text-xs font-medium">
-                                Sensing, Modeling, Mapping
+                              <p className="text-base font-normal ">SMM</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Sensing, Modeling
                               </p>
                             </div>
                           )}
                           {RCactive || SMactive ? (
                             <div
-                              className={`h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || SMactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {(NZactive || SMactive) && !openCL ? (
-                            <div className="mt-2 h-[4rem] bg-[#575657] py-10 pt-2">
-                              {' '}
+                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959]">
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                NZ
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + CT
+                                <span className="align-super text-[6.6px]">
+                                  S
+                                </span>
+                              </p>
                             </div>
-                          ) : (NZHover && CTHover) || activeState === 6 ? (
+                          ) : NZHover && CTHover ? (
                             <div
-                              className="mt-2 h-[4rem] bg-[#EBEBEB] py-8 pl-2 pt-2  text-[#5965A3] hover:cursor-pointer"
+                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setNZHover(false);
                                 setCTHover(false);
@@ -2880,43 +2991,59 @@ export default function Home() {
                                 setCTHover(true);
                               }}
                             >
-                              <p className=" text-xs font-medium ">CircuLaw</p>
+                              <p className=" text-[9.6px] font-normal leading-normal ">
+                                CircuLaw
+                              </p>
                             </div>
                           ) : openCL ? (
-                            <div className="mt-2 h-[4rem] bg-[#EBEBEB] py-8 pl-2 pt-2 text-[#5965A3] hover:cursor-pointer">
-                              <p className=" text-xs font-medium">CircuLaw</p>
+                            <div className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white">
+                              <p className=" text-[9.6px] font-normal leading-normal ">
+                                CircuLaw
+                              </p>
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
                               onMouseEnter={() => {
                                 setNZHover(true);
                                 setCTHover(true);
                               }}
-                            ></div>
+                            >
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                NZ
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + CT
+                                <span className="align-super text-[6.6px]">
+                                  S
+                                </span>
+                              </p>
+                            </div>
                           )}
                           {SGactive || SMactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || SMactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
@@ -2924,52 +3051,52 @@ export default function Home() {
 
                           {REactive || SMactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || SMactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || SMactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classT} ${classA}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || SMactive ? (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#575657] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`mt-2 h-[4rem] bg-[#414040] py-10 pt-2 ${classA}  ${classT} ${classAB}`}
+                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
                             >
                               {' '}
                             </div>
@@ -2977,116 +3104,10 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="hidden pt-[5.5rem]">
-                      <div className="  ">
-                        <h2 className="pl-4 pt-4 text-xl font-light text-[#9F9F9F]">
-                          Studios
-                        </h2>
-                      </div>
-                      {CTactive || openCT ? (
-                        <div
-                          className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-3 hover:cursor-pointer"
-                          onClick={() => setOpenCT(true)}
-                          onMouseLeave={() => setCTActive(false)}
-                        >
-                          <p className=" pt-2 text-xs font-medium text-[#5965A3] ">
-                            Civic Tech
-                          </p>
-                        </div>
-                      ) : CTHover ? (
-                        <div className="h-[4rem] w-20 border-r-2 border-r-white bg-[#252424] px-2 py-3">
-                          <p className=" pt-2 text-xs font-medium text-[#fff]">
-                            Civic Tech
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className="h-[4rem] w-20 bg-[#252424] px-2 py-3"
-                          onMouseOver={() => setCTActive(true)}
-                          onClick={() => setOpenCT(true)}
-                          onMouseLeave={() => setCTActive(false)}
-                        >
-                          <p className=" pt-2 text-xs font-medium text-[#fff]">
-                            Civic Tech
-                          </p>
-                        </div>
-                      )}
-                      <div className="max-w-8 bg-[#252424] py-1 "> </div>
-                      {CDactive || openCD ? (
-                        <div
-                          className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
-                          onClick={() => setOpenCD(true)}
-                          onMouseLeave={() => setCDActive(false)}
-                        >
-                          <p className="text-xs font-medium text-[#5965A3] ">
-                            Conversat-
-                            <br /> ional Design
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
-                          onMouseOver={() => setCDActive(true)}
-                          onClick={() => setOpenCD(true)}
-                          onMouseLeave={() => setCDActive(false)}
-                        >
-                          <p className="text-xs font-medium text-[#fff]">
-                            Conversat-
-                            <br /> ional Design
-                          </p>
-                        </div>
-                      )}
-                      <div className="max-w-8 bg-[#252424] py-1 "> </div>
-                      {FFactive || openFF ? (
-                        <div
-                          className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
-                          onClick={() => setOpenFF(true)}
-                          onMouseLeave={() => setFFActive(false)}
-                        >
-                          <p className="text-xs font-medium text-[#5965A3] ">
-                            Foresight & Futuring Studio
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
-                          onMouseOver={() => setFFActive(true)}
-                          onClick={() => setOpenFF(true)}
-                          onMouseLeave={() => setFFActive(false)}
-                        >
-                          <p className="text-xs font-medium text-[#fff]">
-                            Foresight & Futuring Studio
-                          </p>
-                        </div>
-                      )}
-                      <div className="max-w-8 bg-[#252424] py-1 "> </div>
-                      {ODactive || openOD ? (
-                        <div
-                          className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
-                          onClick={() => setOpenOD(true)}
-                          onMouseLeave={() => setODActive(false)}
-                        >
-                          <p className="text-xs font-medium text-[#5965A3] ">
-                            Org Dev Studio
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
-                          onMouseOver={() => setODActive(true)}
-                          onClick={() => setOpenOD(true)}
-                          onMouseLeave={() => setODActive(false)}
-                        >
-                          <p className="text-xs font-medium text-[#fff]">
-                            Org Dev Studio
-                          </p>
-                        </div>
-                      )}
-                    </div>
                   </div>
 
                   <div
-                    className={`threeD absolute right-[4rem] top-[10rem]  ${capacity} w-full opacity-100 ${animateOn}`}
+                    className={`threeD absolute right-[4rem] top-[10rem] hidden  ${capacity} w-full opacity-100 ${animateOn}`}
                   >
                     <div className="">
                       <div className="grid grid-cols-7 gap-0 ">
@@ -3134,7 +3155,7 @@ export default function Home() {
 
                           {ETCactive || openETC ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
                               onClick={() => setOpenETC(true)}
                               onMouseLeave={() => setETCActive(false)}
                             >
@@ -3144,7 +3165,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setETCActive(true)}
                               onClick={() => setOpenETC(true)}
                               onMouseLeave={() => setETCActive(false)}
@@ -3157,7 +3178,7 @@ export default function Home() {
 
                           {NZactive || openNZ ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL}`}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL}`}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
                             >
@@ -3173,7 +3194,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] drop-shadow-xl ${classL}`}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] drop-shadow-xl ${classL}`}
                               onMouseOver={() => setNZActive(true)}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
@@ -3186,7 +3207,7 @@ export default function Home() {
 
                           {SGactive || openSG ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
                             >
@@ -3196,7 +3217,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setSGActive(true)}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
@@ -3209,7 +3230,7 @@ export default function Home() {
 
                           {M0active || openM0 ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
                               onClick={() => setOpenM0(true)}
                               onMouseLeave={() => setM0Active(false)}
                             >
@@ -3228,7 +3249,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setM0Active(true)}
                               onClick={() => setOpenM0(true)}
                               onMouseLeave={() => setM0Active(false)}
@@ -3242,7 +3263,7 @@ export default function Home() {
 
                           {REactive ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
                               onClick={() => setOpenRE(true)}
                               onMouseLeave={() => setREActive(false)}
                             >
@@ -3252,7 +3273,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] hover:cursor-pointer hover:bg-[#EBEBEB] hover:text-[#5965A3] ${classL}`}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
                               onMouseOver={() => setREActive(true)}
                               onClick={() => setOpenRE(true)}
                               onMouseLeave={() => setREActive(false)}
@@ -3265,7 +3286,7 @@ export default function Home() {
 
                           {WIactive || openWI ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
                             >
@@ -3275,7 +3296,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setWIActive(true)}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
@@ -3288,7 +3309,7 @@ export default function Home() {
 
                           {BEactive ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
                               onClick={() => setOpenBE(true)}
                               onMouseLeave={() => setBEActive(false)}
                             >
@@ -3298,7 +3319,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-1 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setBEActive(true)}
                               onClick={() => setOpenBE(true)}
                               onMouseLeave={() => setBEActive(false)}
@@ -3311,7 +3332,7 @@ export default function Home() {
 
                           {PCactive ? (
                             <div
-                              className={`my-2 h-[4rem] bg-[#EBEBEB] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classL}`}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL}`}
                               onClick={() => setOpenPC(true)}
                               onMouseLeave={() => setPCActive(false)}
                             >
@@ -3321,7 +3342,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-2 h-[4rem] bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setPCActive(true)}
                               onClick={() => setOpenPC(true)}
                               onMouseLeave={() => setPCActive(false)}
@@ -4344,114 +4365,119 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-[10rem] z-30 w-full opacity-100  ${classStudio} ${animateOn}`}
+                    className={`threeD absolute top-[10rem] z-30 w-full opacity-100 ${classStudio} ${animateOn} bg-gradient-to-b from-[#000] to-[#292929]`} // change bg to transparent on state 6
                   >
-                    <div className="grid max-w-4xl grid-cols-12 gap-0">
+                    <div className="grid grid-cols-12 gap-1">
                       <div className="col-span-11">
-                        <div className=" bg-[#252424] py-80 "> </div>
+                        <div className="mt-10  py-80"> </div>
                       </div>
                       <div className="">
                         <div className="  ">
-                          <h2 className="pl-4 pt-4 text-xl font-light text-[#9F9F9F]">
+                          <h2 className="pl-2 pt-[5.54rem] text-base font-normal text-[#A8A8A8]">
                             Studios
                           </h2>
                         </div>
                         {CTactive || openCT ? (
                           <div
-                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-3 hover:cursor-pointer"
+                            className="flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
                           >
-                            <p className=" pt-2 text-xs font-medium text-[#5965A3] ">
-                              Civic Tech
+                            <p className="text-base font-normal ">CT</p>
+                            <p className=" text-[9.6px] font-normal leading-normal">
+                              Civic <br /> Tech
                             </p>
                           </div>
                         ) : CTHover ? (
-                          <div className="h-[4rem] w-20 border-r-2 border-r-white bg-[#252424] px-2 py-3">
-                            <p className=" pt-2 text-xs font-medium text-[#fff]">
-                              Civic Tech
+                          <div className="flex flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8]">
+                            <p className="text-base font-normal ">CT</p>
+                            <p className=" text-[9.6px] font-normal leading-normal">
+                              Civic <br /> Tech
                             </p>
                           </div>
                         ) : (
                           <div
-                            className="h-[4rem] w-20 bg-[#252424] px-2 py-3"
+                            className=" flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
                             onMouseOver={() => setCTActive(true)}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
                           >
-                            <p className=" pt-2 text-xs font-medium text-[#fff]">
-                              Civic Tech
+                            <p className="text-base font-normal ">CT</p>
+                            <p className=" text-[9.6px] font-normal leading-normal">
+                              Civic <br /> Tech
                             </p>
                           </div>
                         )}
-                        <div className="max-w-8 bg-[#252424] py-1 "> </div>
+
                         {CDactive || openCD ? (
                           <div
-                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                            className="my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
                           >
-                            <p className="text-xs font-medium text-[#5965A3] ">
-                              Conversat-
-                              <br /> ional Design
+                            <p className="text-base font-normal ">CD</p>
+                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                              Conversational Design
                             </p>
                           </div>
                         ) : (
                           <div
-                            className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                            className="my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
                             onMouseOver={() => setCDActive(true)}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
                           >
-                            <p className="text-xs font-medium text-[#fff]">
-                              Conversat-
-                              <br /> ional Design
+                            <p className="text-base font-normal ">CD</p>
+                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                              Conversational Design
                             </p>
                           </div>
                         )}
-                        <div className="max-w-8 bg-[#252424] py-1 "> </div>
+
                         {FFactive || openFF ? (
                           <div
-                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                            className="my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
                           >
-                            <p className="text-xs font-medium text-[#5965A3] ">
-                              Foresight & Futuring Studio
+                            <p className="text-base font-normal ">FF</p>
+                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                              Foresight& Futuring
                             </p>
                           </div>
                         ) : (
                           <div
-                            className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                            className="my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
                             onMouseOver={() => setFFActive(true)}
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
                           >
-                            <p className="text-xs font-medium text-[#fff]">
-                              Foresight & Futuring Studio
+                            <p className="text-base font-normal ">FF</p>
+                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                              Foresight& Futuring
                             </p>
                           </div>
                         )}
-                        <div className="max-w-8 bg-[#252424] py-1 "> </div>
+
                         {ODactive || openOD ? (
                           <div
-                            className="h-[4rem] w-20 bg-[#EBEBEB] px-2 py-1 hover:cursor-pointer"
+                            className="my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
                           >
-                            <p className="text-xs font-medium text-[#5965A3] ">
-                              Org Dev Studio
+                            <p className=" text-base font-normal uppercase">
+                              Org Dev
                             </p>
                           </div>
                         ) : (
                           <div
-                            className="h-[4rem] w-20 bg-[#252424] px-2 py-1"
+                            className="my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
                             onMouseOver={() => setODActive(true)}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
                           >
-                            <p className="text-xs font-medium text-[#fff]">
-                              Org Dev Studio
+                            <p className=" text-base font-normal uppercase">
+                              Org Dev
                             </p>
                           </div>
                         )}

@@ -84,8 +84,6 @@ img {
 
 @layer components {
   .base {
-    @apply border;
-    @apply border-[#151414];
   }
 
   .labs {

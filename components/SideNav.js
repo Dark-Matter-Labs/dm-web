@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Fragment } from 'react';
 
 const pageNav = [
   {
@@ -77,7 +78,7 @@ const pageNav = [
 
 export default function SideNav({ activeState }) {
   return (
-    <div className="right-3/4 col-span-5 mt-20 max-w-xs">
+    <div className="right-3/4 col-span-5 mt-20 hidden max-w-xs sm:block">
       <div className="sticky left-0 top-[20%] flow-root ">
         <ul role="list" className="">
           {pageNav.map((activityItem) => (
@@ -87,14 +88,14 @@ export default function SideNav({ activeState }) {
                   <>
                     <div>
                       <div className="relative px-1">
-                        <div className="mt-3 flex h-1 w-1 items-center justify-center bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
+                        <div className="mt-3 flex h-[0.5px] w-[0.5px] items-center justify-center bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
                       </div>
                     </div>
                     <div className="min-w-0 flex-1 ">
                       {activityItem.id === activeState ? (
                         <div className="">
                           <h4
-                            className="font-FKmedium text-2xl text-white"
+                            className="font-FKmedium text-[17px] text-white"
                             onClick={() =>
                               window.scrollTo({
                                 top: activityItem.scrollPos,
@@ -106,14 +107,14 @@ export default function SideNav({ activeState }) {
                               {activityItem.title}
                             </Link>
                           </h4>
-                          <p className="font-FKregular text-sm text-[#C1C1C1]">
+                          <p className="font-FKregular text-[15.8px] text-[#C1C1C1]">
                             {activityItem.description}
                           </p>
                         </div>
                       ) : (
                         <div className="">
                           <h4
-                            className="font-FKmedium text-2xl text-[#6A6A6A]"
+                            className="font-FKmedium text-[17px] text-[#6A6A6A]"
                             onClick={() =>
                               window.scrollTo({
                                 top: activityItem.scrollPos,
@@ -132,59 +133,66 @@ export default function SideNav({ activeState }) {
                 </div>
                 {activityItem.sub.length > 0 &&
                   activityItem.sub.map((sub, subIndex) => (
-                    <span key={sub.title}>
-                      <div className="relative pb-4">
-                        {subIndex !== activityItem.sub.length - 1 ? (
-                          <span
-                            className="absolute left-1 top-2 h-full w-0.5 bg-[#9F9F9F] "
-                            aria-hidden="true"
-                          />
-                        ) : null}
-                        <div className="relative flex items-start space-x-3">
-                          <>
-                            <div>
-                              <div className="relative px-1">
-                                <div className="mt-3 flex h-0.5 w-0.5 items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
+                    <Fragment key={subIndex}>
+                      {subIndex === 0 && <div className="py-2"></div>}
+
+                      <span key={subIndex}>
+                        <div className="relative">
+                          {subIndex !== activityItem.sub.length - 1 ? (
+                            <span
+                              className="absolute left-1 top-2 h-full w-0.5 bg-[#9F9F9F]"
+                              aria-hidden="true"
+                            />
+                          ) : null}
+                          <div className="relative flex items-start space-x-3">
+                            <>
+                              <div>
+                                <div className="relative px-1">
+                                  <div className="mt-3 flex h-[0.2px] w-[0.2px] items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
+                                </div>
                               </div>
-                            </div>
-                            <div className="min-w-0 flex-1 ">
-                              {sub.id === activeState ? (
-                                <div className="">
-                                  <h5
-                                    className="cursor-pointer font-FKmedium text-xl text-white"
-                                    onClick={() =>
-                                      window.scrollTo({
-                                        top: sub.scrollPos,
-                                        behavior: 'smooth',
-                                      })
-                                    }
-                                  >
-                                    {sub.title}
-                                  </h5>
-                                  <p className="font-FKregular text-sm text-[#C1C1C1]">
-                                    {sub.description}
-                                  </p>
-                                </div>
-                              ) : (
-                                <div className="">
-                                  <h5
-                                    className="cursor-pointer font-FKmedium text-xl text-[#6A6A6A]"
-                                    onClick={() =>
-                                      window.scrollTo({
-                                        top: sub.scrollPos,
-                                        behavior: 'smooth',
-                                      })
-                                    }
-                                  >
-                                    {sub.title}
-                                  </h5>
-                                </div>
-                              )}
-                            </div>
-                          </>
+                              <div className="min-w-0 flex-1 ">
+                                {sub.id === activeState ? (
+                                  <div className="">
+                                    <h5
+                                      className="cursor-pointer font-FKmedium text-[17px] text-white"
+                                      onClick={() =>
+                                        window.scrollTo({
+                                          top: sub.scrollPos,
+                                          behavior: 'smooth',
+                                        })
+                                      }
+                                    >
+                                      {sub.title}
+                                    </h5>
+                                    <p className="font-FKregular text-[15.8px] text-[#C1C1C1]">
+                                      {sub.description}
+                                    </p>
+                                  </div>
+                                ) : (
+                                  <div className="">
+                                    <h5
+                                      className="cursor-pointer font-FKmedium text-[17px] text-[#6A6A6A]"
+                                      onClick={() =>
+                                        window.scrollTo({
+                                          top: sub.scrollPos,
+                                          behavior: 'smooth',
+                                        })
+                                      }
+                                    >
+                                      {sub.title}
+                                    </h5>
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          </div>
+                          {subIndex !== activityItem.sub.length - 1 && (
+                            <div className="pb-4"></div>
+                          )}
                         </div>
-                      </div>
-                    </span>
+                      </span>
+                    </Fragment>
                   ))}
               </div>
             </li>
