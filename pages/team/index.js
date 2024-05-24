@@ -27,8 +27,14 @@ export default function TeamPage({dmliens}) {
             <ul className="w-full grid grid-cols-12 gap-x-6 items-center justify-center mt-12 text-white">
                 {dmliens.map((dmlien, id) => (
                     <li key={id} className="col-span-3">
+                        <h2>
                         {dmlien.fullName}
+                        </h2>
+                        <h3>
+                           {dmlien.location}
+                        </h3>
                     </li>
+
                 ))}
             </ul>
         </main>
