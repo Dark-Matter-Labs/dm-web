@@ -57,6 +57,7 @@ img {
 
 .threeD {
   transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(1, 1, 1);
+  transform-style: preserve-3d;
 }
 
 .animate {
@@ -83,35 +84,29 @@ img {
 }
 
 @layer components {
-  .base {
+  .arcs-left {
+    @apply bg-[#595959] !important;
   }
 
-  .labs {
-    @apply border-y-2 border-y-[#666666];
-  }
-
-  .labs-left {
-    @apply border-y-2 border-l-2 border-y-[#666666] border-l-[#666666];
-  }
-
-  .labs-right {
-    @apply border-y-2 border-r-2 border-y-[#666666] border-r-[#666666];
-  }
-
-  .arcs {
-    @apply border-x-2 border-x-[#666666];
-  }
-
-  .arcs-top {
-    @apply border-t-2 border-t-[#666666];
-  }
-
-  .arcs-bottom {
-    @apply border-b-2 border-b-[#666666];
+  .labs-top {
+    @apply bg-[#595959] !important;
   }
 
   .studio {
     @apply border-4 border-[#666666] opacity-70;
+    @apply bg-gradient-to-b from-[#000] to-[#292929];
+  }
+
+  .studio-bg-gradient {
+    @apply bg-gradient-to-b from-[#000] to-[#292929];
+  }
+
+  .studio-rm-bg {
+    @apply bg-transparent !important;
+  }
+
+  .studioBg {
+    @apply bg-[#595959] !important;
   }
 
   .t2 {
@@ -134,12 +129,8 @@ img {
     @apply z-[60];
   }
 
-  .capability-arcs-base {
-    @apply hidden;
-  }
-
-  .capability-arcs-active {
-    @apply block;
+  .capability-hidden {
+    @apply opacity-0;
   }
 }
 

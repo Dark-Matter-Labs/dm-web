@@ -2,150 +2,131 @@ import Head from 'next/head';
 import { Fragment, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import Navbar from '../components/Navbar';
 import SideNav from '../components/SideNav';
 import '../styles/Home.module.css';
 import webIcon from '../images/website.svg';
+import pubIcon from '../images/publication.svg';
 
 export default function Home() {
-  const [classT, setClassT] = useState('base');
-  const [classL, setClassL] = useState('base');
+  const [classT, setClassT] = useState('');
+  const [classL, setClassL] = useState('');
 
   const [classA, setClassA] = useState('');
   const [classAT, setClassAT] = useState('');
   const [classAB, setClassAB] = useState('');
 
   const [classStudio, setClassStudio] = useState('');
+  const [classStudioBg, setClassStudioBg] = useState('');
 
   const [classT2, setClassT2] = useState('t1');
   const [activeState, setActiveState] = useState(1);
 
   const [animateOn, setAnimateOn] = useState('');
   const [capacity, setCapacity] = useState('capability-base');
-  const [capacityArcs, setCapacityArcs] = useState('capability-arcs-base');
 
-  const startSticky = 1244;
+  const startSticky = 1500;
   const step = 100;
-  const animationStart = 1640;
-  const stopSticky = 1800;
+  const animationStart = 1896;
+  const stopSticky = 2056;
 
   const listenScrollEvent = () => {
     if (window.scrollY < startSticky) {
-      setClassT('base');
-      setClassL('base');
+      setClassT('');
+      setClassL('');
       setClassA('');
       setClassAT('');
       setClassAB('');
 
       setActiveState(1);
-      setClassStudio('');
+      setClassStudio('studio-bg-gradient');
+      setClassStudioBg('');
 
       setClassT2('t1');
       setAnimateOn('');
       setCapacity('capability-base');
-      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky &&
       window.scrollY < startSticky + step
     ) {
       setActiveState(2);
-      setClassStudio('');
+      setClassStudio('studio-bg-gradient');
+      setClassStudioBg('');
 
-      setClassT('base');
-      setClassL('base');
-      setClassA('');
+      setClassT('');
+      setClassL('');
       setClassAT('');
-      setClassAB('');
 
       setClassT2('t2');
       setAnimateOn('');
       setCapacity('capability-base');
-      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + step &&
       window.scrollY < startSticky + 2 * step
     ) {
       setActiveState(3);
 
-      setClassA('arcs');
-      setClassAT('arcs-top');
-      setClassAB('arcs-bottom');
-      setClassStudio('');
+      setClassAT('labs-top');
+      setClassStudio('studio-bg-gradient');
+      setClassStudioBg('');
+      setClassL('');
 
       setClassT2('t2');
       setAnimateOn('');
       setCapacity('capability-base');
-      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + 2 * step &&
       window.scrollY < startSticky + 3 * step
     ) {
       setActiveState(4);
-      setClassT('base');
-      setClassL('base');
-
-      setClassT('labs');
-      setClassL('labs-left');
-      setClassA('');
       setClassAT('');
-      setClassAB('');
+      setClassL('arcs-left');
 
-      setClassStudio('');
+      setClassStudio('studio-bg-gradient');
+      setClassStudioBg('');
 
       setClassT2('t2');
       setAnimateOn('');
       setCapacity('capability-base');
-      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + 3 * step &&
       window.scrollY < startSticky + 4 * step
     ) {
       setClassStudio('studio');
+      setClassStudioBg('studioBg');
       setActiveState(5);
-      setClassT('base');
-      setClassL('base');
-
-      setClassA('');
+      setClassL('');
       setClassAT('');
-      setClassAB('');
 
       setClassT2('t2');
       setAnimateOn('');
       setCapacity('capability-base');
-      setCapacityArcs('capability-arcs-base');
     } else if (
       window.scrollY > startSticky + 4 * step &&
       window.scrollY < startSticky + 5 * step
     ) {
-      setClassStudio('');
+      setClassStudio('studio-rm-bg');
+      setClassStudioBg('');
       setActiveState(6);
-      setClassT('base');
-      setClassL('base');
-
-      setClassA('');
+      setClassL('');
       setClassAT('');
-      setClassAB('');
 
       setClassT2('t2');
-      setCapacity('capability-base');
-      setCapacityArcs('capability-arcs-base');
+      setCapacity('capability-hidden');
     } else if (
       window.scrollY > startSticky + 5 * step &&
       window.scrollY < startSticky + 6 * step
     ) {
-      setClassStudio('');
+      setClassStudio('studio-bg-gradient');
+      setClassStudioBg('');
       setActiveState(7);
-      setClassT('base');
-      setClassL('base');
-
-      setClassA('');
+      setClassL('');
       setClassAT('');
-      setClassAB('');
 
       setClassT2('t2');
       setCapacity('capability-active');
-      setCapacityArcs('capability-arcs-active');
     } else if (window.scrollY > stopSticky) {
       setClassT2('t3');
     }
@@ -244,7 +225,7 @@ export default function Home() {
 
       <Transition.Root show={openCS} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCS}>
-          <div className="fixed left-[28.2rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -255,20 +236,44 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenCS(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Capital Systems{' '}
+                    <span className="align-super text-lg uppercase">lab</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a target="_blank" href="https://darkmatterlabs.capital/">
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       the DmCS Lab is working to reframe what is possible within
                       the financial capital markets. This Lab is working with
                       the hypothesis that the{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://uploads-ssl.webflow.com/5ddbd6d8c8721f339f8284ef/5ea18eb53e44c4667e1cfebf_0411_Building%20Civic%20Capital%20(compressed).pdf"
                       >
                         investment logic of the current system
-                      </a>
+                      </a>{' '}
                       needs to be rewired to catch up with the scale of societal
                       transition that is underway. The Lab is developing a
                       portfolio of investable projects and new asset classes
@@ -286,7 +291,7 @@ export default function Home() {
 
       <Transition.Root show={openRC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenRC}>
-          <div className="fixed left-56 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -298,11 +303,24 @@ export default function Home() {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenRC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
                   <div className="">
-                    <h3 className="font-FKmedium text-2xl text-[#F5F5F5]">
-                      Radicle Civics Arc
-                    </h3>
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      Radicle Civics{' '}
+                      <span className="align-super text-lg uppercase">Arc</span>
+                    </Dialog.Title>
                     <div className="flex py-2">
                       <Image src={webIcon} alt="website icon" />
                       <a target="_blank" href="https://radiclecivics.cc/">
@@ -338,7 +356,7 @@ export default function Home() {
 
       <Transition.Root show={openNZ} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenNZ}>
-          <div className="fixed left-56 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -349,14 +367,38 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenNZ(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Net Zero Cities{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a target="_blank" href="https://netzerocities.eu/">
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The NZC Arc aspires to create smart cities that are carbon
                       neutral. This involves{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://netzerocities.eu/"
                       >
@@ -377,7 +419,7 @@ export default function Home() {
 
       <Transition.Root show={openSG} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenSG}>
-          <div className="fixed left-56 top-96 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -388,21 +430,40 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenSG(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    7Gen Cities{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a target="_blank" href="https://www.7gencities.org/">
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       This collaborative arc fosters transformative thinking and
                       action for future cities. The aspiration is to create the
                       infrastructures for cities, inviting the next seven
                       generations of city dwellers to thrive in radically caring
                       and regenerative communities.
                     </p>
-                    <a target="_blank" href="https://www.7gencities.org/">
-                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
-                        Read more.
-                      </p>
-                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -413,7 +474,7 @@ export default function Home() {
 
       <Transition.Root show={openM0} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenM0}>
-          <div className="fixed left-56 top-96 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -424,14 +485,41 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenM0(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    M0 Cities{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={pubIcon} alt="publish icon" />
+                    <a
+                      target="_blank"
+                      href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Publication
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The M0 Arc is aiming to reimagine how we use and steward
                       materials in service of{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         herf="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
                       >
@@ -452,7 +540,7 @@ export default function Home() {
 
       <Transition.Root show={openRE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenRE}>
-          <div className="fixed left-56 top-[31rem] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -463,10 +551,37 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenRE(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Regen Nutrition{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={pubIcon} alt="website icon" />
+                    <a
+                      target="_blank"
+                      href="https://medium.com/9outof10-protein-shift-innovation-platform/universal-basic-nutrient-income-institutional-infrastructure-for-2040-food-preparedness-f00f70a84510"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Publication
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The Rn Arc is working towards resilient, sustainable and
                       high quality food systems. Within this aspiration, cities
                       are a key area of focus and the team are working across
@@ -483,7 +598,7 @@ export default function Home() {
 
       <Transition.Root show={openBE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBE}>
-          <div className="fixed left-56 top-[31rem] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -494,10 +609,26 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenBE(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Bioregional Economics{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The Be Arc is aiming to support the creation of nested
                       economies that protect and steward the integral health of
                       their base bioregions. This Arc works closely with the Sm
@@ -517,7 +648,7 @@ export default function Home() {
 
       <Transition.Root show={openPC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPC}>
-          <div className="fixed left-56 top-[31.2rem] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -528,10 +659,37 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenPC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Planetary Civics{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a
+                      target="_blank"
+                      href="https://www.youtube.com/watch?v=zQJjfCSPvJI"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The Pc Arc is looking at how we can match the scale of our
                       planetary challenges with our global ambition to respond.
                       For example, how can we build bold, ambitious models of
@@ -540,14 +698,6 @@ export default function Home() {
                       (dimensions of a scale that historically have been beyond
                       the scope of human understanding)?
                     </p>
-                    <a
-                      target="_blank"
-                      href="https://www.youtube.com/watch?v=zQJjfCSPvJI"
-                    >
-                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
-                        Watch keynote.
-                      </p>
-                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -558,7 +708,7 @@ export default function Home() {
 
       <Transition.Root show={openNE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenNE}>
-          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -569,10 +719,26 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenNE(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Next Economics{' '}
+                    <span className="align-super text-lg uppercase">lab</span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       the Ne Lab embodies the core philosophies of LEE. It aims
                       to stimulate a continuous and inclusive dialogue about how
                       we relate to the world and the implications for a
@@ -583,9 +749,9 @@ export default function Home() {
                       grounded by a <b>non-bounded theory of value</b> and
                       enabled by <b>technological ecosystems of care</b>? In
                       parallel, the NE Lab is building practical pathways
-                      towards systemic goals such as
+                      towards systemic goals such as{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
                       >
@@ -603,7 +769,7 @@ export default function Home() {
 
       <Transition.Root show={openPB} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPB}>
-          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -614,24 +780,43 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenPB(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Property & Beyond{' '}
+                    <span className="align-super text-lg uppercase">Lab</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a
+                      target="_blank"
+                      href="https://www.darkmatterlabs.property/"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       the Pb Lab rejects the values of control and dominion as a
                       basis for private property systems. Instead this Lab aims
                       to build a diverse and proactive portfolio of alternative
                       forms of property; from collective ownership of land to
                       self-owning houses, land, and cameras.
                     </p>
-                    <a
-                      target="_blank"
-                      href="https://www.darkmatterlabs.property/"
-                    >
-                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
-                        Read more.
-                      </p>
-                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -642,7 +827,7 @@ export default function Home() {
 
       <Transition.Root show={openBR} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBR}>
-          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -653,10 +838,37 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenBR(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Beyond the Rules{' '}
+                    <span className="align-super text-lg uppercase">lab</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a
+                      target="_blank"
+                      href="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       the Btr Lab practises new forms of organising and
                       governance. The Lab is particularly interested in the
                       deep, thoughtful and highly creative work required to
@@ -666,14 +878,6 @@ export default function Home() {
                       new forms of open contracts and multi-actor governance
                       structures.
                     </p>
-                    <a
-                      target="_blank"
-                      href="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
-                    >
-                      <p className="pt-2 font-FKregular text-base text-[#A28CC6]">
-                        Read more.
-                      </p>
-                    </a>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -684,7 +888,7 @@ export default function Home() {
 
       <Transition.Root show={openSM} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenSM}>
-          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -695,13 +899,29 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenSM(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Sensing, Modeling & Mapping{' '}
+                    <span className="align-super text-lg uppercase">lab</span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       the Sm Lab is working to improve the{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://docs.google.com/presentation/d/1fq-hmMDV5DnaDk8fSYhsQmQbvw_yo4SAzsGozWzWhw0/edit#slide=id.g1dcfb843b9e_0_167"
                       >
@@ -722,7 +942,7 @@ export default function Home() {
 
       <Transition.Root show={openBL} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBL}>
-          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -733,10 +953,26 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenBL(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Beyond Labour{' '}
+                    <span className="align-super text-lg uppercase">lab</span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       We are interested in exploring the future of work in
                       relation to a rapidly changing world. What would it mean
                       if we shifted from humans being employed as resources to
@@ -752,7 +988,7 @@ export default function Home() {
 
       <Transition.Root show={openPF} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPF}>
-          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -763,10 +999,26 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenPF(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Philanthropic Futures{' '}
+                    <span className="align-super text-lg uppercase">lab</span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The Pf Lab will explore the potential for philanthropic
                       capital to catalyse radical pathways in parallel to the
                       wider capital markets.
@@ -781,7 +1033,7 @@ export default function Home() {
 
       <Transition.Root show={openQD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenQD}>
-          <div className="fixed left-[19rem] top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -792,10 +1044,34 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenQD(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Societal Decisions{' '}
+                    <span className="align-super text-lg uppercase">lab</span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a target="_blank" href="https://sdl.darkmatterlabs.org/">
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The Sd Lab is still nascent. Once launched, it will aim to
                       build pathways towards distributed, data assisted decision
                       making.
@@ -810,7 +1086,7 @@ export default function Home() {
 
       <Transition.Root show={openCT} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCT}>
-          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -821,10 +1097,28 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenCT(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Civic Tech{' '}
+                    <span className="align-super text-lg uppercase">
+                      studio
+                    </span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       Civic Tech Studio helps mould theory and vision from the
                       Dm ecosystem to testable prototypes and applications
                       geared towards long-term impact & maintenance. We see tech
@@ -841,7 +1135,7 @@ export default function Home() {
 
       <Transition.Root show={openETC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenETC}>
-          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -852,10 +1146,26 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenETC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Local Civics{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       this Arc recognises the transformative potential of
                       communities and neighbourhoods to design and steward their
                       own futures. There are a diverse range of initiatives
@@ -873,7 +1183,7 @@ export default function Home() {
 
       <Transition.Root show={openCD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCD}>
-          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -884,10 +1194,28 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenCD(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Conversation Design{' '}
+                    <span className="align-super text-lg uppercase">
+                      studio
+                    </span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       This studio is fundamental to how we communicate. What
                       exactly is Conversational Design? This is a good question
                       and we would like to invite you to explore it with us. The
@@ -905,7 +1233,7 @@ export default function Home() {
 
       <Transition.Root show={openFF} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenFF}>
-          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -916,10 +1244,28 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenFF(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Foresight & Futuring{' '}
+                    <span className="align-super text-lg uppercase">
+                      studio
+                    </span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       This studio works across the ecosystem to build the craft
                       of speculative design and future scenario building. The
                       team has close links to the Sm Studio where they support
@@ -937,7 +1283,7 @@ export default function Home() {
 
       <Transition.Root show={openOD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenOD}>
-          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -948,10 +1294,28 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenOD(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Org Dev{' '}
+                    <span className="align-super text-lg uppercase">
+                      studio
+                    </span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The OrgDev (organisational development) Studio provides
                       the critical infrastructure for the entire Dm ecosystem
                       and mission. This team is the foundational rock. Their
@@ -968,7 +1332,7 @@ export default function Home() {
 
       <Transition.Root show={openWI} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenWI}>
-          <div className="fixed left-80 top-80 z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -979,10 +1343,26 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenWI(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Wild Infrastructure{' '}
+                    <span className="align-super text-lg uppercase">Arc</span>
+                  </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       the Wi Arc is developing practical pathways to support
                       regenerative, respectful and resilient collaborations
                       between human and natural infrastructures. These
@@ -1007,7 +1387,7 @@ export default function Home() {
             setNEActive(false);
           }}
         >
-          <div className="fixed left-72 top-96  w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1018,16 +1398,45 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenRC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    Multivalent Currencies{' '}
+                    <span className="align-super text-lg uppercase">
+                      project
+                    </span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={pubIcon} alt="website icon" />
+                    <a
+                      target="_blank"
+                      href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Publication
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The NE lab is exploring the interaction between our
                       monetary systems and societal behaviour. To ground the
                       conceptual provocations, NE Lab has been collaborating
-                      with the Radicle Civics Arc to prototype the first
+                      with the Radicle Civics Arc to prototype the first{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
                       >
@@ -1053,7 +1462,7 @@ export default function Home() {
             setCSActive(false);
           }}
         >
-          <div className="fixed left-96 top-[27.6rem]  w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%]  w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1064,23 +1473,46 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenTAI(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    TreesAI{' '}
+                    <span className="align-super text-lg uppercase">
+                      project
+                    </span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a
+                      target="_blank"
+                      href="https://treesasinfrastructure.com/"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
-                      <a
-                        className="text-[#A28CC6]"
-                        target="_blank"
-                        href="https://treesasinfrastructure.com/"
-                      >
-                        Trees As Infrastructure (TreesAI)
-                      </a>{' '}
-                      is a cloud-based platform that aims to embed nature as a
-                      critical part of urban infrastructure (alongside more
-                      traditional structures such as bridges, roads and rail).
-                      Working with the Dcs Lab in urban locations, the team is
-                      working to develop strong business cases for scaled,
-                      sustainable investment.
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Trees As Infrastructure (TreesAI) is a cloud-based
+                      platform that aims to embed nature as a critical part of
+                      urban infrastructure (alongside more traditional
+                      structures such as bridges, roads and rail). Working with
+                      the Dcs Lab in urban locations, the team is working to
+                      develop strong business cases for scaled, sustainable
+                      investment.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -1100,7 +1532,7 @@ export default function Home() {
             setM0Active(false);
           }}
         >
-          <div className="fixed left-72 top-[34.6rem]  w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1111,13 +1543,42 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenNET(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    New Economic Thinking{' '}
+                    <span className="align-super text-lg uppercase">
+                      project
+                    </span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={pubIcon} alt="website icon" />
+                    <a
+                      target="_blank"
+                      href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+                    >
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Publication
+                      </p>
+                    </a>
+                  </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       The
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
                       >
@@ -1148,7 +1609,7 @@ export default function Home() {
             setSMActive(false);
           }}
         >
-          <div className="fixed right-28 top-48  w-screen overflow-y-auto">
+          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1159,10 +1620,37 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenCL(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  >
+                    CircuLaw{' '}
+                    <span className="align-super text-lg uppercase">
+                      project
+                    </span>
+                  </Dialog.Title>
+                  <div className="flex py-2">
+                    <Image src={webIcon} alt="website icon" />
+                    <a target="_blank" href="https://www.circulaw.nl/">
+                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                        Website
+                      </p>
+                    </a>
+                  </div>
+
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       CircuLaw emerged from Dm’s relationship with the City of
                       Amsterdam. The initiative aims to accelerate the
                       transition to a circular economy by identifying
@@ -1193,8 +1681,17 @@ export default function Home() {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-b from-[#1B1B1B] to-[#303030] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenLEE(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="max-w-md sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#C6C6C6]">
                       Life-Ennobling Economics is a propositional vision and a
                       call to action. It is an ennobling invitation to break
@@ -1251,14 +1748,23 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenRC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="max-w-md sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       City-scale tree canopies: as a pathway towards this
                       ambition, the{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://treesasinfrastructure.com/"
                       >
@@ -1289,13 +1795,22 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenRC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="max-w-md sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       Collective intelligence of a city: the{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
                       >
@@ -1330,10 +1845,19 @@ export default function Home() {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block"></div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#353535]">
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenRC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="max-w-md sm:flex sm:items-start">
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
                       Resilient bioregional food systems: we are working towards
                       this option in varied threads of our work. On the broader
                       topic of bioregional transitions we are exploring what a
@@ -1342,7 +1866,7 @@ export default function Home() {
                       implement multi-sensory indicators that can be linked to
                       participatory governance systems, with the aim of{' '}
                       <a
-                        className="text-[#A28CC6]"
+                        className="text-[#737EA5]"
                         target="_blank"
                         href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
                       >
@@ -1399,10 +1923,10 @@ export default function Home() {
                 </span>
               </p>
 
-              <h3 className="max-w-md pt-20 font-FKregular text-3xl text-white">
+              <h3 className="max-w-md pt-20 font-FKregular text-[30.38px] leading-[35.8px] text-white">
                 Economic options are bold directional aspirations
               </h3>
-              <p className="pt-10 font-FKregular text-lg text-white">
+              <p className="pt-10 font-FKregular text-xl text-white">
                 What would it mean to align societal ambition to the magnitude
                 of the transformation that is required? We cannot be sure how
                 the future will play out or the specific infrastructures that
@@ -1441,8 +1965,8 @@ export default function Home() {
                 are excited to put our energy behind.
               </p>
 
-              <div className="py-10 text-center">
-                <p className="font-FKRegular text-xl text-white">
+              <div className="py-10">
+                <p className="font-FKLight max-w-[35%] text-[27.1px] leading-[35.6px] text-[#6A6A6A]">
                   How do we structure our response? ↓
                 </p>
               </div>
@@ -1571,7 +2095,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mmy-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
+                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
                               onMouseOver={() => setSGActive(true)}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
@@ -1646,7 +2170,7 @@ export default function Home() {
 
                           {WIactive || openWI ? (
                             <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
+                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
                             >
@@ -3107,1265 +3631,282 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute right-[4rem] top-[10rem] hidden  ${capacity} w-full opacity-100 ${animateOn}`}
+                    className={`threeD absolute left-[2.4rem] top-[10rem]  ${capacity} w-full  ${animateOn}`}
                   >
                     <div className="">
-                      <div className="grid grid-cols-7 gap-0 ">
-                        <div className=""></div>
-                        <h2 className="pb-4 text-xl font-light text-[#9F9F9F]">
-                          Capabilities
+                      <div className="mx-auto max-w-xl">
+                        <h2 className="pb-4 text-base font-normal text-[#A8A8A8]">
+                          Domains
                         </h2>
                       </div>
 
-                      <div className="capability-bg grid grid-cols-7 gap-1">
-                        <div className={capacityArcs}>
-                          <div className="bg-[#151414]">
-                            <h2 className="pb-2 pt-[2.5rem] text-xl font-light text-transparent">
-                              Arcs
-                            </h2>
-                          </div>
-                          {RCactive || openRC ? (
-                            <div
-                              className={`h-[4rem] bg-[#FFFFFF] pb-2 pl-2 pr-2 pt-2 text-[#5965A3] hover:cursor-pointer ${classAT}`}
-                              onClick={() => setOpenRC(true)}
-                              onMouseLeave={() => setRCActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Radicle Civics
-                              </p>
-                            </div>
-                          ) : RCHover ? (
-                            <div className="h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
-                              <p className="text-xs font-medium ">
-                                Radicle Civics
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`h-[4rem] bg-[#2C2B2B] px-2 py-2 text-[#FFF] drop-shadow-xl ${classL}`}
-                              onMouseOver={() => setRCActive(true)}
-                              onClick={() => setOpenRC(true)}
-                              onMouseLeave={() => setRCActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Radicle Civics
-                              </p>
-                            </div>
-                          )}
-
-                          {ETCactive || openETC ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
-                              onClick={() => setOpenETC(true)}
-                              onMouseLeave={() => setETCActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Empowered, Thriving Communities
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
-                              onMouseOver={() => setETCActive(true)}
-                              onClick={() => setOpenETC(true)}
-                              onMouseLeave={() => setETCActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Empowered, Thriving Communities
-                              </p>
-                            </div>
-                          )}
-
-                          {NZactive || openNZ ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL}`}
-                              onClick={() => setOpenNZ(true)}
-                              onMouseLeave={() => setNZActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Net Zero Cities
-                              </p>
-                            </div>
-                          ) : NZHover ? (
-                            <div className="mt-2 h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
-                              <p className="text-xs font-medium ">
-                                Net Zero Cities
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] drop-shadow-xl ${classL}`}
-                              onMouseOver={() => setNZActive(true)}
-                              onClick={() => setOpenNZ(true)}
-                              onMouseLeave={() => setNZActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Net Zero Cities
-                              </p>
-                            </div>
-                          )}
-
-                          {SGactive || openSG ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
-                              onClick={() => setOpenSG(true)}
-                              onMouseLeave={() => setSGActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                7Gen Cities
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
-                              onMouseOver={() => setSGActive(true)}
-                              onClick={() => setOpenSG(true)}
-                              onMouseLeave={() => setSGActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                7Gen Cities
-                              </p>
-                            </div>
-                          )}
-
-                          {M0active || openM0 ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
-                              onClick={() => setOpenM0(true)}
-                              onMouseLeave={() => setM0Active(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                M0
-                                <br /> Cities
-                              </p>
-                            </div>
-                          ) : M0Hover ? (
-                            <div className="h-[4rem] border-l-2 border-l-white bg-[#2C2B2B] pb-2 pl-2 pr-2 pt-2 text-[#FFF]">
-                              <p className="text-xs font-medium ">
-                                {' '}
-                                M0
-                                <br /> Cities
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
-                              onMouseOver={() => setM0Active(true)}
-                              onClick={() => setOpenM0(true)}
-                              onMouseLeave={() => setM0Active(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                M0
-                                <br /> Cities
-                              </p>
-                            </div>
-                          )}
-
-                          {REactive ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
-                              onClick={() => setOpenRE(true)}
-                              onMouseLeave={() => setREActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Regen Nutrition
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
-                              onMouseOver={() => setREActive(true)}
-                              onClick={() => setOpenRE(true)}
-                              onMouseLeave={() => setREActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Regen Nutrition
-                              </p>
-                            </div>
-                          )}
-
-                          {WIactive || openWI ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
-                              onClick={() => setOpenWI(true)}
-                              onMouseLeave={() => setWIActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Wild Infrastructure
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
-                              onMouseOver={() => setWIActive(true)}
-                              onClick={() => setOpenWI(true)}
-                              onMouseLeave={() => setWIActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Wild Infrastructure
-                              </p>
-                            </div>
-                          )}
-
-                          {BEactive ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL} `}
-                              onClick={() => setOpenBE(true)}
-                              onMouseLeave={() => setBEActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Bioregional Economics
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
-                              onMouseOver={() => setBEActive(true)}
-                              onClick={() => setOpenBE(true)}
-                              onMouseLeave={() => setBEActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Bioregional Economics
-                              </p>
-                            </div>
-                          )}
-
-                          {PCactive ? (
-                            <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer${classL}`}
-                              onClick={() => setOpenPC(true)}
-                              onMouseLeave={() => setPCActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Planetary Civics
-                              </p>
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
-                              onMouseOver={() => setPCActive(true)}
-                              onClick={() => setOpenPC(true)}
-                              onMouseLeave={() => setPCActive(false)}
-                            >
-                              <p className="text-xs font-medium ">
-                                Planetary Civics
-                              </p>
-                            </div>
-                          )}
-                        </div>
+                      <div className="capability-bg grid grid-cols-6 gap-1">
                         <div className="">
-                          <div
-                            className={` mb-1 box-border h-[4rem] bg-[#E3CC8933] pb-8 pl-1 pt-1 text-[#FFF] `}
-                          >
-                            <p className=" text-xs font-light">Domain A</p>
-                            <p className=" text-xs font-medium">
+                          <div className={` bg-[#4E493A] p-2  text-[#FFF] `}>
+                            <p className=" text-base "> A</p>
+                            <p className=" text-[9.968px]">
                               Ontology & Epistimology
                             </p>
-                            <div className="grid grid-cols-4 gap-x-1">
-                              <p className=" text-[12px] font-light">A1</p>
-                              <p className=" text-[12px] font-light">A2</p>
-                              <p className=" text-[12px] font-light">A3</p>
-                              <p className=" text-[12px] font-light">A4</p>
-                            </div>
                           </div>
 
-                          <div className="grid grid-cols-4 gap-x-1">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#E3CC8933] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
                         </div>
 
                         <div className="">
-                          <div
-                            className={` mb-1 box-border h-[4rem] bg-[#6A7366B2] pb-8 pl-1 pt-1 text-[#FFF] `}
-                          >
-                            <p className=" text-xs font-light">Domain B</p>
-                            <p className=" text-xs font-medium">
+                          <div className={`bg-[#404B41] p-2  text-[#FFF] `}>
+                            <p className=" text-base">B</p>
+                            <p className=" text-[9.968px]">
                               Money & valuation logic
                             </p>
-                            <div className="grid grid-cols-4 gap-x-1">
-                              <p className=" text-[12px] font-light">A1</p>
-                              <p className=" text-[12px] font-light">A2</p>
-                              <p className=" text-[12px] font-light">A3</p>
-                              <p className=" text-[12px] font-light">A4</p>
-                            </div>
                           </div>
 
-                          <div className="grid grid-cols-4 gap-x-1">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#6A7366B2] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
                         </div>
 
                         <div className="">
-                          <div
-                            className={` mb-1 box-border h-[4rem] bg-[#485343] pb-8 pl-1 pt-1 text-[#FFF] `}
-                          >
-                            <p className=" text-xs font-light">Domain C</p>
-                            <p className=" text-[10px] font-medium">
+                          <div className={` bg-[#4D5140] p-2 text-[#FFF] `}>
+                            <p className=" text-base">C</p>
+                            <p className=" text-[9.968px]">
                               Financial processes & investment
                             </p>
-                            <div className="grid grid-cols-4 gap-x-1">
-                              <p className=" text-[12px] font-light">A1</p>
-                              <p className=" text-[12px] font-light">A2</p>
-                              <p className=" text-[12px] font-light">A3</p>
-                              <p className=" text-[12px] font-light">A4</p>
-                            </div>
                           </div>
 
-                          <div className="grid grid-cols-4 gap-x-1">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#485343] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
                         </div>
 
                         <div className="">
-                          <div
-                            className={` mb-1 box-border h-[4rem] bg-[#414750] pb-8 pl-1 pt-1 text-[#FFF] `}
-                          >
-                            <p className=" text-xs font-light">Domain D</p>
-                            <p className=" text-xs font-medium">
+                          <div className={`bg-[#393E46] p-2 text-[#FFF] `}>
+                            <p className=" text-base">D</p>
+                            <p className="  text-[9.968px]">
                               Ownership, law & governance
                             </p>
-                            <div className="grid grid-cols-4 gap-x-1">
-                              <p className=" text-[12px] font-light">A1</p>
-                              <p className=" text-[12px] font-light">A2</p>
-                              <p className=" text-[12px] font-light">A3</p>
-                              <p className=" text-[12px] font-light">A4</p>
-                            </div>
                           </div>
 
-                          <div className="grid grid-cols-4 gap-x-1">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#414750] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
                         </div>
 
                         <div className="">
-                          <div
-                            className={` mb-1 box-border h-[4rem] bg-[#9A558733] pb-8 pl-1 pt-1 text-[#FFF] `}
-                          >
-                            <p className=" text-xs font-light">Domain E</p>
-                            <p className=" text-xs font-medium">
+                          <div className={`bg-[#483944] p-2  text-[#FFF] `}>
+                            <p className=" text-base"> E</p>
+                            <p className=" text-[9.968px]">
                               Institutional logic & policy
                             </p>
-                            <div className="grid grid-cols-4 gap-x-1">
-                              <p className=" text-[12px] font-light">A1</p>
-                              <p className=" text-[12px] font-light">A2</p>
-                              <p className=" text-[12px] font-light">A3</p>
-                              <p className=" text-[12px] font-light">A4</p>
-                            </div>
                           </div>
 
-                          <div className="grid grid-cols-4 gap-x-1">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#9A558733] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
                         </div>
 
                         <div className="">
-                          <div
-                            className={` mb-1 box-border h-[4rem] bg-[#7373732F] pb-8 pl-1 pt-1 text-[#FFF] `}
-                          >
-                            <p className=" text-xs font-light">Domain F</p>
-                            <p className=" text-xs font-medium">
+                          <div className={`bg-[#494949] p-2 text-[#FFF] `}>
+                            <p className=" text-base">F</p>
+                            <p className=" text-[9.968px]">
                               Material, energy & land use
                             </p>
-                            <div className="grid grid-cols-4 gap-x-1">
-                              <p className=" text-[12px] font-light">A1</p>
-                              <p className=" text-[12px] font-light">A2</p>
-                              <p className=" text-[12px] font-light">A3</p>
-                              <p className=" text-[12px] font-light">A4</p>
-                            </div>
                           </div>
 
-                          <div className="grid grid-cols-4 gap-x-1">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
 
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
-                          <div className="grid grid-cols-4 gap-x-1 pt-2">
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-
-                            <div
-                              className={` h-[4rem] bg-[#7373732F] py-10 pl-1 pt-2`}
-                            ></div>
-                          </div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div
-                    className={`threeD absolute top-[10rem] z-30 w-full opacity-100 ${classStudio} ${animateOn} bg-gradient-to-b from-[#000] to-[#292929]`} // change bg to transparent on state 6
+                    className={`threeD absolute top-[10rem] z-30 w-full opacity-100  ${animateOn}  ${classStudio}`} // change bg to transparent on state 6
                   >
                     <div className="grid grid-cols-12 gap-1">
                       <div className="col-span-11">
@@ -4379,7 +3920,7 @@ export default function Home() {
                         </div>
                         {CTactive || openCT ? (
                           <div
-                            className="flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
+                            className={`flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
                           >
@@ -4389,7 +3930,9 @@ export default function Home() {
                             </p>
                           </div>
                         ) : CTHover ? (
-                          <div className="flex flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8]">
+                          <div
+                            className={`flex flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8]`}
+                          >
                             <p className="text-base font-normal ">CT</p>
                             <p className=" text-[9.6px] font-normal leading-normal">
                               Civic <br /> Tech
@@ -4397,7 +3940,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className=" flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
+                            className={`flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setCTActive(true)}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
@@ -4411,7 +3954,7 @@ export default function Home() {
 
                         {CDactive || openCD ? (
                           <div
-                            className="my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
+                            className={`my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
                           >
@@ -4422,7 +3965,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className="my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
+                            className={`my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setCDActive(true)}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
@@ -4436,7 +3979,7 @@ export default function Home() {
 
                         {FFactive || openFF ? (
                           <div
-                            className="my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
+                            className={`my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
                           >
@@ -4447,7 +3990,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className="my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
+                            className={`my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setFFActive(true)}
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
@@ -4461,7 +4004,7 @@ export default function Home() {
 
                         {ODactive || openOD ? (
                           <div
-                            className="my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer"
+                            className={`my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
                           >
@@ -4471,7 +4014,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className="my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8]"
+                            className={`my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setODActive(true)}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
@@ -4488,13 +4031,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-[30rem]">
-              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+            <div id="context" className="mt-[30rem]">
+              <h3 className="max-w-xl font-FKregular text-[30.38px] leading-[35.8px] text-white">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
                 towards a coherent field of influence and change. 
               </h3>
-              <p className="pt-10 font-FKregular text-lg text-white">
+              <p className="pt-10 font-FKregular text-xl text-white">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
                 towards a coherent field of influence and change. A single
@@ -4552,14 +4095,14 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="my-40">
-              <h3 className="max-w-xl  font-FKregular text-3xl text-white">
+            <div id="why" className="my-40">
+              <h3 className="max-w-xl font-FKregular text-[30.38px] leading-[35.8px] text-white">
                 ‘Climate change is yet another rapid assault on our way of life.
                 It cannot be separated from the first waves of changes and
                 assaults at the very core of the human spirit that have come our
                 way’ - Aime Cesaire
               </h3>
-              <p className="pt-10 font-FKregular text-lg text-white">
+              <p className="pt-10 font-FKregular text-xl text-white">
                 The Enlightenment, Industrial and Scientific revolutions created
                 many advances for society. But what about their impact on deep
                 ways of being and knowing? From the concept of thingification to
@@ -4612,7 +4155,7 @@ export default function Home() {
                 </li>
               </ul>
 
-              <h3 className="max-w-2xl  pt-8 font-FKregular text-3xl text-white">
+              <h3 className="max-w-xl pt-10 font-FKregular text-[30.38px] leading-[35.8px] text-white">
                 Based on this new paradigm we are proposing three worldview
                 philosophies that we think could underpin a desirable future
                 economy. From there, we have identified six structural shifts
@@ -4622,7 +4165,7 @@ export default function Home() {
                 of our Ecosystem Matrix, as we seek to test them in different
                 contexts.
               </h3>
-              <h4 className="max-w-2xl  pt-4 font-FKregular text-2xl text-white">
+              <h4 className="max-w-2xl pt-4 font-FKregular text-2xl text-white">
                 Worldview philosophies
               </h4>
               <ul className="ml-4 list-disc font-FKregular text-lg text-white">
