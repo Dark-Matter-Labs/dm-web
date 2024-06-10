@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Disclosure, Dialog, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import dmLogo from '../images/DML.gif';
@@ -7,11 +8,13 @@ export default function Navbar() {
   return (
     <div className="mt-20 grid grid-cols-12 gap-0 ">
       <div className="col-span-5 justify-self-start">
+        <Link href = '/'>
         <Image
           src={dmLogo}
           alt="Dm logo animation in multiple languages"
           width={400}
         />
+        </Link>
       </div>
       <div className="col-span-7 justify-self-start">
         <Disclosure as="nav">
@@ -28,12 +31,12 @@ export default function Navbar() {
                         >
                           Feed
                         </a>
-                        <a
-                          href="#"
+                        <Link
+                          href="/team"
                           className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
                         >
                           Team
-                        </a>
+                        </Link>
                         <a
                           href="#"
                           className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
@@ -94,7 +97,7 @@ export default function Navbar() {
                   </Disclosure.Button>
                   <Disclosure.Button
                     as="a"
-                    href="#"
+                    href="/team"
                     className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                   >
                     Team
