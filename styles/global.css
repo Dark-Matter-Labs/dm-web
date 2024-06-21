@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: #151414;
+  background-color: #161617;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -35,14 +35,12 @@ img {
   font-family: 'FKGroteskTrial-Regular';
   src:
     local('FKGroteskTrial-Regular'),
-    local('FKGroteskTrial-Regular'),
     url('../fonts/FKGroteskTrial-Regular.otf') format('otf');
 }
 
 @font-face {
   font-family: 'FKGroteskTrial-Medium';
   src:
-    local('FKGroteskTrial-Medium'),
     local('FKGroteskTrial-Medium'),
     url('../fonts/FKGroteskTrial-Medium.otf') format('otf');
 }
@@ -51,8 +49,21 @@ img {
   font-family: 'FKGroteskTrial-Light';
   src:
     local('FKGroteskTrial-Light'),
-    local('FKGroteskTrial-Light'),
     url('../fonts/FKGroteskTrial-Light.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'PPNeueMontreal-Book';
+  src:
+    local('PPNeueMontreal-Book'),
+    url('../fonts/PPNeueMontreal-Book.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'FKGroteskTrial-Light';
+  src:
+    local('PPNeueMontreal-Medium'),
+    url('../fonts/PPNeueMontreal-Medium.otf') format('otf');
 }
 
 .threeD {
@@ -84,6 +95,22 @@ img {
 }
 
 @layer components {
+  .heading-7xl {
+    @apply font-PPbook text-7xl leading-16;
+  }
+
+  .heading-5xl {
+    @apply font-PPbook text-5xl leading-14;
+  }
+
+  .nav-2xl {
+    @apply font-PPmedium text-2xl;
+  }
+
+  .p-3xl {
+    @apply font-PPbook text-3xl leading-13;
+  }
+
   .arcs-left {
     @apply bg-[#595959] !important;
   }

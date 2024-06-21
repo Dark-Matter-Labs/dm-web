@@ -8,57 +8,42 @@ export default function Navbar() {
   return (
     <div className="mt-20 grid grid-cols-12 gap-0 ">
       <div className="col-span-5 justify-self-start">
-        <Link href = '/'>
-        <Image
-          src={dmLogo}
-          alt="Dm logo animation in multiple languages"
-          width={400}
-        />
+        <Link href="/">
+          <Image
+            src={dmLogo}
+            alt="Dm logo animation in multiple languages"
+            width={400}
+          />
         </Link>
       </div>
       <div className="col-span-7 justify-self-start">
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className=" max-w-7xl ">
+              <div className="max-w-7xl ">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="hidden sm:block">
-                      <div className="flex space-x-4">
-                        <a
-                          href="#"
-                          className=" text-md py-2 pr-3 font-FKmedium text-white"
-                        >
+                      <div className="flex space-x-8">
+                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
                           Feed
                         </a>
                         <Link
                           href="/team"
-                          className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
+                          className="nav-2xl py-2 pr-3 text-white"
                         >
                           Team
                         </Link>
-                        <a
-                          href="#"
-                          className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                        >
+                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
                           Partnerships
                         </a>
-                        <a
-                          href="#"
-                          className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                        >
+                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
                           Jobs
                         </a>
-                        <a
-                          href="#"
-                          className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                        >
+                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
                           Contact
                         </a>
-                        <a
-                          href="#"
-                          className="text-md rounded-md px-3 py-2 font-FKmedium text-white"
-                        >
+                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
                           Provocations↗
                         </a>
                       </div>

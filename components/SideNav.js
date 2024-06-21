@@ -78,7 +78,7 @@ const pageNav = [
 
 export default function SideNav({ activeState }) {
   return (
-    <div className="right-3/4 col-span-5 mt-20 hidden max-w-xs sm:block">
+    <div className="right-3/4 col-span-5 hidden max-w-xs md:block">
       <div className="sticky left-0 top-[20%] flow-root ">
         <ul role="list" className="">
           {pageNav.map((activityItem) => (
@@ -86,16 +86,11 @@ export default function SideNav({ activeState }) {
               <div className="relative pb-4">
                 <div className="relative flex items-start space-x-3">
                   <>
-                    <div>
-                      <div className="relative px-1">
-                        <div className="mt-3 flex h-[0.5px] w-[0.5px] items-center justify-center bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
-                      </div>
-                    </div>
                     <div className="min-w-0 flex-1 ">
                       {activityItem.id === activeState ? (
-                        <div className="">
+                        <div className="border-l border-l-grey-3 pl-2">
                           <h4
-                            className="font-FKmedium text-[17px] text-white"
+                            className="font-FKregular text-[17px] leading-[24.4px] text-grey-3"
                             onClick={() =>
                               window.scrollTo({
                                 top: activityItem.scrollPos,
@@ -107,14 +102,14 @@ export default function SideNav({ activeState }) {
                               {activityItem.title}
                             </Link>
                           </h4>
-                          <p className="font-FKregular text-[15.8px] text-[#C1C1C1]">
+                          <p className="font-PPbook text-[15.8px] leading-[23.1px] text-grey-3">
                             {activityItem.description}
                           </p>
                         </div>
                       ) : (
                         <div className="">
                           <h4
-                            className="font-FKmedium text-[17px] text-[#6A6A6A]"
+                            className="font-FKregular text-[17px] leading-[24.4px] text-grey-2"
                             onClick={() =>
                               window.scrollTo({
                                 top: activityItem.scrollPos,
@@ -135,27 +130,15 @@ export default function SideNav({ activeState }) {
                   activityItem.sub.map((sub, subIndex) => (
                     <Fragment key={subIndex}>
                       {subIndex === 0 && <div className="py-2"></div>}
-
                       <span key={subIndex}>
                         <div className="relative">
-                          {subIndex !== activityItem.sub.length - 1 ? (
-                            <span
-                              className="absolute left-1 top-2 h-full w-0.5 bg-[#9F9F9F]"
-                              aria-hidden="true"
-                            />
-                          ) : null}
                           <div className="relative flex items-start space-x-3">
                             <>
-                              <div>
-                                <div className="relative px-1">
-                                  <div className="mt-3 flex h-[0.2px] w-[0.2px] items-center justify-center rounded-full bg-[#D9D9D9] ring-8 ring-[#D9D9D9]"></div>
-                                </div>
-                              </div>
                               <div className="min-w-0 flex-1 ">
                                 {sub.id === activeState ? (
-                                  <div className="">
+                                  <div className="border-l border-l-white pl-2">
                                     <h5
-                                      className="cursor-pointer font-FKmedium text-[17px] text-white"
+                                      className="cursor-pointer font-FKregular text-[17px] leading-[24.4px] text-grey-3"
                                       onClick={() =>
                                         window.scrollTo({
                                           top: sub.scrollPos,
@@ -165,14 +148,14 @@ export default function SideNav({ activeState }) {
                                     >
                                       {sub.title}
                                     </h5>
-                                    <p className="font-FKregular text-[15.8px] text-[#C1C1C1]">
+                                    <p className="font-PPbook text-[15.8px] leading-[23.1px] text-grey-3">
                                       {sub.description}
                                     </p>
                                   </div>
                                 ) : (
                                   <div className="">
                                     <h5
-                                      className="cursor-pointer font-FKmedium text-[17px] text-[#6A6A6A]"
+                                      className="cursor-pointer font-FKregular text-[17px] leading-[24.4px] text-grey-2"
                                       onClick={() =>
                                         window.scrollTo({
                                           top: sub.scrollPos,

@@ -1889,25 +1889,19 @@ export default function Home() {
 
           <div className={`relative col-span-7`}>
             <div id="real" className="">
-              <h1 className="font-FKmedium text-[41.58px] leading-[64.97px] text-white">
-                Dark matter labs{' '}
-                <span className="align-super text-3xl text-[#6D6D6D]">
-                  season 4
-                </span>
-              </h1>
-              <h2 className="max-w-[30rem] pb-10 font-FKlight text-[41.58px] leading-[54.6px] text-white">
+              <h1 className="heading-7xl max-w-[38rem] pb-10 text-grey-1 ">
                 We are building options for the next economies
-              </h2>
-              <p className="font-FKregular text-[22px] leading-[34px] text-white">
-                We believe that the interconnected crises of our time are
-                symptoms of a deeper, structural miscoding of our economic
-                systems. We understand these codes to be physical (e.g.
-                biodiversity, energy and materials), structural (e.g. money
-                creation and private property rights) and psychological (e.g.
-                failure of the imagination).
+              </h1>
+              <p className="p-3xl text-grey-1">
+                At Dark Matter Labs believe that the interconnected crises of
+                our time are symptoms of a deeper, structural miscoding of our
+                economic systems. We understand these codes to be physical (e.g.
+                biodiversity, energy, labour and materials), structural (e.g.
+                money creation, embedded inequality and private property rights)
+                and psychological (e.g. failure of the imagination). 
               </p>
 
-              <p className="pt-10 font-FKregular text-[22px] leading-[34px] text-white">
+              <p className="p-3xl pt-10 text-grey-1">
                 Recognising the complex, entangled reality of living systems, we
                 are exploring alternative pathways for organising society and
                 stewarding the shared planetary commons. Our working hypothesis
@@ -1923,10 +1917,10 @@ export default function Home() {
                 </span>
               </p>
 
-              <h3 className="max-w-md pt-20 font-FKregular text-[30.38px] leading-[35.8px] text-white">
+              <h2 className="heading-5xl max-w-md pt-20 text-grey-1">
                 Economic options are bold directional aspirations
-              </h3>
-              <p className="pt-10 font-FKregular text-xl text-white">
+              </h2>
+              <p className="p-3xl pt-8 text-grey-1">
                 What would it mean to align societal ambition to the magnitude
                 of the transformation that is required? We cannot be sure how
                 the future will play out or the specific infrastructures that
@@ -1965,16 +1959,16 @@ export default function Home() {
                 are excited to put our energy behind.
               </p>
 
-              <div className="py-10">
-                <p className="font-FKLight max-w-[35%] text-[27.1px] leading-[35.6px] text-[#6A6A6A]">
-                  How do we structure our response? ↓
+              <div className="py-14">
+                <p className="heading-5xl  text-grey-2">
+                  ↓ How do we structure our response?
                 </p>
               </div>
             </div>
 
             <div className={`${classT2}`}>
               <div className="h-screen font-FKregular">
-                <div className={` -ml-10 `}>
+                <div className={`-ml-10 `}>
                   <div
                     className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn}`}
                   >
