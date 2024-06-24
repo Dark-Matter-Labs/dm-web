@@ -124,9 +124,6 @@ img {
     @apply bg-gradient-to-b from-[#000] to-[#292929];
   }
 
-  .studio-bg-gradient {
-    @apply bg-gradient-to-b from-[#000] to-[#292929];
-  }
 
   .studio-rm-bg {
     @apply bg-transparent !important;
@@ -137,7 +134,7 @@ img {
   }
 
   .t2 {
-    @apply sticky top-[12%];
+    @apply sticky top-[2%];
   }
 
   .t1 {
@@ -161,15 +158,9 @@ img {
   }
 }
 
-.capability-bg {
-  background: rgb(63, 59, 45);
-  background: linear-gradient(
-    90deg,
-    rgba(63, 59, 45, 1) 0%,
-    rgba(81, 88, 79, 1) 20%,
-    rgba(72, 83, 67, 1) 40%,
-    rgba(65, 71, 80, 1) 60%,
-    rgba(49, 35, 45, 1) 80%,
-    rgba(69, 69, 69, 1) 100%
-  );
+.studio-layer {
+  fill: rgba(33, 33, 33, 0.30);
+border-width: 1px;
+border: #262626;
+backdrop-filter: blur(22.5px);
 }

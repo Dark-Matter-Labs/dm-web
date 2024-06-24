@@ -119,7 +119,7 @@ export default function Home() {
       window.scrollY > startSticky + 5 * step &&
       window.scrollY < startSticky + 6 * step
     ) {
-      setClassStudio('studio-bg-gradient');
+      setClassStudio('');
       setClassStudioBg('');
       setActiveState(7);
       setClassL('');
@@ -3625,7 +3625,7 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute left-[2.4rem] top-[10rem]  ${capacity} w-full  ${animateOn}`}
+                    className={`threeD absolute top-[15rem] opacity-100  ${capacity} w-full  ${animateOn}`}
                   >
                     <div className="">
                       <div className="mx-auto max-w-xl">
@@ -3634,9 +3634,9 @@ export default function Home() {
                         </h2>
                       </div>
 
-                      <div className="capability-bg grid grid-cols-6 gap-1">
+                      <div className="grid grid-cols-6 gap-1">
                         <div className="">
-                          <div className={` bg-[#4E493A] p-2  text-[#FFF] `}>
+                          <div className={` bg-[#8E6413] p-2  text-[#FFF] `}>
                             <p className=" text-base "> A</p>
                             <p className=" text-[9.968px]">
                               Ontology & Epistimology
@@ -3644,44 +3644,44 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#4E493A] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={`bg-[#404B41] p-2  text-[#FFF] `}>
+                          <div className={`bg-[#903C30] p-2  text-[#FFF] `}>
                             <p className=" text-base">B</p>
                             <p className=" text-[9.968px]">
                               Money & valuation logic
@@ -3689,44 +3689,44 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#404B41] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={` bg-[#4D5140] p-2 text-[#FFF] `}>
+                          <div className={` bg-[#206B35] p-2 text-[#FFF] `}>
                             <p className=" text-base">C</p>
                             <p className=" text-[9.968px]">
                               Financial processes & investment
@@ -3734,42 +3734,42 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#73795F] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={`bg-[#393E46] p-2 text-[#FFF] `}>
+                          <div className={`bg-[#205793] p-2 text-[#FFF] `}>
                             <p className=" text-base">D</p>
                             <p className="  text-[9.968px]">
                               Ownership, law & governance
@@ -3777,41 +3777,41 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#393E46] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={`bg-[#483944] p-2  text-[#FFF] `}>
+                          <div className={`bg-[#8D2D55] p-2  text-[#FFF] `}>
                             <p className=" text-base"> E</p>
                             <p className=" text-[9.968px]">
                               Institutional logic & policy
@@ -3819,42 +3819,42 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#483944] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={`bg-[#494949] p-2 text-[#FFF] `}>
+                          <div className={`bg-[#808080] p-2 text-[#FFF] `}>
                             <p className=" text-base">F</p>
                             <p className=" text-[9.968px]">
                               Material, energy & land use
@@ -3862,37 +3862,37 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#494949] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
                       </div>
@@ -3900,7 +3900,7 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-[10rem] z-30 w-full opacity-100  ${animateOn}  ${classStudio}`} // change bg to transparent on state 6
+                    className={`threeD absolute top-[12rem] z-30 w-full studio-layer  ${animateOn}  ${classStudio}`} // change bg to transparent on state 6
                   >
                     <div className="grid grid-cols-12 gap-1">
                       <div className="col-span-11">
