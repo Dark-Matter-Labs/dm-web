@@ -1887,7 +1887,7 @@ export default function Home() {
         <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
           <SideNav activeState={activeState} />
 
-          <div className={`relative col-span-7`}>
+          <div className={`relative col-span-8`}>
             <div id="real" className="">
               <h1 className="heading-7xl max-w-[38rem] pb-10 text-grey-1 ">
                 We are building options for the next economies
@@ -1968,7 +1968,7 @@ export default function Home() {
 
             <div className={`${classT2}`}>
               <div className="h-screen font-FKregular">
-                <div className={`-ml-10 `}>
+                <div className={` `}>
                   <div
                     className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn}`}
                   >
@@ -1979,48 +1979,51 @@ export default function Home() {
                         </h2>
                       </div>
 
-                      <div className="grid grid-cols-9 gap-1 bg-[#151414]">
+                      <div className="grid grid-cols-9 gap-[6px] bg-[#151414]">
                         <div className="">
-                          <div className="bg-[#151414]">
-                            <h2 className="py-[1.4rem] pl-2 text-base font-normal text-[#A8A8A8]">
+                          <div className="mb-1.5 bg-[#151414]">
+                            <h2 className="h-[80px] pl-2 pt-[3rem] text-base font-normal  text-[#A8A8A8]">
                               Arcs
                             </h2>
                           </div>
                           {RCactive || openRC ? (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classAT}`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classAT}  h-[80px]`}
                               onClick={() => setOpenRC(true)}
                               onMouseLeave={() => setRCActive(false)}
                             >
                               <p className="text-base font-normal ">RC</p>
                               <p className="text-[9.6px] font-normal leading-normal">
-                                Radicle Civics
+                                Radicle <br />
+                                Civics
                               </p>
                             </div>
                           ) : RCHover ? (
-                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
                               <p className="text-base font-normal ">RC</p>
                               <p className="text-[9.6px] font-normal leading-normal">
-                                Radicle Civics
+                                Radicle <br />
+                                Civics
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
+                              className={`my-1.5.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setRCActive(true)}
                               onClick={() => setOpenRC(true)}
                               onMouseLeave={() => setRCActive(false)}
                             >
                               <p className="text-base font-normal ">RC</p>
                               <p className="text-[9.6px] font-normal leading-normal">
-                                Radicle Civics
+                                Radicle <br />
+                                Civics
                               </p>
                             </div>
                           )}
 
                           {ETCactive || openETC ? (
                             <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
+                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenETC(true)}
                               onMouseLeave={() => setETCActive(false)}
                             >
@@ -2032,7 +2035,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px] `}
                               onMouseOver={() => setETCActive(true)}
                               onClick={() => setOpenETC(true)}
                               onMouseLeave={() => setETCActive(false)}
@@ -2046,7 +2049,7 @@ export default function Home() {
 
                           {NZactive || openNZ ? (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
                             >
@@ -2056,7 +2059,7 @@ export default function Home() {
                               </p>
                             </div>
                           ) : NZHover ? (
-                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
                               <p className="text-base font-normal ">NZC</p>
                               <p className="text-[9.6px] font-normal leading-normal ">
                                 Net Zero Cities
@@ -2064,7 +2067,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setNZActive(true)}
                               onClick={() => setOpenNZ(true)}
                               onMouseLeave={() => setNZActive(false)}
@@ -2078,7 +2081,7 @@ export default function Home() {
 
                           {SGactive || openSG ? (
                             <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
+                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
                             >
@@ -2089,7 +2092,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setSGActive(true)}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
@@ -2103,7 +2106,7 @@ export default function Home() {
 
                           {M0active || openM0 ? (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenM0(true)}
                               onMouseLeave={() => setM0Active(false)}
                             >
@@ -2114,7 +2117,7 @@ export default function Home() {
                               </p>
                             </div>
                           ) : M0Hover ? (
-                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
                               <p className="text-base font-normal ">M0</p>
                               <p className="text-[9.6px] font-normal leading-normal ">
                                 {' '}
@@ -2124,7 +2127,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setM0Active(true)}
                               onClick={() => setOpenM0(true)}
                               onMouseLeave={() => setM0Active(false)}
@@ -2139,7 +2142,7 @@ export default function Home() {
 
                           {REactive ? (
                             <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
+                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenRE(true)}
                               onMouseLeave={() => setREActive(false)}
                             >
@@ -2150,7 +2153,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setREActive(true)}
                               onClick={() => setOpenRE(true)}
                               onMouseLeave={() => setREActive(false)}
@@ -2164,7 +2167,7 @@ export default function Home() {
 
                           {WIactive || openWI ? (
                             <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
+                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
                             >
@@ -2174,7 +2177,7 @@ export default function Home() {
                               </p>
                             </div>
                           ) : WIHover ? (
-                            <div className="my-1 flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
                               <p className="text-base font-normal ">WI</p>
                               <p className="text-[9.6px] font-normal leading-normal ">
                                 Wild Infrastructure
@@ -2182,7 +2185,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setWIActive(true)}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
@@ -2196,7 +2199,7 @@ export default function Home() {
 
                           {BEactive ? (
                             <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} `}
+                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenBE(true)}
                               onMouseLeave={() => setBEActive(false)}
                             >
@@ -2207,7 +2210,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setBEActive(true)}
                               onClick={() => setOpenBE(true)}
                               onMouseLeave={() => setBEActive(false)}
@@ -2221,7 +2224,7 @@ export default function Home() {
 
                           {PCactive ? (
                             <div
-                              className={`my-1 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}`}
+                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenPC(true)}
                               onMouseLeave={() => setPCActive(false)}
                             >
@@ -2232,7 +2235,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} `}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
                               onMouseOver={() => setPCActive(true)}
                               onClick={() => setOpenPC(true)}
                               onMouseLeave={() => setPCActive(false)}
@@ -2247,7 +2250,7 @@ export default function Home() {
                         <div>
                           {NEactive || openNE ? (
                             <div
-                              className={` flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}`}
+                              className={` flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
                               onClick={() => setOpenNE(true)}
                               onMouseLeave={() => setNEActive(false)}
                             >
@@ -2258,7 +2261,7 @@ export default function Home() {
                             </div>
                           ) : NEHover ? (
                             <div
-                              className={` flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8]`}
+                              className={` flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]`}
                             >
                               <p className="text-base font-normal ">NE</p>
                               <p className=" text-[9.6px] font-normal leading-normal">
@@ -2267,7 +2270,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
                               onMouseOver={() => setNEActive(true)}
                               onClick={() => setOpenNE(true)}
                               onMouseLeave={() => setNEActive(false)}
@@ -2280,7 +2283,7 @@ export default function Home() {
                           )}
 
                           {(RCactive || NEactive) && !openMC ? (
-                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959] ">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 RC
@@ -2295,7 +2298,7 @@ export default function Home() {
                             </div>
                           ) : RCHover && NEHover ? (
                             <div
-                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem] text-white hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setRCHover(false);
                                 setNEHover(false);
@@ -2313,14 +2316,14 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openMC ? (
-                            <div className=" my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem] text-white ">
+                            <div className=" my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal ">
                                 Multivalent currencies
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
+                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setRCHover(true);
                                 setNEHover(true);
@@ -2341,26 +2344,26 @@ export default function Home() {
                           )}
                           {ETCactive || NEactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || NEactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2368,19 +2371,19 @@ export default function Home() {
 
                           {SGactive || NEactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {(M0active || NEactive) && !openNET ? (
-                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 MO
@@ -2395,7 +2398,7 @@ export default function Home() {
                             </div>
                           ) : M0Hover && NEHover ? (
                             <div
-                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem] text-white hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setM0Hover(false);
                                 setNEHover(false);
@@ -2413,14 +2416,14 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openNET ? (
-                            <div className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem] text-white">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 New Economic Thinking
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
+                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setM0Hover(true);
                                 setNEHover(true);
@@ -2442,13 +2445,13 @@ export default function Home() {
 
                           {REactive || NEactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2456,13 +2459,13 @@ export default function Home() {
 
                           {WIactive || NEactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2470,26 +2473,26 @@ export default function Home() {
 
                           {BEactive || NEactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || NEactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA} ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA} ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2499,7 +2502,7 @@ export default function Home() {
                         <div>
                           {BLactive || openBL ? (
                             <div
-                              className={`flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}`}
+                              className={`flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
                               onClick={() => setOpenBL(true)}
                               onMouseLeave={() => setBLActive(false)}
                             >
@@ -2510,7 +2513,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
                               onMouseOver={() => setBLActive(true)}
                               onClick={() => setOpenBL(true)}
                               onMouseLeave={() => setBLActive(false)}
@@ -2523,65 +2526,65 @@ export default function Home() {
                           )}
                           {RCactive || openRC || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2589,52 +2592,52 @@ export default function Home() {
 
                           {REactive || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || BLactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2644,7 +2647,7 @@ export default function Home() {
                         <div>
                           {openCS || CSactive ? (
                             <div
-                              className="group flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
+                              className="group flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
                               onClick={() => setOpenCS(true)}
                               onMouseLeave={() => setCSActive(false)}
                             >
@@ -2654,7 +2657,7 @@ export default function Home() {
                               </p>
                             </div>
                           ) : CSHover ? (
-                            <div className="flex flex-col justify-between bg-[#353535] px-1.5 py-2 text-[#A8A8A8] ">
+                            <div className="flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
                               <p className="text-base font-normal ">CS</p>
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 Capital Systems
@@ -2662,7 +2665,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={` mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}`}
+                              className={` mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
                               onClick={() => {
                                 setOpenCS(true);
                                 setCSActive(true);
@@ -2678,26 +2681,26 @@ export default function Home() {
                           )}
                           {RCactive || openRC || CSactive || openCS ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || CSactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2705,13 +2708,13 @@ export default function Home() {
 
                           {NZactive || CSactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2719,26 +2722,26 @@ export default function Home() {
 
                           {SGactive || CSactive || openCS ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || CSactive || openCS ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2746,19 +2749,19 @@ export default function Home() {
 
                           {REactive || CSactive || openCS ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {(WIactive || CSactive) && !openTAI ? (
-                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 NZ
@@ -2773,7 +2776,7 @@ export default function Home() {
                             </div>
                           ) : WIHover && CSHover ? (
                             <div
-                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setWIHover(false);
                                 setCSHover(false);
@@ -2793,14 +2796,14 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openTAI ? (
-                            <div className=" my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white">
+                            <div className=" my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 TreesAI
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
+                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setWIHover(true);
                                 setCSHover(true);
@@ -2821,26 +2824,26 @@ export default function Home() {
                           )}
                           {BEactive || CSactive || openCS ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || CSactive || openCS ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2850,7 +2853,7 @@ export default function Home() {
                         <div>
                           {PFactive || openPF ? (
                             <div
-                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
+                              className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
                               onClick={() => setOpenPF(true)}
                               onMouseLeave={() => setPFActive(false)}
                             >
@@ -2861,7 +2864,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
                               onMouseOver={() => setPFActive(true)}
                               onClick={() => setOpenPF(true)}
                               onMouseLeave={() => setPFActive(false)}
@@ -2874,65 +2877,65 @@ export default function Home() {
                           )}
                           {RCactive || openRC || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2940,52 +2943,52 @@ export default function Home() {
 
                           {REactive || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || PFactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB} `}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px] `}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -2995,7 +2998,7 @@ export default function Home() {
                         <div>
                           {PBactive || openPB ? (
                             <div
-                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
+                              className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
                               onClick={() => setOpenPB(true)}
                               onMouseLeave={() => setPBActive(false)}
                             >
@@ -3006,7 +3009,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
                               onMouseOver={() => setPBActive(true)}
                               onClick={() => setOpenPB(true)}
                               onMouseLeave={() => setPBActive(false)}
@@ -3019,65 +3022,65 @@ export default function Home() {
                           )}
                           {RCactive || openRC || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3085,52 +3088,52 @@ export default function Home() {
 
                           {REactive || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || PBactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3140,7 +3143,7 @@ export default function Home() {
                         <div>
                           {QDactive || openQD ? (
                             <div
-                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
+                              className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
                               onClick={() => setOpenQD(true)}
                               onMouseLeave={() => setQDActive(false)}
                             >
@@ -3152,7 +3155,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
                               onMouseOver={() => setQDActive(true)}
                               onClick={() => setOpenQD(true)}
                               onMouseLeave={() => setQDActive(false)}
@@ -3166,65 +3169,65 @@ export default function Home() {
                           )}
                           {RCactive || openRC || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3232,52 +3235,52 @@ export default function Home() {
 
                           {REactive || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || QDactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3287,7 +3290,7 @@ export default function Home() {
                         <div>
                           {BRactive || openBR ? (
                             <div
-                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
+                              className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
                               onClick={() => setOpenBR(true)}
                               onMouseLeave={() => setBRActive(false)}
                             >
@@ -3298,7 +3301,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
                               onMouseOver={() => setBRActive(true)}
                               onClick={() => setOpenBR(true)}
                               onMouseLeave={() => setBRActive(false)}
@@ -3311,65 +3314,65 @@ export default function Home() {
                           )}
                           {RCactive || openRC || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {NZactive || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {SGactive || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3377,52 +3380,52 @@ export default function Home() {
 
                           {REactive || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || BRactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3432,7 +3435,7 @@ export default function Home() {
                         <div>
                           {SMactive || openSM ? (
                             <div
-                              className="flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer"
+                              className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
                               onClick={() => setOpenSM(true)}
                               onMouseLeave={() => setSMActive(false)}
                             >
@@ -3443,45 +3446,45 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}`}
+                              className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
                               onMouseOver={() => setSMActive(true)}
                               onClick={() => setOpenSM(true)}
                               onMouseLeave={() => setSMActive(false)}
                             >
                               <p className="text-base font-normal ">SMM</p>
-                              <p className=" text-[9.6px] font-normal leading-normal">
+                              <p className=" h-[80px] text-[9.6px] font-normal  leading-normal">
                                 Sensing, Modeling
                               </p>
                             </div>
                           )}
                           {RCactive || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {ETCactive || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {(NZactive || SMactive) && !openCL ? (
-                            <div className="my-1 flex flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem] text-[#595959]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 NZ
@@ -3496,7 +3499,7 @@ export default function Home() {
                             </div>
                           ) : NZHover && CTHover ? (
                             <div
-                              className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setNZHover(false);
                                 setCTHover(false);
@@ -3514,14 +3517,14 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openCL ? (
-                            <div className="my-1 flex flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal ">
                                 CircuLaw
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}`}
+                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setNZHover(true);
                                 setCTHover(true);
@@ -3542,26 +3545,26 @@ export default function Home() {
                           )}
                           {SGactive || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {M0active || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3569,52 +3572,52 @@ export default function Home() {
 
                           {REactive || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {WIactive || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {BEactive || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
                           {PCactive || SMactive ? (
                             <div
-                              className={`my-1 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
-                              className={`my-1 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}`}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
@@ -3625,274 +3628,437 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-[15rem] opacity-100  ${capacity} w-full  ${animateOn}`}
+                    className={`threeD absolute top-[20rem] opacity-100  ${capacity} w-full ${animateOn} grid grid-cols-12 gap-[8px]`}
                   >
-                    <div className="">
-                      <div className="mx-auto max-w-xl">
+                    <div className="col-span-1">
+                      <div className="ml-4"></div>
+                    </div>
+                    <div className="col-span-10">
+                      <div className="mx-auto max-w-xl text-center">
                         <h2 className="pb-4 text-base font-normal text-[#A8A8A8]">
                           Domains
                         </h2>
                       </div>
 
-                      <div className="grid grid-cols-6 gap-1">
+                      <div className="ml-4 grid grid-cols-6 gap-1.5">
                         <div className="">
-                          <div className={` bg-[#8E6413] p-2  text-[#FFF] `}>
-                            <p className=" text-base "> A</p>
-                            <p className=" text-[9.968px]">
-                              Ontology & Epistimology
+                          <div
+                            className={` h-[80px] bg-[#8E6413]  p-2 text-[#FFF]`}
+                          >
+                            <p className="font-FKregular text-base "> A</p>
+                            <p className="font-PPmedium text-[9.6px]">
+                              Ontology & Epistemology
                             </p>
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D29F3D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-                        </div>
-
-                        <div className="">
-                          <div className={`bg-[#903C30] p-2  text-[#FFF] `}>
-                            <p className=" text-base">B</p>
-                            <p className=" text-[9.968px]">
-                              Money & valuation logic
+                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">A-1</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Fostering a relational worldview
                             </p>
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">A-2</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Replacing profit as the collective goal
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">A-3</p>
+                            <p className="font-PPmedium text-[8px]">
+                              <br />
+                              Building political will
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">A-4</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Phenomenological measures of success
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D46E61] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={` bg-[#206B35] p-2 text-[#FFF] `}>
-                            <p className=" text-base">C</p>
-                            <p className=" text-[9.968px]">
+                          <div
+                            className={`h-[80px] bg-[#903C30]  p-2 text-[#FFF]`}
+                          >
+                            <p className="font-FKregular text-base">B</p>
+                            <p className="font-PPmedium text-[9.6px]">
+                              Money & valuation <br /> logic
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">B-1</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Demonstrating entangled and long-term value
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">B-2</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Decolonised, bioregional currency stewardship
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">B-3</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Alternative non-fungible currency systems
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">B-4</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Visualising finite and infinite economies
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+                        </div>
+
+                        <div className="">
+                          <div
+                            className={` h-[80px] bg-[#206B35] p-2 text-[#FFF]`}
+                          >
+                            <p className="font-FKregular text-base">C</p>
+                            <p className="font-PPmedium text-[9.6px]">
                               Financial processes & investment
                             </p>
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
+                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">C-1</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Making the investment case for entangled value
+                            </p>
+                          </div>
 
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-                          <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
+                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">C-2</p>
+                            <p className="font-PPmedium text-[8px]">
+                              <br /> Bridging demand & supply
+                            </p>
+                          </div>
 
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
+                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">C-3</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Structuring capital & investments
+                            </p>
+                          </div>
 
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
+                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">C-4</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Enabling strategic ecosystem investments
+                            </p>
+                          </div>
 
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
+                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">C-5</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Socialising the supportive narratives for
+                              alternative financing pathways
+                            </p>
+                          </div>
 
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
+                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">C-6</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Socialising transformational narratives for a
+                              regenerative financial system
+                            </p>
+                          </div>
 
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#4CA866] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={`bg-[#205793] p-2 text-[#FFF] `}>
-                            <p className=" text-base">D</p>
-                            <p className="  text-[9.968px]">
+                          <div
+                            className={`h-[80px] bg-[#205793] p-2 text-[#FFF]`}
+                          >
+                            <p className="font-FKregular text-base">D</p>
+                            <p className="font-PPmedium text-[9.6px]">
                               Ownership, law & governance
                             </p>
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-                          <div
-                            className={`my-0.5 border border-[#4D90D8] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-                        </div>
-
-                        <div className="">
-                          <div className={`bg-[#8D2D55] p-2  text-[#FFF] `}>
-                            <p className=" text-base"> E</p>
-                            <p className=" text-[9.968px]">
-                              Institutional logic & policy
+                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">D-1</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Using instruments to demonstrate alternative
+                              theories of ownership
                             </p>
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">D-2</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Elevating alternative models that recouple surplus
+                              with stewardship
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">D-3</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Demonstrating multi-actor governance structures
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">D-4</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Embedding data-augmented decision making
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                          >
+                            <p className="font-FKregular text-base ">D-5</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Building deep respect for the other-than-human
+                              world, ancestors and future generations
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#D15C8D] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
 
                         <div className="">
-                          <div className={`bg-[#808080] p-2 text-[#FFF] `}>
-                            <p className=" text-base">F</p>
-                            <p className=" text-[9.968px]">
+                          <div
+                            className={`h-[80px] bg-[#8D2D55] p-2 text-[#FFF]`}
+                          >
+                            <p className="font-FKregular text-base"> E</p>
+                            <p className="font-PPmedium text-[9.6px]">
+                              Institutional logic <br />& policy
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">E-1</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Enabling public-civic efficacy to transform place
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">E-2</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Building the foundations for planetary stewardship
+                              institutions
+                            </p>
+                          </div>
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">E-3</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Designing reflective, data-driven policy
+                              instruments
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">E-4</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Place-based, policy process design
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                          ></div>
+                        </div>
+
+                        <div className="">
+                          <div
+                            className={`h-[80px] bg-[#808080] p-2 text-[#FFF]`}
+                          >
+                            <p className="font-FKregular text-base">F</p>
+                            <p className="font-PPmedium text-[9.6px]">
                               Material, energy & land use
                             </p>
                           </div>
 
                           <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">F-1</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Developing collaborative, non-extractive
+                              interfaces with the physical environment
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">F-2</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Visualising material and energy flows
+                            </p>
+                          </div>
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                          >
+                            <p className="pb-2 font-FKregular text-base">F-3</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Developing a stewardship data infrastructure for
+                              the built environment
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                          >
+                            <p className="font-FKregular text-base">F-4</p>
+                            <p className="font-PPmedium text-[8px]">
+                              Designing and demonstrating autonomous,
+                              regenerative and affordable multi-purpose
+                              developments.
+                            </p>
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-                          <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
 
                           <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
-                          ></div>
-
-                          <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                           <div
-                            className={`my-0.5 border border-[#C2C2C2] bg-[#212121] px-2 py-[2.14rem]`}
+                            className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
                       </div>
@@ -3900,21 +4066,21 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-[12rem] z-30 w-full studio-layer  ${animateOn}  ${classStudio}`} // change bg to transparent on state 6
+                    className={`threeD absolute top-[12rem] z-30 w-full  ${animateOn}  ${classStudio} backdrop-blur-xl`} // change bg to transparent on state 6
                   >
-                    <div className="grid grid-cols-12 gap-1">
-                      <div className="col-span-11">
-                        <div className="mt-10  py-80"> </div>
+                    <div className="grid grid-cols-12 gap-1.5  ">
+                      <div className=" studio-layer col-span-11">
+                        <div className=" px-20 py-[26rem]"> </div>
                       </div>
-                      <div className="">
-                        <div className="  ">
-                          <h2 className="pl-2 pt-[5.54rem] text-base font-normal text-[#A8A8A8]">
+                      <div className="backdrop-blur-none">
+                        <div className=" mt-1.5 ">
+                          <h2 className="pl-2 pt-[5.5rem] text-base font-normal text-[#A8A8A8]">
                             Studios
                           </h2>
                         </div>
                         {CTactive || openCT ? (
                           <div
-                            className={`flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px]`}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
                           >
@@ -3925,7 +4091,7 @@ export default function Home() {
                           </div>
                         ) : CTHover ? (
                           <div
-                            className={`flex flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8]`}
+                            className={`mb-1.5 mt-2 flex h-[80px] flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8]`}
                           >
                             <p className="text-base font-normal ">CT</p>
                             <p className=" text-[9.6px] font-normal leading-normal">
@@ -3934,7 +4100,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`mb-1.5 mt-2 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setCTActive(true)}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
@@ -3948,7 +4114,7 @@ export default function Home() {
 
                         {CDactive || openCD ? (
                           <div
-                            className={`my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
                           >
@@ -3959,7 +4125,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setCDActive(true)}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
@@ -3973,7 +4139,7 @@ export default function Home() {
 
                         {FFactive || openFF ? (
                           <div
-                            className={`my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
                           >
@@ -3984,7 +4150,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setFFActive(true)}
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
@@ -3998,7 +4164,7 @@ export default function Home() {
 
                         {ODactive || openOD ? (
                           <div
-                            className={`my-1 flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
                           >
@@ -4008,7 +4174,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1 flex flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setODActive(true)}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
@@ -4025,78 +4191,84 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="context" className="mt-[30rem]">
-              <h3 className="max-w-xl font-FKregular text-[30.38px] leading-[35.8px] text-white">
-                The overarching LEE Mission allows us to contextually adjust the
-                horizons of our interactions and interventions, whilst building
-                towards a coherent field of influence and change. 
-              </h3>
-              <p className="pt-10 font-FKregular text-xl text-white">
+            <div id="context" className="mt-[50rem]">
+              <p className="p-4xl-medium max-w-3xl pb-8 text-grey-3">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
                 towards a coherent field of influence and change. A single
                 theory of change feels wildly inadequate; instead we are holding
                 open questions in a continuous process of landscape scanning and
-                action:
+                action: 
               </p>
-              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
-                <li>
-                  <b>Political landscapes</b>: how can we work intelligently
-                  with the constraints and opportunities of political
-                  ideologies? A right wing context may provide more fertile
-                  ground for rapidly mobilising complex technologies than a
-                  liberal context. Or perhaps in a context like Ukraine where
-                  crisis and instability has become an everyday reality, the
-                  motivation for citizens to drive alternative governance models
-                  is heightened. This could start from a desire to support the
-                  military via voluntary crowdfunding and extend to new sectors
-                  and patterns of behaviour.
-                </li>
-                <li>
-                  <b>Geographical landscapes</b>: what can we leverage by
-                  deliberating targeting lead or established markets to test a
-                  tool or concept? In some cases we may need to look to edge
-                  communities for an idea to gain traction (e.g. a distributed
-                  currency), whereas in others a supportive social
-                  infrastructure is needed to establish agency (e.g. a material
-                  registry). Each country has something to teach us; from land
-                  laws in Scotland to open data systems in Taiwan, we are open
-                  to how our work can weave and adapt to local contexts.
-                </li>
-                <li>
-                  <b>Time horizons</b>: how can we leverage the broad spectrum
-                  of realities represented across the global context?
-                  Recognising that a speculative policy in one context might
-                  already be triage response in another can increase our
-                  collective learning and ability to test edge ideas. This could
-                  mean working with Indigenous communities on Turtle Island
-                  (North America) to urgently finance the regeneration of
-                  indigenous lands. It could also entail supporting marginalised
-                  communities in England to seed alternative housing models in
-                  response to the systemic crisis crisis.
-                </li>
-                <li>
-                  <b>Alliances</b>: what could be unleashed if we can identify
-                  and engage unusual (and often powerful actors) with converging
-                  aspirations? On the surface a central bank and an ecological
-                  activist may have little in common. Yet, central banks have a
-                  mandate to preserve stability, which in the future could
-                  involve recoupling money issuance to ecological rights? This
-                  logic might also extend to cultural intersectional points,
-                  such as indigenous perspectives and state mandates in
-                  locations such as Australia and India.
-                </li>
-              </ul>
+              <div className="mb-8 border-l border-grey-3 pl-10">
+                <h3 className="p-4xl-regular text-white">
+                  Political landscapes
+                </h3>
+                <p className="p-3xl text-grey-1">
+                  how can we work intelligently with the constraints and
+                  opportunities of political ideologies? A right wing context
+                  may provide more fertile ground for rapidly mobilising complex
+                  technologies than a liberal context. Or perhaps in a context
+                  like Ukraine where crisis and instability has become an
+                  everyday reality, the motivation for citizens to drive
+                  alternative governance models is heightened. This could start
+                  from a desire to support the military via voluntary
+                  crowdfunding and extend to new sectors and patterns of
+                  behaviour.
+                </p>
+              </div>
+
+              <div className="mb-8 border-l border-grey-3 pl-10">
+                <h3 className="p-4xl-regular text-white">
+                  Geographical landscapes
+                </h3>
+                <p className="p-3xl text-grey-1">
+                  what can we leverage by deliberating targeting lead or
+                  established markets to test a tool or concept? In some cases
+                  we may need to look to edge communities for an idea to gain
+                  traction (e.g. a distributed currency), whereas in others a
+                  supportive social infrastructure is needed to establish agency
+                  (e.g. a material registry). Each country has something to
+                  teach us; from land laws in Scotland to open data systems in
+                  Taiwan, we are open to how our work can weave and adapt to
+                  local contexts.
+                </p>
+              </div>
+
+              <div className="mb-8 border-l border-grey-3 pl-10">
+                <h3 className="p-4xl-regular text-white">Time horizons</h3>
+                <p className="p-3xl text-grey-1">
+                  how can we leverage the broad spectrum of realities
+                  represented across the global context? Recognising that a
+                  speculative policy in one context might already be triage
+                  response in another can increase our collective learning and
+                  ability to test edge ideas. This could mean working with
+                  Indigenous communities on Turtle Island (North America) to
+                  urgently finance the regeneration of indigenous lands. It
+                  could also entail supporting marginalised communities in
+                  England to seed alternative housing models in response to the
+                  systemic crisis crisis.
+                </p>
+              </div>
+
+              <div className="mb-8 border-l border-grey-3 pl-10">
+                <h3 className="p-4xl-regular text-white">Alliances</h3>
+                <p className="p-3xl text-grey-1">
+                  what could be unleashed if we can identify and engage unusual
+                  (and often powerful actors) with converging aspirations? On
+                  the surface a central bank and an ecological activist may have
+                  little in common. Yet, central banks have a mandate to
+                  preserve stability, which in the future could involve
+                  recoupling money issuance to ecological rights? This logic
+                  might also extend to cultural intersectional points, such as
+                  indigenous perspectives and state mandates in locations such
+                  as Australia and India.
+                </p>
+              </div>
             </div>
 
             <div id="why" className="my-40">
-              <h3 className="max-w-xl font-FKregular text-[30.38px] leading-[35.8px] text-white">
-                ‘Climate change is yet another rapid assault on our way of life.
-                It cannot be separated from the first waves of changes and
-                assaults at the very core of the human spirit that have come our
-                way’ - Aime Cesaire
-              </h3>
-              <p className="pt-10 font-FKregular text-xl text-white">
+              <p className="p-4xl-medium max-w-3xl pb-8 text-grey-3">
                 The Enlightenment, Industrial and Scientific revolutions created
                 many advances for society. But what about their impact on deep
                 ways of being and knowing? From the concept of thingification to
@@ -4109,23 +4281,29 @@ export default function Home() {
                 and to reimagine our foundational economic relationships. For
                 example:
               </p>
-              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
-                <li>
-                  <b>Property</b>:words like property and ownership are often
-                  associated with ideas of dominion and control, allowing us to
-                  treat elements of the living world (such as land and rare
-                  earth minerals) as objects. Deep down though, do we really
-                  believe that timber holds more value than a forest? Or that a
-                  whale’s life is interchangeable with a barrel of oil? What
-                  would it mean to explore systems of organising that move
-                  beyond the paradigm of control?
-                </li>
-                <li>
-                  <b>Technology</b>: emergent technologies can be framed as a
-                  threat, but they could also facilitate a new freedom to care.
-                  The field of quantum physics has enabled a granular
-                  visualisation of the shapeshifting and relational nature of
-                  living systems. Perhaps what we have previously framed as{' '}
+
+              <div className="mb-8 border-l border-grey-3 pl-10">
+                <h3 className="p-4xl-regular text-white">Property</h3>
+                <p className="p-3xl text-grey-1">
+                  words like property and ownership are often associated with
+                  ideas of dominion and control, allowing us to treat elements
+                  of the living world (such as land and rare earth minerals) as
+                  objects. Deep down though, do we really believe that timber
+                  holds more value than a forest? Or that a whale’s life is
+                  interchangeable with a barrel of oil? What would it mean to
+                  explore systems of organising that move beyond the paradigm of
+                  control?
+                </p>
+              </div>
+
+              <div className="mb-8 border-l border-grey-3 pl-10">
+                <h3 className="p-4xl-regular text-white">Technology</h3>
+                <p className="p-3xl text-grey-1">
+                  emergent technologies can be framed as a threat, but they
+                  could also facilitate a new freedom to care. The field of
+                  quantum physics has enabled a granular visualisation of the
+                  shapeshifting and relational nature of living systems. Perhaps
+                  what we have previously framed as{' '}
                   <a
                     className="text-[#A28CC6]"
                     target="_blank"
@@ -4137,19 +4315,23 @@ export default function Home() {
                   quantum lens. Perhaps in the future our governing institutions
                   will exist to advance and scaffold the continuous learning of
                   a self-aware system.
-                </li>
-                <li>
-                  <b>Money</b>: recognising that financial capital is
-                  intertwined and enabled by living and social systems is
-                  foundational to our work. Imagine how our relationship to
-                  finance might change if we understood the act of investing to
-                  be a commitment to our collective futures? What would a system
-                  look like where the ways of creating and stewarding money are
-                  decentralised and respectful of non-comparable value flows?
-                </li>
-              </ul>
+                </p>
+              </div>
 
-              <h3 className="max-w-xl pt-10 font-FKregular text-[30.38px] leading-[35.8px] text-white">
+              <div className="mb-8 border-l border-grey-3 pl-10">
+                <h3 className="p-4xl-regular text-white">Money</h3>
+                <p className="p-3xl text-grey-1">
+                  recognising that financial capital is intertwined and enabled
+                  by living and social systems is foundational to our work.
+                  Imagine how our relationship to finance might change if we
+                  understood the act of investing to be a commitment to our
+                  collective futures? What would a system look like where the
+                  ways of creating and stewarding money are decentralised and
+                  respectful of non-comparable value flows?
+                </p>
+              </div>
+
+              <p className="p-4xl-medium max-w-3xl py-8 text-grey-3">
                 Based on this new paradigm we are proposing three worldview
                 philosophies that we think could underpin a desirable future
                 economy. From there, we have identified six structural shifts
@@ -4158,11 +4340,11 @@ export default function Home() {
                 they are narratives that thread through the different dimensions
                 of our Ecosystem Matrix, as we seek to test them in different
                 contexts.
-              </h3>
-              <h4 className="max-w-2xl pt-4 font-FKregular text-2xl text-white">
+              </p>
+              <h3 className="p-4xl-regular text-white">
                 Worldview philosophies
-              </h4>
-              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
+              </h3>
+              <ul className="p-3xl ml-4 list-disc text-grey-1">
                 <li>
                   Rooted in the recognition of the full web of life: From
                   violence, scarcity and separation to a thriving planetary
@@ -4173,19 +4355,19 @@ export default function Home() {
                   Grounded in a non-bounded understanding of value: From
                   extractive profit-driven goals to entangled, intergenerational
                   and distributed value systems. [Ne & Cs Labs, Bioregional
-                  Economies and M0 Cities Arc, Conversational Design Studio)
+                  Economies and M0 Cities Arc, Conversational Design Studio]
                 </li>
                 <li>
                   Enabled by technological ecosystems of care: From the
                   utilitarian ‘othering’ of technology to animistic interfaces
-                  of wisdom and care. [Ne Lab, NZC Arc, CivTech Studio)
+                  of wisdom and care. [Ne Lab, NZC Arc, CivTech Studio]
                 </li>
               </ul>
 
-              <h4 className="max-w-2xl  pt-4 font-FKregular text-2xl text-white">
+              <h3 className="p-4xl-regular pt-8 text-white">
                 Proposed structural shifts
-              </h4>
-              <ul className="ml-4 list-disc font-FKregular text-lg text-white">
+              </h3>
+              <ul className="p-3xl ml-4 list-disc text-grey-1">
                 <li>
                   Beyond Property: From exerting control over ‘objects’ to
                   seeking reciprocal relationships with the full web of life.
@@ -4209,7 +4391,7 @@ export default function Home() {
                 </li>
                 <li>
                   Beyond Governance: From centralised enforcement to nurturing
-                  institutions of stewardship. [Qd & BTR Lab, NZC Arc)
+                  institutions of stewardship. [Qd & BTR Lab, NZC Arc]
                 </li>
 
                 <li>

@@ -7,7 +7,7 @@ import dmLogo from '../images/DML.gif';
 export default function Navbar() {
   return (
     <div className="mt-20 grid grid-cols-12 gap-0 ">
-      <div className="col-span-5 justify-self-start">
+      <div className="col-span-4 justify-self-start">
         <Link href="/">
           <Image
             src={dmLogo}
@@ -16,7 +16,7 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className="col-span-7 justify-self-start">
+      <div className="col-span-8 justify-self-start">
         <Disclosure as="nav">
           {({ open }) => (
             <>

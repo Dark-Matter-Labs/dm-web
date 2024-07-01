@@ -62,14 +62,14 @@ const pageNav = [
   },
   {
     id: 8,
-    title: 'Deep Context Weaving',
+    title: 'Context Weaving',
     description: '',
     link: '#context',
     sub: [],
   },
   {
     id: 9,
-    title: 'Deep Why',
+    title: 'Deep Paradigm',
     description: '',
     link: '#why',
     sub: [],
@@ -78,7 +78,7 @@ const pageNav = [
 
 export default function SideNav({ activeState }) {
   return (
-    <div className="right-3/4 col-span-5 hidden max-w-xs md:block">
+    <div className="right-3/4 col-span-4 hidden max-w-xs lg:block">
       <div className="sticky left-0 top-[20%] flow-root ">
         <ul role="list" className="">
           {pageNav.map((activityItem) => (

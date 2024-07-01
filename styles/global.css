@@ -4,8 +4,6 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   background-color: #161617;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,7 +65,7 @@ img {
 }
 
 .threeD {
-  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(1, 1, 1);
+  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.8, 0.8, 0.8);
   transform-style: preserve-3d;
 }
 
@@ -107,6 +105,14 @@ img {
     @apply font-PPmedium text-2xl;
   }
 
+  .p-4xl-medium {
+    @apply font-PPmedium text-4xl leading-14;
+  }
+
+  .p-4xl-regular {
+    @apply font-FKregular text-4xl leading-14;
+  }
+
   .p-3xl {
     @apply font-PPbook text-3xl leading-13;
   }
@@ -120,21 +126,11 @@ img {
   }
 
   .studio {
-    @apply border-4 border-[#666666] opacity-70;
     @apply bg-gradient-to-b from-[#000] to-[#292929];
   }
 
-
-  .studio-rm-bg {
-    @apply bg-transparent !important;
-  }
-
-  .studioBg {
-    @apply bg-[#595959] !important;
-  }
-
   .t2 {
-    @apply sticky top-[2%];
+    @apply sticky top-[-4em];
   }
 
   .t1 {
@@ -159,8 +155,5 @@ img {
 }
 
 .studio-layer {
-  fill: rgba(33, 33, 33, 0.30);
-border-width: 1px;
-border: #262626;
-backdrop-filter: blur(22.5px);
+  background-color: rgba(33, 33, 33, 0.3);
 }
