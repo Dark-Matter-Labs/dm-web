@@ -1751,7 +1751,7 @@ export default function Home() {
                     <button
                       type="button"
                       className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenRC(false)}
+                      onClick={() => setOpenCTC(false)}
                     >
                       <span className="sr-only">Close</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -1798,7 +1798,7 @@ export default function Home() {
                     <button
                       type="button"
                       className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenRC(false)}
+                      onClick={() => setOpenCIC(false)}
                     >
                       <span className="sr-only">Close</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -1848,7 +1848,7 @@ export default function Home() {
                     <button
                       type="button"
                       className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenRC(false)}
+                      onClick={() => setOpenRBF(false)}
                     >
                       <span className="sr-only">Close</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
