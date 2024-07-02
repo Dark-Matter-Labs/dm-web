@@ -10,7 +10,12 @@ import '../styles/Home.module.css';
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
 export default function Home() {
+  // TODO: remove these state variables and just use activeState
   const [classT, setClassT] = useState('');
   const [classL, setClassL] = useState('');
 
@@ -18,7 +23,6 @@ export default function Home() {
   const [classAT, setClassAT] = useState('');
   const [classAB, setClassAB] = useState('');
 
-  const [classStudio, setClassStudio] = useState('');
   const [classStudioBg, setClassStudioBg] = useState('');
 
   const [classT2, setClassT2] = useState('t1');
@@ -41,7 +45,6 @@ export default function Home() {
       setClassAB('');
 
       setActiveState(1);
-      setClassStudio('studio-bg-gradient');
       setClassStudioBg('');
 
       setClassT2('t1');
@@ -52,7 +55,6 @@ export default function Home() {
       window.scrollY < startSticky + step
     ) {
       setActiveState(2);
-      setClassStudio('studio-bg-gradient');
       setClassStudioBg('');
 
       setClassT('');
@@ -69,7 +71,7 @@ export default function Home() {
       setActiveState(3);
 
       setClassAT('labs-top');
-      setClassStudio('studio-bg-gradient');
+
       setClassStudioBg('');
       setClassL('');
 
@@ -84,7 +86,6 @@ export default function Home() {
       setClassAT('');
       setClassL('arcs-left');
 
-      setClassStudio('studio-bg-gradient');
       setClassStudioBg('');
 
       setClassT2('t2');
@@ -94,8 +95,7 @@ export default function Home() {
       window.scrollY > startSticky + 3 * step &&
       window.scrollY < startSticky + 4 * step
     ) {
-      setClassStudio('studio');
-      setClassStudioBg('studioBg');
+      setClassStudioBg('labs-top');
       setActiveState(5);
       setClassL('');
       setClassAT('');
@@ -107,25 +107,23 @@ export default function Home() {
       window.scrollY > startSticky + 4 * step &&
       window.scrollY < startSticky + 5 * step
     ) {
-      setClassStudio('studio-rm-bg');
       setClassStudioBg('');
       setActiveState(6);
       setClassL('');
       setClassAT('');
 
-      setClassT2('t2');
+      setClassT2('t2_less_height');
       setCapacity('capability-hidden');
     } else if (
       window.scrollY > startSticky + 5 * step &&
       window.scrollY < startSticky + 6 * step
     ) {
-      setClassStudio('');
       setClassStudioBg('');
       setActiveState(7);
       setClassL('');
       setClassAT('');
 
-      setClassT2('t2');
+      setClassT2('t2_less_height');
       setCapacity('capability-active');
     } else if (window.scrollY > stopSticky) {
       setClassT2('t3');
@@ -1403,7 +1401,7 @@ export default function Home() {
                     <button
                       type="button"
                       className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenRC(false)}
+                      onClick={() => setOpenMC(false)}
                     >
                       <span className="sr-only">Close</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -1974,14 +1972,21 @@ export default function Home() {
                   >
                     <div className="col-span-11">
                       <div className="text-center ">
-                        <h2 className="pb-4 text-base font-normal text-[#A8A8A8]">
+                        <h2
+                          className={classNames(
+                            activeState === 7
+                              ? 'text-transparent'
+                              : 'text-[#A8A8A8]',
+                            'pb-4 text-base font-normal',
+                          )}
+                        >
                           Labs
                         </h2>
                       </div>
 
                       <div className="grid grid-cols-9 gap-[6px] bg-[#151414]">
                         <div className="">
-                          <div className="mb-1.5 bg-[#151414]">
+                          <div className="mb-1.5 bg-[#161617]">
                             <h2 className="h-[80px] pl-2 pt-[3rem] text-base font-normal  text-[#A8A8A8]">
                               Arcs
                             </h2>
@@ -2008,7 +2013,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div
-                              className={`my-1.5.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} h-[80px]`}
                               onMouseOver={() => setRCActive(true)}
                               onClick={() => setOpenRC(true)}
                               onMouseLeave={() => setRCActive(false)}
@@ -2023,7 +2028,7 @@ export default function Home() {
 
                           {ETCactive || openETC ? (
                             <div
-                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenETC(true)}
                               onMouseLeave={() => setETCActive(false)}
                             >
@@ -2081,7 +2086,7 @@ export default function Home() {
 
                           {SGactive || openSG ? (
                             <div
-                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenSG(true)}
                               onMouseLeave={() => setSGActive(false)}
                             >
@@ -2142,7 +2147,7 @@ export default function Home() {
 
                           {REactive ? (
                             <div
-                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} h-[80px]`}
                               onClick={() => setOpenRE(true)}
                               onMouseLeave={() => setREActive(false)}
                             >
@@ -2167,7 +2172,7 @@ export default function Home() {
 
                           {WIactive || openWI ? (
                             <div
-                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenWI(true)}
                               onMouseLeave={() => setWIActive(false)}
                             >
@@ -2199,7 +2204,7 @@ export default function Home() {
 
                           {BEactive ? (
                             <div
-                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenBE(true)}
                               onMouseLeave={() => setBEActive(false)}
                             >
@@ -2224,7 +2229,7 @@ export default function Home() {
 
                           {PCactive ? (
                             <div
-                              className={`my-1.5 bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
                               onClick={() => setOpenPC(true)}
                               onMouseLeave={() => setPCActive(false)}
                             >
@@ -2508,7 +2513,8 @@ export default function Home() {
                             >
                               <p className="text-base font-normal ">BL</p>
                               <p className=" text-[9.6px] font-normal leading-normal">
-                                Beyond Labour
+                                Beyond
+                                <br /> Labour
                               </p>
                             </div>
                           ) : (
@@ -2520,7 +2526,8 @@ export default function Home() {
                             >
                               <p className="text-base font-normal ">BL</p>
                               <p className=" text-[9.6px] font-normal leading-normal">
-                                Beyond Labour
+                                Beyond
+                                <br /> Labour
                               </p>
                             </div>
                           )}
@@ -3452,7 +3459,7 @@ export default function Home() {
                               onMouseLeave={() => setSMActive(false)}
                             >
                               <p className="text-base font-normal ">SMM</p>
-                              <p className=" h-[80px] text-[9.6px] font-normal  leading-normal">
+                              <p className="  text-[9.6px] font-normal  leading-normal">
                                 Sensing, Modeling
                               </p>
                             </div>
@@ -3635,7 +3642,14 @@ export default function Home() {
                     </div>
                     <div className="col-span-10">
                       <div className="mx-auto max-w-xl text-center">
-                        <h2 className="pb-4 text-base font-normal text-[#A8A8A8]">
+                        <h2
+                          className={classNames(
+                            activeState === 6
+                              ? 'text-transparent'
+                              : 'text-[#A8A8A8]',
+                            'pb-4 text-base font-normal',
+                          )}
+                        >
                           Domains
                         </h2>
                       </div>
@@ -4066,11 +4080,16 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-[12rem] z-30 w-full  ${animateOn}  ${classStudio} backdrop-blur-xl`} // change bg to transparent on state 6
+                    className={classNames(
+                      activeState === 6 || activeState === 7
+                        ? 'backdrop-blur-none'
+                        : 'backdrop-blur-xl',
+                      `threeD absolute top-[12rem] z-30 w-full  ${animateOn} `,
+                    )}
                   >
                     <div className="grid grid-cols-12 gap-1.5  ">
                       <div className=" studio-layer col-span-11">
-                        <div className=" px-20 py-[26rem]"> </div>
+                        <div className=" px-20 py-[28rem]"> </div>
                       </div>
                       <div className="backdrop-blur-none">
                         <div className=" mt-1.5 ">
