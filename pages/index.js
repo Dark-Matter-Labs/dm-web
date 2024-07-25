@@ -223,7 +223,7 @@ export default function Home() {
 
       <Transition.Root show={openCS} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCS}>
-          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -289,7 +289,7 @@ export default function Home() {
 
       <Transition.Root show={openRC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenRC}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -354,7 +354,7 @@ export default function Home() {
 
       <Transition.Root show={openNZ} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenNZ}>
-          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -417,7 +417,7 @@ export default function Home() {
 
       <Transition.Root show={openSG} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenSG}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -472,7 +472,7 @@ export default function Home() {
 
       <Transition.Root show={openM0} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenM0}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -538,7 +538,7 @@ export default function Home() {
 
       <Transition.Root show={openRE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenRE}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -596,7 +596,7 @@ export default function Home() {
 
       <Transition.Root show={openBE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBE}>
-          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -646,7 +646,7 @@ export default function Home() {
 
       <Transition.Root show={openPC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPC}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -706,7 +706,7 @@ export default function Home() {
 
       <Transition.Root show={openNE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenNE}>
-          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -767,7 +767,7 @@ export default function Home() {
 
       <Transition.Root show={openPB} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPB}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -825,7 +825,7 @@ export default function Home() {
 
       <Transition.Root show={openBR} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBR}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -886,7 +886,7 @@ export default function Home() {
 
       <Transition.Root show={openSM} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenSM}>
-          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -940,7 +940,7 @@ export default function Home() {
 
       <Transition.Root show={openBL} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBL}>
-          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -986,7 +986,7 @@ export default function Home() {
 
       <Transition.Root show={openPF} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPF}>
-          <div className="fixed left-[14.8%] top-[30%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1031,7 +1031,7 @@ export default function Home() {
 
       <Transition.Root show={openQD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenQD}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1084,7 +1084,7 @@ export default function Home() {
 
       <Transition.Root show={openCT} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCT}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1133,7 +1133,7 @@ export default function Home() {
 
       <Transition.Root show={openETC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenETC}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1181,7 +1181,7 @@ export default function Home() {
 
       <Transition.Root show={openCD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCD}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1231,7 +1231,7 @@ export default function Home() {
 
       <Transition.Root show={openFF} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenFF}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1281,7 +1281,7 @@ export default function Home() {
 
       <Transition.Root show={openOD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenOD}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1330,7 +1330,7 @@ export default function Home() {
 
       <Transition.Root show={openWI} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenWI}>
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1385,7 +1385,7 @@ export default function Home() {
             setNEActive(false);
           }}
         >
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1460,7 +1460,7 @@ export default function Home() {
             setCSActive(false);
           }}
         >
-          <div className="fixed left-[14.8%] top-[30%]  w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%]  w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1530,7 +1530,7 @@ export default function Home() {
             setM0Active(false);
           }}
         >
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1607,7 +1607,7 @@ export default function Home() {
             setSMActive(false);
           }}
         >
-          <div className="fixed left-[14.8%] top-[30%] w-screen overflow-y-auto">
+          <div className="fixed left-[10.4%] top-[33.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1965,13 +1965,13 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
-              <div className="h-screen font-FKregular">
-                <div className={` `}>
+              <div className="h-screen font-FKregular ">
+                <div className={``}>
                   <div
-                    className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn}`}
+                    className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn} shadow-layer`}
                   >
                     <div className="col-span-11">
-                      <div className="text-center ">
+                      <div className="ml-20 text-center">
                         <h2
                           className={classNames(
                             activeState === 7
@@ -1984,9 +1984,9 @@ export default function Home() {
                         </h2>
                       </div>
 
-                      <div className="grid grid-cols-9 gap-[6px] bg-[#151414]">
+                      <div className="grid grid-cols-9 gap-[6px]">
                         <div className="">
-                          <div className="mb-1.5 bg-[#161617]">
+                          <div className="mb-1.5 ">
                             <h2 className="h-[80px] pl-2 pt-[3rem] text-base font-normal  text-[#A8A8A8]">
                               Arcs
                             </h2>
@@ -2303,7 +2303,7 @@ export default function Home() {
                             </div>
                           ) : RCHover && NEHover ? (
                             <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem] text-white  hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5  text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setRCHover(false);
                                 setNEHover(false);
@@ -2321,14 +2321,14 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openMC ? (
-                            <div className=" my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.26rem]  text-white">
+                            <div className=" ] my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal ">
                                 Multivalent currencies
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`] my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setRCHover(true);
                                 setNEHover(true);
@@ -3635,7 +3635,10 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`threeD absolute top-[20rem] opacity-100  ${capacity} w-full ${animateOn} grid grid-cols-12 gap-[8px]`}
+                    className={classNames(
+                      activeState === 6 ? 'hidden' : '',
+                      `threeD absolute top-[22rem] opacity-100 ${capacity} w-full ${animateOn} shadow-layer grid grid-cols-12 gap-[8px]`,
+                    )}
                   >
                     <div className="col-span-1">
                       <div className="ml-4"></div>
@@ -3657,7 +3660,7 @@ export default function Home() {
                       <div className="ml-4 grid grid-cols-6 gap-1.5">
                         <div className="">
                           <div
-                            className={` h-[80px] bg-[#8E6413]  p-2 text-[#FFF]`}
+                            className={` flex h-[80px] flex-col justify-between bg-[#8E6413]  p-2 text-[#FFF]`}
                           >
                             <p className="font-FKregular text-base "> A</p>
                             <p className="font-PPmedium text-[9.6px]">
@@ -3666,7 +3669,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">A-1</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3675,7 +3678,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">A-2</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3684,7 +3687,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">A-3</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3694,11 +3697,12 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">A-4</p>
                             <p className="font-PPmedium text-[8px]">
-                              Phenomenological measures of success
+                              Phenomenological measures of success (lived
+                              experience)
                             </p>
                           </div>
 
@@ -3725,7 +3729,7 @@ export default function Home() {
 
                         <div className="">
                           <div
-                            className={`h-[80px] bg-[#903C30]  p-2 text-[#FFF]`}
+                            className={`flex h-[80px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF]`}
                           >
                             <p className="font-FKregular text-base">B</p>
                             <p className="font-PPmedium text-[9.6px]">
@@ -3734,7 +3738,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
                           >
                             <p className="pb-2 font-FKregular text-base">B-1</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3743,7 +3747,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
                           >
                             <p className="pb-2 font-FKregular text-base">B-2</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3752,7 +3756,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
                           >
                             <p className="pb-2 font-FKregular text-base">B-3</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3761,7 +3765,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
                           >
                             <p className="pb-2 font-FKregular text-base">B-4</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3792,7 +3796,7 @@ export default function Home() {
 
                         <div className="">
                           <div
-                            className={` h-[80px] bg-[#206B35] p-2 text-[#FFF]`}
+                            className={`flex h-[80px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF]`}
                           >
                             <p className="font-FKregular text-base">C</p>
                             <p className="font-PPmedium text-[9.6px]">
@@ -3801,7 +3805,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-1</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3810,7 +3814,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-2</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3819,7 +3823,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-3</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3828,7 +3832,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-4</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3837,7 +3841,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-5</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3847,7 +3851,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-6</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3869,7 +3873,7 @@ export default function Home() {
 
                         <div className="">
                           <div
-                            className={`h-[80px] bg-[#205793] p-2 text-[#FFF]`}
+                            className={`flex h-[80px] flex-col justify-between bg-[#205793] p-2 text-[#FFF]`}
                           >
                             <p className="font-FKregular text-base">D</p>
                             <p className="font-PPmedium text-[9.6px]">
@@ -3878,7 +3882,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
                           >
                             <p className="pb-2 font-FKregular text-base">D-1</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3888,7 +3892,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
                           >
                             <p className="pb-2 font-FKregular text-base">D-2</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3898,7 +3902,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
                           >
                             <p className="pb-2 font-FKregular text-base">D-3</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3907,7 +3911,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
                           >
                             <p className="pb-2 font-FKregular text-base">D-4</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3916,7 +3920,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
                           >
                             <p className="font-FKregular text-base ">D-5</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3942,7 +3946,7 @@ export default function Home() {
 
                         <div className="">
                           <div
-                            className={`h-[80px] bg-[#8D2D55] p-2 text-[#FFF]`}
+                            className={`flex h-[80px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF]`}
                           >
                             <p className="font-FKregular text-base"> E</p>
                             <p className="font-PPmedium text-[9.6px]">
@@ -3951,7 +3955,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">E-1</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3960,7 +3964,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">E-2</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3969,7 +3973,7 @@ export default function Home() {
                             </p>
                           </div>
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">E-3</p>
                             <p className="font-PPmedium text-[8px]">
@@ -3979,7 +3983,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
                           >
                             <p className="pb-2 font-FKregular text-base">E-4</p>
                             <p className="font-PPmedium text-[8px]">
@@ -4009,7 +4013,7 @@ export default function Home() {
 
                         <div className="">
                           <div
-                            className={`h-[80px] bg-[#808080] p-2 text-[#FFF]`}
+                            className={`flex h-[80px] flex-col justify-between bg-[#808080] p-2 text-[#FFF]`}
                           >
                             <p className="font-FKregular text-base">F</p>
                             <p className="font-PPmedium text-[9.6px]">
@@ -4018,7 +4022,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
                           >
                             <p className="pb-2 font-FKregular text-base">F-1</p>
                             <p className="font-PPmedium text-[8px]">
@@ -4028,7 +4032,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
                           >
                             <p className="pb-2 font-FKregular text-base">F-2</p>
                             <p className="font-PPmedium text-[8px]">
@@ -4036,7 +4040,7 @@ export default function Home() {
                             </p>
                           </div>
                           <div
-                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
                           >
                             <p className="pb-2 font-FKregular text-base">F-3</p>
                             <p className="font-PPmedium text-[8px]">
@@ -4046,7 +4050,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 h-[80px] border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
                           >
                             <p className="font-FKregular text-base">F-4</p>
                             <p className="font-PPmedium text-[8px]">
@@ -4084,16 +4088,30 @@ export default function Home() {
                       activeState === 6 || activeState === 7
                         ? 'backdrop-blur-none'
                         : 'backdrop-blur-xl',
-                      `threeD absolute top-[12rem] z-30 w-full  ${animateOn} `,
+                      `threeD absolute top-[18rem] z-30 w-full ${animateOn} shadow-layer`,
                     )}
                   >
-                    <div className="grid grid-cols-12 gap-1.5  ">
-                      <div className=" studio-layer col-span-11">
-                        <div className=" px-20 py-[28rem]"> </div>
+                    <div className="grid grid-cols-12 gap-1.5">
+                      <div
+                        className={classNames(
+                          activeState === 6 || activeState === 7
+                            ? ''
+                            : 'studio-layer  border-2 border-[#262626]',
+                          ' col-span-11',
+                        )}
+                      >
+                        <div className=" pb-[40rem] pt-[2rem]"> </div>
                       </div>
                       <div className="backdrop-blur-none">
-                        <div className=" mt-1.5 ">
-                          <h2 className="pl-2 pt-[5.5rem] text-base font-normal text-[#A8A8A8]">
+                        <div className=" ">
+                          <h2
+                            className={classNames(
+                              activeState === 6 || activeState === 7
+                                ? ' mt-[5.8rem]'
+                                : '-mt-[2rem]',
+                              'pl-2 text-base font-normal text-[#A8A8A8]',
+                            )}
+                          >
                             Studios
                           </h2>
                         </div>
