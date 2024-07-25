@@ -148,7 +148,7 @@ img {
   }
 
   .t3 {
-    @apply relative top-[30rem];
+    @apply relative top-[50rem];
     transform: scale(0.8);
   }
 

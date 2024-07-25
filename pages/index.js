@@ -34,7 +34,7 @@ export default function Home() {
   const startSticky = 1500;
   const step = 100;
   const animationStart = 1896;
-  const stopSticky = 2056;
+  const stopSticky = 2256;
 
   const listenScrollEvent = () => {
     if (window.scrollY < startSticky) {
@@ -3636,8 +3636,8 @@ export default function Home() {
 
                   <div
                     className={classNames(
-                      activeState === 6 ? 'hidden' : '',
-                      `threeD absolute top-[22rem] opacity-100 ${capacity} w-full ${animateOn} shadow-layer grid grid-cols-12 gap-[8px]`,
+                      activeState === 6 ? 'opacity-0' : 'opacity-100',
+                      `threeD absolute top-[22rem]  ${capacity} w-full ${animateOn} shadow-layer grid grid-cols-12 gap-[8px]`,
                     )}
                   >
                     <div className="col-span-1">
@@ -4096,11 +4096,11 @@ export default function Home() {
                         className={classNames(
                           activeState === 6 || activeState === 7
                             ? ''
-                            : 'studio-layer  border-2 border-[#262626]',
+                            : 'studio-layer  border-2 border-[#262626] ',
                           ' col-span-11',
                         )}
                       >
-                        <div className=" pb-[40rem] pt-[2rem]"> </div>
+                        <div className=" pb-[40rem] pt-[2rem] "> </div>
                       </div>
                       <div className="backdrop-blur-none">
                         <div className=" ">
@@ -4228,7 +4228,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="context" className="mt-[50rem]">
+            <div id="context" className="mt-[60rem]">
               <p className="p-4xl-medium max-w-3xl pb-8 text-grey-3">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
