@@ -2303,7 +2303,7 @@ export default function Home() {
                             </div>
                           ) : RCHover && NEHover ? (
                             <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5  text-white  hover:cursor-pointer"
+                              className="my-1.5 flex flex-col justify-center items-center h-[80px]  bg-[#595959] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setRCHover(false);
                                 setNEHover(false);
@@ -2317,18 +2317,18 @@ export default function Home() {
                               }}
                             >
                               <p className=" text-[9.6px] font-normal leading-normal ">
-                                Multivalent currencies
+                                Multivalent <br />currencies
                               </p>
                             </div>
                           ) : openMC ? (
-                            <div className=" ] my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5  text-white">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959] px-1.5  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal ">
-                                Multivalent currencies
+                                Multivalent <br />currencies
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`] my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-center items-center bg-[#212121] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setRCHover(true);
                                 setNEHover(true);
@@ -2347,7 +2347,7 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {ETCactive || NEactive ? (
+                          {ETCactive || NEactive ? ( // add check for entire row or column active, and mouse leave
                             <div
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
@@ -2359,6 +2359,7 @@ export default function Home() {
                             >
                               {' '}
                             </div>
+                            // on mouse enter -- set state for entire row and column to be active
                           )}
                           {NZactive || NEactive ? (
                             <div
@@ -2403,7 +2404,7 @@ export default function Home() {
                             </div>
                           ) : M0Hover && NEHover ? (
                             <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem] text-white  hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959]  py-[0.8rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setM0Hover(false);
                                 setNEHover(false);
@@ -2417,18 +2418,18 @@ export default function Home() {
                               }}
                             >
                               <p className=" text-[9.6px] font-normal leading-normal ">
-                                New Economic Thinking
+                                New Economic<br /> Thinking
                               </p>
                             </div>
                           ) : openNET ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[0.8rem]  text-white">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959]  py-[0.8rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal">
-                                New Economic Thinking
+                                New Economic <br />Thinking
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-center items-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setM0Hover(true);
                                 setNEHover(true);
@@ -2783,7 +2784,7 @@ export default function Home() {
                             </div>
                           ) : WIHover && CSHover ? (
                             <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white  hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] items-center py-[1.7rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setWIHover(false);
                                 setCSHover(false);
@@ -2803,14 +2804,14 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openTAI ? (
-                            <div className=" my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem]  text-white">
+                            <div className=" my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959] py-[1.7rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 TreesAI
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-center items-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setWIHover(true);
                                 setCSHover(true);
@@ -3491,7 +3492,7 @@ export default function Home() {
                             </div>
                           )}
                           {(NZactive || SMactive) && !openCL ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] items-center py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 NZ
@@ -3506,7 +3507,7 @@ export default function Home() {
                             </div>
                           ) : NZHover && CTHover ? (
                             <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem] text-white  hover:cursor-pointer"
+                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] items-center py-[1.7rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
                                 setNZHover(false);
                                 setCTHover(false);
@@ -3524,14 +3525,14 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openCL ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] px-1.5 py-[1.7rem]  text-white">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] items-center py-[1.7rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal ">
                                 CircuLaw
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center bg-[#212121] px-1.5 py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col justify-center bg-[#212121] items-center py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
                                 setNZHover(true);
                                 setCTHover(true);
@@ -4091,7 +4092,7 @@ export default function Home() {
                       `threeD absolute top-[18rem] z-30 w-full ${animateOn} shadow-layer`,
                     )}
                   >
-                    <div className="grid grid-cols-12 gap-1.5">
+                    <div className="grid grid-cols-12 gap-1.5 ">
                       <div
                         className={classNames(
                           activeState === 6 || activeState === 7
@@ -4100,10 +4101,10 @@ export default function Home() {
                           ' col-span-11',
                         )}
                       >
-                        <div className=" pb-[40rem] pt-[2rem] "> </div>
+                        <div className=" pb-[40rem] pt-[2rem]"> </div>
                       </div>
-                      <div className="backdrop-blur-none">
-                        <div className=" ">
+                      <div className="backdrop-blur-none text-right">
+                        <div className="">
                           <h2
                             className={classNames(
                               activeState === 6 || activeState === 7
@@ -4117,7 +4118,7 @@ export default function Home() {
                         </div>
                         {CTactive || openCT ? (
                           <div
-                            className={`flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px]`}
+                            className={`flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
                           >
@@ -4128,7 +4129,7 @@ export default function Home() {
                           </div>
                         ) : CTHover ? (
                           <div
-                            className={`mb-1.5 mt-2 flex h-[80px] flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8]`}
+                            className={`mb-1.5 mt-2 flex h-[80px] flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8] d`}
                           >
                             <p className="text-base font-normal ">CT</p>
                             <p className=" text-[9.6px] font-normal leading-normal">
@@ -4137,7 +4138,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`mb-1.5 mt-2 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`mb-1.5 mt-2 flex h-[80px] flex-col  justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg} `}
                             onMouseOver={() => setCTActive(true)}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
@@ -4162,14 +4163,14 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col  justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setCDActive(true)}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
                           >
                             <p className="text-base font-normal ">CD</p>
                             <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Conversational Design
+                              Conversa- tional Design
                             </p>
                           </div>
                         )}
@@ -4182,7 +4183,7 @@ export default function Home() {
                           >
                             <p className="text-base font-normal ">FF</p>
                             <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Foresight& Futuring
+                              Foresight & Futuring
                             </p>
                           </div>
                         ) : (
@@ -4194,14 +4195,14 @@ export default function Home() {
                           >
                             <p className="text-base font-normal ">FF</p>
                             <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Foresight& Futuring
+                              Foresight & Futuring
                             </p>
                           </div>
                         )}
 
                         {ODactive || openOD ? (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-end bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
                           >
@@ -4211,7 +4212,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] flex-col  justify-end bg-[#292929] px-[2.5rem] py-2   text-[#A8A8A8] ${classStudioBg} i`}
                             onMouseOver={() => setODActive(true)}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
