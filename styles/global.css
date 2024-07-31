@@ -69,8 +69,9 @@ img {
     url('../fonts/PPNeueMontreal-Medium.otf') format('otf');
 }
 
+/* scale down as per screen width */
 .threeD {
-  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.8, 0.8, 0.8);
+  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.8, 0.8, 0.8); 
   transform-style: preserve-3d;
 }
 
@@ -134,10 +135,12 @@ img {
     @apply bg-gradient-to-b from-[#000] to-[#292929];
   }
 
+  /* reduce padding as per screen width */
   .t2 {
     @apply sticky top-[-12vh];
   }
 
+  /* scale down  and reduce padding as per screen width */
   .t2_less_height {
     @apply sticky top-[2vh];
     transform: scale(0.8);
@@ -147,6 +150,7 @@ img {
     @apply relative;
   }
 
+    /* scale down  and reduce padding as per screen width */
   .t3 {
     @apply relative top-[50rem];
     transform: scale(0.8);

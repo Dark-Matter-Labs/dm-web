@@ -6,7 +6,6 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import Navbar from '../components/Navbar';
 import SideNav from '../components/SideNav';
-import '../styles/Home.module.css';
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
 
@@ -2288,7 +2287,7 @@ export default function Home() {
                           )}
 
                           {(RCactive || NEactive) && !openMC ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#292929]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 RC
@@ -2321,7 +2320,7 @@ export default function Home() {
                               </p>
                             </div>
                           ) : openMC ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959] px-1.5  text-white">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal ">
                                 Multivalent <br />currencies
                               </p>
@@ -2389,10 +2388,10 @@ export default function Home() {
                             </div>
                           )}
                           {(M0active || NEactive) && !openNET ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
-                                MO
+                                M0
                                 <span className="align-super text-[6.6px]">
                                   A
                                 </span>{' '}
@@ -2769,7 +2768,7 @@ export default function Home() {
                             </div>
                           )}
                           {(WIactive || CSactive) && !openTAI ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
+                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 NZ
@@ -3855,7 +3854,7 @@ export default function Home() {
                             className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-6</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-PPmedium text-[7.2px] self-stretch">
                               Socialising transformational narratives for a
                               regenerative financial system
                             </p>
@@ -4023,10 +4022,10 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] px-0.5 text-[#C2C2C2]`}
                           >
                             <p className="pb-2 font-FKregular text-base">F-1</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-PPmedium text-[6.9px]">
                               Developing collaborative, non-extractive
                               interfaces with the physical environment
                             </p>
@@ -4054,7 +4053,7 @@ export default function Home() {
                             className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
                           >
                             <p className="font-FKregular text-base">F-4</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-PPmedium text-[7px]">
                               Designing and demonstrating autonomous,
                               regenerative and affordable multi-purpose
                               developments.
@@ -4118,7 +4117,7 @@ export default function Home() {
                         </div>
                         {CTactive || openCT ? (
                           <div
-                            className={`flex flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
+                            className={`flex flex-col h-[80px] w-[80px] items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
                           >
@@ -4129,7 +4128,7 @@ export default function Home() {
                           </div>
                         ) : CTHover ? (
                           <div
-                            className={`mb-1.5 mt-2 flex h-[80px] flex-col justify-between bg-[#353535] px-[2.5rem] py-2 text-[#A8A8A8] d`}
+                            className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#353535] px-2 py-2 text-[#A8A8A8]`}
                           >
                             <p className="text-base font-normal ">CT</p>
                             <p className=" text-[9.6px] font-normal leading-normal">
@@ -4138,7 +4137,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`mb-1.5 mt-2 flex h-[80px] flex-col  justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg} `}
+                            className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col justify-between items-end bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
                             onMouseOver={() => setCTActive(true)}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
@@ -4152,7 +4151,7 @@ export default function Home() {
 
                         {CDactive || openCD ? (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
                           >
@@ -4163,21 +4162,21 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col  justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px]  w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setCDActive(true)}
                             onClick={() => setOpenCD(true)}
                             onMouseLeave={() => setCDActive(false)}
                           >
                             <p className="text-base font-normal ">CD</p>
                             <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Conversa- tional Design
+                              Conversational Design
                             </p>
                           </div>
                         )}
 
                         {FFactive || openFF ? (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
                           >
@@ -4188,7 +4187,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col items-start justify-between bg-[#292929] px-[2.5rem] py-2 text-[#A8A8A8] ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setFFActive(true)}
                             onClick={() => setOpenFF(true)}
                             onMouseLeave={() => setFFActive(false)}
@@ -4202,7 +4201,7 @@ export default function Home() {
 
                         {ODactive || openOD ? (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-end bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                            className={`my-1.5 flex h-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
                           >
@@ -4212,12 +4211,12 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col  justify-end bg-[#292929] px-[2.5rem] py-2   text-[#A8A8A8] ${classStudioBg} i`}
+                            className={`my-1.5 flex h-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
                             onMouseOver={() => setODActive(true)}
                             onClick={() => setOpenOD(true)}
                             onMouseLeave={() => setODActive(false)}
                           >
-                            <p className=" text-base font-normal uppercase">
+                            <p className=" text-base font-normal uppercase ">
                               Org Dev
                             </p>
                           </div>
