@@ -2286,51 +2286,51 @@ export default function Home() {
                             </div>
                           )}
 
-                          {(RCactive || NEactive) && !openMC ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#292929]  text-[#595959]">
-                              <p className=" text-[9.6px] font-normal leading-normal">
-                                {' '}
-                                RC
-                                <span className="align-super text-[6.6px]">
-                                  A
-                                </span>{' '}
-                                + NE
-                                <span className="align-super text-[6.6px]">
-                                  L
-                                </span>
-                              </p>
-                            </div>
-                          ) : RCHover && NEHover ? (
+                          {RCactive && NEactive && !openMC ? (
                             <div
-                              className="my-1.5 flex flex-col justify-center items-center h-[80px]  bg-[#595959] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
-                                setRCHover(false);
-                                setNEHover(false);
-                              }}
-                              onMouseEnter={() => {
-                                setRCHover(true);
-                                setNEHover(true);
+                                setRCActive(false);
+                                setNEActive(false);
                               }}
                               onClick={() => {
                                 setOpenMC(true);
                               }}
+                              className="my-1.5 flex h-[80px] flex-col items-center justify-center  bg-[#595959] text-white  hover:cursor-pointer"
                             >
                               <p className=" text-[9.6px] font-normal leading-normal ">
-                                Multivalent <br />currencies
+                                Multivalent <br />
+                                currencies
                               </p>
                             </div>
                           ) : openMC ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959]  text-white">
+                            <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal ">
-                                Multivalent <br />currencies
+                                Multivalent <br />
+                                currencies
+                              </p>
+                            </div>
+                          ) : (RCactive || NEactive) && !openMC ? (
+                            <div
+                              className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  text-[#595959] ${classT} ${classA}  h-[80px]`}
+                            >
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                RC
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + NE
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
                               </p>
                             </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center items-center bg-[#212121] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
-                                setRCHover(true);
-                                setNEHover(true);
+                                setRCActive(true);
+                                setNEActive(true);
                               }}
                             >
                               <p className=" text-[9.6px] font-normal leading-normal">
@@ -2346,28 +2346,43 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {ETCactive || NEactive ? ( // add check for entire row or column active, and mouse leave
+                          {ETCactive || NEactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setNEActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setNEActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
-                            // on mouse enter -- set state for entire row and column to be active
                           )}
                           {NZactive || NEactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setNZActive(false);
+                                setNEActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setNZActive(true);
+                                setNEActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2376,19 +2391,53 @@ export default function Home() {
 
                           {SGactive || NEactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setNEActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setNEActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
-                          {(M0active || NEactive) && !openNET ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
+
+                          {M0active && NEactive && !openNET ? (
+                            <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setNEActive(false);
+                              }}
+                              onClick={() => {
+                                setOpenNET(true);
+                              }}
+                              className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem] text-white  hover:cursor-pointer"
+                            >
+                              <p className=" text-[9.6px] font-normal leading-normal ">
+                                New Economic
+                                <br /> Thinking
+                              </p>
+                            </div>
+                          ) : openNET ? (
+                            <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem]  text-white">
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                New Economic <br />
+                                Thinking
+                              </p>
+                            </div>
+                          ) : (M0active || NEactive) && !openNET ? (
+                            <div
+                              className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                            >
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 M0
@@ -2401,37 +2450,12 @@ export default function Home() {
                                 </span>
                               </p>
                             </div>
-                          ) : M0Hover && NEHover ? (
-                            <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959]  py-[0.8rem] text-white  hover:cursor-pointer"
-                              onMouseLeave={() => {
-                                setM0Hover(false);
-                                setNEHover(false);
-                              }}
-                              onMouseEnter={() => {
-                                setM0Hover(true);
-                                setNEHover(true);
-                              }}
-                              onClick={() => {
-                                setOpenNET(true);
-                              }}
-                            >
-                              <p className=" text-[9.6px] font-normal leading-normal ">
-                                New Economic<br /> Thinking
-                              </p>
-                            </div>
-                          ) : openNET ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959]  py-[0.8rem]  text-white">
-                              <p className=" text-[9.6px] font-normal leading-normal">
-                                New Economic <br />Thinking
-                              </p>
-                            </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center items-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
-                                setM0Hover(true);
-                                setNEHover(true);
+                                setM0Active(true);
+                                setNEActive(true);
                               }}
                             >
                               <p className=" text-[9.6px] font-normal leading-normal">
@@ -2450,12 +2474,20 @@ export default function Home() {
 
                           {REactive || NEactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setNEActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setNEActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2464,12 +2496,20 @@ export default function Home() {
 
                           {WIactive || NEactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setNEActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setWIActive(true);
+                                setNEActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2478,12 +2518,20 @@ export default function Home() {
 
                           {BEactive || NEactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setNEActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setNEActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2491,12 +2539,20 @@ export default function Home() {
                           )}
                           {PCactive || NEactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setNEActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA} ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setNEActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
@@ -2531,14 +2587,22 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {RCactive || openRC || BLactive ? (
+                          {RCactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setRCActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setRCActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2546,12 +2610,20 @@ export default function Home() {
                           )}
                           {ETCactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2559,12 +2631,20 @@ export default function Home() {
                           )}
                           {NZactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setNZActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setNZActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2572,12 +2652,20 @@ export default function Home() {
                           )}
                           {SGactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2585,12 +2673,20 @@ export default function Home() {
                           )}
                           {M0active || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setM0Active(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2599,12 +2695,20 @@ export default function Home() {
 
                           {REactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2612,12 +2716,20 @@ export default function Home() {
                           )}
                           {WIactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setWIActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2625,12 +2737,20 @@ export default function Home() {
                           )}
                           {BEactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2638,12 +2758,20 @@ export default function Home() {
                           )}
                           {PCactive || BLactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setBLActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setBLActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
@@ -2686,14 +2814,22 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {RCactive || openRC || CSactive || openCS ? (
+                          {RCactive || CSactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setRCActive(false);
+                                setCSActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setRCActive(true);
+                                setCSActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2701,12 +2837,20 @@ export default function Home() {
                           )}
                           {ETCactive || CSactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setCSActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setCSActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2715,105 +2859,133 @@ export default function Home() {
 
                           {NZactive || CSactive ? (
                             <div
-                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          )}
-
-                          {SGactive || CSactive || openCS ? (
-                            <div
-                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          )}
-                          {M0active || CSactive || openCS ? (
-                            <div
-                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          )}
-
-                          {REactive || CSactive || openCS ? (
-                            <div
-                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          ) : (
-                            <div
-                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                            >
-                              {' '}
-                            </div>
-                          )}
-                          {(WIactive || CSactive) && !openTAI ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#292929] px-1.5 py-[1.68rem]  text-[#595959]">
-                              <p className=" text-[9.6px] font-normal leading-normal">
-                                {' '}
-                                NZ
-                                <span className="align-super text-[6.6px]">
-                                  A
-                                </span>{' '}
-                                + CS
-                                <span className="align-super text-[6.6px]">
-                                  L
-                                </span>
-                              </p>
-                            </div>
-                          ) : WIHover && CSHover ? (
-                            <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] items-center py-[1.7rem] text-white  hover:cursor-pointer"
                               onMouseLeave={() => {
-                                setWIHover(false);
-                                setCSHover(false);
-                                setCTHover(false);
+                                setNZActive(false);
+                                setCSActive(false);
                               }}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          ) : (
+                            <div
                               onMouseEnter={() => {
-                                setWIHover(true);
-                                setCSHover(true);
-                                setCTHover(true);
+                                setNZActive(true);
+                                setCSActive(true);
+                              }}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          )}
+
+                          {SGactive || CSactive ? (
+                            <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setCSActive(false);
+                              }}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          ) : (
+                            <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setCSActive(true);
+                              }}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          )}
+                          {M0active || CSactive ? (
+                            <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setCSActive(false);
+                              }}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          ) : (
+                            <div
+                              onMouseEnter={() => {
+                                setM0Active(true);
+                                setCSActive(true);
+                              }}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          )}
+
+                          {REactive || CSactive ? (
+                            <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setCSActive(false);
+                              }}
+                              className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          ) : (
+                            <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setCSActive(true);
+                              }}
+                              className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                            >
+                              {' '}
+                            </div>
+                          )}
+                          {WIactive && CSactive && !openTAI ? (
+                            <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setCSActive(false);
                               }}
                               onClick={() => {
                                 setOpenTAI(true);
                               }}
+                              className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer"
                             >
                               <p className=" text-[9.6px] font-normal leading-normal ">
                                 TreesAI
                               </p>
                             </div>
                           ) : openTAI ? (
-                            <div className=" my-1.5 flex h-[80px] flex-col justify-center items-center bg-[#595959] py-[1.7rem]  text-white">
+                            <div className=" my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 TreesAI
                               </p>
                             </div>
+                          ) : (WIactive || CSactive) && !openTAI ? (
+                            <div
+                              className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                            >
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                {' '}
+                                NZ
+                                <span className="align-super text-[6.6px]">
+                                  A
+                                </span>{' '}
+                                + CS
+                                <span className="align-super text-[6.6px]">
+                                  L
+                                </span>
+                              </p>
+                            </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center items-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
-                                setWIHover(true);
-                                setCSHover(true);
+                                setWIActive(true);
+                                setCSActive(true);
                               }}
                             >
                               <p className=" text-[9.6px] font-normal leading-normal">
@@ -2829,27 +3001,43 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {BEactive || CSactive || openCS ? (
+                          {BEactive || CSactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setCSActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setCSActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
-                          {PCactive || CSactive || openCS ? (
+                          {PCactive || CSactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setCSActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setCSActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
@@ -2882,14 +3070,22 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {RCactive || openRC || PFactive ? (
+                          {RCactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setRCActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setRCActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2897,12 +3093,20 @@ export default function Home() {
                           )}
                           {ETCactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2910,12 +3114,20 @@ export default function Home() {
                           )}
                           {NZactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setNZActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setNZActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2923,12 +3135,20 @@ export default function Home() {
                           )}
                           {SGactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2936,12 +3156,20 @@ export default function Home() {
                           )}
                           {M0active || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setM0Active(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2950,12 +3178,20 @@ export default function Home() {
 
                           {REactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2963,12 +3199,20 @@ export default function Home() {
                           )}
                           {WIactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setWIActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2976,12 +3220,20 @@ export default function Home() {
                           )}
                           {BEactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -2989,12 +3241,20 @@ export default function Home() {
                           )}
                           {PCactive || PFactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setPFActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px] `}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setPFActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
@@ -3027,14 +3287,22 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {RCactive || openRC || PBactive ? (
+                          {RCactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setRCActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setRCActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3042,12 +3310,20 @@ export default function Home() {
                           )}
                           {ETCactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3055,12 +3331,20 @@ export default function Home() {
                           )}
                           {NZactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setNZActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setNZActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3068,12 +3352,20 @@ export default function Home() {
                           )}
                           {SGactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3081,12 +3373,20 @@ export default function Home() {
                           )}
                           {M0active || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setM0Active(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3095,12 +3395,20 @@ export default function Home() {
 
                           {REactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3108,12 +3416,20 @@ export default function Home() {
                           )}
                           {WIactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setWIActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3121,12 +3437,20 @@ export default function Home() {
                           )}
                           {BEactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3134,12 +3458,20 @@ export default function Home() {
                           )}
                           {PCactive || PBactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setPBActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setPBActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
@@ -3174,14 +3506,22 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {RCactive || openRC || QDactive ? (
+                          {RCactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setRCActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setRCActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3189,12 +3529,20 @@ export default function Home() {
                           )}
                           {ETCactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3202,12 +3550,20 @@ export default function Home() {
                           )}
                           {NZactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setNZActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setNZActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3215,12 +3571,20 @@ export default function Home() {
                           )}
                           {SGactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3228,12 +3592,20 @@ export default function Home() {
                           )}
                           {M0active || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setM0Active(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3242,12 +3614,20 @@ export default function Home() {
 
                           {REactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3255,12 +3635,20 @@ export default function Home() {
                           )}
                           {WIactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setWIActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3268,12 +3656,20 @@ export default function Home() {
                           )}
                           {BEactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3281,12 +3677,20 @@ export default function Home() {
                           )}
                           {PCactive || QDactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setQDActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setQDActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
@@ -3319,14 +3723,22 @@ export default function Home() {
                               </p>
                             </div>
                           )}
-                          {RCactive || openRC || BRactive ? (
+                          {RCactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setRCActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setRCActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3334,12 +3746,20 @@ export default function Home() {
                           )}
                           {ETCactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3347,12 +3767,20 @@ export default function Home() {
                           )}
                           {NZactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setNZActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setNZActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3360,12 +3788,20 @@ export default function Home() {
                           )}
                           {SGactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3373,12 +3809,20 @@ export default function Home() {
                           )}
                           {M0active || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setM0Active(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3387,12 +3831,20 @@ export default function Home() {
 
                           {REactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3400,12 +3852,20 @@ export default function Home() {
                           )}
                           {WIactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setWIActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3413,12 +3873,20 @@ export default function Home() {
                           )}
                           {BEactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3426,12 +3894,20 @@ export default function Home() {
                           )}
                           {PCactive || BRactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setBRActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setBRActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3466,12 +3942,20 @@ export default function Home() {
                           )}
                           {RCactive || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setRCActive(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setRCActive(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3479,19 +3963,48 @@ export default function Home() {
                           )}
                           {ETCactive || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setETCActive(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setETCActive(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           )}
-                          {(NZactive || SMactive) && !openCL ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#292929] items-center py-[1.68rem]  text-[#595959]">
+                          {NZactive && CTactive && !openCL ? (
+                            <div
+                              className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer"
+                              onMouseLeave={() => {
+                                setNZActive(false);
+                                setCTActive(false);
+                              }}
+                              onClick={() => {
+                                setOpenCL(true);
+                              }}
+                            >
+                              <p className=" text-[9.6px] font-normal leading-normal ">
+                                CircuLaw
+                              </p>
+                            </div>
+                          ) : openCL ? (
+                            <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white">
+                              <p className=" text-[9.6px] font-normal leading-normal ">
+                                CircuLaw
+                              </p>
+                            </div>
+                          ) : (NZactive || SMactive) && !openCL ? (
+                            <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#292929] py-[1.68rem]  text-[#595959]">
                               <p className=" text-[9.6px] font-normal leading-normal">
                                 {' '}
                                 NZ
@@ -3504,37 +4017,12 @@ export default function Home() {
                                 </span>
                               </p>
                             </div>
-                          ) : NZHover && CTHover ? (
-                            <div
-                              className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] items-center py-[1.7rem] text-white  hover:cursor-pointer"
-                              onMouseLeave={() => {
-                                setNZHover(false);
-                                setCTHover(false);
-                              }}
-                              onClick={() => {
-                                setOpenCL(true);
-                              }}
-                              onMouseEnter={() => {
-                                setNZHover(true);
-                                setCTHover(true);
-                              }}
-                            >
-                              <p className=" text-[9.6px] font-normal leading-normal ">
-                                CircuLaw
-                              </p>
-                            </div>
-                          ) : openCL ? (
-                            <div className="my-1.5 flex h-[80px] flex-col justify-center bg-[#595959] items-center py-[1.7rem]  text-white">
-                              <p className=" text-[9.6px] font-normal leading-normal ">
-                                CircuLaw
-                              </p>
-                            </div>
                           ) : (
                             <div
-                              className={`my-1.5 flex flex-col justify-center bg-[#212121] items-center py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                              className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
                               onMouseEnter={() => {
-                                setNZHover(true);
-                                setCTHover(true);
+                                setNZActive(true);
+                                setCTActive(true);
                               }}
                             >
                               <p className=" text-[9.6px] font-normal leading-normal">
@@ -3552,12 +4040,20 @@ export default function Home() {
                           )}
                           {SGactive || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setSGActive(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setSGActive(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3565,12 +4061,20 @@ export default function Home() {
                           )}
                           {M0active || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setM0Active(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setM0Active(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3579,12 +4083,20 @@ export default function Home() {
 
                           {REactive || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setREActive(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setREActive(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3592,12 +4104,20 @@ export default function Home() {
                           )}
                           {WIactive || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setWIActive(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setWIActive(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3605,12 +4125,20 @@ export default function Home() {
                           )}
                           {BEactive || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setBEActive(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setBEActive(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
                             >
                               {' '}
@@ -3618,12 +4146,20 @@ export default function Home() {
                           )}
                           {PCactive || SMactive ? (
                             <div
+                              onMouseLeave={() => {
+                                setPCActive(false);
+                                setSMActive(false);
+                              }}
                               className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
                             </div>
                           ) : (
                             <div
+                              onMouseEnter={() => {
+                                setPCActive(true);
+                                setSMActive(true);
+                              }}
                               className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
                             >
                               {' '}
@@ -3854,7 +4390,7 @@ export default function Home() {
                             className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
                           >
                             <p className="pb-2 font-FKregular text-base">C-6</p>
-                            <p className="font-PPmedium text-[7.2px] self-stretch">
+                            <p className="self-stretch font-PPmedium text-[7.2px]">
                               Socialising transformational narratives for a
                               regenerative financial system
                             </p>
@@ -4022,7 +4558,7 @@ export default function Home() {
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] px-0.5 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-0.5 py-[0.38rem] text-[#C2C2C2]`}
                           >
                             <p className="pb-2 font-FKregular text-base">F-1</p>
                             <p className="font-PPmedium text-[6.9px]">
@@ -4102,7 +4638,7 @@ export default function Home() {
                       >
                         <div className=" pb-[40rem] pt-[2rem]"> </div>
                       </div>
-                      <div className="backdrop-blur-none text-right">
+                      <div className="text-right backdrop-blur-none">
                         <div className="">
                           <h2
                             className={classNames(
@@ -4117,7 +4653,7 @@ export default function Home() {
                         </div>
                         {CTactive || openCT ? (
                           <div
-                            className={`flex flex-col h-[80px] w-[80px] items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
+                            className={`flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}
                           >
@@ -4137,7 +4673,7 @@ export default function Home() {
                           </div>
                         ) : (
                           <div
-                            className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col justify-between items-end bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
+                            className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
                             onMouseOver={() => setCTActive(true)}
                             onClick={() => setOpenCT(true)}
                             onMouseLeave={() => setCTActive(false)}

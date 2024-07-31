@@ -71,7 +71,7 @@ img {
 
 /* scale down as per screen width */
 .threeD {
-  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.8, 0.8, 0.8); 
+  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.8, 0.8, 0.8);
   transform-style: preserve-3d;
 }
 
@@ -150,7 +150,7 @@ img {
     @apply relative;
   }
 
-    /* scale down  and reduce padding as per screen width */
+  /* scale down  and reduce padding as per screen width */
   .t3 {
     @apply relative top-[50rem];
     transform: scale(0.8);
