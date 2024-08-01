@@ -4175,25 +4175,29 @@ export default function Home() {
                       activeState === 6 ||
                         (activeState === 7) | (activeState === 8)
                         ? 'gap-1.5 backdrop-blur-none'
-                        : 'left-[1rem] top-[8rem] backdrop-blur-xl',
-                      `threeD absolute  z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
+                        : 'top-[8rem]  backdrop-blur-xl ',
+                      `threeD bg-center absolute z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
                     )}
                   >
+                    <div className='h-full w-full bg-transparent row-span-full'></div>
                     <div
                       className={classNames(
                         activeState === 6 || activeState === 7
                           ? ''
                           : 'studio-layer border border-[#262626] ',
-                        ' col-span-11 h-full w-full',
+                        ' col-span-10 l h-full w-full  grid grid-rows-12 ',
                       )}
-                    ></div>
-                    <div className="text-right backdrop-blur-none">
+                    >
+                      <div className='row-span-1 h-[80px] bg-transparent'></div>
+                      <div className=' h-full w-full backdrop-blur-xl'></div>
+                    </div>
+                    <div className="text-right ">
                       <div className="">
                         <h2
                           className={classNames(
                             activeState === 6 || activeState === 7
                               ? 'mt-[5.8rem]'
-                              : '',
+                              : '-mt-[2rem]',
                             'pl-2 text-base font-normal text-[#A8A8A8]',
                           )}
                         >
