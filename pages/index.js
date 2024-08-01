@@ -1879,7 +1879,7 @@ export default function Home() {
         </Dialog>
       </Transition.Root>
 
-      <main className="mx-auto max-w-screen-xl">
+      <main className="global-margin">
         <Navbar />
         <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
           <SideNav activeState={activeState} />
@@ -1967,7 +1967,7 @@ export default function Home() {
               <div className="h-screen font-FKregular ">
                 <div className={``}>
                   <div
-                    className={`threeD absolute z-50 grid w-full grid-cols-12 opacity-100 ${animateOn} shadow-layer`}
+                    className={`threeD absolute z-50 grid h-full w-full grid-cols-12 opacity-100 ${animateOn} shadow-layer`}
                   >
                     <div className="col-span-11">
                       <div className="ml-20 text-center">
@@ -4172,8 +4172,150 @@ export default function Home() {
 
                   <div
                     className={classNames(
-                      activeState === 6 ? 'opacity-0' : 'opacity-100',
-                      `threeD absolute top-[22rem]  ${capacity} w-full ${animateOn} shadow-layer grid grid-cols-12 gap-[8px]`,
+                      activeState === 6 ||
+                        (activeState === 7) | (activeState === 8)
+                        ? 'gap-1.5 backdrop-blur-none'
+                        : 'left-[1rem] top-[8rem] backdrop-blur-xl',
+                      `threeD absolute  z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
+                    )}
+                  >
+                    <div
+                      className={classNames(
+                        activeState === 6 || activeState === 7
+                          ? ''
+                          : 'studio-layer border border-[#262626] ',
+                        ' col-span-11 h-full w-full',
+                      )}
+                    ></div>
+                    <div className="text-right backdrop-blur-none">
+                      <div className="">
+                        <h2
+                          className={classNames(
+                            activeState === 6 || activeState === 7
+                              ? 'mt-[5.8rem]'
+                              : '',
+                            'pl-2 text-base font-normal text-[#A8A8A8]',
+                          )}
+                        >
+                          Studios
+                        </h2>
+                      </div>
+                      {CTactive || openCT ? (
+                        <div
+                          className={`flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
+                          onClick={() => setOpenCT(true)}
+                          onMouseLeave={() => setCTActive(false)}
+                        >
+                          <p className="text-base font-normal ">CT</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Civic <br /> Tech
+                          </p>
+                        </div>
+                      ) : CTHover ? (
+                        <div
+                          className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#353535] px-2 py-2 text-[#A8A8A8]`}
+                        >
+                          <p className="text-base font-normal ">CT</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Civic <br /> Tech
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
+                          onMouseOver={() => setCTActive(true)}
+                          onClick={() => setOpenCT(true)}
+                          onMouseLeave={() => setCTActive(false)}
+                        >
+                          <p className="text-base font-normal ">CT</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Civic <br /> Tech
+                          </p>
+                        </div>
+                      )}
+
+                      {CDactive || openCD ? (
+                        <div
+                          className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                          onClick={() => setOpenCD(true)}
+                          onMouseLeave={() => setCDActive(false)}
+                        >
+                          <p className="text-base font-normal ">CD</p>
+                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                            Conversational Design
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex h-[80px]  w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                          onMouseOver={() => setCDActive(true)}
+                          onClick={() => setOpenCD(true)}
+                          onMouseLeave={() => setCDActive(false)}
+                        >
+                          <p className="text-base font-normal ">CD</p>
+                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                            Conversational Design
+                          </p>
+                        </div>
+                      )}
+
+                      {FFactive || openFF ? (
+                        <div
+                          className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                          onClick={() => setOpenFF(true)}
+                          onMouseLeave={() => setFFActive(false)}
+                        >
+                          <p className="text-base font-normal ">FF</p>
+                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                            Foresight & Futuring
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                          onMouseOver={() => setFFActive(true)}
+                          onClick={() => setOpenFF(true)}
+                          onMouseLeave={() => setFFActive(false)}
+                        >
+                          <p className="text-base font-normal ">FF</p>
+                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                            Foresight & Futuring
+                          </p>
+                        </div>
+                      )}
+
+                      {ODactive || openOD ? (
+                        <div
+                          className={`my-1.5 flex h-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                          onClick={() => setOpenOD(true)}
+                          onMouseLeave={() => setODActive(false)}
+                        >
+                          <p className=" text-base font-normal uppercase">
+                            Org Dev
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex h-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
+                          onMouseOver={() => setODActive(true)}
+                          onClick={() => setOpenOD(true)}
+                          onMouseLeave={() => setODActive(false)}
+                        >
+                          <p className=" text-base font-normal uppercase ">
+                            Org Dev
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div
+                    className={classNames(
+                      activeState === 6 ? 'opacity-0' : 'top-0 opacity-100',
+                      activeState !== 7 && activeState !== 8
+                        ? 'top-[16rem]'
+                        : 'top-0',
+                      `threeD absolute  ${capacity} h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
                     )}
                   >
                     <div className="col-span-1">
@@ -4196,47 +4338,58 @@ export default function Home() {
                       <div className="ml-4 grid grid-cols-6 gap-1.5">
                         <div className="">
                           <div
-                            className={` flex h-[80px] flex-col justify-between bg-[#8E6413]  p-2 text-[#FFF]`}
+                            className={` flex h-[80px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] `}
                           >
-                            <p className="font-FKregular text-base "> A</p>
-                            <p className="font-PPmedium text-[9.6px]">
+                            <p className="font-FKregular text-base leading-tight ">
+                              {' '}
+                              A
+                            </p>
+                            <p className="font-PPmedium text-[9.6px] leading-tight">
                               Ontology & Epistemology
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">A-1</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              A-1
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Fostering a relational worldview
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">A-2</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              A-2
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Replacing profit as the collective goal
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">A-3</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              A-3
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               <br />
                               Building political will
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] py-[0.38rem] pl-1 text-[#D29F3D]`}
+                            className={`my-1.5 flex h-[80px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">A-4</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              A-4
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Phenomenological measures of success (lived
                               experience)
                             </p>
@@ -4267,44 +4420,54 @@ export default function Home() {
                           <div
                             className={`flex h-[80px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF]`}
                           >
-                            <p className="font-FKregular text-base">B</p>
-                            <p className="font-PPmedium text-[9.6px]">
-                              Money & valuation <br /> logic
+                            <p className="font-FKregular text-base leading-tight">
+                              B
+                            </p>
+                            <p className="font-PPmedium text-[9.6px] leading-tight">
+                              Money & valuation logic
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">B-1</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className=" font-FKregular text-base leading-tight">
+                              B-1
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Demonstrating entangled and long-term value
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">B-2</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              B-2
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Decolonised, bioregional currency stewardship
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">B-3</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              B-3
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Alternative non-fungible currency systems
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] py-[0.38rem] pl-1 text-[#D46E61]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">B-4</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              B-4
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Visualising finite and infinite economies
                             </p>
                           </div>
@@ -4334,63 +4497,77 @@ export default function Home() {
                           <div
                             className={`flex h-[80px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF]`}
                           >
-                            <p className="font-FKregular text-base">C</p>
-                            <p className="font-PPmedium text-[9.6px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              C
+                            </p>
+                            <p className="font-PPmedium text-[9.6px] leading-tight">
                               Financial processes & investment
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">C-1</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              C-1
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Making the investment case for entangled value
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">C-2</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              C-2
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               <br /> Bridging demand & supply
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">C-3</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              C-3
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Structuring capital & investments
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">C-4</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              C-4
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Enabling strategic ecosystem investments
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">C-5</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              C-5
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Socialising the supportive narratives for
                               alternative financing pathways
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-[0.38rem] pl-1 text-[#4CA866]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">C-6</p>
-                            <p className="self-stretch font-PPmedium text-[7.2px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              C-6
+                            </p>
+                            <p className="self-stretch font-PPmedium text-[8px] leading-tight -tracking-[0.54px]">
                               Socialising transformational narratives for a
                               regenerative financial system
                             </p>
@@ -4411,55 +4588,67 @@ export default function Home() {
                           <div
                             className={`flex h-[80px] flex-col justify-between bg-[#205793] p-2 text-[#FFF]`}
                           >
-                            <p className="font-FKregular text-base">D</p>
-                            <p className="font-PPmedium text-[9.6px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              D
+                            </p>
+                            <p className="font-PPmedium text-[9.6px] leading-tight">
                               Ownership, law & governance
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">D-1</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              D-1
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Using instruments to demonstrate alternative
                               theories of ownership
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">D-2</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              D-2
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Elevating alternative models that recouple surplus
                               with stewardship
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">D-3</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              D-3
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Demonstrating multi-actor governance structures
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">D-4</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              D-4
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Embedding data-augmented decision making
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] py-[0.38rem] pl-1 text-[#4D90D8]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
                           >
-                            <p className="font-FKregular text-base ">D-5</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              D-5
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Building deep respect for the other-than-human
                               world, ancestors and future generations
                             </p>
@@ -4484,45 +4673,56 @@ export default function Home() {
                           <div
                             className={`flex h-[80px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF]`}
                           >
-                            <p className="font-FKregular text-base"> E</p>
-                            <p className="font-PPmedium text-[9.6px]">
-                              Institutional logic <br />& policy
+                            <p className="font-FKregular text-base leading-tight">
+                              {' '}
+                              E
+                            </p>
+                            <p className="font-PPmedium text-[9.6px] leading-tight">
+                              Institutional logic & policy
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">E-1</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              E-1
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Enabling public-civic efficacy to transform place
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">E-2</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              E-2
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Building the foundations for planetary stewardship
                               institutions
                             </p>
                           </div>
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">E-3</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              E-3
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Designing reflective, data-driven policy
                               instruments
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] py-[0.38rem] pl-1 text-[#D15C8D]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">E-4</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              E-4
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Place-based, policy process design
                             </p>
                           </div>
@@ -4551,45 +4751,55 @@ export default function Home() {
                           <div
                             className={`flex h-[80px] flex-col justify-between bg-[#808080] p-2 text-[#FFF]`}
                           >
-                            <p className="font-FKregular text-base">F</p>
-                            <p className="font-PPmedium text-[9.6px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              F
+                            </p>
+                            <p className="font-PPmedium text-[9.6px] leading-tight">
                               Material, energy & land use
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-0.5 py-[0.38rem] text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">F-1</p>
-                            <p className="font-PPmedium text-[6.9px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              F-1
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Developing collaborative, non-extractive
                               interfaces with the physical environment
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">F-2</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              F-2
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Visualising material and energy flows
                             </p>
                           </div>
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
                           >
-                            <p className="pb-2 font-FKregular text-base">F-3</p>
-                            <p className="font-PPmedium text-[8px]">
+                            <p className="pb-2 font-FKregular text-base leading-tight">
+                              F-3
+                            </p>
+                            <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
                               Developing a stewardship data infrastructure for
                               the built environment
                             </p>
                           </div>
 
                           <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-[0.38rem] pl-1 text-[#C2C2C2]`}
+                            className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
                           >
-                            <p className="font-FKregular text-base">F-4</p>
-                            <p className="font-PPmedium text-[7px]">
+                            <p className="font-FKregular text-base leading-tight">
+                              F-4
+                            </p>
+                            <p className="font-PPmedium text-[7px] leading-tight -tracking-[0.54px]">
                               Designing and demonstrating autonomous,
                               regenerative and affordable multi-purpose
                               developments.
@@ -4615,148 +4825,6 @@ export default function Home() {
                             className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
                           ></div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    className={classNames(
-                      activeState === 6 || activeState === 7
-                        ? 'backdrop-blur-none'
-                        : 'backdrop-blur-xl',
-                      `threeD absolute top-[18rem] z-30 w-full ${animateOn} shadow-layer`,
-                    )}
-                  >
-                    <div className="grid grid-cols-12 gap-1.5 ">
-                      <div
-                        className={classNames(
-                          activeState === 6 || activeState === 7
-                            ? ''
-                            : 'studio-layer  border-2 border-[#262626] ',
-                          ' col-span-11',
-                        )}
-                      >
-                        <div className=" pb-[40rem] pt-[2rem]"> </div>
-                      </div>
-                      <div className="text-right backdrop-blur-none">
-                        <div className="">
-                          <h2
-                            className={classNames(
-                              activeState === 6 || activeState === 7
-                                ? ' mt-[5.8rem]'
-                                : '-mt-[2rem]',
-                              'pl-2 text-base font-normal text-[#A8A8A8]',
-                            )}
-                          >
-                            Studios
-                          </h2>
-                        </div>
-                        {CTactive || openCT ? (
-                          <div
-                            className={`flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
-                            onClick={() => setOpenCT(true)}
-                            onMouseLeave={() => setCTActive(false)}
-                          >
-                            <p className="text-base font-normal ">CT</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Civic <br /> Tech
-                            </p>
-                          </div>
-                        ) : CTHover ? (
-                          <div
-                            className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#353535] px-2 py-2 text-[#A8A8A8]`}
-                          >
-                            <p className="text-base font-normal ">CT</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Civic <br /> Tech
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
-                            onMouseOver={() => setCTActive(true)}
-                            onClick={() => setOpenCT(true)}
-                            onMouseLeave={() => setCTActive(false)}
-                          >
-                            <p className="text-base font-normal ">CT</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Civic <br /> Tech
-                            </p>
-                          </div>
-                        )}
-
-                        {CDactive || openCD ? (
-                          <div
-                            className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                            onClick={() => setOpenCD(true)}
-                            onMouseLeave={() => setCDActive(false)}
-                          >
-                            <p className="text-base font-normal ">CD</p>
-                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Conversational Design
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex h-[80px]  w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                            onMouseOver={() => setCDActive(true)}
-                            onClick={() => setOpenCD(true)}
-                            onMouseLeave={() => setCDActive(false)}
-                          >
-                            <p className="text-base font-normal ">CD</p>
-                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Conversational Design
-                            </p>
-                          </div>
-                        )}
-
-                        {FFactive || openFF ? (
-                          <div
-                            className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                            onClick={() => setOpenFF(true)}
-                            onMouseLeave={() => setFFActive(false)}
-                          >
-                            <p className="text-base font-normal ">FF</p>
-                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Foresight & Futuring
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                            onMouseOver={() => setFFActive(true)}
-                            onClick={() => setOpenFF(true)}
-                            onMouseLeave={() => setFFActive(false)}
-                          >
-                            <p className="text-base font-normal ">FF</p>
-                            <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                              Foresight & Futuring
-                            </p>
-                          </div>
-                        )}
-
-                        {ODactive || openOD ? (
-                          <div
-                            className={`my-1.5 flex h-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                            onClick={() => setOpenOD(true)}
-                            onMouseLeave={() => setODActive(false)}
-                          >
-                            <p className=" text-base font-normal uppercase">
-                              Org Dev
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex h-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
-                            onMouseOver={() => setODActive(true)}
-                            onClick={() => setOpenOD(true)}
-                            onMouseLeave={() => setODActive(false)}
-                          >
-                            <p className=" text-base font-normal uppercase ">
-                              Org Dev
-                            </p>
-                          </div>
-                        )}
                       </div>
                     </div>
                   </div>

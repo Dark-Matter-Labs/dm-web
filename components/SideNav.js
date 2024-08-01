@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 const pageNav = [
   {
     id: 1,
-    title: 'Real world options',
+    title: 'Dark Matter Labs',
     description: '',
     link: '#real',
     sub: [],
@@ -79,7 +79,7 @@ const pageNav = [
 export default function SideNav({ activeState }) {
   return (
     <div className="right-3/4 col-span-4 hidden max-w-xs lg:block">
-      <div className="sticky left-0 top-[20%] flow-root ">
+      <div className="sticky left-0 top-[40vh] flow-root ">
         <ul role="list" className="">
           {pageNav.map((activityItem) => (
             <li key={activityItem.id}>

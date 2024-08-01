@@ -71,9 +71,11 @@ img {
 
 /* scale down as per screen width */
 .threeD {
-  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.8, 0.8, 0.8);
+  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.6, 0.6, 0.6);
   transform-style: preserve-3d;
 }
+
+/* Large desktop */
 
 .animate {
   animation: threeDAnimate;
@@ -90,7 +92,6 @@ img {
 @keyframes threeDAnimate {
   to {
     transform: rotateX(0) rotateY(0) rotateZ(0);
-    top: 0;
   }
 }
 
@@ -99,6 +100,14 @@ img {
 }
 
 @layer components {
+  .global-margin {
+    @apply max-w-7xl;
+    @apply mx-4;
+    @apply md:mx-10;
+    @apply xl:mx-20;
+    @apply 2xl:mx-auto;
+  }
+
   .heading-7xl {
     @apply font-PPbook text-7xl leading-16;
   }
@@ -137,13 +146,13 @@ img {
 
   /* reduce padding as per screen width */
   .t2 {
-    @apply sticky top-[-12vh];
+    @apply sticky -top-[16%];
   }
 
   /* scale down  and reduce padding as per screen width */
   .t2_less_height {
-    @apply sticky top-[2vh];
-    transform: scale(0.8);
+    @apply sticky top-[1%];
+    transform: scale(0.6);
   }
 
   .t1 {
@@ -153,11 +162,11 @@ img {
   /* scale down  and reduce padding as per screen width */
   .t3 {
     @apply relative top-[50rem];
-    transform: scale(0.8);
+    transform: scale(0.6);
   }
 
   .capability-base {
-    @apply z-30;
+    @apply z-20;
   }
 
   .capability-active {
