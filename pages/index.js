@@ -4175,21 +4175,21 @@ export default function Home() {
                       activeState === 6 ||
                         (activeState === 7) | (activeState === 8)
                         ? 'gap-1.5 backdrop-blur-none'
-                        : 'top-[8rem]  backdrop-blur-xl ',
-                      `threeD bg-center absolute z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
+                        : 'top-[8rem] backdrop-blur-xl ',
+                      `threeD absolute z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
                     )}
                   >
-                    <div className='h-full w-full bg-transparent row-span-full'></div>
+                    <div className='h-full w-full bg-transparent'></div>
                     <div
                       className={classNames(
                         activeState === 6 || activeState === 7
                           ? ''
-                          : 'studio-layer border border-[#262626] ',
-                        ' col-span-10 l h-full w-full  grid grid-rows-12 ',
+                          : '',
+                        ' col-span-10 grid grid-rows-12 ',
                       )}
                     >
-                      <div className='row-span-1 h-[80px] bg-transparent'></div>
-                      <div className=' h-full w-full backdrop-blur-xl'></div>
+                      <div className='bg-transparent opacity-0'></div>
+                      <div className='row-span-11 h-full w-full  studio-layer border border-[#262626]'></div>
                     </div>
                     <div className="text-right ">
                       <div className="">
@@ -4197,7 +4197,7 @@ export default function Home() {
                           className={classNames(
                             activeState === 6 || activeState === 7
                               ? 'mt-[5.8rem]'
-                              : '-mt-[2rem]',
+                              : 'mt-[2.8rem]',
                             'pl-2 text-base font-normal text-[#A8A8A8]',
                           )}
                         >
