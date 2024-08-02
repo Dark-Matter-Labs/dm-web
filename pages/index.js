@@ -50,7 +50,7 @@ export default function Home() {
       setAnimateOn('');
       setCapacity('capability-base');
     } else if (
-      window.scrollY > startSticky &&
+      window.scrollY >= startSticky &&
       window.scrollY < startSticky + step
     ) {
       setActiveState(2);
@@ -64,7 +64,7 @@ export default function Home() {
       setAnimateOn('');
       setCapacity('capability-base');
     } else if (
-      window.scrollY > startSticky + step &&
+      window.scrollY >= startSticky + step &&
       window.scrollY < startSticky + 2 * step
     ) {
       setActiveState(3);
@@ -78,7 +78,7 @@ export default function Home() {
       setAnimateOn('');
       setCapacity('capability-base');
     } else if (
-      window.scrollY > startSticky + 2 * step &&
+      window.scrollY >= startSticky + 2 * step &&
       window.scrollY < startSticky + 3 * step
     ) {
       setActiveState(4);
@@ -91,7 +91,7 @@ export default function Home() {
       setAnimateOn('');
       setCapacity('capability-base');
     } else if (
-      window.scrollY > startSticky + 3 * step &&
+      window.scrollY >= startSticky + 3 * step &&
       window.scrollY < startSticky + 4 * step
     ) {
       setClassStudioBg('labs-top');
@@ -103,7 +103,7 @@ export default function Home() {
       setAnimateOn('');
       setCapacity('capability-base');
     } else if (
-      window.scrollY > startSticky + 4 * step &&
+      window.scrollY >= startSticky + 4 * step &&
       window.scrollY < startSticky + 5 * step
     ) {
       setClassStudioBg('');
@@ -114,7 +114,7 @@ export default function Home() {
       setClassT2('t2_less_height');
       setCapacity('capability-hidden');
     } else if (
-      window.scrollY > startSticky + 5 * step &&
+      window.scrollY >= startSticky + 5 * step &&
       window.scrollY < startSticky + 6 * step
     ) {
       setClassStudioBg('');
@@ -124,18 +124,18 @@ export default function Home() {
 
       setClassT2('t2_less_height');
       setCapacity('capability-active');
-    } else if (window.scrollY > stopSticky) {
+    } else if (window.scrollY >= stopSticky) {
       setClassT2('t3');
     }
 
-    if (window.scrollY > animationStart) {
+    if (window.scrollY >= animationStart) {
       setAnimateOn('animate');
     }
 
-    if (window.scrollY > animationStart + 500) {
+    if (window.scrollY >= animationStart + 500) {
       setActiveState(8);
     }
-    if (window.scrollY > animationStart + 2000) {
+    if (window.scrollY >= animationStart + 2000) {
       setActiveState(9);
     }
   };
@@ -4174,12 +4174,12 @@ export default function Home() {
                     className={classNames(
                       activeState === 6 ||
                         (activeState === 7) | (activeState === 8)
-                        ? 'gap-1.5 backdrop-blur-none'
-                        : 'top-[8rem] backdrop-blur-xl ',
-                      `threeD absolute z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
+                        ? ''
+                        : 'top-[8rem]  ',
+                      `threeD gap-1.5 absolute z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
                     )}
                   >
-                    <div className='h-full w-full bg-transparent'></div>
+                    <div className='bg-transparent'></div>
                     <div
                       className={classNames(
                         activeState === 6 || activeState === 7
@@ -4189,9 +4189,9 @@ export default function Home() {
                       )}
                     >
                       <div className='bg-transparent opacity-0'></div>
-                      <div className='row-span-11 h-full w-full  studio-layer border border-[#262626]'></div>
+                      <div className='row-span-11 studio-layer border border-[#262626]'></div>
                     </div>
-                    <div className="text-right ">
+                    <div className="text-right">
                       <div className="">
                         <h2
                           className={classNames(
