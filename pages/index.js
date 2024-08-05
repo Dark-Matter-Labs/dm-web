@@ -1967,7 +1967,7 @@ export default function Home() {
               <div className="h-screen font-FKregular ">
                 <div className={``}>
                   <div
-                    className={`threeD absolute z-50 grid h-full w-full grid-cols-12 opacity-100 ${animateOn} shadow-layer`}
+                    className={`threeD absolute z-50 grid h-full w-full grid-cols-12 ${animateOn} shadow-layer`}
                   >
                     <div className="col-span-11">
                       <div className="ml-20 text-center">
@@ -4174,11 +4174,11 @@ export default function Home() {
                     className={classNames(
                       activeState === 6 || activeState === 7
                         ? ''
-                        : 'top-[8rem]',
-                      ` threeD absolute  z-30 grid h-full w-full grid-cols-12  ${animateOn} shadow-layer`,
+                        : 'top-[10rem]',
+                      ` threeD absolute z-30 grid h-full w-full grid-cols-12 ${animateOn} shadow-layer `,
                     )}
                   >
-                    <div className="col-span-11">
+                    <div className="col-span-11 ">
                       <div className="ml-20 text-center">
                         <h2
                           className={classNames(
@@ -4192,529 +4192,498 @@ export default function Home() {
                         </h2>
                       </div>
 
-                      <div className="grid grid-cols-9 ">
-                        <div className="">
-                          <div className="mb-1.5 ">
-                            <h2 className="h-[80px] pl-2 pt-[3rem] text-base font-normal opacity-0 ">
-                              Arcs
+                      <div className="grid grid-cols-9">
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`my-1.5 flex h-[80px] flex-col justify-between  px-1.5 py-2  opacity-0`}
+                          ></div> */}
+
+                          <div
+                            className={`my-1.5  flex h-[80px] flex-col items-center justify-center`}
+                          ></div>
+
+                          <div className={`my-1.5 h-[80px]`}> </div>
+
+                          <div
+                            className={`my-1.5  h-[80px] px-2  py-[2.14rem]`}
+                          >
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5  h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div
+                            className={`py-[2.14rem my-1.5 flex h-[80px] flex-col  items-center justify-center`}
+                          ></div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`flex flex-col justify-between px-1.5py-[2.14rem] text-[#A8A8A8] opacity-0   h-[80px]`}
+                          ></div> */}
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div
+                            className={` my-1.5 h-[80px] px-2  py-[2.14rem]`}
+                          >
+                            {' '}
+                          </div>
+
+                          <div
+                            className={` my-1.5 h-[80px] px-2   py-[2.14rem]`}
+                          >
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2   opacity-0`}
+                          ></div> */}
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div
+                            className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                          ></div>
+
+                          <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2  opacity-0`}
+                          ></div> */}
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] px-2   py-[2.14rem]`}
+                          >
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5  h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2 opacity-0`}
+                          ></div> */}
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] px-2   py-[2.14rem]`}
+                          >
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2   opacity-0`}
+                          ></div> */}
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2 opacity-0`}
+                          ></div> */}
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] px-2   py-[2.14rem]`}
+                          >
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div className="studio-layer">
+                          {/* <div
+                            className={`flex h-[80px] flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8]   opacity-0`}
+                          ></div> */}
+
+                          <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div
+                            className={`my-1.5 h-[80px] px-2   py-[2.14rem]`}
+                          >
+                            {' '}
+                          </div>
+
+                          <div
+                            className={`my-1.5 flex h-[80px] flex-col items-center justify-center py-[1.68rem]`}
+                          ></div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+
+                          <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                            {' '}
+                          </div>
+                        </div>
+
+                        <div
+                          className={classNames(
+                            activeState === 6 || activeState === 7
+                              ? 'hidden'
+                              : 'block',
+                            'ml-1.5 text-right',
+                          )}
+                        >
+                          <div className="">
+                            <h2
+                              className={classNames(
+                                activeState === 6 || activeState === 7
+                                  ? 'mt-[5.89rem]'
+                                  : '-mt-8',
+                                'pl-2 text-base font-normal text-[#A8A8A8]',
+                              )}
+                            >
+                              Studios
                             </h2>
                           </div>
-                          <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between  px-1.5 py-2 text-[#A8A8A8] opacity-0`}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0 `}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0 ${classL}  h-[80px]`}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0 ${classL}  h-[80px]`}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0 ${classL}  h-[80px]`}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0 ${classL}  h-[80px]`}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0 ${classL}  h-[80px]`}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8]  opacity-0`}
-                          ></div>
-
-                          <div
-                            className={`my-1.5 flex h-[80px] flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0`}
-                          ></div>
-                        </div>
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex h-[80px] flex-col justify-between  px-1.5 py-2  opacity-0`}
-                          ></div>
-
-                          <div
-                            className={` studio-layer flex h-[80px] flex-col items-center justify-center`}
-                          ></div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2   py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer flex h-[80px] flex-col items-center  justify-center py-[1.68rem]`}
-                          ></div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-                        </div>
-
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] opacity-0 ${classA} ${classAT}  h-[80px]`}
-                          ></div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2   py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-                        </div>
-
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2   opacity-0`}
-                          ></div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2   py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                          ></div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={` studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-                        </div>
-
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2  opacity-0`}
-                          ></div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2   py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer  h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-                        </div>
-
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2 opacity-0`}
-                          ></div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2   py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-                        </div>
-
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2   opacity-0`}
-                          ></div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-                        </div>
-
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex h-[80px] flex-col justify-between px-1.5 py-2 opacity-0`}
-                          ></div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2   py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-                        </div>
-
-                        <div className="mt-[3.4rem]">
-                          <div
-                            className={`flex h-[80px] flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8]   opacity-0`}
-                          ></div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2  py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2   py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer flex h-[80px] flex-col items-center justify-center py-[1.68rem]`}
-                          ></div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
-
-                          <div
-                            className={`studio-layer h-[80px] px-2 py-[2.14rem]`}
-                          >
-                            {' '}
-                          </div>
+                          {CTactive || openCT ? (
+                            <div
+                              className={`flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
+                              onClick={() => setOpenCT(true)}
+                              onMouseLeave={() => setCTActive(false)}
+                            >
+                              <p className="text-base font-normal ">CT</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Civic <br /> Tech
+                              </p>
+                            </div>
+                          ) : CTHover ? (
+                            <div
+                              className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#353535] px-2 py-2 text-[#A8A8A8]`}
+                            >
+                              <p className="text-base font-normal ">CT</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Civic <br /> Tech
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
+                              onMouseOver={() => setCTActive(true)}
+                              onClick={() => setOpenCT(true)}
+                              onMouseLeave={() => setCTActive(false)}
+                            >
+                              <p className="text-base font-normal ">CT</p>
+                              <p className=" text-[9.6px] font-normal leading-normal">
+                                Civic <br /> Tech
+                              </p>
+                            </div>
+                          )}
+
+                          {CDactive || openCD ? (
+                            <div
+                              className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                              onClick={() => setOpenCD(true)}
+                              onMouseLeave={() => setCDActive(false)}
+                            >
+                              <p className="text-base font-normal ">CD</p>
+                              <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                                Conversational Design
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-1.5 flex h-[80px]  w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                              onMouseOver={() => setCDActive(true)}
+                              onClick={() => setOpenCD(true)}
+                              onMouseLeave={() => setCDActive(false)}
+                            >
+                              <p className="text-base font-normal ">CD</p>
+                              <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                                Conversational Design
+                              </p>
+                            </div>
+                          )}
+
+                          {FFactive || openFF ? (
+                            <div
+                              className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                              onClick={() => setOpenFF(true)}
+                              onMouseLeave={() => setFFActive(false)}
+                            >
+                              <p className="text-base font-normal ">FF</p>
+                              <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                                Foresight & Futuring
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                              onMouseOver={() => setFFActive(true)}
+                              onClick={() => setOpenFF(true)}
+                              onMouseLeave={() => setFFActive(false)}
+                            >
+                              <p className="text-base font-normal ">FF</p>
+                              <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                                Foresight & Futuring
+                              </p>
+                            </div>
+                          )}
+
+                          {ODactive || openOD ? (
+                            <div
+                              className={`my-1.5 flex h-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                              onClick={() => setOpenOD(true)}
+                              onMouseLeave={() => setODActive(false)}
+                            >
+                              <p className=" text-base font-normal uppercase">
+                                Org Dev
+                              </p>
+                            </div>
+                          ) : (
+                            <div
+                              className={`my-1.5 flex h-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
+                              onMouseOver={() => setODActive(true)}
+                              onClick={() => setOpenOD(true)}
+                              onMouseLeave={() => setODActive(false)}
+                            >
+                              <p className=" text-base font-normal uppercase ">
+                                Org Dev
+                              </p>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
-                    <div className="ml-1.5 text-right">
+                    <div
+                      className={classNames(
+                        activeState === 6 || activeState === 7
+                          ? 'block'
+                          : 'hidden',
+                        'ml-1.5 text-right',
+                      )}
+                    >
                       <div className="">
                         <h2
                           className={classNames(
                             activeState === 6 || activeState === 7
                               ? 'mt-[5.89rem]'
-                              : 'mt-[8.9rem]',
+                              : '',
                             'pl-2 text-base font-normal text-[#A8A8A8]',
                           )}
                         >
@@ -4829,149 +4798,6 @@ export default function Home() {
                       )}
                     </div>
                   </div>
-
-                  {/* <div
-                    className={classNames(
-                      activeState === 6 ||
-                        (activeState === 7) | (activeState === 8)
-                        ? ''
-                        : 'top-[8rem]  ',
-                      `threeD gap-1.5 absolute z-30 h-full w-full ${animateOn} shadow-layer grid grid-cols-12`,
-                    )}
-                  >
-                    <div className='bg-transparent'></div>
-                    <div
-                      className={classNames(
-                        activeState === 6 || activeState === 7
-                          ? ''
-                          : '',
-                        ' col-span-10 grid grid-rows-12 ',
-                      )}
-                    >
-                      <div className='bg-transparent opacity-0'></div>
-                      <div className='row-span-11 studio-layer border border-[#262626]'></div>
-                    </div>
-                    <div className="text-right">
-                      <div className="">
-                        <h2
-                          className={classNames(
-                            activeState === 6 || activeState === 7
-                              ? 'mt-[5.8rem]'
-                              : 'mt-[2.8rem]',
-                            'pl-2 text-base font-normal text-[#A8A8A8]',
-                          )}
-                        >
-                          Studios
-                        </h2>
-                      </div>
-                      {CTactive || openCT ? (
-                        <div
-                          className={`flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
-                          onClick={() => setOpenCT(true)}
-                          onMouseLeave={() => setCTActive(false)}
-                        >
-                          <p className="text-base font-normal ">CT</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Civic <br /> Tech
-                          </p>
-                        </div>
-                      ) : CTHover ? (
-                        <div
-                          className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#353535] px-2 py-2 text-[#A8A8A8]`}
-                        >
-                          <p className="text-base font-normal ">CT</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Civic <br /> Tech
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
-                          onMouseOver={() => setCTActive(true)}
-                          onClick={() => setOpenCT(true)}
-                          onMouseLeave={() => setCTActive(false)}
-                        >
-                          <p className="text-base font-normal ">CT</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Civic <br /> Tech
-                          </p>
-                        </div>
-                      )}
-
-                      {CDactive || openCD ? (
-                        <div
-                          className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                          onClick={() => setOpenCD(true)}
-                          onMouseLeave={() => setCDActive(false)}
-                        >
-                          <p className="text-base font-normal ">CD</p>
-                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                            Conversational Design
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex h-[80px]  w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                          onMouseOver={() => setCDActive(true)}
-                          onClick={() => setOpenCD(true)}
-                          onMouseLeave={() => setCDActive(false)}
-                        >
-                          <p className="text-base font-normal ">CD</p>
-                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                            Conversational Design
-                          </p>
-                        </div>
-                      )}
-
-                      {FFactive || openFF ? (
-                        <div
-                          className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                          onClick={() => setOpenFF(true)}
-                          onMouseLeave={() => setFFActive(false)}
-                        >
-                          <p className="text-base font-normal ">FF</p>
-                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                            Foresight & Futuring
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                          onMouseOver={() => setFFActive(true)}
-                          onClick={() => setOpenFF(true)}
-                          onMouseLeave={() => setFFActive(false)}
-                        >
-                          <p className="text-base font-normal ">FF</p>
-                          <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                            Foresight & Futuring
-                          </p>
-                        </div>
-                      )}
-
-                      {ODactive || openOD ? (
-                        <div
-                          className={`my-1.5 flex h-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                          onClick={() => setOpenOD(true)}
-                          onMouseLeave={() => setODActive(false)}
-                        >
-                          <p className=" text-base font-normal uppercase">
-                            Org Dev
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex h-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
-                          onMouseOver={() => setODActive(true)}
-                          onClick={() => setOpenOD(true)}
-                          onMouseLeave={() => setODActive(false)}
-                        >
-                          <p className=" text-base font-normal uppercase ">
-                            Org Dev
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </div> */}
 
                   <div
                     className={classNames(
