@@ -12,7 +12,7 @@ export default function Navbar() {
           <Image
             src={dmLogo}
             alt="Dm logo animation in multiple languages"
-            width={400}
+            width={300}
           />
         </Link>
       </div>

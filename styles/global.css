@@ -75,23 +75,24 @@ img {
   transform-style: preserve-3d;
 }
 
-/* Large desktop */
-
 .animate {
   animation: threeDAnimate;
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 
   animation-name: threeDAnimate;
   -webkit-animation-name: threeDAnimate;
   -webkit-animation-duration: 1s;
-  animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+
 }
 
 @keyframes threeDAnimate {
   to {
-    transform: rotateX(0) rotateY(0) rotateZ(0);
+    transform: rotateX(0) rotateZ(0) scale3d(0.6, 0.6, 0.6);
+    top: 0;
+    transform-style: flat;
   }
 }
 
@@ -101,7 +102,7 @@ img {
 
 @layer components {
   .global-margin {
-    @apply max-w-7xl;
+    @apply max-w-[1200px];
     @apply mx-4;
     @apply md:mx-10;
     @apply xl:mx-20;
@@ -144,25 +145,17 @@ img {
     @apply bg-gradient-to-b from-[#000] to-[#292929];
   }
 
-  /* reduce padding as per screen width */
-  .t2 {
-    @apply sticky -top-[16%];
-  }
-
-  /* scale down  and reduce padding as per screen width */
-  .t2_less_height {
-    @apply sticky top-[1%];
-    transform: scale(0.6);
-  }
-
   .t1 {
-    @apply relative;
+    @apply relative left-0 right-0 mx-auto max-w-full;
+
   }
 
-  /* scale down  and reduce padding as per screen width */
+  .t2 {
+    @apply sticky -top-[10vh] bottom-0 left-0 right-0;
+  }
+
   .t3 {
-    @apply relative top-[50rem];
-    transform: scale(0.6);
+    @apply relative top-[10rem];
   }
 
   .capability-base {
@@ -170,7 +163,7 @@ img {
   }
 
   .capability-active {
-    @apply z-[60];
+    @apply z-20;
   }
 
   .capability-hidden {
@@ -185,3 +178,25 @@ img {
 .shadow-layer {
   filter: drop-shadow(0px 40px 80px #141414);
 }
+
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
