@@ -69,33 +69,6 @@ img {
     url('../fonts/PPNeueMontreal-Medium.otf') format('otf');
 }
 
-/* scale down as per screen width */
-.threeD {
-  transform: rotateX(55deg) rotateY(0) rotateZ(45deg) scale3d(0.6, 0.6, 0.6);
-  transform-style: preserve-3d;
-}
-
-.animate {
-  animation: threeDAnimate;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-timing-function: linear;
-
-  animation-name: threeDAnimate;
-  -webkit-animation-name: threeDAnimate;
-  -webkit-animation-duration: 1s;
-  animation-fill-mode: both;
-  -webkit-animation-fill-mode: both;
-
-}
-
-@keyframes threeDAnimate {
-  to {
-    transform: rotateX(0) rotateZ(0) scale3d(0.6, 0.6, 0.6);
-    top: 0;
-    transform-style: flat;
-  }
-}
-
 .bg-alpha {
   background: rgba(37, 36, 36, 1);
 }
@@ -147,27 +120,14 @@ img {
 
   .t1 {
     @apply relative left-0 right-0 mx-auto max-w-full;
-
   }
 
   .t2 {
-    @apply sticky -top-[10vh] bottom-0 left-0 right-0;
+    @apply sticky -top-[8vh] bottom-0 left-0 right-0;
   }
 
   .t3 {
-    @apply relative top-[10rem];
-  }
-
-  .capability-base {
-    @apply z-20;
-  }
-
-  .capability-active {
-    @apply z-20;
-  }
-
-  .capability-hidden {
-    @apply opacity-0;
+    @apply relative bottom-0 left-0 right-0 top-0;
   }
 }
 
@@ -198,5 +158,3 @@ img {
     opacity: 1;
   }
 }
-
-

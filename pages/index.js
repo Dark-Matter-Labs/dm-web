@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
+import { useScroll, animated, useSpring } from '@react-spring/web';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import Navbar from '../components/Navbar';
@@ -14,9 +15,16 @@ function classNames(...classes) {
 }
 
 export default function Home() {
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+
+    return () => window.removeEventListener('scroll', listenScrollEvent);
+  }, []);
+
   // TODO: remove these state variables and just use activeState
   const [classT, setClassT] = useState('');
   const [classL, setClassL] = useState('');
+  const [scrollFraction, setScrollFraction] = useState();
 
   const [classA, setClassA] = useState('');
   const [classAT, setClassAT] = useState('');
@@ -28,16 +36,25 @@ export default function Home() {
   const [activeState, setActiveState] = useState(1);
 
   const [animateOn, setAnimateOn] = useState('');
-  const [capacity, setCapacity] = useState('capability-base');
+  const [animateDone, setAnimateDone] = useState(false);
 
-  const startSticky = 1000;
-  const step = 200;
-  const animationStart = 1700;
-  const stopSticky = 2256;
+  const startSticky = 1200;
+  const step = 400;
+  const animationStart = startSticky + step * 4;
+  const stopSticky = 9000;
 
+  const { scrollYProgress } = useScroll();
 
   const listenScrollEvent = () => {
-    console.log(window.scrollY);
+    let scrollFrac =
+      Math.min(
+        (window.scrollY - 2800) /
+          (document.body.scrollHeight - window.innerHeight),
+        1,
+      ) * 10;
+    let easeFrac = Math.pow(scrollFrac, 3);
+    setScrollFraction(easeFrac);
+
     // base state
     if (window.scrollY < startSticky) {
       setClassT('');
@@ -51,7 +68,6 @@ export default function Home() {
 
       setClassT2('t1');
       setAnimateOn('');
-      setCapacity('capability-base');
     }
     // matrix sticky state
     else if (
@@ -67,7 +83,6 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setCapacity('capability-base');
     }
     // labs colour state
     else if (
@@ -83,7 +98,6 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setCapacity('capability-base');
     }
     // arcs colour state
     else if (
@@ -98,7 +112,6 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setCapacity('capability-base');
     }
     // studio colour state
     else if (
@@ -112,26 +125,26 @@ export default function Home() {
 
       setClassT2('t2');
       setAnimateOn('');
-      setCapacity('capability-base');
     }
     // 2D projects state
     else if (
       window.scrollY >= startSticky + 4 * step &&
-      window.scrollY < startSticky + 5 * step 
+      window.scrollY < startSticky + 5 * step
     ) {
-      setClassStudioBg('');
+      if (window.scrollY > animationStart) {
+        setAnimateOn('animate');
+      }
+
       setActiveState(6);
+      setClassStudioBg('');
       setClassL('');
       setClassAT('');
 
       setClassT2('t2');
-      setAnimateOn('animate');
-      setCapacity('');
-    }
-    // capability 2D state
-    else if (
-      window.scrollY >= startSticky + 5 * step &&
-      window.scrollY < startSticky + 6 * step 
+    } else if (
+      window.scrollY >= animationStart &&
+      window.scrollY < animationStart + step * 5 &&
+      easeFrac > 1
     ) {
       setClassStudioBg('');
       setActiveState(7);
@@ -139,27 +152,29 @@ export default function Home() {
       setClassAT('');
 
       setClassT2('t2');
-      setCapacity('capability-active');
     }
+    // capability 2D state
+    else if (window.scrollY >= animationStart + step * 5 && easeFrac > 1) {
+      setClassStudioBg('');
+      setActiveState(8);
+      setClassL('');
+      setClassAT('');
+
+      setClassT2('t2');
+    }
+
     // matrix non sticky state
-    else if (window.scrollY >= stopSticky) {
+    if (window.scrollY >= animationStart + step * 6) {
       setClassT2('t3');
     }
 
-
-    if (window.scrollY >= animationStart + 500) {
-      setActiveState(8);
-    }
-    if (window.scrollY >= animationStart + 1000) {
+    if (window.scrollY >= animationStart + step * 6) {
       setActiveState(9);
     }
+    if (window.scrollY >= animationStart + step * 6 + 400) {
+      setActiveState(10);
+    }
   };
-
-  useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
-
-    return () => window.removeEventListener('scroll', listenScrollEvent);
-  }, []);
 
   // arcs states
   const [RCactive, setRCActive] = useState(false);
@@ -227,6 +242,18 @@ export default function Home() {
   const [openCD, setOpenCD] = useState(false);
   const [openFF, setOpenFF] = useState(false);
   const [openOD, setOpenOD] = useState(false);
+
+  const scrollInterpolate = (toInterpolate) => {
+    if (toInterpolate - toInterpolate * scrollFraction > 0) {
+      if (animateOn === 'animate') {
+        return toInterpolate - toInterpolate * scrollFraction;
+      } else {
+        return toInterpolate;
+      }
+    } else {
+      return 0;
+    }
+  };
 
   return (
     <div>
@@ -1977,3173 +2004,3177 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
-            <div className={`${classT2} font-FKregular -mt-[25vh]`}>
-                <div
-                  className={`threeD absolute z-50 grid grid-cols-12 ${animateOn} shadow-layer`}
-                >
-                  <div className="col-span-11">
-                    <div className="ml-20 text-center">
-                      <h2
-                        className={classNames(
-                          activeState === 7
-                            ? 'text-transparent'
-                            : 'text-[#A8A8A8]',
-                          'pb-4 text-base font-normal',
-                        )}
-                      >
-                        Labs
-                      </h2>
-                    </div>
 
-                    <div className="grid grid-cols-9 gap-[6px]">
-                      <div className="">
-                        <div className="mb-1.5 ">
-                          <h2 className="h-[80px] pl-2 pt-[3rem] text-base font-normal  text-[#A8A8A8]">
-                            Arcs
-                          </h2>
-                        </div>
-                        {RCactive || openRC ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classAT}  h-[80px]`}
-                            onClick={() => setOpenRC(true)}
-                            onMouseLeave={() => setRCActive(false)}
-                          >
-                            <p className="text-base font-normal ">RC</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Radicle <br />
-                              Civics
-                            </p>
-                          </div>
-                        ) : RCHover ? (
-                          <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
-                            <p className="text-base font-normal ">RC</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Radicle <br />
-                              Civics
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} h-[80px]`}
-                            onMouseOver={() => setRCActive(true)}
-                            onClick={() => setOpenRC(true)}
-                            onMouseLeave={() => setRCActive(false)}
-                          >
-                            <p className="text-base font-normal ">RC</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Radicle <br />
-                              Civics
-                            </p>
-                          </div>
-                        )}
-
-                        {ETCactive || openETC ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
-                            onClick={() => setOpenETC(true)}
-                            onMouseLeave={() => setETCActive(false)}
-                          >
-                            <p className="text-base font-normal ">LC</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Local <br />
-                              Civics
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px] `}
-                            onMouseOver={() => setETCActive(true)}
-                            onClick={() => setOpenETC(true)}
-                            onMouseLeave={() => setETCActive(false)}
-                          >
-                            <p className="text-base font-normal ">LC</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Local <br /> Civics
-                            </p>
-                          </div>
-                        )}
-
-                        {NZactive || openNZ ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
-                            onClick={() => setOpenNZ(true)}
-                            onMouseLeave={() => setNZActive(false)}
-                          >
-                            <p className="text-base font-normal ">NZC</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Net Zero Cities
-                            </p>
-                          </div>
-                        ) : NZHover ? (
-                          <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
-                            <p className="text-base font-normal ">NZC</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Net Zero Cities
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
-                            onMouseOver={() => setNZActive(true)}
-                            onClick={() => setOpenNZ(true)}
-                            onMouseLeave={() => setNZActive(false)}
-                          >
-                            <p className="text-base font-normal ">NZC</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Net Zero Cities
-                            </p>
-                          </div>
-                        )}
-
-                        {SGactive || openSG ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
-                            onClick={() => setOpenSG(true)}
-                            onMouseLeave={() => setSGActive(false)}
-                          >
-                            <p className="text-base font-normal ">7G</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              7Gen <br /> Cities
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
-                            onMouseOver={() => setSGActive(true)}
-                            onClick={() => setOpenSG(true)}
-                            onMouseLeave={() => setSGActive(false)}
-                          >
-                            <p className="text-base font-normal ">7G</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              7Gen <br /> Cities
-                            </p>
-                          </div>
-                        )}
-
-                        {M0active || openM0 ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
-                            onClick={() => setOpenM0(true)}
-                            onMouseLeave={() => setM0Active(false)}
-                          >
-                            <p className="text-base font-normal ">M0</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              M0
-                              <br /> Cities
-                            </p>
-                          </div>
-                        ) : M0Hover ? (
-                          <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
-                            <p className="text-base font-normal ">M0</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              {' '}
-                              M0
-                              <br /> Cities
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
-                            onMouseOver={() => setM0Active(true)}
-                            onClick={() => setOpenM0(true)}
-                            onMouseLeave={() => setM0Active(false)}
-                          >
-                            <p className="text-base font-normal ">M0</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              M0
-                              <br /> Cities
-                            </p>
-                          </div>
-                        )}
-
-                        {REactive ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} h-[80px]`}
-                            onClick={() => setOpenRE(true)}
-                            onMouseLeave={() => setREActive(false)}
-                          >
-                            <p className="text-base font-normal ">RN</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Regen Nutrition
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
-                            onMouseOver={() => setREActive(true)}
-                            onClick={() => setOpenRE(true)}
-                            onMouseLeave={() => setREActive(false)}
-                          >
-                            <p className="text-base font-normal ">RN</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Regen Nutrition
-                            </p>
-                          </div>
-                        )}
-
-                        {WIactive || openWI ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
-                            onClick={() => setOpenWI(true)}
-                            onMouseLeave={() => setWIActive(false)}
-                          >
-                            <p className="text-base font-normal ">WI</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Wild Infrastructure
-                            </p>
-                          </div>
-                        ) : WIHover ? (
-                          <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
-                            <p className="text-base font-normal ">WI</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Wild Infrastructure
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
-                            onMouseOver={() => setWIActive(true)}
-                            onClick={() => setOpenWI(true)}
-                            onMouseLeave={() => setWIActive(false)}
-                          >
-                            <p className="text-base font-normal ">WI</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Wild Infrastructure
-                            </p>
-                          </div>
-                        )}
-
-                        {BEactive ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
-                            onClick={() => setOpenBE(true)}
-                            onMouseLeave={() => setBEActive(false)}
-                          >
-                            <p className="text-base font-normal ">BE</p>
-                            <p className="text-[9.6px] font-normal leading-normal ">
-                              Bioregional Economics
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
-                            onMouseOver={() => setBEActive(true)}
-                            onClick={() => setOpenBE(true)}
-                            onMouseLeave={() => setBEActive(false)}
-                          >
-                            <p className="text-base font-normal ">BE</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Bioregional Economics
-                            </p>
-                          </div>
-                        )}
-
-                        {PCactive ? (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
-                            onClick={() => setOpenPC(true)}
-                            onMouseLeave={() => setPCActive(false)}
-                          >
-                            <p className="text-base font-normal ">PC</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Planetary Civics
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
-                            onMouseOver={() => setPCActive(true)}
-                            onClick={() => setOpenPC(true)}
-                            onMouseLeave={() => setPCActive(false)}
-                          >
-                            <p className="text-base font-normal ">PC</p>
-                            <p className="text-[9.6px] font-normal leading-normal">
-                              Planetary Civics
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                      <div>
-                        {NEactive || openNE ? (
-                          <div
-                            className={` flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
-                            onClick={() => setOpenNE(true)}
-                            onMouseLeave={() => setNEActive(false)}
-                          >
-                            <p className="text-base font-normal ">NE</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Next Economics
-                            </p>
-                          </div>
-                        ) : NEHover ? (
-                          <div
-                            className={` flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]`}
-                          >
-                            <p className="text-base font-normal ">NE</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Next Economics
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
-                            onMouseOver={() => setNEActive(true)}
-                            onClick={() => setOpenNE(true)}
-                            onMouseLeave={() => setNEActive(false)}
-                          >
-                            <p className="text-base font-normal ">NE</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Next Economics
-                            </p>
-                          </div>
-                        )}
-
-                        {RCactive && NEactive && !openMC ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setNEActive(false);
-                            }}
-                            onClick={() => {
-                              setOpenMC(true);
-                            }}
-                            className="my-1.5 flex h-[80px] flex-col items-center justify-center  bg-[#595959] text-white  hover:cursor-pointer"
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal ">
-                              Multivalent <br />
-                              currencies
-                            </p>
-                          </div>
-                        ) : openMC ? (
-                          <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  text-white">
-                            <p className=" text-[9.6px] font-normal leading-normal ">
-                              Multivalent <br />
-                              currencies
-                            </p>
-                          </div>
-                        ) : (RCactive || NEactive) && !openMC ? (
-                          <div
-                            className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  text-[#595959] ${classT} ${classA}  h-[80px]`}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              RC
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + NE
-                              <span className="align-super text-[6.6px]">
-                                L
-                              </span>
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] text-[#595959] ${classT} ${classA}  h-[80px]`}
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setNEActive(true);
-                            }}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              RC
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + NE
-                              <span className="align-super text-[6.6px]">
-                                L
-                              </span>
-                            </p>
-                          </div>
-                        )}
-                        {ETCactive || NEactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setNEActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setNEActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {NZactive || NEactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setNEActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setNEActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {SGactive || NEactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setNEActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setNEActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {M0active && NEactive && !openNET ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setNEActive(false);
-                            }}
-                            onClick={() => {
-                              setOpenNET(true);
-                            }}
-                            className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem] text-white  hover:cursor-pointer"
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal ">
-                              New Economic
-                              <br /> Thinking
-                            </p>
-                          </div>
-                        ) : openNET ? (
-                          <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem]  text-white">
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              New Economic <br />
-                              Thinking
-                            </p>
-                          </div>
-                        ) : (M0active || NEactive) && !openNET ? (
-                          <div
-                            className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              M0
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + NE
-                              <span className="align-super text-[6.6px]">
-                                L
-                              </span>
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setNEActive(true);
-                            }}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              M0
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + NE
-                              <span className="align-super text-[6.6px]">
-                                L
-                              </span>
-                            </p>
-                          </div>
-                        )}
-
-                        {REactive || NEactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setNEActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setNEActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {WIactive || NEactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setNEActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setNEActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {BEactive || NEactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setNEActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setNEActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || NEactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setNEActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA} ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setNEActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        {BLactive || openBL ? (
-                          <div
-                            className={`flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
-                            onClick={() => setOpenBL(true)}
-                            onMouseLeave={() => setBLActive(false)}
-                          >
-                            <p className="text-base font-normal ">BL</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Beyond
-                              <br /> Labour
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={` flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
-                            onMouseOver={() => setBLActive(true)}
-                            onClick={() => setOpenBL(true)}
-                            onMouseLeave={() => setBLActive(false)}
-                          >
-                            <p className="text-base font-normal ">BL</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Beyond
-                              <br /> Labour
-                            </p>
-                          </div>
-                        )}
-                        {RCactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {ETCactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {NZactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {SGactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {M0active || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {REactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {WIactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {BEactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || BLactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setBLActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setBLActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        {openCS || CSactive ? (
-                          <div
-                            className="group flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
-                            onClick={() => setOpenCS(true)}
-                            onMouseLeave={() => setCSActive(false)}
-                          >
-                            <p className="text-base font-normal ">CS</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Capital Systems
-                            </p>
-                          </div>
-                        ) : CSHover ? (
-                          <div className="flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
-                            <p className="text-base font-normal ">CS</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Capital Systems
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
-                            onClick={() => {
-                              setOpenCS(true);
-                              setCSActive(true);
-                            }}
-                            onMouseOver={() => setCSActive(true)}
-                            onMouseLeave={() => setCSActive(false)}
-                          >
-                            <p className="text-base font-normal ">CS</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Capital Systems
-                            </p>
-                          </div>
-                        )}
-                        {RCactive || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {ETCactive || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {NZactive || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {SGactive || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {M0active || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {REactive || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {WIactive && CSactive && !openTAI ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setCSActive(false);
-                            }}
-                            onClick={() => {
-                              setOpenTAI(true);
-                            }}
-                            className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer"
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal ">
-                              TreesAI
-                            </p>
-                          </div>
-                        ) : openTAI ? (
-                          <div className=" my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white">
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              TreesAI
-                            </p>
-                          </div>
-                        ) : (WIactive || CSactive) && !openTAI ? (
-                          <div
-                            className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              NZ
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + CS
-                              <span className="align-super text-[6.6px]">
-                                L
-                              </span>
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setCSActive(true);
-                            }}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              NZ
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + CS
-                              <span className="align-super text-[6.6px]">
-                                L
-                              </span>
-                            </p>
-                          </div>
-                        )}
-                        {BEactive || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || CSactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setCSActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setCSActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        {PFactive || openPF ? (
-                          <div
-                            className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
-                            onClick={() => setOpenPF(true)}
-                            onMouseLeave={() => setPFActive(false)}
-                          >
-                            <p className="text-base font-normal ">PF</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Philanthropic Futures
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
-                            onMouseOver={() => setPFActive(true)}
-                            onClick={() => setOpenPF(true)}
-                            onMouseLeave={() => setPFActive(false)}
-                          >
-                            <p className="text-base font-normal ">PF</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Philanthropic Futures
-                            </p>
-                          </div>
-                        )}
-                        {RCactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {ETCactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {NZactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {SGactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {M0active || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {REactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {WIactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {BEactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || PFactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setPFActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px] `}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setPFActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        {PBactive || openPB ? (
-                          <div
-                            className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
-                            onClick={() => setOpenPB(true)}
-                            onMouseLeave={() => setPBActive(false)}
-                          >
-                            <p className="text-base font-normal ">PB</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Property & Beyond
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
-                            onMouseOver={() => setPBActive(true)}
-                            onClick={() => setOpenPB(true)}
-                            onMouseLeave={() => setPBActive(false)}
-                          >
-                            <p className="text-base font-normal ">PB</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Property & Beyond
-                            </p>
-                          </div>
-                        )}
-                        {RCactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {ETCactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {NZactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {SGactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {M0active || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {REactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {WIactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {BEactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || PBactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setPBActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setPBActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        {QDactive || openQD ? (
-                          <div
-                            className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
-                            onClick={() => setOpenQD(true)}
-                            onMouseLeave={() => setQDActive(false)}
-                          >
-                            <p className="text-base font-normal ">SD</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              Societal Decisions
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
-                            onMouseOver={() => setQDActive(true)}
-                            onClick={() => setOpenQD(true)}
-                            onMouseLeave={() => setQDActive(false)}
-                          >
-                            <p className="text-base font-normal ">SD</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              Societal Decisions
-                            </p>
-                          </div>
-                        )}
-                        {RCactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {ETCactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {NZactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {SGactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {M0active || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {REactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {WIactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {BEactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || QDactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setQDActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setQDActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        {BRactive || openBR ? (
-                          <div
-                            className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
-                            onClick={() => setOpenBR(true)}
-                            onMouseLeave={() => setBRActive(false)}
-                          >
-                            <p className="text-base font-normal ">BTR</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Beyond the Rules
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
-                            onMouseOver={() => setBRActive(true)}
-                            onClick={() => setOpenBR(true)}
-                            onMouseLeave={() => setBRActive(false)}
-                          >
-                            <p className="text-base font-normal ">BTR</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Beyond the Rules
-                            </p>
-                          </div>
-                        )}
-                        {RCactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {ETCactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {NZactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {SGactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {M0active || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {REactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {WIactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {BEactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || BRactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setBRActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setBRActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        {SMactive || openSM ? (
-                          <div
-                            className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
-                            onClick={() => setOpenSM(true)}
-                            onMouseLeave={() => setSMActive(false)}
-                          >
-                            <p className="text-base font-normal ">SMM</p>
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              Sensing, Modeling
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
-                            onMouseOver={() => setSMActive(true)}
-                            onClick={() => setOpenSM(true)}
-                            onMouseLeave={() => setSMActive(false)}
-                          >
-                            <p className="text-base font-normal ">SMM</p>
-                            <p className="  text-[9.6px] font-normal  leading-normal">
-                              Sensing, Modeling
-                            </p>
-                          </div>
-                        )}
-                        {RCactive || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setRCActive(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setRCActive(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {ETCactive || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setETCActive(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setETCActive(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {NZactive && CTactive && !openCL ? (
-                          <div
-                            className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer"
-                            onMouseLeave={() => {
-                              setNZActive(false);
-                              setCTActive(false);
-                            }}
-                            onClick={() => {
-                              setOpenCL(true);
-                            }}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal ">
-                              CircuLaw
-                            </p>
-                          </div>
-                        ) : openCL ? (
-                          <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white">
-                            <p className=" text-[9.6px] font-normal leading-normal ">
-                              CircuLaw
-                            </p>
-                          </div>
-                        ) : (NZactive || SMactive) && !openCL ? (
-                          <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#292929] py-[1.68rem]  text-[#595959]">
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              NZ
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + CT
-                              <span className="align-super text-[6.6px]">
-                                S
-                              </span>
-                            </p>
-                          </div>
-                        ) : (
-                          <div
-                            className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
-                            onMouseEnter={() => {
-                              setNZActive(true);
-                              setCTActive(true);
-                            }}
-                          >
-                            <p className=" text-[9.6px] font-normal leading-normal">
-                              {' '}
-                              NZ
-                              <span className="align-super text-[6.6px]">
-                                A
-                              </span>{' '}
-                              + CT
-                              <span className="align-super text-[6.6px]">
-                                S
-                              </span>
-                            </p>
-                          </div>
-                        )}
-                        {SGactive || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setSGActive(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setSGActive(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {M0active || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setM0Active(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setM0Active(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-
-                        {REactive || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setREActive(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setREActive(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {WIactive || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setWIActive(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setWIActive(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {BEactive || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setBEActive(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setBEActive(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                        {PCactive || SMactive ? (
-                          <div
-                            onMouseLeave={() => {
-                              setPCActive(false);
-                              setSMActive(false);
-                            }}
-                            className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        ) : (
-                          <div
-                            onMouseEnter={() => {
-                              setPCActive(true);
-                              setSMActive(true);
-                            }}
-                            className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
-                          >
-                            {' '}
-                          </div>
-                        )}
-                      </div>
-                    </div>
+            <div className={`${classT2} font-FKregular`}>
+              <animated.div
+                style={{
+                  rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
+                  rotateY: 0,
+                  rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
+                  scale: 0.7,
+                }}
+                className={`shadow-layer absolute z-50 grid grid-cols-12`}
+              >
+                <div className="col-span-11">
+                  <div className="ml-20 text-center">
+                    <h2
+                      className={classNames(
+                        activeState === 8
+                          ? 'text-transparent'
+                          : 'text-[#A8A8A8]',
+                        'pb-4 text-base font-normal',
+                      )}
+                    >
+                      Labs
+                    </h2>
                   </div>
-                </div>
 
-                <div
-                  className={classNames(
-                    activeState === 6 || activeState === 7 ? '' : '',
-                    `threeD absolute top-[8rem] z-30 grid grid-cols-12 ${animateOn} shadow-layer `,
-                  )}
-                >
-                  <div className="col-span-11 ">
-                    <div className=" text-center">
-                      <h2
-                        className={classNames(
-                          'pb-4 text-base font-normal opacity-0',
-                        )}
-                      >
-                        Labs
-                      </h2>
-                    </div>
-
-                    <div className="mt-[86px] grid grid-cols-9">
-                      <div className="studio-layer opacity-0"></div>
-
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                      <div className="studio-layer">
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
-                        ></div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-
-                        <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
-                          {' '}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className={classNames(
-                      activeState === 6 || activeState === 7 ? 'block' : '',
-                      'ml-1.5 mt-[5.89em] text-right',
-                    )}
-                  >
+                  <div className="grid grid-cols-9 gap-[6px]">
                     <div className="">
-                      <h2
-                        className={classNames(
-                          activeState === 6 || activeState === 7 ? '' : '',
-                          'pl-2 text-base font-normal text-[#A8A8A8]',
-                        )}
-                      >
-                        Studios
-                      </h2>
+                      <div className="mb-1.5 ">
+                        <h2 className="h-[80px] pl-2 pt-[3rem] text-base font-normal  text-[#A8A8A8]">
+                          Arcs
+                        </h2>
+                      </div>
+                      {RCactive || openRC ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classAT}  h-[80px]`}
+                          onClick={() => setOpenRC(true)}
+                          onMouseLeave={() => setRCActive(false)}
+                        >
+                          <p className="text-base font-normal ">RC</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Radicle <br />
+                            Civics
+                          </p>
+                        </div>
+                      ) : RCHover ? (
+                        <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
+                          <p className="text-base font-normal ">RC</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Radicle <br />
+                            Civics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL} h-[80px]`}
+                          onMouseOver={() => setRCActive(true)}
+                          onClick={() => setOpenRC(true)}
+                          onMouseLeave={() => setRCActive(false)}
+                        >
+                          <p className="text-base font-normal ">RC</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Radicle <br />
+                            Civics
+                          </p>
+                        </div>
+                      )}
+
+                      {ETCactive || openETC ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                          onClick={() => setOpenETC(true)}
+                          onMouseLeave={() => setETCActive(false)}
+                        >
+                          <p className="text-base font-normal ">LC</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Local <br />
+                            Civics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px] `}
+                          onMouseOver={() => setETCActive(true)}
+                          onClick={() => setOpenETC(true)}
+                          onMouseLeave={() => setETCActive(false)}
+                        >
+                          <p className="text-base font-normal ">LC</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Local <br /> Civics
+                          </p>
+                        </div>
+                      )}
+
+                      {NZactive || openNZ ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                          onClick={() => setOpenNZ(true)}
+                          onMouseLeave={() => setNZActive(false)}
+                        >
+                          <p className="text-base font-normal ">NZC</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      ) : NZHover ? (
+                        <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
+                          <p className="text-base font-normal ">NZC</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                          onMouseOver={() => setNZActive(true)}
+                          onClick={() => setOpenNZ(true)}
+                          onMouseLeave={() => setNZActive(false)}
+                        >
+                          <p className="text-base font-normal ">NZC</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Net Zero Cities
+                          </p>
+                        </div>
+                      )}
+
+                      {SGactive || openSG ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                          onClick={() => setOpenSG(true)}
+                          onMouseLeave={() => setSGActive(false)}
+                        >
+                          <p className="text-base font-normal ">7G</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            7Gen <br /> Cities
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                          onMouseOver={() => setSGActive(true)}
+                          onClick={() => setOpenSG(true)}
+                          onMouseLeave={() => setSGActive(false)}
+                        >
+                          <p className="text-base font-normal ">7G</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            7Gen <br /> Cities
+                          </p>
+                        </div>
+                      )}
+
+                      {M0active || openM0 ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                          onClick={() => setOpenM0(true)}
+                          onMouseLeave={() => setM0Active(false)}
+                        >
+                          <p className="text-base font-normal ">M0</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            M0
+                            <br /> Cities
+                          </p>
+                        </div>
+                      ) : M0Hover ? (
+                        <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
+                          <p className="text-base font-normal ">M0</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            {' '}
+                            M0
+                            <br /> Cities
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                          onMouseOver={() => setM0Active(true)}
+                          onClick={() => setOpenM0(true)}
+                          onMouseLeave={() => setM0Active(false)}
+                        >
+                          <p className="text-base font-normal ">M0</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            M0
+                            <br /> Cities
+                          </p>
+                        </div>
+                      )}
+
+                      {REactive ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL} h-[80px]`}
+                          onClick={() => setOpenRE(true)}
+                          onMouseLeave={() => setREActive(false)}
+                        >
+                          <p className="text-base font-normal ">RN</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Regen Nutrition
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                          onMouseOver={() => setREActive(true)}
+                          onClick={() => setOpenRE(true)}
+                          onMouseLeave={() => setREActive(false)}
+                        >
+                          <p className="text-base font-normal ">RN</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Regen Nutrition
+                          </p>
+                        </div>
+                      )}
+
+                      {WIactive || openWI ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                          onClick={() => setOpenWI(true)}
+                          onMouseLeave={() => setWIActive(false)}
+                        >
+                          <p className="text-base font-normal ">WI</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Wild Infrastructure
+                          </p>
+                        </div>
+                      ) : WIHover ? (
+                        <div className="my-1.5 flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
+                          <p className="text-base font-normal ">WI</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Wild Infrastructure
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                          onMouseOver={() => setWIActive(true)}
+                          onClick={() => setOpenWI(true)}
+                          onMouseLeave={() => setWIActive(false)}
+                        >
+                          <p className="text-base font-normal ">WI</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Wild Infrastructure
+                          </p>
+                        </div>
+                      )}
+
+                      {BEactive ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                          onClick={() => setOpenBE(true)}
+                          onMouseLeave={() => setBEActive(false)}
+                        >
+                          <p className="text-base font-normal ">BE</p>
+                          <p className="text-[9.6px] font-normal leading-normal ">
+                            Bioregional Economics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                          onMouseOver={() => setBEActive(true)}
+                          onClick={() => setOpenBE(true)}
+                          onMouseLeave={() => setBEActive(false)}
+                        >
+                          <p className="text-base font-normal ">BE</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Bioregional Economics
+                          </p>
+                        </div>
+                      )}
+
+                      {PCactive ? (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classL}  h-[80px]`}
+                          onClick={() => setOpenPC(true)}
+                          onMouseLeave={() => setPCActive(false)}
+                        >
+                          <p className="text-base font-normal ">PC</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Planetary Civics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classL}  h-[80px]`}
+                          onMouseOver={() => setPCActive(true)}
+                          onClick={() => setOpenPC(true)}
+                          onMouseLeave={() => setPCActive(false)}
+                        >
+                          <p className="text-base font-normal ">PC</p>
+                          <p className="text-[9.6px] font-normal leading-normal">
+                            Planetary Civics
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    {CTactive || openCT ? (
-                      <div
-                        className={`flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
-                        onClick={() => setOpenCT(true)}
-                        onMouseLeave={() => setCTActive(false)}
-                      >
-                        <p className="text-base font-normal ">CT</p>
-                        <p className=" text-[9.6px] font-normal leading-normal">
-                          Civic <br /> Tech
-                        </p>
-                      </div>
-                    ) : CTHover ? (
-                      <div
-                        className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#353535] px-2 py-2 text-[#A8A8A8]`}
-                      >
-                        <p className="text-base font-normal ">CT</p>
-                        <p className=" text-[9.6px] font-normal leading-normal">
-                          Civic <br /> Tech
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
-                        onMouseOver={() => setCTActive(true)}
-                        onClick={() => setOpenCT(true)}
-                        onMouseLeave={() => setCTActive(false)}
-                      >
-                        <p className="text-base font-normal ">CT</p>
-                        <p className=" text-[9.6px] font-normal leading-normal">
-                          Civic <br /> Tech
-                        </p>
-                      </div>
-                    )}
+                    <div>
+                      {NEactive || openNE ? (
+                        <div
+                          className={` flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
+                          onClick={() => setOpenNE(true)}
+                          onMouseLeave={() => setNEActive(false)}
+                        >
+                          <p className="text-base font-normal ">NE</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Next Economics
+                          </p>
+                        </div>
+                      ) : NEHover ? (
+                        <div
+                          className={` flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]`}
+                        >
+                          <p className="text-base font-normal ">NE</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Next Economics
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
+                          onMouseOver={() => setNEActive(true)}
+                          onClick={() => setOpenNE(true)}
+                          onMouseLeave={() => setNEActive(false)}
+                        >
+                          <p className="text-base font-normal ">NE</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Next Economics
+                          </p>
+                        </div>
+                      )}
 
-                    {CDactive || openCD ? (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                        onClick={() => setOpenCD(true)}
-                        onMouseLeave={() => setCDActive(false)}
-                      >
-                        <p className="text-base font-normal ">CD</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Conversational Design
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`my-1.5 flex h-[80px]  w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                        onMouseOver={() => setCDActive(true)}
-                        onClick={() => setOpenCD(true)}
-                        onMouseLeave={() => setCDActive(false)}
-                      >
-                        <p className="text-base font-normal ">CD</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Conversational Design
-                        </p>
-                      </div>
-                    )}
+                      {RCactive && NEactive && !openMC ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setNEActive(false);
+                          }}
+                          onClick={() => {
+                            setOpenMC(true);
+                          }}
+                          className="my-1.5 flex h-[80px] flex-col items-center justify-center  bg-[#595959] text-white  hover:cursor-pointer"
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal ">
+                            Multivalent <br />
+                            currencies
+                          </p>
+                        </div>
+                      ) : openMC ? (
+                        <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  text-white">
+                          <p className=" text-[9.6px] font-normal leading-normal ">
+                            Multivalent <br />
+                            currencies
+                          </p>
+                        </div>
+                      ) : (RCactive || NEactive) && !openMC ? (
+                        <div
+                          className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  text-[#595959] ${classT} ${classA}  h-[80px]`}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            RC
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + NE
+                            <span className="align-super text-[6.6px]">L</span>
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setNEActive(true);
+                          }}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            RC
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + NE
+                            <span className="align-super text-[6.6px]">L</span>
+                          </p>
+                        </div>
+                      )}
+                      {ETCactive || NEactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setNEActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setNEActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || NEactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setNEActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setNEActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
 
-                    {FFactive || openFF ? (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                        onClick={() => setOpenFF(true)}
-                        onMouseLeave={() => setFFActive(false)}
-                      >
-                        <p className="text-base font-normal ">FF</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Foresight & Futuring
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                        onMouseOver={() => setFFActive(true)}
-                        onClick={() => setOpenFF(true)}
-                        onMouseLeave={() => setFFActive(false)}
-                      >
-                        <p className="text-base font-normal ">FF</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Foresight & Futuring
-                        </p>
-                      </div>
-                    )}
+                      {SGactive || NEactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setNEActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setNEActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
 
-                    {ODactive || openOD ? (
-                      <div
-                        className={`my-1.5 flex h-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                        onClick={() => setOpenOD(true)}
-                        onMouseLeave={() => setODActive(false)}
-                      >
-                        <p className=" text-base font-normal uppercase">
-                          Org Dev
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`my-1.5 flex h-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
-                        onMouseOver={() => setODActive(true)}
-                        onClick={() => setOpenOD(true)}
-                        onMouseLeave={() => setODActive(false)}
-                      >
-                        <p className=" text-base font-normal uppercase ">
-                          Org Dev
-                        </p>
-                      </div>
-                    )}
+                      {M0active && NEactive && !openNET ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setNEActive(false);
+                          }}
+                          onClick={() => {
+                            setOpenNET(true);
+                          }}
+                          className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem] text-white  hover:cursor-pointer"
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal ">
+                            New Economic
+                            <br /> Thinking
+                          </p>
+                        </div>
+                      ) : openNET ? (
+                        <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem]  text-white">
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            New Economic <br />
+                            Thinking
+                          </p>
+                        </div>
+                      ) : (M0active || NEactive) && !openNET ? (
+                        <div
+                          className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            M0
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + NE
+                            <span className="align-super text-[6.6px]">L</span>
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setNEActive(true);
+                          }}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            M0
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + NE
+                            <span className="align-super text-[6.6px]">L</span>
+                          </p>
+                        </div>
+                      )}
+
+                      {REactive || NEactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setNEActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setNEActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {WIactive || NEactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setNEActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setNEActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {BEactive || NEactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setNEActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setNEActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || NEactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setNEActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA} ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setNEActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {BLactive || openBL ? (
+                        <div
+                          className={`flex flex-col justify-between bg-[#595959] px-1.5 py-2 text-white hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
+                          onClick={() => setOpenBL(true)}
+                          onMouseLeave={() => setBLActive(false)}
+                        >
+                          <p className="text-base font-normal ">BL</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Beyond
+                            <br /> Labour
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={` flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
+                          onMouseOver={() => setBLActive(true)}
+                          onClick={() => setOpenBL(true)}
+                          onMouseLeave={() => setBLActive(false)}
+                        >
+                          <p className="text-base font-normal ">BL</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Beyond
+                            <br /> Labour
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {ETCactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {WIactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || BLactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setBLActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setBLActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {openCS || CSactive ? (
+                        <div
+                          className="group flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
+                          onClick={() => setOpenCS(true)}
+                          onMouseLeave={() => setCSActive(false)}
+                        >
+                          <p className="text-base font-normal ">CS</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Capital Systems
+                          </p>
+                        </div>
+                      ) : CSHover ? (
+                        <div className="flex h-[80px] flex-col justify-between bg-[#353535] px-1.5 py-2  text-[#A8A8A8]">
+                          <p className="text-base font-normal ">CS</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Capital Systems
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
+                          onClick={() => {
+                            setOpenCS(true);
+                            setCSActive(true);
+                          }}
+                          onMouseOver={() => setCSActive(true)}
+                          onMouseLeave={() => setCSActive(false)}
+                        >
+                          <p className="text-base font-normal ">CS</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Capital Systems
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {ETCactive || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {NZactive || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {SGactive || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {WIactive && CSactive && !openTAI ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setCSActive(false);
+                          }}
+                          onClick={() => {
+                            setOpenTAI(true);
+                          }}
+                          className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer"
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal ">
+                            TreesAI
+                          </p>
+                        </div>
+                      ) : openTAI ? (
+                        <div className=" my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white">
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            TreesAI
+                          </p>
+                        </div>
+                      ) : (WIactive || CSactive) && !openTAI ? (
+                        <div
+                          className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            NZ
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + CS
+                            <span className="align-super text-[6.6px]">L</span>
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setCSActive(true);
+                          }}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            NZ
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + CS
+                            <span className="align-super text-[6.6px]">L</span>
+                          </p>
+                        </div>
+                      )}
+                      {BEactive || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || CSactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setCSActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setCSActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {PFactive || openPF ? (
+                        <div
+                          className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
+                          onClick={() => setOpenPF(true)}
+                          onMouseLeave={() => setPFActive(false)}
+                        >
+                          <p className="text-base font-normal ">PF</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Philanthropic Futures
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
+                          onMouseOver={() => setPFActive(true)}
+                          onClick={() => setOpenPF(true)}
+                          onMouseLeave={() => setPFActive(false)}
+                        >
+                          <p className="text-base font-normal ">PF</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Philanthropic Futures
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {ETCactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {WIactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || PFactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setPFActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px] `}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setPFActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {PBactive || openPB ? (
+                        <div
+                          className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
+                          onClick={() => setOpenPB(true)}
+                          onMouseLeave={() => setPBActive(false)}
+                        >
+                          <p className="text-base font-normal ">PB</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Property & Beyond
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
+                          onMouseOver={() => setPBActive(true)}
+                          onClick={() => setOpenPB(true)}
+                          onMouseLeave={() => setPBActive(false)}
+                        >
+                          <p className="text-base font-normal ">PB</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Property & Beyond
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {ETCactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {WIactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || PBactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setPBActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setPBActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {QDactive || openQD ? (
+                        <div
+                          className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
+                          onClick={() => setOpenQD(true)}
+                          onMouseLeave={() => setQDActive(false)}
+                        >
+                          <p className="text-base font-normal ">SD</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            Societal Decisions
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`mb-1 flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px]`}
+                          onMouseOver={() => setQDActive(true)}
+                          onClick={() => setOpenQD(true)}
+                          onMouseLeave={() => setQDActive(false)}
+                        >
+                          <p className="text-base font-normal ">SD</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            Societal Decisions
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {ETCactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {WIactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || QDactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setQDActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setQDActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem]  ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {BRactive || openBR ? (
+                        <div
+                          className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
+                          onClick={() => setOpenBR(true)}
+                          onMouseLeave={() => setBRActive(false)}
+                        >
+                          <p className="text-base font-normal ">BTR</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Beyond the Rules
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
+                          onMouseOver={() => setBRActive(true)}
+                          onClick={() => setOpenBR(true)}
+                          onMouseLeave={() => setBRActive(false)}
+                        >
+                          <p className="text-base font-normal ">BTR</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Beyond the Rules
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {ETCactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {SGactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {WIactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || BRactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setBRActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setBRActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {SMactive || openSM ? (
+                        <div
+                          className="flex h-[80px] flex-col justify-between bg-[#595959] px-1.5 py-2 text-white  hover:cursor-pointer"
+                          onClick={() => setOpenSM(true)}
+                          onMouseLeave={() => setSMActive(false)}
+                        >
+                          <p className="text-base font-normal ">SMM</p>
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            Sensing, Modeling
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`flex flex-col justify-between bg-[#292929] px-1.5 py-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px]`}
+                          onMouseOver={() => setSMActive(true)}
+                          onClick={() => setOpenSM(true)}
+                          onMouseLeave={() => setSMActive(false)}
+                        >
+                          <p className="text-base font-normal ">SMM</p>
+                          <p className="  text-[9.6px] font-normal  leading-normal">
+                            Sensing, Modeling
+                          </p>
+                        </div>
+                      )}
+                      {RCactive || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setRCActive(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setRCActive(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {ETCactive || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setETCActive(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setETCActive(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {NZactive && CTactive && !openCL ? (
+                        <div
+                          className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer"
+                          onMouseLeave={() => {
+                            setNZActive(false);
+                            setCTActive(false);
+                          }}
+                          onClick={() => {
+                            setOpenCL(true);
+                          }}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal ">
+                            CircuLaw
+                          </p>
+                        </div>
+                      ) : openCL ? (
+                        <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white">
+                          <p className=" text-[9.6px] font-normal leading-normal ">
+                            CircuLaw
+                          </p>
+                        </div>
+                      ) : (NZactive || SMactive) && !openCL ? (
+                        <div className="my-1.5 flex h-[80px] flex-col items-center justify-center bg-[#292929] py-[1.68rem]  text-[#595959]">
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            NZ
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + CT
+                            <span className="align-super text-[6.6px]">S</span>
+                          </p>
+                        </div>
+                      ) : (
+                        <div
+                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] py-[1.68rem] text-[#595959] ${classT} ${classA}  h-[80px]`}
+                          onMouseEnter={() => {
+                            setNZActive(true);
+                            setCTActive(true);
+                          }}
+                        >
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            NZ
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + CT
+                            <span className="align-super text-[6.6px]">S</span>
+                          </p>
+                        </div>
+                      )}
+                      {SGactive || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setSGActive(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setSGActive(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {M0active || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setM0Active(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setM0Active(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+
+                      {REactive || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setREActive(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setREActive(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {WIactive || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setWIActive(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setWIActive(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {BEactive || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setBEActive(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setBEActive(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classT} ${classA}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                      {PCactive || SMactive ? (
+                        <div
+                          onMouseLeave={() => {
+                            setPCActive(false);
+                            setSMActive(false);
+                          }}
+                          className={`my-1.5 bg-[#292929] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      ) : (
+                        <div
+                          onMouseEnter={() => {
+                            setPCActive(true);
+                            setSMActive(true);
+                          }}
+                          className={`my-1.5 bg-[#212121] px-2 py-[2.14rem] ${classA}  ${classT} ${classAB}  h-[80px]`}
+                        >
+                          {' '}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
+              </animated.div>
 
+              <animated.div
+                style={{
+                  rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
+                  rotateY: 0,
+                  rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
+                  scale: 0.7,
+                  top: scrollYProgress.to(() => scrollInterpolate(128)),
+                }}
+                className={classNames(
+                  activeState === 6 || activeState === 7 ? '' : '',
+                  `shadow-layer absolute z-30 grid grid-cols-12`,
+                )}
+              >
+                <div className="col-span-11  ">
+                  <div className=" text-center">
+                    <h2
+                      className={classNames(
+                        'pb-4 text-base font-normal opacity-0',
+                      )}
+                    >
+                      Labs
+                    </h2>
+                  </div>
+
+                  <div className="mt-[86px] grid grid-cols-9">
+                    <div className="studio-layer opacity-0"></div>
+
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                    <div className="studio-layer">
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5 h-[80px] px-2  py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={`my-1.5h-[80px] px-2   py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col items-center  justify-center  py-[1.68rem]`}
+                      ></div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+
+                      <div className={` my-1.5 h-[80px] px-2 py-[2.14rem]`}>
+                        {' '}
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className={classNames(
-                    activeState === 6 ? 'opacity-0' : 'opacity-100',
-                    activeState !== 7 && activeState !== 8 ? 'z-20' : 'z-50',
-                    `threeD absolute top-[16rem] ${capacity}  ${animateOn} shadow-layer grid grid-cols-12`,
+                    activeState === 6 || activeState === 7 ? 'block' : '',
+                    'ml-1.5 mt-[5.89em] text-right',
                   )}
                 >
-                  <div className="col-span-1">
-                    <div className="ml-4"></div>
+                  <div className="">
+                    <h2
+                      className={classNames(
+                        activeState === 6 || activeState === 7 ? '' : '',
+                        'pl-2 text-base font-normal text-[#A8A8A8]',
+                      )}
+                    >
+                      Studios
+                    </h2>
                   </div>
-                  <div className="col-span-10">
-                    <div className="mx-auto max-w-xl text-center">
-                      <h2
-                        className={classNames(
-                          activeState === 6
-                            ? 'text-transparent'
-                            : 'text-[#A8A8A8]',
-                          'pb-4 text-base font-normal',
-                        )}
+                  {CTactive || openCT ? (
+                    <div
+                      className={`flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] `}
+                      onClick={() => setOpenCT(true)}
+                      onMouseLeave={() => setCTActive(false)}
+                    >
+                      <p className="text-base font-normal ">CT</p>
+                      <p className=" text-[9.6px] font-normal leading-normal">
+                        Civic <br /> Tech
+                      </p>
+                    </div>
+                  ) : CTHover ? (
+                    <div
+                      className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#353535] px-2 py-2 text-[#A8A8A8]`}
+                    >
+                      <p className="text-base font-normal ">CT</p>
+                      <p className=" text-[9.6px] font-normal leading-normal">
+                        Civic <br /> Tech
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className={`mb-1.5 mt-2 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
+                      onMouseOver={() => setCTActive(true)}
+                      onClick={() => setOpenCT(true)}
+                      onMouseLeave={() => setCTActive(false)}
+                    >
+                      <p className="text-base font-normal ">CT</p>
+                      <p className=" text-[9.6px] font-normal leading-normal">
+                        Civic <br /> Tech
+                      </p>
+                    </div>
+                  )}
+
+                  {CDactive || openCD ? (
+                    <div
+                      className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                      onClick={() => setOpenCD(true)}
+                      onMouseLeave={() => setCDActive(false)}
+                    >
+                      <p className="text-base font-normal ">CD</p>
+                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                        Conversational Design
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className={`my-1.5 flex h-[80px]  w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                      onMouseOver={() => setCDActive(true)}
+                      onClick={() => setOpenCD(true)}
+                      onMouseLeave={() => setCDActive(false)}
+                    >
+                      <p className="text-base font-normal ">CD</p>
+                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                        Conversational Design
+                      </p>
+                    </div>
+                  )}
+
+                  {FFactive || openFF ? (
+                    <div
+                      className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                      onClick={() => setOpenFF(true)}
+                      onMouseLeave={() => setFFActive(false)}
+                    >
+                      <p className="text-base font-normal ">FF</p>
+                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                        Foresight & Futuring
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                      onMouseOver={() => setFFActive(true)}
+                      onClick={() => setOpenFF(true)}
+                      onMouseLeave={() => setFFActive(false)}
+                    >
+                      <p className="text-base font-normal ">FF</p>
+                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                        Foresight & Futuring
+                      </p>
+                    </div>
+                  )}
+
+                  {ODactive || openOD ? (
+                    <div
+                      className={`my-1.5 flex h-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                      onClick={() => setOpenOD(true)}
+                      onMouseLeave={() => setODActive(false)}
+                    >
+                      <p className=" text-base font-normal uppercase">
+                        Org Dev
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className={`my-1.5 flex h-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
+                      onMouseOver={() => setODActive(true)}
+                      onClick={() => setOpenOD(true)}
+                      onMouseLeave={() => setODActive(false)}
+                    >
+                      <p className=" text-base font-normal uppercase ">
+                        Org Dev
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </animated.div>
+
+              <animated.div
+                style={{
+                  rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
+                  rotateY: 0,
+                  rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
+                  scale: 0.7,
+                  top: scrollYProgress.to(() => scrollInterpolate(256)),
+                }}
+                className={classNames(
+                  activeState === 7 ? 'opacity-0' : 'opacity-100',
+                  activeState === 8 ? 'z-50 ' : 'z-20 ',
+                  `shadow-layer absolute grid grid-cols-12`,
+                )}
+              >
+                <div className="col-span-1">
+                  <div className="ml-4"></div>
+                </div>
+                <div className="col-span-10">
+                  <div className="mx-auto max-w-xl text-center">
+                    <h2
+                      className={classNames(
+                        activeState === 6
+                          ? 'text-transparent'
+                          : 'text-[#A8A8A8]',
+                        'pb-4 text-base font-normal',
+                      )}
+                    >
+                      Domains
+                    </h2>
+                  </div>
+
+                  <div className="ml-4 grid grid-cols-6 gap-1.5">
+                    <div className="">
+                      <div
+                        className={` flex h-[80px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] `}
                       >
-                        Domains
-                      </h2>
+                        <p className="font-FKregular text-base leading-tight ">
+                          {' '}
+                          A
+                        </p>
+                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                          Ontology & Epistemology
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          A-1
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Fostering a relational worldview
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          A-2
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Replacing profit as the collective goal
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          A-3
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          <br />
+                          Building political will
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          A-4
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Phenomenological measures of success (lived
+                          experience)
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
                     </div>
 
-                    <div className="ml-4 grid grid-cols-6 gap-1.5">
-                      <div className="">
-                        <div
-                          className={` flex h-[80px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] `}
-                        >
-                          <p className="font-FKregular text-base leading-tight ">
-                            {' '}
-                            A
-                          </p>
-                          <p className="font-PPmedium text-[9.6px] leading-tight">
-                            Ontology & Epistemology
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            A-1
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Fostering a relational worldview
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            A-2
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Replacing profit as the collective goal
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            A-3
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            <br />
-                            Building political will
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            A-4
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Phenomenological measures of success (lived
-                            experience)
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
+                    <div className="">
+                      <div
+                        className={`flex h-[80px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          B
+                        </p>
+                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                          Money & valuation logic
+                        </p>
                       </div>
 
-                      <div className="">
-                        <div
-                          className={`flex h-[80px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            B
-                          </p>
-                          <p className="font-PPmedium text-[9.6px] leading-tight">
-                            Money & valuation logic
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
-                        >
-                          <p className=" font-FKregular text-base leading-tight">
-                            B-1
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Demonstrating entangled and long-term value
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            B-2
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Decolonised, bioregional currency stewardship
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            B-3
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Alternative non-fungible currency systems
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            B-4
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Visualising finite and infinite economies
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
+                      >
+                        <p className=" font-FKregular text-base leading-tight">
+                          B-1
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Demonstrating entangled and long-term value
+                        </p>
                       </div>
 
-                      <div className="">
-                        <div
-                          className={`flex h-[80px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            C
-                          </p>
-                          <p className="font-PPmedium text-[9.6px] leading-tight">
-                            Financial processes & investment
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            C-1
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Making the investment case for entangled value
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            C-2
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            <br /> Bridging demand & supply
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            C-3
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Structuring capital & investments
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            C-4
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Enabling strategic ecosystem investments
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            C-5
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Socialising the supportive narratives for
-                            alternative financing pathways
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            C-6
-                          </p>
-                          <p className="self-stretch font-PPmedium text-[8px] leading-tight -tracking-[0.54px]">
-                            Socialising transformational narratives for a
-                            regenerative financial system
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          B-2
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Decolonised, bioregional currency stewardship
+                        </p>
                       </div>
 
-                      <div className="">
-                        <div
-                          className={`flex h-[80px] flex-col justify-between bg-[#205793] p-2 text-[#FFF]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            D
-                          </p>
-                          <p className="font-PPmedium text-[9.6px] leading-tight">
-                            Ownership, law & governance
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            D-1
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Using instruments to demonstrate alternative
-                            theories of ownership
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            D-2
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Elevating alternative models that recouple surplus
-                            with stewardship
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            D-3
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Demonstrating multi-actor governance structures
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            D-4
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Embedding data-augmented decision making
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            D-5
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Building deep respect for the other-than-human
-                            world, ancestors and future generations
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          B-3
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Alternative non-fungible currency systems
+                        </p>
                       </div>
 
-                      <div className="">
-                        <div
-                          className={`flex h-[80px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            {' '}
-                            E
-                          </p>
-                          <p className="font-PPmedium text-[9.6px] leading-tight">
-                            Institutional logic & policy
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            E-1
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Enabling public-civic efficacy to transform place
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            E-2
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Building the foundations for planetary stewardship
-                            institutions
-                          </p>
-                        </div>
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            E-3
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Designing reflective, data-driven policy instruments
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            E-4
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Place-based, policy process design
-                          </p>
-                        </div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          B-4
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Visualising finite and infinite economies
+                        </p>
                       </div>
 
-                      <div className="">
-                        <div
-                          className={`flex h-[80px] flex-col justify-between bg-[#808080] p-2 text-[#FFF]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            F
-                          </p>
-                          <p className="font-PPmedium text-[9.6px] leading-tight">
-                            Material, energy & land use
-                          </p>
-                        </div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
 
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            F-1
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Developing collaborative, non-extractive interfaces
-                            with the physical environment
-                          </p>
-                        </div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
 
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            F-2
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Visualising material and energy flows
-                          </p>
-                        </div>
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
-                        >
-                          <p className="pb-2 font-FKregular text-base leading-tight">
-                            F-3
-                          </p>
-                          <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
-                            Developing a stewardship data infrastructure for the
-                            built environment
-                          </p>
-                        </div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
 
-                        <div
-                          className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
-                        >
-                          <p className="font-FKregular text-base leading-tight">
-                            F-4
-                          </p>
-                          <p className="font-PPmedium text-[7px] leading-tight -tracking-[0.54px]">
-                            Designing and demonstrating autonomous, regenerative
-                            and affordable multi-purpose developments.
-                          </p>
-                        </div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
 
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                    </div>
 
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
-                        <div
-                          className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
-                        ></div>
+                    <div className="">
+                      <div
+                        className={`flex h-[80px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          C
+                        </p>
+                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                          Financial processes & investment
+                        </p>
                       </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          C-1
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Making the investment case for entangled value
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          C-2
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          <br /> Bridging demand & supply
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          C-3
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Structuring capital & investments
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          C-4
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Enabling strategic ecosystem investments
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          C-5
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Socialising the supportive narratives for alternative
+                          financing pathways
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pl-2 text-[#4CA866]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          C-6
+                        </p>
+                        <p className="self-stretch font-PPmedium text-[8px] leading-tight -tracking-[0.54px]">
+                          Socialising transformational narratives for a
+                          regenerative financial system
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                    </div>
+
+                    <div className="">
+                      <div
+                        className={`flex h-[80px] flex-col justify-between bg-[#205793] p-2 text-[#FFF]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          D
+                        </p>
+                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                          Ownership, law & governance
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          D-1
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Using instruments to demonstrate alternative theories
+                          of ownership
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          D-2
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Elevating alternative models that recouple surplus
+                          with stewardship
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          D-3
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Demonstrating multi-actor governance structures
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          D-4
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Embedding data-augmented decision making
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          D-5
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Building deep respect for the other-than-human world,
+                          ancestors and future generations
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                    </div>
+
+                    <div className="">
+                      <div
+                        className={`flex h-[80px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          {' '}
+                          E
+                        </p>
+                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                          Institutional logic & policy
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          E-1
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Enabling public-civic efficacy to transform place
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          E-2
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Building the foundations for planetary stewardship
+                          institutions
+                        </p>
+                      </div>
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          E-3
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Designing reflective, data-driven policy instruments
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          E-4
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Place-based, policy process design
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                    </div>
+
+                    <div className="">
+                      <div
+                        className={`flex h-[80px] flex-col justify-between bg-[#808080] p-2 text-[#FFF]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          F
+                        </p>
+                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                          Material, energy & land use
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          F-1
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Developing collaborative, non-extractive interfaces
+                          with the physical environment
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          F-2
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Visualising material and energy flows
+                        </p>
+                      </div>
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
+                      >
+                        <p className="pb-2 font-FKregular text-base leading-tight">
+                          F-3
+                        </p>
+                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                          Developing a stewardship data infrastructure for the
+                          built environment
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 flex h-[80px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2]`}
+                      >
+                        <p className="font-FKregular text-base leading-tight">
+                          F-4
+                        </p>
+                        <p className="font-PPmedium text-[7px] leading-tight -tracking-[0.54px]">
+                          Designing and demonstrating autonomous, regenerative
+                          and affordable multi-purpose developments.
+                        </p>
+                      </div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
+                      <div
+                        className={`my-1.5 h-[80px] border border-[#1A1919] bg-[#1A1919] px-2 py-[2.14rem]`}
+                      ></div>
                     </div>
                   </div>
                 </div>
+              </animated.div>
             </div>
 
-            <div id="context" className="mt-[100rem]">
+            <div id="context" className="mt-[280rem] ">
               <p className="p-4xl-medium max-w-3xl pb-8 text-grey-3">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
