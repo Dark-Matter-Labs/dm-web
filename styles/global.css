@@ -75,11 +75,9 @@ img {
 
 @layer components {
   .global-margin {
-    @apply max-w-[1200px];
-    @apply mx-4;
-    @apply md:mx-10;
-    @apply xl:mx-20;
-    @apply 2xl:mx-auto;
+    @apply max-w-[1280px];
+
+    @apply sm:mx-auto;
   }
 
   .heading-7xl {
@@ -88,6 +86,10 @@ img {
 
   .heading-5xl {
     @apply font-PPbook text-5xl leading-14;
+  }
+
+  .nav-xl {
+    @apply font-PPmedium text-xl;
   }
 
   .nav-2xl {
@@ -108,10 +110,12 @@ img {
 
   .arcs-left {
     @apply bg-[#595959] !important;
+    @apply transition duration-300 ease-in;
   }
 
   .labs-top {
     @apply bg-[#595959] !important;
+    @apply transition duration-300 ease-in;
   }
 
   .studio {
@@ -119,15 +123,15 @@ img {
   }
 
   .t1 {
-    @apply relative left-0 right-0 mx-auto max-w-full;
+    @apply relative left-0 right-0;
   }
 
   .t2 {
-    @apply sticky -top-[8vh] bottom-0 left-0 right-0;
+    @apply sticky -top-[10vh] bottom-0;
   }
 
   .t3 {
-    @apply relative bottom-0 left-0 right-0 top-0;
+    @apply relative left-0 right-0 mt-[228rem];
   }
 }
 
@@ -141,20 +145,60 @@ img {
 
 @keyframes inAnimation {
   0% {
-    opacity: 0;
-    visibility: hidden;
+    top: 0px;
   }
   100% {
-    opacity: 1;
-    visibility: visible;
+    top: 120px;
   }
 }
 
 @keyframes outAnimation {
   0% {
-    opacity: 0;
+    top: 0px;
   }
   100% {
-    opacity: 1;
+    top: 120px;
   }
+}
+
+div.vertical-line {
+  width: 1px; /* Line width */
+  background-color: #595959; /* Line color */
+  height: 100%; /* Override in-line if you want specific height. */
+  float: right; /* Causes the line to float to left of content. 
+    You can instead use position:absolute or display:inline-block
+    if this fits better with your design */
+  margin-right: 5%;
+  margin-top: 5px;
+}
+
+div.vertical-line2 {
+  width: 1px; /* Line width */
+  background-color: #595959; /* Line color */
+  height: 100%; /* Override in-line if you want specific height. */
+  margin: auto;
+}
+
+hr {
+  background-color: #595959;
+  height: 1px;
+  border: 0;
+  width: 420%;
+  margin-left: 20px;
+}
+
+.bg-nav {
+  background-image: url('../images/bg.svg');
+  background-repeat: no-repeat;
+  background-size: 340px;
+  background-origin: border-box;
+}
+
+.heading_animate {
+  transition: 0.2s ease-in-out;
+}
+
+.text_animate {
+  transition: 0.2s ease-in-out;
+  transform-origin: center;
 }

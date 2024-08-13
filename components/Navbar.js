@@ -1,22 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Disclosure, Dialog, Transition } from '@headlessui/react';
+import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import dmLogo from '../images/DML.gif';
 
 export default function Navbar() {
   return (
-    <div className="mt-20 grid grid-cols-12 gap-0 ">
+    <div className="mt-8 grid grid-cols-12 gap-0 ">
       <div className="col-span-4 justify-self-start">
         <Link href="/">
           <Image
             src={dmLogo}
             alt="Dm logo animation in multiple languages"
-            width={300}
+            width={330}
           />
         </Link>
       </div>
-      <div className="col-span-8 justify-self-start">
+      <div className="col-span-8 justify-self-end">
         <Disclosure as="nav">
           {({ open }) => (
             <>
@@ -25,25 +25,25 @@ export default function Navbar() {
                   <div className="flex items-center">
                     <div className="hidden sm:block">
                       <div className="flex space-x-8">
-                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
+                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Feed
                         </a>
                         <Link
                           href="/team"
-                          className="nav-2xl py-2 pr-3 text-white"
+                          className="nav-xl py-2 pr-3 text-grey-4"
                         >
                           Team
                         </Link>
-                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
+                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Partnerships
                         </a>
-                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
+                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Jobs
                         </a>
-                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
+                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Contact
                         </a>
-                        <a href="#" className="nav-2xl py-2 pr-3 text-white">
+                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Provocations↗
                         </a>
                       </div>
