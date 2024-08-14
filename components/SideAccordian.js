@@ -7,7 +7,7 @@ function classNames(...classes) {
 
 function SideNav({ activeState }) {
   return (
-    <div className=" bg-nav col-span-4 hidden max-w-xs lg:block">
+    <div className=" bg-nav col-span-3 hidden max-w-xs lg:block">
       <div
         className={classNames(
           activeState === 2 ||

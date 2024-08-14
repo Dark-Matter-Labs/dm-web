@@ -1925,7 +1925,7 @@ export default function Home() {
           <SideNav activeState={activeState} />
 
           <div
-            className={`relative col-span-8 mx-auto max-w-[690px] justify-self-end`}
+            className={`relative col-span-9 mx-auto max-w-[690px] justify-self-end`}
           >
             <div id="real" className="">
               <h1 className="heading-7xl max-w-[38rem] pb-10 text-grey-5 ">
