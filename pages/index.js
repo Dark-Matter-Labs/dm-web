@@ -2071,7 +2071,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: 0.6,
                 }}
-                className={`shadow-layer absolute z-50 grid w-[860px] grid-cols-12`}
+                className={`shadow-layer absolute z-50 grid w-[856px] grid-cols-12`}
               >
                 <div className="col-span-11">
                   <div>
@@ -2091,7 +2091,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-9 gap-1.5">
+                  <div className="grid grid-cols-9 gap-0">
                     <div className="">
                       <div className="mb-1.5 ">
                         <h2
@@ -4232,7 +4232,7 @@ export default function Home() {
                 }}
                 className={classNames(
                   activeState === 6 || activeState === 7 ? '' : '',
-                  `shadow-layer absolute z-30 grid w-[860px] grid-cols-12 `,
+                  `shadow-layer absolute z-30 grid w-[856px] grid-cols-12 `,
                 )}
               >
                 <div className="col-span-11 ">
@@ -4398,7 +4398,7 @@ export default function Home() {
                 <div
                   className={classNames(
                     activeState === 6 || activeState === 7 ? 'block' : '',
-                    'ml-1.5 mt-[5.89em] text-right',
+                    ' mt-[6em] text-right',
                   )}
                 >
                   <div className="">
@@ -4407,7 +4407,7 @@ export default function Home() {
                         activeState === 1 || activeState === 2
                           ? 'text-transparent'
                           : 'text-[#A8A8A8]',
-                        'pl-2 text-base font-normal ',
+                        'text-base font-normal ',
                       )}
                     >
                       Studios
@@ -4528,7 +4528,7 @@ export default function Home() {
                   activeState === 8 || activeState === 9
                     ? 'z-50  transition  ease-in'
                     : 'z-20 ',
-                  `shadow-layer absolute grid w-[860px] grid-cols-12 `,
+                  `shadow-layer absolute grid w-[856px] grid-cols-12 `,
                 )}
               >
                 <div className="col-span-1">
