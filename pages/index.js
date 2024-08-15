@@ -9,6 +9,10 @@ import Navbar from '../components/Navbar';
 import SideNav from '../components/SideAccordian';
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
+import labsOverlay from '../images/labs.svg';
+import arcsOverlay from '../images/arcs.svg';
+import studiosOverlay from '../images/studio.svg';
+import orgOverlay from '../images/orgdev.svg';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -265,7 +269,6 @@ export default function Home() {
       newY = startSticky * scrollFraction * 0.1;
       return newY;
     } else if (scrollY >= animationStart - 260 + step * 3) {
-      // make sure previous thing reached needed end state
       return 156.707;
     }
     return 0;
@@ -1943,7 +1946,7 @@ export default function Home() {
           <SideNav activeState={activeState} />
 
           <div
-            className={`relative col-span-9 mx-auto max-w-[690px] justify-self-end`}
+            className={`relative col-span-9 mx-auto w-[690px] justify-self-end`}
           >
             <div id="real" className="">
               <h1 className="heading-7xl max-w-[38rem] pb-10 text-grey-5 ">
@@ -2024,7 +2027,31 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
+              <Transition show={activeState === 2 || activeState === 3}>
+                <div className="absolute -right-[4rem] top-[18.2rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
+                  <Image src={labsOverlay} />
+                </div>
+              </Transition>
+
+              <Transition show={activeState === 2 || activeState === 5}>
+                <div className="absolute -right-[4rem] top-[30.5rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
+                  <Image src={studiosOverlay} />
+                </div>
+              </Transition>
+
+              <Transition show={activeState === 2 || activeState === 4}>
+                <div className="absolute left-[4rem] top-[30rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
+                  <Image src={arcsOverlay} />
+                </div>
+              </Transition>
+
               <Transition show={activeState === 2}>
+                <div className="absolute left-[4rem] top-[42rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
+                  <Image src={orgOverlay} />
+                </div>
+              </Transition>
+
+              {/* <Transition show={activeState === 2}>
                 <div className="absolute -right-[4rem] top-[17rem] max-w-[8rem] transition duration-300 ease-in data-[closed]:opacity-0 ">
                   <h2 className="text-right text-[18px] text-[#A8A8A8]">
                     Labs
@@ -2080,7 +2107,7 @@ export default function Home() {
                     Ecosystem
                   </p>
                 </div>
-              </Transition>
+              </Transition> */}
 
               <animated.div
                 style={{
@@ -2090,19 +2117,21 @@ export default function Home() {
                   scale: 0.6,
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
                 }}
-                className={`shadow-layer absolute z-50 grid w-[856px] grid-cols-12`}
+                className={classNames(
+                  activeState === 8 || activeState === 9
+                    ? 'opacity-30 delay-300 ease-in-out'
+                    : 'opacity-100 ',
+                  `shadow-layer absolute z-50 grid w-[856px] grid-cols-12 `,
+                )}
               >
                 <div className="col-span-11">
                   <div>
                     <div className="ml-20 text-center">
                       <h2
                         className={classNames(
-                          activeState === 1 ||
-                            activeState === 2 ||
-                            activeState === 8 ||
-                            activeState === 9
-                            ? 'text-transparent'
-                            : 'text-[#A8A8A8]',
+                          activeState === 7
+                            ? 'text-[#A8A8A8]'
+                            : 'text-transparent',
                           'pb-4 text-base font-normal',
                         )}
                       >
@@ -2116,9 +2145,9 @@ export default function Home() {
                       <div className="mb-1.5 ">
                         <h2
                           className={classNames(
-                            activeState === 1 || activeState === 2
-                              ? 'text-transparent'
-                              : 'text-[#A8A8A8]',
+                            activeState === 7
+                              ? 'text-[#A8A8A8]'
+                              : 'text-transparent ',
                             'h-[80px] w-[80px] pl-2 pt-[3rem] text-base font-normal',
                           )}
                         >
@@ -4246,13 +4275,15 @@ export default function Home() {
                 style={{
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
-                  rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: 0.6,
+                  rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(128)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
                 }}
                 className={classNames(
-                  activeState === 6 || activeState === 7 ? '' : '',
+                  activeState === 8 || activeState === 9
+                    ? 'opacity-30 delay-300 ease-in-out'
+                    : 'opacity-100',
                   `shadow-layer absolute z-30 grid w-[856px] grid-cols-12 `,
                 )}
               >
@@ -4425,9 +4456,9 @@ export default function Home() {
                   <div className="">
                     <h2
                       className={classNames(
-                        activeState === 1 || activeState === 2
-                          ? 'text-transparent'
-                          : 'text-[#A8A8A8]',
+                        activeState === 7
+                          ? 'text-[#A8A8A8]'
+                          : 'ext-transparent',
                         'text-base font-normal ',
                       )}
                     >
@@ -4538,8 +4569,8 @@ export default function Home() {
                 style={{
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
-                  rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: 0.6,
+                  rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(256)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
                   opacity: scrollYProgress.to(() => {
@@ -4550,9 +4581,12 @@ export default function Home() {
                 }}
                 className={classNames(
                   activeState === 8 || activeState === 9
-                    ? 'z-50 transition ease-in'
+                    ? 'opacity-100 transition delay-300 ease-in-out'
+                    : 'opacity-0 ',
+                  activeState === 8 || activeState === 9
+                    ? 'z-50 transition delay-300 ease-in-out'
                     : 'z-20 ',
-                  `shadow-layer absolute grid w-[856px] grid-cols-12 `,
+                  `shadow-layer absolute grid w-[856px] grid-cols-12`,
                 )}
               >
                 <div className="col-span-1">
