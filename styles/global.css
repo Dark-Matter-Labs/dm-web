@@ -127,11 +127,11 @@ img {
   }
 
   .t2 {
-    @apply sticky -top-[10vh] bottom-0;
+    @apply sticky bottom-0 left-0 right-0 top-[-10vh];
   }
 
   .t3 {
-    @apply relative left-0 right-0 mt-[228rem];
+    @apply relative left-0 right-0 mt-[220rem];
   }
 }
 
@@ -141,24 +141,6 @@ img {
 
 .shadow-layer {
   filter: drop-shadow(0px 40px 80px #141414);
-}
-
-@keyframes inAnimation {
-  0% {
-    top: 0px;
-  }
-  100% {
-    top: 120px;
-  }
-}
-
-@keyframes outAnimation {
-  0% {
-    top: 0px;
-  }
-  100% {
-    top: 120px;
-  }
 }
 
 div.vertical-line {

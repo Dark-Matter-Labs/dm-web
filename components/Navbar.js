@@ -35,15 +35,17 @@ export default function Navbar() {
                           Team
                         </Link>
                         <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
-                          Partnerships
-                        </a>
-                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Jobs
                         </a>
                         <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Contact
                         </a>
-                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
+                        <a
+                          href="https://provocations.darkmatterlabs.org/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="nav-xl py-2 pr-3 text-grey-4"
+                        >
                           Provocations↗
                         </a>
                       </div>

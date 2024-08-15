@@ -36,14 +36,18 @@ export default function Home() {
   const [activeState, setActiveState] = useState(1);
 
   const [animateOn, setAnimateOn] = useState('');
+  const [scrollY, setScrollY] = useState(0);
 
   const startSticky = 1500;
   const step = 400;
   const animationStart = startSticky + step * 4;
+  let newY;
 
   const { scrollYProgress } = useScroll();
 
   const listenScrollEvent = () => {
+    setScrollY(window.scrollY);
+
     let scrollFrac =
       Math.min(
         (window.scrollY - animationStart) /
@@ -253,6 +257,20 @@ export default function Home() {
     }
   };
 
+  const scrollYInterpolate = () => {
+    if (
+      scrollY >= animationStart &&
+      scrollY < animationStart - 260 + step * 3
+    ) {
+      newY = startSticky * scrollFraction * 0.1;
+      return newY;
+    } else if (scrollY >= animationStart - 260 + step * 3) {
+      // make sure previous thing reached needed end state
+      return 156.707;
+    }
+    return 0;
+  };
+
   return (
     <div>
       <Head>
@@ -262,7 +280,7 @@ export default function Home() {
 
       <Transition.Root show={openCS} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCS}>
-          <div className="fixed left-[18.5%] top-[25.5%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%] top-[25.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -328,7 +346,7 @@ export default function Home() {
 
       <Transition.Root show={openRC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenRC}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -393,7 +411,7 @@ export default function Home() {
 
       <Transition.Root show={openNZ} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenNZ}>
-          <div className="fixed left-[18.5%] top-[25.5%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -456,7 +474,7 @@ export default function Home() {
 
       <Transition.Root show={openSG} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenSG}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -511,7 +529,7 @@ export default function Home() {
 
       <Transition.Root show={openM0} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenM0}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -577,7 +595,7 @@ export default function Home() {
 
       <Transition.Root show={openRE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenRE}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -635,7 +653,7 @@ export default function Home() {
 
       <Transition.Root show={openBE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBE}>
-          <div className="fixed left-[18.5%] top-[25.5%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -685,7 +703,7 @@ export default function Home() {
 
       <Transition.Root show={openPC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPC}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -745,7 +763,7 @@ export default function Home() {
 
       <Transition.Root show={openNE} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenNE}>
-          <div className="fixed left-[18.5%] top-[25.5%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -806,7 +824,7 @@ export default function Home() {
 
       <Transition.Root show={openPB} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPB}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -864,7 +882,7 @@ export default function Home() {
 
       <Transition.Root show={openBR} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBR}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -925,7 +943,7 @@ export default function Home() {
 
       <Transition.Root show={openSM} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenSM}>
-          <div className="fixed left-[18.5%] top-[25.5%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -979,7 +997,7 @@ export default function Home() {
 
       <Transition.Root show={openBL} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenBL}>
-          <div className="fixed left-[18.5%] top-[25.5%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1025,7 +1043,7 @@ export default function Home() {
 
       <Transition.Root show={openPF} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenPF}>
-          <div className="fixed left-[18.5%] top-[25.5%] z-10 w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1070,7 +1088,7 @@ export default function Home() {
 
       <Transition.Root show={openQD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenQD}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1123,7 +1141,7 @@ export default function Home() {
 
       <Transition.Root show={openCT} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCT}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1172,7 +1190,7 @@ export default function Home() {
 
       <Transition.Root show={openETC} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenETC}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1220,7 +1238,7 @@ export default function Home() {
 
       <Transition.Root show={openCD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenCD}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1270,7 +1288,7 @@ export default function Home() {
 
       <Transition.Root show={openFF} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenFF}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1320,7 +1338,7 @@ export default function Home() {
 
       <Transition.Root show={openOD} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenOD}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1369,7 +1387,7 @@ export default function Home() {
 
       <Transition.Root show={openWI} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenWI}>
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1424,7 +1442,7 @@ export default function Home() {
             setNEActive(false);
           }}
         >
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1499,7 +1517,7 @@ export default function Home() {
             setCSActive(false);
           }}
         >
-          <div className="fixed left-[18.5%] top-[25.5%]  w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%]  w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1569,7 +1587,7 @@ export default function Home() {
             setM0Active(false);
           }}
         >
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1646,7 +1664,7 @@ export default function Home() {
             setSMActive(false);
           }}
         >
-          <div className="fixed left-[18.5%] top-[25.5%] w-screen overflow-y-auto">
+          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -1921,7 +1939,7 @@ export default function Home() {
 
       <main className="global-margin w-[1200px]">
         <Navbar />
-        <div className={`relative mt-20 sm:grid sm:grid-cols-12 `}>
+        <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
           <SideNav activeState={activeState} />
 
           <div
@@ -2070,6 +2088,7 @@ export default function Home() {
                   rotateY: 0,
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: 0.6,
+                  translateY: scrollYProgress.to(() => scrollYInterpolate()),
                 }}
                 className={`shadow-layer absolute z-50 grid w-[856px] grid-cols-12`}
               >
@@ -2080,7 +2099,8 @@ export default function Home() {
                         className={classNames(
                           activeState === 1 ||
                             activeState === 2 ||
-                            activeState === 8
+                            activeState === 8 ||
+                            activeState === 9
                             ? 'text-transparent'
                             : 'text-[#A8A8A8]',
                           'pb-4 text-base font-normal',
@@ -4229,6 +4249,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: 0.6,
                   top: scrollYProgress.to(() => scrollInterpolate(128)),
+                  translateY: scrollYProgress.to(() => scrollYInterpolate()),
                 }}
                 className={classNames(
                   activeState === 6 || activeState === 7 ? '' : '',
@@ -4520,13 +4541,16 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: 0.6,
                   top: scrollYProgress.to(() => scrollInterpolate(256)),
+                  translateY: scrollYProgress.to(() => scrollYInterpolate()),
+                  opacity: scrollYProgress.to(() => {
+                    if (activeState === 6 || activeState === 7)
+                      return scrollInterpolate(1);
+                    else return 1;
+                  }),
                 }}
                 className={classNames(
-                  activeState === 7
-                    ? 'opacity-0 transition ease-in'
-                    : 'opacity-100 ',
                   activeState === 8 || activeState === 9
-                    ? 'z-50  transition  ease-in'
+                    ? 'z-50 transition ease-in'
                     : 'z-20 ',
                   `shadow-layer absolute grid w-[856px] grid-cols-12 `,
                 )}
