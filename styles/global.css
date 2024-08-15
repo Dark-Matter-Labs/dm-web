@@ -127,11 +127,17 @@ img {
   }
 
   .t2 {
-    @apply sticky bottom-0 left-0 right-0 top-[-10vh];
+    @apply sticky bottom-0 left-0 right-0 top-[-20vh] max-[1440px]:top-[-20vh] md:top-[-10vh];
+  }
+
+  @media (max-width: 1440px) {
+    .t2 {
+      top: -20vh;
+    }
   }
 
   .t3 {
-    @apply relative left-0 right-0 mt-[220rem];
+    @apply relative left-0 right-0 mt-[223.8rem];
   }
 }
 

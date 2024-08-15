@@ -36,6 +36,9 @@ module.exports = {
         15: '54.7px',
         16: '60px',
       },
+      screens: {
+        'matrix': '1195px',
+      },
     },
   },
   plugins: [],

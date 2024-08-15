@@ -8,9 +8,6 @@ function classNames(...classes) {
 
 function Accordion({ activeState, title, description, link, scrollPos }) {
   const [open, setOpen] = useState(false);
-  let toggleHandler = (e) => {
-    setOpen(!open);
-  };
 
   useEffect(() => {
     if (activeState) {
@@ -30,7 +27,6 @@ function Accordion({ activeState, title, description, link, scrollPos }) {
     <div className="relative pb-4">
       <div
         className="relative flex items-start space-x-3"
-        onClick={toggleHandler}
       >
         <div className="min-w-0 flex-1">
           <animated.div

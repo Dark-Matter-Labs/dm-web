@@ -2051,64 +2051,6 @@ export default function Home() {
                 </div>
               </Transition>
 
-              {/* <Transition show={activeState === 2}>
-                <div className="absolute -right-[4rem] top-[17rem] max-w-[8rem] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <h2 className="text-right text-[18px] text-[#A8A8A8]">
-                    Labs
-                  </h2>
-                  <p className="text-right text-[12px] leading-[14px] text-[#595959]">
-                    exploring structural alternatives to the everyday codes of
-                    society
-                  </p>
-                  <div
-                    style={{ height: '45px' }}
-                    className="vertical-line"
-                  ></div>
-                </div>
-              </Transition>
-
-              <Transition show={activeState === 2}>
-                <div className=" absolute -right-[4rem] top-[29.5rem] max-w-[6rem] data-[closed]:opacity-0 ">
-                  <h2 className="text-right text-[18px] text-[#A8A8A8]">
-                    Studios
-                  </h2>
-                  <p className="text-right text-[12px] leading-[14px] text-[#595959]">
-                    support the Labs and Arcs by providing specific skills and
-                    craft
-                  </p>
-                  <div
-                    style={{ height: '20px' }}
-                    className="vertical-line"
-                  ></div>
-                </div>
-              </Transition>
-
-              <Transition show={activeState === 2}>
-                <div className="absolute right-[35rem] top-[30rem] max-w-[8rem] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <div
-                    style={{ height: '40px' }}
-                    className="vertical-line2"
-                  ></div>
-                  <h2 className="text-left text-[18px] text-[#A8A8A8]">Arcs</h2>
-                  <p className="text-left text-[12px] leading-[14px] text-[#595959]">
-                    have directional goals embedded in diverse contexts
-                  </p>
-                </div>
-              </Transition>
-
-              <Transition show={activeState === 2}>
-                <div className="absolute right-[35rem] top-[42rem] z-[90] max-w-[10rem] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <hr />
-                  <h2 className="text-left text-[18px] text-[#A8A8A8]">
-                    Org Dev
-                  </h2>
-                  <p className="text-left text-[12px] leading-[14px] text-[#595959]">
-                    providing the foundational infrastructure for the full Dm
-                    Ecosystem
-                  </p>
-                </div>
-              </Transition> */}
-
               <animated.div
                 style={{
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
@@ -4458,7 +4400,7 @@ export default function Home() {
                       className={classNames(
                         activeState === 7
                           ? 'text-[#A8A8A8]'
-                          : 'ext-transparent',
+                          : 'text-transparent',
                         'text-base font-normal ',
                       )}
                     >

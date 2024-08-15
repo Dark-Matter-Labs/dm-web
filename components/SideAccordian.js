@@ -7,7 +7,7 @@ function classNames(...classes) {
 
 function SideNav({ activeState }) {
   return (
-    <div className=" bg-nav col-span-3 hidden max-w-xs lg:block">
+    <div className=" bg-nav col-span-3 hidden max-w-xs matrix:block">
       <div
         className={classNames(
           activeState === 2 ||
@@ -62,7 +62,7 @@ function SideNav({ activeState }) {
             title="Intersections"
             description="Each project in our portfolio contributes to a number of systemic capabilities. In doing so they intersect with the Labs, Arcs and Studios in various configurations. This allows us to prioritise flexible, compound learning across our internal and external ecosystems. Some projects are not part of an Arc, but each is attached to a Lab (or multiple Labs) where they contribute to building systemic capabilities."
             link=""
-            scrollPos={3100}
+            scrollPos={4200}
           />
           <Accordion
             activeState={activeState == 8}
