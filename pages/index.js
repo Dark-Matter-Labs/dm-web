@@ -4240,7 +4240,7 @@ export default function Home() {
                     </h2>
                   </div>
 
-                  <div className="mt-[86px] grid grid-cols-9">
+                  <div className="mt-[87px] grid grid-cols-9">
                     <div className="studio-layer opacity-0"></div>
 
                     <div className="studio-layer">
@@ -4369,7 +4369,7 @@ export default function Home() {
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                       <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                     </div>
-                    <div className="studio-layer">
+                    <div className="studio-layer mr-1.5">
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4391,8 +4391,8 @@ export default function Home() {
                 </div>
                 <div
                   className={classNames(
-                    activeState === 6 || activeState === 7 ? 'block' : '',
-                    ' mt-[6em] text-right',
+                    activeState === 7 || activeState === 8 ? 'mt-[6em] ' : 'mt-[5.89em] ',
+                    'block text-right',
                   )}
                 >
                   <div className="">
