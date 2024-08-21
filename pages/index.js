@@ -7,6 +7,9 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import Navbar from '../components/Navbar';
 import SideNav from '../components/SideAccordian';
+import Arc from '../components/Arc';
+import Lab from '../components/Lab';
+
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
 import labsOverlay from '../images/labs.svg';
@@ -259,6 +262,91 @@ export default function Home() {
     } else {
       return 0;
     }
+  };
+
+  const bgHoverInterpolate = (stepMultiplier, isActive) => {
+    // Starting color: #292929 (rgb(41, 41, 41))
+    let startColor = { r: 41, g: 41, b: 41 };
+
+    // Ending color: #595959 (rgb(89, 89, 89))
+    let endColor = { r: 89, g: 89, b: 89 };
+
+    if (isActive) {
+      return `rgb(${endColor.r}, ${endColor.g}, ${endColor.b})`;
+    }
+
+    let scrollTop = scrollY;
+
+    if (
+      scrollY > startSticky + step &&
+      scrollY <= startSticky + stepMultiplier * step
+    ) {
+      let startScroll = startSticky + step; // Start of the range (scroll position in pixels)
+      let endScroll = startSticky + stepMultiplier * step; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollTop - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Calculate the interpolated color
+      let newColor = {
+        r: Math.round(
+          startColor.r + (endColor.r - startColor.r) * scrollFactor,
+        ),
+        g: Math.round(
+          startColor.g + (endColor.g - startColor.g) * scrollFactor,
+        ),
+        b: Math.round(
+          startColor.b + (endColor.b - startColor.b) * scrollFactor,
+        ),
+      };
+      return `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`;
+    } else if (
+      scrollY > startSticky + stepMultiplier * step &&
+      scrollY <= startSticky + (stepMultiplier + 1) * step
+    ) {
+      let startScroll = startSticky + stepMultiplier * step; // Start of the range (scroll position in pixels)
+      let endScroll = startSticky + (stepMultiplier + 1) * step; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollTop - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Calculate the interpolated color
+      let newColor = {
+        r: Math.round(endColor.r + (startColor.r - endColor.r) * scrollFactor),
+        g: Math.round(endColor.g + (startColor.g - endColor.g) * scrollFactor),
+        b: Math.round(endColor.b + (startColor.b - endColor.b) * scrollFactor),
+      };
+      return `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`;
+    } else return `rgb(${startColor.r}, ${startColor.g}, ${startColor.b})`;
+  };
+
+  const opacityInterpolate = (start, end) => {
+
+
+    // Get the current scroll position
+    let scrollTop = scrollY;
+
+    // Define the scroll range where the opacity change should happen
+    let startScroll = start; // Offset for the start of the range (scroll position in pixels)
+    let endScroll = end; // End of the range (scroll position in pixels)
+
+    // Normalize the scroll position within the defined range
+    let scrollFactor = (scrollTop - startScroll) / (endScroll - startScroll);
+
+    // Clamp the scrollFactor between 0 and 1
+    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+    // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+    let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+    return newOpacity;
+  
   };
 
   const scrollYInterpolate = () => {
@@ -1072,7 +1160,7 @@ export default function Home() {
                     as="h3"
                     className="font-FKmedium text-2xl text-[#F5F5F5]"
                   >
-                    Philanthropic Futures{' '}
+                    Philanthropy Futures{' '}
                     <span className="align-super text-lg uppercase">lab</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
@@ -1416,12 +1504,12 @@ export default function Home() {
                     as="h3"
                     className="font-FKmedium text-2xl text-[#F5F5F5]"
                   >
-                    Wild Infrastructure{' '}
+                    Nature as Infrastructure{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
                     <p className="font-FKregular text-base text-[#C6C6C6]">
-                      the Wi Arc is developing practical pathways to support
+                      the Ni Arc is developing practical pathways to support
                       regenerative, respectful and resilient collaborations
                       between human and natural infrastructures. These
                       interventions are grounded in system dynamics such as
@@ -1943,7 +2031,7 @@ export default function Home() {
       <main className="global-margin w-[1200px]">
         <Navbar />
         <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
-          <SideNav activeState={activeState} />
+          <SideNav activeState={activeState} scrollY={scrollY} />
 
           <div
             className={`relative col-span-9 mx-auto w-[690px] justify-self-end`}
@@ -2027,27 +2115,36 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
-              <Transition show={activeState === 2 || activeState === 3}>
-                <div className="absolute -right-[4rem] top-[18.2rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <Image src={labsOverlay} />
-                </div>
-              </Transition>
+              {(activeState === 1 ||
+                activeState === 2 ||
+                activeState === 3) && (
+                <animated.div
+                  style={{
+                    opacity: scrollYProgress.to(() =>
+                      opacityInterpolate(1100, 1500),
+                    ),
+                  }}
+                  className="absolute -right-[4rem] top-[18.2rem] z-[99]  "
+                >
+                  <Image src={labsOverlay} alt="labs overlay" />
+                </animated.div>
+              )}
 
               <Transition show={activeState === 2 || activeState === 5}>
                 <div className="absolute -right-[4rem] top-[30.5rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <Image src={studiosOverlay} />
+                  <Image src={studiosOverlay} alt="studios overlay" />
                 </div>
               </Transition>
 
               <Transition show={activeState === 2 || activeState === 4}>
                 <div className="absolute left-[4rem] top-[30rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <Image src={arcsOverlay} />
+                  <Image src={arcsOverlay} alt="arcs overlay" />
                 </div>
               </Transition>
 
               <Transition show={activeState === 2}>
                 <div className="absolute left-[4rem] top-[42rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <Image src={orgOverlay} />
+                  <Image src={orgOverlay} alt="org dev overlay" />
                 </div>
               </Transition>
 
@@ -2096,261 +2193,107 @@ export default function Home() {
                           Arcs
                         </h2>
                       </div>
-                      {RCactive || openRC ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classAT}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenRC(true)}
-                          onMouseLeave={() => setRCActive(false)}
-                        >
-                          <p className="text-base font-normal ">RC</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Radicle <br />
-                            Civics
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL} h-[80px] w-[80px] `}
-                          onMouseOver={() => setRCActive(true)}
-                          onClick={() => setOpenRC(true)}
-                          onMouseLeave={() => setRCActive(false)}
-                        >
-                          <p className="text-base font-normal ">RC</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Radicle <br />
-                            Civics
-                          </p>
-                        </div>
-                      )}
 
-                      {ETCactive || openETC ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenETC(true)}
-                          onMouseLeave={() => setETCActive(false)}
-                        >
-                          <p className="text-base font-normal ">LC</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Local <br />
-                            Civics
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setETCActive(true)}
-                          onClick={() => setOpenETC(true)}
-                          onMouseLeave={() => setETCActive(false)}
-                        >
-                          <p className="text-base font-normal ">LC</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Local <br /> Civics
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title="Radicle Civics"
+                        short="RC"
+                        activeState={RCactive || openRC}
+                        setActive={setRCActive}
+                        setOpen={setOpenRC}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
-                      {NZactive || openNZ ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenNZ(true)}
-                          onMouseLeave={() => setNZActive(false)}
-                        >
-                          <p className="text-base font-normal ">NZC</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            Net Zero Cities
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setNZActive(true)}
-                          onClick={() => setOpenNZ(true)}
-                          onMouseLeave={() => setNZActive(false)}
-                        >
-                          <p className="text-base font-normal ">NZC</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            Net Zero Cities
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title="Local Civics"
+                        short="LC"
+                        activeState={ETCactive || openETC}
+                        setActive={setETCActive}
+                        setOpen={setOpenETC}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
-                      {SGactive || openSG ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenSG(true)}
-                          onMouseLeave={() => setSGActive(false)}
-                        >
-                          <p className="text-base font-normal ">7G</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            7Gen <br /> Cities
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setSGActive(true)}
-                          onClick={() => setOpenSG(true)}
-                          onMouseLeave={() => setSGActive(false)}
-                        >
-                          <p className="text-base font-normal ">7G</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            7Gen <br /> Cities
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title="Net Zero Cities"
+                        short="NZC"
+                        activeState={NZactive || openNZ}
+                        setActive={setNZActive}
+                        setOpen={setOpenNZ}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
-                      {M0active || openM0 ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenM0(true)}
-                          onMouseLeave={() => setM0Active(false)}
-                        >
-                          <p className="text-base font-normal ">M0</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            M0
-                            <br /> Cities
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setM0Active(true)}
-                          onClick={() => setOpenM0(true)}
-                          onMouseLeave={() => setM0Active(false)}
-                        >
-                          <p className="text-base font-normal ">M0</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            M0
-                            <br /> Cities
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title=" 7Gen Cities"
+                        short="7G"
+                        activeState={SGactive || openSG}
+                        setActive={setSGActive}
+                        setOpen={setOpenSG}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
-                      {REactive ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL} h-[80px] w-[80px] `}
-                          onClick={() => setOpenRE(true)}
-                          onMouseLeave={() => setREActive(false)}
-                        >
-                          <p className="text-base font-normal ">RN</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            Regen Nutrition
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setREActive(true)}
-                          onClick={() => setOpenRE(true)}
-                          onMouseLeave={() => setREActive(false)}
-                        >
-                          <p className="text-base font-normal ">RN</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            Regen Nutrition
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title="M0 Cities"
+                        short="M0"
+                        activeState={M0active || openM0}
+                        setActive={setM0Active}
+                        setOpen={setOpenM0}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
-                      {WIactive || openWI ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenWI(true)}
-                          onMouseLeave={() => setWIActive(false)}
-                        >
-                          <p className="text-base font-normal ">WI</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Wild Infrastructure
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setWIActive(true)}
-                          onClick={() => setOpenWI(true)}
-                          onMouseLeave={() => setWIActive(false)}
-                        >
-                          <p className="text-base font-normal ">WI</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            Wild Infrastructure
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title="Regen Nutrition"
+                        short="RN"
+                        activeState={REactive || openRE}
+                        setActive={setREActive}
+                        setOpen={setOpenRE}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
-                      {BEactive ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenBE(true)}
-                          onMouseLeave={() => setBEActive(false)}
-                        >
-                          <p className="text-base font-normal ">BE</p>
-                          <p className="text-[9.6px] font-normal leading-normal ">
-                            Bioregional Economics
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setBEActive(true)}
-                          onClick={() => setOpenBE(true)}
-                          onMouseLeave={() => setBEActive(false)}
-                        >
-                          <p className="text-base font-normal ">BE</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Bioregional Economics
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title="Nature as Infrastructure"
+                        short="NI"
+                        activeState={WIactive || openWI}
+                        setActive={setWIActive}
+                        setOpen={setOpenWI}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
-                      {PCactive ? (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classL}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenPC(true)}
-                          onMouseLeave={() => setPCActive(false)}
-                        >
-                          <p className="text-base font-normal ">PC</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Planetary Civics
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classL}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setPCActive(true)}
-                          onClick={() => setOpenPC(true)}
-                          onMouseLeave={() => setPCActive(false)}
-                        >
-                          <p className="text-base font-normal ">PC</p>
-                          <p className="text-[9.6px] font-normal leading-normal">
-                            Planetary Civics
-                          </p>
-                        </div>
-                      )}
+                      <Arc
+                        title=" Bioregional Economics"
+                        short="BE"
+                        activeState={BEactive || openBE}
+                        setActive={setBEActive}
+                        setOpen={setOpenBE}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
+                      <Arc
+                        title="Planetary Civics"
+                        short="PC"
+                        activeState={PCactive || openPC}
+                        setActive={setPCActive}
+                        setOpen={setOpenPC}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
                     </div>
                     <div>
-                      {NEactive || openNE ? (
-                        <div
-                          className={` flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onClick={() => setOpenNE(true)}
-                          onMouseLeave={() => setNEActive(false)}
-                        >
-                          <p className="text-base font-normal ">NE</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Next Economics
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setNEActive(true)}
-                          onClick={() => setOpenNE(true)}
-                          onMouseLeave={() => setNEActive(false)}
-                        >
-                          <p className="text-base font-normal ">NE</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Next Economics
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title="Next Economics"
+                        short="NE"
+                        activeState={NEactive || openNE}
+                        setActive={setNEActive}
+                        setOpen={setOpenNE}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
 
                       {RCactive && NEactive && !openMC ? (
                         <div
@@ -2619,32 +2562,16 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {BLactive || openBL ? (
-                        <div
-                          className={`flex flex-col justify-between bg-[#595959] p-2 text-white hover:cursor-pointer ${classA} ${classAT} h-[80px] w-[80px] `}
-                          onClick={() => setOpenBL(true)}
-                          onMouseLeave={() => setBLActive(false)}
-                        >
-                          <p className="text-base font-normal ">BL</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Beyond
-                            <br /> Labour
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={` flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setBLActive(true)}
-                          onClick={() => setOpenBL(true)}
-                          onMouseLeave={() => setBLActive(false)}
-                        >
-                          <p className="text-base font-normal ">BL</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Beyond
-                            <br /> Labour
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title="Beyond Labour"
+                        short="BL"
+                        activeState={BLactive || openBL}
+                        setActive={setBLActive}
+                        setOpen={setOpenBL}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
                       {RCactive || BLactive ? (
                         <div
                           onMouseLeave={() => {
@@ -2838,33 +2765,16 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {openCS || CSactive ? (
-                        <div
-                          className="group flex h-[80px] w-[80px] flex-col justify-between bg-[#595959] p-2 text-white  hover:cursor-pointer "
-                          onClick={() => setOpenCS(true)}
-                          onMouseLeave={() => setCSActive(false)}
-                        >
-                          <p className="text-base font-normal ">CS</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Capital Systems
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onClick={() => {
-                            setOpenCS(true);
-                            setCSActive(true);
-                          }}
-                          onMouseOver={() => setCSActive(true)}
-                          onMouseLeave={() => setCSActive(false)}
-                        >
-                          <p className="text-base font-normal ">CS</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Capital Systems
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title="Capital Systems"
+                        short="CS"
+                        activeState={openCS || CSactive}
+                        setActive={setCSActive}
+                        setOpen={setOpenCS}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
                       {RCactive || CSactive ? (
                         <div
                           onMouseLeave={() => {
@@ -3093,30 +3003,16 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {PFactive || openPF ? (
-                        <div
-                          className="flex h-[80px] w-[80px] flex-col justify-between bg-[#595959] p-2 text-white  hover:cursor-pointer "
-                          onClick={() => setOpenPF(true)}
-                          onMouseLeave={() => setPFActive(false)}
-                        >
-                          <p className="text-base font-normal ">PF</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Philanthropic Futures
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setPFActive(true)}
-                          onClick={() => setOpenPF(true)}
-                          onMouseLeave={() => setPFActive(false)}
-                        >
-                          <p className="text-base font-normal ">PF</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Philanthropic Futures
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title="Philanthropy Futures"
+                        short="PF"
+                        activeState={PFactive || openPF}
+                        setActive={setPFActive}
+                        setOpen={setOpenPF}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
                       {RCactive || PFactive ? (
                         <div
                           onMouseLeave={() => {
@@ -3310,30 +3206,16 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {PBactive || openPB ? (
-                        <div
-                          className="flex h-[80px] w-[80px] flex-col justify-between bg-[#595959] p-2 text-white  hover:cursor-pointer "
-                          onClick={() => setOpenPB(true)}
-                          onMouseLeave={() => setPBActive(false)}
-                        >
-                          <p className="text-base font-normal ">PB</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Property & Beyond
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setPBActive(true)}
-                          onClick={() => setOpenPB(true)}
-                          onMouseLeave={() => setPBActive(false)}
-                        >
-                          <p className="text-base font-normal ">PB</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Property & Beyond
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title=" Property & Beyond"
+                        short="PB"
+                        activeState={PBactive || openPB}
+                        setActive={setPBActive}
+                        setOpen={setOpenPB}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
                       {RCactive || PBactive ? (
                         <div
                           onMouseLeave={() => {
@@ -3527,32 +3409,16 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {QDactive || openQD ? (
-                        <div
-                          className="flex h-[80px] w-[80px] flex-col justify-between bg-[#595959] p-2 text-white  hover:cursor-pointer "
-                          onClick={() => setOpenQD(true)}
-                          onMouseLeave={() => setQDActive(false)}
-                        >
-                          <p className="text-base font-normal ">SD</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            Societal Decisions
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`mb-1 flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] hover:cursor-pointer ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setQDActive(true)}
-                          onClick={() => setOpenQD(true)}
-                          onMouseLeave={() => setQDActive(false)}
-                        >
-                          <p className="text-base font-normal ">SD</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            Societal Decisions
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title="Societal Decisions"
+                        short="SD"
+                        activeState={QDactive || openQD}
+                        setActive={setQDActive}
+                        setOpen={setOpenQD}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
                       {RCactive || QDactive ? (
                         <div
                           onMouseLeave={() => {
@@ -3746,30 +3612,16 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {BRactive || openBR ? (
-                        <div
-                          className="flex h-[80px] w-[80px] flex-col justify-between bg-[#595959] p-2 text-white  hover:cursor-pointer "
-                          onClick={() => setOpenBR(true)}
-                          onMouseLeave={() => setBRActive(false)}
-                        >
-                          <p className="text-base font-normal ">BTR</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Beyond the Rules
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setBRActive(true)}
-                          onClick={() => setOpenBR(true)}
-                          onMouseLeave={() => setBRActive(false)}
-                        >
-                          <p className="text-base font-normal ">BTR</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Beyond the Rules
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title="Beyond the Rules"
+                        short="BTR"
+                        activeState={BRactive || openBR}
+                        setActive={setBRActive}
+                        setOpen={setOpenBR}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
                       {RCactive || BRactive ? (
                         <div
                           onMouseLeave={() => {
@@ -3963,30 +3815,16 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {SMactive || openSM ? (
-                        <div
-                          className="flex h-[80px] w-[80px] flex-col justify-between bg-[#595959] p-2 text-white  hover:cursor-pointer "
-                          onClick={() => setOpenSM(true)}
-                          onMouseLeave={() => setSMActive(false)}
-                        >
-                          <p className="text-base font-normal ">SMM</p>
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            Sensing, Modeling
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`flex flex-col justify-between bg-[#292929] p-2 text-[#A8A8A8] ${classA} ${classAT}  h-[80px] w-[80px] `}
-                          onMouseOver={() => setSMActive(true)}
-                          onClick={() => setOpenSM(true)}
-                          onMouseLeave={() => setSMActive(false)}
-                        >
-                          <p className="text-base font-normal ">SMM</p>
-                          <p className="  text-[9.6px] font-normal  leading-normal">
-                            Sensing, Modeling
-                          </p>
-                        </div>
-                      )}
+                      <Lab
+                        title="Sensing, Modeling, Mapping"
+                        short="SMM"
+                        activeState={SMactive || openSM}
+                        setActive={setSMActive}
+                        setOpen={setOpenSM}
+                        scrollYProgress={scrollYProgress}
+                        bgHoverInterpolate={bgHoverInterpolate}
+                      />
+
                       {RCactive || SMactive ? (
                         <div
                           onMouseLeave={() => {
@@ -4226,284 +4064,289 @@ export default function Home() {
                   activeState === 8 || activeState === 9
                     ? 'opacity-30 delay-300 ease-in-out'
                     : 'opacity-100',
-                  `shadow-layer absolute z-30 grid w-[856px] grid-cols-12 `,
+                  ` absolute z-30 `,
                 )}
               >
-                <div className="col-span-11 ">
-                  <div className=" text-center">
-                    <h2
-                      className={classNames(
-                        'pb-4 text-base font-normal opacity-0',
-                      )}
-                    >
-                      Labs
-                    </h2>
+                <div className="backdrop-div w-[778px]"></div>
+                <div className="content-div grid w-[856px] grid-cols-12">
+                  <div className="col-span-11 ">
+                    <div className=" text-center">
+                      <h2
+                        className={classNames(
+                          'pb-4 text-base font-normal opacity-0',
+                        )}
+                      >
+                        Labs
+                      </h2>
+                    </div>
+
+                    <div className="mt-[87px] grid w-[778px] grid-cols-9">
+                      <div className="studio-layer opacity-0"></div>
+
+                      <div className="studio-layer">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                      <div className="studio-layer">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                      <div className="studio-layer">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                      <div className="studio-layer">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                      <div className="studio-layer">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                      <div className="studio-layer">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                      <div className="studio-layer">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                      <div className="studio-layer ">
+                        <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                        <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                        <div className={`my-1.t h-[80px] w-[80px] p-2`}> </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <div className="mt-[87px] grid grid-cols-9">
-                    <div className="studio-layer opacity-0"></div>
-
-                    <div className="studio-layer">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                  <div
+                    className={classNames(
+                      activeState === 7 || activeState === 8
+                        ? 'mt-[6em] '
+                        : 'mt-[5.89em] ',
+                      'block text-right',
+                    )}
+                  >
+                    <div className="">
+                      <h2
+                        className={classNames(
+                          activeState === 7
+                            ? 'text-[#A8A8A8]'
+                            : 'text-transparent',
+                          'text-base font-normal ',
+                        )}
+                      >
+                        Studios
+                      </h2>
                     </div>
-                    <div className="studio-layer">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
+                    {CTactive || openCT ? (
+                      <div
+                        className={`flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] w-[80px] `}
+                        onClick={() => setOpenCT(true)}
+                        onMouseLeave={() => setCTActive(false)}
+                      >
+                        <p className="text-base font-normal ">CT</p>
+                        <p className=" text-[9.6px] font-normal leading-normal">
+                          Civic <br /> Tech
+                        </p>
+                      </div>
+                    ) : (
+                      <div
+                        className={`mb-1.5 mt-2 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
+                        onMouseOver={() => setCTActive(true)}
+                        onClick={() => setOpenCT(true)}
+                        onMouseLeave={() => setCTActive(false)}
+                      >
+                        <p className="text-base font-normal ">CT</p>
+                        <p className=" text-[9.6px] font-normal leading-normal">
+                          Civic <br /> Tech
+                        </p>
+                      </div>
+                    )}
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+                    {CDactive || openCD ? (
+                      <div
+                        className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                        onClick={() => setOpenCD(true)}
+                        onMouseLeave={() => setCDActive(false)}
+                      >
+                        <p className="text-base font-normal ">CD</p>
+                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                          Conversational Design
+                        </p>
+                      </div>
+                    ) : (
+                      <div
+                        className={`my-1.5 flex h-[80px] w-[80px]   flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                        onMouseOver={() => setCDActive(true)}
+                        onClick={() => setOpenCD(true)}
+                        onMouseLeave={() => setCDActive(false)}
+                      >
+                        <p className="text-base font-normal ">CD</p>
+                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                          Conversational Design
+                        </p>
+                      </div>
+                    )}
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+                    {FFactive || openFF ? (
+                      <div
+                        className={`my-1.5 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                        onClick={() => setOpenFF(true)}
+                        onMouseLeave={() => setFFActive(false)}
+                      >
+                        <p className="text-base font-normal ">FF</p>
+                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                          Foresight & Futuring
+                        </p>
+                      </div>
+                    ) : (
+                      <div
+                        className={`my-1.5 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
+                        onMouseOver={() => setFFActive(true)}
+                        onClick={() => setOpenFF(true)}
+                        onMouseLeave={() => setFFActive(false)}
+                      >
+                        <p className="text-base font-normal ">FF</p>
+                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
+                          Foresight & Futuring
+                        </p>
+                      </div>
+                    )}
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer mr-1.5">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`my-1.t h-[80px] w-[80px] p-2`}> </div>
-                    </div>
+                    {ODactive || openOD ? (
+                      <div
+                        className={`my-1.5 flex h-[80px] w-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
+                        onClick={() => setOpenOD(true)}
+                        onMouseLeave={() => setODActive(false)}
+                      >
+                        <p className=" text-base font-normal uppercase">
+                          Org Dev
+                        </p>
+                      </div>
+                    ) : (
+                      <div
+                        className={`my-1.5 flex h-[80px] w-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
+                        onMouseOver={() => setODActive(true)}
+                        onClick={() => setOpenOD(true)}
+                        onMouseLeave={() => setODActive(false)}
+                      >
+                        <p className=" text-base font-normal uppercase ">
+                          Org Dev
+                        </p>
+                      </div>
+                    )}
                   </div>
-                </div>
-                <div
-                  className={classNames(
-                    activeState === 7 || activeState === 8 ? 'mt-[6em] ' : 'mt-[5.89em] ',
-                    'block text-right',
-                  )}
-                >
-                  <div className="">
-                    <h2
-                      className={classNames(
-                        activeState === 7
-                          ? 'text-[#A8A8A8]'
-                          : 'text-transparent',
-                        'text-base font-normal ',
-                      )}
-                    >
-                      Studios
-                    </h2>
-                  </div>
-                  {CTactive || openCT ? (
-                    <div
-                      className={`flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] w-[80px] `}
-                      onClick={() => setOpenCT(true)}
-                      onMouseLeave={() => setCTActive(false)}
-                    >
-                      <p className="text-base font-normal ">CT</p>
-                      <p className=" text-[9.6px] font-normal leading-normal">
-                        Civic <br /> Tech
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className={`mb-1.5 mt-2 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
-                      onMouseOver={() => setCTActive(true)}
-                      onClick={() => setOpenCT(true)}
-                      onMouseLeave={() => setCTActive(false)}
-                    >
-                      <p className="text-base font-normal ">CT</p>
-                      <p className=" text-[9.6px] font-normal leading-normal">
-                        Civic <br /> Tech
-                      </p>
-                    </div>
-                  )}
-
-                  {CDactive || openCD ? (
-                    <div
-                      className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                      onClick={() => setOpenCD(true)}
-                      onMouseLeave={() => setCDActive(false)}
-                    >
-                      <p className="text-base font-normal ">CD</p>
-                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                        Conversational Design
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className={`my-1.5 flex h-[80px] w-[80px]   flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                      onMouseOver={() => setCDActive(true)}
-                      onClick={() => setOpenCD(true)}
-                      onMouseLeave={() => setCDActive(false)}
-                    >
-                      <p className="text-base font-normal ">CD</p>
-                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                        Conversational Design
-                      </p>
-                    </div>
-                  )}
-
-                  {FFactive || openFF ? (
-                    <div
-                      className={`my-1.5 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                      onClick={() => setOpenFF(true)}
-                      onMouseLeave={() => setFFActive(false)}
-                    >
-                      <p className="text-base font-normal ">FF</p>
-                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                        Foresight & Futuring
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className={`my-1.5 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                      onMouseOver={() => setFFActive(true)}
-                      onClick={() => setOpenFF(true)}
-                      onMouseLeave={() => setFFActive(false)}
-                    >
-                      <p className="text-base font-normal ">FF</p>
-                      <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                        Foresight & Futuring
-                      </p>
-                    </div>
-                  )}
-
-                  {ODactive || openOD ? (
-                    <div
-                      className={`my-1.5 flex h-[80px] w-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                      onClick={() => setOpenOD(true)}
-                      onMouseLeave={() => setODActive(false)}
-                    >
-                      <p className=" text-base font-normal uppercase">
-                        Org Dev
-                      </p>
-                    </div>
-                  ) : (
-                    <div
-                      className={`my-1.5 flex h-[80px] w-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
-                      onMouseOver={() => setODActive(true)}
-                      onClick={() => setOpenOD(true)}
-                      onMouseLeave={() => setODActive(false)}
-                    >
-                      <p className=" text-base font-normal uppercase ">
-                        Org Dev
-                      </p>
-                    </div>
-                  )}
                 </div>
               </animated.div>
 
