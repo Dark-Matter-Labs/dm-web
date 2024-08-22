@@ -5646,7 +5646,7 @@ export default function Home() {
                     ` backdrop-div w-[778px]`,
                   )}
                 ></div>
-                <div className="content-div grid w-[856px] grid-cols-12 ">
+                <div className="content-div grid w-[856px] grid-cols-12 shadow-layer">
                   <div className="col-span-11">
                     <div className=" text-center">
                       <h2
