@@ -12,6 +12,8 @@ import SideNav from '../components/SideAccordian';
 import Arc from '../components/Arc';
 import Lab from '../components/Lab';
 import Studio from '../components/Studio';
+import Initiative from '../components/Initiative';
+import StudioInitiative from '../components/StudioInitiative';
 
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
@@ -2477,44 +2479,16 @@ export default function Home() {
                         bgHoverInterpolate={bgHoverInterpolate}
                       />
 
-                      <div
-                        className={classNames(
-                          (RCactive && NEactive) || openMC
-                            ? 'bg-[#595959] text-white'
-                            : RCactive || NEactive
-                              ? 'bg-[#292929]  text-[#595959]'
-                              : ' bg-[#212121] text-[#595959]',
-                          'my-1.5 flex h-[80px]  w-[80px] flex-col  items-center justify-center hover:cursor-pointer ',
-                        )}
-                        onMouseEnter={() => {
-                          setRCActive(true);
-                          setNEActive(true);
-                        }}
-                        onMouseLeave={() => {
-                          setRCActive(false);
-                          setNEActive(false);
-                        }}
-                        onClick={() => {
-                          setOpenMC(true);
-                        }}
-                      >
-                        {(RCactive && NEactive) || openMC ? (
-                          <p className=" text-[9.6px] font-normal leading-normal ">
-                            Multivalent <br />
-                            currencies
-                          </p>
-                        ) : (
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            RC
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + NE
-                            <span className="align-super text-[6.6px]">L</span>
-                          </p>
-                        )}
-                      </div>
+                      <Initiative
+                        title=" Multivalent currencies"
+                        arc="RC"
+                        lab="NE"
+                        activeState={(RCactive && NEactive) || openMC}
+                        hoverState={RCactive || NEactive}
+                        setActiveLab={setNEActive}
+                        setActiveArc={setRCActive}
+                        setOpen={setOpenMC}
+                      />
 
                       {ETCactive || NEactive ? (
                         <div
@@ -2581,62 +2555,16 @@ export default function Home() {
                         </div>
                       )}
 
-                      {M0active && NEactive && !openNET ? (
-                        <div
-                          onMouseLeave={() => {
-                            setM0Active(false);
-                            setNEActive(false);
-                          }}
-                          onClick={() => {
-                            setOpenNET(true);
-                          }}
-                          className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem] text-white  hover:cursor-pointer "
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal ">
-                            New Economic
-                            <br /> Thinking
-                          </p>
-                        </div>
-                      ) : openNET ? (
-                        <div className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#595959]  py-[0.8rem]  text-white ">
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            New Economic <br />
-                            Thinking
-                          </p>
-                        </div>
-                      ) : (M0active || NEactive) && !openNET ? (
-                        <div
-                          className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  p-2 text-[#595959] ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            M0
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + NE
-                            <span className="align-super text-[6.6px]">L</span>
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  p-2 text-[#595959] ${classT} ${classA}  h-[80px] w-[80px] `}
-                          onMouseEnter={() => {
-                            setM0Active(true);
-                            setNEActive(true);
-                          }}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            M0
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + NE
-                            <span className="align-super text-[6.6px]">L</span>
-                          </p>
-                        </div>
-                      )}
+                      <Initiative
+                        title="New Economic Thinking"
+                        arc="M0"
+                        lab="NE"
+                        activeState={(M0active && NEactive) || openNET}
+                        hoverState={M0active || NEactive}
+                        setActiveLab={setNEActive}
+                        setActiveArc={setM0Active}
+                        setOpen={setOpenNET}
+                      />
 
                       {REactive || NEactive ? (
                         <div
@@ -3069,60 +2997,18 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {WIactive && CSactive && !openTAI ? (
-                        <div
-                          onMouseLeave={() => {
-                            setWIActive(false);
-                            setCSActive(false);
-                          }}
-                          onClick={() => {
-                            setOpenTAI(true);
-                          }}
-                          className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer "
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal ">
-                            TreesAI
-                          </p>
-                        </div>
-                      ) : openTAI ? (
-                        <div className=" my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white ">
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            TreesAI
-                          </p>
-                        </div>
-                      ) : (WIactive || CSactive) && !openTAI ? (
-                        <div
-                          className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  p-2 text-[#595959] ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            NZ
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + CS
-                            <span className="align-super text-[6.6px]">L</span>
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121]  p-2 text-[#595959] ${classT} ${classA}  h-[80px] w-[80px] `}
-                          onMouseEnter={() => {
-                            setWIActive(true);
-                            setCSActive(true);
-                          }}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            NZ
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + CS
-                            <span className="align-super text-[6.6px]">L</span>
-                          </p>
-                        </div>
-                      )}
+
+                      <Initiative
+                        title="TreesAI"
+                        arc="NI"
+                        lab="CS"
+                        activeState={(WIactive && CSactive) || openTAI}
+                        hoverState={WIactive || CSactive}
+                        setActiveLab={setCSActive}
+                        setActiveArc={setWIActive}
+                        setOpen={setOpenTAI}
+                      />
+
                       {BEactive || CSactive ? (
                         <div
                           onMouseLeave={() => {
@@ -4032,58 +3918,17 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {NZactive && CTactive && !openCL ? (
-                        <div
-                          className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem] text-white  hover:cursor-pointer "
-                          onMouseLeave={() => {
-                            setNZActive(false);
-                            setCTActive(false);
-                          }}
-                          onClick={() => {
-                            setOpenCL(true);
-                          }}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal ">
-                            CircuLaw
-                          </p>
-                        </div>
-                      ) : openCL ? (
-                        <div className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#595959] py-[1.7rem]  text-white ">
-                          <p className=" text-[9.6px] font-normal leading-normal ">
-                            CircuLaw
-                          </p>
-                        </div>
-                      ) : (NZactive || SMactive) && !openCL ? (
-                        <div className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#292929] p-2  text-[#595959] ">
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            NZ
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + CT
-                            <span className="align-super text-[6.6px]">S</span>
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] p-2 text-[#595959] ${classT} ${classA}  h-[80px] w-[80px] `}
-                          onMouseEnter={() => {
-                            setNZActive(true);
-                            setCTActive(true);
-                          }}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            NZ
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + CT
-                            <span className="align-super text-[6.6px]">S</span>
-                          </p>
-                        </div>
-                      )}
+                      <StudioInitiative
+                        title="CircuLaw"
+                        arc="NZ"
+                        studio="CT"
+                        activeState={(NZactive && CTactive) || openCL}
+                        hoverState={NZactive || SMactive}
+                        setActiveStudio={setCTActive}
+                        setActiveArc={setNZActive}
+                        setOpen={setOpenCL}
+                      />
+
                       {SGactive || SMactive ? (
                         <div
                           onMouseLeave={() => {

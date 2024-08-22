@@ -1,0 +1,53 @@
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
+function Initiative({
+  title,
+  arc,
+  studio,
+  activeState,
+  hoverState,
+  setActiveStudio,
+  setActiveArc,
+  setOpen,
+}) {
+  return (
+    <div
+      className={classNames(
+        activeState
+          ? 'bg-[#595959] text-white'
+          : hoverState
+            ? 'bg-[#292929]  text-[#595959]'
+            : ' bg-[#212121] text-[#595959]',
+        'my-1.5 flex h-[80px]  w-[80px] flex-col  items-center justify-center hover:cursor-pointer ',
+      )}
+      onMouseEnter={() => {
+        setActiveArc(true);
+        setActiveStudio(true);
+      }}
+      onMouseLeave={() => {
+        setActiveArc(false);
+        setActiveStudio(false);
+      }}
+      onClick={() => {
+        setOpen(true);
+      }}
+    >
+      {activeState ? (
+        <p className=" text-center text-[9.6px] font-normal leading-normal">
+          {title}
+        </p>
+      ) : (
+        <p className=" text-[9.6px] font-normal leading-normal">
+          {' '}
+          {arc}
+          <span className="align-super text-[6.6px]">A</span> + {studio}
+          <span className="align-super text-[6.6px]">S</span>
+        </p>
+      )}
+    </div>
+  );
+}
+
+export default Initiative;
