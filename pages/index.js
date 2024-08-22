@@ -14,6 +14,7 @@ import Lab from '../components/Lab';
 import Studio from '../components/Studio';
 import Initiative from '../components/Initiative';
 import StudioInitiative from '../components/StudioInitiative';
+import Popup from '../components/Popup';
 
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
@@ -222,6 +223,45 @@ export default function Home() {
   const [openCD, setOpenCD] = useState(false);
   const [openFF, setOpenFF] = useState(false);
   const [openOD, setOpenOD] = useState(false);
+
+  const [openDomainA, setOpenDomainA] = useState(false);
+  const [openDomainA1, setOpenDomainA1] = useState(false);
+  const [openDomainA2, setOpenDomainA2] = useState(false);
+  const [openDomainA3, setOpenDomainA3] = useState(false);
+  const [openDomainA4, setOpenDomainA4] = useState(false);
+
+  const [openDomainB, setOpenDomainB] = useState(false);
+  const [openDomainB1, setOpenDomainB1] = useState(false);
+  const [openDomainB2, setOpenDomainB2] = useState(false);
+  const [openDomainB3, setOpenDomainB3] = useState(false);
+  const [openDomainB4, setOpenDomainB4] = useState(false);
+
+  const [openDomainC, setOpenDomainC] = useState(false);
+  const [openDomainC1, setOpenDomainC1] = useState(false);
+  const [openDomainC2, setOpenDomainC2] = useState(false);
+  const [openDomainC3, setOpenDomainC3] = useState(false);
+  const [openDomainC4, setOpenDomainC4] = useState(false);
+  const [openDomainC5, setOpenDomainC5] = useState(false);
+  const [openDomainC6, setOpenDomainC6] = useState(false);
+
+  const [openDomainD, setOpenDomainD] = useState(false);
+  const [openDomainD1, setOpenDomainD1] = useState(false);
+  const [openDomainD2, setOpenDomainD2] = useState(false);
+  const [openDomainD3, setOpenDomainD3] = useState(false);
+  const [openDomainD4, setOpenDomainD4] = useState(false);
+  const [openDomainD5, setOpenDomainD5] = useState(false);
+
+  const [openDomainE, setOpenDomainE] = useState(false);
+  const [openDomainE1, setOpenDomainE1] = useState(false);
+  const [openDomainE2, setOpenDomainE2] = useState(false);
+  const [openDomainE3, setOpenDomainE3] = useState(false);
+  const [openDomainE4, setOpenDomainE4] = useState(false);
+
+  const [openDomainF, setOpenDomainF] = useState(false);
+  const [openDomainF1, setOpenDomainF1] = useState(false);
+  const [openDomainF2, setOpenDomainF2] = useState(false);
+  const [openDomainF3, setOpenDomainF3] = useState(false);
+  const [openDomainF4, setOpenDomainF4] = useState(false);
 
   const scrollInterpolate = (toInterpolate) => {
     if (toInterpolate - toInterpolate * scrollFraction > 0) {
@@ -528,136 +568,41 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Transition.Root show={openCS} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenCS}>
-          <div className="fixed left-[14.7%] top-[25.5%] z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenCS(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
-                  >
-                    Capital Systems{' '}
-                    <span className="align-super text-lg uppercase">lab</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a target="_blank" href="https://darkmatterlabs.capital/">
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
-                      the DmCS Lab is working to reframe what is possible within
-                      the financial capital markets. This Lab is working with
-                      the hypothesis that the{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://uploads-ssl.webflow.com/5ddbd6d8c8721f339f8284ef/5ea18eb53e44c4667e1cfebf_0411_Building%20Civic%20Capital%20(compressed).pdf"
-                      >
-                        investment logic of the current system
-                      </a>{' '}
-                      needs to be rewired to catch up with the scale of societal
-                      transition that is underway. The Lab is developing a
-                      portfolio of investable projects and new asset classes
-                      (for example a swimmable river in Austria and microgrids
-                      in Africa), that recognise that long term value is
-                      grounded in our biophysical and social reality.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
+      <Popup
+        title="Capital Systems"
+        openState={openCS}
+        setOpen={setOpenCS}
+        website="https://darkmatterlabs.capital/"
+        publication=""
+        content={
+          <p className="font-FKregular text-base text-[#C6C6C6]">
+            the DmCS Lab is working to reframe what is possible within the
+            financial capital markets. This Lab is working with the hypothesis
+            that the{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://uploads-ssl.webflow.com/5ddbd6d8c8721f339f8284ef/5ea18eb53e44c4667e1cfebf_0411_Building%20Civic%20Capital%20(compressed).pdf"
+            >
+              investment logic of the current system
+            </a>{' '}
+            needs to be rewired to catch up with the scale of societal
+            transition that is underway. The Lab is developing a portfolio of
+            investable projects and new asset classes (for example a swimmable
+            river in Austria and microgrids in Africa), that recognise that long
+            term value is grounded in our biophysical and social reality.
+          </p>
+        }
+      />
 
-      <Transition.Root show={openRC} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenRC}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenRC(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
-                    >
-                      Radicle Civics{' '}
-                      <span className="align-super text-lg uppercase">Arc</span>
-                    </Dialog.Title>
-                    <div className="flex py-2">
-                      <Image src={webIcon} alt="website icon" />
-                      <a target="_blank" href="https://radiclecivics.cc/">
-                        <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
-                          Website
-                        </p>
-                      </a>
-                    </div>
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
-                      Radicle Civics is a playful nod towards emergent shoots of
-                      possibility (in botany, the radicle is the first part of a
-                      seedling to emerge during the process of germination).
-                      This arc aims to build cultural demonstrations that
-                      support{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://provocations.darkmatterlabs.org/radicle-civics-building-proofs-of-possibilities-for-a-civic-economy-and-society-ee28baeeec70"
-                      >
-                        three
-                      </a>{' '}
-                      new ways of being in the world: from assets to agents,
-                      from externalities to entanglements, and from
-                      public/public to commoning.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
+      {/* <Popup
+       title=''
+       openState={}
+       setOpen={}
+       website=''
+       publication=''
+       content={}
+      /> */}
 
       <Transition.Root show={openNZ} as={Fragment}>
         <Dialog as="div" className="relative z-[60]" onClose={setOpenNZ}>
@@ -2178,6 +2123,1546 @@ export default function Home() {
                         stewarding the regenerative health of a bioregion
                       </a>
                       .
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainA} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainA(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      Domain A: Ontology & epistemology
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Domain A relates to the values, wisdom, spirituality, ways
+                      of being and ways of knowing that are dominant in our
+                      culture. This domain results in the collective
+                      sense-making of what it means to live a good life and it
+                      is this value system that then shapes the political and
+                      economic structures below.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainB} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainB(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      Domain B: Money & valuation logic
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Expresses the underlying theory of value that drives our
+                      investment and institutional logic. Money is a powerful
+                      expression of this axiology; a) who issues a currency, b)
+                      the qualities it is given, and c) what it can be used for.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainC} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainC(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      Domain C: Financial processes & Investment
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Represents how we structure and allocate capital stocks
+                      (this is currently dominated by financial capital but also
+                      includes intangible and ecological stocks). This part of
+                      the system determines which activities are viable and how
+                      value flows through the system.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainD} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainD(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      Domain D: Ownership, law & governance
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      This domain determines who has the rights to the social
+                      surplus and contains the jurisprudence to enforce social
+                      norms and systems of organising.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainE} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainE(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      Domain E: Institutional logic and policy
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      This domain looks at the institutions and blueprints that
+                      functionally underpin how we organise society. It includes
+                      social engagement processes and the communication of
+                      collective values into structural decision making.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainF} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainF(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      Domain F: Material, energy & land use
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      The physical domain represents the material and ecological
+                      economies. This domain grounds the socio-economic and
+                      ontological domains in the systems’ biophysical reality.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainA1} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA1}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainA1(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      A1: Fostering a relational worldview
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Helping people to see that relationships are the
+                      fundamental basis of living systems. If we can understand
+                      life as a series of interconnected relationships then an
+                      extractive, overshoot economy will no longer make sense.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainA2} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA2}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainA2(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      A2: Replacing profit as the collective goal
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      We want to show that profit is no longer an appropriate
+                      signal of value. A true signal of value cannot be time or
+                      geographically bound in its conception and must recognise
+                      entanglement (i.e. there is nothing to externalise in an
+                      interconnected system). This is more profound that beyond
+                      GDP initiatives - instead we are aiming at regenerative
+                      potential being the primary signal of wealth.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainA3} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA3}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainA3(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      A3: Building political will
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Finding new ways of understanding common issues, together
+                      with a clear communication of alternative response
+                      strategies. Using the housing crisis as an example;
+                      housing as a human right demands a different response than
+                      housing as a store of wealth.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainA4} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA4}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainA4(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      A4: Phenomenological measures of success (lived
+                      experience)
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Defining and testing quantitative measures of sensory
+                      experience. We want to use embodied metrics to protect and
+                      respect intrinsic value.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainB1} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB1}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainB1(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      B1: Demonstrating entangled and long-term value
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      In our current economy, price is synonymous with value. We
+                      need to visualise the vast unpriced web of relationships
+                      that creates value, so that we can prevent further
+                      degradation and make informed decisions about how we
+                      interact with diverse forms of value.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainB2} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB2}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainB2(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      B2: Decolonised, bioregional currency stewardship
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Finding ways to balance the need to exchange freely
+                      between regions and countries with protecting the unique
+                      contexts of our social & physical systems. For example,
+                      creating bioregional banks.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainB3} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB3}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainB3(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      B3: Alternative non-fungible currency systems
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Demonstrating the potential for new tokens of exchange
+                      that are linked to tangible elements of our economy. We
+                      want to show how individual resource backed currencies can
+                      be linked to form a building block towards inter-regional
+                      commons governance (links closely to B2).
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainB4} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB4}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainB4(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      B4: Visualising finite and infinite economies
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      We need to communicate a vision that opens up the future
+                      rather than closing it down. Whilst it is critical to
+                      understand the constraints (e.g. energy and carbon), we
+                      also need to seed a desire for non-competitive, infinite
+                      economies such as solidarity and knowledge.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainC1} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC1}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainC1(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      C1: Making the investment case for entangled value (DEMAND
+                      SIDE)
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Helping &#39;project developers&#39; and those that
+                      steward assets with entangled value functions to build
+                      adequate business models to be able to absorb capital.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainC2} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC2}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainC2(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      C2: Bridging demand & supply
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Building the protective governance and agreement
+                      structures that prevent extractive and asymmetric
+                      relationships between funders / investors and those
+                      receiving funds.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainC3} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC3}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainC3(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      C3: Structuring capital & investments
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Developing the necessary instruments that allow current
+                      capital holders to allocate it to assets with entangled
+                      value functions.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainC4} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC4}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainC4(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      C4: Enabling strategic ecosystem investments
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Transforming investment logics and frameworks to
+                      strategically manipulate desired shifts. For example a
+                      single investor splitting their resource into for-profit /
+                      lobbying / NFP tranches, to shift subsidies and political
+                      will to drive up costs on an extractive technology whilst
+                      uplifting a new technology.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainC5} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC5}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainC5(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      C5: Socialising the supportive narratives for alternative
+                      financing pathways
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Opening the Overton window for public and private actors
+                      in the financial system to embrace new approaches to
+                      financing.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainC6} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC6}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainC6(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      C6: Socialising transformational narratives for a
+                      regenerative financial system
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Exploring the role of the financial system in the global
+                      transition. For example, considering whether it has the
+                      potential to tip into becoming a catalyst for change or
+                      might need to collapse and be re-built for this purpose.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainD1} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD1}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainD1(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      D1: Using instruments (e.g contracts) to demonstrate
+                      alternative theories of ownership
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Practical demonstration of contracts and operating
+                      agreements that replace linear, owner-owned relationships
+                      towards a fixed point with agent-to-agent relationships
+                      towards broader goals. NB: we have previously used the
+                      term many-to-many contracts to describe this capability.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainD2} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD2}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainD2(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      D2: Elevating alternative models that recouple surplus
+                      with stewardship
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Prevent extraction over time due perverse incentives that
+                      are underpinned by corporate, tax, labour and patent laws
+                      (among others); enable and support regeneratively designed
+                      alternatives.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainD3} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD3}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainD3(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      D3: Demonstrating multi-actor governance structures
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Practical demonstration of ways of organising and
+                      governing together, as multiple actors with varying assets
+                      to contribute. This work involves revealing, acknowledging
+                      and taking coordinated action to govern emerging public
+                      goods.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainD4} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD4}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainD4(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      D4: Embedding data-augmented decision making
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Using modern technologies to collate and compute
+                      wide-ranging data points in complex contexts, so that
+                      options can be collectively understood, interrogated and
+                      acted on effectively.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainD5} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD5}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainD5(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      D5: Building deep respect for the other-than-human world,
+                      ancestors and future generations
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Supporting pathways that can practically embed the
+                      reconciliation of indigenous worldviews, and how this is
+                      reflected through alternative legal & governance
+                      mechanisms (such as the conceptualisations of justice
+                      extending to the &#39;more-than-human world&#39;).
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainE1} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE1}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainE1(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      E1: Enabling public-civic efficacy to transform place
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Supporting the learning, capabilities and power of
+                      public-civic partnerships to shape their streets,
+                      neighbourhoods and places towards collective thriving.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainE2} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE2}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainE2(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      E2: Building the foundations for planetary stewardship
+                      institutions
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Developing the foundations for stewardship institutions
+                      that extend beyond national states, to protect and govern
+                      the global commons.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainE3} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE3}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainE3(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      E3: Designing reflective, data-driven policy instruments
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Creation of instruments that are framed within ecological
+                      and social boundaries & aspirations (with clear data
+                      driven indicators) and adjust according to the context
+                      (e.g. Covid guidance changing depending on % of population
+                      infected).
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainE4} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE4}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainE4(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      E4: Place-based, policy process design
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Policy design processes shaped by the geographical
+                      context, which informs the economic, cultural and
+                      environmental drivers. We want to use policy design &
+                      co-creation as an opportunity to close the engagement gap
+                      between grassroots and government.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainF1} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF1}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainF1(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      F1: Developing collaborative, non-extractive interfaces
+                      with the physical environment.
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Building the infrastructure that will allow human
+                      activities to hold respectful, reciprocal relationships
+                      with land (and other physical elements of our
+                      environment). For example, transferring land into common
+                      ownership and layered commoning structures, where we
+                      overlay common style governance across multiple private
+                      properties.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainF2} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF2}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainF2(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      F2: Visualising material and energy flows
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Developing tools and methodologies to both track and
+                      clearly communicate how we are collectively using our
+                      shared common resources.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainF3} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF3}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainF3(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      F3: Developing a stewardship data infrastructure for the
+                      built environment
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Building a new data infrastructure that can hold cities,
+                      regions and countries to account on how they are
+                      stewarding the rights and responsibilities of using shared
+                      common resources. Ultimately this must connect on a
+                      planetary level.
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <Transition.Root show={openDomainF4} as={Fragment}>
+        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF4}>
+          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
+                      onClick={() => setOpenDomainF4(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    >
+                      F4: Designing and demonstrating autonomous, regenerative
+                      and affordable multi-purpose developments.
+                    </Dialog.Title>
+
+                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                      Exploring how we can re-common and repurpose land and
+                      building in service of a shared, equitable, material and
+                      energy light future.
                     </p>
                   </div>
                 </Dialog.Panel>
@@ -4451,7 +5936,8 @@ export default function Home() {
                   <div className="ml-4 grid grid-cols-6 gap-1.5">
                     <div className="">
                       <div
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] `}
+                        onClick={() => setOpenDomainA(true)}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
                         <p className="font-FKregular text-base leading-tight ">
                           {' '}
@@ -4463,7 +5949,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainA1(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           A-1
@@ -4474,7 +5961,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainA2(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           A-2
@@ -4485,7 +5973,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainA3(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           A-3
@@ -4497,7 +5986,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainA4(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           A-4
@@ -4531,7 +6021,8 @@ export default function Home() {
 
                     <div className="">
                       <div
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF]`}
+                        onClick={() => setOpenDomainB(true)}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF] hover:cursor-pointer`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           B
@@ -4542,7 +6033,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainB1(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className=" font-FKregular text-base leading-tight">
                           B-1
@@ -4553,7 +6045,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainB2(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           B-2
@@ -4564,7 +6057,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainB3(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           B-3
@@ -4575,7 +6069,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainB4(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           B-4
@@ -4608,7 +6103,8 @@ export default function Home() {
 
                     <div className="">
                       <div
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF]`}
+                        onClick={() => setOpenDomainC(true)}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           C
@@ -4619,7 +6115,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainC1(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           C-1
@@ -4630,7 +6127,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainC2(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           C-2
@@ -4641,7 +6139,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainC3(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           C-3
@@ -4652,7 +6151,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainC4(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           C-4
@@ -4663,7 +6163,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainC5(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           C-5
@@ -4675,7 +6176,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pl-2 pr-1 text-[#4CA866] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainC6(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pl-2 pr-1 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           C-6
@@ -4699,7 +6201,8 @@ export default function Home() {
 
                     <div className="">
                       <div
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#FFF]`}
+                        onClick={() => setOpenDomainD(true)}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           D
@@ -4710,7 +6213,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainD1(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-1
@@ -4722,7 +6226,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainD2(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-2
@@ -4734,7 +6239,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainD3(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-3
@@ -4745,7 +6251,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainD4(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-4
@@ -4756,7 +6263,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainD5(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           D-5
@@ -4784,7 +6292,8 @@ export default function Home() {
 
                     <div className="">
                       <div
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF]`}
+                        onClick={() => setOpenDomainE(true)}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           {' '}
@@ -4796,7 +6305,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainE1(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-1
@@ -4807,7 +6317,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainE2(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-2
@@ -4818,7 +6329,8 @@ export default function Home() {
                         </p>
                       </div>
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainE3(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-3
@@ -4829,7 +6341,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainE4(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-4
@@ -4861,7 +6374,8 @@ export default function Home() {
 
                     <div className="">
                       <div
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#FFF]`}
+                        onClick={() => setOpenDomainF(true)}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           F
@@ -4872,7 +6386,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainF1(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           F-1
@@ -4884,7 +6399,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainF2(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           F-2
@@ -4894,7 +6410,8 @@ export default function Home() {
                         </p>
                       </div>
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainF3(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           F-3
@@ -4906,7 +6423,8 @@ export default function Home() {
                       </div>
 
                       <div
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:bg-[#353535]`}
+                        onClick={() => setOpenDomainF4(true)}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
                         <p className="font-FKregular text-base leading-tight">
                           F-4

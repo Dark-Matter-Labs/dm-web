@@ -75,7 +75,7 @@ function SideNav({ activeState, scrollY }) {
             title="Capabilities"
             description="The capabilities form the core of Dm’s Mission and sit at the centre of the Matrix. These are the systemic goals that we have set for ourselves as we strive to build pathways towards Life-Ennobling Economies. Some examples include decolonising currency stewardship, embedding data-augmented decision making and building the foundations for planetary stewardship institutions."
             link=""
-            scrollPos={4320}
+            scrollPos={4720}
             scrollY={scrollY}
           />
           <Accordion
