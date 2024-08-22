@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useScroll, animated } from '@react-spring/web';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
+import { startSticky, step } from '../utils/constants';
+
 import Navbar from '../components/Navbar';
 import SideNav from '../components/SideAccordian';
 import Arc from '../components/Arc';
@@ -29,16 +31,11 @@ export default function Home() {
     return () => window.removeEventListener('scroll', listenScrollEvent);
   }, []);
 
-  // TODO: remove these state variables and just use activeState
   const [classT, setClassT] = useState('');
-  const [classL, setClassL] = useState('');
   const [scrollFraction, setScrollFraction] = useState();
 
   const [classA, setClassA] = useState('');
-  const [classAT, setClassAT] = useState('');
   const [classAB, setClassAB] = useState('');
-
-  const [classStudioBg, setClassStudioBg] = useState('');
 
   const [classT2, setClassT2] = useState('t1');
   const [activeState, setActiveState] = useState(1);
@@ -46,8 +43,6 @@ export default function Home() {
   const [animateOn, setAnimateOn] = useState('');
   const [scrollY, setScrollY] = useState(0);
 
-  const startSticky = 1500;
-  const step = 400;
   const animationStart = startSticky + step * 4;
   let newY;
 
@@ -68,13 +63,10 @@ export default function Home() {
     // base state
     if (window.scrollY < startSticky) {
       setClassT('');
-      setClassL('');
       setClassA('');
-      setClassAT('');
       setClassAB('');
 
       setActiveState(1);
-      setClassStudioBg('');
 
       setClassT2('t1');
       setAnimateOn('');
@@ -85,11 +77,8 @@ export default function Home() {
       window.scrollY < startSticky + step
     ) {
       setActiveState(2);
-      setClassStudioBg('');
 
       setClassT('');
-      setClassL('');
-      setClassAT('');
 
       setClassT2('t2');
       setAnimateOn('');
@@ -101,11 +90,6 @@ export default function Home() {
     ) {
       setActiveState(3);
 
-      setClassAT('labs-top');
-
-      setClassStudioBg('');
-      setClassL('');
-
       setClassT2('t2');
       setAnimateOn('');
     }
@@ -115,10 +99,6 @@ export default function Home() {
       window.scrollY < startSticky + 3 * step
     ) {
       setActiveState(4);
-      setClassAT('');
-      setClassL('arcs-left');
-
-      setClassStudioBg('');
 
       setClassT2('t2');
       setAnimateOn('');
@@ -128,10 +108,7 @@ export default function Home() {
       window.scrollY >= startSticky + 3 * step &&
       window.scrollY < startSticky + 4 * step
     ) {
-      setClassStudioBg('labs-top');
       setActiveState(5);
-      setClassL('');
-      setClassAT('');
 
       setClassT2('t2');
       setAnimateOn('');
@@ -146,9 +123,6 @@ export default function Home() {
       }
 
       setActiveState(6);
-      setClassStudioBg('');
-      setClassL('');
-      setClassAT('');
 
       setClassT2('t2');
     } else if (
@@ -156,10 +130,7 @@ export default function Home() {
       window.scrollY < animationStart + step * 3 &&
       easeFrac > 1
     ) {
-      setClassStudioBg('');
       setActiveState(7);
-      setClassL('');
-      setClassAT('');
 
       setClassT2('t2');
     }
@@ -169,10 +140,7 @@ export default function Home() {
       window.scrollY < animationStart + step * 5 &&
       easeFrac > 1
     ) {
-      setClassStudioBg('');
       setActiveState(8);
-      setClassL('');
-      setClassAT('');
 
       setClassT2('t2');
     }
@@ -319,11 +287,11 @@ export default function Home() {
       };
       return `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`;
     } else if (
-      scrollY > startSticky + stepMultiplier * step &&
-      scrollY <= startSticky + (stepMultiplier + 1) * step
+      scrollY > startSticky + (stepMultiplier + 1) * step &&
+      scrollY <= startSticky + (stepMultiplier + 2) * step
     ) {
-      let startScroll = startSticky + stepMultiplier * step; // Start of the range (scroll position in pixels)
-      let endScroll = startSticky + (stepMultiplier + 1) * step; // End of the range (scroll position in pixels)
+      let startScroll = startSticky + (stepMultiplier + 1) * step; // Start of the range (scroll position in pixels)
+      let endScroll = startSticky + (stepMultiplier + 2) * step; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollTop - startScroll) / (endScroll - startScroll);
@@ -2516,7 +2484,7 @@ export default function Home() {
                             : RCactive || NEactive
                               ? 'bg-[#292929]  text-[#595959]'
                               : ' bg-[#212121] text-[#595959]',
-                          '${classT} ${classA} my-1.5 flex h-[80px]  w-[80px] flex-col  items-center justify-center hover:cursor-pointer ',
+                          'my-1.5 flex h-[80px]  w-[80px] flex-col  items-center justify-center hover:cursor-pointer ',
                         )}
                         onMouseEnter={() => {
                           setRCActive(true);
@@ -2547,63 +2515,6 @@ export default function Home() {
                           </p>
                         )}
                       </div>
-
-                      {/* {RCactive && NEactive && !openMC ? (
-                        <div
-                          onMouseLeave={() => {
-                            setRCActive(false);
-                            setNEActive(false);
-                          }}
-                          onClick={() => {
-                            setOpenMC(true);
-                          }}
-                          className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center  bg-[#595959] text-white  hover:cursor-pointer "
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal ">
-                            Multivalent <br />
-                            currencies
-                          </p>
-                        </div>
-                      ) : openMC ? (
-                        <div className="my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center bg-[#595959]  text-white ">
-                          <p className=" text-[9.6px] font-normal leading-normal ">
-                            Multivalent <br />
-                            currencies
-                          </p>
-                        </div>
-                      ) : (RCactive || NEactive) && !openMC ? (
-                        <div
-                          className={`my-1.5 flex flex-col items-center justify-center bg-[#292929]  text-[#595959] ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            RC
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + NE
-                            <span className="align-super text-[6.6px]">L</span>
-                          </p>
-                        </div>
-                      ) : (
-                        <div
-                          className={`my-1.5 flex flex-col items-center justify-center bg-[#212121] text-[#595959] ${classT} ${classA}  h-[80px] w-[80px] `}
-                          onMouseEnter={() => {
-                            setRCActive(true);
-                            setNEActive(true);
-                          }}
-                        >
-                          <p className=" text-[9.6px] font-normal leading-normal">
-                            {' '}
-                            RC
-                            <span className="align-super text-[6.6px]">
-                              A
-                            </span>{' '}
-                            + NE
-                            <span className="align-super text-[6.6px]">L</span>
-                          </p>
-                        </div>
-                      )} */}
 
                       {ETCactive || NEactive ? (
                         <div
