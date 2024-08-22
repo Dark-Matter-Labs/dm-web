@@ -25,22 +25,6 @@ function Accordion({
     }
   }, [activeState]);
 
-  // from: { opacity: '0', maxHeight: '-10px' },
-  // to: { opacity: '1', maxHeight: open ? '420px' : '25px' },
-
-  const opacityInterpolate = (startScroll, endScroll) => {
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 and 1
-      return scrollFactor; // Linear interpolation for opacity
-    
-  };
-
   const colorInterpolate = (startScroll, endScroll) => {
     // Starting color: #595959
     let startColor = { r: 89, g: 89, b: 89 };
@@ -94,14 +78,7 @@ function Accordion({
               {link !== '' ? <Link href={link}>{title}</Link> : <>{title}</>}
             </animated.h4>
             {activeState && (
-              <animated.p
-                // style={{
-                //   opacity: scrollYProgress.to(() =>
-                //     opacityInterpolate(scrollPos - 400, scrollPos+200),
-                //   ),
-                // }}
-                className="text_animate pl-2 font-PPbook text-[15.8px] leading-[23.1px] text-grey-3"
-              >
+              <animated.p className="text_animate pl-2 font-PPbook text-[15.8px] leading-[23.1px] text-grey-3">
                 {description}
               </animated.p>
             )}

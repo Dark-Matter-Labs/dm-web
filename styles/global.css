@@ -157,7 +157,6 @@ img {
 }
 
 .content-div {
-  z-index: 20;
 }
 
 .shadow-layer {
@@ -202,10 +201,8 @@ hr {
 }
 
 .text_animate {
-  transition:  0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   transform-origin: center;
-  
-
 }
 
 ::selection {

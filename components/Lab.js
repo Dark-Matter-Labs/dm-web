@@ -17,7 +17,7 @@ function Lab({
     <animated.div
       style={{
         backgroundColor: scrollYProgress.to(() =>
-          bgHoverInterpolate(2, activeState),
+          bgHoverInterpolate(0, activeState),
         ),
       }}
       className={classNames(

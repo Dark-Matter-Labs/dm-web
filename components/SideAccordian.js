@@ -55,7 +55,7 @@ function SideNav({ activeState, scrollY }) {
             scrollY={scrollY}
           />
           <Accordion
-            activeState={activeState == 5 ||activeState == 6}
+            activeState={activeState == 5 || activeState == 6}
             title="Studios"
             description="Studios are the connective tissue that support both the Labs and Missions. The studios explore themes that help our work to be implemented and more widely understood. For instance, the Civ Tech Studio develops the technological tools and knowledge for prototypes tested across the Dm ecosystem. Meanwhile, the Org DevStudio, positioned at the base of the Matrix, provides critical infrastructure support for the entire Dm Ecosystem."
             link=""
@@ -63,7 +63,7 @@ function SideNav({ activeState, scrollY }) {
             scrollY={scrollY}
           />
           <Accordion
-            activeState={ activeState == 7}
+            activeState={activeState == 7}
             title="Intersections"
             description="Each project in our portfolio contributes to a number of systemic capabilities. In doing so they intersect with the Labs, Arcs and Studios in various configurations. This allows us to prioritise flexible, compound learning across our internal and external ecosystems. Some projects are not part of an Arc, but each is attached to a Lab (or multiple Labs) where they contribute to building systemic capabilities."
             link=""

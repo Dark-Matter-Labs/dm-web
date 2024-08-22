@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar';
 import SideNav from '../components/SideAccordian';
 import Arc from '../components/Arc';
 import Lab from '../components/Lab';
+import Studio from '../components/Studio';
 
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
@@ -264,6 +265,20 @@ export default function Home() {
     }
   };
 
+  const opacityInterpolate = (startScroll, endScroll, flip) => {
+    // Normalize the scroll position within the defined range
+    let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+    // Clamp the scrollFactor between 0 and 1
+    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+    // Interpolate opacity between 0 and 1
+
+    if (flip) {
+      return 1 - 0.7 * scrollFactor;
+    } else return 2 * scrollFactor; // Linear interpolation for opacity
+  };
+
   const bgHoverInterpolate = (stepMultiplier, isActive) => {
     // Starting color: #292929 (rgb(41, 41, 41))
     let startColor = { r: 41, g: 41, b: 41 };
@@ -278,11 +293,11 @@ export default function Home() {
     let scrollTop = scrollY;
 
     if (
-      scrollY > startSticky + step &&
-      scrollY <= startSticky + stepMultiplier * step
+      scrollY > startSticky + stepMultiplier * step &&
+      scrollY <= startSticky + (stepMultiplier + 1) * step
     ) {
-      let startScroll = startSticky + step; // Start of the range (scroll position in pixels)
-      let endScroll = startSticky + stepMultiplier * step; // End of the range (scroll position in pixels)
+      let startScroll = startSticky + stepMultiplier * step; // Start of the range (scroll position in pixels)
+      let endScroll = startSticky + (stepMultiplier + 1) * step; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollTop - startScroll) / (endScroll - startScroll);
@@ -326,27 +341,201 @@ export default function Home() {
     } else return `rgb(${startColor.r}, ${startColor.g}, ${startColor.b})`;
   };
 
-  const opacityInterpolate = (start, end) => {
+  const arcOverlayOpacityInterpolate = () => {
+    if (scrollY <= startSticky) {
+      // Define the scroll range where the opacity change should happen
+      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky; // End of the range (scroll position in pixels)
 
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
 
-    // Get the current scroll position
-    let scrollTop = scrollY;
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
 
-    // Define the scroll range where the opacity change should happen
-    let startScroll = start; // Offset for the start of the range (scroll position in pixels)
-    let endScroll = end; // End of the range (scroll position in pixels)
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
 
-    // Normalize the scroll position within the defined range
-    let scrollFactor = (scrollTop - startScroll) / (endScroll - startScroll);
+      return newOpacity;
+    } else if (scrollY <= startSticky + step) {
+      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step; // End of the range (scroll position in pixels)
 
-    // Clamp the scrollFactor between 0 and 1
-    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
 
-    // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-    let newOpacity = scrollFactor; // Linear interpolation for opacity
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
 
-    return newOpacity;
-  
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 1 - newOpacity;
+    } else if (
+      scrollY > startSticky + step &&
+      scrollY <= startSticky + 2 * step
+    ) {
+      // Get the current scroll position
+
+      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + 2 * step; // End of the range (scroll position in pixels)
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      let newOpacity = scrollFactor;
+
+      return newOpacity;
+    } else if (
+      scrollY > startSticky + 2 * step &&
+      scrollY <= startSticky + 3 * step
+    ) {
+      let startScroll = startSticky + 2 * step;
+      let endScroll = startSticky + 3 * step;
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      let newOpacity = scrollFactor;
+
+      return 1 - newOpacity;
+    } else return 0;
+  };
+
+  const labOverlayOpacityInterpolate = () => {
+    if (scrollY <= startSticky) {
+      // Define the scroll range where the opacity change should happen
+      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return newOpacity;
+    } else if (scrollY < startSticky + step) {
+      return 1;
+    } else if (
+      scrollY >= startSticky + step &&
+      scrollY <= startSticky + 2 * step
+    ) {
+      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + 2 * step; // End of the range (scroll position in pixels)
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      let newOpacity = scrollFactor;
+
+      return 1 - newOpacity;
+    } else return 0;
+  };
+
+  const studioOverlayOpacityInterpolate = () => {
+    if (scrollY <= startSticky) {
+      // Define the scroll range where the opacity change should happen
+      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return newOpacity;
+    } else if (scrollY <= startSticky + step) {
+      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 1 - newOpacity;
+    } else if (
+      scrollY > startSticky + step &&
+      scrollY <= startSticky + 2 * step
+    ) {
+      return 0;
+    } else if (
+      scrollY > startSticky + 2 * step &&
+      scrollY <= startSticky + 3 * step
+    ) {
+      let startScroll = startSticky + 2 * step;
+      let endScroll = startSticky + 3 * step;
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      let newOpacity = scrollFactor;
+
+      return newOpacity;
+    } else if (
+      scrollY > startSticky + 3 * step &&
+      scrollY <= startSticky + 4 * step
+    ) {
+      let startScroll = startSticky + 3 * step;
+      let endScroll = startSticky + 4 * step;
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      let newOpacity = scrollFactor;
+
+      return 1 - newOpacity;
+    } else return 0;
+  };
+
+  const orgOverlayOpacityInterpolate = () => {
+    if (scrollY <= startSticky) {
+      // Define the scroll range where the opacity change should happen
+      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return newOpacity;
+    } else if (scrollY <= startSticky + step) {
+      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 1 - newOpacity;
+    } else return 0;
   };
 
   const scrollYInterpolate = () => {
@@ -2115,38 +2304,53 @@ export default function Home() {
             </div>
 
             <div className={`${classT2}`}>
-              {(activeState === 1 ||
-                activeState === 2 ||
-                activeState === 3) && (
-                <animated.div
-                  style={{
-                    opacity: scrollYProgress.to(() =>
-                      opacityInterpolate(1100, 1500),
-                    ),
-                  }}
-                  className="absolute -right-[4rem] top-[18.2rem] z-[99]  "
-                >
-                  <Image src={labsOverlay} alt="labs overlay" />
-                </animated.div>
+              {activeState !== 6 && activeState !== 7 && activeState !== 8 && (
+                <>
+                  <animated.div
+                    style={{
+                      opacity: scrollYProgress.to(() =>
+                        labOverlayOpacityInterpolate(),
+                      ),
+                    }}
+                    className="absolute -right-[4rem] top-[18.2rem] z-[99]"
+                  >
+                    <Image src={labsOverlay} alt="labs overlay" />
+                  </animated.div>
+
+                  <animated.div
+                    style={{
+                      opacity: scrollYProgress.to(() =>
+                        studioOverlayOpacityInterpolate(),
+                      ),
+                    }}
+                    className="absolute -right-[4rem] top-[30.5rem] z-[99]"
+                  >
+                    <Image src={studiosOverlay} alt="studios overlay" />
+                  </animated.div>
+
+                  <animated.div
+                    style={{
+                      opacity: scrollYProgress.to(() =>
+                        arcOverlayOpacityInterpolate(),
+                      ),
+                    }}
+                    className="absolute left-[4rem] top-[30rem] z-[99]"
+                  >
+                    <Image src={arcsOverlay} alt="arcs overlay" />
+                  </animated.div>
+
+                  <animated.div
+                    style={{
+                      opacity: scrollYProgress.to(() =>
+                        orgOverlayOpacityInterpolate(),
+                      ),
+                    }}
+                    className="absolute left-[4rem] top-[42rem] z-[99]"
+                  >
+                    <Image src={orgOverlay} alt="org dev overlay" />
+                  </animated.div>
+                </>
               )}
-
-              <Transition show={activeState === 2 || activeState === 5}>
-                <div className="absolute -right-[4rem] top-[30.5rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <Image src={studiosOverlay} alt="studios overlay" />
-                </div>
-              </Transition>
-
-              <Transition show={activeState === 2 || activeState === 4}>
-                <div className="absolute left-[4rem] top-[30rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <Image src={arcsOverlay} alt="arcs overlay" />
-                </div>
-              </Transition>
-
-              <Transition show={activeState === 2}>
-                <div className="absolute left-[4rem] top-[42rem] z-[99] transition duration-300 ease-in data-[closed]:opacity-0 ">
-                  <Image src={orgOverlay} alt="org dev overlay" />
-                </div>
-              </Transition>
 
               <animated.div
                 style={{
@@ -2155,12 +2359,22 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: 0.6,
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
+                  opacity: scrollYProgress.to(() => {
+                    if (
+                      scrollY >= animationStart + step * 3 &&
+                      scrollY <= animationStart + step * 5
+                    ) {
+                      return opacityInterpolate(
+                        animationStart + step * 3,
+                        animationStart + step * 5,
+                        true,
+                      );
+                    } else return 1;
+                  }),
                 }}
                 className={classNames(
-                  activeState === 8 || activeState === 9
-                    ? 'opacity-30 delay-300 ease-in-out'
-                    : 'opacity-100 ',
-                  `shadow-layer absolute z-50 grid w-[856px] grid-cols-12 `,
+                  activeState === 8 || activeState === 9 ? '' : ' ',
+                  `shadow-layer absolute z-50 grid w-[856px] grid-cols-12`,
                 )}
               >
                 <div className="col-span-11">
@@ -2295,7 +2509,46 @@ export default function Home() {
                         bgHoverInterpolate={bgHoverInterpolate}
                       />
 
-                      {RCactive && NEactive && !openMC ? (
+                      <div
+                        className={classNames(
+                          (RCactive && NEactive) || openMC
+                            ? 'bg-[#595959] text-white'
+                            : RCactive || NEactive
+                              ? 'bg-[#292929]  text-[#595959]'
+                              : ' bg-[#212121] text-[#595959]',
+                          '${classT} ${classA} my-1.5 flex h-[80px]  w-[80px] flex-col  items-center justify-center hover:cursor-pointer ',
+                        )}
+                        onMouseEnter={() => {
+                          setRCActive(true);
+                          setNEActive(true);
+                        }}
+                        onMouseLeave={() => {
+                          setRCActive(false);
+                          setNEActive(false);
+                        }}
+                        onClick={() => {
+                          setOpenMC(true);
+                        }}
+                      >
+                        {(RCactive && NEactive) || openMC ? (
+                          <p className=" text-[9.6px] font-normal leading-normal ">
+                            Multivalent <br />
+                            currencies
+                          </p>
+                        ) : (
+                          <p className=" text-[9.6px] font-normal leading-normal">
+                            {' '}
+                            RC
+                            <span className="align-super text-[6.6px]">
+                              A
+                            </span>{' '}
+                            + NE
+                            <span className="align-super text-[6.6px]">L</span>
+                          </p>
+                        )}
+                      </div>
+
+                      {/* {RCactive && NEactive && !openMC ? (
                         <div
                           onMouseLeave={() => {
                             setRCActive(false);
@@ -2350,7 +2603,8 @@ export default function Home() {
                             <span className="align-super text-[6.6px]">L</span>
                           </p>
                         </div>
-                      )}
+                      )} */}
+
                       {ETCactive || NEactive ? (
                         <div
                           onMouseLeave={() => {
@@ -4049,6 +4303,74 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                <div
+                  className={classNames(
+                    activeState === 7 || activeState === 8
+                      ? 'mt-[6.1em] '
+                      : 'mt-[5.89em] ',
+                    'block text-right opacity-0',
+                  )}
+                >
+                  <div className="">
+                    <h2
+                      className={classNames(
+                        activeState === 7
+                          ? 'text-[#A8A8A8]'
+                          : 'text-transparent',
+                        'text-base font-normal ',
+                      )}
+                    >
+                      Studios
+                    </h2>
+                  </div>
+
+                  <Studio
+                    title="Civic Tech"
+                    short="CT"
+                    activeState={CTactive || openCT}
+                    setActive={setCTActive}
+                    setOpen={setOpenCT}
+                    scrollYProgress={scrollYProgress}
+                    bgHoverInterpolate={bgHoverInterpolate}
+                  />
+
+                  <Studio
+                    title="Conversational Design"
+                    short="CD"
+                    activeState={CDactive || openCD}
+                    setActive={setCDActive}
+                    setOpen={setOpenCD}
+                    scrollYProgress={scrollYProgress}
+                    bgHoverInterpolate={bgHoverInterpolate}
+                  />
+
+                  <Studio
+                    title="Foresight & Futuring"
+                    short="FF"
+                    activeState={FFactive || openFF}
+                    setActive={setFFActive}
+                    setOpen={setOpenFF}
+                    scrollYProgress={scrollYProgress}
+                    bgHoverInterpolate={bgHoverInterpolate}
+                  />
+
+                  <animated.div
+                    style={{
+                      backgroundColor: scrollYProgress.to(() =>
+                        bgHoverInterpolate(2, ODactive || openOD),
+                      ),
+                    }}
+                    className={classNames(
+                      ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
+                      'my-1.5 flex h-[80px] w-[80px] cursor-pointer items-end justify-start px-2 py-2',
+                    )}
+                    onMouseOver={() => setODActive(true)}
+                    onMouseLeave={() => setODActive(false)}
+                    onClick={() => setOpenOD(true)}
+                  >
+                    <p className="text-base font-normal uppercase">Org Dev</p>
+                  </animated.div>
+                </div>
               </animated.div>
 
               <animated.div
@@ -4059,17 +4381,32 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(128)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
+                  opacity: scrollYProgress.to(() => {
+                    if (
+                      scrollY >= animationStart + step * 3 &&
+                      scrollY <= animationStart + step * 5
+                    ) {
+                      return opacityInterpolate(
+                        animationStart + step * 3,
+                        animationStart + step * 5,
+                        true,
+                      );
+                    } else return 1;
+                  }),
                 }}
                 className={classNames(
-                  activeState === 8 || activeState === 9
-                    ? 'opacity-30 delay-300 ease-in-out'
-                    : 'opacity-100',
-                  ` absolute z-30 `,
+                  activeState === 7 || activeState === 8 ? '' : '',
+                  ` absolute z-30`,
                 )}
               >
-                <div className="backdrop-div w-[778px]"></div>
-                <div className="content-div grid w-[856px] grid-cols-12">
-                  <div className="col-span-11 ">
+                <div
+                  className={classNames(
+                    activeState === 7 || activeState === 8 ? '' : '',
+                    ` backdrop-div w-[778px]`,
+                  )}
+                ></div>
+                <div className="content-div grid w-[856px] grid-cols-12 ">
+                  <div className="col-span-11">
                     <div className=" text-center">
                       <h2
                         className={classNames(
@@ -4080,10 +4417,15 @@ export default function Home() {
                       </h2>
                     </div>
 
-                    <div className="mt-[87px] grid w-[778px] grid-cols-9">
+                    <div className="mt-[87px] grid w-[778px] grid-cols-9 ">
                       <div className="studio-layer opacity-0"></div>
 
-                      <div className="studio-layer">
+                      <div
+                        className={classNames(
+                          activeState === 7 || activeState === 8 ? '' : '',
+                          `studio-layer  border-b border-l border-t border-[#262626]`,
+                        )}
+                      >
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4101,7 +4443,7 @@ export default function Home() {
                         <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                         <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                       </div>
-                      <div className="studio-layer">
+                      <div className="studio-layer border-b border-t border-[#262626]">
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4119,7 +4461,7 @@ export default function Home() {
                         <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                         <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                       </div>
-                      <div className="studio-layer">
+                      <div className="studio-layer border-b border-t border-[#262626]">
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4137,7 +4479,7 @@ export default function Home() {
                         <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                         <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                       </div>
-                      <div className="studio-layer">
+                      <div className="studio-layer border-b border-t border-[#262626]">
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4155,7 +4497,7 @@ export default function Home() {
                         <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                         <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                       </div>
-                      <div className="studio-layer">
+                      <div className="studio-layer border-b border-t border-[#262626]">
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4173,7 +4515,7 @@ export default function Home() {
                         <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                         <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                       </div>
-                      <div className="studio-layer">
+                      <div className="studio-layer border-b border-t border-[#262626]">
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4191,7 +4533,7 @@ export default function Home() {
                         <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                         <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                       </div>
-                      <div className="studio-layer">
+                      <div className="studio-layer border-b border-t border-[#262626]">
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4209,7 +4551,7 @@ export default function Home() {
                         <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
                         <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
                       </div>
-                      <div className="studio-layer ">
+                      <div className="studio-layer border-b border-r border-t border-[#262626]">
                         <div className={`h-[80px] w-[80px] p-2`}> </div>
 
                         <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
@@ -4232,7 +4574,7 @@ export default function Home() {
                   <div
                     className={classNames(
                       activeState === 7 || activeState === 8
-                        ? 'mt-[6em] '
+                        ? 'mt-[6.1em] '
                         : 'mt-[5.89em] ',
                       'block text-right',
                     )}
@@ -4249,103 +4591,53 @@ export default function Home() {
                         Studios
                       </h2>
                     </div>
-                    {CTactive || openCT ? (
-                      <div
-                        className={`flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg} mb-1.5 mt-2 h-[80px] w-[80px] `}
-                        onClick={() => setOpenCT(true)}
-                        onMouseLeave={() => setCTActive(false)}
-                      >
-                        <p className="text-base font-normal ">CT</p>
-                        <p className=" text-[9.6px] font-normal leading-normal">
-                          Civic <br /> Tech
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`mb-1.5 mt-2 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg} `}
-                        onMouseOver={() => setCTActive(true)}
-                        onClick={() => setOpenCT(true)}
-                        onMouseLeave={() => setCTActive(false)}
-                      >
-                        <p className="text-base font-normal ">CT</p>
-                        <p className=" text-[9.6px] font-normal leading-normal">
-                          Civic <br /> Tech
-                        </p>
-                      </div>
-                    )}
 
-                    {CDactive || openCD ? (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px] flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                        onClick={() => setOpenCD(true)}
-                        onMouseLeave={() => setCDActive(false)}
-                      >
-                        <p className="text-base font-normal ">CD</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Conversational Design
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px]   flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                        onMouseOver={() => setCDActive(true)}
-                        onClick={() => setOpenCD(true)}
-                        onMouseLeave={() => setCDActive(false)}
-                      >
-                        <p className="text-base font-normal ">CD</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Conversational Design
-                        </p>
-                      </div>
-                    )}
+                    <Studio
+                      title="Civic Tech"
+                      short="CT"
+                      activeState={CTactive || openCT}
+                      setActive={setCTActive}
+                      setOpen={setOpenCT}
+                      scrollYProgress={scrollYProgress}
+                      bgHoverInterpolate={bgHoverInterpolate}
+                    />
 
-                    {FFactive || openFF ? (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#595959] px-2 py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                        onClick={() => setOpenFF(true)}
-                        onMouseLeave={() => setFFActive(false)}
-                      >
-                        <p className="text-base font-normal ">FF</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Foresight & Futuring
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px]  flex-col items-end justify-between bg-[#292929] px-2 py-2 text-[#A8A8A8] ${classStudioBg}`}
-                        onMouseOver={() => setFFActive(true)}
-                        onClick={() => setOpenFF(true)}
-                        onMouseLeave={() => setFFActive(false)}
-                      >
-                        <p className="text-base font-normal ">FF</p>
-                        <p className="self-center text-right text-[9.6px] font-normal leading-normal">
-                          Foresight & Futuring
-                        </p>
-                      </div>
-                    )}
+                    <Studio
+                      title="Conversational Design"
+                      short="CD"
+                      activeState={CDactive || openCD}
+                      setActive={setCDActive}
+                      setOpen={setOpenCD}
+                      scrollYProgress={scrollYProgress}
+                      bgHoverInterpolate={bgHoverInterpolate}
+                    />
 
-                    {ODactive || openOD ? (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px] items-end justify-start bg-[#595959] px-[2.5rem] py-2 text-white hover:cursor-pointer ${classStudioBg}`}
-                        onClick={() => setOpenOD(true)}
-                        onMouseLeave={() => setODActive(false)}
-                      >
-                        <p className=" text-base font-normal uppercase">
-                          Org Dev
-                        </p>
-                      </div>
-                    ) : (
-                      <div
-                        className={`my-1.5 flex h-[80px] w-[80px] items-end justify-start bg-[#292929] px-[2.5rem] py-2  text-[#A8A8A8] ${classStudioBg}`}
-                        onMouseOver={() => setODActive(true)}
-                        onClick={() => setOpenOD(true)}
-                        onMouseLeave={() => setODActive(false)}
-                      >
-                        <p className=" text-base font-normal uppercase ">
-                          Org Dev
-                        </p>
-                      </div>
-                    )}
+                    <Studio
+                      title="Foresight & Futuring"
+                      short="FF"
+                      activeState={FFactive || openFF}
+                      setActive={setFFActive}
+                      setOpen={setOpenFF}
+                      scrollYProgress={scrollYProgress}
+                      bgHoverInterpolate={bgHoverInterpolate}
+                    />
+
+                    <animated.div
+                      style={{
+                        backgroundColor: scrollYProgress.to(() =>
+                          bgHoverInterpolate(2, ODactive || openOD),
+                        ),
+                      }}
+                      className={classNames(
+                        ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
+                        'my-1.5 flex h-[80px] w-[80px] cursor-pointer items-end justify-start px-2 py-2',
+                      )}
+                      onMouseOver={() => setODActive(true)}
+                      onMouseLeave={() => setODActive(false)}
+                      onClick={() => setOpenOD(true)}
+                    >
+                      <p className="text-base font-normal uppercase">Org Dev</p>
+                    </animated.div>
                   </div>
                 </div>
               </animated.div>
@@ -4359,9 +4651,18 @@ export default function Home() {
                   top: scrollYProgress.to(() => scrollInterpolate(256)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
                   opacity: scrollYProgress.to(() => {
-                    if (activeState === 6 || activeState === 7)
+                    if (activeState === 6 || activeState === 7) {
                       return scrollInterpolate(1);
-                    else return 1;
+                    } else if (
+                      scrollY >= animationStart + step * 3 &&
+                      scrollY <= animationStart + step * 5
+                    ) {
+                      return opacityInterpolate(
+                        animationStart + step * 3,
+                        animationStart + step * 5,
+                        false,
+                      );
+                    } else return 1;
                   }),
                 }}
                 className={classNames(
