@@ -3685,8 +3685,8 @@ export default function Home() {
                 We are building options for the next economies
               </h1>
               <p className="p-3xl text-grey-1">
-                At Dark Matter Labs believe that the interconnected crises of
-                our time are symptoms of a deeper, structural miscoding of our
+                At Dark Matter Labs, we view the interconnected crises of our
+                time as symptoms of a deeper, structural miscoding of our
                 economic systems. We understand these codes to be physical (e.g.
                 biodiversity, energy, labour and materials), structural (e.g.
                 money creation, embedded inequality and private property rights)
@@ -3738,17 +3738,17 @@ export default function Home() {
                   className="text-[#A28CC6] hover:cursor-pointer"
                   onClick={() => setOpenCIC(true)}
                 >
-                  collective intelligence of cites
+                  collective intelligence of cities
                 </span>{' '}
                 will become recognisable assets, understood as commitments to a
                 regenerative future. We are also considering what might be
                 unleashed if houses were self-owning and affordable in
-                perpetuity. Or if rivers could express their need for care. At
-                Dark Matter Labs, we believe all these things are both possible
-                and necessary. These are bold aspirations and will only be
-                achieved by a collective movement of diverse communities and
-                unusual allies. This is a story of practical empowerment that we
-                are excited to put our energy behind.
+                perpetuity. Or if rivers could express their need for care. We
+                believe all these things are both possible and necessary. These
+                are bold aspirations and will only be achieved by a collective
+                movement of diverse communities and unusual allies. This is a
+                story of practical empowerment that we are excited to put our
+                energy behind.
               </p>
 
               <div className="pt-14">
@@ -6616,19 +6616,20 @@ export default function Home() {
                 <li>
                   Rooted in the recognition of the full web of life: From
                   violence, scarcity and separation to a thriving planetary
-                  community of interbecoming. [Ne Lab, Radicle Civics &
-                  Planetary Civics Arc, Conversational Design Studio]
+                  community of interbecoming. [Ne Lab with Radicle Civics and
+                  Planetary Civics Arcs and Conversational Design Studio]
                 </li>
                 <li>
                   Grounded in a non-bounded understanding of value: From
                   extractive profit-driven goals to entangled, intergenerational
-                  and distributed value systems. [Ne & Cs Labs, Bioregional
-                  Economies and M0 Cities Arc, Conversational Design Studio]
+                  and distributed value systems. [Ne and Cs Labs with
+                  Bioregional Economies and M0 Cities Arcs and Conversational
+                  Design Studio]
                 </li>
                 <li>
                   Enabled by technological ecosystems of care: From the
                   utilitarian ‘othering’ of technology to animistic interfaces
-                  of wisdom and care. [Ne Lab, NZC Arc, CivTech Studio]
+                  of wisdom and care. [Ne Lab with NZC Arc and CivTech Studio]
                 </li>
               </ul>
 
@@ -6639,33 +6640,33 @@ export default function Home() {
                 <li>
                   Beyond Property: From exerting control over ‘objects’ to
                   seeking reciprocal relationships with the full web of life.
-                  [Pb Lab, Radicle Civics]
+                  [Pb Lab and Radicle Civics Arc]
                 </li>
                 <li>
                   Beyond Labour: From humans employed as resources to vocations
-                  of creativity, purpose and care. [Ne Lab, 7-Gen Cities, &
-                  Empowered Thriving Communities Arc, OrgDev Studio]
+                  of creativity, purpose and care. [Ne Lab, with 7-Gen Cities,
+                  with Local Civics Arc and OrgDev Studio]
                 </li>
                 <li>
                   Beyond Extraction: From extractive resource claims to the
-                  infinite guardianship of the global commons. [Sm Lab M0
-                  Cities, Planetary Civics, Regenerative Nutrition Arcs]
+                  infinite guardianship of the global commons. [Sm Lab with M0
+                  Cities, Planetary Civics and Regenerative Nutrition Arcs]
                 </li>
                 <li>
                   Beyond Private Contracts: From linear agreements that optimise
                   for the few to multi-party, dynamic, digital treaties of
-                  respect. [BTR Lab, Radicle Civics & Empowered Thriving
-                  Communities Arc]
+                  respect. [BTR Lab with Radicle Civics and Local Civics Arcs]
                 </li>
                 <li>
                   Beyond Governance: From centralised enforcement to nurturing
-                  institutions of stewardship. [Qd & BTR Lab, NZC Arc]
+                  institutions of stewardship. [Sd & BTR Lab with NZC Arc]
                 </li>
 
                 <li>
                   Beyond Monetary Capital: From the accumulation of financial
                   wealth to a social contract that regeneratively stewards the
-                  diverse capitals of life. [Cs & Ne Lab, 7-Gen Cities Arc]
+                  diverse capitals of life. [Cs and Ne Labs with 7-Gen Cities
+                  Arc]
                 </li>
               </ul>
             </div>
