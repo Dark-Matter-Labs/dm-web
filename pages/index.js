@@ -149,7 +149,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= animationStart + step * 5) {
+    if (window.scrollY >= animationStart + step * 5 - 100) {
       setClassT2('t3');
     }
 
@@ -630,7 +630,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Net Zero Cities{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -638,7 +638,7 @@ export default function Home() {
                   <div className="flex py-2">
                     <Image src={webIcon} alt="website icon" />
                     <a target="_blank" href="https://netzerocities.eu/">
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -693,7 +693,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     7Gen Cities{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -701,7 +701,7 @@ export default function Home() {
                   <div className="flex py-2">
                     <Image src={webIcon} alt="website icon" />
                     <a target="_blank" href="https://www.7gencities.org/">
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -748,7 +748,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     M0 Cities{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -759,7 +759,7 @@ export default function Home() {
                       target="_blank"
                       href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Publication
                       </p>
                     </a>
@@ -814,7 +814,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Regen Nutrition{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -825,7 +825,7 @@ export default function Home() {
                       target="_blank"
                       href="https://medium.com/9outof10-protein-shift-innovation-platform/universal-basic-nutrient-income-institutional-infrastructure-for-2040-food-preparedness-f00f70a84510"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Publication
                       </p>
                     </a>
@@ -872,7 +872,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Bioregional Economics{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -922,7 +922,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Planetary Civics{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -933,7 +933,7 @@ export default function Home() {
                       target="_blank"
                       href="https://www.youtube.com/watch?v=zQJjfCSPvJI"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -982,7 +982,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Next Economics{' '}
                     <span className="align-super text-lg uppercase">lab</span>
@@ -1043,7 +1043,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Property & Beyond{' '}
                     <span className="align-super text-lg uppercase">Lab</span>
@@ -1054,7 +1054,7 @@ export default function Home() {
                       target="_blank"
                       href="https://www.darkmatterlabs.property/"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -1101,7 +1101,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Beyond the Rules{' '}
                     <span className="align-super text-lg uppercase">lab</span>
@@ -1112,7 +1112,7 @@ export default function Home() {
                       target="_blank"
                       href="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -1162,7 +1162,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Sensing, Modeling & Mapping{' '}
                     <span className="align-super text-lg uppercase">lab</span>
@@ -1216,7 +1216,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Beyond Labour{' '}
                     <span className="align-super text-lg uppercase">lab</span>
@@ -1262,7 +1262,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Philanthropy Futures{' '}
                     <span className="align-super text-lg uppercase">lab</span>
@@ -1307,7 +1307,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Societal Decisions{' '}
                     <span className="align-super text-lg uppercase">lab</span>
@@ -1315,7 +1315,7 @@ export default function Home() {
                   <div className="flex py-2">
                     <Image src={webIcon} alt="website icon" />
                     <a target="_blank" href="https://sdl.darkmatterlabs.org/">
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -1360,7 +1360,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Civic Tech{' '}
                     <span className="align-super text-lg uppercase">
@@ -1409,7 +1409,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Local Civics{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -1457,7 +1457,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Conversation Design{' '}
                     <span className="align-super text-lg uppercase">
@@ -1507,7 +1507,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Foresight & Futuring{' '}
                     <span className="align-super text-lg uppercase">
@@ -1557,7 +1557,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Org Dev{' '}
                     <span className="align-super text-lg uppercase">
@@ -1606,7 +1606,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Nature as Infrastructure{' '}
                     <span className="align-super text-lg uppercase">Arc</span>
@@ -1661,7 +1661,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     Multivalent Currencies{' '}
                     <span className="align-super text-lg uppercase">
@@ -1674,7 +1674,7 @@ export default function Home() {
                       target="_blank"
                       href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Publication
                       </p>
                     </a>
@@ -1736,7 +1736,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     TreesAI{' '}
                     <span className="align-super text-lg uppercase">
@@ -1749,7 +1749,7 @@ export default function Home() {
                       target="_blank"
                       href="https://treesasinfrastructure.com/"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -1806,7 +1806,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     New Economic Thinking{' '}
                     <span className="align-super text-lg uppercase">
@@ -1819,7 +1819,7 @@ export default function Home() {
                       target="_blank"
                       href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
                     >
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Publication
                       </p>
                     </a>
@@ -1883,7 +1883,7 @@ export default function Home() {
                   </div>
                   <Dialog.Title
                     as="h3"
-                    className="font-FKmedium text-2xl text-[#F5F5F5]"
+                    className="font-SaansMed text-2xl text-[#F5F5F5]"
                   >
                     CircuLaw{' '}
                     <span className="align-super text-lg uppercase">
@@ -1893,7 +1893,7 @@ export default function Home() {
                   <div className="flex py-2">
                     <Image src={webIcon} alt="website icon" />
                     <a target="_blank" href="https://www.circulaw.nl/">
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
@@ -2159,7 +2159,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       Domain A: Ontology & epistemology
                     </Dialog.Title>
@@ -2207,7 +2207,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       Domain B: Money & valuation logic
                     </Dialog.Title>
@@ -2253,7 +2253,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       Domain C: Financial processes & Investment
                     </Dialog.Title>
@@ -2300,7 +2300,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       Domain D: Ownership, law & governance
                     </Dialog.Title>
@@ -2345,7 +2345,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       Domain E: Institutional logic and policy
                     </Dialog.Title>
@@ -2391,7 +2391,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       Domain F: Material, energy & land use
                     </Dialog.Title>
@@ -2436,7 +2436,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       A1: Fostering a relational worldview
                     </Dialog.Title>
@@ -2482,7 +2482,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       A2: Replacing profit as the collective goal
                     </Dialog.Title>
@@ -2531,7 +2531,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       A3: Building political will
                     </Dialog.Title>
@@ -2578,7 +2578,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       A4: Phenomenological measures of success (lived
                       experience)
@@ -2624,7 +2624,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       B1: Demonstrating entangled and long-term value
                     </Dialog.Title>
@@ -2671,7 +2671,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       B2: Decolonised, bioregional currency stewardship
                     </Dialog.Title>
@@ -2717,7 +2717,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       B3: Alternative non-fungible currency systems
                     </Dialog.Title>
@@ -2764,7 +2764,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       B4: Visualising finite and infinite economies
                     </Dialog.Title>
@@ -2811,7 +2811,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       C1: Making the investment case for entangled value (DEMAND
                       SIDE)
@@ -2857,7 +2857,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       C2: Bridging demand & supply
                     </Dialog.Title>
@@ -2903,7 +2903,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       C3: Structuring capital & investments
                     </Dialog.Title>
@@ -2948,7 +2948,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       C4: Enabling strategic ecosystem investments
                     </Dialog.Title>
@@ -2996,7 +2996,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       C5: Socialising the supportive narratives for alternative
                       financing pathways
@@ -3042,7 +3042,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       C6: Socialising transformational narratives for a
                       regenerative financial system
@@ -3089,7 +3089,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       D1: Using instruments (e.g contracts) to demonstrate
                       alternative theories of ownership
@@ -3137,7 +3137,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       D2: Elevating alternative models that recouple surplus
                       with stewardship
@@ -3184,7 +3184,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       D3: Demonstrating multi-actor governance structures
                     </Dialog.Title>
@@ -3231,7 +3231,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       D4: Embedding data-augmented decision making
                     </Dialog.Title>
@@ -3277,7 +3277,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       D5: Building deep respect for the other-than-human world,
                       ancestors and future generations
@@ -3325,7 +3325,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       E1: Enabling public-civic efficacy to transform place
                     </Dialog.Title>
@@ -3370,7 +3370,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       E2: Building the foundations for planetary stewardship
                       institutions
@@ -3416,7 +3416,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       E3: Designing reflective, data-driven policy instruments
                     </Dialog.Title>
@@ -3463,7 +3463,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       E4: Place-based, policy process design
                     </Dialog.Title>
@@ -3510,7 +3510,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       F1: Developing collaborative, non-extractive interfaces
                       with the physical environment.
@@ -3560,7 +3560,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       F2: Visualising material and energy flows
                     </Dialog.Title>
@@ -3605,7 +3605,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       F3: Developing a stewardship data infrastructure for the
                       built environment
@@ -3653,7 +3653,7 @@ export default function Home() {
                   <div className="">
                     <Dialog.Title
                       as="h3"
-                      className="font-FKmedium text-2xl text-[#F5F5F5]"
+                      className="font-SaansMed text-2xl text-[#F5F5F5]"
                     >
                       F4: Designing and demonstrating autonomous, regenerative
                       and affordable multi-purpose developments.
@@ -3672,19 +3672,16 @@ export default function Home() {
         </Dialog>
       </Transition.Root>
 
-      <main className="global-margin w-[1200px]">
+      <main className="global-margin w-full">
         <Navbar />
-        <div className={`relative mt-20 sm:grid sm:grid-cols-12`}>
+        <div className={`relative mt-28 w-[1600px] sm:grid sm:grid-cols-12`}>
           <SideNav activeState={activeState} scrollY={scrollY} />
-
-          <div
-            className={`relative col-span-9 mx-auto w-[690px] justify-self-end`}
-          >
+          <div className={`relative col-span-8 w-[690px]`}>
             <div id="real" className="">
-              <h1 className="heading-7xl max-w-[38rem] pb-10 text-grey-5 ">
+              <h1 className="heading-7xl max-w-[42rem] pb-10 text-grey-5 ">
                 We are building options for the next economies
               </h1>
-              <p className="p-3xl text-grey-1">
+              <p className="p-3xl max-w-[42rem] text-grey-6">
                 At Dark Matter Labs, we view the interconnected crises of our
                 time as symptoms of a deeper, structural miscoding of our
                 economic systems. We understand these codes to be physical (e.g.
@@ -3693,7 +3690,7 @@ export default function Home() {
                 and psychological (e.g. failure of the imagination). 
               </p>
 
-              <p className="p-3xl pt-10 text-grey-1">
+              <p className="p-3xl max-w-[42rem] pt-10 text-grey-6">
                 Recognising the complex, entangled reality of living systems, we
                 are exploring alternative pathways for organising society and
                 stewarding the shared planetary commons. Our working hypothesis
@@ -3712,7 +3709,7 @@ export default function Home() {
               <h2 className="heading-5xl max-w-md pt-20 text-grey-1">
                 Economic options are bold directional aspirations
               </h2>
-              <p className="p-3xl pt-8 text-grey-1">
+              <p className="p-3xl pt-8 text-grey-6">
                 What would it mean to align societal ambition to the magnitude
                 of the transformation that is required? We cannot be sure how
                 the future will play out or the specific infrastructures that
@@ -3752,13 +3749,13 @@ export default function Home() {
               </p>
 
               <div className="pt-14">
-                <p className="heading-5xl  text-grey-2">
+                <p className="heading-5xl text-grey-2">
                   ↓ How do we structure our response?
                 </p>
               </div>
             </div>
 
-            <div className={`${classT2}`}>
+            <div className={`${classT2} w-full`}>
               {activeState !== 6 && activeState !== 7 && activeState !== 8 && (
                 <>
                   <animated.div
@@ -5646,7 +5643,7 @@ export default function Home() {
                     ` backdrop-div w-[778px]`,
                   )}
                 ></div>
-                <div className="content-div grid w-[856px] grid-cols-12 shadow-layer">
+                <div className="content-div shadow-layer grid w-[856px] grid-cols-12">
                   <div className="col-span-11">
                     <div className=" text-center">
                       <h2
@@ -5933,7 +5930,7 @@ export default function Home() {
                     </h2>
                   </div>
 
-                  <div className="ml-4 grid grid-cols-6 gap-1.5">
+                  <div className="kjmju1.5 ml-4 grid grid-cols-6">
                     <div className="">
                       <div
                         onClick={() => setOpenDomainA(true)}
@@ -5943,7 +5940,7 @@ export default function Home() {
                           {' '}
                           A
                         </p>
-                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                        <p className="font-SaansMed text-[9.6px] leading-tight">
                           Ontology & Epistemology
                         </p>
                       </div>
@@ -5955,7 +5952,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           A-1
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Fostering a relational worldview
                         </p>
                       </div>
@@ -5967,7 +5964,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           A-2
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Replacing profit as the collective goal
                         </p>
                       </div>
@@ -5979,7 +5976,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           A-3
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           <br />
                           Building political will
                         </p>
@@ -5992,7 +5989,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           A-4
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Phenomenological measures of success (lived
                           experience)
                         </p>
@@ -6027,7 +6024,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           B
                         </p>
-                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                        <p className="font-SaansMed text-[9.6px] leading-tight">
                           Money & valuation logic
                         </p>
                       </div>
@@ -6039,7 +6036,7 @@ export default function Home() {
                         <p className=" font-FKregular text-base leading-tight">
                           B-1
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Demonstrating entangled and long-term value
                         </p>
                       </div>
@@ -6051,7 +6048,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           B-2
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Decolonised, bioregional currency stewardship
                         </p>
                       </div>
@@ -6063,7 +6060,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           B-3
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Alternative non-fungible currency systems
                         </p>
                       </div>
@@ -6075,7 +6072,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           B-4
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Visualising finite and infinite economies
                         </p>
                       </div>
@@ -6109,7 +6106,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           C
                         </p>
-                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                        <p className="font-SaansMed text-[9.6px] leading-tight">
                           Financial processes & investment
                         </p>
                       </div>
@@ -6121,7 +6118,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           C-1
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Making the investment case for entangled value
                         </p>
                       </div>
@@ -6133,7 +6130,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           C-2
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           <br /> Bridging demand & supply
                         </p>
                       </div>
@@ -6145,7 +6142,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           C-3
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Structuring capital & investments
                         </p>
                       </div>
@@ -6157,7 +6154,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           C-4
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Enabling strategic ecosystem investments
                         </p>
                       </div>
@@ -6169,7 +6166,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           C-5
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Socialising the supportive narratives for alternative
                           financing pathways
                         </p>
@@ -6182,7 +6179,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           C-6
                         </p>
-                        <p className="self-stretch font-PPmedium text-[8px] leading-tight -tracking-[0.54px]">
+                        <p className="self-stretch font-SaansMed text-[8px] leading-tight -tracking-[0.54px]">
                           Socialising transformational narratives for a
                           regenerative financial system
                         </p>
@@ -6207,7 +6204,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           D
                         </p>
-                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                        <p className="font-SaansMed text-[9.6px] leading-tight">
                           Ownership, law & governance
                         </p>
                       </div>
@@ -6219,7 +6216,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-1
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Using instruments to demonstrate alternative theories
                           of ownership
                         </p>
@@ -6232,7 +6229,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-2
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Elevating alternative models that recouple surplus
                           with stewardship
                         </p>
@@ -6245,7 +6242,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-3
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Demonstrating multi-actor governance structures
                         </p>
                       </div>
@@ -6257,7 +6254,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           D-4
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Embedding data-augmented decision making
                         </p>
                       </div>
@@ -6269,7 +6266,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           D-5
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Building deep respect for the other-than-human world,
                           ancestors and future generations
                         </p>
@@ -6299,7 +6296,7 @@ export default function Home() {
                           {' '}
                           E
                         </p>
-                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                        <p className="font-SaansMed text-[9.6px] leading-tight">
                           Institutional logic & policy
                         </p>
                       </div>
@@ -6311,7 +6308,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-1
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Enabling public-civic efficacy to transform place
                         </p>
                       </div>
@@ -6323,7 +6320,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-2
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Building the foundations for planetary stewardship
                           institutions
                         </p>
@@ -6335,7 +6332,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-3
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Designing reflective, data-driven policy instruments
                         </p>
                       </div>
@@ -6347,7 +6344,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           E-4
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Place-based, policy process design
                         </p>
                       </div>
@@ -6380,7 +6377,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           F
                         </p>
-                        <p className="font-PPmedium text-[9.6px] leading-tight">
+                        <p className="font-SaansMed text-[9.6px] leading-tight">
                           Material, energy & land use
                         </p>
                       </div>
@@ -6392,7 +6389,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           F-1
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Developing collaborative, non-extractive interfaces
                           with the physical environment
                         </p>
@@ -6405,7 +6402,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           F-2
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Visualising material and energy flows
                         </p>
                       </div>
@@ -6416,7 +6413,7 @@ export default function Home() {
                         <p className="pb-2 font-FKregular text-base leading-tight">
                           F-3
                         </p>
-                        <p className="font-PPmedium text-[8px] leading-tight tracking-tighter">
+                        <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
                           Developing a stewardship data infrastructure for the
                           built environment
                         </p>
@@ -6429,7 +6426,7 @@ export default function Home() {
                         <p className="font-FKregular text-base leading-tight">
                           F-4
                         </p>
-                        <p className="font-PPmedium text-[7px] leading-tight -tracking-[0.54px]">
+                        <p className="font-SaansMed text-[7px] leading-tight -tracking-[0.54px]">
                           Designing and demonstrating autonomous, regenerative
                           and affordable multi-purpose developments.
                         </p>
@@ -6459,8 +6456,8 @@ export default function Home() {
               </animated.div>
             </div>
 
-            <div id="context" className="mt-[280rem] ">
-              <p className="p-4xl-medium max-w-3xl pb-8 text-grey-3">
+            <div id="context" className="mb-20 mt-[280rem]">
+              <p className="p-3xl-regular max-w-3xl pb-8 text-grey-6">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
                 towards a coherent field of influence and change. A single
@@ -6468,64 +6465,72 @@ export default function Home() {
                 open questions in a continuous process of landscape scanning and
                 action: 
               </p>
-              <div className="mb-8 border-l border-grey-3 pl-10">
-                <h3 className="p-4xl-regular text-white">
+              <div className="mb-8">
+                <h2 className="heading-5xl text-grey-1">
                   Political landscapes
-                </h3>
+                </h2>
+                <p className="p-3xl pb-4 text-grey-7">
+                  How can we work intelligently with the constraints and
+                  opportunities of political ideologies?
+                </p>
                 <p className="p-3xl text-grey-1">
-                  how can we work intelligently with the constraints and
-                  opportunities of political ideologies? A right wing context
-                  may provide more fertile ground for rapidly mobilising complex
-                  technologies than a liberal context. Or perhaps in a context
-                  like Ukraine where crisis and instability has become an
-                  everyday reality, the motivation for citizens to drive
-                  alternative governance models is heightened. This could start
-                  from a desire to support the military via voluntary
-                  crowdfunding and extend to new sectors and patterns of
-                  behaviour.
+                  A right wing context may provide more fertile ground for
+                  rapidly mobilising complex technologies than a liberal
+                  context. Or perhaps in a context like Ukraine where crisis and
+                  instability has become an everyday reality, the motivation for
+                  citizens to drive alternative governance models is heightened.
+                  This could start from a desire to support the military via
+                  voluntary crowdfunding and extend to new sectors and patterns
+                  of behaviour.
                 </p>
               </div>
 
-              <div className="mb-8 border-l border-grey-3 pl-10">
-                <h3 className="p-4xl-regular text-white">
+              <div className="mb-8">
+                <h2 className="heading-5xl text-grey-1">
                   Geographical landscapes
-                </h3>
+                </h2>
+                <p className="p-3xl pb-4 text-grey-7">
+                  What can we leverage by deliberating targeting lead or
+                  established markets to test a tool or concept?
+                </p>
                 <p className="p-3xl text-grey-1">
-                  what can we leverage by deliberating targeting lead or
-                  established markets to test a tool or concept? In some cases
-                  we may need to look to edge communities for an idea to gain
-                  traction (e.g. a distributed currency), whereas in others a
-                  supportive social infrastructure is needed to establish agency
-                  (e.g. a material registry). Each country has something to
-                  teach us; from land laws in Scotland to open data systems in
-                  Taiwan, we are open to how our work can weave and adapt to
-                  local contexts.
+                  In some cases we may need to look to edge communities for an
+                  idea to gain traction (e.g. a distributed currency), whereas
+                  in others a supportive social infrastructure is needed to
+                  establish agency (e.g. a material registry). Each country has
+                  something to teach us; from land laws in Scotland to open data
+                  systems in Taiwan, we are open to how our work can weave and
+                  adapt to local contexts.
                 </p>
               </div>
 
-              <div className="mb-8 border-l border-grey-3 pl-10">
-                <h3 className="p-4xl-regular text-white">Time horizons</h3>
+              <div className="mb-8 ">
+                <h2 className="heading-5xl text-grey-1">Time horizons</h2>
+                <p className="p-3xl pb-4 text-grey-7">
+                  How can we leverage the broad spectrum of realities
+                  represented across the global context?
+                </p>
                 <p className="p-3xl text-grey-1">
-                  how can we leverage the broad spectrum of realities
-                  represented across the global context? Recognising that a
-                  speculative policy in one context might already be triage
-                  response in another can increase our collective learning and
-                  ability to test edge ideas. This could mean working with
-                  Indigenous communities on Turtle Island (North America) to
-                  urgently finance the regeneration of indigenous lands. It
-                  could also entail supporting marginalised communities in
-                  England to seed alternative housing models in response to the
-                  systemic crisis crisis.
+                  Recognising that a speculative policy in one context might
+                  already be triage response in another can increase our
+                  collective learning and ability to test edge ideas. This could
+                  mean working with Indigenous communities on Turtle Island
+                  (North America) to urgently finance the regeneration of
+                  indigenous lands. It could also entail supporting marginalised
+                  communities in England to seed alternative housing models in
+                  response to the systemic crisis crisis.
                 </p>
               </div>
 
-              <div className="mb-8 border-l border-grey-3 pl-10">
-                <h3 className="p-4xl-regular text-white">Alliances</h3>
+              <div className="mb-8 ">
+                <h2 className="heading-5xl text-grey-1">Alliances</h2>
+                <p className="p-3xl pb-4 text-grey-7">
+                  What could be unleashed if we can identify and engage unusual
+                  (and often powerful actors) with converging aspirations?
+                </p>
                 <p className="p-3xl text-grey-1">
-                  what could be unleashed if we can identify and engage unusual
-                  (and often powerful actors) with converging aspirations? On
-                  the surface a central bank and an ecological activist may have
-                  little in common. Yet, central banks have a mandate to
+                  On the surface a central bank and an ecological activist may
+                  have little in common. Yet, central banks have a mandate to
                   preserve stability, which in the future could involve
                   recoupling money issuance to ecological rights? This logic
                   might also extend to cultural intersectional points, such as
@@ -6535,144 +6540,196 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="why" className="my-40 ">
-              <p className="p-4xl-medium max-w-3xl pb-8 text-grey-3">
-                The Enlightenment, Industrial and Scientific revolutions created
-                many advances for society. But what about their impact on deep
-                ways of being and knowing? From the concept of thingification to
-                the devaluation of mother earth, the psychological baseline of
-                our many societies was fundamentally altered. From our
-                perspective, the worldview that condoned the treatment of land
-                and living beings as disposable, exploitable resources, was also
-                at play in the coding of our dominant socioeconomic systems.
-                Dark Matter Labs sets out to reject the concept of separation
-                and to reimagine our foundational economic relationships. For
-                example:
-              </p>
+            <hr className="text-[#333333]" />
 
-              <div className="mb-8 border-l border-grey-3 pl-10">
-                <h3 className="p-4xl-regular text-white">Property</h3>
-                <p className="p-3xl text-grey-1">
-                  words like property and ownership are often associated with
-                  ideas of dominion and control, allowing us to treat elements
-                  of the living world (such as land and rare earth minerals) as
-                  objects. Deep down though, do we really believe that timber
-                  holds more value than a forest? Or that a whale’s life is
-                  interchangeable with a barrel of oil? What would it mean to
-                  explore systems of organising that move beyond the paradigm of
-                  control?
+            <div id="why">
+              <div className="my-20 ">
+                <p className="p-3xl-regular max-w-3xl pb-10 text-grey-6">
+                  The Enlightenment, Industrial and Scientific revolutions
+                  created many advances for society. But what about their impact
+                  on deep ways of being and knowing? From the concept of
+                  thingification to the devaluation of mother earth, the
+                  psychological baseline of our many societies was fundamentally
+                  altered. From our perspective, the worldview that condoned the
+                  treatment of land and living beings as disposable, exploitable
+                  resources, was also at play in the coding of our dominant
+                  socioeconomic systems. Dark Matter Labs sets out to reject the
+                  concept of separation and to reimagine our foundational
+                  economic relationships. For example:
                 </p>
+
+                <div className="mb-8">
+                  <h2 className="heading-5xl text-grey-1">Property</h2>
+                  <p className="p-3xl pt-4 text-grey-1">
+                    Words like property and ownership are often associated with
+                    ideas of dominion and control, allowing us to treat elements
+                    of the living world (such as land and rare earth minerals)
+                    as objects. Deep down though, do we really believe that
+                    timber holds more value than a forest? Or that a whale’s
+                    life is interchangeable with a barrel of oil? What would it
+                    mean to explore systems of organising that move beyond the
+                    paradigm of control?
+                  </p>
+                </div>
+
+                <div className="mb-8">
+                  <h2 className="heading-5xl text-grey-1">Technology</h2>
+                  <p className="p-3xl pt-4 text-grey-1">
+                    Emergent technologies can be framed as a threat, but they
+                    could also facilitate a new freedom to care. The field of
+                    quantum physics has enabled a granular visualisation of the
+                    shapeshifting and relational nature of living systems.
+                    Perhaps what we have previously framed as{' '}
+                    <a
+                      className="text-[#A28CC6]"
+                      target="_blank"
+                      href="https://provocations.darkmatterlabs.org/the-necessity-of-a-boring-revolution-a71b1ae6f956"
+                    >
+                      a boring revolution
+                    </a>{' '}
+                    is also an invitation to sense and see the world through a
+                    quantum lens. Perhaps in the future our governing
+                    institutions will exist to advance and scaffold the
+                    continuous learning of a self-aware system.
+                  </p>
+                </div>
+
+                <div className="mb-8">
+                  <h2 className="heading-5xl text-grey-1">Money</h2>
+                  <p className="p-3xl pt-4 text-grey-1">
+                    Recognising that financial capital is intertwined and
+                    enabled by living and social systems is foundational to our
+                    work. Imagine how our relationship to finance might change
+                    if we understood the act of investing to be a commitment to
+                    our collective futures? What would a system look like where
+                    the ways of creating and stewarding money are decentralised
+                    and respectful of non-comparable value flows?
+                  </p>
+                </div>
               </div>
 
-              <div className="mb-8 border-l border-grey-3 pl-10">
-                <h3 className="p-4xl-regular text-white">Technology</h3>
-                <p className="p-3xl text-grey-1">
-                  emergent technologies can be framed as a threat, but they
-                  could also facilitate a new freedom to care. The field of
-                  quantum physics has enabled a granular visualisation of the
-                  shapeshifting and relational nature of living systems. Perhaps
-                  what we have previously framed as{' '}
-                  <a
-                    className="text-[#A28CC6]"
-                    target="_blank"
-                    href="https://provocations.darkmatterlabs.org/the-necessity-of-a-boring-revolution-a71b1ae6f956"
-                  >
-                    a boring revolution
-                  </a>{' '}
-                  is also an invitation to sense and see the world through a
-                  quantum lens. Perhaps in the future our governing institutions
-                  will exist to advance and scaffold the continuous learning of
-                  a self-aware system.
+              <hr className="text-[#333333]" />
+
+              <div className="py-20">
+                <p className="p-3xl-regular max-w-3xl pb-10 text-grey-6">
+                  Based on this new paradigm we are proposing three worldview
+                  philosophies that we think could underpin a desirable future
+                  economy. From there, we have identified six structural shifts
+                  that we are hypothesising would need to occur for that to
+                  become a reality. The philosophies and shifts are not fixed,
+                  instead they are narratives that thread through the different
+                  dimensions of our Ecosystem Matrix, as we seek to test them in
+                  different contexts.
                 </p>
+                <h2 className="heading-5xl text-grey-1">
+                  Worldview philosophies
+                </h2>
+                <div className="grid grid-cols-3 gap-10 py-8 ">
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Rooted in the recognition of the full web of life
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From violence, scarcity and separation to a thriving
+                      planetary community of interbecoming. [Ne Lab with Radicle
+                      Civics and Planetary Civics Arcs and Conversational Design
+                      Studio]
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Grounded in a non-bounded understanding of value
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From extractive profit-driven goals to entangled,
+                      intergenerational and distributed value systems. [Ne and
+                      Cs Labs with Bioregional Economies and M0 Cities Arcs and
+                      Conversational Design Studio]
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Enabled by technological ecosystems of care
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From the utilitarian ‘othering’ of technology to animistic
+                      interfaces of wisdom and care. [Ne Lab with NZC Arc and
+                      CivTech Studio]
+                    </p>
+                  </div>
+                </div>
+
+                <h2 className="heading-5xl text-grey-1">
+                  Proposed structural shifts
+                </h2>
+                <div className="grid grid-cols-3 gap-x-10 gap-y-8 py-8">
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Beyond Property
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From exerting control over ‘objects’ to seeking reciprocal
+                      relationships with the full web of life. [Pb Lab and
+                      Radicle Civics Arc]
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Beyond Labour
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From humans employed as resources to vocations of
+                      creativity, purpose and care. [Ne Lab, with 7-Gen Cities,
+                      with Local Civics Arc and OrgDev Studio]
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Beyond Extraction
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From extractive resource claims to the infinite
+                      guardianship of the global commons. [Sm Lab with M0
+                      Cities, Planetary Civics and Regenerative Nutrition Arcs]
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Beyond Private Contracts
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From linear agreements that optimise for the few to
+                      multi-party, dynamic, digital treaties of respect. [BTR
+                      Lab with Radicle Civics and Local Civics Arcs]
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Beyond Governance
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From centralised enforcement to nurturing institutions of
+                      stewardship. [Sd & BTR Lab with NZC Arc]
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="p-xl-medium pb-3 text-grey-6">
+                      Beyond Monetary Capital
+                    </h3>
+                    <p className="p-3xl text-grey-6 opacity-60">
+                      From the accumulation of financial wealth to a social
+                      contract that regeneratively stewards the diverse capitals
+                      of life. [Cs and Ne Labs with 7-Gen Cities Arc]
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="mb-8 border-l border-grey-3 pl-10">
-                <h3 className="p-4xl-regular text-white">Money</h3>
-                <p className="p-3xl text-grey-1">
-                  recognising that financial capital is intertwined and enabled
-                  by living and social systems is foundational to our work.
-                  Imagine how our relationship to finance might change if we
-                  understood the act of investing to be a commitment to our
-                  collective futures? What would a system look like where the
-                  ways of creating and stewarding money are decentralised and
-                  respectful of non-comparable value flows?
-                </p>
-              </div>
-
-              <p className="p-4xl-medium max-w-3xl py-8 text-grey-3">
-                Based on this new paradigm we are proposing three worldview
-                philosophies that we think could underpin a desirable future
-                economy. From there, we have identified six structural shifts
-                that we are hypothesising would need to occur for that to become
-                a reality. The philosophies and shifts are not fixed, instead
-                they are narratives that thread through the different dimensions
-                of our Ecosystem Matrix, as we seek to test them in different
-                contexts.
-              </p>
-              <h3 className="p-4xl-regular text-white">
-                Worldview philosophies
-              </h3>
-              <ul className="p-3xl ml-4 list-disc text-grey-1">
-                <li>
-                  Rooted in the recognition of the full web of life: From
-                  violence, scarcity and separation to a thriving planetary
-                  community of interbecoming. [Ne Lab with Radicle Civics and
-                  Planetary Civics Arcs and Conversational Design Studio]
-                </li>
-                <li>
-                  Grounded in a non-bounded understanding of value: From
-                  extractive profit-driven goals to entangled, intergenerational
-                  and distributed value systems. [Ne and Cs Labs with
-                  Bioregional Economies and M0 Cities Arcs and Conversational
-                  Design Studio]
-                </li>
-                <li>
-                  Enabled by technological ecosystems of care: From the
-                  utilitarian ‘othering’ of technology to animistic interfaces
-                  of wisdom and care. [Ne Lab with NZC Arc and CivTech Studio]
-                </li>
-              </ul>
-
-              <h3 className="p-4xl-regular pt-8 text-white">
-                Proposed structural shifts
-              </h3>
-              <ul className="p-3xl ml-4 list-disc text-grey-1">
-                <li>
-                  Beyond Property: From exerting control over ‘objects’ to
-                  seeking reciprocal relationships with the full web of life.
-                  [Pb Lab and Radicle Civics Arc]
-                </li>
-                <li>
-                  Beyond Labour: From humans employed as resources to vocations
-                  of creativity, purpose and care. [Ne Lab, with 7-Gen Cities,
-                  with Local Civics Arc and OrgDev Studio]
-                </li>
-                <li>
-                  Beyond Extraction: From extractive resource claims to the
-                  infinite guardianship of the global commons. [Sm Lab with M0
-                  Cities, Planetary Civics and Regenerative Nutrition Arcs]
-                </li>
-                <li>
-                  Beyond Private Contracts: From linear agreements that optimise
-                  for the few to multi-party, dynamic, digital treaties of
-                  respect. [BTR Lab with Radicle Civics and Local Civics Arcs]
-                </li>
-                <li>
-                  Beyond Governance: From centralised enforcement to nurturing
-                  institutions of stewardship. [Sd & BTR Lab with NZC Arc]
-                </li>
-
-                <li>
-                  Beyond Monetary Capital: From the accumulation of financial
-                  wealth to a social contract that regeneratively stewards the
-                  diverse capitals of life. [Cs and Ne Labs with 7-Gen Cities
-                  Arc]
-                </li>
-              </ul>
+              <hr className="text-[#333333]" />
             </div>
           </div>
         </div>
-        <div className="py-20"></div>
       </main>
     </div>
   );

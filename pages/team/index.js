@@ -19,12 +19,12 @@ export default function TeamPage({ dmliens }) {
         <Navbar />
         <div className="grid w-full grid-cols-12 items-center justify-end gap-0 text-white">
           <div className="col-span-5"></div>
-          <div className="col-span-12 mt-36 font-FKlight text-4xl font-light leading-[54px] md:col-span-7">
+          <div className="col-span-12 mt-36 font-SaansRegular text-4xl font-light leading-[54px] md:col-span-7">
             We’re a multidisciplinary team with a shared passion for taking on
             societal challenges in education, food systems, urban design,
             logistics, data, policy, finance, healthcare, governance and
             organisational culture.
-            <div className="mt-12 font-FKlight text-[27px] text-[#6A6A6A]">
+            <div className="mt-12 font-SaansRegular text-[27px] text-[#6A6A6A]">
               Meet the team <ArrowDownIcon className="inline h-6 w-6" />
             </div>
           </div>
@@ -43,14 +43,14 @@ export default function TeamPage({ dmliens }) {
                 className="mb-6"
               />
               <div className="flex w-full flex-col items-start">
-                <h2 className="font-FKlight text-[24px] font-normal ">
+                <h2 className="font-SaansRegular text-[24px] font-normal ">
                   {dmlien.fullName}
                 </h2>
-                <h3 className="font-FKlight text-[24px] font-normal text-[#A8A8A8]">
+                <h3 className="font-SaansRegular text-[24px] font-normal text-[#A8A8A8]">
                   {dmlien.location}
                 </h3>
               </div>
-              <p className="mt-6 font-FKlight text-[18px] font-normal">
+              <p className="mt-6 font-SaansRegular text-[18px] font-normal">
                 {dmlien.bio}
               </p>
             </li>

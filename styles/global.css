@@ -4,7 +4,7 @@
 
 html,
 body {
-  background-color: #161617;
+  background-color: #111112;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -65,8 +65,36 @@ img {
 @font-face {
   font-family: 'FKGroteskTrial-Light';
   src:
-    local('PPNeueMontreal-Medium'),
+    local('PPNeueMontreal-Light'),
     url('../fonts/PPNeueMontreal-Medium.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'SaansTRIAL-Medium';
+  src:
+    local('SaansTRIAL-Medium'),
+    url('../fonts/SaansTRIAL-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SaansTRIAL-Medium';
+  src:
+    local('SaansTRIAL-Medium'),
+    url('../fonts/SaansTRIAL-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SaansTRIAL-Regular';
+  src:
+    local('SaansTRIAL-Regular'),
+    url('../fonts/SaansTRIAL-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SaansTRIAL-Regular';
+  src:
+    local('SaansTRIAL-Regular'),
+    url('../fonts/SaansTRIAL-Regular.woff2') format('woff2');
 }
 
 .bg-alpha {
@@ -77,15 +105,15 @@ img {
   .global-margin {
     @apply max-w-[1280px];
 
-    @apply sm:mx-auto;
+    @apply mx-auto;
   }
 
   .heading-7xl {
-    @apply font-PPbook text-7xl leading-16;
+    @apply font-SaansMed text-7xl leading-16;
   }
 
   .heading-5xl {
-    @apply font-PPbook text-5xl leading-14;
+    @apply font-SaansMed text-5xl leading-14;
   }
 
   .nav-xl {
@@ -97,15 +125,19 @@ img {
   }
 
   .p-4xl-medium {
-    @apply font-PPmedium text-4xl leading-14;
+    @apply font-SaansMed text-4xl leading-14;
   }
 
-  .p-4xl-regular {
-    @apply font-FKregular text-4xl leading-14;
+  .p-3xl-regular {
+    @apply font-SaansRegular text-3xl leading-13;
+  }
+
+  .p-xl-medium {
+    @apply font-SaansMed text-xl leading-12;
   }
 
   .p-3xl {
-    @apply font-PPbook text-3xl leading-13;
+    @apply font-SaansRegular text-xl leading-12;
   }
 
   .studio {
@@ -117,7 +149,7 @@ img {
   }
 
   .t2 {
-    @apply sticky bottom-0 left-0 right-0 top-[-20vh] max-[1440px]:top-[-20vh] md:top-[-10vh];
+    @apply sticky bottom-0 left-0 right-0 top-[-20vh] md:top-[-10vh];
   }
 
   @media (max-width: 1440px) {
@@ -127,7 +159,7 @@ img {
   }
 
   .t3 {
-    @apply relative left-0 right-0 mt-[223.8rem];
+    @apply relative left-0 right-0 mt-[224.8rem];
   }
 }
 
@@ -150,32 +182,6 @@ img {
   filter: drop-shadow(0px 40px 80px #141414);
 }
 
-div.vertical-line {
-  width: 1px; /* Line width */
-  background-color: #595959; /* Line color */
-  height: 100%; /* Override in-line if you want specific height. */
-  float: right; /* Causes the line to float to left of content. 
-    You can instead use position:absolute or display:inline-block
-    if this fits better with your design */
-  margin-right: 5%;
-  margin-top: 5px;
-}
-
-div.vertical-line2 {
-  width: 1px; /* Line width */
-  background-color: #595959; /* Line color */
-  height: 100%; /* Override in-line if you want specific height. */
-  margin: auto;
-}
-
-hr {
-  background-color: #595959;
-  height: 1px;
-  border: 0;
-  width: 420%;
-  margin-left: 20px;
-}
-
 .bg-nav {
   background-image: url('../images/bg.svg');
   background-repeat: no-repeat;
@@ -195,4 +201,10 @@ hr {
 ::selection {
   background: #a28cc6;
   color: white;
+}
+
+hr {
+  background-color: #333333;
+  height: 1px;
+  border: 0;
 }

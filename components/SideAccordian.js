@@ -7,7 +7,7 @@ function classNames(...classes) {
 
 function SideNav({ activeState, scrollY }) {
   return (
-    <div className=" bg-nav col-span-3 hidden max-w-xs matrix:block">
+    <div className="col-span-4 hidden max-w-xs matrix:block">
       <div
         className={classNames(
           activeState === 2 ||
@@ -17,8 +17,8 @@ function SideNav({ activeState, scrollY }) {
             activeState === 6 ||
             activeState === 7 ||
             activeState === 8
-            ? 'top-[20vh]' //'top-[20vh]
-            : 'top-1/3',
+            ? 'top-28'
+            : 'top-28',
           'sticky left-0 flow-root',
         )}
       >

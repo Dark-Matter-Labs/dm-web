@@ -1,2 +1,2 @@
-export const startSticky = 1500;
+export const startSticky = 1300;
 export const step = 400;

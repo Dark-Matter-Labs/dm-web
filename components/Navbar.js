@@ -6,27 +6,30 @@ import dmLogo from '../images/DML.gif';
 
 export default function Navbar() {
   return (
-    <div className="mt-8 grid grid-cols-12 gap-0">
-      <div className="col-span-4 justify-self-start">
+    <div className="sticky top-0 z-[90] grid w-[1600px] grid-cols-12 bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
+      <div className="col-span-4 ">
         <Link href="/">
           <Image
             src={dmLogo}
             alt="Dm logo animation in multiple languages"
-            width={330}
+            width={280}
           />
         </Link>
       </div>
-      <div className="col-span-8 justify-self-end">
+      <div className="col-span-8 ">
         <Disclosure as="nav">
           {({ open }) => (
             <>
               <div className="max-w-7xl ">
-                <div className="flex h-16 items-center justify-between">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <div className="hidden sm:block">
                       <div className="flex space-x-8">
                         <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Feed
+                        </a>
+                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
+                          Initiatives
                         </a>
                         <Link
                           href="/team"
@@ -39,6 +42,9 @@ export default function Navbar() {
                         </a>
                         <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
                           Contact
+                        </a>
+                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
+                          Support
                         </a>
                         <a
                           href="https://provocations.darkmatterlabs.org/"

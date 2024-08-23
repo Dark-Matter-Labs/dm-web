@@ -34,7 +34,7 @@ function Popup({ title, openState, setOpen, website, publication, content }) {
                 </div>
                 <Dialog.Title
                   as="h3"
-                  className="font-FKmedium text-2xl text-[#F5F5F5]"
+                  className="font-SaansMed text-2xl text-[#F5F5F5]"
                 >
                   {title}
                   <span className="align-super text-lg uppercase">lab</span>
@@ -43,7 +43,7 @@ function Popup({ title, openState, setOpen, website, publication, content }) {
                   <div className="flex py-2">
                     <Image src={webIcon} alt="website icon" />
                     <a target="_blank" href={website}>
-                      <p className="pl-1 font-FKmedium text-base text-[#737EA5]">
+                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
                         Website
                       </p>
                     </a>
