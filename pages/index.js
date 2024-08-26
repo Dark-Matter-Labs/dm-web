@@ -295,6 +295,20 @@ export default function Home() {
     } else return 2 * scrollFactor; // Linear interpolation for opacity
   };
 
+  const capacityOpacityInterpolate = (startScroll, endScroll, flip) => {
+    // Normalize the scroll position within the defined range
+    let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+    // Clamp the scrollFactor between 0 and 1
+    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+    // Interpolate opacity between 0 and 1
+
+    if (flip) {
+      return 1 - 0.7 * scrollFactor;
+    } else return 300 * scrollFactor; // Linear interpolation for opacity
+  };
+
   const bgHoverInterpolate = (stepMultiplier, isActive) => {
     // Starting color: #292929 (rgb(41, 41, 41))
     let startColor = { r: 41, g: 41, b: 41 };
@@ -3680,11 +3694,9 @@ export default function Home() {
 
       <main className="global-margin">
         <Navbar />
-        <div
-          className={`relative mt-28 w-[1200px] gap-20 sm:grid sm:grid-cols-12`}
-        >
+        <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
           <SideNav activeState={activeState} scrollY={scrollY} />
-          <div className={`relative col-span-7 w-[690px]`}>
+          <div className={`relative col-span-7 w-[690px] justify-self-end`}>
             <div id="real" className="">
               <h1 className="heading-7xl max-w-[42rem] pb-10 text-grey-5 ">
                 We are building options for the next economies
@@ -3772,7 +3784,7 @@ export default function Home() {
                         labOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute -right-[7rem] top-[17.2rem] z-[99]"
+                    className="absolute -right-[4rem] top-[17.2rem] z-[99]"
                   >
                     <Image src={labsOverlay} alt="labs overlay" />
                   </animated.div>
@@ -3783,7 +3795,7 @@ export default function Home() {
                         studioOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute -right-[7rem] top-[30.7rem] z-[99]"
+                    className="absolute -right-[4rem] top-[29.8rem] z-[99]"
                   >
                     <Image src={studiosOverlay} alt="studios overlay" />
                   </animated.div>
@@ -3794,7 +3806,7 @@ export default function Home() {
                         arcOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute left-[0rem] top-[30rem] z-[99]"
+                    className="absolute left-[0rem] top-[29rem] z-[99]"
                   >
                     <Image src={arcsOverlay} alt="arcs overlay" />
                   </animated.div>
@@ -3805,7 +3817,7 @@ export default function Home() {
                         orgOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute left-[0rem] top-[42rem] z-[99]"
+                    className="absolute left-[0rem] top-[40rem] z-[99]"
                   >
                     <Image src={orgOverlay} alt="org dev overlay" />
                   </animated.div>
@@ -3819,6 +3831,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: matrix_scale,
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
+                  translateX: -60,
                   opacity: scrollYProgress.to(() => {
                     if (
                       scrollY >= animationStart + step * 3 &&
@@ -5552,8 +5565,8 @@ export default function Home() {
                 <div
                   className={classNames(
                     activeState === 7 || activeState === 8
-                      ? 'mt-[6.1em] '
-                      : 'mt-[5.89em] ',
+                      ? 'mt-[6.1em] block'
+                      : 'mt-[5.89em] hidden',
                     'block text-right opacity-0',
                   )}
                 >
@@ -5627,6 +5640,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(128)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
+                  translateX: -60,
                   opacity: scrollYProgress.to(() => {
                     if (
                       scrollY >= animationStart + step * 3 &&
@@ -5651,7 +5665,7 @@ export default function Home() {
                     ` backdrop-div w-[778px]`,
                   )}
                 ></div>
-                <div className="content-div shadow-layer grid w-[856px] grid-cols-12">
+                <div className="content-div shadow-layer grid w-[854px] grid-cols-12">
                   <div className="col-span-11">
                     <div className=" text-center">
                       <h2
@@ -5896,6 +5910,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(256)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
+                  translateX: -60,
                   opacity: scrollYProgress.to(() => {
                     if (activeState === 6 || activeState === 7) {
                       return scrollInterpolate(1);
@@ -5903,7 +5918,7 @@ export default function Home() {
                       scrollY >= animationStart + step * 3 &&
                       scrollY <= animationStart + step * 5
                     ) {
-                      return opacityInterpolate(
+                      return capacityOpacityInterpolate(
                         animationStart + step * 3,
                         animationStart + step * 5,
                         false,
@@ -5918,7 +5933,7 @@ export default function Home() {
                   activeState === 8 || activeState === 9
                     ? 'z-50 transition delay-300 ease-in-out'
                     : 'z-20 ',
-                  `shadow-layer absolute grid w-[856px] grid-cols-12`,
+                  `shadow-layer absolute grid w-[854px] grid-cols-12`,
                 )}
               >
                 <div className="col-span-1">
@@ -7104,8 +7119,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 }

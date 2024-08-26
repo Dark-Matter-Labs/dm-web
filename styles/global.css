@@ -68,7 +68,7 @@ img {
 
 @layer components {
   .global-margin {
-    @apply container mx-auto max-w-7xl px-0;
+    @apply container mx-auto max-w-[1200px] px-0;
   }
 
   .heading-7xl {
@@ -80,7 +80,7 @@ img {
   }
 
   .nav-xl {
-    @apply font-SaansMed text-xl;
+    @apply font-SaansMed text-xl leading-[1.2em];
   }
 
   .nav-2xl {
@@ -141,7 +141,7 @@ img {
   right: 0;
   bottom: 0;
   z-index: -1;
-  transform: rotateX(0deg) rotateZ(0deg); /* Keep flat in 2D */
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); /* Keep flat in 2D */
   backdrop-filter: blur(22.5px); /* Apply filter */
 }
 
@@ -167,4 +167,10 @@ hr {
   background-color: #333333;
   height: 1px;
   border: 0;
+}
+
+.shadow-footer {
+  -webkit-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
 }
