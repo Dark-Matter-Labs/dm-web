@@ -581,7 +581,7 @@ export default function Home() {
         website="https://darkmatterlabs.capital/"
         publication=""
         content={
-          <p className="font-FKregular text-base text-[#C6C6C6]">
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
             the DmCS Lab is working to reframe what is possible within the
             financial capital markets. This Lab is working with the hypothesis
             that the{' '}
@@ -650,7 +650,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The NZC Arc aspires to create smart cities that are carbon
                       neutral. This involves{' '}
                       <a
@@ -713,7 +713,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       This collaborative arc fosters transformative thinking and
                       action for future cities. The aspiration is to create the
                       infrastructures for cities, inviting the next seven
@@ -771,7 +771,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The M0 Arc is aiming to reimagine how we use and steward
                       materials in service of{' '}
                       <a
@@ -837,7 +837,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The Rn Arc is working towards resilient, sustainable and
                       high quality food systems. Within this aspiration, cities
                       are a key area of focus and the team are working across
@@ -884,7 +884,7 @@ export default function Home() {
                     <span className="align-super text-lg uppercase">Arc</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The Be Arc is aiming to support the creation of nested
                       economies that protect and steward the integral health of
                       their base bioregions. This Arc works closely with the Sm
@@ -945,7 +945,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The Pc Arc is looking at how we can match the scale of our
                       planetary challenges with our global ambition to respond.
                       For example, how can we build bold, ambitious models of
@@ -994,7 +994,7 @@ export default function Home() {
                     <span className="align-super text-lg uppercase">lab</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       the Ne Lab embodies the core philosophies of LEE. It aims
                       to stimulate a continuous and inclusive dialogue about how
                       we relate to the world and the implications for a
@@ -1066,7 +1066,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       the Pb Lab rejects the values of control and dominion as a
                       basis for private property systems. Instead this Lab aims
                       to build a diverse and proactive portfolio of alternative
@@ -1124,7 +1124,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       the Btr Lab practises new forms of organising and
                       governance. The Lab is particularly interested in the
                       deep, thoughtful and highly creative work required to
@@ -1174,7 +1174,7 @@ export default function Home() {
                     <span className="align-super text-lg uppercase">lab</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       the Sm Lab is working to improve the{' '}
                       <a
                         className="text-[#737EA5]"
@@ -1228,7 +1228,7 @@ export default function Home() {
                     <span className="align-super text-lg uppercase">lab</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       We are interested in exploring the future of work in
                       relation to a rapidly changing world. What would it mean
                       if we shifted from humans being employed as resources to
@@ -1274,7 +1274,7 @@ export default function Home() {
                     <span className="align-super text-lg uppercase">lab</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The Pf Lab will explore the potential for philanthropic
                       capital to catalyse radical pathways in parallel to the
                       wider capital markets.
@@ -1327,7 +1327,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The Sd Lab is still nascent. Once launched, it will aim to
                       build pathways towards distributed, data assisted decision
                       making.
@@ -1374,7 +1374,7 @@ export default function Home() {
                     </span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Civic Tech Studio helps mould theory and vision from the
                       Dm ecosystem to testable prototypes and applications
                       geared towards long-term impact & maintenance. We see tech
@@ -1421,7 +1421,7 @@ export default function Home() {
                     <span className="align-super text-lg uppercase">Arc</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       this Arc recognises the transformative potential of
                       communities and neighbourhoods to design and steward their
                       own futures. There are a diverse range of initiatives
@@ -1471,7 +1471,7 @@ export default function Home() {
                     </span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       This studio is fundamental to how we communicate. What
                       exactly is Conversational Design? This is a good question
                       and we would like to invite you to explore it with us. The
@@ -1521,7 +1521,7 @@ export default function Home() {
                     </span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       This studio works across the ecosystem to build the craft
                       of speculative design and future scenario building. The
                       team has close links to the Sm Studio where they support
@@ -1571,7 +1571,7 @@ export default function Home() {
                     </span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The OrgDev (organisational development) Studio provides
                       the critical infrastructure for the entire Dm ecosystem
                       and mission. This team is the foundational rock. Their
@@ -1618,7 +1618,7 @@ export default function Home() {
                     <span className="align-super text-lg uppercase">Arc</span>
                   </Dialog.Title>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       the Ni Arc is developing practical pathways to support
                       regenerative, respectful and resilient collaborations
                       between human and natural infrastructures. These
@@ -1686,7 +1686,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The NE lab is exploring the interaction between our
                       monetary systems and societal behaviour. To ground the
                       conceptual provocations, NE Lab has been collaborating
@@ -1761,7 +1761,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Trees As Infrastructure (TreesAI) is a cloud-based
                       platform that aims to embed nature as a critical part of
                       urban infrastructure (alongside more traditional
@@ -1831,7 +1831,7 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The
                       <a
                         className="text-[#737EA5]"
@@ -1906,7 +1906,7 @@ export default function Home() {
                   </div>
 
                   <div className="sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       CircuLaw emerged from Dm’s relationship with the City of
                       Amsterdam. The initiative aims to accelerate the
                       transition to a circular economy by identifying
@@ -1948,7 +1948,7 @@ export default function Home() {
                     </button>
                   </div>
                   <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Life-Ennobling Economics is a propositional vision and a
                       call to action. It is an ennobling invitation to break
                       free from ideological constraints, to embrace the radical
@@ -2016,7 +2016,7 @@ export default function Home() {
                     </button>
                   </div>
                   <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       City-scale tree canopies: as a pathway towards this
                       ambition, the{' '}
                       <a
@@ -2063,7 +2063,7 @@ export default function Home() {
                     </button>
                   </div>
                   <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Collective intelligence of a city: the{' '}
                       <a
                         className="text-[#737EA5]"
@@ -2113,7 +2113,7 @@ export default function Home() {
                     </button>
                   </div>
                   <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Resilient bioregional food systems: we are working towards
                       this option in varied threads of our work. On the broader
                       topic of bioregional transitions we are exploring what a
@@ -2170,7 +2170,7 @@ export default function Home() {
                       Domain A: Ontology & epistemology
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Domain A relates to the values, wisdom, spirituality, ways
                       of being and ways of knowing that are dominant in our
                       culture. This domain results in the collective
@@ -2218,7 +2218,7 @@ export default function Home() {
                       Domain B: Money & valuation logic
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Expresses the underlying theory of value that drives our
                       investment and institutional logic. Money is a powerful
                       expression of this axiology; a) who issues a currency, b)
@@ -2264,7 +2264,7 @@ export default function Home() {
                       Domain C: Financial processes & Investment
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Represents how we structure and allocate capital stocks
                       (this is currently dominated by financial capital but also
                       includes intangible and ecological stocks). This part of
@@ -2311,7 +2311,7 @@ export default function Home() {
                       Domain D: Ownership, law & governance
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       This domain determines who has the rights to the social
                       surplus and contains the jurisprudence to enforce social
                       norms and systems of organising.
@@ -2356,7 +2356,7 @@ export default function Home() {
                       Domain E: Institutional logic and policy
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       This domain looks at the institutions and blueprints that
                       functionally underpin how we organise society. It includes
                       social engagement processes and the communication of
@@ -2402,7 +2402,7 @@ export default function Home() {
                       Domain F: Material, energy & land use
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       The physical domain represents the material and ecological
                       economies. This domain grounds the socio-economic and
                       ontological domains in the systems’ biophysical reality.
@@ -2447,7 +2447,7 @@ export default function Home() {
                       A1: Fostering a relational worldview
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Helping people to see that relationships are the
                       fundamental basis of living systems. If we can understand
                       life as a series of interconnected relationships then an
@@ -2493,7 +2493,7 @@ export default function Home() {
                       A2: Replacing profit as the collective goal
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       We want to show that profit is no longer an appropriate
                       signal of value. A true signal of value cannot be time or
                       geographically bound in its conception and must recognise
@@ -2542,7 +2542,7 @@ export default function Home() {
                       A3: Building political will
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Finding new ways of understanding common issues, together
                       with a clear communication of alternative response
                       strategies. Using the housing crisis as an example;
@@ -2590,7 +2590,7 @@ export default function Home() {
                       experience)
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Defining and testing quantitative measures of sensory
                       experience. We want to use embodied metrics to protect and
                       respect intrinsic value.
@@ -2635,7 +2635,7 @@ export default function Home() {
                       B1: Demonstrating entangled and long-term value
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       In our current economy, price is synonymous with value. We
                       need to visualise the vast unpriced web of relationships
                       that creates value, so that we can prevent further
@@ -2682,7 +2682,7 @@ export default function Home() {
                       B2: Decolonised, bioregional currency stewardship
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Finding ways to balance the need to exchange freely
                       between regions and countries with protecting the unique
                       contexts of our social & physical systems. For example,
@@ -2728,7 +2728,7 @@ export default function Home() {
                       B3: Alternative non-fungible currency systems
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Demonstrating the potential for new tokens of exchange
                       that are linked to tangible elements of our economy. We
                       want to show how individual resource backed currencies can
@@ -2775,7 +2775,7 @@ export default function Home() {
                       B4: Visualising finite and infinite economies
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       We need to communicate a vision that opens up the future
                       rather than closing it down. Whilst it is critical to
                       understand the constraints (e.g. energy and carbon), we
@@ -2823,7 +2823,7 @@ export default function Home() {
                       SIDE)
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Helping &#39;project developers&#39; and those that
                       steward assets with entangled value functions to build
                       adequate business models to be able to absorb capital.
@@ -2868,7 +2868,7 @@ export default function Home() {
                       C2: Bridging demand & supply
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Building the protective governance and agreement
                       structures that prevent extractive and asymmetric
                       relationships between funders / investors and those
@@ -2914,7 +2914,7 @@ export default function Home() {
                       C3: Structuring capital & investments
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Developing the necessary instruments that allow current
                       capital holders to allocate it to assets with entangled
                       value functions.
@@ -2959,7 +2959,7 @@ export default function Home() {
                       C4: Enabling strategic ecosystem investments
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Transforming investment logics and frameworks to
                       strategically manipulate desired shifts. For example a
                       single investor splitting their resource into for-profit /
@@ -3008,7 +3008,7 @@ export default function Home() {
                       financing pathways
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Opening the Overton window for public and private actors
                       in the financial system to embrace new approaches to
                       financing.
@@ -3054,7 +3054,7 @@ export default function Home() {
                       regenerative financial system
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Exploring the role of the financial system in the global
                       transition. For example, considering whether it has the
                       potential to tip into becoming a catalyst for change or
@@ -3101,7 +3101,7 @@ export default function Home() {
                       alternative theories of ownership
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Practical demonstration of contracts and operating
                       agreements that replace linear, owner-owned relationships
                       towards a fixed point with agent-to-agent relationships
@@ -3149,7 +3149,7 @@ export default function Home() {
                       with stewardship
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Prevent extraction over time due perverse incentives that
                       are underpinned by corporate, tax, labour and patent laws
                       (among others); enable and support regeneratively designed
@@ -3195,7 +3195,7 @@ export default function Home() {
                       D3: Demonstrating multi-actor governance structures
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Practical demonstration of ways of organising and
                       governing together, as multiple actors with varying assets
                       to contribute. This work involves revealing, acknowledging
@@ -3242,7 +3242,7 @@ export default function Home() {
                       D4: Embedding data-augmented decision making
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Using modern technologies to collate and compute
                       wide-ranging data points in complex contexts, so that
                       options can be collectively understood, interrogated and
@@ -3289,7 +3289,7 @@ export default function Home() {
                       ancestors and future generations
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Supporting pathways that can practically embed the
                       reconciliation of indigenous worldviews, and how this is
                       reflected through alternative legal & governance
@@ -3336,7 +3336,7 @@ export default function Home() {
                       E1: Enabling public-civic efficacy to transform place
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Supporting the learning, capabilities and power of
                       public-civic partnerships to shape their streets,
                       neighbourhoods and places towards collective thriving.
@@ -3382,7 +3382,7 @@ export default function Home() {
                       institutions
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Developing the foundations for stewardship institutions
                       that extend beyond national states, to protect and govern
                       the global commons.
@@ -3427,7 +3427,7 @@ export default function Home() {
                       E3: Designing reflective, data-driven policy instruments
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Creation of instruments that are framed within ecological
                       and social boundaries & aspirations (with clear data
                       driven indicators) and adjust according to the context
@@ -3474,7 +3474,7 @@ export default function Home() {
                       E4: Place-based, policy process design
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Policy design processes shaped by the geographical
                       context, which informs the economic, cultural and
                       environmental drivers. We want to use policy design &
@@ -3522,7 +3522,7 @@ export default function Home() {
                       with the physical environment.
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Building the infrastructure that will allow human
                       activities to hold respectful, reciprocal relationships
                       with land (and other physical elements of our
@@ -3571,7 +3571,7 @@ export default function Home() {
                       F2: Visualising material and energy flows
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Developing tools and methodologies to both track and
                       clearly communicate how we are collectively using our
                       shared common resources.
@@ -3617,7 +3617,7 @@ export default function Home() {
                       built environment
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Building a new data infrastructure that can hold cities,
                       regions and countries to account on how they are
                       stewarding the rights and responsibilities of using shared
@@ -3665,7 +3665,7 @@ export default function Home() {
                       and affordable multi-purpose developments.
                     </Dialog.Title>
 
-                    <p className="font-FKregular text-base text-[#C6C6C6]">
+                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
                       Exploring how we can re-common and repurpose land and
                       building in service of a shared, equitable, material and
                       energy light future.
@@ -5944,7 +5944,7 @@ export default function Home() {
                         onClick={() => setOpenDomainA(true)}
                         className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
-                        <p className="font-FKregular text-base leading-tight ">
+                        <p className="font-SaansRegular text-base leading-tight ">
                           {' '}
                           A
                         </p>
@@ -5957,7 +5957,7 @@ export default function Home() {
                         onClick={() => setOpenDomainA1(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           A-1
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -5969,7 +5969,7 @@ export default function Home() {
                         onClick={() => setOpenDomainA2(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           A-2
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -5981,7 +5981,7 @@ export default function Home() {
                         onClick={() => setOpenDomainA3(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           A-3
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -5994,7 +5994,7 @@ export default function Home() {
                         onClick={() => setOpenDomainA4(true)}
                         className={`my-1.5 flex h-[80px] w-[109px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           A-4
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6029,7 +6029,7 @@ export default function Home() {
                         onClick={() => setOpenDomainB(true)}
                         className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF] hover:cursor-pointer`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           B
                         </p>
                         <p className="font-SaansMed text-[9.6px] leading-tight">
@@ -6041,7 +6041,7 @@ export default function Home() {
                         onClick={() => setOpenDomainB1(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className=" font-FKregular text-base leading-tight">
+                        <p className=" font-SaansRegular text-base leading-tight">
                           B-1
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6053,7 +6053,7 @@ export default function Home() {
                         onClick={() => setOpenDomainB2(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           B-2
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6065,7 +6065,7 @@ export default function Home() {
                         onClick={() => setOpenDomainB3(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           B-3
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6077,7 +6077,7 @@ export default function Home() {
                         onClick={() => setOpenDomainB4(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           B-4
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6111,7 +6111,7 @@ export default function Home() {
                         onClick={() => setOpenDomainC(true)}
                         className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           C
                         </p>
                         <p className="font-SaansMed text-[9.6px] leading-tight">
@@ -6123,7 +6123,7 @@ export default function Home() {
                         onClick={() => setOpenDomainC1(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           C-1
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6135,7 +6135,7 @@ export default function Home() {
                         onClick={() => setOpenDomainC2(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           C-2
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6147,7 +6147,7 @@ export default function Home() {
                         onClick={() => setOpenDomainC3(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           C-3
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6159,7 +6159,7 @@ export default function Home() {
                         onClick={() => setOpenDomainC4(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           C-4
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6171,7 +6171,7 @@ export default function Home() {
                         onClick={() => setOpenDomainC5(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           C-5
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6184,7 +6184,7 @@ export default function Home() {
                         onClick={() => setOpenDomainC6(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pl-2 pr-1 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           C-6
                         </p>
                         <p className="self-stretch font-SaansMed text-[8px] leading-tight -tracking-[0.54px]">
@@ -6209,7 +6209,7 @@ export default function Home() {
                         onClick={() => setOpenDomainD(true)}
                         className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           D
                         </p>
                         <p className="font-SaansMed text-[9.6px] leading-tight">
@@ -6221,7 +6221,7 @@ export default function Home() {
                         onClick={() => setOpenDomainD1(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-1
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6234,7 +6234,7 @@ export default function Home() {
                         onClick={() => setOpenDomainD2(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-2
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6247,7 +6247,7 @@ export default function Home() {
                         onClick={() => setOpenDomainD3(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-3
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6259,7 +6259,7 @@ export default function Home() {
                         onClick={() => setOpenDomainD4(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-4
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6271,7 +6271,7 @@ export default function Home() {
                         onClick={() => setOpenDomainD5(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           D-5
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6300,7 +6300,7 @@ export default function Home() {
                         onClick={() => setOpenDomainE(true)}
                         className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           {' '}
                           E
                         </p>
@@ -6313,7 +6313,7 @@ export default function Home() {
                         onClick={() => setOpenDomainE1(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-1
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6325,7 +6325,7 @@ export default function Home() {
                         onClick={() => setOpenDomainE2(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-2
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6337,7 +6337,7 @@ export default function Home() {
                         onClick={() => setOpenDomainE3(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-3
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6349,7 +6349,7 @@ export default function Home() {
                         onClick={() => setOpenDomainE4(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-4
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6382,7 +6382,7 @@ export default function Home() {
                         onClick={() => setOpenDomainF(true)}
                         className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#FFF] hover:cursor-pointer`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           F
                         </p>
                         <p className="font-SaansMed text-[9.6px] leading-tight">
@@ -6394,7 +6394,7 @@ export default function Home() {
                         onClick={() => setOpenDomainF1(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           F-1
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6407,7 +6407,7 @@ export default function Home() {
                         onClick={() => setOpenDomainF2(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           F-2
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6418,7 +6418,7 @@ export default function Home() {
                         onClick={() => setOpenDomainF3(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="pb-2 font-FKregular text-base leading-tight">
+                        <p className="pb-2 font-SaansRegular text-base leading-tight">
                           F-3
                         </p>
                         <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
@@ -6431,7 +6431,7 @@ export default function Home() {
                         onClick={() => setOpenDomainF4(true)}
                         className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
                       >
-                        <p className="font-FKregular text-base leading-tight">
+                        <p className="font-SaansRegular text-base leading-tight">
                           F-4
                         </p>
                         <p className="font-SaansMed text-[7px] leading-tight -tracking-[0.54px]">

@@ -154,7 +154,7 @@ export default function Footer() {
                 <ul role="list" className=" space-y-6">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <div className="p-xl-regular text-grey-1">
+                      <div className="nav-xl text-grey-1">
                         <p>{item.country}</p>
                         <p>{item.fullName}</p>
                       </div>

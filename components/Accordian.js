@@ -67,7 +67,7 @@ function Accordion({
                   colorInterpolate(scrollPos, scrollPos + 400),
                 ),
               }}
-              className="heading_animate cursor-pointer pl-2 font-FKregular text-[17px] leading-[24.4px]"
+              className="heading_animate cursor-pointer pl-2 font-SaansRegular text-[17px] leading-[24.4px]"
               onClick={() =>
                 window.scrollTo({
                   top: scrollPos,
@@ -78,7 +78,7 @@ function Accordion({
               {link !== '' ? <Link href={link}>{title}</Link> : <>{title}</>}
             </animated.h4>
             {activeState && (
-              <animated.p className="text_animate pl-2 font-PPbook text-[15.8px] leading-[23.1px] text-grey-3">
+              <animated.p className="text_animate pl-2 font-SaansRegular text-[15.8px] leading-[23.1px] text-grey-3">
                 {description}
               </animated.p>
             )}

@@ -8,11 +8,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        FKregular: ['"FKGroteskTrial-Regular"', 'system-ui'],
-        FKmedium: ['"FKGroteskTrial-Medium"', 'system-ui'],
-        FKlight: ['"FKGroteskTrial-Light"', 'system-ui'],
-        PPbook: ['"PPNeueMontreal-Book"', 'system-ui'],
-        PPmedium: ['"PPNeueMontreal-Medium"', 'system-ui'],
         SaansRegular: ['SaansTRIAL-Regular', 'system-ui'],
         SaansMed: ['SaansTRIAL-Medium', 'system-ui'],
       },

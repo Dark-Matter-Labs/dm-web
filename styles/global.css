@@ -35,41 +35,6 @@ img {
 }
 
 @font-face {
-  font-family: 'FKGroteskTrial-Regular';
-  src:
-    local('FKGroteskTrial-Regular'),
-    url('../fonts/FKGroteskTrial-Regular.otf') format('otf');
-}
-
-@font-face {
-  font-family: 'FKGroteskTrial-Medium';
-  src:
-    local('FKGroteskTrial-Medium'),
-    url('../fonts/FKGroteskTrial-Medium.otf') format('otf');
-}
-
-@font-face {
-  font-family: 'FKGroteskTrial-Light';
-  src:
-    local('FKGroteskTrial-Light'),
-    url('../fonts/FKGroteskTrial-Light.otf') format('otf');
-}
-
-@font-face {
-  font-family: 'PPNeueMontreal-Book';
-  src:
-    local('PPNeueMontreal-Book'),
-    url('../fonts/PPNeueMontreal-Book.otf') format('otf');
-}
-
-@font-face {
-  font-family: 'FKGroteskTrial-Light';
-  src:
-    local('PPNeueMontreal-Light'),
-    url('../fonts/PPNeueMontreal-Medium.otf') format('otf');
-}
-
-@font-face {
   font-family: 'SaansTRIAL-Medium';
   src:
     local('SaansTRIAL-Medium'),
@@ -103,7 +68,7 @@ img {
 
 @layer components {
   .global-margin {
-    @apply container mx-auto px-0;
+    @apply container mx-auto max-w-7xl px-0;
   }
 
   .heading-7xl {
@@ -115,11 +80,11 @@ img {
   }
 
   .nav-xl {
-    @apply font-PPmedium text-xl;
+    @apply font-SaansMed text-xl;
   }
 
   .nav-2xl {
-    @apply font-PPmedium text-2xl;
+    @apply font-SaansMed text-2xl;
   }
 
   .p-4xl-medium {
