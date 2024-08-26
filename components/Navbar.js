@@ -6,7 +6,7 @@ import dmLogo from '../images/DML.gif';
 
 export default function Navbar() {
   return (
-    <div className="sticky top-0 z-[90] grid w-[1200px] grid-cols-12 justify-items-stretch gap-20 bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
+    <div className="sticky top-0 z-[90] flex items-center justify-between bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
       <div className="col-span-5 ">
         <Link href="/">
           <Image
@@ -16,45 +16,40 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className="col-span-7 ">
+      <div className="col-span-7 w-[690px]">
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className="max-w-7xl ">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="hidden sm:block">
-                      <div className="flex space-x-8">
-                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
-                          Feed
-                        </a>
-                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
-                          Initiatives
-                        </a>
-                        <Link
-                          href="/team"
-                          className="nav-xl py-2 pr-3 text-grey-4"
-                        >
-                          Team
-                        </Link>
-                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
-                          Jobs
-                        </a>
-                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
-                          Contact
-                        </a>
-                        <a href="#" className="nav-xl py-2 pr-3 text-grey-4">
-                          Support
-                        </a>
-                        <a
-                          href="https://provocations.darkmatterlabs.org/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="nav-xl py-2 pr-3 text-grey-4"
-                        >
-                          Provocations↗
-                        </a>
-                      </div>
+              <div className=" ">
+                <div className="">
+                  <div className="hidden sm:block">
+                    <div className="flex items-center justify-between">
+                      <a href="#" className="nav-xl py-2 text-grey-4">
+                        Feed
+                      </a>
+                      <a href="#" className="nav-xl py-2 text-grey-4">
+                        Initiatives
+                      </a>
+                      <Link href="/team" className="nav-xl py-2 text-grey-4">
+                        Team
+                      </Link>
+                      <a href="#" className="nav-xl py-2 text-grey-4">
+                        Jobs
+                      </a>
+                      <a href="#" className="nav-xl py-2  text-grey-4">
+                        Contact
+                      </a>
+                      <a href="#" className="nav-xl py-2  text-grey-4">
+                        Support
+                      </a>
+                      <a
+                        href="https://provocations.darkmatterlabs.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-xl py-2  text-grey-4"
+                      >
+                        Provocations↗
+                      </a>
                     </div>
                   </div>
                   <div className="-mr-2 flex sm:hidden">

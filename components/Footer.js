@@ -100,12 +100,12 @@ export default function Footer() {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className="w-[1200px] bg-[#111112] "
+      className=" shadow-footer bg-[#111112] "
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="pt-10 pb-20 ">
+      <div className="mx-auto w-[1200px] pb-20 pt-10">
         <div className="xl:grid xl:grid-cols-12 xl:gap-20">
           <div className="col-span-5 space-y-40">
             <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
