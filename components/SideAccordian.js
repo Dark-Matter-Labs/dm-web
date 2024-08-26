@@ -7,7 +7,7 @@ function classNames(...classes) {
 
 function SideNav({ activeState, scrollY }) {
   return (
-    <div className="col-span-4 hidden max-w-xs matrix:block">
+    <div className="col-span-5 hidden w-[314px] max-w-xs matrix:block">
       <div
         className={classNames(
           activeState === 2 ||

@@ -44,6 +44,10 @@ module.exports = {
       screens: {
         matrix: '1195px',
       },
+      container: {
+        center: true,
+        padding: '1rem',
+      },
     },
   },
   plugins: [],

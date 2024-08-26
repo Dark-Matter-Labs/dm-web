@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useScroll, animated } from '@react-spring/web';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-import { startSticky, step } from '../utils/constants';
+import { startSticky, step, matrix_scale } from '../utils/constants';
 
 import Navbar from '../components/Navbar';
 import SideNav from '../components/SideAccordian';
@@ -15,6 +15,7 @@ import Studio from '../components/Studio';
 import Initiative from '../components/Initiative';
 import StudioInitiative from '../components/StudioInitiative';
 import Popup from '../components/Popup';
+import Footer from '../components/Footer';
 
 import webIcon from '../images/website.svg';
 import pubIcon from '../images/publication.svg';
@@ -22,6 +23,11 @@ import labsOverlay from '../images/labs.svg';
 import arcsOverlay from '../images/arcs.svg';
 import studiosOverlay from '../images/studio.svg';
 import orgOverlay from '../images/orgdev.svg';
+import vinnovaLogo from '../images/partners/Vinnova.png';
+import VClogo from '../images/partners/VC.png';
+import CKICLogo from '../images/partners/C-KIC.png';
+import ArupLogo from '../images/partners/Arup.png';
+import BHLogo from '../images/partners/Bloxhub.png';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -3672,11 +3678,13 @@ export default function Home() {
         </Dialog>
       </Transition.Root>
 
-      <main className="global-margin w-full">
+      <main className="global-margin">
         <Navbar />
-        <div className={`relative mt-28 w-[1600px] sm:grid sm:grid-cols-12`}>
+        <div
+          className={`relative mt-28 w-[1200px] gap-20 sm:grid sm:grid-cols-12`}
+        >
           <SideNav activeState={activeState} scrollY={scrollY} />
-          <div className={`relative col-span-8 w-[690px]`}>
+          <div className={`relative col-span-7 w-[690px]`}>
             <div id="real" className="">
               <h1 className="heading-7xl max-w-[42rem] pb-10 text-grey-5 ">
                 We are building options for the next economies
@@ -3750,12 +3758,12 @@ export default function Home() {
 
               <div className="pt-14">
                 <p className="heading-5xl text-grey-2">
-                  ↓ How do we structure our response?
+                  How do we structure our response? ↓
                 </p>
               </div>
             </div>
 
-            <div className={`${classT2} w-full`}>
+            <div className={`${classT2}`}>
               {activeState !== 6 && activeState !== 7 && activeState !== 8 && (
                 <>
                   <animated.div
@@ -3764,7 +3772,7 @@ export default function Home() {
                         labOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute -right-[4rem] top-[18.2rem] z-[99]"
+                    className="absolute -right-[7rem] top-[17.2rem] z-[99]"
                   >
                     <Image src={labsOverlay} alt="labs overlay" />
                   </animated.div>
@@ -3775,7 +3783,7 @@ export default function Home() {
                         studioOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute -right-[4rem] top-[30.5rem] z-[99]"
+                    className="absolute -right-[7rem] top-[30.7rem] z-[99]"
                   >
                     <Image src={studiosOverlay} alt="studios overlay" />
                   </animated.div>
@@ -3786,7 +3794,7 @@ export default function Home() {
                         arcOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute left-[4rem] top-[30rem] z-[99]"
+                    className="absolute left-[0rem] top-[30rem] z-[99]"
                   >
                     <Image src={arcsOverlay} alt="arcs overlay" />
                   </animated.div>
@@ -3797,7 +3805,7 @@ export default function Home() {
                         orgOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute left-[4rem] top-[42rem] z-[99]"
+                    className="absolute left-[0rem] top-[42rem] z-[99]"
                   >
                     <Image src={orgOverlay} alt="org dev overlay" />
                   </animated.div>
@@ -3809,7 +3817,7 @@ export default function Home() {
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
-                  scale: 0.6,
+                  scale: matrix_scale,
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
                   opacity: scrollYProgress.to(() => {
                     if (
@@ -5615,7 +5623,7 @@ export default function Home() {
                 style={{
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
-                  scale: 0.6,
+                  scale: matrix_scale,
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(128)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
@@ -5884,7 +5892,7 @@ export default function Home() {
                 style={{
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
-                  scale: 0.6,
+                  scale: matrix_scale,
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(256)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
@@ -6727,9 +6735,376 @@ export default function Home() {
               </div>
 
               <hr className="text-[#333333]" />
+              <div className="py-20">
+                <p className="p-3xl-regular max-w-3xl pb-10 text-grey-6">
+                  We are not doing it alone, we work with partners, clients, and
+                  collaborators across the world.
+                </p>
+                <div className="grid h-[357px] grid-cols-6 gap-[27px] overflow-y-scroll pb-10">
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={VClogo}
+                      alt="Viable Cities logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={CKICLogo}
+                      alt="EIT CliamateKIC logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={ArupLogo}
+                      alt="Arup logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={BHLogo}
+                      alt="Bloxhub logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={VClogo}
+                      alt="Viable Cities logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={CKICLogo}
+                      alt="EIT CliamateKIC logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={ArupLogo}
+                      alt="Arup logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={BHLogo}
+                      alt="Bloxhub logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={VClogo}
+                      alt="Viable Cities logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={CKICLogo}
+                      alt="EIT CliamateKIC logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={ArupLogo}
+                      alt="Arup logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={BHLogo}
+                      alt="Bloxhub logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div className="opacity-20">
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div className="opacity-20">
+                    <Image
+                      src={VClogo}
+                      alt="Viable Cities logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div className="opacity-20">
+                    <Image
+                      src={CKICLogo}
+                      alt="EIT CliamateKIC logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div className="opacity-20">
+                    <Image
+                      src={ArupLogo}
+                      alt="Arup logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div className="opacity-20">
+                    <Image
+                      src={BHLogo}
+                      alt="Bloxhub logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div className="opacity-20">
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={VClogo}
+                      alt="Viable Cities logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={CKICLogo}
+                      alt="EIT CliamateKIC logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={ArupLogo}
+                      alt="Arup logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={BHLogo}
+                      alt="Bloxhub logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={VClogo}
+                      alt="Viable Cities logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={CKICLogo}
+                      alt="EIT CliamateKIC logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={ArupLogo}
+                      alt="Arup logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={BHLogo}
+                      alt="Bloxhub logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={VClogo}
+                      alt="Viable Cities logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={CKICLogo}
+                      alt="EIT CliamateKIC logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={ArupLogo}
+                      alt="Arup logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={BHLogo}
+                      alt="Bloxhub logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={vinnovaLogo}
+                      alt="Vinnova logo"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="pb-60 pt-20">
+                <h1 className="heading-7xl max-w-[22.8rem] pb-10 text-grey-5 ">
+                  Help us build a better future
+                </h1>
+                <div className="flex gap-8">
+                  <div className="border-2 border-white p-1.5 hover:cursor-pointer">
+                    <p className="float-right font-SaansMed text-[10px] text-white">
+                      {'>'}
+                    </p>
+                    <p className="font-SaansMed text-2xl text-white">Contact</p>
+                  </div>
+                  <div className="border-2 border-white p-1.5 hover:cursor-pointer">
+                    <p className="float-right font-SaansMed text-[10px] text-white">
+                      {'>'}
+                    </p>
+                    <p className="font-SaansMed text-2xl text-white">
+                      Contribute
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <Footer />
       </main>
     </div>
   );

@@ -6,8 +6,8 @@ import dmLogo from '../images/DML.gif';
 
 export default function Navbar() {
   return (
-    <div className="sticky top-0 z-[90] grid w-[1600px] grid-cols-12 bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
-      <div className="col-span-4 ">
+    <div className="sticky top-0 z-[90] grid w-[1200px] grid-cols-12 justify-items-stretch gap-20 bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
+      <div className="col-span-5 ">
         <Link href="/">
           <Image
             src={dmLogo}
@@ -16,7 +16,7 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className="col-span-8 ">
+      <div className="col-span-7 ">
         <Disclosure as="nav">
           {({ open }) => (
             <>

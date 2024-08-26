@@ -103,9 +103,7 @@ img {
 
 @layer components {
   .global-margin {
-    @apply max-w-[1280px];
-
-    @apply mx-auto;
+    @apply container mx-auto px-0;
   }
 
   .heading-7xl {
@@ -132,6 +130,10 @@ img {
     @apply font-SaansRegular text-3xl leading-13;
   }
 
+  .p-xl-reugular {
+    @apply font-SaansRegular text-xl leading-12;
+  }
+
   .p-xl-medium {
     @apply font-SaansMed text-xl leading-12;
   }
@@ -145,11 +147,11 @@ img {
   }
 
   .t1 {
-    @apply relative left-0 right-0;
+    @apply relative;
   }
 
   .t2 {
-    @apply sticky bottom-0 left-0 right-0 top-[-20vh] md:top-[-10vh];
+    @apply sticky top-[-20vh] md:top-[-10vh];
   }
 
   @media (max-width: 1440px) {
@@ -159,7 +161,7 @@ img {
   }
 
   .t3 {
-    @apply relative left-0 right-0 mt-[224.8rem];
+    @apply relative mt-[215.8rem];
   }
 }
 
@@ -180,13 +182,6 @@ img {
 
 .shadow-layer {
   filter: drop-shadow(0px 40px 80px #141414);
-}
-
-.bg-nav {
-  background-image: url('../images/bg.svg');
-  background-repeat: no-repeat;
-  background-size: 340px;
-  background-origin: border-box;
 }
 
 .heading_animate {
