@@ -3784,7 +3784,7 @@ export default function Home() {
                         labOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute -right-[4rem] top-[17.2rem] z-[99]"
+                    className="absolute right-0 top-[16rem] z-[99]"
                   >
                     <Image src={labsOverlay} alt="labs overlay" />
                   </animated.div>
@@ -3795,7 +3795,7 @@ export default function Home() {
                         studioOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute -right-[4rem] top-[29.8rem] z-[99]"
+                    className="absolute right-0 top-[28.4rem] z-[99]"
                   >
                     <Image src={studiosOverlay} alt="studios overlay" />
                   </animated.div>
@@ -3806,7 +3806,7 @@ export default function Home() {
                         arcOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute left-[0rem] top-[29rem] z-[99]"
+                    className="absolute left-0 top-[27.5rem] z-[99]"
                   >
                     <Image src={arcsOverlay} alt="arcs overlay" />
                   </animated.div>
@@ -3817,7 +3817,7 @@ export default function Home() {
                         orgOverlayOpacityInterpolate(),
                       ),
                     }}
-                    className="absolute left-[0rem] top-[40rem] z-[99]"
+                    className="absolute left-0 top-[38.8rem] z-[99]"
                   >
                     <Image src={orgOverlay} alt="org dev overlay" />
                   </animated.div>
@@ -3831,7 +3831,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   scale: matrix_scale,
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
-                  translateX: -60,
+                  translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
                       scrollY >= animationStart + step * 3 &&
@@ -5640,7 +5640,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(128)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
-                  translateX: -60,
+                  translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
                       scrollY >= animationStart + step * 3 &&
@@ -5910,7 +5910,7 @@ export default function Home() {
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(256)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
-                  translateX: -60,
+                  translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (activeState === 6 || activeState === 7) {
                       return scrollInterpolate(1);
