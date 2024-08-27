@@ -306,7 +306,7 @@ export default function Home() {
 
     if (flip) {
       return 1 - 0.7 * scrollFactor;
-    } else return 300 * scrollFactor; // Linear interpolation for opacity
+    } else return 200 * scrollFactor; // Linear interpolation for opacity
   };
 
   const bgHoverInterpolate = (stepMultiplier, isActive) => {
@@ -3835,11 +3835,11 @@ export default function Home() {
                   opacity: scrollYProgress.to(() => {
                     if (
                       scrollY >= animationStart + step * 3 &&
-                      scrollY <= animationStart + step * 5
+                      scrollY <= animationStart + step * 6
                     ) {
                       return opacityInterpolate(
                         animationStart + step * 3,
-                        animationStart + step * 5,
+                        animationStart + step * 6,
                         true,
                       );
                     } else return 1;
@@ -5644,11 +5644,11 @@ export default function Home() {
                   opacity: scrollYProgress.to(() => {
                     if (
                       scrollY >= animationStart + step * 3 &&
-                      scrollY <= animationStart + step * 5
+                      scrollY <= animationStart + step * 6
                     ) {
                       return opacityInterpolate(
                         animationStart + step * 3,
-                        animationStart + step * 5,
+                        animationStart + step * 6,
                         true,
                       );
                     } else return 1;
