@@ -5661,7 +5661,7 @@ export default function Home() {
               >
                 <div
                   className={classNames(
-                    activeState === 7 || activeState === 8 ? '' : '',
+                    scrollY > animationStart + step * 2 ? 'hidden' : 'block',
                     ` backdrop-div w-[778px]`,
                   )}
                 ></div>
