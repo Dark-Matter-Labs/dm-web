@@ -4,29 +4,33 @@ import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import dmLogo from '../images/dm-logo.png';
-import dmLogoHover from '../images/dm-logo-hover.png'
+import dmLogoHover from '../images/dm-logo-hover.png';
 
 export default function Navbar() {
   const [hover, setHover] = useState(false);
   return (
     <div className="sticky top-0 z-[90] flex items-center justify-between bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
-      <div 
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      className="col-span-5 ">
+      <div
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className="col-span-5 "
+      >
         <Link href="/">
-        {hover ?
-         <Image
-         src={dmLogoHover}
-         alt="Dm logo animation in multiple languages"
-         width={200}
-         height={40}
-       />:  <Image
-       src={dmLogo}
-       alt="Dm logo animation in multiple languages"
-       width={200}
-       height={40}
-     />}
+          {hover ? (
+            <Image
+              src={dmLogoHover}
+              alt="Dm logo animation in multiple languages"
+              width={200}
+              height={40}
+            />
+          ) : (
+            <Image
+              src={dmLogo}
+              alt="Dm logo animation in multiple languages"
+              width={200}
+              height={40}
+            />
+          )}
         </Link>
       </div>
       <div className="col-span-7 w-[690px]">

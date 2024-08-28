@@ -8,7 +8,6 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import { startSticky, step, matrix_scale } from '../utils/constants';
 
 import Navbar from '../components/Navbar';
-import SideNav from '../components/SideAccordian';
 import Arc from '../components/Arc';
 import Lab from '../components/Lab';
 import Studio from '../components/Studio';
@@ -125,29 +124,26 @@ export default function Home() {
     // 2D projects state
     else if (
       window.scrollY >= startSticky + 4 * step &&
-      window.scrollY < startSticky + 5 * step
+      window.scrollY < animationStart // refactor and remove this state!
     ) {
-      if (window.scrollY > animationStart) {
-        setAnimateOn('animate');
-      }
-
       setActiveState(6);
 
       setClassT2('t2');
     } else if (
       window.scrollY >= animationStart &&
-      window.scrollY < animationStart + step * 3 &&
-      easeFrac > 1
+      window.scrollY < animationStart + step
     ) {
+      if (window.scrollY > animationStart) {
+        setAnimateOn('animate');
+      }
       setActiveState(7);
 
       setClassT2('t2');
     }
     // capability 2D state
     else if (
-      window.scrollY >= animationStart + step * 3 &&
-      window.scrollY < animationStart + step * 5 &&
-      easeFrac > 1
+      window.scrollY >= animationStart + step &&
+      window.scrollY < animationStart + step * 2
     ) {
       setActiveState(8);
 
@@ -155,17 +151,17 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= animationStart + step * 5 - 100) {
+    if (window.scrollY >= animationStart + step * 3) {
       setClassT2('t3');
     }
 
     if (
-      window.scrollY >= animationStart + step * 5 &&
-      window.scrollY < animationStart + step * 5 + 1200
+      window.scrollY >= animationStart + step * 3 &&
+      window.scrollY < animationStart + step * 3 + 1200
     ) {
       setActiveState(9);
     }
-    if (window.scrollY >= animationStart + step * 5 + 1200) {
+    if (window.scrollY >= animationStart + step * 3 + 1200) {
       setActiveState(10);
     }
   };
@@ -270,9 +266,16 @@ export default function Home() {
   const [openDomainF4, setOpenDomainF4] = useState(false);
 
   const scrollInterpolate = (toInterpolate) => {
-    if (toInterpolate - toInterpolate * scrollFraction > 0) {
+    let startScroll = animationStart;
+    let endScroll = animationStart + step;
+
+    let scrollFrac =
+      Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
+    let easeFrac = Math.pow(scrollFrac, 3);
+
+    if (toInterpolate - toInterpolate * easeFrac > 0) {
       if (animateOn === 'animate') {
-        return toInterpolate - toInterpolate * scrollFraction;
+        return toInterpolate - toInterpolate * easeFrac;
       } else {
         return toInterpolate;
       }
@@ -291,8 +294,8 @@ export default function Home() {
     // Interpolate opacity between 0 and 1
 
     if (flip) {
-      return 1 - 0.7 * scrollFactor;
-    } else return 2 * scrollFactor; // Linear interpolation for opacity
+      return 1 - scrollFactor;
+    } else return scrollFactor; // Linear interpolation for opacity
   };
 
   const capacityOpacityInterpolate = (startScroll, endScroll, flip) => {
@@ -302,11 +305,9 @@ export default function Home() {
     // Clamp the scrollFactor between 0 and 1
     scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
 
-    // Interpolate opacity between 0 and 1
-
     if (flip) {
-      return 1 - 0.7 * scrollFactor;
-    } else return 200 * scrollFactor; // Linear interpolation for opacity
+      return 1 * scrollFactor;
+    } else return 100 * scrollFactor; // Linear interpolation for opacity
   };
 
   const bgHoverInterpolate = (stepMultiplier, isActive) => {
@@ -569,14 +570,20 @@ export default function Home() {
   };
 
   const scrollYInterpolate = () => {
-    if (
-      scrollY >= animationStart &&
-      scrollY < animationStart - 260 + step * 3
-    ) {
-      newY = startSticky * scrollFraction * 0.1;
+    let startScroll = animationStart;
+    let endScroll = animationStart + step;
+
+    let scrollFrac =
+      Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
+    let easeFrac = Math.pow(scrollFrac, 3);
+
+    if (easeFrac >= 1) {
+      return 120;
+    }
+
+    if (scrollY >= startScroll && scrollY < endScroll) {
+      newY = startSticky * easeFrac * 0.1;
       return newY;
-    } else if (scrollY >= animationStart - 260 + step * 3) {
-      return 156.707;
     }
     return 0;
   };
@@ -611,6 +618,31 @@ export default function Home() {
             investable projects and new asset classes (for example a swimmable
             river in Austria and microgrids in Africa), that recognise that long
             term value is grounded in our biophysical and social reality.
+          </p>
+        }
+      />
+
+      <Popup
+        title="Radicle Civics"
+        openState={openRC}
+        setOpen={setOpenRC}
+        website="https://radiclecivics.cc/"
+        publication=""
+        content={
+          <p className="font-FKregular text-base text-[#C6C6C6]">
+            Radicle Civics is a playful nod towards emergent shoots of
+            possibility (in botany, the radicle is the first part of a seedling
+            to emerge during the process of germination). This arc aims to build
+            cultural demonstrations that support{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://provocations.darkmatterlabs.org/radicle-civics-building-proofs-of-possibilities-for-a-civic-economy-and-society-ee28baeeec70"
+            >
+              three
+            </a>{' '}
+            new ways of being in the world: from assets to agents, from
+            externalities to entanglements, and from public/public to commoning.
           </p>
         }
       />
@@ -3695,7 +3727,92 @@ export default function Home() {
       <main className="global-margin">
         <Navbar />
         <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
-          <SideNav activeState={activeState} scrollY={scrollY} />
+          <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
+            <div className="mt-[1400px]">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Matrix</h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                We are not a think tank or consultancy with a single, neat
+                theory of change. Instead, our collaborative approach is firmly
+                grounded in the complex, messy reality of our existing
+                socio-economic systems. Step-by-step, with the support of a
+                growing ecosystem, we aim to build tangible pathways towards the
+                options that we would like to manifest in the world. We have
+                visualised our organisation’s response strategy across a
+                three-dimensional matrix. The Matrix represents the dynamic
+                interplay of our systemic goals, collaborations and context
+                specific initiatives.
+              </p>
+            </div>
+
+            <div className="mt-[200px]">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Labs</h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                Each of our Labs is focused on a specific area of the
+                socio-economic system and the everyday codes (e.g. norms,
+                behaviours and institutional logic) that form its structural
+                backbone. The Labs are exploring what might be possible, both
+                within and beyond the current structures, and working to develop
+                technical expertise in those areas. For example, the Beyond The
+                Rules Lab focuses on aspects such as demonstrating multi-actor
+                governance structures whereas the Capital Systems Lab is working
+                to enable strategic ecosystem investments.
+              </p>
+            </div>
+
+            <div className="mt-[200px]">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                Our Arc workflows are designed with clear, directional goals
+                that guide our efforts toward impactful outcomes. For instance,
+                Net Zero Cities aims to enable smart, carbon-neutral cities by
+                2030, while Radicle Civics seeks to foster specific shifts in
+                civic worldviews. These Arcs often involve collaboration with
+                multiple Labs, integrating their technical expertise with
+                tangible, real-world contexts.
+              </p>
+            </div>
+
+            <div className="mt-[200px]">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Studios</h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                Studios are the connective tissue that support both the Labs and
+                Missions. The studios explore themes that help our work to be
+                implemented and more widely understood. For instance, the Civ
+                Tech Studio develops the technological tools and knowledge for
+                prototypes tested across the Dm ecosystem. Meanwhile, the Org
+                DevStudio, positioned at the base of the Matrix, provides
+                critical infrastructure support for the entire Dm Ecosystem.
+              </p>
+            </div>
+
+            <div className="mt-[200px]">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">
+                Intersections
+              </h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                Each project in our portfolio contributes to a number of
+                systemic capabilities. In doing so they intersect with the Labs,
+                Arcs and Studios in various configurations. This allows us to
+                prioritise flexible, compound learning across our internal and
+                external ecosystems. Some projects are not part of an Arc, but
+                each is attached to a Lab (or multiple Labs) where they
+                contribute to building systemic capabilities.
+              </p>
+            </div>
+
+            <div className="mt-[200px]">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Capabilities</h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                The capabilities form the core of Dm’s Mission and sit at the
+                centre of the Matrix. These are the systemic goals that we have
+                set for ourselves as we strive to build pathways towards
+                Life-Ennobling Economies. Some examples include decolonising
+                currency stewardship, embedding data-augmented decision making
+                and building the foundations for planetary stewardship
+                institutions.
+              </p>
+            </div>
+          </div>
           <div className={`relative col-span-7 w-[690px] justify-self-end`}>
             <div id="real" className="">
               <h1 className="heading-7xl max-w-[42rem] pb-10 text-grey-5 ">
@@ -3834,14 +3951,16 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY >= animationStart + step * 3 &&
-                      scrollY <= animationStart + step * 6
+                      scrollY >= animationStart + step &&
+                      scrollY <= animationStart + step * 2
                     ) {
                       return opacityInterpolate(
-                        animationStart + step * 3,
-                        animationStart + step * 6,
+                        animationStart + step,
+                        animationStart + step * 2,
                         true,
                       );
+                    } else if (scrollY > animationStart + step * 2) {
+                      return 0;
                     } else return 1;
                   }),
                 }}
@@ -3853,32 +3972,36 @@ export default function Home() {
                 <div className="col-span-11">
                   <div>
                     <div className="ml-20 text-center">
-                      <h2
-                        className={classNames(
-                          activeState === 7
-                            ? 'text-[#A8A8A8]'
-                            : 'text-transparent',
-                          'pb-4 text-base font-normal',
-                        )}
+                      <animated.h2
+                        style={{
+                          opacity: opacityInterpolate(
+                            animationStart,
+                            animationStart + step,
+                            false,
+                          ),
+                        }}
+                        className="pb-4 text-base font-normal text-[#A8A8A8]"
                       >
                         Labs
-                      </h2>
+                      </animated.h2>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-9 gap-0">
                     <div className="">
                       <div className="mb-1.5 ">
-                        <h2
-                          className={classNames(
-                            activeState === 7
-                              ? 'text-[#A8A8A8]'
-                              : 'text-transparent ',
-                            'h-[80px] w-[80px] pl-2 pt-[3rem] text-base font-normal',
-                          )}
+                        <animated.h2
+                          style={{
+                            opacity: opacityInterpolate(
+                              animationStart,
+                              animationStart + step,
+                              false,
+                            ),
+                          }}
+                          className="h-[80px] w-[80px] pl-2 pt-[3rem] text-base font-normal text-[#A8A8A8]"
                         >
                           Arcs
-                        </h2>
+                        </animated.h2>
                       </div>
 
                       <Arc
@@ -5643,14 +5766,16 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY >= animationStart + step * 3 &&
-                      scrollY <= animationStart + step * 6
+                      scrollY >= animationStart + step &&
+                      scrollY <= animationStart + step * 2
                     ) {
                       return opacityInterpolate(
-                        animationStart + step * 3,
-                        animationStart + step * 6,
+                        animationStart + step,
+                        animationStart + step * 2,
                         true,
                       );
+                    } else if (scrollY > animationStart + step * 2) {
+                      return 0;
                     } else return 1;
                   }),
                 }}
@@ -5677,7 +5802,12 @@ export default function Home() {
                       </h2>
                     </div>
 
-                    <div className="mt-[87px] grid w-[778px] grid-cols-9 ">
+                    <div
+                      className={classNames(
+                        scrollFraction >= 1 ? 'opacity-0' : 'opacity-100',
+                        `mt-[87px] grid w-[778px] grid-cols-9 `,
+                      )}
+                    >
                       <div className="studio-layer opacity-0"></div>
 
                       <div
@@ -5835,21 +5965,23 @@ export default function Home() {
                     className={classNames(
                       activeState === 7 || activeState === 8
                         ? 'mt-[6.1em] '
-                        : 'mt-[5.89em] ',
+                        : 'mt-[6.1em] ',
                       'block text-right',
                     )}
                   >
                     <div className="">
-                      <h2
-                        className={classNames(
-                          activeState === 7
-                            ? 'text-[#A8A8A8]'
-                            : 'text-transparent',
-                          'text-base font-normal ',
-                        )}
+                      <animated.h2
+                        style={{
+                          opacity: opacityInterpolate(
+                            animationStart,
+                            animationStart + step,
+                            false,
+                          ),
+                        }}
+                        className="text-base font-normal text-[#A8A8A8]"
                       >
                         Studios
-                      </h2>
+                      </animated.h2>
                     </div>
 
                     <Studio
@@ -5915,12 +6047,12 @@ export default function Home() {
                     if (activeState === 6 || activeState === 7) {
                       return scrollInterpolate(1);
                     } else if (
-                      scrollY >= animationStart + step * 3 &&
-                      scrollY <= animationStart + step * 5
+                      scrollY >= animationStart + step &&
+                      scrollY <= animationStart + step * 2
                     ) {
                       return capacityOpacityInterpolate(
-                        animationStart + step * 3,
-                        animationStart + step * 5,
+                        animationStart + step,
+                        animationStart + step * 2,
                         false,
                       );
                     } else return 1;
@@ -6478,16 +6610,33 @@ export default function Home() {
                 </div>
               </animated.div>
             </div>
+          </div>
+        </div>
 
-            <div id="context" className="mb-20 mt-[280rem]">
-              <p className="p-3xl-regular max-w-3xl pb-8 text-grey-6">
+        <div className={`relative mt-[440px] sm:grid sm:grid-cols-12`}>
+          <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
+            <div className="mt-[0px]">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Contexts</h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                The overarching LEE Mission allows us to contextually adjust the
+                horizons of our interactions and interventions, whilst building
+                towards a coherent field of influence and change. A single
+                theory of change feels wildly inadequate; instead we are holding
+                open questions in a continuous process of landscape scanning and
+                action:
+              </p>
+            </div>
+          </div>
+          <div className={`relative col-span-7 w-[690px] justify-self-end`}>
+            <div id="context" className="mb-20 ">
+              {/* <p className="p-3xl-regular max-w-3xl pb-8 text-grey-6">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
                 towards a coherent field of influence and change. A single
                 theory of change feels wildly inadequate; instead we are holding
                 open questions in a continuous process of landscape scanning and
                 action: 
-              </p>
+              </p> */}
               <div className="mb-8">
                 <h2 className="heading-5xl text-grey-1">
                   Political landscapes
