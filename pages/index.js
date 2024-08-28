@@ -144,7 +144,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 6) {
+    if (window.scrollY >= startSticky + step * 5 + step/2) {
       setClassT2('t3');
     }
 
@@ -3751,9 +3751,9 @@ export default function Home() {
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <animated.div 
             style={{
-              opacity: sideOpacityInterpolate(startSticky, startSticky + step, true)
+              opacity: sideOpacityInterpolate(startSticky +step/2, startSticky + step, true)
             }}
-            className="mt-[1200px]">
+            className="mt-[1400px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Matrix</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 We are not a think tank or consultancy with a single, neat
@@ -3771,9 +3771,9 @@ export default function Home() {
 
             <animated.div 
               style={{
-                opacity: sideOpacityInterpolate(startSticky+step, startSticky + step * 2, true) // also needs opacity fade out
+                opacity: sideOpacityInterpolate(startSticky+step +step/2, startSticky + step * 2, true) // also needs opacity fade out
               }}
-            className="mt-[150px]">
+            className="mt-[100px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Labs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Each of our Labs is focused on a specific area of the
@@ -3790,7 +3790,7 @@ export default function Home() {
 
             <animated.div 
              style={{
-              opacity: sideOpacityInterpolate(startSticky+step * 2, startSticky + step * 3, true) // also needs opacity fade out
+              opacity: sideOpacityInterpolate(startSticky+step * 2 +step/2, startSticky + step * 3, true) // also needs opacity fade out
             }}
             className="mt-[150px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
@@ -3807,9 +3807,9 @@ export default function Home() {
 
             <animated.div 
              style={{
-              opacity: sideOpacityInterpolate(startSticky+step *3, startSticky + step * 4, true) // also needs opacity fade out
+              opacity: sideOpacityInterpolate(startSticky+step *3 +step/2, startSticky + step * 4, true) // also needs opacity fade out
             }}
-            className="mt-[200px]">
+            className="mt-[400px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Studios</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Studios are the connective tissue that support both the Labs and
@@ -3824,9 +3824,9 @@ export default function Home() {
 
             <animated.div 
              style={{
-              opacity: sideOpacityInterpolate(startSticky+step *4, startSticky + step * 6, true) // also needs opacity fade out
+              opacity: sideOpacityInterpolate(startSticky+step *4 +step/2, startSticky + step * 6, true) // also needs opacity fade out
             }}
-            className="mt-[200px]">
+            className="mt-[600px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">
                 Intersections
               </h2>
@@ -3843,9 +3843,9 @@ export default function Home() {
 
             <animated.div 
              style={{
-              opacity: sideOpacityInterpolate(startSticky+step *6, startSticky + step * 7, true) // also needs opacity fade out
+              opacity: sideOpacityInterpolate(startSticky+step *6 +step/2, startSticky + step * 7, true) // also needs opacity fade out
             }}
-            className="mt-[150px]">
+            className="mt-[300px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Capabilities</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 The capabilities form the core of Dm’s Mission and sit at the
@@ -3930,7 +3930,7 @@ export default function Home() {
                 energy behind.
               </p>
 
-              <div className="pt-14">
+              <div className="pt-10">
                 <p className="heading-5xl text-grey-2">
                   How do we structure our response? ↓
                 </p>
@@ -4022,7 +4022,7 @@ export default function Home() {
                         style={{
                           opacity: opacityInterpolate(
                             startSticky + step * 4,
-                            startSticky + step * 5,
+                            startSticky + step * 4 + step/2,
                             false,
                           ),
                         }}
@@ -4040,7 +4040,7 @@ export default function Home() {
                           style={{
                             opacity: opacityInterpolate(
                               startSticky + step * 4,
-                              startSticky + step * 5,
+                              startSticky + step * 4 + step/2,
                               false,
                             ),
                           }}
@@ -6021,7 +6021,7 @@ export default function Home() {
                         style={{
                           opacity: opacityInterpolate(
                             startSticky + step * 4,
-                            startSticky + step * 5,
+                            startSticky + step * 4 + step/2,
                             false,
                           ),
                         }}
@@ -6660,7 +6660,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={`relative mt-[400px] sm:grid sm:grid-cols-12`}>
+        <div className={`relative mt-[300px] sm:grid sm:grid-cols-12`}>
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <div className="mt-[0px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Contexts</h2>
@@ -6676,14 +6676,6 @@ export default function Home() {
           </div>
           <div className={`relative col-span-7 w-[690px] justify-self-end`}>
             <div id="context" className="mb-20 ">
-              {/* <p className="p-3xl-regular max-w-3xl pb-8 text-grey-6">
-                The overarching LEE Mission allows us to contextually adjust the
-                horizons of our interactions and interventions, whilst building
-                towards a coherent field of influence and change. A single
-                theory of change feels wildly inadequate; instead we are holding
-                open questions in a continuous process of landscape scanning and
-                action: 
-              </p> */}
               <div className="mb-8">
                 <h2 className="heading-5xl text-grey-1">
                   Political landscapes
