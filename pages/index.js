@@ -122,16 +122,9 @@ export default function Home() {
       setAnimateOn('');
     }
     // 2D projects state
-    else if (
-      window.scrollY >= startSticky + 4 * step &&
-      window.scrollY < animationStart // refactor and remove this state!
-    ) {
-      setActiveState(6);
-
-      setClassT2('t2');
-    } else if (
-      window.scrollY >= animationStart &&
-      window.scrollY < animationStart + step
+     else if (
+      window.scrollY >= startSticky + step * 4 &&
+      window.scrollY < startSticky + step * 5
     ) {
       if (window.scrollY > animationStart) {
         setAnimateOn('animate');
@@ -142,8 +135,8 @@ export default function Home() {
     }
     // capability 2D state
     else if (
-      window.scrollY >= animationStart + step &&
-      window.scrollY < animationStart + step * 2
+      window.scrollY >= startSticky + step * 5 &&
+      window.scrollY < startSticky + step * 6
     ) {
       setActiveState(8);
 
@@ -151,17 +144,17 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= animationStart + step * 3) {
+    if (window.scrollY >= startSticky + step * 6) {
       setClassT2('t3');
     }
 
     if (
-      window.scrollY >= animationStart + step * 3 &&
-      window.scrollY < animationStart + step * 3 + 1200
+      window.scrollY >= startSticky + step * 6 &&
+      window.scrollY < startSticky + step * 7 + 1200
     ) {
       setActiveState(9);
     }
-    if (window.scrollY >= animationStart + step * 3 + 1200) {
+    if (window.scrollY >= startSticky + step * 6 + 1200) {
       setActiveState(10);
     }
   };
@@ -266,8 +259,8 @@ export default function Home() {
   const [openDomainF4, setOpenDomainF4] = useState(false);
 
   const scrollInterpolate = (toInterpolate) => {
-    let startScroll = animationStart;
-    let endScroll = animationStart + step;
+    let startScroll = startSticky + step * 4;
+    let endScroll = startSticky + step * 5;
 
     let scrollFrac =
       Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
@@ -298,6 +291,20 @@ export default function Home() {
     } else return scrollFactor; // Linear interpolation for opacity
   };
 
+  const opacityInterpolateMult = (startScroll, endScroll, flip, multiplier) => {
+    // Normalize the scroll position within the defined range
+    let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+    // Clamp the scrollFactor between 0 and 1
+    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+    // Interpolate opacity between 0 and 1
+
+    if (flip) {
+      return 1 -  (scrollFactor * multiplier);
+    } else return multiplier *scrollFactor; // Linear interpolation for opacity
+  };
+
   const capacityOpacityInterpolate = (startScroll, endScroll, flip) => {
     // Normalize the scroll position within the defined range
     let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -307,7 +314,21 @@ export default function Home() {
 
     if (flip) {
       return 1 * scrollFactor;
-    } else return 100 * scrollFactor; // Linear interpolation for opacity
+    } else return 300 * scrollFactor; // Linear interpolation for opacity
+  };
+
+  const sideOpacityInterpolate = (startScroll, endScroll, flip) => {
+    // Normalize the scroll position within the defined range
+    let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+    // Clamp the scrollFactor between 0 and 1
+    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+    // Interpolate opacity between 0 and 1
+
+    if (flip) {
+      return 1 - 0.8 * scrollFactor;
+    } else return 0.8* scrollFactor; // Linear interpolation for opacity
   };
 
   const bgHoverInterpolate = (stepMultiplier, isActive) => {
@@ -570,8 +591,8 @@ export default function Home() {
   };
 
   const scrollYInterpolate = () => {
-    let startScroll = animationStart;
-    let endScroll = animationStart + step;
+    let startScroll = startSticky + step * 4;
+    let endScroll = startSticky + step * 5;
 
     let scrollFrac =
       Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
@@ -3728,7 +3749,11 @@ export default function Home() {
         <Navbar />
         <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
-            <div className="mt-[1400px]">
+            <animated.div 
+            style={{
+              opacity: sideOpacityInterpolate(startSticky, startSticky + step, true)
+            }}
+            className="mt-[1200px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Matrix</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 We are not a think tank or consultancy with a single, neat
@@ -3742,9 +3767,13 @@ export default function Home() {
                 interplay of our systemic goals, collaborations and context
                 specific initiatives.
               </p>
-            </div>
+            </animated.div>
 
-            <div className="mt-[200px]">
+            <animated.div 
+              style={{
+                opacity: sideOpacityInterpolate(startSticky+step, startSticky + step * 2, true) // also needs opacity fade out
+              }}
+            className="mt-[150px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Labs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Each of our Labs is focused on a specific area of the
@@ -3757,9 +3786,13 @@ export default function Home() {
                 governance structures whereas the Capital Systems Lab is working
                 to enable strategic ecosystem investments.
               </p>
-            </div>
+            </animated.div>
 
-            <div className="mt-[200px]">
+            <animated.div 
+             style={{
+              opacity: sideOpacityInterpolate(startSticky+step * 2, startSticky + step * 3, true) // also needs opacity fade out
+            }}
+            className="mt-[150px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Our Arc workflows are designed with clear, directional goals
@@ -3770,9 +3803,13 @@ export default function Home() {
                 multiple Labs, integrating their technical expertise with
                 tangible, real-world contexts.
               </p>
-            </div>
+            </animated.div>
 
-            <div className="mt-[200px]">
+            <animated.div 
+             style={{
+              opacity: sideOpacityInterpolate(startSticky+step *3, startSticky + step * 4, true) // also needs opacity fade out
+            }}
+            className="mt-[200px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Studios</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Studios are the connective tissue that support both the Labs and
@@ -3783,9 +3820,13 @@ export default function Home() {
                 DevStudio, positioned at the base of the Matrix, provides
                 critical infrastructure support for the entire Dm Ecosystem.
               </p>
-            </div>
+            </animated.div>
 
-            <div className="mt-[200px]">
+            <animated.div 
+             style={{
+              opacity: sideOpacityInterpolate(startSticky+step *4, startSticky + step * 6, true) // also needs opacity fade out
+            }}
+            className="mt-[200px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">
                 Intersections
               </h2>
@@ -3798,9 +3839,13 @@ export default function Home() {
                 each is attached to a Lab (or multiple Labs) where they
                 contribute to building systemic capabilities.
               </p>
-            </div>
+            </animated.div>
 
-            <div className="mt-[200px]">
+            <animated.div 
+             style={{
+              opacity: sideOpacityInterpolate(startSticky+step *6, startSticky + step * 7, true) // also needs opacity fade out
+            }}
+            className="mt-[150px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Capabilities</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 The capabilities form the core of Dm’s Mission and sit at the
@@ -3811,7 +3856,7 @@ export default function Home() {
                 and building the foundations for planetary stewardship
                 institutions.
               </p>
-            </div>
+            </animated.div>
           </div>
           <div className={`relative col-span-7 w-[690px] justify-self-end`}>
             <div id="real" className="">
@@ -3951,15 +3996,16 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY >= animationStart + step &&
-                      scrollY <= animationStart + step * 2
+                      scrollY > startSticky + step * 5 &&
+                      scrollY <= startSticky + step * 6
                     ) {
-                      return opacityInterpolate(
-                        animationStart + step,
-                        animationStart + step * 2,
+                      return opacityInterpolateMult(
+                        startSticky + step * 5,
+                        startSticky + step * 6,
                         true,
+                        2
                       );
-                    } else if (scrollY > animationStart + step * 2) {
+                    } else if (scrollY > startSticky + step * 6) {
                       return 0;
                     } else return 1;
                   }),
@@ -3975,8 +4021,8 @@ export default function Home() {
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
-                            animationStart,
-                            animationStart + step,
+                            startSticky + step * 4,
+                            startSticky + step * 5,
                             false,
                           ),
                         }}
@@ -3993,8 +4039,8 @@ export default function Home() {
                         <animated.h2
                           style={{
                             opacity: opacityInterpolate(
-                              animationStart,
-                              animationStart + step,
+                              startSticky + step * 4,
+                              startSticky + step * 5,
                               false,
                             ),
                           }}
@@ -5766,15 +5812,16 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY >= animationStart + step &&
-                      scrollY <= animationStart + step * 2
+                      scrollY >= startSticky + step * 5 &&
+                      scrollY <= startSticky + step * 6
                     ) {
-                      return opacityInterpolate(
-                        animationStart + step,
-                        animationStart + step * 2,
+                      return opacityInterpolateMult(
+                        startSticky + step * 5,
+                        startSticky + step * 6,
                         true,
+                        2
                       );
-                    } else if (scrollY > animationStart + step * 2) {
+                    } else if (scrollY > startSticky + step * 6) {
                       return 0;
                     } else return 1;
                   }),
@@ -5786,7 +5833,7 @@ export default function Home() {
               >
                 <div
                   className={classNames(
-                    scrollY > animationStart + step * 2 ? 'hidden' : 'block',
+                    scrollY > startSticky + step * 6 ? 'hidden' : 'block',
                     ` backdrop-div w-[778px]`,
                   )}
                 ></div>
@@ -5973,8 +6020,8 @@ export default function Home() {
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
-                            animationStart,
-                            animationStart + step,
+                            startSticky + step * 4,
+                            startSticky + step * 5,
                             false,
                           ),
                         }}
@@ -6047,12 +6094,12 @@ export default function Home() {
                     if (activeState === 6 || activeState === 7) {
                       return scrollInterpolate(1);
                     } else if (
-                      scrollY >= animationStart + step &&
-                      scrollY <= animationStart + step * 2
+                      scrollY >= startSticky + step * 5 &&
+                      scrollY <= startSticky + step * 6
                     ) {
                       return capacityOpacityInterpolate(
-                        animationStart + step,
-                        animationStart + step * 2,
+                        startSticky + step * 5,
+                        startSticky + step * 6,
                         false,
                       );
                     } else return 1;
@@ -6075,7 +6122,7 @@ export default function Home() {
                   <div className="mx-auto max-w-xl text-center">
                     <h2
                       className={classNames(
-                        activeState === 6
+                        activeState === 7
                           ? 'text-transparent'
                           : 'text-[#A8A8A8]',
                         'pb-4 text-base font-normal',
@@ -6613,7 +6660,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={`relative mt-[440px] sm:grid sm:grid-cols-12`}>
+        <div className={`relative mt-[400px] sm:grid sm:grid-cols-12`}>
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <div className="mt-[0px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Contexts</h2>
