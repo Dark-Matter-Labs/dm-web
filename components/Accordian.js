@@ -67,7 +67,7 @@ function Accordion({
                   colorInterpolate(scrollPos, scrollPos + 400),
                 ),
               }}
-              className="heading_animate cursor-pointer pl-2 font-SaansRegular text-[17px] leading-[24.4px]"
+              className="heading_animate cursor-crosshair pl-2 font-SaansRegular text-[17px] leading-[24.4px]"
               onClick={() =>
                 window.scrollTo({
                   top: scrollPos,

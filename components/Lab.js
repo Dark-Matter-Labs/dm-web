@@ -22,7 +22,7 @@ function Lab({
       }}
       className={classNames(
         activeState ? ' text-white' : ' text-[#A8A8A8]',
-        'flex h-[80px] w-[80px] cursor-pointer flex-col justify-between p-2',
+        'flex h-[80px] w-[80px] cursor-crosshair flex-col justify-between p-2',
       )}
       onMouseOver={() => setActive(true)}
       onMouseLeave={() => setActive(false)}

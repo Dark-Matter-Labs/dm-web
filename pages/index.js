@@ -3881,7 +3881,7 @@ export default function Home() {
                 land and the other-than-human world. We are framing this
                 transformation as a shift towards{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-pointer"
+                  className="text-[#A28CC6] hover:cursor-crosshair"
                   onClick={() => setOpenLEE(true)}
                 >
                   Life-Ennobling Economies.
@@ -3899,14 +3899,14 @@ export default function Home() {
                 economic options that are likely to be needed. We are imaging
                 new investment opportunities for{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-pointer"
+                  className="text-[#A28CC6] hover:cursor-crosshair"
                   onClick={() => setOpenCTC(true)}
                 >
                   city-scale tree canopies
                 </span>
                 , community endowments and{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-pointer"
+                  className="text-[#A28CC6] hover:cursor-crosshair"
                   onClick={() => setOpenRBF(true)}
                 >
                   resilient bioregional food systems
@@ -3914,7 +3914,7 @@ export default function Home() {
                 . We envisage that the electrification of transport networks,
                 the mental health of communities and the{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-pointer"
+                  className="text-[#A28CC6] hover:cursor-crosshair"
                   onClick={() => setOpenCIC(true)}
                 >
                   collective intelligence of cities
@@ -5790,7 +5790,7 @@ export default function Home() {
                     }}
                     className={classNames(
                       ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                      'my-1.5 flex h-[80px] w-[80px] cursor-pointer items-end justify-start px-2 py-2',
+                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-2',
                     )}
                     onMouseOver={() => setODActive(true)}
                     onMouseLeave={() => setODActive(false)}
@@ -6069,7 +6069,7 @@ export default function Home() {
                       }}
                       className={classNames(
                         ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                        'my-1.5 flex h-[80px] w-[80px] cursor-pointer items-end justify-start px-2 py-2',
+                        'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-2',
                       )}
                       onMouseOver={() => setODActive(true)}
                       onMouseLeave={() => setODActive(false)}
@@ -6136,7 +6136,7 @@ export default function Home() {
                     <div className="">
                       <div
                         onClick={() => setOpenDomainA(true)}
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] hover:cursor-pointer`}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] hover:cursor-crosshair`}
                       >
                         <p className="font-SaansRegular text-base leading-tight ">
                           {' '}
@@ -6149,7 +6149,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainA1(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           A-1
@@ -6161,7 +6161,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainA2(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           A-2
@@ -6173,7 +6173,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainA3(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           A-3
@@ -6186,7 +6186,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainA4(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           A-4
@@ -6221,7 +6221,7 @@ export default function Home() {
                     <div className="">
                       <div
                         onClick={() => setOpenDomainB(true)}
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF] hover:cursor-pointer`}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF] hover:cursor-crosshair`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           B
@@ -6233,7 +6233,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainB1(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className=" font-SaansRegular text-base leading-tight">
                           B-1
@@ -6245,7 +6245,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainB2(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           B-2
@@ -6257,7 +6257,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainB3(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           B-3
@@ -6269,7 +6269,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainB4(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           B-4
@@ -6303,7 +6303,7 @@ export default function Home() {
                     <div className="">
                       <div
                         onClick={() => setOpenDomainC(true)}
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF] hover:cursor-pointer`}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF] hover:cursor-crosshair`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           C
@@ -6315,7 +6315,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainC1(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           C-1
@@ -6327,7 +6327,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainC2(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           C-2
@@ -6339,7 +6339,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainC3(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           C-3
@@ -6351,7 +6351,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainC4(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           C-4
@@ -6363,7 +6363,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainC5(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           C-5
@@ -6376,7 +6376,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainC6(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pl-2 pr-1 text-[#4CA866] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pl-2 pr-1 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           C-6
@@ -6401,7 +6401,7 @@ export default function Home() {
                     <div className="">
                       <div
                         onClick={() => setOpenDomainD(true)}
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#FFF] hover:cursor-pointer`}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#FFF] hover:cursor-crosshair`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           D
@@ -6413,7 +6413,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainD1(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-1
@@ -6426,7 +6426,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainD2(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-2
@@ -6439,7 +6439,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainD3(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-3
@@ -6451,7 +6451,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainD4(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           D-4
@@ -6463,7 +6463,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainD5(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           D-5
@@ -6492,7 +6492,7 @@ export default function Home() {
                     <div className="">
                       <div
                         onClick={() => setOpenDomainE(true)}
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF] hover:cursor-pointer`}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF] hover:cursor-crosshair`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           {' '}
@@ -6505,7 +6505,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainE1(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-1
@@ -6517,7 +6517,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainE2(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-2
@@ -6529,7 +6529,7 @@ export default function Home() {
                       </div>
                       <div
                         onClick={() => setOpenDomainE3(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-3
@@ -6541,7 +6541,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainE4(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           E-4
@@ -6574,7 +6574,7 @@ export default function Home() {
                     <div className="">
                       <div
                         onClick={() => setOpenDomainF(true)}
-                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#FFF] hover:cursor-pointer`}
+                        className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#FFF] hover:cursor-crosshair`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           F
@@ -6586,7 +6586,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainF1(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           F-1
@@ -6599,7 +6599,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainF2(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           F-2
@@ -6610,7 +6610,7 @@ export default function Home() {
                       </div>
                       <div
                         onClick={() => setOpenDomainF3(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="pb-2 font-SaansRegular text-base leading-tight">
                           F-3
@@ -6623,7 +6623,7 @@ export default function Home() {
 
                       <div
                         onClick={() => setOpenDomainF4(true)}
-                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-pointer hover:bg-[#353535]`}
+                        className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                       >
                         <p className="font-SaansRegular text-base leading-tight">
                           F-4
@@ -7296,13 +7296,13 @@ export default function Home() {
                   Help us build a better future
                 </h1>
                 <div className="flex gap-8">
-                  <div className="border-2 border-white p-1.5 hover:cursor-pointer">
+                  <div className="border-2 border-white p-1.5 hover:cursor-crosshair">
                     <p className="float-right font-SaansMed text-[10px] text-white">
                       {'>'}
                     </p>
                     <p className="font-SaansMed text-2xl text-white">Contact</p>
                   </div>
-                  <div className="border-2 border-white p-1.5 hover:cursor-pointer">
+                  <div className="border-2 border-white p-1.5 hover:cursor-crosshair">
                     <p className="float-right font-SaansMed text-[10px] text-white">
                       {'>'}
                     </p>

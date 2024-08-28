@@ -22,7 +22,7 @@ function Studio({
       }}
       className={classNames(
         activeState ? ' text-white' : ' text-[#A8A8A8]',
-        'my-1.5 flex h-[80px] w-[80px] cursor-pointer flex-col items-end justify-between px-2 py-2',
+        'my-1.5 flex h-[80px] w-[80px] cursor-crosshair flex-col items-end justify-between px-2 py-2',
       )}
       onMouseOver={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
