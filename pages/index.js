@@ -140,7 +140,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 6 - 150) {
+    if (window.scrollY >= startSticky + step * 6 - 50) {
       setClassT2('t3');
     }
 
