@@ -122,7 +122,7 @@ export default function Home() {
       setAnimateOn('');
     }
     // 2D projects state
-     else if (
+    else if (
       window.scrollY >= startSticky + step * 4 &&
       window.scrollY < startSticky + step * 5
     ) {
@@ -144,7 +144,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 5 + step/2) {
+    if (window.scrollY >= startSticky + step * 5 + step / 2) {
       setClassT2('t3');
     }
 
@@ -301,8 +301,8 @@ export default function Home() {
     // Interpolate opacity between 0 and 1
 
     if (flip) {
-      return 1 -  (scrollFactor * multiplier);
-    } else return multiplier *scrollFactor; // Linear interpolation for opacity
+      return 1 - scrollFactor * multiplier;
+    } else return multiplier * scrollFactor; // Linear interpolation for opacity
   };
 
   const capacityOpacityInterpolate = (startScroll, endScroll, flip) => {
@@ -328,7 +328,7 @@ export default function Home() {
 
     if (flip) {
       return 1 - 0.8 * scrollFactor;
-    } else return 0.8* scrollFactor; // Linear interpolation for opacity
+    } else return 0.8 * scrollFactor; // Linear interpolation for opacity
   };
 
   const bgHoverInterpolate = (stepMultiplier, isActive) => {
@@ -3749,11 +3749,16 @@ export default function Home() {
         <Navbar />
         <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
-            <animated.div 
-            style={{
-              opacity: sideOpacityInterpolate(startSticky +step/2, startSticky + step, true)
-            }}
-            className="mt-[1400px]">
+            <animated.div
+              style={{
+                opacity: sideOpacityInterpolate(
+                  startSticky + step / 2,
+                  startSticky + step,
+                  true,
+                ),
+              }}
+              className="mt-[1400px]"
+            >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Matrix</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 We are not a think tank or consultancy with a single, neat
@@ -3769,11 +3774,16 @@ export default function Home() {
               </p>
             </animated.div>
 
-            <animated.div 
+            <animated.div
               style={{
-                opacity: sideOpacityInterpolate(startSticky+step +step/2, startSticky + step * 2, true) // also needs opacity fade out
+                opacity: sideOpacityInterpolate(
+                  startSticky + step + step / 2,
+                  startSticky + step * 2,
+                  true,
+                ), // also needs opacity fade out
               }}
-            className="mt-[150px]">
+              className="mt-[150px]"
+            >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Labs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Each of our Labs is focused on a specific area of the
@@ -3788,11 +3798,16 @@ export default function Home() {
               </p>
             </animated.div>
 
-            <animated.div 
-             style={{
-              opacity: sideOpacityInterpolate(startSticky+step * 2 +step/2, startSticky + step * 3, true) // also needs opacity fade out
-            }}
-            className="mt-[250px]">
+            <animated.div
+              style={{
+                opacity: sideOpacityInterpolate(
+                  startSticky + step * 2 + step / 2,
+                  startSticky + step * 3,
+                  true,
+                ), // also needs opacity fade out
+              }}
+              className="mt-[250px]"
+            >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Our Arc workflows are designed with clear, directional goals
@@ -3805,11 +3820,16 @@ export default function Home() {
               </p>
             </animated.div>
 
-            <animated.div 
-             style={{
-              opacity: sideOpacityInterpolate(startSticky+step *3 +step/2, startSticky + step * 4, true) // also needs opacity fade out
-            }}
-            className="mt-[400px]">
+            <animated.div
+              style={{
+                opacity: sideOpacityInterpolate(
+                  startSticky + step * 3 + step / 2,
+                  startSticky + step * 4,
+                  true,
+                ), // also needs opacity fade out
+              }}
+              className="mt-[400px]"
+            >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Studios</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Studios are the connective tissue that support both the Labs and
@@ -3822,11 +3842,16 @@ export default function Home() {
               </p>
             </animated.div>
 
-            <animated.div 
-             style={{
-              opacity: sideOpacityInterpolate(startSticky+step *4 +step/2, startSticky + step * 6, true) // also needs opacity fade out
-            }}
-            className="mt-[600px]">
+            <animated.div
+              style={{
+                opacity: sideOpacityInterpolate(
+                  startSticky + step * 4 + step / 2,
+                  startSticky + step * 6,
+                  true,
+                ), // also needs opacity fade out
+              }}
+              className="mt-[600px]"
+            >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">
                 Intersections
               </h2>
@@ -3841,11 +3866,16 @@ export default function Home() {
               </p>
             </animated.div>
 
-            <animated.div 
-             style={{
-              opacity: sideOpacityInterpolate(startSticky+step *6 +step/2, startSticky + step * 7, true) // also needs opacity fade out
-            }}
-            className="mt-[300px]">
+            <animated.div
+              style={{
+                opacity: sideOpacityInterpolate(
+                  startSticky + step * 6 + step / 2,
+                  startSticky + step * 7,
+                  true,
+                ), // also needs opacity fade out
+              }}
+              className="mt-[300px]"
+            >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Capabilities</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 The capabilities form the core of Dm’s Mission and sit at the
@@ -4003,7 +4033,7 @@ export default function Home() {
                         startSticky + step * 5,
                         startSticky + step * 6,
                         true,
-                        2
+                        2,
                       );
                     } else if (scrollY > startSticky + step * 6) {
                       return 0;
@@ -4022,7 +4052,7 @@ export default function Home() {
                         style={{
                           opacity: opacityInterpolate(
                             startSticky + step * 4,
-                            startSticky + step * 4 + step/2,
+                            startSticky + step * 4 + step / 2,
                             false,
                           ),
                         }}
@@ -4040,7 +4070,7 @@ export default function Home() {
                           style={{
                             opacity: opacityInterpolate(
                               startSticky + step * 4,
-                              startSticky + step * 4 + step/2,
+                              startSticky + step * 4 + step / 2,
                               false,
                             ),
                           }}
@@ -5819,7 +5849,7 @@ export default function Home() {
                         startSticky + step * 5,
                         startSticky + step * 6,
                         true,
-                        2
+                        2,
                       );
                     } else if (scrollY > startSticky + step * 6) {
                       return 0;
@@ -6021,7 +6051,7 @@ export default function Home() {
                         style={{
                           opacity: opacityInterpolate(
                             startSticky + step * 4,
-                            startSticky + step * 4 + step/2,
+                            startSticky + step * 4 + step / 2,
                             false,
                           ),
                         }}
