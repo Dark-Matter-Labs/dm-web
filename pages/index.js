@@ -131,7 +131,7 @@ export default function Home() {
     }
     // capability 2D state
     else if (
-      window.scrollY >= startSticky + step * 5 &&
+      window.scrollY >= startSticky + step * 5 + 300 &&
       window.scrollY < startSticky + step * 6
     ) {
       setActiveState(8);
@@ -618,7 +618,9 @@ export default function Home() {
   };
 
   const arcOverlayOpacityInterpolate = () => {
-    if (scrollY > startSticky && scrollY <= startSticky + step) {
+    if (scrollY <= startSticky) {
+      return 0;
+    } else if (scrollY > startSticky && scrollY <= startSticky + step) {
       // Define the scroll range where the opacity change should happen
       let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
       let endScroll = startSticky + step; // End of the range (scroll position in pixels)
@@ -649,7 +651,7 @@ export default function Home() {
       // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
       let newOpacity = scrollFactor; // Linear interpolation for opacity
 
-      return 1 - newOpacity;
+      return 1 - 0.8 * newOpacity;
     } else if (
       scrollY > startSticky + step * 2 &&
       scrollY <= startSticky + 3 * step
@@ -666,7 +668,7 @@ export default function Home() {
 
       let newOpacity = scrollFactor;
 
-      return newOpacity;
+      return 0.2 + newOpacity * 0.8;
     } else if (
       scrollY > startSticky + 3 * step &&
       scrollY <= startSticky + 4 * step
@@ -680,7 +682,22 @@ export default function Home() {
 
       let newOpacity = scrollFactor;
 
-      return 1 - newOpacity;
+      return 1 - newOpacity * 0.8;
+    } else if (
+      scrollY > startSticky + 4 * step &&
+      scrollY <= startSticky + 5 * step
+    ) {
+      let startScroll = startSticky + 4 * step;
+      let endScroll = startSticky + 5 * step;
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+      scrollFactor = 1 - Math.pow(1 - scrollFactor, 3);
+
+      let newOpacity = scrollFactor;
+
+      return 0.2 - scrollFactor * 0.2;
     } else return 0;
   };
 
@@ -717,7 +734,27 @@ export default function Home() {
 
       let newOpacity = scrollFactor;
 
-      return 1 - newOpacity;
+      return 1 - 0.8 * newOpacity;
+    } else if (
+      scrollY >= startSticky + step * 3 &&
+      scrollY <= startSticky + 4 * step
+    ) {
+      return 0.2;
+    } else if (
+      scrollY > startSticky + 4 * step &&
+      scrollY <= startSticky + 5 * step
+    ) {
+      let startScroll = startSticky + 4 * step;
+      let endScroll = startSticky + 5 * step;
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+      scrollFactor = 1 - Math.pow(1 - scrollFactor, 3);
+
+      let newOpacity = scrollFactor;
+
+      return 0.2 - scrollFactor * 0.2;
     } else return 0;
   };
 
@@ -753,12 +790,12 @@ export default function Home() {
       // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
       let newOpacity = scrollFactor; // Linear interpolation for opacity
 
-      return 1 - newOpacity;
+      return 1 - 0.8 * newOpacity;
     } else if (
       scrollY > startSticky + step * 2 &&
       scrollY <= startSticky + 3 * step
     ) {
-      return 0;
+      return 0.2;
     } else if (
       scrollY > startSticky + 3 * step &&
       scrollY <= startSticky + 4 * step
@@ -772,7 +809,7 @@ export default function Home() {
 
       let newOpacity = scrollFactor;
 
-      return newOpacity;
+      return 0.2 + newOpacity * 0.8;
     } else if (
       scrollY > startSticky + 4 * step &&
       scrollY <= startSticky + 5 * step
@@ -823,7 +860,27 @@ export default function Home() {
       // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
       let newOpacity = scrollFactor; // Linear interpolation for opacity
 
-      return 1 - newOpacity;
+      return 1 - newOpacity * 0.8;
+    } else if (
+      scrollY > startSticky + step &&
+      scrollY <= startSticky + step * 4
+    ) {
+      return 0.2;
+    } else if (
+      scrollY > startSticky + 4 * step &&
+      scrollY <= startSticky + 5 * step
+    ) {
+      let startScroll = startSticky + 4 * step;
+      let endScroll = startSticky + 5 * step;
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+      scrollFactor = 1 - Math.pow(1 - scrollFactor, 3);
+
+      let newOpacity = scrollFactor;
+
+      return 0.2 - scrollFactor * 0.2;
     } else return 0;
   };
 
@@ -4261,11 +4318,11 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY > startSticky + step * 5 &&
+                      scrollY > startSticky + step * 5 + 300 &&
                       scrollY <= startSticky + step * 6
                     ) {
                       return partialOpacityInterpolateMult(
-                        startSticky + step * 5,
+                        startSticky + step * 5 + 300,
                         startSticky + step * 6,
                         true,
                         1,
@@ -6077,11 +6134,11 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY >= startSticky + step * 5 &&
+                      scrollY >= startSticky + step * 5 + 300 &&
                       scrollY <= startSticky + step * 6
                     ) {
                       return partialOpacityInterpolateMult(
-                        startSticky + step * 5,
+                        startSticky + step * 5 + 300,
                         startSticky + step * 6,
                         true,
                         1,
@@ -6359,11 +6416,11 @@ export default function Home() {
                     if (activeState === 7) {
                       return scrollInterpolate(1);
                     } else if (
-                      scrollY >= startSticky + step * 5 + 200 &&
+                      scrollY >= startSticky + step * 5 + 300 &&
                       scrollY <= startSticky + step * 6 - 200
                     ) {
                       return capacityOpacityInterpolate(
-                        startSticky + step * 5 + 200,
+                        startSticky + step * 5 + 300,
                         startSticky + step * 6 - 200,
                         false,
                       );
@@ -6371,7 +6428,7 @@ export default function Home() {
                   }),
                 }}
                 className={classNames(
-                  scrollY >= startSticky + step * 5 + 100 ? 'z-50' : 'z-20 ',
+                  scrollY >= startSticky + step * 5 + 310 ? 'z-50' : 'z-20 ',
                   `shadow-layer absolute grid w-[854px] grid-cols-12`,
                 )}
               >

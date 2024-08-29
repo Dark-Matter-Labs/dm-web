@@ -120,12 +120,12 @@ img {
   }
 
   .t2 {
-    @apply sticky top-[-16.5vh] md:top-0;
+    @apply sticky md:top-0;
   }
 
   @media (max-width: 1440px) {
     .t2 {
-      top: -16.5vh;
+      top: -10vh;
     }
   }
 

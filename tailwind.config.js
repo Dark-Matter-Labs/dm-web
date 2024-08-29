@@ -37,7 +37,7 @@ module.exports = {
         16: '60px',
       },
       screens: {
-        matrix: '1195px',
+        matrix: '',
       },
       container: {
         center: true,
