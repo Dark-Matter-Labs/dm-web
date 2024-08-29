@@ -22,11 +22,6 @@ import labsOverlay from '../images/labs.svg';
 import arcsOverlay from '../images/arcs.svg';
 import studiosOverlay from '../images/studio.svg';
 import orgOverlay from '../images/orgdev.svg';
-import vinnovaLogo from '../images/partners/Vinnova.png';
-import VClogo from '../images/partners/VC.png';
-import CKICLogo from '../images/partners/C-KIC.png';
-import ArupLogo from '../images/partners/Arup.png';
-import BHLogo from '../images/partners/Bloxhub.png';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -788,6 +783,7 @@ export default function Home() {
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
 
       scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+      scrollFactor = 1 - Math.pow(1 - scrollFactor, 3);
 
       let newOpacity = scrollFactor;
 
@@ -4074,7 +4070,7 @@ export default function Home() {
               style={{
                 opacity: sideIntersectionOpacityInterpolate(),
               }}
-              className="mt-[280px]"
+              className="mt-[360px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">
                 Intersections
@@ -4207,7 +4203,7 @@ export default function Home() {
               }}
               className={`${classT2}`}
             >
-              {activeState !== 7 && activeState !== 8 && (
+              {scrollY < startSticky + 5 * step && (
                 <>
                   <animated.div
                     style={{
