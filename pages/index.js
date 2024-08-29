@@ -4187,7 +4187,7 @@ export default function Home() {
               }}
               className={`${classT2}`}
             >
-              {activeState !== 6 && activeState !== 7 && activeState !== 8 && (
+              {activeState !== 5 && activeState !== 7 && activeState !== 8 && (
                 <>
                   <animated.div
                     style={{
