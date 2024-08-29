@@ -124,7 +124,7 @@ export default function Home() {
     //  2d projects state
     else if (
       window.scrollY >= startSticky + step * 4 &&
-      window.scrollY < startSticky + step * 5
+      window.scrollY < startSticky + step * 5 + 300
     ) {
       setActiveState(7);
 
@@ -145,7 +145,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 6) {
+    if (window.scrollY >= startSticky + step * 6 - 150) {
       setClassT2('t3');
     }
 
@@ -263,8 +263,10 @@ export default function Home() {
     let startScroll = startSticky + step * 4;
     let endScroll = startSticky + step * 5;
 
-    let scrollFrac =
-      Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
+    let scrollFrac = Math.min(
+      (scrollY - startScroll) / (endScroll - startScroll),
+      1,
+    );
     let easeFrac = Math.pow(scrollFrac, 3);
 
     if (toInterpolate - toInterpolate * easeFrac > 0) {
@@ -339,7 +341,7 @@ export default function Home() {
 
     if (flip) {
       return 1 * scrollFactor;
-    } else return 300 * scrollFactor; // Linear interpolation for opacity
+    } else return scrollFactor; // Linear interpolation for opacity
   };
 
   const sideMatrixOpacityInterpolate = () => {
@@ -581,6 +583,7 @@ export default function Home() {
 
       // Clamp the scrollFactor between 0 and 1
       scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+      scrollFactor = Math.pow(scrollFactor, 3);
 
       // Calculate the interpolated color
       let newColor = {
@@ -607,6 +610,7 @@ export default function Home() {
 
       // Clamp the scrollFactor between 0 and 1
       scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+      scrollFactor = 1 - Math.pow(1 - scrollFactor, 3);
 
       // Calculate the interpolated color
       let newColor = {
@@ -831,16 +835,19 @@ export default function Home() {
     let startScroll = startSticky + step * 4;
     let endScroll = startSticky + step * 5;
 
-    let scrollFrac =
-      Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
+    let scrollFrac = Math.min(
+      (scrollY - startScroll) / (endScroll - startScroll),
+      1,
+    );
     let easeFrac = Math.pow(scrollFrac, 3);
 
     if (easeFrac >= 1) {
-      return 120;
+      return 110;
     }
 
     if (scrollY >= startScroll && scrollY < endScroll) {
       newY = startSticky * easeFrac * 0.1;
+
       return newY;
     }
     return 0;
@@ -860,7 +867,7 @@ export default function Home() {
         website="https://darkmatterlabs.capital/"
         publication=""
         content={
-          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+          <p className="font-SaansRegular text-base text-[#EBEBEB]">
             the DmCS Lab is working to reframe what is possible within the
             financial capital markets. This Lab is working with the hypothesis
             that the{' '}
@@ -887,7 +894,7 @@ export default function Home() {
         website="https://radiclecivics.cc/"
         publication=""
         content={
-          <p className="font-FKregular text-base text-[#C6C6C6]">
+          <p className="font-SaansRegular text-base text-[#EBEBEB]">
             Radicle Civics is a playful nod towards emergent shoots of
             possibility (in botany, the radicle is the first part of a seedling
             to emerge during the process of germination). This arc aims to build
@@ -4067,7 +4074,7 @@ export default function Home() {
               style={{
                 opacity: sideIntersectionOpacityInterpolate(),
               }}
-              className="mt-[250px]"
+              className="mt-[280px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">
                 Intersections
@@ -4087,7 +4094,7 @@ export default function Home() {
               style={{
                 opacity: sideCapabilityOpacityInterpolate(),
               }}
-              className="mt-[300px]"
+              className="mt-[250px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Capabilities</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -6356,21 +6363,19 @@ export default function Home() {
                     if (activeState === 7) {
                       return scrollInterpolate(1);
                     } else if (
-                      scrollY >= startSticky + step * 5 &&
-                      scrollY <= startSticky + step * 6
+                      scrollY >= startSticky + step * 5 + 200 &&
+                      scrollY <= startSticky + step * 6 - 200
                     ) {
                       return capacityOpacityInterpolate(
-                        startSticky + step * 5,
-                        startSticky + step * 6,
+                        startSticky + step * 5 + 200,
+                        startSticky + step * 6 - 200,
                         false,
                       );
                     } else return 1;
                   }),
                 }}
                 className={classNames(
-                  scrollY >= startSticky + step * 5 + step / 2
-                    ? 'z-50 transition delay-700 ease-in-out'
-                    : 'z-20 ',
+                  scrollY >= startSticky + step * 5 + 100 ? 'z-50' : 'z-20 ',
                   `shadow-layer absolute grid w-[854px] grid-cols-12`,
                 )}
               >
