@@ -17,7 +17,7 @@ function Studio({
     <animated.div
       style={{
         backgroundColor: scrollYProgress.to(() =>
-          bgHoverInterpolate(2, activeState),
+          bgHoverInterpolate(3, activeState),
         ),
       }}
       className={classNames(

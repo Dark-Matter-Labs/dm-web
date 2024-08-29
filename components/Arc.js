@@ -17,7 +17,7 @@ function Arc({
     <animated.div
       style={{
         backgroundColor: scrollYProgress.to(() =>
-          bgHoverInterpolate(1, activeState),
+          bgHoverInterpolate(2, activeState),
         ),
       }}
       className={classNames(

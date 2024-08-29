@@ -51,7 +51,7 @@ export default function Home() {
   const [animateOn, setAnimateOn] = useState('');
   const [scrollY, setScrollY] = useState(0);
 
-  const animationStart = startSticky + step * 3;
+  const animationStart = startSticky + step * 4;
   let newY;
 
   const { scrollYProgress } = useScroll();
@@ -111,25 +111,26 @@ export default function Home() {
       setClassT2('t2');
       setAnimateOn('');
     }
-    // studio colour state + 2d projects
+    // studio colour state +
     else if (
       window.scrollY >= startSticky + 3 * step &&
       window.scrollY < startSticky + 4 * step
     ) {
       setActiveState(5);
+      setAnimateOn('');
 
       setClassT2('t2');
-
-      if (window.scrollY > animationStart) {
-        setAnimateOn('animate');
-      }
     }
-    // capability state
+    //  2d projects state
     else if (
       window.scrollY >= startSticky + step * 4 &&
       window.scrollY < startSticky + step * 5
     ) {
       setActiveState(7);
+
+      if (window.scrollY > animationStart) {
+        setAnimateOn('animate');
+      }
 
       setClassT2('t2');
     }
@@ -144,7 +145,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 5) {
+    if (window.scrollY >= startSticky + step * 6) {
       setClassT2('t3');
     }
 
@@ -259,8 +260,8 @@ export default function Home() {
   const [openDomainF4, setOpenDomainF4] = useState(false);
 
   const scrollInterpolate = (toInterpolate) => {
-    let startScroll = startSticky + step * 3;
-    let endScroll = startSticky + step * 4;
+    let startScroll = startSticky + step * 4;
+    let endScroll = startSticky + step * 5;
 
     let scrollFrac =
       Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
@@ -342,43 +343,9 @@ export default function Home() {
   };
 
   const sideMatrixOpacityInterpolate = () => {
-    if (scrollY < startSticky) {
-      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky; // End of the range (scroll position in pixels)
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-      let newOpacity = scrollFactor; // Linear interpolation for opacity
-
-      return 0.8 * newOpacity;
-    } else if (scrollY >= startSticky) {
-      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step / 2; // End of the range (scroll position in pixels)
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-      let newOpacity = scrollFactor; // Linear interpolation for opacity
-
-      return 1 - 0.8 * newOpacity;
-    }
-  };
-
-  const sideLabsOpacityInterpolate = () => {
-    if (scrollY < startSticky) {
-      return 0;
-    } else if (scrollY >= startSticky && scrollY < startSticky + step) {
-      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step / 2; // End of the range (scroll position in pixels)
+    if (scrollY < startSticky + step) {
+      let startScroll = startSticky - step; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -392,7 +359,41 @@ export default function Home() {
       return 0.8 * newOpacity;
     } else if (scrollY >= startSticky + step) {
       let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step + step / 2; // End of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 2; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 1 - 0.8 * newOpacity * 2;
+    }
+  };
+
+  const sideLabsOpacityInterpolate = () => {
+    if (scrollY < startSticky) {
+      return 0;
+    } else if (scrollY >= startSticky && scrollY < startSticky + step * 2) {
+      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 2; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 0.8 * newOpacity;
+    } else if (scrollY >= startSticky + step * 2) {
+      let startScroll = startSticky + step * 2; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 3; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -409,43 +410,6 @@ export default function Home() {
 
   const sideArcsOpacityInterpolate = () => {
     if (scrollY < startSticky + step) {
-      return 0;
-    } else if (
-      scrollY >= startSticky + step &&
-      scrollY < startSticky + step * 2
-    ) {
-      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step * 2; // End of the range (scroll position in pixels)
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-      let newOpacity = scrollFactor; // Linear interpolation for opacity
-
-      return 0.8 * newOpacity;
-    } else if (scrollY >= startSticky + step * 2) {
-      let startScroll = startSticky + step * 2; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step * 2 + step / 2; // End of the range (scroll position in pixels)
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-      let newOpacity = scrollFactor; // Linear interpolation for opacity
-
-      return 1 - 0.8 * newOpacity;
-    }
-  };
-
-  const sideStudioOpacityInterpolate = () => {
-    if (scrollY < startSticky + step * 2) {
       return 0;
     } else if (
       scrollY >= startSticky + step * 2 &&
@@ -466,7 +430,7 @@ export default function Home() {
       return 0.8 * newOpacity;
     } else if (scrollY >= startSticky + step * 3) {
       let startScroll = startSticky + step * 3; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step * 3 + step / 2; // End of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 4; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -481,15 +445,15 @@ export default function Home() {
     }
   };
 
-  const sideIntersectionOpacityInterpolate = () => {
-    if (scrollY < startSticky + step * 3) {
+  const sideStudioOpacityInterpolate = () => {
+    if (scrollY < startSticky + step * 2) {
       return 0;
     } else if (
       scrollY >= startSticky + step * 3 &&
       scrollY < startSticky + step * 4
     ) {
       let startScroll = startSticky + step * 3; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step * 3 + step / 2; // End of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 4; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -518,7 +482,7 @@ export default function Home() {
     }
   };
 
-  const sideCapabilityOpacityInterpolate = () => {
+  const sideIntersectionOpacityInterpolate = () => {
     if (scrollY < startSticky + step * 4) {
       return 0;
     } else if (
@@ -540,7 +504,44 @@ export default function Home() {
       return 0.8 * newOpacity;
     } else if (scrollY >= startSticky + step * 5) {
       let startScroll = startSticky + step * 5; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step * 5 + step / 2; // End of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 6; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 1 - 0.8 * newOpacity;
+    }
+  };
+
+  const sideCapabilityOpacityInterpolate = () => {
+    if (scrollY < startSticky + step * 5) {
+      return 0;
+    } else if (
+      scrollY >= startSticky + step * 5 &&
+      scrollY < startSticky + step * 6
+    ) {
+      let startScroll = startSticky + step * 5; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 6; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 0.8 * newOpacity;
+    } else if (scrollY >= startSticky + step * 6) {
+      let startScroll = startSticky + step * 6; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 7; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -618,22 +619,8 @@ export default function Home() {
   };
 
   const arcOverlayOpacityInterpolate = () => {
-    if (scrollY <= startSticky) {
+    if (scrollY > startSticky && scrollY <= startSticky + step) {
       // Define the scroll range where the opacity change should happen
-      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky; // End of the range (scroll position in pixels)
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-      let newOpacity = scrollFactor; // Linear interpolation for opacity
-
-      return newOpacity;
-    } else if (scrollY <= startSticky + step) {
       let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
       let endScroll = startSticky + step; // End of the range (scroll position in pixels)
 
@@ -646,15 +633,32 @@ export default function Home() {
       // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
       let newOpacity = scrollFactor; // Linear interpolation for opacity
 
-      return 1 - newOpacity;
+      return newOpacity;
     } else if (
       scrollY > startSticky + step &&
-      scrollY <= startSticky + 2 * step
+      scrollY <= startSticky + step * 2
+    ) {
+      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 2; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 1 - newOpacity;
+    } else if (
+      scrollY > startSticky + step * 2 &&
+      scrollY <= startSticky + 3 * step
     ) {
       // Get the current scroll position
 
-      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + 2 * step; // End of the range (scroll position in pixels)
+      let startScroll = startSticky + step * 2; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + 3 * step; // End of the range (scroll position in pixels)
 
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
 
@@ -665,11 +669,11 @@ export default function Home() {
 
       return newOpacity;
     } else if (
-      scrollY > startSticky + 2 * step &&
-      scrollY <= startSticky + 3 * step
+      scrollY > startSticky + 3 * step &&
+      scrollY <= startSticky + 4 * step
     ) {
-      let startScroll = startSticky + 2 * step;
-      let endScroll = startSticky + 3 * step;
+      let startScroll = startSticky + 3 * step;
+      let endScroll = startSticky + 4 * step;
 
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
 
@@ -682,56 +686,8 @@ export default function Home() {
   };
 
   const labOverlayOpacityInterpolate = () => {
-    if (scrollY <= startSticky) {
+    if (scrollY > startSticky && scrollY <= startSticky + step) {
       // Define the scroll range where the opacity change should happen
-      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky; // End of the range (scroll position in pixels)
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-      let newOpacity = scrollFactor; // Linear interpolation for opacity
-
-      return newOpacity;
-    } else if (scrollY < startSticky + step) {
-      return 1;
-    } else if (
-      scrollY >= startSticky + step &&
-      scrollY <= startSticky + 2 * step
-    ) {
-      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + 2 * step; // End of the range (scroll position in pixels)
-
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      let newOpacity = scrollFactor;
-
-      return 1 - newOpacity;
-    } else return 0;
-  };
-
-  const studioOverlayOpacityInterpolate = () => {
-    if (scrollY <= startSticky) {
-      // Define the scroll range where the opacity change should happen
-      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky; // End of the range (scroll position in pixels)
-
-      // Normalize the scroll position within the defined range
-      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
-
-      // Clamp the scrollFactor between 0 and 1
-      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
-
-      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
-      let newOpacity = scrollFactor; // Linear interpolation for opacity
-
-      return newOpacity;
-    } else if (scrollY <= startSticky + step) {
       let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
       let endScroll = startSticky + step; // End of the range (scroll position in pixels)
 
@@ -744,18 +700,72 @@ export default function Home() {
       // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
       let newOpacity = scrollFactor; // Linear interpolation for opacity
 
-      return 1 - newOpacity;
+      return newOpacity;
     } else if (
       scrollY > startSticky + step &&
-      scrollY <= startSticky + 2 * step
+      scrollY <= startSticky + step * 2
+    ) {
+      return 1;
+    } else if (
+      scrollY >= startSticky + step * 2 &&
+      scrollY <= startSticky + 3 * step
+    ) {
+      let startScroll = startSticky + step * 2; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + 3 * step; // End of the range (scroll position in pixels)
+
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      let newOpacity = scrollFactor;
+
+      return 1 - newOpacity;
+    } else return 0;
+  };
+
+  const studioOverlayOpacityInterpolate = () => {
+    if (scrollY > startSticky && scrollY <= startSticky + step) {
+      // Define the scroll range where the opacity change should happen
+      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return newOpacity;
+    } else if (
+      scrollY > startSticky + step &&
+      scrollY <= startSticky + step * 2
+    ) {
+      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 2; // End of the range (scroll position in pixels)
+
+      // Normalize the scroll position within the defined range
+      let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+
+      // Clamp the scrollFactor between 0 and 1
+      scrollFactor = Math.min(Math.max(scrollFactor, 0), 1);
+
+      // Interpolate opacity between 0 (fully transparent) and 1 (fully opaque)
+      let newOpacity = scrollFactor; // Linear interpolation for opacity
+
+      return 1 - newOpacity;
+    } else if (
+      scrollY > startSticky + step * 2 &&
+      scrollY <= startSticky + 3 * step
     ) {
       return 0;
     } else if (
-      scrollY > startSticky + 2 * step &&
-      scrollY <= startSticky + 3 * step
+      scrollY > startSticky + 3 * step &&
+      scrollY <= startSticky + 4 * step
     ) {
-      let startScroll = startSticky + 2 * step;
-      let endScroll = startSticky + 3 * step;
+      let startScroll = startSticky + 3 * step;
+      let endScroll = startSticky + 4 * step;
 
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
 
@@ -765,11 +775,11 @@ export default function Home() {
 
       return newOpacity;
     } else if (
-      scrollY > startSticky + 3 * step &&
-      scrollY <= startSticky + 3 * step + step / 2
+      scrollY > startSticky + 4 * step &&
+      scrollY <= startSticky + 5 * step
     ) {
-      let startScroll = startSticky + 3 * step;
-      let endScroll = startSticky + 3 * step + step / 2;
+      let startScroll = startSticky + 4 * step;
+      let endScroll = startSticky + 5 * step;
 
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
 
@@ -782,10 +792,10 @@ export default function Home() {
   };
 
   const orgOverlayOpacityInterpolate = () => {
-    if (scrollY <= startSticky) {
+    if (scrollY > startSticky && scrollY <= startSticky + step) {
       // Define the scroll range where the opacity change should happen
-      let startScroll = 1100; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky; // End of the range (scroll position in pixels)
+      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -797,9 +807,12 @@ export default function Home() {
       let newOpacity = scrollFactor; // Linear interpolation for opacity
 
       return newOpacity;
-    } else if (scrollY <= startSticky + step) {
-      let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
-      let endScroll = startSticky + step; // End of the range (scroll position in pixels)
+    } else if (
+      scrollY > startSticky + step &&
+      scrollY <= startSticky + step * 2
+    ) {
+      let startScroll = startSticky + step; // Offset for the start of the range (scroll position in pixels)
+      let endScroll = startSticky + step * 2; // End of the range (scroll position in pixels)
 
       // Normalize the scroll position within the defined range
       let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
@@ -815,8 +828,8 @@ export default function Home() {
   };
 
   const scrollYInterpolate = () => {
-    let startScroll = startSticky + step * 3;
-    let endScroll = startSticky + step * 4;
+    let startScroll = startSticky + step * 4;
+    let endScroll = startSticky + step * 5;
 
     let scrollFrac =
       Math.min((scrollY - startScroll) / (endScroll - startScroll), 1) * 2;
@@ -3977,7 +3990,7 @@ export default function Home() {
               style={{
                 opacity: sideMatrixOpacityInterpolate(),
               }}
-              className="mt-[1400px]"
+              className="mt-[1800px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Matrix</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -3998,7 +4011,7 @@ export default function Home() {
               style={{
                 opacity: sideLabsOpacityInterpolate(),
               }}
-              className="mt-[150px]"
+              className="mt-[300px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Labs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -4018,7 +4031,7 @@ export default function Home() {
               style={{
                 opacity: sideArcsOpacityInterpolate(),
               }}
-              className="mt-[250px]"
+              className="mt-[270px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -4036,7 +4049,7 @@ export default function Home() {
               style={{
                 opacity: sideStudioOpacityInterpolate(),
               }}
-              className="mt-[300px]"
+              className="mt-[320px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Studios</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -4054,7 +4067,7 @@ export default function Home() {
               style={{
                 opacity: sideIntersectionOpacityInterpolate(),
               }}
-              className="mt-[200px]"
+              className="mt-[250px]"
             >
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">
                 Intersections
@@ -4187,7 +4200,7 @@ export default function Home() {
               }}
               className={`${classT2}`}
             >
-              {activeState !== 5 && activeState !== 7 && activeState !== 8 && (
+              {activeState !== 7 && activeState !== 8 && (
                 <>
                   <animated.div
                     style={{
@@ -4245,16 +4258,16 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY > startSticky + step * 4 &&
-                      scrollY <= startSticky + step * 5
+                      scrollY > startSticky + step * 5 &&
+                      scrollY <= startSticky + step * 6
                     ) {
                       return partialOpacityInterpolateMult(
-                        startSticky + step * 4,
                         startSticky + step * 5,
+                        startSticky + step * 6,
                         true,
                         1,
                       );
-                    } else if (scrollY > startSticky + step * 5) {
+                    } else if (scrollY > startSticky + step * 6) {
                       return 0.2;
                     } else return 1;
                   }),
@@ -4270,8 +4283,8 @@ export default function Home() {
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
-                            startSticky + step * 3,
-                            startSticky + step * 3 + step / 2,
+                            startSticky + step * 4,
+                            startSticky + step * 5,
                             false,
                           ),
                         }}
@@ -4288,8 +4301,8 @@ export default function Home() {
                         <animated.h2
                           style={{
                             opacity: opacityInterpolate(
-                              startSticky + step * 3,
-                              startSticky + step * 3 + step / 2,
+                              startSticky + step * 4,
+                              startSticky + step * 5,
                               false,
                             ),
                           }}
@@ -5982,7 +5995,7 @@ export default function Home() {
                 </div>
                 <div
                   className={classNames(
-                    activeState === 5
+                    activeState === 7
                       ? 'mt-[6.1em] block'
                       : 'mt-[5.89em] hidden',
                     'text-right opacity-0',
@@ -6034,7 +6047,7 @@ export default function Home() {
                   <animated.div
                     style={{
                       backgroundColor: scrollYProgress.to(() =>
-                        bgHoverInterpolate(2, ODactive || openOD),
+                        bgHoverInterpolate(3, ODactive || openOD),
                       ),
                     }}
                     className={classNames(
@@ -6061,16 +6074,16 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY >= startSticky + step * 4 &&
-                      scrollY <= startSticky + step * 5
+                      scrollY >= startSticky + step * 5 &&
+                      scrollY <= startSticky + step * 6
                     ) {
                       return partialOpacityInterpolateMult(
-                        startSticky + step * 4,
                         startSticky + step * 5,
+                        startSticky + step * 6,
                         true,
                         1,
                       );
-                    } else if (scrollY > startSticky + step * 5) {
+                    } else if (scrollY > startSticky + step * 6) {
                       return 0.2;
                     } else return 1;
                   }),
@@ -6269,8 +6282,8 @@ export default function Home() {
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
-                            startSticky + step * 3,
-                            startSticky + step * 3 + step / 2,
+                            startSticky + step * 4,
+                            startSticky + step * 5,
                             false,
                           ),
                         }}
@@ -6313,7 +6326,7 @@ export default function Home() {
                     <animated.div
                       style={{
                         backgroundColor: scrollYProgress.to(() =>
-                          bgHoverInterpolate(2, ODactive || openOD),
+                          bgHoverInterpolate(3, ODactive || openOD),
                         ),
                       }}
                       className={classNames(
@@ -6340,26 +6353,23 @@ export default function Home() {
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
-                    if (activeState === 5) {
+                    if (activeState === 7) {
                       return scrollInterpolate(1);
                     } else if (
-                      scrollY >= startSticky + step * 4 &&
-                      scrollY <= startSticky + step * 5
+                      scrollY >= startSticky + step * 5 &&
+                      scrollY <= startSticky + step * 6
                     ) {
                       return capacityOpacityInterpolate(
-                        startSticky + step * 4,
                         startSticky + step * 5,
+                        startSticky + step * 6,
                         false,
                       );
                     } else return 1;
                   }),
                 }}
                 className={classNames(
-                  activeState === 7 || activeState === 8
-                    ? 'opacity-100 transition delay-300 ease-in-out'
-                    : 'opacity-0 ',
-                  activeState === 7 || activeState === 8
-                    ? 'z-50 transition delay-300 ease-in-out'
+                  scrollY >= startSticky + step * 5 + step / 2
+                    ? 'z-50 transition delay-700 ease-in-out'
                     : 'z-20 ',
                   `shadow-layer absolute grid w-[854px] grid-cols-12`,
                 )}
@@ -7001,23 +7011,31 @@ export default function Home() {
             </div>
 
             <hr className="text-[#333333]" />
+          </div>
+        </div>
 
+        <div className={`relative sm:grid sm:grid-cols-12`}>
+          <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
+            <div className="mt-20">
+              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Paradigms</h2>
+              <p className="p-xl-regular max-w-[380px] text-grey-3">
+                The Enlightenment, Industrial and Scientific revolutions created
+                many advances for society. But what about their impact on deep
+                ways of being and knowing? From the concept of thingification to
+                the devaluation of mother earth, the psychological baseline of
+                our many societies was fundamentally altered. From our
+                perspective, the worldview that condoned the treatment of land
+                and living beings as disposable, exploitable resources, was also
+                at play in the coding of our dominant socioeconomic systems.
+                Dark Matter Labs sets out to reject the concept of separation
+                and to reimagine our foundational economic relationships. For
+                example:
+              </p>
+            </div>
+          </div>
+          <div className={`relative col-span-7 w-[690px] justify-self-end`}>
             <div id="why">
               <div className="my-20 ">
-                <p className="p-3xl-regular max-w-3xl pb-10 text-grey-6">
-                  The Enlightenment, Industrial and Scientific revolutions
-                  created many advances for society. But what about their impact
-                  on deep ways of being and knowing? From the concept of
-                  thingification to the devaluation of mother earth, the
-                  psychological baseline of our many societies was fundamentally
-                  altered. From our perspective, the worldview that condoned the
-                  treatment of land and living beings as disposable, exploitable
-                  resources, was also at play in the coding of our dominant
-                  socioeconomic systems. Dark Matter Labs sets out to reject the
-                  concept of separation and to reimagine our foundational
-                  economic relationships. For example:
-                </p>
-
                 <div className="mb-8">
                   <h2 className="heading-5xl text-grey-1">Property</h2>
                   <p className="p-3xl pt-4 text-grey-1">
