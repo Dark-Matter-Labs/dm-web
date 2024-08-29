@@ -3773,7 +3773,7 @@ export default function Home() {
               style={{
                 opacity: sideOpacityInterpolate(startSticky+step +step/2, startSticky + step * 2, true) // also needs opacity fade out
               }}
-            className="mt-[100px]">
+            className="mt-[150px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Labs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Each of our Labs is focused on a specific area of the
@@ -3792,7 +3792,7 @@ export default function Home() {
              style={{
               opacity: sideOpacityInterpolate(startSticky+step * 2 +step/2, startSticky + step * 3, true) // also needs opacity fade out
             }}
-            className="mt-[150px]">
+            className="mt-[250px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Our Arc workflows are designed with clear, directional goals
