@@ -7210,7 +7210,7 @@ export default function Home() {
               </div>
 
               <hr className="text-[#333333]" />
-              <div className="py-20">
+              {/* <div className="py-20">
                 <p className="p-3xl-regular max-w-3xl pb-10 text-grey-6">
                   We are not doing it alone, we work with partners, clients, and
                   collaborators across the world.
@@ -7553,7 +7553,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="pb-60 pt-20">
                 <h1 className="heading-7xl max-w-[22.8rem] pb-10 text-grey-5 ">
