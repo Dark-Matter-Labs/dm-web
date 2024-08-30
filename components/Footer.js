@@ -89,7 +89,7 @@ export default function Footer() {
       </h2>
       <div className="mx-auto max-w-[1200px] pb-20 pt-10">
         <div className="xl:grid xl:grid-cols-12">
-          <div className="col-span-5 space-y-40">
+          <div className="col-span-5 space-y-60">
             <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
@@ -106,10 +106,10 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="col-span-7 grid grid-cols-3 ">
-            <div className="">
+          <div className="col-span-7 flex justify-between items-start ">
+            <div className="f">
               <div>
-                <ul role="list" className="space-y-4">
+                <ul role="list" className="space-y-4 flex flex-col justify-betweenitems-start">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
                       <a
@@ -122,7 +122,7 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-              <div className="mt-6">
+              <div className="mt-5">
                 <a
                   href="#"
                   className="p-xl-regular text-[#A8A8A8] hover:text-white"
@@ -131,9 +131,9 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="col-span-2">
+            <div className="flex flex- col justify-start items-start">
               <div>
-                <ul role="list" className=" space-y-6">
+                <ul role="list" className=" space-y-8">
                   {navigation.company.map((item) => (
                     <li key={item.country}>
                       <div className="nav-xl ">

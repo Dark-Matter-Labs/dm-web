@@ -43,37 +43,37 @@ export default function Navbar() {
                     <div className="flex items-center justify-between">
                       <a
                         href="https://glorious-impact-532915.framer.app/feed"
-                        className="nav-xl py-2 text-grey-4"
+                        className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white "
                       >
                         Feed
                       </a>
                       <a
                         href="https://glorious-impact-532915.framer.app/initiatives"
-                        className="nav-xl py-2 text-grey-4"
+                        className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
                       >
                         Initiatives
                       </a>
                       <a
                         href="https://glorious-impact-532915.framer.app/team"
-                        className="nav-xl py-2 text-grey-4"
+                        className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
                       >
                         Team
                       </a>
                       <a
                         href="https://glorious-impact-532915.framer.app/jobs"
-                        className="nav-xl py-2 text-grey-4"
+                        className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
                       >
                         Jobs
                       </a>
                       <a
                         href="https://glorious-impact-532915.framer.app/contacts"
-                        className="nav-xl py-2  text-grey-4"
+                        className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
                       >
                         Contact
                       </a>
                       <a
                         href="https://glorious-impact-532915.framer.app/contribute"
-                        className="nav-xl py-2  text-grey-4"
+                        className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
                       >
                         Support
                       </a>
@@ -81,7 +81,7 @@ export default function Navbar() {
                         href="https://provocations.darkmatterlabs.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="nav-xl py-2  text-grey-4"
+                        className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
                       >
                         Provocations↗
                       </a>
