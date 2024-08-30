@@ -934,6 +934,21 @@ export default function Home() {
     return startScale;
   };
 
+  const divOpacityInterpolate = (startScroll, endScroll) => {
+    // Define the opacity range
+    const startOpacity = 0.2; // Starting opacity value
+    const endOpacity = 1; // Ending opacity value
+
+    // Calculate the normalized scroll factor
+    let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1); // Clamp between 0 and 1
+
+    // Interpolate the opacity value
+    const opacity = startOpacity + (endOpacity - startOpacity) * scrollFactor;
+
+    return opacity;
+  };
+
   return (
     <div>
       <Head>
@@ -5142,7 +5157,17 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={`relative mt-[400px] sm:grid sm:grid-cols-12`}>
+        <animated.div
+          style={{
+            opacity: scrollYProgress.to(() =>
+              divOpacityInterpolate(
+                startSticky + step * 7,
+                startSticky + step * 7 + 300,
+              ),
+            ),
+          }}
+          className={`relative mt-[400px] sm:grid sm:grid-cols-12`}
+        >
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <div className="mt-[0px]">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Contexts</h2>
@@ -5235,7 +5260,7 @@ export default function Home() {
 
             <hr className="text-[#333333]" />
           </div>
-        </div>
+        </animated.div>
 
         <div className={`relative sm:grid sm:grid-cols-12`}>
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
