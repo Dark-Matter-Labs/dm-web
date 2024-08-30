@@ -4486,7 +4486,7 @@ export default function Home() {
                 }}
                 className={classNames(
                   scrollY >= startSticky + step * 5 + 310 ? 'z-50' : 'z-20 ',
-                  `shadow-layer absolute grid w-[854px] grid-cols-12`,
+                  `shadow-layer absolute grid w-[854px] grid-cols-12 font-SaansRegular`,
                 )}
               >
                 <div className="col-span-1">
