@@ -114,7 +114,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="p-xl-medium text-grey-1 hover:text-white"
+                        className="p-xl-regular text-grey-1 hover:text-white"
                       >
                         {item.name}
                       </a>
@@ -125,7 +125,7 @@ export default function Footer() {
               <div className="mt-6">
                 <a
                   href="#"
-                  className="p-xl-regular text-grey-1 hover:text-white"
+                  className="p-xl-regular text-[#A8A8A8] hover:text-white"
                 >
                   Privacy Policy
                 </a>
@@ -136,9 +136,9 @@ export default function Footer() {
                 <ul role="list" className=" space-y-6">
                   {navigation.company.map((item) => (
                     <li key={item.country}>
-                      <div className="nav-xl text-grey-1">
-                        <p>{item.country}</p>
-                        <p>{item.fullName}</p>
+                      <div className="nav-xl ">
+                        <p className='text-grey-1'>{item.country}</p>
+                        <p className='text-[#A8A8A8]'>{item.fullName}</p>
                       </div>
                     </li>
                   ))}

@@ -21,10 +21,10 @@ module.exports = {
         'grey-7': '#848484',
       },
       fontSize: {
-        xl: '15px',
+        xl: '16px',
         '2xl': '17px',
         '3xl': '20px',
-        '4xl': '26px',
+        '4xl': '24px',
         '5xl': '32px',
         '6xl': '36px',
         '7xl': '56px',

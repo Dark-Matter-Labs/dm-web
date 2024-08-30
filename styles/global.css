@@ -72,11 +72,11 @@ img {
   }
 
   .heading-7xl {
-    @apply font-SaansMed text-7xl leading-16;
+    @apply font-SaansRegular text-7xl leading-16;
   }
 
   .heading-5xl {
-    @apply font-SaansMed text-5xl leading-14;
+    @apply font-SaansRegular text-4xl leading-13;
   }
 
   .heading-5xl-Reg {
@@ -84,7 +84,7 @@ img {
   }
 
   .nav-xl {
-    @apply font-SaansMed text-xl leading-[1.2em];
+    @apply font-SaansRegular text-xl leading-[1.2em];
   }
 
   .nav-2xl {
