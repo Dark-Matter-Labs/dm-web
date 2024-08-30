@@ -65,28 +65,28 @@ function Popup({
                 )}
               </div>
             </div>
-            <div className="flex flex-col items-start justify-start gap-16 border-l-[0.5px] border-[#353535] py-[28px]  pl-[28px] pr-[32px]">
-              <div className="flex items-center justify-between">
+            <div className="flex flex-col items-start justify-start gap-[16px] border-l-[0.5px] border-[#353535] py-[28px]  pl-[28px] pr-[32px]">
+              <div className="flex items-center justify-between ">
                 {type === 'arc' ? (
                   <DialogTitle
                     as="h3"
                     className="font-SaansRegular text-[24px] leading-13 text-white"
                   >
-                    {title} [ARC]
+                    {title} <span className='align-super'>[ARC]</span>
                   </DialogTitle>
                 ) : type === 'lab' ? (
                   <DialogTitle
                     as="h3"
                     className="font-SaansRegular text-[24px] leading-13 text-white"
                   >
-                    {title} [LAB]
+                    {title} <span className='align-super'>[LAB]</span>
                   </DialogTitle>
                 ) : type === 'studio' ? (
                   <DialogTitle
                     as="h3"
                     className="font-SaansRegular text-[24px] leading-13 text-white"
                   >
-                    {title} [STUDIO]
+                    {title} <span className='align-super'>[STUDIO]</span>
                   </DialogTitle>
                 ) : (
                   <DialogTitle

@@ -59,7 +59,7 @@ function Popup({ title, openState, setOpen, content, domain }) {
               </div>
             )}
 
-            <div className="flex flex-col items-start justify-start gap-16 border-l-[0.5px] border-[#353535] py-[28px]  pl-[28px] pr-[32px]">
+            <div className="flex flex-col items-start justify-start gap-[16px] border-l-[0.5px] border-[#353535] py-[28px]  pl-[28px] pr-[32px]">
               <div className="flex items-center justify-between">
                 <DialogTitle
                   as="h3"
