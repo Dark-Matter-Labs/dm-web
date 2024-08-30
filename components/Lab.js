@@ -28,8 +28,8 @@ function Lab({
       onMouseLeave={() => setActive(false)}
       onClick={() => setOpen(true)}
     >
-      <p className="text-base font-normal ">{short}</p>
-      <p className="max-w-[50px] text-[9.6px] font-normal leading-normal">
+      <p className="font-SaansRegular text-base font-normal ">{short}</p>
+      <p className="max-w-[50px] font-SaansRegular text-[9.6px] font-normal leading-normal">
         {title}
       </p>
     </animated.div>

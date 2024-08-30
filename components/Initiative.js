@@ -35,11 +35,11 @@ function Initiative({
       }}
     >
       {activeState ? (
-        <p className=" text-center text-[9.6px] font-normal leading-normal">
+        <p className="text-center font-SaansRegular text-[9.6px] font-normal leading-normal">
           {title}
         </p>
       ) : (
-        <p className=" text-[9.6px] font-normal leading-normal">
+        <p className="font-SaansRegular text-[9.6px] font-normal leading-normal">
           {' '}
           {arc}
           <span className="align-super text-[6.6px]">A</span> + {lab}

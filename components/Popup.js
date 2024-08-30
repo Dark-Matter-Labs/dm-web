@@ -72,21 +72,21 @@ function Popup({
                     as="h3"
                     className="font-SaansRegular text-[24px] leading-13 text-white"
                   >
-                    {title} <span className='align-super'>[ARC]</span>
+                    {title} <span className="align-super">[ARC]</span>
                   </DialogTitle>
                 ) : type === 'lab' ? (
                   <DialogTitle
                     as="h3"
                     className="font-SaansRegular text-[24px] leading-13 text-white"
                   >
-                    {title} <span className='align-super'>[LAB]</span>
+                    {title} <span className="align-super">[LAB]</span>
                   </DialogTitle>
                 ) : type === 'studio' ? (
                   <DialogTitle
                     as="h3"
                     className="font-SaansRegular text-[24px] leading-13 text-white"
                   >
-                    {title} <span className='align-super'>[STUDIO]</span>
+                    {title} <span className="align-super">[STUDIO]</span>
                   </DialogTitle>
                 ) : (
                   <DialogTitle

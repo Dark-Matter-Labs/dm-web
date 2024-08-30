@@ -212,6 +212,10 @@ export default function Home() {
   const [openFF, setOpenFF] = useState(false);
   const [openOD, setOpenOD] = useState(false);
 
+  const [openLEED, setOpenLEED] = useState(false);
+
+  const [openCI, setOpenCI] = useState(false);
+
   const [openDomainA, setOpenDomainA] = useState(false);
   const [openDomainA1, setOpenDomainA1] = useState(false);
   const [openDomainA2, setOpenDomainA2] = useState(false);
@@ -902,34 +906,30 @@ export default function Home() {
     }
     return 0;
   };
-  
 
   const scaleInterpolate = () => {
-    const startScroll = startSticky + step * 4;  // Start of the scroll range
-    const endScroll = startSticky + step * 5;    // End of the scroll range
-
+    const startScroll = startSticky + step * 4; // Start of the scroll range
+    const endScroll = startSticky + step * 5; // End of the scroll range
 
     // Define the scale range
-    const startScale = 0.6;   // Starting scale value
-    const endScale = 0.72;    // Ending scale value
+    const startScale = 0.6; // Starting scale value
+    const endScale = 0.72; // Ending scale value
 
     // Calculate the normalized scroll factor
     let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
     scrollFactor = Math.min(Math.max(scrollFactor, 0), 1); // Clamp between 0 and 1
     scrollFactor = Math.pow(scrollFactor, 3);
 
-
     // Interpolate the scale value
     const scale = startScale + (endScale - startScale) * scrollFactor;
 
     if (scrollY >= startScroll && scrollY < endScroll) {
       return scale;
-     
-    } else if(scrollY >= endScroll){
+    } else if (scrollY >= endScroll) {
       return endScale;
     }
     return startScale;
-  }
+  };
 
   return (
     <div>
@@ -1446,6 +1446,57 @@ export default function Home() {
             economy by identifying opportunities within existing laws and
             regulations. Working in partnership with legal experts and policy
             makers, Dm has built an interactive legal knowledge platform.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="Life-Ennobling Economics dialogue"
+        openState={openLEED}
+        setOpen={setOpenLEED}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The NE lab and Conversational Design Studio worked as an integrated
+            team to develop the{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://drive.google.com/file/d/1B3x9hYWM3n0zqyTnFzetGDSdlnspRzOr/view?usp=sharing"
+            >
+              first conversational publications
+            </a>{' '}
+            for Life-Ennobling Economics. In sharing this vision, both teams
+            felt strongly that the material should be offered as a continuous
+            and inclusive dialogue, thus shaping the future direction of the LEE
+            movement.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="Cornerstone Indicators"
+        openState={openCI}
+        setOpen={setOpenCI}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
+            >
+              The Cornerstone Indicators work
+            </a>{' '}
+            is not part of an Arc but is held by the Ne Lab. The concept is
+            centred on developing multicontextual, intuitively understandable,
+            community-led indicators. The project is now in its third iteration
+            and has spread from Sweden to Scotland and is now running live in
+            Canada.
           </p>
         }
       />
@@ -2469,7 +2520,7 @@ export default function Home() {
                       />
 
                       <Arc
-                        title=" Bioregional Economics"
+                        title="Bioregional Economics"
                         short="BE"
                         activeState={BEactive || openBE}
                         setActive={setBEActive}
@@ -2500,7 +2551,7 @@ export default function Home() {
                       />
 
                       <Initiative
-                        title=" Multivalent currencies"
+                        title="Multivalent currencies"
                         arc="RC"
                         lab="NE"
                         activeState={(RCactive && NEactive) || openMC}
@@ -2510,27 +2561,17 @@ export default function Home() {
                         setOpen={setOpenMC}
                       />
 
-                      {ETCactive || NEactive ? (
-                        <div
-                          onMouseLeave={() => {
-                            setETCActive(false);
-                            setNEActive(false);
-                          }}
-                          className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      ) : (
-                        <div
-                          onMouseEnter={() => {
-                            setETCActive(true);
-                            setNEActive(true);
-                          }}
-                          className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      )}
+                      <Initiative
+                        title="Life-Ennobling Economics dialogue"
+                        arc="LC"
+                        lab="NE"
+                        activeState={(ETCactive && NEactive) || openLEED}
+                        hoverState={ETCactive || NEactive}
+                        setActiveLab={setNEActive}
+                        setActiveArc={setETCActive}
+                        setOpen={setOpenLEED}
+                      />
+
                       {NZactive || NEactive ? (
                         <div
                           onMouseLeave={() => {
@@ -2630,27 +2671,17 @@ export default function Home() {
                         </div>
                       )}
 
-                      {BEactive || NEactive ? (
-                        <div
-                          onMouseLeave={() => {
-                            setBEActive(false);
-                            setNEActive(false);
-                          }}
-                          className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      ) : (
-                        <div
-                          onMouseEnter={() => {
-                            setBEActive(true);
-                            setNEActive(true);
-                          }}
-                          className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      )}
+                      <StudioInitiative
+                        title="Cornerstone Indicators"
+                        arc="LC"
+                        studio="CD"
+                        activeState={(CDactive && NEactive) || openCI}
+                        hoverState={CDactive || NEactive}
+                        setActiveStudio={setCDActive}
+                        setActiveArc={setNEActive}
+                        setOpen={setOpenCI}
+                      />
+
                       {PCactive || NEactive ? (
                         <div
                           onMouseLeave={() => {
