@@ -14,10 +14,9 @@ import Studio from '../components/Studio';
 import Initiative from '../components/Initiative';
 import StudioInitiative from '../components/StudioInitiative';
 import Popup from '../components/Popup';
+import DomainPopup from '../components/DomainPopup';
 import Footer from '../components/Footer';
 
-import webIcon from '../images/website.svg';
-import pubIcon from '../images/publication.svg';
 import labsOverlay from '../images/labs.svg';
 import arcsOverlay from '../images/arcs.svg';
 import studiosOverlay from '../images/studio.svg';
@@ -914,6 +913,7 @@ export default function Home() {
       </Head>
 
       <Popup
+        type="lab"
         title="Capital Systems"
         openState={openCS}
         setOpen={setOpenCS}
@@ -921,7 +921,7 @@ export default function Home() {
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#EBEBEB]">
-            the DmCS Lab is working to reframe what is possible within the
+            The DmCS Lab is working to reframe what is possible within the
             financial capital markets. This Lab is working with the hypothesis
             that the{' '}
             <a
@@ -941,6 +941,7 @@ export default function Home() {
       />
 
       <Popup
+        type="arc"
         title="Radicle Civics"
         openState={openRC}
         setOpen={setOpenRC}
@@ -966,6 +967,7 @@ export default function Home() {
       />
 
       {/* <Popup
+       type='lab'
        title=''
        openState={}
        setOpen={}
@@ -974,3073 +976,1081 @@ export default function Home() {
        content={}
       /> */}
 
-      <Transition.Root show={openNZ} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenNZ}>
-          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenNZ(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Net Zero Cities{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a target="_blank" href="https://netzerocities.eu/">
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The NZC Arc aspires to create smart cities that are carbon
-                      neutral. This involves{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://netzerocities.eu/"
-                      >
-                        supporting cities
-                      </a>{' '}
-                      to develop local portfolios of coordinated actions across
-                      multiple domains (e.g. technology, governance, policy,
-                      finance innovation, social innovation) which accelerate
-                      emission reductions.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openSG} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenSG}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenSG(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    7Gen Cities{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a target="_blank" href="https://www.7gencities.org/">
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      This collaborative arc fosters transformative thinking and
-                      action for future cities. The aspiration is to create the
-                      infrastructures for cities, inviting the next seven
-                      generations of city dwellers to thrive in radically caring
-                      and regenerative communities.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openM0} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenM0}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenM0(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    M0 Cities{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={pubIcon} alt="publish icon" />
-                    <a
-                      target="_blank"
-                      href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Publication
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The M0 Arc is aiming to reimagine how we use and steward
-                      materials in service of{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        herf="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
-                      >
-                        a regenerative built environment
-                      </a>
-                      . The Arc is asking questions around how we can innovate
-                      our material inputs, adjust our understanding of comfort
-                      (heating and cooling) and intelligently share existing
-                      spaces.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openRE} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenRE}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenRE(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Regen Nutrition{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={pubIcon} alt="website icon" />
-                    <a
-                      target="_blank"
-                      href="https://medium.com/9outof10-protein-shift-innovation-platform/universal-basic-nutrient-income-institutional-infrastructure-for-2040-food-preparedness-f00f70a84510"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Publication
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The Rn Arc is working towards resilient, sustainable and
-                      high quality food systems. Within this aspiration, cities
-                      are a key area of focus and the team are working across
-                      diverse sectors to identify and respond to likey pressure
-                      points.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openBE} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenBE}>
-          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenBE(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Bioregional Economics{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The Be Arc is aiming to support the creation of nested
-                      economies that protect and steward the integral health of
-                      their base bioregions. This Arc works closely with the Sm
-                      Lab to collate, map and visualise the value stocks and
-                      flows of a bioregion. It also intersects with the Ne Lab
-                      to propose how these entangled forms of value can be
-                      integrated into our investment frameworks and decision
-                      making structures.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openPC} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenPC}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenPC(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Planetary Civics{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a
-                      target="_blank"
-                      href="https://www.youtube.com/watch?v=zQJjfCSPvJI"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The Pc Arc is looking at how we can match the scale of our
-                      planetary challenges with our global ambition to respond.
-                      For example, how can we build bold, ambitious models of
-                      meaningful repair for our earth systems? What would it
-                      mean to embrace the idea of relatable hyperobjects
-                      (dimensions of a scale that historically have been beyond
-                      the scope of human understanding)?
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openNE} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenNE}>
-          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenNE(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Next Economics{' '}
-                    <span className="align-super text-lg uppercase">lab</span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      the Ne Lab embodies the core philosophies of LEE. It aims
-                      to stimulate a continuous and inclusive dialogue about how
-                      we relate to the world and the implications for a
-                      desirable future economy. The Lab is actively testing
-                      three core worldview philosophies: what would a future
-                      economy look and feel like if it was{' '}
-                      <b>rooted in the recognition of the full web of life</b>,
-                      grounded by a <b>non-bounded theory of value</b> and
-                      enabled by <b>technological ecosystems of care</b>? In
-                      parallel, the NE Lab is building practical pathways
-                      towards systemic goals such as{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
-                      >
-                        replacing profit as the collective goal
-                      </a>{' '}
-                      and demonstrating entangled value.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openPB} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenPB}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenPB(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Property & Beyond{' '}
-                    <span className="align-super text-lg uppercase">Lab</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a
-                      target="_blank"
-                      href="https://www.darkmatterlabs.property/"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      the Pb Lab rejects the values of control and dominion as a
-                      basis for private property systems. Instead this Lab aims
-                      to build a diverse and proactive portfolio of alternative
-                      forms of property; from collective ownership of land to
-                      self-owning houses, land, and cameras.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openBR} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenBR}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenBR(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Beyond the Rules{' '}
-                    <span className="align-super text-lg uppercase">lab</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a
-                      target="_blank"
-                      href="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      the Btr Lab practises new forms of organising and
-                      governance. The Lab is particularly interested in the
-                      deep, thoughtful and highly creative work required to
-                      rewrite, reinvent or reimagine rules, norms and laws that
-                      hold us in the current system. The Lab is working closely
-                      with an ecosystem of partners to prototype and demonstrate
-                      new forms of open contracts and multi-actor governance
-                      structures.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openSM} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenSM}>
-          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenSM(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Sensing, Modeling & Mapping{' '}
-                    <span className="align-super text-lg uppercase">lab</span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      the Sm Lab is working to improve the{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://docs.google.com/presentation/d/1fq-hmMDV5DnaDk8fSYhsQmQbvw_yo4SAzsGozWzWhw0/edit#slide=id.g1dcfb843b9e_0_167"
-                      >
-                        visibility of our interactions with the physical world
-                      </a>
-                      . From material and energy flows to land use, the Lab is
-                      building tools and mapping systems that leverage
-                      technology to build a dynamic understanding of how the
-                      system is responding.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openBL} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenBL}>
-          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenBL(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Beyond Labour{' '}
-                    <span className="align-super text-lg uppercase">lab</span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      We are interested in exploring the future of work in
-                      relation to a rapidly changing world. What would it mean
-                      if we shifted from humans being employed as resources to
-                      vocations of creativity, purpose and care?
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openPF} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenPF}>
-          <div className="fixed left-[14.7%]  top-[25.5%] z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenPF(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Philanthropy Futures{' '}
-                    <span className="align-super text-lg uppercase">lab</span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The Pf Lab will explore the potential for philanthropic
-                      capital to catalyse radical pathways in parallel to the
-                      wider capital markets.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openQD} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenQD}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenQD(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Societal Decisions{' '}
-                    <span className="align-super text-lg uppercase">lab</span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a target="_blank" href="https://sdl.darkmatterlabs.org/">
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The Sd Lab is still nascent. Once launched, it will aim to
-                      build pathways towards distributed, data assisted decision
-                      making.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openCT} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenCT}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenCT(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Civic Tech{' '}
-                    <span className="align-super text-lg uppercase">
-                      studio
-                    </span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Civic Tech Studio helps mould theory and vision from the
-                      Dm ecosystem to testable prototypes and applications
-                      geared towards long-term impact & maintenance. We see tech
-                      with a critical and open-source lens rather than as an
-                      extractive and inevitable solution.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openETC} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenETC}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenETC(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Local Civics{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      this Arc recognises the transformative potential of
-                      communities and neighbourhoods to design and steward their
-                      own futures. There are a diverse range of initiatives
-                      driving towards this goal; from citizen designed
-                      indicators and city scale goals to neighbourhood
-                      retrofitting and energy programmes.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openCD} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenCD}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenCD(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Conversation Design{' '}
-                    <span className="align-super text-lg uppercase">
-                      studio
-                    </span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      This studio is fundamental to how we communicate. What
-                      exactly is Conversational Design? This is a good question
-                      and we would like to invite you to explore it with us. The
-                      ambition is to embed conversational frameworks at every
-                      level of our work that help people to explore and
-                      interrogate our thinking.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openFF} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenFF}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenFF(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Foresight & Futuring{' '}
-                    <span className="align-super text-lg uppercase">
-                      studio
-                    </span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      This studio works across the ecosystem to build the craft
-                      of speculative design and future scenario building. The
-                      team has close links to the Sm Studio where they support
-                      the mapping and visualisation of future value flows. They
-                      also work across the Arcs to develop potential strategic
-                      directions.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openOD} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenOD}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenOD(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Org Dev{' '}
-                    <span className="align-super text-lg uppercase">
-                      studio
-                    </span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The OrgDev (organisational development) Studio provides
-                      the critical infrastructure for the entire Dm ecosystem
-                      and mission. This team is the foundational rock. Their
-                      work unleashes and nourishes the creative potential of
-                      Dm’s people and those who intersect with our work.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openWI} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenWI}>
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenWI(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Nature as Infrastructure{' '}
-                    <span className="align-super text-lg uppercase">Arc</span>
-                  </Dialog.Title>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      the Ni Arc is developing practical pathways to support
-                      regenerative, respectful and resilient collaborations
-                      between human and natural infrastructures. These
-                      interventions are grounded in system dynamics such as
-                      finance, regulation and data enabled decision making.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openMC} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-[60]"
-          onClose={() => {
-            setOpenMC(false);
-            setRCActive(false);
-            setNEActive(false);
-          }}
-        >
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenMC(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    Multivalent Currencies{' '}
-                    <span className="align-super text-lg uppercase">
-                      project
-                    </span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={pubIcon} alt="website icon" />
-                    <a
-                      target="_blank"
-                      href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Publication
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The NE lab is exploring the interaction between our
-                      monetary systems and societal behaviour. To ground the
-                      conceptual provocations, NE Lab has been collaborating
-                      with the Radicle Civics Arc to prototype the first{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
-                      >
-                        distributed bioregional bank
-                      </a>
-                      .{' '}
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openTAI} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-[60]"
-          onClose={() => {
-            setOpenTAI(false);
-            setNZActive(false);
-            setCSActive(false);
-          }}
-        >
-          <div className="fixed left-[14.7%]  top-[25.5%]  w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenTAI(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    TreesAI{' '}
-                    <span className="align-super text-lg uppercase">
-                      project
-                    </span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a
-                      target="_blank"
-                      href="https://treesasinfrastructure.com/"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Trees As Infrastructure (TreesAI) is a cloud-based
-                      platform that aims to embed nature as a critical part of
-                      urban infrastructure (alongside more traditional
-                      structures such as bridges, roads and rail). Working with
-                      the Dcs Lab in urban locations, the team is working to
-                      develop strong business cases for scaled, sustainable
-                      investment.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openNET} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-[60]"
-          onClose={() => {
-            setOpenNET(false);
-            setNEActive(false);
-            setM0Active(false);
-          }}
-        >
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenNET(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    New Economic Thinking{' '}
-                    <span className="align-super text-lg uppercase">
-                      project
-                    </span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={pubIcon} alt="website icon" />
-                    <a
-                      target="_blank"
-                      href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
-                    >
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Publication
-                      </p>
-                    </a>
-                  </div>
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
-                      >
-                        {' '}
-                        New Economic Thinking
-                      </a>{' '}
-                      work provided mapping and analysis of a just transition in
-                      relation to Europe’s built environment. The work sat at
-                      the intersection of the Ne Lab and M0 Arc, exploring the
-                      physical constraints and potential response strategies for
-                      a material light and socially just transition.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openCL} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-[60]"
-          onClose={() => {
-            setOpenCL(false);
-            setNZActive(false);
-            setSMActive(false);
-          }}
-        >
-          <div className="fixed left-[14.7%]  top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenCL(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="font-SaansMed text-2xl text-[#F5F5F5]"
-                  >
-                    CircuLaw{' '}
-                    <span className="align-super text-lg uppercase">
-                      project
-                    </span>
-                  </Dialog.Title>
-                  <div className="flex py-2">
-                    <Image src={webIcon} alt="website icon" />
-                    <a target="_blank" href="https://www.circulaw.nl/">
-                      <p className="pl-1 font-SaansMed text-base text-[#737EA5]">
-                        Website
-                      </p>
-                    </a>
-                  </div>
-
-                  <div className="sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      CircuLaw emerged from Dm’s relationship with the City of
-                      Amsterdam. The initiative aims to accelerate the
-                      transition to a circular economy by identifying
-                      opportunities within existing laws and regulations.
-                      Working in partnership with legal experts and policy
-                      makers, Dm has built an interactive legal knowledge
-                      platform.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openLEE} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenLEE}>
-          <div className="fixed inset-0 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-gradient-to-b from-[#1B1B1B] to-[#303030] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenLEE(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Life-Ennobling Economics is a propositional vision and a
-                      call to action. It is an ennobling invitation to break
-                      free from ideological constraints, to embrace the radical
-                      potential of emergent technologies, and to challenge the
-                      structural codes of our current socio-economic systems.
-                      Implicit in this opening position is an understanding that
-                      the structure and values of the economy must be in service
-                      to all forms of life (present, future, human, non-human
-                      and machine) providing an inclusive scaffold of care and
-                      respect. The central argument being put forward by the LEE
-                      is that whilst we indisputably need to shift to a new
-                      economy, we will not get there using the mental models,
-                      tools or value systems of the current one. Instead, LEE
-                      responds to the underlying drivers of the{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://www.pik-potsdam.de/en/news/latest-news/covid-19-climate-change-armed-conflicts-world2019s-crises-can-lead-to-interconnected-polycrisis"
-                      >
-                        polycrisis
-                      </a>{' '}
-                      by proposing a philosophical and action oriented
-                      framework, centred on reconfiguring our relationships with
-                      each other, with the planet and to our collective futures.
-                      You can read more about{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://lee.darkmatterlabs.org/"
-                      >
-                        LEE here
-                      </a>
-                      .
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openCTC} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenCTC}>
-          <div className="fixed inset-0 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenCTC(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      City-scale tree canopies: as a pathway towards this
-                      ambition, the{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://treesasinfrastructure.com/"
-                      >
-                        TreesAI
-                      </a>{' '}
-                      (Trees As Infrastructure) team has been working to create
-                      investable asset classes for the planting and maintenance
-                      of trees.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openCIC} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenCIC}>
-          <div className="fixed inset-0 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenCIC(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Collective intelligence of a city: the{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
-                      >
-                        Cornerstone Indicator initiative
-                      </a>{' '}
-                      was developed to strengthen citizen engagement networks
-                      that can sense what it means to thrive in different
-                      contexts. The resultant indicators empower communities to
-                      have agency over decisions and express their voices in a
-                      continuous cycle of participatory governance. As this work
-                      progresses we are aiming to link the indicators to smart
-                      data to build a more coherent picture of civic experience.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openRBF} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenRBF}>
-          <div className="fixed inset-0 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenRBF(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="max-w-md sm:flex sm:items-start">
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Resilient bioregional food systems: we are working towards
-                      this option in varied threads of our work. On the broader
-                      topic of bioregional transitions we are exploring what a
-                      regenerative bioregional economy might even look like. In
-                      parallel, we are working with communities to design and
-                      implement multi-sensory indicators that can be linked to
-                      participatory governance systems, with the aim of{' '}
-                      <a
-                        className="text-[#737EA5]"
-                        target="_blank"
-                        href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
-                      >
-                        stewarding the regenerative health of a bioregion
-                      </a>
-                      .
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainA} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainA(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      Domain A: Ontology & epistemology
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Domain A relates to the values, wisdom, spirituality, ways
-                      of being and ways of knowing that are dominant in our
-                      culture. This domain results in the collective
-                      sense-making of what it means to live a good life and it
-                      is this value system that then shapes the political and
-                      economic structures below.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainB} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainB(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      Domain B: Money & valuation logic
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Expresses the underlying theory of value that drives our
-                      investment and institutional logic. Money is a powerful
-                      expression of this axiology; a) who issues a currency, b)
-                      the qualities it is given, and c) what it can be used for.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainC} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainC(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      Domain C: Financial processes & Investment
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Represents how we structure and allocate capital stocks
-                      (this is currently dominated by financial capital but also
-                      includes intangible and ecological stocks). This part of
-                      the system determines which activities are viable and how
-                      value flows through the system.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainD} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainD(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      Domain D: Ownership, law & governance
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      This domain determines who has the rights to the social
-                      surplus and contains the jurisprudence to enforce social
-                      norms and systems of organising.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainE} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainE(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      Domain E: Institutional logic and policy
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      This domain looks at the institutions and blueprints that
-                      functionally underpin how we organise society. It includes
-                      social engagement processes and the communication of
-                      collective values into structural decision making.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainF} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainF(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      Domain F: Material, energy & land use
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      The physical domain represents the material and ecological
-                      economies. This domain grounds the socio-economic and
-                      ontological domains in the systems’ biophysical reality.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainA1} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA1}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainA1(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      A1: Fostering a relational worldview
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Helping people to see that relationships are the
-                      fundamental basis of living systems. If we can understand
-                      life as a series of interconnected relationships then an
-                      extractive, overshoot economy will no longer make sense.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainA2} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA2}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainA2(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      A2: Replacing profit as the collective goal
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      We want to show that profit is no longer an appropriate
-                      signal of value. A true signal of value cannot be time or
-                      geographically bound in its conception and must recognise
-                      entanglement (i.e. there is nothing to externalise in an
-                      interconnected system). This is more profound that beyond
-                      GDP initiatives - instead we are aiming at regenerative
-                      potential being the primary signal of wealth.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainA3} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA3}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainA3(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      A3: Building political will
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Finding new ways of understanding common issues, together
-                      with a clear communication of alternative response
-                      strategies. Using the housing crisis as an example;
-                      housing as a human right demands a different response than
-                      housing as a store of wealth.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainA4} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainA4}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainA4(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      A4: Phenomenological measures of success (lived
-                      experience)
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Defining and testing quantitative measures of sensory
-                      experience. We want to use embodied metrics to protect and
-                      respect intrinsic value.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainB1} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB1}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainB1(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      B1: Demonstrating entangled and long-term value
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      In our current economy, price is synonymous with value. We
-                      need to visualise the vast unpriced web of relationships
-                      that creates value, so that we can prevent further
-                      degradation and make informed decisions about how we
-                      interact with diverse forms of value.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainB2} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB2}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainB2(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      B2: Decolonised, bioregional currency stewardship
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Finding ways to balance the need to exchange freely
-                      between regions and countries with protecting the unique
-                      contexts of our social & physical systems. For example,
-                      creating bioregional banks.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainB3} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB3}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainB3(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      B3: Alternative non-fungible currency systems
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Demonstrating the potential for new tokens of exchange
-                      that are linked to tangible elements of our economy. We
-                      want to show how individual resource backed currencies can
-                      be linked to form a building block towards inter-regional
-                      commons governance (links closely to B2).
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainB4} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainB4}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainB4(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      B4: Visualising finite and infinite economies
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      We need to communicate a vision that opens up the future
-                      rather than closing it down. Whilst it is critical to
-                      understand the constraints (e.g. energy and carbon), we
-                      also need to seed a desire for non-competitive, infinite
-                      economies such as solidarity and knowledge.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainC1} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC1}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainC1(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      C1: Making the investment case for entangled value (DEMAND
-                      SIDE)
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Helping &#39;project developers&#39; and those that
-                      steward assets with entangled value functions to build
-                      adequate business models to be able to absorb capital.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainC2} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC2}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainC2(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      C2: Bridging demand & supply
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Building the protective governance and agreement
-                      structures that prevent extractive and asymmetric
-                      relationships between funders / investors and those
-                      receiving funds.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainC3} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC3}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainC3(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      C3: Structuring capital & investments
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Developing the necessary instruments that allow current
-                      capital holders to allocate it to assets with entangled
-                      value functions.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainC4} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC4}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainC4(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      C4: Enabling strategic ecosystem investments
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Transforming investment logics and frameworks to
-                      strategically manipulate desired shifts. For example a
-                      single investor splitting their resource into for-profit /
-                      lobbying / NFP tranches, to shift subsidies and political
-                      will to drive up costs on an extractive technology whilst
-                      uplifting a new technology.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainC5} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC5}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainC5(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      C5: Socialising the supportive narratives for alternative
-                      financing pathways
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Opening the Overton window for public and private actors
-                      in the financial system to embrace new approaches to
-                      financing.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainC6} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainC6}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainC6(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      C6: Socialising transformational narratives for a
-                      regenerative financial system
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Exploring the role of the financial system in the global
-                      transition. For example, considering whether it has the
-                      potential to tip into becoming a catalyst for change or
-                      might need to collapse and be re-built for this purpose.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainD1} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD1}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainD1(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      D1: Using instruments (e.g contracts) to demonstrate
-                      alternative theories of ownership
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Practical demonstration of contracts and operating
-                      agreements that replace linear, owner-owned relationships
-                      towards a fixed point with agent-to-agent relationships
-                      towards broader goals. NB: we have previously used the
-                      term many-to-many contracts to describe this capability.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainD2} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD2}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainD2(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      D2: Elevating alternative models that recouple surplus
-                      with stewardship
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Prevent extraction over time due perverse incentives that
-                      are underpinned by corporate, tax, labour and patent laws
-                      (among others); enable and support regeneratively designed
-                      alternatives.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainD3} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD3}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainD3(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      D3: Demonstrating multi-actor governance structures
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Practical demonstration of ways of organising and
-                      governing together, as multiple actors with varying assets
-                      to contribute. This work involves revealing, acknowledging
-                      and taking coordinated action to govern emerging public
-                      goods.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainD4} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD4}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainD4(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      D4: Embedding data-augmented decision making
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Using modern technologies to collate and compute
-                      wide-ranging data points in complex contexts, so that
-                      options can be collectively understood, interrogated and
-                      acted on effectively.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainD5} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainD5}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainD5(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      D5: Building deep respect for the other-than-human world,
-                      ancestors and future generations
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Supporting pathways that can practically embed the
-                      reconciliation of indigenous worldviews, and how this is
-                      reflected through alternative legal & governance
-                      mechanisms (such as the conceptualisations of justice
-                      extending to the &#39;more-than-human world&#39;).
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainE1} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE1}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainE1(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      E1: Enabling public-civic efficacy to transform place
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Supporting the learning, capabilities and power of
-                      public-civic partnerships to shape their streets,
-                      neighbourhoods and places towards collective thriving.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainE2} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE2}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainE2(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      E2: Building the foundations for planetary stewardship
-                      institutions
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Developing the foundations for stewardship institutions
-                      that extend beyond national states, to protect and govern
-                      the global commons.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainE3} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE3}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainE3(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      E3: Designing reflective, data-driven policy instruments
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Creation of instruments that are framed within ecological
-                      and social boundaries & aspirations (with clear data
-                      driven indicators) and adjust according to the context
-                      (e.g. Covid guidance changing depending on % of population
-                      infected).
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainE4} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainE4}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainE4(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      E4: Place-based, policy process design
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Policy design processes shaped by the geographical
-                      context, which informs the economic, cultural and
-                      environmental drivers. We want to use policy design &
-                      co-creation as an opportunity to close the engagement gap
-                      between grassroots and government.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainF1} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF1}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainF1(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      F1: Developing collaborative, non-extractive interfaces
-                      with the physical environment.
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Building the infrastructure that will allow human
-                      activities to hold respectful, reciprocal relationships
-                      with land (and other physical elements of our
-                      environment). For example, transferring land into common
-                      ownership and layered commoning structures, where we
-                      overlay common style governance across multiple private
-                      properties.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainF2} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF2}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainF2(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      F2: Visualising material and energy flows
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Developing tools and methodologies to both track and
-                      clearly communicate how we are collectively using our
-                      shared common resources.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainF3} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF3}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainF3(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      F3: Developing a stewardship data infrastructure for the
-                      built environment
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Building a new data infrastructure that can hold cities,
-                      regions and countries to account on how they are
-                      stewarding the rights and responsibilities of using shared
-                      common resources. Ultimately this must connect on a
-                      planetary level.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-
-      <Transition.Root show={openDomainF4} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={setOpenDomainF4}>
-          <div className="fixed left-[14.7%] top-[25.5%] w-screen overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden bg-[#1B1B1B] px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
-                      type="button"
-                      className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                      onClick={() => setOpenDomainF4(false)}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                  <div className="">
-                    <Dialog.Title
-                      as="h3"
-                      className="font-SaansMed text-2xl text-[#F5F5F5]"
-                    >
-                      F4: Designing and demonstrating autonomous, regenerative
-                      and affordable multi-purpose developments.
-                    </Dialog.Title>
-
-                    <p className="font-SaansRegular text-base text-[#C6C6C6]">
-                      Exploring how we can re-common and repurpose land and
-                      building in service of a shared, equitable, material and
-                      energy light future.
-                    </p>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
+      <Popup
+        type="arc"
+        title="Net Zero Cities"
+        openState={openNZ}
+        setOpen={setOpenNZ}
+        website="https://netzerocities.eu/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The NZC Arc aspires to create smart cities that are carbon neutral.
+            This involves{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://netzerocities.eu/"
+            >
+              supporting cities
+            </a>{' '}
+            to develop local portfolios of coordinated actions across multiple
+            domains (e.g. technology, governance, policy, finance innovation,
+            social innovation) which accelerate emission reductions.
+          </p>
+        }
+      />
+
+      <Popup
+        type="arc"
+        title="7Gen Cities"
+        openState={openSG}
+        setOpen={setOpenSG}
+        website="https://www.7gencities.org/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            This collaborative arc fosters transformative thinking and action
+            for future cities. The aspiration is to create the infrastructures
+            for cities, inviting the next seven generations of city dwellers to
+            thrive in radically caring and regenerative communities.
+          </p>
+        }
+      />
+
+      <Popup
+        type="arc"
+        title="M0 Cities"
+        openState={openM0}
+        setOpen={setOpenM0}
+        website=""
+        publication="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The M0 Arc is aiming to reimagine how we use and steward materials
+            in service of{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              herf="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+            >
+              a regenerative built environment
+            </a>
+            . The Arc is asking questions around how we can innovate our
+            material inputs, adjust our understanding of comfort (heating and
+            cooling) and intelligently share existing spaces.
+          </p>
+        }
+      />
+
+      <Popup
+        type="arc"
+        title="Regen Nutrition"
+        openState={openRE}
+        setOpen={setOpenRE}
+        website=""
+        publication="https://medium.com/9outof10-protein-shift-innovation-platform/universal-basic-nutrient-income-institutional-infrastructure-for-2040-food-preparedness-f00f70a84510"
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The Rn Arc is working towards resilient, sustainable and high
+            quality food systems. Within this aspiration, cities are a key area
+            of focus and the team are working across diverse sectors to identify
+            and respond to likey pressure points.
+          </p>
+        }
+      />
+
+      <Popup
+        type="arc"
+        title="Bioregional Economics"
+        openState={openBE}
+        setOpen={setOpenBE}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The Be Arc is aiming to support the creation of nested economies
+            that protect and steward the integral health of their base
+            bioregions. This Arc works closely with the Sm Lab to collate, map
+            and visualise the value stocks and flows of a bioregion. It also
+            intersects with the Ne Lab to propose how these entangled forms of
+            value can be integrated into our investment frameworks and decision
+            making structures.
+          </p>
+        }
+      />
+
+      <Popup
+        type="arc"
+        title="Planetary Civics"
+        openState={openPC}
+        setOpen={setOpenPC}
+        website=""
+        publication="https://www.youtube.com/watch?v=zQJjfCSPvJI"
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The Pc Arc is looking at how we can match the scale of our planetary
+            challenges with our global ambition to respond. For example, how can
+            we build bold, ambitious models of meaningful repair for our earth
+            systems? What would it mean to embrace the idea of relatable
+            hyperobjects (dimensions of a scale that historically have been
+            beyond the scope of human understanding)?
+          </p>
+        }
+      />
+
+      <Popup
+        type="lab"
+        title="Next Economics"
+        openState={openNE}
+        setOpen={setOpenNE}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The Ne Lab embodies the core philosophies of LEE. It aims to
+            stimulate a continuous and inclusive dialogue about how we relate to
+            the world and the implications for a desirable future economy. The
+            Lab is actively testing three core worldview philosophies: what
+            would a future economy look and feel like if it was{' '}
+            <b>rooted in the recognition of the full web of life</b>, grounded
+            by a <b>non-bounded theory of value</b> and enabled by{' '}
+            <b>technological ecosystems of care</b>? In parallel, the NE Lab is
+            building practical pathways towards systemic goals such as{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
+            >
+              replacing profit as the collective goal
+            </a>{' '}
+            and demonstrating entangled value.
+          </p>
+        }
+      />
+
+      <Popup
+        type="lab"
+        title="Property & Beyond"
+        openState={openPB}
+        setOpen={setOpenPB}
+        website="https://www.darkmatterlabs.property/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The Pb Lab rejects the values of control and dominion as a basis for
+            private property systems. Instead this Lab aims to build a diverse
+            and proactive portfolio of alternative forms of property; from
+            collective ownership of land to self-owning houses, land, and
+            cameras.
+          </p>
+        }
+      />
+
+      <Popup
+        type="lab"
+        title="Beyond the Rules"
+        openState={openBR}
+        setOpen={setOpenBR}
+        website="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            the Btr Lab practises new forms of organising and governance. The
+            Lab is particularly interested in the deep, thoughtful and highly
+            creative work required to rewrite, reinvent or reimagine rules,
+            norms and laws that hold us in the current system. The Lab is
+            working closely with an ecosystem of partners to prototype and
+            demonstrate new forms of open contracts and multi-actor governance
+            structures.
+          </p>
+        }
+      />
+
+      <Popup
+        type="lab"
+        title="Sensing, Modeling & Mapping"
+        openState={openSM}
+        setOpen={setOpenSM}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            the Sm Lab is working to improve the{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://docs.google.com/presentation/d/1fq-hmMDV5DnaDk8fSYhsQmQbvw_yo4SAzsGozWzWhw0/edit#slide=id.g1dcfb843b9e_0_167"
+            >
+              visibility of our interactions with the physical world
+            </a>
+            . From material and energy flows to land use, the Lab is building
+            tools and mapping systems that leverage technology to build a
+            dynamic understanding of how the system is responding.
+          </p>
+        }
+      />
+
+      <Popup
+        type="lab"
+        title="Beyond Labour"
+        openState={openBL}
+        setOpen={setOpenBL}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            We are interested in exploring the future of work in relation to a
+            rapidly changing world. What would it mean if we shifted from humans
+            being employed as resources to vocations of creativity, purpose and
+            care?
+          </p>
+        }
+      />
+
+      <Popup
+        type="lab"
+        title="Philanthropy Futures"
+        openState={openPF}
+        setOpen={setOpenPF}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The Pf Lab will explore the potential for philanthropic capital to
+            catalyse radical pathways in parallel to the wider capital markets.
+          </p>
+        }
+      />
+
+      <Popup
+        type="lab"
+        title="Societal Decisions"
+        openState={openQD}
+        setOpen={setOpenQD}
+        website="https://sdl.darkmatterlabs.org/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The Sd Lab is still nascent. Once launched, it will aim to build
+            pathways towards distributed, data assisted decision making.
+          </p>
+        }
+      />
+
+      <Popup
+        type="studio"
+        title="Civic Tech"
+        openState={openCT}
+        setOpen={setOpenCT}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Civic Tech Studio helps mould theory and vision from the Dm
+            ecosystem to testable prototypes and applications geared towards
+            long-term impact & maintenance. We see tech with a critical and
+            open-source lens rather than as an extractive and inevitable
+            solution.
+          </p>
+        }
+      />
+
+      <Popup
+        type="arc"
+        title="Local Civics"
+        openState={openETC}
+        setOpen={setOpenETC}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            this Arc recognises the transformative potential of communities and
+            neighbourhoods to design and steward their own futures. There are a
+            diverse range of initiatives driving towards this goal; from citizen
+            designed indicators and city scale goals to neighbourhood
+            retrofitting and energy programmes.
+          </p>
+        }
+      />
+
+      <Popup
+        type="studio"
+        title="Conversation Design"
+        openState={openCD}
+        setOpen={setOpenCD}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            This studio is fundamental to how we communicate. What exactly is
+            Conversational Design? This is a good question and we would like to
+            invite you to explore it with us. The ambition is to embed
+            conversational frameworks at every level of our work that help
+            people to explore and interrogate our thinking.
+          </p>
+        }
+      />
+
+      <Popup
+        type="studio"
+        title="Foresight & Futuring"
+        openState={openFF}
+        setOpen={setOpenFF}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            This studio works across the ecosystem to build the craft of
+            speculative design and future scenario building. The team has close
+            links to the Sm Studio where they support the mapping and
+            visualisation of future value flows. They also work across the Arcs
+            to develop potential strategic directions.
+          </p>
+        }
+      />
+
+      <Popup
+        type="studio"
+        title="Org Dev"
+        openState={openOD}
+        setOpen={setOpenOD}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The OrgDev (organisational development) Studio provides the critical
+            infrastructure for the entire Dm ecosystem and mission. This team is
+            the foundational rock. Their work unleashes and nourishes the
+            creative potential of Dm’s people and those who intersect with our
+            work.
+          </p>
+        }
+      />
+
+      <Popup
+        type="arc"
+        title="Nature as Infrastructure"
+        openState={openWI}
+        setOpen={setOpenWI}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            the Ni Arc is developing practical pathways to support regenerative,
+            respectful and resilient collaborations between human and natural
+            infrastructures. These interventions are grounded in system dynamics
+            such as finance, regulation and data enabled decision making.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="Multivalent Currencies"
+        openState={openMC}
+        setOpen={setOpenMC}
+        website=""
+        publication="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The NE lab is exploring the interaction between our monetary systems
+            and societal behaviour. To ground the conceptual provocations, NE
+            Lab has been collaborating with the Radicle Civics Arc to prototype
+            the first{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
+            >
+              distributed bioregional bank
+            </a>
+            .{' '}
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="TreesAI"
+        openState={openTAI}
+        setOpen={setOpenTAI}
+        website="https://treesasinfrastructure.com/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Trees As Infrastructure (TreesAI) is a cloud-based platform that
+            aims to embed nature as a critical part of urban infrastructure
+            (alongside more traditional structures such as bridges, roads and
+            rail). Working with the Dcs Lab in urban locations, the team is
+            working to develop strong business cases for scaled, sustainable
+            investment.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="New Economic Thinking"
+        openState={openNET}
+        setOpen={setOpenNET}
+        website=""
+        publication="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+            >
+              {' '}
+              New Economic Thinking
+            </a>{' '}
+            work provided mapping and analysis of a just transition in relation
+            to Europe’s built environment. The work sat at the intersection of
+            the Ne Lab and M0 Arc, exploring the physical constraints and
+            potential response strategies for a material light and socially just
+            transition.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="CircuLaw"
+        openState={openCL}
+        setOpen={setOpenCL}
+        website="https://www.circulaw.nl/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            CircuLaw emerged from Dm’s relationship with the City of Amsterdam.
+            The initiative aims to accelerate the transition to a circular
+            economy by identifying opportunities within existing laws and
+            regulations. Working in partnership with legal experts and policy
+            makers, Dm has built an interactive legal knowledge platform.
+          </p>
+        }
+      />
+
+      <Popup
+        type="content"
+        title="Life-Ennobling Economics"
+        openState={openLEE}
+        setOpen={setOpenLEE}
+        website="https://lee.darkmatterlabs.org/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Life-Ennobling Economics is a propositional vision and a call to
+            action. It is an ennobling invitation to break free from ideological
+            constraints, to embrace the radical potential of emergent
+            technologies, and to challenge the structural codes of our current
+            socio-economic systems. Implicit in this opening position is an
+            understanding that the structure and values of the economy must be
+            in service to all forms of life (present, future, human, non-human
+            and machine) providing an inclusive scaffold of care and respect.
+            The central argument being put forward by the LEE is that whilst we
+            indisputably need to shift to a new economy, we will not get there
+            using the mental models, tools or value systems of the current one.
+            Instead, LEE responds to the underlying drivers of the{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://www.pik-potsdam.de/en/news/latest-news/covid-19-climate-change-armed-conflicts-world2019s-crises-can-lead-to-interconnected-polycrisis"
+            >
+              polycrisis
+            </a>{' '}
+            by proposing a philosophical and action oriented framework, centred
+            on reconfiguring our relationships with each other, with the planet
+            and to our collective futures. You can read more about{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://lee.darkmatterlabs.org/"
+            >
+              LEE here
+            </a>
+            .
+          </p>
+        }
+      />
+
+      <Popup
+        type="content"
+        title="City-scale tree canopies"
+        openState={openCTC}
+        setOpen={setOpenCTC}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            City-scale tree canopies: as a pathway towards this ambition, the{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://treesasinfrastructure.com/"
+            >
+              TreesAI
+            </a>{' '}
+            (Trees As Infrastructure) team has been working to create investable
+            asset classes for the planting and maintenance of trees.
+          </p>
+        }
+      />
+
+      <Popup
+        type="content"
+        title="Collective intelligence of cities "
+        openState={openCIC}
+        setOpen={setOpenCIC}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Collective intelligence of a city: the{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
+            >
+              Cornerstone Indicator initiative
+            </a>{' '}
+            was developed to strengthen citizen engagement networks that can
+            sense what it means to thrive in different contexts. The resultant
+            indicators empower communities to have agency over decisions and
+            express their voices in a continuous cycle of participatory
+            governance. As this work progresses we are aiming to link the
+            indicators to smart data to build a more coherent picture of civic
+            experience.
+          </p>
+        }
+      />
+
+      <Popup
+        type="content"
+        title="Resilient bioregional food systems"
+        openState={openRBF}
+        setOpen={setOpenRBF}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Resilient bioregional food systems: we are working towards this
+            option in varied threads of our work. On the broader topic of
+            bioregional transitions we are exploring what a regenerative
+            bioregional economy might even look like. In parallel, we are
+            working with communities to design and implement multi-sensory
+            indicators that can be linked to participatory governance systems,
+            with the aim of{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
+            >
+              stewarding the regenerative health of a bioregion
+            </a>
+            .
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="A"
+        title="A: Ontology & epistemology"
+        openState={openDomainA}
+        setOpen={setOpenDomainA}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Domain A relates to the values, wisdom, spirituality, ways of being
+            and ways of knowing that are dominant in our culture. This domain
+            results in the collective sense-making of what it means to live a
+            good life and it is this value system that then shapes the political
+            and economic structures below.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="B"
+        title="B: Money & valuation logic"
+        openState={openDomainB}
+        setOpen={setOpenDomainB}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Expresses the underlying theory of value that drives our investment
+            and institutional logic. Money is a powerful expression of this
+            axiology; a) who issues a currency, b) the qualities it is given,
+            and c) what it can be used for.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="C"
+        title="C: Financial processes & Investment"
+        openState={openDomainC}
+        setOpen={setOpenDomainC}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Represents how we structure and allocate capital stocks (this is
+            currently dominated by financial capital but also includes
+            intangible and ecological stocks). This part of the system
+            determines which activities are viable and how value flows through
+            the system.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="D"
+        title="D: Ownership, law & governance"
+        openState={openDomainD}
+        setOpen={setOpenDomainD}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            This domain determines who has the rights to the social surplus and
+            contains the jurisprudence to enforce social norms and systems of
+            organising.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="E"
+        title="E: Institutional logic and policy"
+        openState={openDomainE}
+        setOpen={setOpenDomainE}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            This domain looks at the institutions and blueprints that
+            functionally underpin how we organise society. It includes social
+            engagement processes and the communication of collective values into
+            structural decision making.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="F"
+        title="F: Material, energy & land use"
+        openState={openDomainF}
+        setOpen={setOpenDomainF}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            The physical domain represents the material and ecological
+            economies. This domain grounds the socio-economic and ontological
+            domains in the systems’ biophysical reality.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="A"
+        title="A1: Fostering a relational worldview"
+        openState={openDomainA1}
+        setOpen={setOpenDomainA1}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Helping people to see that relationships are the fundamental basis
+            of living systems. If we can understand life as a series of
+            interconnected relationships then an extractive, overshoot economy
+            will no longer make sense.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="A"
+        title="A2: Replacing profit as the collective goal"
+        openState={openDomainA2}
+        setOpen={setOpenDomainA2}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            We want to show that profit is no longer an appropriate signal of
+            value. A true signal of value cannot be time or geographically bound
+            in its conception and must recognise entanglement (i.e. there is
+            nothing to externalise in an interconnected system). This is more
+            profound that beyond GDP initiatives - instead we are aiming at
+            regenerative potential being the primary signal of wealth.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="A"
+        title="A3: Building political will"
+        openState={openDomainA3}
+        setOpen={setOpenDomainA3}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Finding new ways of understanding common issues, together with a
+            clear communication of alternative response strategies. Using the
+            housing crisis as an example; housing as a human right demands a
+            different response than housing as a store of wealth.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="A"
+        title="A4: Phenomenological measures of success (lived
+                      experience)"
+        openState={openDomainA4}
+        setOpen={setOpenDomainA4}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Defining and testing quantitative measures of sensory experience. We
+            want to use embodied metrics to protect and respect intrinsic value.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="B"
+        title="B1: Demonstrating entangled and long-term value"
+        openState={openDomainB1}
+        setOpen={setOpenDomainB1}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            In our current economy, price is synonymous with value. We need to
+            visualise the vast unpriced web of relationships that creates value,
+            so that we can prevent further degradation and make informed
+            decisions about how we interact with diverse forms of value.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="B"
+        title="B2: Decolonised, bioregional currency stewardship"
+        openState={openDomainB2}
+        setOpen={setOpenDomainB2}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Finding ways to balance the need to exchange freely between regions
+            and countries with protecting the unique contexts of our social &
+            physical systems. For example, creating bioregional banks.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="B"
+        title="B3: Alternative non-fungible currency systems"
+        openState={openDomainB3}
+        setOpen={setOpenDomainB3}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Demonstrating the potential for new tokens of exchange that are
+            linked to tangible elements of our economy. We want to show how
+            individual resource backed currencies can be linked to form a
+            building block towards inter-regional commons governance (links
+            closely to B2).
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="B"
+        title="B4: Visualising finite and infinite economies"
+        openState={openDomainB4}
+        setOpen={setOpenDomainB4}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            We need to communicate a vision that opens up the future rather than
+            closing it down. Whilst it is critical to understand the constraints
+            (e.g. energy and carbon), we also need to seed a desire for
+            non-competitive, infinite economies such as solidarity and
+            knowledge.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="C"
+        title="C1: Making the investment case for entangled value (DEMAND
+                      SIDE)"
+        openState={openDomainC1}
+        setOpen={setOpenDomainC1}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Helping &#39;project developers&#39; and those that steward assets
+            with entangled value functions to build adequate business models to
+            be able to absorb capital.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="C"
+        title="C2: Bridging demand & supply"
+        openState={openDomainC2}
+        setOpen={setOpenDomainC2}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Building the protective governance and agreement structures that
+            prevent extractive and asymmetric relationships between funders /
+            investors and those receiving funds.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="C"
+        title=" C3: Structuring capital & investments"
+        openState={openDomainC3}
+        setOpen={setOpenDomainC3}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Developing the necessary instruments that allow current capital
+            holders to allocate it to assets with entangled value functions.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="C"
+        title="C4: Enabling strategic ecosystem investments"
+        openState={openDomainC4}
+        setOpen={setOpenDomainC4}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Transforming investment logics and frameworks to strategically
+            manipulate desired shifts. For example a single investor splitting
+            their resource into for-profit / lobbying / NFP tranches, to shift
+            subsidies and political will to drive up costs on an extractive
+            technology whilst uplifting a new technology.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="C"
+        title="C5: Socialising the supportive narratives for alternative
+                      financing pathways"
+        openState={openDomainC5}
+        setOpen={setOpenDomainC5}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Opening the Overton window for public and private actors in the
+            financial system to embrace new approaches to financing.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="C"
+        title="C6: Socialising transformational narratives for a
+                      regenerative financial system"
+        openState={openDomainC6}
+        setOpen={setOpenDomainC6}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Exploring the role of the financial system in the global transition.
+            For example, considering whether it has the potential to tip into
+            becoming a catalyst for change or might need to collapse and be
+            re-built for this purpose.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="D"
+        title="D1: Using instruments (e.g contracts) to demonstrate
+                      alternative theories of ownership"
+        openState={openDomainD1}
+        setOpen={setOpenDomainD1}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Practical demonstration of contracts and operating agreements that
+            replace linear, owner-owned relationships towards a fixed point with
+            agent-to-agent relationships towards broader goals. NB: we have
+            previously used the term many-to-many contracts to describe this
+            capability.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="D"
+        title="D2: Elevating alternative models that recouple surplus
+                      with stewardship"
+        openState={openDomainD2}
+        setOpen={setOpenDomainD2}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Prevent extraction over time due perverse incentives that are
+            underpinned by corporate, tax, labour and patent laws (among
+            others); enable and support regeneratively designed alternatives.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="D"
+        title="D3: Demonstrating multi-actor governance structures"
+        openState={openDomainD3}
+        setOpen={setOpenDomainD3}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Practical demonstration of ways of organising and governing
+            together, as multiple actors with varying assets to contribute. This
+            work involves revealing, acknowledging and taking coordinated action
+            to govern emerging public goods.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="D"
+        title="D4: Embedding data-augmented decision making"
+        openState={openDomainD4}
+        setOpen={setOpenDomainD4}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Using modern technologies to collate and compute wide-ranging data
+            points in complex contexts, so that options can be collectively
+            understood, interrogated and acted on effectively.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="D"
+        title="D5: Building deep respect for the other-than-human world,
+                      ancestors and future generations"
+        openState={openDomainD5}
+        setOpen={setOpenDomainD5}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Supporting pathways that can practically embed the reconciliation of
+            indigenous worldviews, and how this is reflected through alternative
+            legal & governance mechanisms (such as the conceptualisations of
+            justice extending to the &#39;more-than-human world&#39;).
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="E"
+        title="E1: Enabling public-civic efficacy to transform place"
+        openState={openDomainE1}
+        setOpen={setOpenDomainE1}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Supporting the learning, capabilities and power of public-civic
+            partnerships to shape their streets, neighbourhoods and places
+            towards collective thriving.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="E"
+        title="E2: Building the foundations for planetary stewardship
+                      institutions"
+        openState={openDomainE2}
+        setOpen={setOpenDomainE2}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Developing the foundations for stewardship institutions that extend
+            beyond national states, to protect and govern the global commons.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="E"
+        title="E3: Designing reflective, data-driven policy instruments"
+        openState={openDomainE3}
+        setOpen={setOpenDomainE3}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Creation of instruments that are framed within ecological and social
+            boundaries & aspirations (with clear data driven indicators) and
+            adjust according to the context (e.g. Covid guidance changing
+            depending on % of population infected).
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="E"
+        title="E4: Place-based, policy process design"
+        openState={openDomainE4}
+        setOpen={setOpenDomainE4}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Policy design processes shaped by the geographical context, which
+            informs the economic, cultural and environmental drivers. We want to
+            use policy design & co-creation as an opportunity to close the
+            engagement gap between grassroots and government.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="F"
+        title="F1: Developing collaborative, non-extractive interfaces
+                      with the physical environment"
+        openState={openDomainF1}
+        setOpen={setOpenDomainF1}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Building the infrastructure that will allow human activities to hold
+            respectful, reciprocal relationships with land (and other physical
+            elements of our environment). For example, transferring land into
+            common ownership and layered commoning structures, where we overlay
+            common style governance across multiple private properties.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="F"
+        title="F2: Visualising material and energy flows"
+        openState={openDomainF2}
+        setOpen={setOpenDomainF2}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Developing tools and methodologies to both track and clearly
+            communicate how we are collectively using our shared common
+            resources.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="F"
+        title="F3: Developing a stewardship data infrastructure for the
+                      built environment"
+        openState={openDomainF3}
+        setOpen={setOpenDomainF3}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Building a new data infrastructure that can hold cities, regions and
+            countries to account on how they are stewarding the rights and
+            responsibilities of using shared common resources. Ultimately this
+            must connect on a planetary level.
+          </p>
+        }
+      />
+
+      <DomainPopup
+        domain="F"
+        title="F4: Designing and demonstrating autonomous, regenerative
+                      and affordable multi-purpose developments."
+        openState={openDomainF4}
+        setOpen={setOpenDomainF4}
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            Exploring how we can re-common and repurpose land and building in
+            service of a shared, equitable, material and energy light future.
+          </p>
+        }
+      />
 
       <main className="global-margin">
         <Navbar />
@@ -6449,7 +4459,7 @@ export default function Home() {
                     </h2>
                   </div>
 
-                  <div className="kjmju1.5 ml-4 grid grid-cols-6">
+                  <div className="mb-1.5 ml-4 grid grid-cols-6">
                     <div className="">
                       <div
                         onClick={() => setOpenDomainA(true)}

@@ -178,3 +178,13 @@ hr {
   -moz-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
 }
+
+.rotatae90 {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  overflow: hidden;
+}

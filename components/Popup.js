@@ -10,7 +10,15 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import test from '../images/Leee.png';
 
-function Popup({ title, openState, setOpen, website, publication, content }) {
+function Popup({
+  title,
+  openState,
+  setOpen,
+  website,
+  publication,
+  content,
+  type,
+}) {
   return (
     <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
       <DialogBackdrop
@@ -46,23 +54,49 @@ function Popup({ title, openState, setOpen, website, publication, content }) {
                     </a>
                   </div>
                 )}
-                <div className="">
-                  <a target="_blank" href={website}>
-                    <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                      Blog Series ↗
-                    </p>
-                  </a>
-                </div>
+                {publication !== '' && (
+                  <div className="">
+                    <a target="_blank" href={website}>
+                      <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
+                        Blog Series ↗
+                      </p>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
-            <div className="flex flex-col items-start justify-start gap-16 py-[28px] pl-[28px] pr-[32px]">
+            <div className="flex flex-col items-start justify-start gap-16 border-l-[0.5px] border-[#353535] py-[28px]  pl-[28px] pr-[32px]">
               <div className="flex items-center justify-between">
-                <DialogTitle
-                  as="h3"
-                  className="font-SaansRegular text-[24px] leading-13 text-white"
-                >
-                  {title} [ARC]
-                </DialogTitle>
+                {type === 'arc' ? (
+                  <DialogTitle
+                    as="h3"
+                    className="font-SaansRegular text-[24px] leading-13 text-white"
+                  >
+                    {title} [ARC]
+                  </DialogTitle>
+                ) : type === 'lab' ? (
+                  <DialogTitle
+                    as="h3"
+                    className="font-SaansRegular text-[24px] leading-13 text-white"
+                  >
+                    {title} [LAB]
+                  </DialogTitle>
+                ) : type === 'studio' ? (
+                  <DialogTitle
+                    as="h3"
+                    className="font-SaansRegular text-[24px] leading-13 text-white"
+                  >
+                    {title} [STUDIO]
+                  </DialogTitle>
+                ) : (
+                  <DialogTitle
+                    as="h3"
+                    className="font-SaansRegular text-[24px] leading-13 text-white"
+                  >
+                    {title}
+                  </DialogTitle>
+                )}
+
                 <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                   <button
                     type="button"
