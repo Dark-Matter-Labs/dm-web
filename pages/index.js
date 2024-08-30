@@ -2676,7 +2676,7 @@ export default function Home() {
                         arc="LC"
                         studio="CD"
                         activeState={(CDactive && NEactive) || openCI}
-                        hoverState={CDactive || NEactive}
+                        hoverState={BEactive || NEactive}
                         setActiveStudio={setCDActive}
                         setActiveArc={setNEActive}
                         setOpen={setOpenCI}
