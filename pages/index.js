@@ -137,7 +137,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 6 + 120) {
+    if (window.scrollY >= startSticky + step * 6 + 200) {
       setClassT2('t3');
     }
 
@@ -2276,9 +2276,9 @@ export default function Home() {
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Our Arc workflows are designed with clear, directional goals
-                that guide our efforts toward impactful outcomes. For instance,
-                Net Zero Cities aims to enable smart, carbon-neutral cities by
-                2030, while Radicle Civics seeks to foster specific shifts in
+                that guide our efforts toward impactful outcomes. For instance,{' '}
+                <span onClick={() => setOpenNZ(true)} className='font-SaansMed hover:cursor-crosshair'>Net Zero Cities</span> <span className="align-super uppercase text-[12px]">arc</span> aims to enable smart, carbon-neutral cities by
+                2030, while  <span onClick={() => setOpenRC(true)} className='font-SaansMed hover:cursor-crosshair'>Radicle Civics</span> <span className="align-super uppercase text-[12px]">arc</span> seeks to foster specific shifts in
                 civic worldviews. These Arcs often involve collaboration with
                 multiple Labs, integrating their technical expertise with
                 tangible, real-world contexts.
@@ -2295,10 +2295,10 @@ export default function Home() {
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Studios are the connective tissue that support both the Labs and
                 Missions. The studios explore themes that help our work to be
-                implemented and more widely understood. For instance, the Civ
-                Tech Studio develops the technological tools and knowledge for
-                prototypes tested across the Dm ecosystem. Meanwhile, the Org
-                DevStudio, positioned at the base of the Matrix, provides
+                implemented and more widely understood. For instance, the <span onClick={() => setOpenCT(true)} className='font-SaansMed hover:cursor-crosshair'>Civ
+                Tech</span> <span className="align-super uppercase text-[12px]">Studio</span> develops the technological tools and knowledge for
+                prototypes tested across the Dm ecosystem. Meanwhile, the <span onClick={() => setOpenOD(true)} className='font-SaansMed hover:cursor-crosshair'>Org
+                Dev</span> <span className="align-super uppercase text-[12px]">Studio</span>, positioned at the base of the Matrix, provides
                 critical infrastructure support for the entire Dm Ecosystem.
               </p>
             </animated.div>
@@ -5298,8 +5298,8 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From extractive profit-driven goals to entangled,
-                      intergenerational and distributed value systems. [Ne and
-                      Cs Labs with Bioregional Economies and M0 Cities Arcs and
+                      intergenerational and distributed value systems. [<span onClick={() => setOpenNE(true)} className='font-SaansMed hover:cursor-crosshair'>NE</span> and{' '}
+                        <span onClick={() => setOpenCS(true)} className='font-SaansMed hover:cursor-crosshair'>CS</span> <span className="align-super uppercase text-[12px]">Labs</span> with Bioregional Economies and M0 Cities Arcs and
                       Conversational Design Studio]
                     </p>
                   </div>
