@@ -916,6 +916,8 @@ export default function Home() {
     // Calculate the normalized scroll factor
     let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
     scrollFactor = Math.min(Math.max(scrollFactor, 0), 1); // Clamp between 0 and 1
+    scrollFactor = Math.pow(scrollFactor, 3);
+
 
     // Interpolate the scale value
     const scale = startScale + (endScale - startScale) * scrollFactor;
@@ -2069,7 +2071,7 @@ export default function Home() {
       <main className="global-margin">
         <Navbar />
         <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
-          <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
+          <div className="col-span-5 block w-[400px] max-w-xs">
             <animated.div
               style={{
                 opacity: sideMatrixOpacityInterpolate(),
@@ -2208,7 +2210,7 @@ export default function Home() {
                 land and the other-than-human world. We are framing this
                 transformation as a shift towards{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-crosshair"
+                  className="underline hover:cursor-crosshair"
                   onClick={() => setOpenLEE(true)}
                 >
                   Life-Ennobling Economies.
@@ -2226,14 +2228,14 @@ export default function Home() {
                 economic options that are likely to be needed. We are imaging
                 new investment opportunities for{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-crosshair"
+                  className="underline hover:cursor-crosshair"
                   onClick={() => setOpenCTC(true)}
                 >
                   city-scale tree canopies
                 </span>
                 , community endowments and{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-crosshair"
+                  className="underline hover:cursor-crosshair"
                   onClick={() => setOpenRBF(true)}
                 >
                   resilient bioregional food systems
@@ -2241,7 +2243,7 @@ export default function Home() {
                 . We envisage that the electrification of transport networks,
                 the mental health of communities and the{' '}
                 <span
-                  className="text-[#A28CC6] hover:cursor-crosshair"
+                  className="underline hover:cursor-crosshair"
                   onClick={() => setOpenCIC(true)}
                 >
                   collective intelligence of cities
@@ -5141,7 +5143,7 @@ export default function Home() {
                     shapeshifting and relational nature of living systems.
                     Perhaps what we have previously framed as{' '}
                     <a
-                      className="text-[#A28CC6]"
+                      className="underline"
                       target="_blank"
                       href="https://provocations.darkmatterlabs.org/the-necessity-of-a-boring-revolution-a71b1ae6f956"
                     >
