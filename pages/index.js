@@ -20,6 +20,14 @@ import arcsOverlay from '../images/arcs.svg';
 import studiosOverlay from '../images/studio.svg';
 import orgOverlay from '../images/orgdev.svg';
 
+import LEElogo from '../images/popups/LEE.png';
+import RClogo from '../images/arcs/RC.png';
+import NZZlogo from '../images/arcs/NZC.png';
+import PBlogo from '../images/labs/PB.png';
+import BTRlogo from '../images/labs/BTR.png';
+import TAIlogo from '../images/projects/TreesAI_logo.png';
+import CLlogo from '../images/projects/CL.png';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -991,6 +999,7 @@ export default function Home() {
         setOpen={setOpenRC}
         website="https://radiclecivics.cc/"
         publication=""
+        image={RClogo}
         content={
           <p className="font-SaansRegular text-base text-[#EBEBEB]">
             Radicle Civics is a playful nod towards emergent shoots of
@@ -1013,6 +1022,7 @@ export default function Home() {
       <Popup
         type="arc"
         title="Net Zero Cities"
+        image={NZZlogo}
         openState={openNZ}
         setOpen={setOpenNZ}
         website="https://netzerocities.eu/"
@@ -1066,7 +1076,7 @@ export default function Home() {
             <a
               className="text-[#737EA5]"
               target="_blank"
-              herf="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+              href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
             >
               a regenerative built environment
             </a>
@@ -1167,6 +1177,7 @@ export default function Home() {
         type="lab"
         title="Property & Beyond"
         openState={openPB}
+        image={PBlogo}
         setOpen={setOpenPB}
         website="https://www.darkmatterlabs.property/"
         publication=""
@@ -1184,6 +1195,7 @@ export default function Home() {
       <Popup
         type="lab"
         title="Beyond the Rules"
+        image={BTRlogo}
         openState={openBR}
         setOpen={setOpenBR}
         website="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
@@ -1407,6 +1419,7 @@ export default function Home() {
       <Popup
         type="project"
         title="TreesAI"
+        image={TAIlogo}
         openState={openTAI}
         setOpen={setOpenTAI}
         website="https://treesasinfrastructure.com/"
@@ -1453,6 +1466,7 @@ export default function Home() {
       <Popup
         type="project"
         title="CircuLaw"
+        image={CLlogo}
         openState={openCL}
         setOpen={setOpenCL}
         website="https://www.circulaw.nl/"
@@ -1473,6 +1487,7 @@ export default function Home() {
         title="Life-Ennobling Economics dialogue"
         openState={openLEED}
         setOpen={setOpenLEED}
+        image={LEElogo}
         website=""
         publication=""
         content={
@@ -1622,6 +1637,7 @@ export default function Home() {
       <Popup
         type="content"
         title="Life-Ennobling Economics"
+        image={LEElogo}
         openState={openLEE}
         setOpen={setOpenLEE}
         website="https://lee.darkmatterlabs.org/"
@@ -5262,16 +5278,17 @@ export default function Home() {
           </div>
         </animated.div>
 
-        <animated.div 
-        style={{
-          opacity: scrollYProgress.to(() =>
-            divOpacityInterpolate(
-              startSticky + step * 8 + 400,
-              startSticky + step * 8 + 700,
+        <animated.div
+          style={{
+            opacity: scrollYProgress.to(() =>
+              divOpacityInterpolate(
+                startSticky + step * 8 + 400,
+                startSticky + step * 8 + 700,
+              ),
             ),
-          ),
-        }}
-        className={`relative sm:grid sm:grid-cols-12`}>
+          }}
+          className={`relative sm:grid sm:grid-cols-12`}
+        >
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <div className="mt-20">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Paradigms</h2>
@@ -6078,18 +6095,24 @@ export default function Home() {
                 </h1>
                 <div className="flex gap-8">
                   <div className="border-2 border-white p-1.5 hover:cursor-crosshair">
-                    <p className="float-right font-SaansMed text-[10px] text-white">
-                      {'>'}
-                    </p>
-                    <p className="font-SaansMed text-2xl text-white">Contact</p>
+                    <a href="https://glorious-impact-532915.framer.app/contacts">
+                      <p className="float-right font-SaansMed text-[10px] text-white">
+                        {'>'}
+                      </p>
+                      <p className="font-SaansMed text-2xl text-white">
+                        Contact
+                      </p>
+                    </a>
                   </div>
                   <div className="border-2 border-white p-1.5 hover:cursor-crosshair">
-                    <p className="float-right font-SaansMed text-[10px] text-white">
-                      {'>'}
-                    </p>
-                    <p className="font-SaansMed text-2xl text-white">
-                      Contribute
-                    </p>
+                    <a href="https://glorious-impact-532915.framer.app/contribute">
+                      <p className="float-right font-SaansMed text-[10px] text-white">
+                        {'>'}
+                      </p>
+                      <p className="font-SaansMed text-2xl text-white">
+                        Contribute
+                      </p>
+                    </a>
                   </div>
                 </div>
               </div>

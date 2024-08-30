@@ -75,7 +75,7 @@ export default function Navbar() {
                         href="https://glorious-impact-532915.framer.app/contribute"
                         className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
                       >
-                        Support
+                        Contribute
                       </a>
                       <a
                         href="https://provocations.darkmatterlabs.org/"

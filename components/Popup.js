@@ -1,5 +1,4 @@
 import {
-  Transition,
   Dialog,
   DialogBackdrop,
   DialogPanel,
@@ -18,6 +17,7 @@ function Popup({
   publication,
   content,
   type,
+  image,
 }) {
   return (
     <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
@@ -33,13 +33,23 @@ function Popup({
           >
             <div className="flex flex-col items-start justify-start gap-[22px] border-r-[0.5px] border-[#353535] pb-[80px]">
               <div className="h-[200px] w-[200px]">
-                <Image
-                  src={test}
-                  style={{ objectFit: 'fill' }}
-                  width={200}
-                  height={200}
-                  alt="cover image"
-                />
+                {image ? (
+                  <Image
+                    src={image}
+                    style={{ objectFit: 'fill' }}
+                    width={200}
+                    height={200}
+                    alt="cover image"
+                  />
+                ) : (
+                  <Image
+                    src={test}
+                    style={{ objectFit: 'fill' }}
+                    width={200}
+                    height={200}
+                    alt="cover image"
+                  />
+                )}
               </div>
               <div className=" pl-[20px]">
                 <p className="pb-[12px] font-SaansMed text-xl uppercase text-[#595959]">

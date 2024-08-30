@@ -1,11 +1,9 @@
 import {
-  Transition,
   Dialog,
   DialogBackdrop,
   DialogPanel,
   DialogTitle,
 } from '@headlessui/react';
-import Image from 'next/image';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 function Popup({ title, openState, setOpen, content, domain }) {

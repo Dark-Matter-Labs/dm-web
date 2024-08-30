@@ -8,7 +8,7 @@ const navigation = {
     { name: 'Team', href: '#' },
     { name: 'Jobs', href: '#' },
     { name: 'Contact', href: '#' },
-    { name: 'Support', href: '#' },
+    { name: 'Contribute', href: '#' },
     { name: 'Provocations', href: '#' },
   ],
   company: [
@@ -106,10 +106,13 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="col-span-7 flex justify-between items-start ">
+          <div className="col-span-7 flex items-start justify-between ">
             <div className="f">
               <div>
-                <ul role="list" className="space-y-4 flex flex-col justify-betweenitems-start">
+                <ul
+                  role="list"
+                  className="justify-betweenitems-start flex flex-col space-y-4"
+                >
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
                       <a
@@ -131,7 +134,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="flex flex- col justify-start items-start">
+            <div className="flex- col flex items-start justify-start">
               <div>
                 <ul role="list" className=" space-y-8">
                   {navigation.company.map((item) => (
