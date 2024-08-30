@@ -41,22 +41,22 @@ export default function Navbar() {
                 <div className="">
                   <div className="hidden sm:block">
                     <div className="flex items-center justify-between">
-                      <a href="#" className="nav-xl py-2 text-grey-4">
+                      <a href="https://glorious-impact-532915.framer.app/feed" className="nav-xl py-2 text-grey-4">
                         Feed
                       </a>
-                      <a href="#" className="nav-xl py-2 text-grey-4">
+                      <a href="https://glorious-impact-532915.framer.app/initiatives" className="nav-xl py-2 text-grey-4">
                         Initiatives
                       </a>
-                      <Link href="/team" className="nav-xl py-2 text-grey-4">
+                      <a href="https://glorious-impact-532915.framer.app/team" className="nav-xl py-2 text-grey-4">
                         Team
-                      </Link>
-                      <a href="#" className="nav-xl py-2 text-grey-4">
+                      </a>
+                      <a href="https://glorious-impact-532915.framer.app/jobs" className="nav-xl py-2 text-grey-4">
                         Jobs
                       </a>
-                      <a href="#" className="nav-xl py-2  text-grey-4">
+                      <a href="https://glorious-impact-532915.framer.app/contacts" className="nav-xl py-2  text-grey-4">
                         Contact
                       </a>
-                      <a href="#" className="nav-xl py-2  text-grey-4">
+                      <a href="https://glorious-impact-532915.framer.app/contribute" className="nav-xl py-2  text-grey-4">
                         Support
                       </a>
                       <a
