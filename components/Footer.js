@@ -137,8 +137,8 @@ export default function Footer() {
                   {navigation.company.map((item) => (
                     <li key={item.country}>
                       <div className="nav-xl ">
-                        <p className='text-grey-1'>{item.country}</p>
-                        <p className='text-[#A8A8A8]'>{item.fullName}</p>
+                        <p className="text-grey-1">{item.country}</p>
+                        <p className="text-[#A8A8A8]">{item.fullName}</p>
                       </div>
                     </li>
                   ))}

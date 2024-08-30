@@ -2260,10 +2260,24 @@ export default function Home() {
                 behaviours and institutional logic) that form its structural
                 backbone. The Labs are exploring what might be possible, both
                 within and beyond the current structures, and working to develop
-                technical expertise in those areas. For example, the <span onClick={() => setOpenBR(true)} className='font-SaansMed hover:cursor-crosshair'>Beyond The
-                Rules </span><span className="align-super uppercase text-[12px]">Lab</span> focuses on aspects such as demonstrating multi-actor
-                governance structures whereas the <span onClick={() => setOpenCS(true)} className='font-SaansMed hover:cursor-crosshair'>Capital Systems</span> <span className="align-super uppercase text-[12px]">Lab</span> is working
-                to enable strategic ecosystem investments.
+                technical expertise in those areas. For example, the{' '}
+                <span
+                  onClick={() => setOpenBR(true)}
+                  className="font-SaansMed hover:cursor-crosshair"
+                >
+                  Beyond The Rules{' '}
+                </span>
+                <span className="align-super text-[12px] uppercase">Lab</span>{' '}
+                focuses on aspects such as demonstrating multi-actor governance
+                structures whereas the{' '}
+                <span
+                  onClick={() => setOpenCS(true)}
+                  className="font-SaansMed hover:cursor-crosshair"
+                >
+                  Capital Systems
+                </span>{' '}
+                <span className="align-super text-[12px] uppercase">Lab</span>{' '}
+                is working to enable strategic ecosystem investments.
               </p>
             </animated.div>
 
@@ -2277,11 +2291,24 @@ export default function Home() {
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Our Arc workflows are designed with clear, directional goals
                 that guide our efforts toward impactful outcomes. For instance,{' '}
-                <span onClick={() => setOpenNZ(true)} className='font-SaansMed hover:cursor-crosshair'>Net Zero Cities</span> <span className="align-super uppercase text-[12px]">arc</span> aims to enable smart, carbon-neutral cities by
-                2030, while  <span onClick={() => setOpenRC(true)} className='font-SaansMed hover:cursor-crosshair'>Radicle Civics</span> <span className="align-super uppercase text-[12px]">arc</span> seeks to foster specific shifts in
-                civic worldviews. These Arcs often involve collaboration with
-                multiple Labs, integrating their technical expertise with
-                tangible, real-world contexts.
+                <span
+                  onClick={() => setOpenNZ(true)}
+                  className="font-SaansMed hover:cursor-crosshair"
+                >
+                  Net Zero Cities
+                </span>{' '}
+                <span className="align-super text-[12px] uppercase">arc</span>{' '}
+                aims to enable smart, carbon-neutral cities by 2030, while{' '}
+                <span
+                  onClick={() => setOpenRC(true)}
+                  className="font-SaansMed hover:cursor-crosshair"
+                >
+                  Radicle Civics
+                </span>{' '}
+                <span className="align-super text-[12px] uppercase">arc</span>{' '}
+                seeks to foster specific shifts in civic worldviews. These Arcs
+                often involve collaboration with multiple Labs, integrating
+                their technical expertise with tangible, real-world contexts.
               </p>
             </animated.div>
 
@@ -2295,11 +2322,29 @@ export default function Home() {
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Studios are the connective tissue that support both the Labs and
                 Missions. The studios explore themes that help our work to be
-                implemented and more widely understood. For instance, the <span onClick={() => setOpenCT(true)} className='font-SaansMed hover:cursor-crosshair'>Civ
-                Tech</span> <span className="align-super uppercase text-[12px]">Studio</span> develops the technological tools and knowledge for
-                prototypes tested across the Dm ecosystem. Meanwhile, the <span onClick={() => setOpenOD(true)} className='font-SaansMed hover:cursor-crosshair'>Org
-                Dev</span> <span className="align-super uppercase text-[12px]">Studio</span>, positioned at the base of the Matrix, provides
-                critical infrastructure support for the entire Dm Ecosystem.
+                implemented and more widely understood. For instance, the{' '}
+                <span
+                  onClick={() => setOpenCT(true)}
+                  className="font-SaansMed hover:cursor-crosshair"
+                >
+                  Civ Tech
+                </span>{' '}
+                <span className="align-super text-[12px] uppercase">
+                  Studio
+                </span>{' '}
+                develops the technological tools and knowledge for prototypes
+                tested across the Dm ecosystem. Meanwhile, the{' '}
+                <span
+                  onClick={() => setOpenOD(true)}
+                  className="font-SaansMed hover:cursor-crosshair"
+                >
+                  Org Dev
+                </span>{' '}
+                <span className="align-super text-[12px] uppercase">
+                  Studio
+                </span>
+                , positioned at the base of the Matrix, provides critical
+                infrastructure support for the entire Dm Ecosystem.
               </p>
             </animated.div>
 
@@ -4537,11 +4582,11 @@ export default function Home() {
                       return scrollInterpolate(1);
                     } else if (
                       scrollY >= startSticky + step * 5 + 500 &&
-                      scrollY <= startSticky + step * 6 
+                      scrollY <= startSticky + step * 6
                     ) {
                       return capacityOpacityInterpolate(
                         startSticky + step * 5 + 500,
-                        startSticky + step * 6 ,
+                        startSticky + step * 6,
                         false,
                       );
                     } else return 1;
@@ -5287,9 +5332,43 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From violence, scarcity and separation to a thriving
-                      planetary community of interbecoming. [Ne Lab with Radicle
-                      Civics and Planetary Civics Arcs and Conversational Design
-                      Studio]
+                      planetary community of interbecoming.{' '}
+                      <span
+                        onClick={() => setOpenNE(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        NE
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Lab
+                      </span>{' '}
+                      with{' '}
+                      <span
+                        onClick={() => setOpenRC(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Radicle Civics
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenPC(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Planetary Civics
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arcs
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenCD(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Conversational Design
+                      </span>
+                      <span className="align-super text-[12px] uppercase">
+                        Studio
+                      </span>
                     </p>
                   </div>
                   <div>
@@ -5298,9 +5377,50 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From extractive profit-driven goals to entangled,
-                      intergenerational and distributed value systems. [<span onClick={() => setOpenNE(true)} className='font-SaansMed hover:cursor-crosshair'>NE</span> and{' '}
-                        <span onClick={() => setOpenCS(true)} className='font-SaansMed hover:cursor-crosshair'>CS</span> <span className="align-super uppercase text-[12px]">Labs</span> with Bioregional Economies and M0 Cities Arcs and
-                      Conversational Design Studio]
+                      intergenerational and distributed value systems.{' '}
+                      <span
+                        onClick={() => setOpenNE(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        NE
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenCS(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        CS
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Labs
+                      </span>{' '}
+                      with{' '}
+                      <span
+                        onClick={() => setOpenBE(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Bioregional Economies
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenM0(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        M0 Cities
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arcs
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenCD(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Conversational Design{' '}
+                        <span className="align-super text-[12px] uppercase">
+                          Studio
+                        </span>
+                      </span>
                     </p>
                   </div>
                   <div>
@@ -5309,8 +5429,36 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From the utilitarian ‘othering’ of technology to animistic
-                      interfaces of wisdom and care. [Ne Lab with NZC Arc and
-                      CivTech Studio]
+                      interfaces of wisdom and care.{' '}
+                      <span
+                        onClick={() => setOpenNE(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        NE
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Lab
+                      </span>{' '}
+                      with{' '}
+                      <span
+                        onClick={() => setOpenNZ(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        NZC
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arc
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenCT(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        CivTech
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Studio
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -5325,8 +5473,26 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From exerting control over ‘objects’ to seeking reciprocal
-                      relationships with the full web of life. [Pb Lab and
-                      Radicle Civics Arc]
+                      relationships with the full web of life.{' '}
+                      <span
+                        onClick={() => setOpenPB(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        PB
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Lab
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenRC(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Radicle Civics
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arc
+                      </span>
                     </p>
                   </div>
                   <div>
@@ -5335,8 +5501,43 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From humans employed as resources to vocations of
-                      creativity, purpose and care. [Ne Lab, with 7-Gen Cities,
-                      with Local Civics Arc and OrgDev Studio]
+                      creativity, purpose and care.{' '}
+                      <span
+                        onClick={() => setOpenNE(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        NE
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Lab
+                      </span>
+                      , with{' '}
+                      <span
+                        onClick={() => setOpenSG(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        7-Gen Cities
+                      </span>
+                      , with{' '}
+                      <span
+                        onClick={() => setOpenETC(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Local Civics
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arc
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenOD(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        OrgDev
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Studio
+                      </span>
                     </p>
                   </div>
                   <div>
@@ -5345,8 +5546,40 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From extractive resource claims to the infinite
-                      guardianship of the global commons. [Sm Lab with M0
-                      Cities, Planetary Civics and Regenerative Nutrition Arcs]
+                      guardianship of the global commons.{' '}
+                      <span
+                        onClick={() => setOpenSM(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        SM
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Lab
+                      </span>{' '}
+                      with{' '}
+                      <span
+                        onClick={() => setOpenM0(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        M0 Cities
+                      </span>
+                      ,{' '}
+                      <span
+                        onClick={() => setOpenPC(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Planetary Civics
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenRE(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Regenerative Nutrition
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arcs
+                      </span>
                     </p>
                   </div>
                   <div>
@@ -5355,8 +5588,33 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From linear agreements that optimise for the few to
-                      multi-party, dynamic, digital treaties of respect. [BTR
-                      Lab with Radicle Civics and Local Civics Arcs]
+                      multi-party, dynamic, digital treaties of respect.{' '}
+                      <span
+                        onClick={() => setOpenBR(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        BTR
+                      </span>
+                      <span className="align-super text-[12px] uppercase">
+                        Lab
+                      </span>{' '}
+                      with{' '}
+                      <span
+                        onClick={() => setOpenRC(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Radicle Civics
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenETC(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        Local Civics
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arcs
+                      </span>
                     </p>
                   </div>
                   <div>
@@ -5365,7 +5623,33 @@ export default function Home() {
                     </h3>
                     <p className="p-3xl text-grey-6 opacity-60">
                       From centralised enforcement to nurturing institutions of
-                      stewardship. [Sd & BTR Lab with NZC Arc]
+                      stewardship.{' '}
+                      <span
+                        onClick={() => setOpenQD(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        SD
+                      </span>{' '}
+                      &{' '}
+                      <span
+                        onClick={() => setOpenBR(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        BTR
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Labs
+                      </span>{' '}
+                      with{' '}
+                      <span
+                        onClick={() => setOpenNZ(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        NZC
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arc
+                      </span>
                     </p>
                   </div>
 
@@ -5376,7 +5660,33 @@ export default function Home() {
                     <p className="p-3xl text-grey-6 opacity-60">
                       From the accumulation of financial wealth to a social
                       contract that regeneratively stewards the diverse capitals
-                      of life. [Cs and Ne Labs with 7-Gen Cities Arc]
+                      of life.{' '}
+                      <span
+                        onClick={() => setOpenCS(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        CS
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => setOpenNE(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        NE
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Labs
+                      </span>{' '}
+                      with{' '}
+                      <span
+                        onClick={() => setOpenSG(true)}
+                        className="font-SaansMed hover:cursor-crosshair"
+                      >
+                        7-Gen Cities
+                      </span>{' '}
+                      <span className="align-super text-[12px] uppercase">
+                        Arc
+                      </span>
                     </p>
                   </div>
                 </div>
