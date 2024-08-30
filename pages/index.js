@@ -213,8 +213,11 @@ export default function Home() {
   const [openOD, setOpenOD] = useState(false);
 
   const [openLEED, setOpenLEED] = useState(false);
-
   const [openCI, setOpenCI] = useState(false);
+  const [openPTC, setOpenPTC] = useState(false);
+  const [openMATR, setOpenMATR] = useState(false);
+  const [openPBP, setOpenPBP] = useState(false);
+  const [openCCR, setOpenCCR] = useState(false);
 
   const [openDomainA, setOpenDomainA] = useState(false);
   const [openDomainA1, setOpenDomainA1] = useState(false);
@@ -1490,13 +1493,113 @@ export default function Home() {
               target="_blank"
               href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
             >
-              The Cornerstone Indicators work
+              The Cornerstone Indicators
             </a>{' '}
-            is not part of an Arc but is held by the Ne Lab. The concept is
-            centred on developing multicontextual, intuitively understandable,
-            community-led indicators. The project is now in its third iteration
-            and has spread from Sweden to Scotland and is now running live in
-            Canada.
+            concept is centred on developing non-linear, intuitively
+            understandable indicators. The initiative is now in its third
+            iteration and has spread from Sweden to Scotland and Canada. The
+            current project is looking at holistic indicators of success for
+            bioregional regeneration.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="Permissioning the City"
+        openState={openPTC}
+        setOpen={setOpenPTC}
+        website="https://www.permissioning.city/"
+        publication="https://provocations.darkmatterlabs.org/re-permissioning-the-city-unlocking-cities-growing-underutilised-spatial-assets-for-an-emergent-1550997714a4"
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://provocations.darkmatterlabs.org/re-permissioning-the-city-unlocking-cities-growing-underutilised-spatial-assets-for-an-emergent-1550997714a4"
+            >
+              Permissioning the City
+            </a>{' '}
+            aims to unlock vacant and underutilised urban spaces for a thriving
+            civic economy. This project explores community-led governance and
+            open permissions systems.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="MatR"
+        openState={openMATR}
+        setOpen={setOpenMATR}
+        website=""
+        publication="https://drive.google.com/file/d/1y-GW6fJet4LrX7X3iDjqaeIDCTvijX38/view"
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://drive.google.com/file/d/1y-GW6fJet4LrX7X3iDjqaeIDCTvijX38/view"
+            >
+              MatR (Material Registry)
+            </a>{' '}
+            is an open source{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://provocations.darkmatterlabs.org/datas-role-for-a-post-carbon-built-environment-7a31b4ebc934"
+            >
+              web tool
+            </a>{' '}
+            designed to reimagine our relationship with buildings by logging and
+            monitoring their materials and performance data.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="Property & Beyond portfolio"
+        openState={openPBP}
+        setOpen={setOpenPBP}
+        website="https://www.darkmatterlabs.property/"
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://www.darkmatterlabs.property/"
+            >
+              The Property & Beyond
+            </a>{' '}
+            portfolio aims to build a diverse and proactive portfolio of
+            alternative forms of property, from collective ownership of land to
+            self-owning houses, land, and cameras.
+          </p>
+        }
+      />
+
+      <Popup
+        type="project"
+        title="City & Community Retrofit"
+        openState={openCCR}
+        setOpen={setOpenCCR}
+        website=""
+        publication=""
+        content={
+          <p className="font-SaansRegular text-base text-[#C6C6C6]">
+            City & Community Retrofit is a portfolio of work in{' '}
+            <a
+              className="text-[#737EA5]"
+              target="_blank"
+              href="https://medium.com/neighbourhood-public-square/3%C2%BAc-neighbourhood-582903b050b2"
+            >
+              Birmingham
+            </a>{' '}
+            and London. It inspires collective action for regenerative
+            investment in the civic sector, particularly for retrofitting homes
+            and neighbourhoods.
           </p>
         }
       />
@@ -1569,7 +1672,7 @@ export default function Home() {
 
       <Popup
         type="content"
-        title="Collective intelligence of cities "
+        title="Collective intelligence of cities"
         openState={openCIC}
         setOpen={setOpenCIC}
         website=""
@@ -2561,14 +2664,14 @@ export default function Home() {
                         setOpen={setOpenMC}
                       />
 
-                      <Initiative
+                      <StudioInitiative
                         title="Life-Ennobling Economics dialogue"
-                        arc="LC"
-                        lab="NE"
-                        activeState={(ETCactive && NEactive) || openLEED}
+                        arc="NE"
+                        studio="CD"
+                        activeState={(CDactive && NEactive) || openLEED}
                         hoverState={ETCactive || NEactive}
-                        setActiveLab={setNEActive}
-                        setActiveArc={setETCActive}
+                        setActiveStudio={setCDActive}
+                        setActiveArc={setNEActive}
                         setOpen={setOpenLEED}
                       />
 
@@ -2673,7 +2776,7 @@ export default function Home() {
 
                       <StudioInitiative
                         title="Cornerstone Indicators"
-                        arc="LC"
+                        arc="NE"
                         studio="CD"
                         activeState={(CDactive && NEactive) || openCI}
                         hoverState={BEactive || NEactive}
@@ -2940,27 +3043,17 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {ETCactive || CSactive ? (
-                        <div
-                          onMouseLeave={() => {
-                            setETCActive(false);
-                            setCSActive(false);
-                          }}
-                          className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      ) : (
-                        <div
-                          onMouseEnter={() => {
-                            setETCActive(true);
-                            setCSActive(true);
-                          }}
-                          className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      )}
+
+                      <Initiative
+                        title="City & Community Retrofit"
+                        arc="LC"
+                        lab="CS"
+                        activeState={(ETCactive && CSactive) || openCCR}
+                        hoverState={ETCactive || CSactive}
+                        setActiveLab={setCSActive}
+                        setActiveArc={setETCActive}
+                        setOpen={setOpenCCR}
+                      />
 
                       {NZactive || CSactive ? (
                         <div
@@ -3381,27 +3474,17 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {SGactive || PBactive ? (
-                        <div
-                          onMouseLeave={() => {
-                            setSGActive(false);
-                            setPBActive(false);
-                          }}
-                          className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      ) : (
-                        <div
-                          onMouseEnter={() => {
-                            setSGActive(true);
-                            setPBActive(true);
-                          }}
-                          className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      )}
+                      <Initiative
+                        title="Property & Beyond portfolio"
+                        arc="7G"
+                        lab="PB"
+                        activeState={(SGactive && PBactive) || openPBP}
+                        hoverState={SGactive || PBactive}
+                        setActiveLab={setPBActive}
+                        setActiveArc={setSGActive}
+                        setOpen={setOpenPBP}
+                      />
+
                       {M0active || PBactive ? (
                         <div
                           onMouseLeave={() => {
@@ -3521,27 +3604,17 @@ export default function Home() {
                         bgHoverInterpolate={bgHoverInterpolate}
                       />
 
-                      {RCactive || QDactive ? (
-                        <div
-                          onMouseLeave={() => {
-                            setRCActive(false);
-                            setQDActive(false);
-                          }}
-                          className={`my-1.5 bg-[#292929] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      ) : (
-                        <div
-                          onMouseEnter={() => {
-                            setRCActive(true);
-                            setQDActive(true);
-                          }}
-                          className={`my-1.5 bg-[#212121] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      )}
+                      <Initiative
+                        title="Permissioning the City"
+                        arc="RC"
+                        lab="SD"
+                        activeState={(RCactive && QDactive) || openPTC}
+                        hoverState={RCactive || QDactive}
+                        setActiveLab={setQDActive}
+                        setActiveArc={setRCActive}
+                        setOpen={setOpenPTC}
+                      />
+
                       {ETCactive || QDactive ? (
                         <div
                           onMouseLeave={() => {
@@ -4001,27 +4074,17 @@ export default function Home() {
                           {' '}
                         </div>
                       )}
-                      {M0active || SMactive ? (
-                        <div
-                          onMouseLeave={() => {
-                            setM0Active(false);
-                            setSMActive(false);
-                          }}
-                          className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      ) : (
-                        <div
-                          onMouseEnter={() => {
-                            setM0Active(true);
-                            setSMActive(true);
-                          }}
-                          className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                        >
-                          {' '}
-                        </div>
-                      )}
+
+                      <Initiative
+                        title="MatR"
+                        arc="M0"
+                        lab="SM"
+                        activeState={(M0active && SMactive) || openMATR}
+                        hoverState={M0active || SMactive}
+                        setActiveLab={setSMActive}
+                        setActiveArc={setM0Active}
+                        setOpen={setOpenMATR}
+                      />
 
                       {REactive || SMactive ? (
                         <div
