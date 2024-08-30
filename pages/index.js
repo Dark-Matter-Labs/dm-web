@@ -5262,7 +5262,16 @@ export default function Home() {
           </div>
         </animated.div>
 
-        <div className={`relative sm:grid sm:grid-cols-12`}>
+        <animated.div 
+        style={{
+          opacity: scrollYProgress.to(() =>
+            divOpacityInterpolate(
+              startSticky + step * 8 + 400,
+              startSticky + step * 8 + 700,
+            ),
+          ),
+        }}
+        className={`relative sm:grid sm:grid-cols-12`}>
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <div className="mt-20">
               <h2 className="heading-5xl-Reg pb-2 text-grey-3">Paradigms</h2>
@@ -6086,7 +6095,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </animated.div>
       </main>
       <Footer />
     </div>
