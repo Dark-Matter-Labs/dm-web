@@ -1,11 +1,9 @@
 import Head from 'next/head';
-import { Fragment, useState, useEffect } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useScroll, animated } from '@react-spring/web';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 
-import { startSticky, step, matrix_scale } from '../utils/constants';
+import { startSticky, step } from '../utils/constants';
 
 import Navbar from '../components/Navbar';
 import Arc from '../components/Arc';
@@ -904,6 +902,32 @@ export default function Home() {
     }
     return 0;
   };
+  
+
+  const scaleInterpolate = () => {
+    const startScroll = startSticky + step * 4;  // Start of the scroll range
+    const endScroll = startSticky + step * 5;    // End of the scroll range
+
+
+    // Define the scale range
+    const startScale = 0.6;   // Starting scale value
+    const endScale = 0.72;    // Ending scale value
+
+    // Calculate the normalized scroll factor
+    let scrollFactor = (scrollY - startScroll) / (endScroll - startScroll);
+    scrollFactor = Math.min(Math.max(scrollFactor, 0), 1); // Clamp between 0 and 1
+
+    // Interpolate the scale value
+    const scale = startScale + (endScale - startScale) * scrollFactor;
+
+    if (scrollY >= startScroll && scrollY < endScroll) {
+      return scale;
+     
+    } else if(scrollY >= endScroll){
+      return endScale;
+    }
+    return startScale;
+  }
 
   return (
     <div>
@@ -965,16 +989,6 @@ export default function Home() {
           </p>
         }
       />
-
-      {/* <Popup
-       type='lab'
-       title=''
-       openState={}
-       setOpen={}
-       website=''
-       publication=''
-       content={}
-      /> */}
 
       <Popup
         type="arc"
@@ -2323,7 +2337,7 @@ export default function Home() {
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
-                  scale: matrix_scale,
+                  scale: scrollYProgress.to(() => scaleInterpolate()),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
@@ -4137,7 +4151,7 @@ export default function Home() {
                 style={{
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
-                  scale: matrix_scale,
+                  scale: scrollYProgress.to(() => scaleInterpolate()),
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(128)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
@@ -4417,7 +4431,7 @@ export default function Home() {
                 style={{
                   rotateX: scrollYProgress.to(() => scrollInterpolate(55)),
                   rotateY: 0,
-                  scale: matrix_scale,
+                  scale: scrollYProgress.to(() => scaleInterpolate()),
                   rotateZ: scrollYProgress.to(() => scrollInterpolate(45)),
                   top: scrollYProgress.to(() => scrollInterpolate(256)),
                   translateY: scrollYProgress.to(() => scrollYInterpolate()),
