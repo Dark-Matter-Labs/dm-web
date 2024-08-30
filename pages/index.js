@@ -116,7 +116,7 @@ export default function Home() {
     //  2d projects state
     else if (
       window.scrollY >= startSticky + step * 4 &&
-      window.scrollY < startSticky + step * 5 + 300
+      window.scrollY < startSticky + step * 5 + 500
     ) {
       setActiveState(7);
 
@@ -128,7 +128,7 @@ export default function Home() {
     }
     // capability 2D state
     else if (
-      window.scrollY >= startSticky + step * 5 + 300 &&
+      window.scrollY >= startSticky + step * 5 + 500 &&
       window.scrollY < startSticky + step * 6
     ) {
       setActiveState(8);
@@ -137,7 +137,7 @@ export default function Home() {
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 6 - 50) {
+    if (window.scrollY >= startSticky + step * 6 + 120) {
       setClassT2('t3');
     }
 
@@ -2260,9 +2260,9 @@ export default function Home() {
                 behaviours and institutional logic) that form its structural
                 backbone. The Labs are exploring what might be possible, both
                 within and beyond the current structures, and working to develop
-                technical expertise in those areas. For example, the Beyond The
-                Rules Lab focuses on aspects such as demonstrating multi-actor
-                governance structures whereas the Capital Systems Lab is working
+                technical expertise in those areas. For example, the <span onClick={() => setOpenBR(true)} className='font-SaansMed hover:cursor-crosshair'>Beyond The
+                Rules </span><span className="align-super uppercase text-[12px]">Lab</span> focuses on aspects such as demonstrating multi-actor
+                governance structures whereas the <span onClick={() => setOpenCS(true)} className='font-SaansMed hover:cursor-crosshair'>Capital Systems</span> <span className="align-super uppercase text-[12px]">Lab</span> is working
                 to enable strategic ecosystem investments.
               </p>
             </animated.div>
@@ -2343,7 +2343,7 @@ export default function Home() {
           </div>
           <div className={`relative col-span-7 w-[690px] justify-self-end`}>
             <div id="real" className="">
-              <h1 className="heading-7xl max-w-[42rem] pb-10 text-grey-5 ">
+              <h1 className="heading-7xl max-w-[40rem] pb-10 text-grey-5 ">
                 We are building options for the next economies
               </h1>
               <p className="p-3xl max-w-[42rem] text-grey-6">
@@ -2371,7 +2371,7 @@ export default function Home() {
                 </span>
               </p>
 
-              <h2 className="heading-5xl max-w-md pt-20 text-grey-1">
+              <h2 className="heading-5xl pt-20 text-grey-1">
                 Economic options are bold directional aspirations
               </h2>
               <p className="p-3xl pt-8 text-grey-6">
@@ -2498,11 +2498,11 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY > startSticky + step * 5 + 300 &&
+                      scrollY > startSticky + step * 5 + 500 &&
                       scrollY <= startSticky + step * 6
                     ) {
                       return partialOpacityInterpolateMult(
-                        startSticky + step * 5 + 300,
+                        startSticky + step * 5 + 500,
                         startSticky + step * 6,
                         true,
                         1,
@@ -4254,11 +4254,11 @@ export default function Home() {
                   translateX: -140,
                   opacity: scrollYProgress.to(() => {
                     if (
-                      scrollY >= startSticky + step * 5 + 300 &&
+                      scrollY >= startSticky + step * 5 + 500 &&
                       scrollY <= startSticky + step * 6
                     ) {
                       return partialOpacityInterpolateMult(
-                        startSticky + step * 5 + 300,
+                        startSticky + step * 5 + 500,
                         startSticky + step * 6,
                         true,
                         1,
@@ -4536,12 +4536,12 @@ export default function Home() {
                     if (activeState === 7) {
                       return scrollInterpolate(1);
                     } else if (
-                      scrollY >= startSticky + step * 5 + 300 &&
-                      scrollY <= startSticky + step * 6 - 200
+                      scrollY >= startSticky + step * 5 + 500 &&
+                      scrollY <= startSticky + step * 6 
                     ) {
                       return capacityOpacityInterpolate(
-                        startSticky + step * 5 + 300,
-                        startSticky + step * 6 - 200,
+                        startSticky + step * 5 + 500,
+                        startSticky + step * 6 ,
                         false,
                       );
                     } else return 1;
