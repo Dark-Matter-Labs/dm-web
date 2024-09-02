@@ -77,7 +77,9 @@ export default async function TeamPage() {
             organisational culture.
           </p>
           <div className="mt-[30px] flex">
-            <DMButton href='https://glorious-impact-532915.framer.app/jobs'>Join our team</DMButton>
+            <DMButton href="https://glorious-impact-532915.framer.app/jobs">
+              Join our team
+            </DMButton>
           </div>
         </div>
       </div>

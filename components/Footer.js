@@ -80,82 +80,80 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <div className=''>
-      <div className='h-14 bg-gradient-to-t from-[#E3E3E3]/5 w-full'>
-
-      </div>
+    <div className="">
+      <div className="h-14 w-full bg-gradient-to-t from-[#E3E3E3]/5"></div>
       <footer
-      aria-labelledby="footer-heading"
-      className="bg-[#111112] global-margin"
-    >
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="mx-auto max-w-[1200px] pb-20 pt-[100px]">
-        <div className="xl:grid xl:grid-cols-12">
-          <div className="col-span-5 space-y-60">
-            <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
-            <div className="flex space-x-6">
-              {navigation.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-gray-400"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon aria-hidden="true" className="h-6 w-6" />
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="col-span-7 flex items-start justify-between ">
-            <div className="f">
-              <div>
-                <ul
-                  role="list"
-                  className="justify-betweenitems-start flex flex-col space-y-4"
-                >
-                  {navigation.solutions.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="p-xl-regular text-grey-1 hover:text-white"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-5">
-                <a
-                  href="#"
-                  className="p-xl-regular text-[#A8A8A8] hover:text-white"
-                >
-                  Privacy Policy
-                </a>
+        aria-labelledby="footer-heading"
+        className="global-margin bg-[#111112]"
+      >
+        <h2 id="footer-heading" className="sr-only">
+          Footer
+        </h2>
+        <div className="mx-auto max-w-[1200px] pb-20 pt-[100px]">
+          <div className="xl:grid xl:grid-cols-12">
+            <div className="col-span-5 space-y-60">
+              <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
+              <div className="flex space-x-6">
+                {navigation.social.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-gray-400"
+                  >
+                    <span className="sr-only">{item.name}</span>
+                    <item.icon aria-hidden="true" className="h-6 w-6" />
+                  </a>
+                ))}
               </div>
             </div>
-            <div className="flex- col flex items-start justify-start">
-              <div>
-                <ul role="list" className=" space-y-8">
-                  {navigation.company.map((item) => (
-                    <li key={item.country}>
-                      <div className="nav-xl ">
-                        <p className="text-grey-1">{item.country}</p>
-                        <p className="text-[#A8A8A8]">{item.fullName}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+            <div className="col-span-7 flex items-start justify-between ">
+              <div className="f">
+                <div>
+                  <ul
+                    role="list"
+                    className="justify-betweenitems-start flex flex-col space-y-4"
+                  >
+                    {navigation.solutions.map((item) => (
+                      <li key={item.name}>
+                        <a
+                          href={item.href}
+                          className="p-xl-regular text-grey-1 hover:text-white"
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-5">
+                  <a
+                    href="#"
+                    className="p-xl-regular text-[#A8A8A8] hover:text-white"
+                  >
+                    Privacy Policy
+                  </a>
+                </div>
+              </div>
+              <div className="flex- col flex items-start justify-start">
+                <div>
+                  <ul role="list" className=" space-y-8">
+                    {navigation.company.map((item) => (
+                      <li key={item.country}>
+                        <div className="nav-xl ">
+                          <p className="text-grey-1">{item.country}</p>
+                          <p className="text-[#A8A8A8]">{item.fullName}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
     </div>
   );
 }
