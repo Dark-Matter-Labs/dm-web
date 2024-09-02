@@ -1,5 +1,3 @@
-"use client"
-
 import Navbar from '../../components/Navbar';
 import { client } from '../../sanity/lib/client';
 import { ArrowDownIcon } from '@heroicons/react/24/outline';
@@ -13,7 +11,15 @@ const dmlienQuery = `
 }
 `;
 
-export default function TeamPage({ dmliens }) {
+
+export async function getDmliens() {
+  const dmliens = await client.fetch(dmlienQuery);
+  console.log(dmliens)
+  return dmliens;
+}
+
+export default async function TeamPage() {
+  const dmliens = await getDmliens()
   return (
     <>
       <main className="mx-auto max-w-screen-xl">
@@ -62,7 +68,4 @@ export default function TeamPage({ dmliens }) {
   );
 }
 
-export async function getInitialProps() {
-  const dmliens = await client.fetch(dmlienQuery);
-  return { props: { dmliens } };
-}
+
