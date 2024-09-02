@@ -6136,7 +6136,7 @@ export default function Home() {
                   Help us build a better future
                 </h1>
                 <div className="flex gap-8">
-                  <div className="border-2 border-white px-2 pb-1.5 pt-1 hover:cursor-crosshair">
+                  <div className="border-2 border-white px-2 pb-1.5 pt-0.5 hover:cursor-crosshair">
                     <a href="https://glorious-impact-532915.framer.app/contacts">
                       <p className="float-right font-SaansMed text-[18px] text-white">
                         {'↗'}
@@ -6146,7 +6146,7 @@ export default function Home() {
                       </p>
                     </a>
                   </div>
-                  <div className="border-2 border-white px-2 pb-1.5 pt-1 hover:cursor-crosshair">
+                  <div className="border-2 border-white px-2 pb-1.5 pt-0.5 hover:cursor-crosshair">
                     <a href="https://glorious-impact-532915.framer.app/contribute">
                       <p className="float-right font-SaansMed text-[18px] text-white">
                         {'↗'}
