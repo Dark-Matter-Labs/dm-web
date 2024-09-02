@@ -10,9 +10,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="global-margin">
+        <main className="">
           <Navbar />
+          <div className='global-margin'>
           {children}
+          </div>
           <Footer />
         </main>
       </body>

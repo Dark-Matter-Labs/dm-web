@@ -80,14 +80,18 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer
+    <div className=''>
+      <div className='h-14 bg-gradient-to-t from-[#E3E3E3]/5 w-full'>
+
+      </div>
+      <footer
       aria-labelledby="footer-heading"
-      className=" shadow-footer bg-[#111112] "
+      className="bg-[#111112] global-margin"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-[1200px] pb-20 pt-10">
+      <div className="mx-auto max-w-[1200px] pb-20 pt-[100px]">
         <div className="xl:grid xl:grid-cols-12">
           <div className="col-span-5 space-y-60">
             <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
@@ -152,5 +156,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </div>
   );
 }

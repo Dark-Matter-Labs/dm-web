@@ -10,7 +10,8 @@ import dmLogoHover from '../images/dm-logo-hover.png';
 export default function Navbar() {
   const [hover, setHover] = useState(false);
   return (
-    <div className="sticky top-0 z-[90] flex items-center justify-between bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
+    <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
+      <div className='global-margin flex items-center justify-between'>
       <div
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -145,6 +146,7 @@ export default function Navbar() {
             </>
           )}
         </Disclosure>
+      </div>
       </div>
     </div>
   );
