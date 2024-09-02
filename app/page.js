@@ -1,4 +1,5 @@
-import Head from 'next/head';
+"use client"
+
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useScroll, animated } from '@react-spring/web';
@@ -976,11 +977,6 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Dark Matter Labs</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Popup
         type="lab"
         image={CSlogo}

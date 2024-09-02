@@ -1,4 +1,5 @@
-// import { ArrowDownIcon } from "@heroicons/react/16/solid";
+"use client"
+
 import Navbar from '../../components/Navbar';
 import { client } from '../../sanity/lib/client';
 import { ArrowDownIcon } from '@heroicons/react/24/outline';
@@ -30,7 +31,7 @@ export default function TeamPage({ dmliens }) {
           </div>
         </div>
         <ul className="mt-12 grid w-full grid-cols-12 items-start justify-center gap-6 pb-32 text-white">
-          {dmliens.map((dmlien, id) => (
+          {dmliens?.map((dmlien, id) => (
             <li
               key={id}
               className="col-span-12 flex flex-col items-center justify-center md:col-span-6 lg:col-span-4 xl:col-span-3"
@@ -61,7 +62,7 @@ export default function TeamPage({ dmliens }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getInitialProps() {
   const dmliens = await client.fetch(dmlienQuery);
   return { props: { dmliens } };
 }
