@@ -120,13 +120,8 @@ img {
   }
 
   .t2 {
-    @apply sticky md:top-0;
-  }
-
-  @media (max-width: 1440px) {
-    .t2 {
-      top: -10vh;
-    }
+    @apply sticky;
+    top: calc(50% - 500px);
   }
 
   .t3 {
@@ -188,3 +183,4 @@ hr {
   white-space: nowrap;
   overflow: hidden;
 }
+
