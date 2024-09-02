@@ -45,6 +45,7 @@ import SMlogo from '../images/labs/Sm Lab.svg';
 import CDlogo from '../images/studios/Cd Studio.svg';
 import CTlogo from '../images/studios/Ct Studio.svg';
 import ODlogo from '../images/studios/Cd Studio.svg';
+import DMButton from '../components/Button';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -6132,26 +6133,12 @@ export default function Home() {
                   Help us build a better future
                 </h1>
                 <div className="flex gap-8">
-                  <div className="border-2 border-white px-2 pb-1.5 pt-0.5 hover:cursor-crosshair">
-                    <a href="https://glorious-impact-532915.framer.app/contacts">
-                      <p className="float-right font-SaansMed text-[18px] text-white">
-                        {'↗'}
-                      </p>
-                      <p className="font-SaansMed text-2xl leading-[1em] text-white">
-                        Contact
-                      </p>
-                    </a>
-                  </div>
-                  <div className="border-2 border-white px-2 pb-1.5 pt-0.5 hover:cursor-crosshair">
-                    <a href="https://glorious-impact-532915.framer.app/contribute">
-                      <p className="float-right font-SaansMed text-[18px] text-white">
-                        {'↗'}
-                      </p>
-                      <p className="font-SaansMed text-2xl leading-[1em] text-white">
-                        Contribute
-                      </p>
-                    </a>
-                  </div>
+                <DMButton>
+                Contact
+                </DMButton>
+                  <DMButton>
+                    Contribute
+                  </DMButton>
                 </div>
               </div>
             </div>

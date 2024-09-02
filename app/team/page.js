@@ -3,6 +3,7 @@ import { client } from '../../sanity/lib/client';
 import { ArrowDownIcon } from '@heroicons/react/24/outline';
 import { urlForImage } from '../../sanity/lib/image';
 import Image from 'next/image';
+import DMButton from '../../components/Button';
 
 const dmlienQuery = `
 *[_type == 'dmlien'] | order(fullName asc) {
@@ -72,12 +73,19 @@ export default async function TeamPage() {
           </div>
         </div>
         <div className="mb-[30px] mt-[63px] flex items-start justify-end">
+          <div className='flex flex-col'>
           <p className="w-[690px] text-white">
             We’re a multidisciplinary team with a shared passion for taking on
             societal challenges in education, food systems, urban design,
             logistics, data, policy, finance, healthcare, governance and
             organisational culture.
           </p>
+          <div className='flex mt-[30px]'>
+              <DMButton>
+                Join
+              </DMButton>
+          </div>
+          </div>
         </div>
       </main>
     </>
