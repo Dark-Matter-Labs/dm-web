@@ -9,10 +9,10 @@ export default function RootLayout({
     <html lang="en">
       <body>{children}</body>
     </html>
-  )
+  );
 }
 
 export const metadata = {
   title: 'Dark Marrer Labs',
   description: 'We are building options for the next economies',
-}
+};

@@ -1,4 +1,3 @@
-
 'use client';
 /**
  * This route is responsible for the built-in authoring environment using Sanity Studio v3.
@@ -9,12 +8,11 @@
  * https://github.com/sanity-io/next-sanity
  */
 
+import { NextStudio } from 'next-sanity/studio';
 
-import { NextStudio } from 'next-sanity/studio'
-
-import config from '../../../sanity.config'
+import config from '../../../sanity.config';
 
 export default function StudioPage() {
-  console.log(config)
-  return <NextStudio config={config} />
+  console.log(config);
+  return <NextStudio config={config} />;
 }
