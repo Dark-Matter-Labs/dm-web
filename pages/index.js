@@ -29,6 +29,22 @@ import BTRlogo from '../images/labs/BTR.png';
 import TAIlogo from '../images/projects/TreesAI_logo.png';
 import CLlogo from '../images/projects/CL.png';
 
+import BElogo from '../images/arcs/Be Arc.svg';
+import LClogo from '../images/arcs/Lc Arc.svg';
+import M0logo from '../images/arcs/M0 Arc.svg';
+import NIlogo from '../images/arcs/Ni Arc.svg';
+import PClogo from '../images/arcs/Pc Arc.svg';
+import RNlogo from '../images/arcs/Rn Arc.svg';
+import BLlogo from '../images/labs/Bl Lab.svg';
+import CSlogo from '../images/labs/Cs Lab.svg';
+import NElogo from '../images/labs/Ne Lab.svg';
+import PFlogo from '../images/labs/Pf Lab.svg';
+import SDlogo from '../images/labs/Sd Lab.svg';
+import SMlogo from '../images/labs/Sm Lab.svg';
+import CDlogo from '../images/studios/Cd Studio.svg';
+import CTlogo from '../images/studios/Ct Studio.svg';
+import ODlogo from '../images/studios/Cd Studio.svg';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -967,6 +983,7 @@ export default function Home() {
 
       <Popup
         type="lab"
+        image={CSlogo}
         title="Capital Systems"
         openState={openCS}
         setOpen={setOpenCS}
@@ -1067,6 +1084,7 @@ export default function Home() {
         type="arc"
         title="M0 Cities"
         openState={openM0}
+        image={M0logo}
         setOpen={setOpenM0}
         website=""
         publication="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
@@ -1091,6 +1109,7 @@ export default function Home() {
       <Popup
         type="arc"
         title="Regen Nutrition"
+        image={RNlogo}
         openState={openRE}
         setOpen={setOpenRE}
         website=""
@@ -1108,6 +1127,7 @@ export default function Home() {
       <Popup
         type="arc"
         title="Bioregional Economics"
+        image={BElogo}
         openState={openBE}
         setOpen={setOpenBE}
         website=""
@@ -1128,6 +1148,7 @@ export default function Home() {
       <Popup
         type="arc"
         title="Planetary Civics"
+        image={PClogo}
         openState={openPC}
         setOpen={setOpenPC}
         website=""
@@ -1147,6 +1168,7 @@ export default function Home() {
       <Popup
         type="lab"
         title="Next Economics"
+        image={NElogo}
         openState={openNE}
         setOpen={setOpenNE}
         website=""
@@ -1217,6 +1239,7 @@ export default function Home() {
       <Popup
         type="lab"
         title="Sensing, Modeling & Mapping"
+        image={SMlogo}
         openState={openSM}
         setOpen={setOpenSM}
         website=""
@@ -1241,6 +1264,7 @@ export default function Home() {
       <Popup
         type="lab"
         title="Beyond Labour"
+        image={BLlogo}
         openState={openBL}
         setOpen={setOpenBL}
         website=""
@@ -1258,6 +1282,7 @@ export default function Home() {
       <Popup
         type="lab"
         title="Philanthropy Futures"
+        image={PFlogo}
         openState={openPF}
         setOpen={setOpenPF}
         website=""
@@ -1273,6 +1298,7 @@ export default function Home() {
       <Popup
         type="lab"
         title="Societal Decisions"
+        image={SDlogo}
         openState={openQD}
         setOpen={setOpenQD}
         website="https://sdl.darkmatterlabs.org/"
@@ -1288,6 +1314,7 @@ export default function Home() {
       <Popup
         type="studio"
         title="Civic Tech"
+        image={CTlogo}
         openState={openCT}
         setOpen={setOpenCT}
         website=""
@@ -1306,6 +1333,7 @@ export default function Home() {
       <Popup
         type="arc"
         title="Local Civics"
+        image={LClogo}
         openState={openETC}
         setOpen={setOpenETC}
         website=""
@@ -1324,6 +1352,7 @@ export default function Home() {
       <Popup
         type="studio"
         title="Conversation Design"
+        image={CDlogo}
         openState={openCD}
         setOpen={setOpenCD}
         website=""
@@ -1360,6 +1389,7 @@ export default function Home() {
       <Popup
         type="studio"
         title="Org Dev"
+        image={ODlogo}
         openState={openOD}
         setOpen={setOpenOD}
         website=""
@@ -1378,6 +1408,7 @@ export default function Home() {
       <Popup
         type="arc"
         title="Nature as Infrastructure"
+        image={NIlogo}
         openState={openWI}
         setOpen={setOpenWI}
         website=""
@@ -2860,7 +2891,7 @@ export default function Home() {
                         activeState={
                           (CDactive && NEactive && BEactive) || openCI
                         }
-                        hoverState={BEactive || NEactive || CDactive}
+                        hoverState={BEactive || NEactive}
                         setActiveStudio={setCDActive}
                         setActiveArc={setBEActive}
                         setActiveLab={setNEActive}
