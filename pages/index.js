@@ -2295,7 +2295,7 @@ export default function Home() {
               }}
               className="mt-[1800px]"
             >
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Matrix</h2>
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">Matrix</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 We are not a think tank or consultancy with a single, neat
                 theory of change. Instead, our collaborative approach is firmly
@@ -2316,7 +2316,7 @@ export default function Home() {
               }}
               className="mt-[300px]"
             >
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Labs</h2>
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">Labs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Each of our Labs is focused on a specific area of the
                 socio-economic system and the everyday codes (e.g. norms,
@@ -2350,7 +2350,7 @@ export default function Home() {
               }}
               className="mt-[270px]"
             >
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Arcs</h2>
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">Arcs</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Our Arc workflows are designed with clear, directional goals
                 that guide our efforts toward impactful outcomes. For instance,{' '}
@@ -2381,7 +2381,7 @@ export default function Home() {
               }}
               className="mt-[320px]"
             >
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Studios</h2>
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">Studios</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 Studios are the connective tissue that support both the Labs and
                 Missions. The studios explore themes that help our work to be
@@ -2417,7 +2417,7 @@ export default function Home() {
               }}
               className="mt-[360px]"
             >
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">
                 Intersections
               </h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -2437,7 +2437,7 @@ export default function Home() {
               }}
               className="mt-[250px]"
             >
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Capabilities</h2>
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">Capabilities</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 The capabilities form the core of Dm’s Mission and sit at the
                 centre of the Matrix. These are the systemic goals that we have
@@ -2479,7 +2479,7 @@ export default function Home() {
                 </span>
               </p>
 
-              <h2 className="heading-5xl pt-20 text-grey-1">
+              <h2 className="heading-4xl pt-20 text-grey-1">
                 Economic options are bold directional aspirations
               </h2>
               <p className="p-3xl pt-8 text-grey-6">
@@ -2522,7 +2522,7 @@ export default function Home() {
               </p>
 
               <div className="pt-10">
-                <p className="heading-5xl text-grey-2">
+                <p className="heading-4xl text-grey-2">
                   How do we structure our response? ↓
                 </p>
               </div>
@@ -5223,7 +5223,7 @@ export default function Home() {
         >
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <div className="mt-[0px]">
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Contexts</h2>
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">Contexts</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 The overarching LEE Mission allows us to contextually adjust the
                 horizons of our interactions and interventions, whilst building
@@ -5237,7 +5237,7 @@ export default function Home() {
           <div className={`relative col-span-7 w-[690px] justify-self-end`}>
             <div id="context" className="mb-20 ">
               <div className="mb-8">
-                <h2 className="heading-5xl text-grey-1">
+                <h2 className="heading-4xl text-grey-1">
                   Political landscapes
                 </h2>
                 <p className="p-3xl pb-4 text-grey-7">
@@ -5257,7 +5257,7 @@ export default function Home() {
               </div>
 
               <div className="mb-8">
-                <h2 className="heading-5xl text-grey-1">
+                <h2 className="heading-4xl text-grey-1">
                   Geographical landscapes
                 </h2>
                 <p className="p-3xl pb-4 text-grey-7">
@@ -5276,7 +5276,7 @@ export default function Home() {
               </div>
 
               <div className="mb-8 ">
-                <h2 className="heading-5xl text-grey-1">Time horizons</h2>
+                <h2 className="heading-4xl text-grey-1">Time horizons</h2>
                 <p className="p-3xl pb-4 text-grey-7">
                   How can we leverage the broad spectrum of realities
                   represented across the global context?
@@ -5294,7 +5294,7 @@ export default function Home() {
               </div>
 
               <div className="mb-8 ">
-                <h2 className="heading-5xl text-grey-1">Alliances</h2>
+                <h2 className="heading-4xl text-grey-1">Alliances</h2>
                 <p className="p-3xl pb-4 text-grey-7">
                   What could be unleashed if we can identify and engage unusual
                   (and often powerful actors) with converging aspirations?
@@ -5328,7 +5328,7 @@ export default function Home() {
         >
           <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
             <div className="mt-20">
-              <h2 className="heading-5xl-Reg pb-2 text-grey-3">Paradigms</h2>
+              <h2 className="heading-4xl-Reg pb-2 text-grey-3">Paradigms</h2>
               <p className="p-xl-regular max-w-[380px] text-grey-3">
                 The Enlightenment, Industrial and Scientific revolutions created
                 many advances for society. But what about their impact on deep
@@ -5348,7 +5348,7 @@ export default function Home() {
             <div id="why">
               <div className="my-20 ">
                 <div className="mb-8">
-                  <h2 className="heading-5xl text-grey-1">Property</h2>
+                  <h2 className="heading-4xl text-grey-1">Property</h2>
                   <p className="p-3xl pt-4 text-grey-1">
                     Words like property and ownership are often associated with
                     ideas of dominion and control, allowing us to treat elements
@@ -5362,7 +5362,7 @@ export default function Home() {
                 </div>
 
                 <div className="mb-8">
-                  <h2 className="heading-5xl text-grey-1">Technology</h2>
+                  <h2 className="heading-4xl text-grey-1">Technology</h2>
                   <p className="p-3xl pt-4 text-grey-1">
                     Emergent technologies can be framed as a threat, but they
                     could also facilitate a new freedom to care. The field of
@@ -5384,7 +5384,7 @@ export default function Home() {
                 </div>
 
                 <div className="mb-8">
-                  <h2 className="heading-5xl text-grey-1">Money</h2>
+                  <h2 className="heading-4xl text-grey-1">Money</h2>
                   <p className="p-3xl pt-4 text-grey-1">
                     Recognising that financial capital is intertwined and
                     enabled by living and social systems is foundational to our
@@ -5410,7 +5410,7 @@ export default function Home() {
                   dimensions of our Ecosystem Matrix, as we seek to test them in
                   different contexts.
                 </p>
-                <h2 className="heading-5xl text-grey-1">
+                <h2 className="heading-4xl text-grey-1">
                   Worldview philosophies
                 </h2>
                 <div className="grid grid-cols-3 gap-10 py-8 ">
@@ -5551,7 +5551,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <h2 className="heading-5xl text-grey-1">
+                <h2 className="heading-4xl text-grey-1">
                   Proposed structural shifts
                 </h2>
                 <div className="grid grid-cols-3 gap-x-10 gap-y-8 py-8">

@@ -75,7 +75,7 @@ img {
     @apply font-SaansRegular text-7xl leading-16;
   }
 
-  .heading-5xl {
+  .heading-4xl {
     @apply font-SaansRegular text-4xl leading-13;
   }
 
