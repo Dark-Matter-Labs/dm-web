@@ -1,3 +1,5 @@
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import '../styles/global.css';
 
 export default function RootLayout({
@@ -7,7 +9,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      
+        <main className='global-margin'>
+        <Navbar />
+        {children}
+        <Footer />
+        </main>
+    
+
+        </body>
     </html>
   );
 }

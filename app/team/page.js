@@ -1,6 +1,4 @@
-import Navbar from '../../components/Navbar';
 import { client } from '../../sanity/lib/client';
-import { ArrowDownIcon } from '@heroicons/react/24/outline';
 import { urlForImage } from '../../sanity/lib/image';
 import Image from 'next/image';
 import DMButton from '../../components/Button';
@@ -21,8 +19,6 @@ export default async function TeamPage() {
   const dmliens = await getDmliens();
   return (
     <>
-      <main className="mx-auto max-w-screen-xl">
-        <Navbar />
         <div className="mt-[100px] flex w-full items-center justify-end gap-0 text-white ">
           <div className="max-w-[690px] border-b border-[#353535] font-SaansRegular">
             <div className="mb-[30px] font-SaansRegular text-7xl text-white">
@@ -87,7 +83,6 @@ export default async function TeamPage() {
           </div>
           </div>
         </div>
-      </main>
     </>
   );
 }

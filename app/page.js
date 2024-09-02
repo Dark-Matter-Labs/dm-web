@@ -6,7 +6,6 @@ import { useScroll, animated } from '@react-spring/web';
 
 import { startSticky, step } from '../utils/constants';
 
-import Navbar from '../components/Navbar';
 import Arc from '../components/Arc';
 import Lab from '../components/Lab';
 import Studio from '../components/Studio';
@@ -15,7 +14,6 @@ import StudioInitiative from '../components/StudioInitiative';
 import StudioLabInitiative from '../components/StudioLabInitiative';
 import Popup from '../components/Popup';
 import DomainPopup from '../components/DomainPopup';
-import Footer from '../components/Footer';
 
 import labsOverlay from '../images/labs.svg';
 import arcsOverlay from '../images/arcs.svg';
@@ -2282,8 +2280,8 @@ export default function Home() {
         }
       />
 
-      <main className="global-margin">
-        <Navbar />
+   
+      
         <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
           <div className="col-span-5 block w-[400px] max-w-xs">
             <animated.div
@@ -6144,8 +6142,6 @@ export default function Home() {
             </div>
           </div>
         </animated.div>
-      </main>
-      <Footer />
     </div>
   );
 }
