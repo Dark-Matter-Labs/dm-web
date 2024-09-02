@@ -11,6 +11,7 @@ import Lab from '../components/Lab';
 import Studio from '../components/Studio';
 import Initiative from '../components/Initiative';
 import StudioInitiative from '../components/StudioInitiative';
+import StudioLabInitiative from '../components/StudioLabInitiative';
 import Popup from '../components/Popup';
 import DomainPopup from '../components/DomainPopup';
 import Footer from '../components/Footer';
@@ -27,6 +28,7 @@ import PBlogo from '../images/labs/PB.png';
 import BTRlogo from '../images/labs/BTR.png';
 import TAIlogo from '../images/projects/TreesAI_logo.png';
 import CLlogo from '../images/projects/CL.png';
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -2744,7 +2746,7 @@ export default function Home() {
                         title="Life-Ennobling Economics dialogue"
                         arc="NE"
                         studio="CD"
-                        activeState={(CDactive && NEactive) || openLEED}
+                        activeState={(CDactive && NEactive && !BEactive) || openLEED}
                         hoverState={ETCactive || NEactive}
                         setActiveStudio={setCDActive}
                         setActiveArc={setNEActive}
@@ -2850,14 +2852,15 @@ export default function Home() {
                         </div>
                       )}
 
-                      <StudioInitiative
+                      <StudioLabInitiative
                         title="Cornerstone Indicators"
                         arc="NE"
                         studio="CD"
-                        activeState={(CDactive && NEactive) || openCI}
-                        hoverState={BEactive || NEactive}
+                        activeState={(CDactive && NEactive && BEactive) || openCI}
+                        hoverState={BEactive || NEactive || CDactive}
                         setActiveStudio={setCDActive}
-                        setActiveArc={setNEActive}
+                        setActiveArc={setBEActive}
+                        setActiveLab={setNEActive}
                         setOpen={setOpenCI}
                       />
 
