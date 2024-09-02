@@ -25,6 +25,18 @@ const dmlien = {
       description:
         'use an emoji for the country then add the city name like: 🇦🇺 Adelaide, if there are two cities it can be like this: 🇦🇺 Adelaide 🇫🇷 Paris',
     },
+    {
+      name: 'links',
+      type: 'array',
+      title: 'Links',
+      of: [{ type: 'link' }],
+    },
+    {
+      name: 'initiatives',
+      type: 'array',
+      title: 'Initiatives',
+      of: [{ type: 'initiative' }],
+    },
   ],
 };
 
