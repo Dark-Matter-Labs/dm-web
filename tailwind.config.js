@@ -21,8 +21,9 @@ module.exports = {
         'grey-7': '#848484',
       },
       fontSize: {
+        lg: '15px',
         xl: '16px',
-        '2xl': '17px',
+        '2xl': '18px',
         '3xl': '20px',
         '4xl': '24px',
         '5xl': '32px',

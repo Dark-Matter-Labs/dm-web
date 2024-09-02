@@ -107,6 +107,10 @@ img {
     @apply font-SaansMed text-xl leading-12;
   }
 
+  .p-lg-regular {
+    @apply font-SaansRegular text-lg leading-12;
+  }
+
   .p-3xl {
     @apply font-SaansRegular text-xl leading-12;
   }
@@ -183,4 +187,3 @@ hr {
   white-space: nowrap;
   overflow: hidden;
 }
-
