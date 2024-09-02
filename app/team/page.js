@@ -14,7 +14,6 @@ const dmlienQuery = `
 
 export async function getDmliens() {
   const dmliens = await client.fetch(dmlienQuery);
-  console.log(dmliens)
   return dmliens;
 }
 
@@ -24,45 +23,60 @@ export default async function TeamPage() {
     <>
       <main className="mx-auto max-w-screen-xl">
         <Navbar />
-        <div className="grid w-full grid-cols-12 items-center justify-end gap-0 text-white">
-          <div className="col-span-5"></div>
-          <div className="col-span-12 mt-36 font-SaansRegular text-4xl font-light leading-[54px] md:col-span-7">
+        <div className="mt-[100px] flex w-full items-center justify-end gap-0 text-white ">
+          <div className="max-w-[690px] border-b border-[#353535] font-SaansRegular">
+            <div className="mb-[30px] font-SaansRegular text-7xl text-white">
+              Team
+            </div>
+            <p className="mb-[60px] text-3xl leading-[30px]">
+              We’re a multidisciplinary team with a shared passion for taking on
+              societal challenges in education, food systems, urban design,
+              logistics, data, policy, finance, healthcare, governance and
+              organisational culture.
+            </p>
+          </div>
+        </div>
+        <div className="mt-[100px] flex items-start justify-end">
+          <ul className="grid w-full max-w-[690px] grid-cols-4 gap-4 border-b border-[#353535] pb-[60px]">
+            {dmliens.map((dmlien, id) => (
+              <li key={id} className="flex flex-col items-start justify-start group cursor-pointer">
+                <Image
+                  src={urlForImage(dmlien.image)}
+                  alt={dmlien.fullName}
+                  width={157}
+                  height={157}
+                  className="mb-4 w-auto group-hover:opacity-80 duration-200"
+                />
+                <div className="flex w-full flex-col items-start">
+                  <h2 className="font-SaansRegular text-xl leading-[21px] text-grey-1 group-hover:opacity-80 duration-200">
+                    {dmlien.fullName}
+                  </h2>
+                  <h3 className="font-SaansRegular text-[14px] leading-[18px] text-[#707070]">
+                    {dmlien.location}
+                  </h3>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-[100px] flex items-start justify-end">
+          <div className="relative h-[400px] w-[690px] pt-[100px]">
+            <Image
+              src="/team.avif"
+              alt="team photo"
+              fill
+              className="absolute object-cover"
+            />
+          </div>
+        </div>
+        <div className="mb-[30px] mt-[63px] flex items-start justify-end">
+          <p className="w-[690px] text-white">
             We’re a multidisciplinary team with a shared passion for taking on
             societal challenges in education, food systems, urban design,
             logistics, data, policy, finance, healthcare, governance and
             organisational culture.
-            <div className="mt-12 font-SaansRegular text-[27px] text-[#6A6A6A]">
-              Meet the team <ArrowDownIcon className="inline h-6 w-6" />
-            </div>
-          </div>
+          </p>
         </div>
-        <ul className="mt-12 grid w-full grid-cols-12 items-start justify-center gap-6 pb-32 text-white">
-          {dmliens?.map((dmlien, id) => (
-            <li
-              key={id}
-              className="col-span-12 flex flex-col items-center justify-center md:col-span-6 lg:col-span-4 xl:col-span-3"
-            >
-              <Image
-                src={urlForImage(dmlien.image)}
-                alt={dmlien.fullName}
-                width={340}
-                height={340}
-                className="mb-6"
-              />
-              <div className="flex w-full flex-col items-start">
-                <h2 className="font-SaansRegular text-[24px] font-normal ">
-                  {dmlien.fullName}
-                </h2>
-                <h3 className="font-SaansRegular text-[24px] font-normal text-[#A8A8A8]">
-                  {dmlien.location}
-                </h3>
-              </div>
-              <p className="mt-6 font-SaansRegular text-[18px] font-normal">
-                {dmlien.bio}
-              </p>
-            </li>
-          ))}
-        </ul>
       </main>
     </>
   );
