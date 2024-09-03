@@ -28,8 +28,8 @@ function Arc({
       onMouseLeave={() => setActive(false)}
       onClick={() => setOpen(true)}
     >
-      <p className="font-SaansRegular text-base font-normal ">{short}</p>
-      <p className=" max-w-[50px] font-SaansRegular text-[9.6px] font-normal leading-normal">
+      <p className="font-SaansRegular text-[17px] font-normal ">{short}</p>
+      <p className="max-w-[40px] font-SaansRegular text-[12px] font-normal leading-[125%]">
         {title}
       </p>
     </animated.div>
