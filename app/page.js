@@ -1350,7 +1350,7 @@ export default function Home() {
         image={CDlogo}
         openState={openCD}
         setOpen={setOpenCD}
-        website=""
+        website="https://cds.darkmatterlabs.org/"
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
