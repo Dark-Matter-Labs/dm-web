@@ -11,7 +11,9 @@ const dmlienQuery = `
 `;
 
 export async function getDmliens() {
-  const dmliens = await client.fetch(dmlienQuery, { cache: 'no-store' });
+  const dmliens = await client.fetch(dmlienQuery, {
+    next: { tags: ['dmlien', 'initiative'] },
+  },);
   return dmliens;
 }
 
