@@ -2288,7 +2288,7 @@ export default function Home() {
             }}
             className="mt-[1800px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Matrix</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Matrix</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               We are not a think tank or consultancy with a single, neat theory
               of change. Instead, our collaborative approach is firmly grounded
@@ -2308,7 +2308,7 @@ export default function Home() {
             }}
             className="mt-[300px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Labs</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Labs</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Each of our Labs is focused on a specific area of the
               socio-economic system and the everyday codes (e.g. norms,
@@ -2342,7 +2342,7 @@ export default function Home() {
             }}
             className="mt-[270px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Arcs</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Arcs</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Our Arc workflows are designed with clear, directional goals that
               guide our efforts toward impactful outcomes. For instance,{' '}
@@ -2373,7 +2373,7 @@ export default function Home() {
             }}
             className="mt-[320px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Studios</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Studios</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Studios are the connective tissue that support both the Labs and
               Missions. The studios explore themes that help our work to be
@@ -2405,7 +2405,7 @@ export default function Home() {
             }}
             className="mt-[360px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Intersections</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Intersections</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Each project in our portfolio contributes to a number of systemic
               capabilities. In doing so they intersect with the Labs, Arcs and
@@ -2423,7 +2423,7 @@ export default function Home() {
             }}
             className="mt-[250px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Capabilities</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Capabilities</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               The capabilities form the core of Dm’s Mission and sit at the
               centre of the Matrix. These are the systemic goals that we have
@@ -5199,7 +5199,7 @@ export default function Home() {
       >
         <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
           <div className="mt-[0px]">
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Contexts</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               The overarching LEE Mission allows us to contextually adjust the
               horizons of our interactions and interventions, whilst building
@@ -5302,7 +5302,7 @@ export default function Home() {
       >
         <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
           <div className="mt-20">
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Paradigms</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Paradigms</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               The Enlightenment, Industrial and Scientific revolutions created
               many advances for society. But what about their impact on deep
