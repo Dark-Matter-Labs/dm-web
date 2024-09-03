@@ -1042,7 +1042,7 @@ export default function Home() {
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            The NZC Arc aspires to create smart cities that are carbon neutral.
+            The NZC Arc aims to enable climate-neutral and smart cities by 2030.
             This involves{' '}
             <a
               className="text-[#737EA5]"
@@ -2353,7 +2353,7 @@ export default function Home() {
                 Net Zero Cities
               </span>{' '}
               <span className="align-super text-[9.5px] uppercase">arc</span>{' '}
-              aims to enable smart, carbon-neutral cities by 2030, while{' '}
+              aims to enable climate-neutral and smart cities by 2030, while{' '}
               <span
                 onClick={() => setOpenRC(true)}
                 className="font-SaansMed hover:cursor-crosshair"
