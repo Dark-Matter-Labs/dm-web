@@ -115,6 +115,10 @@ img {
     @apply font-SaansRegular text-xl leading-12;
   }
 
+  .p-body2 {
+    @apply font-SaansRegular text-[20.12px] leading-[29.99px];
+  }
+
   .studio {
     @apply bg-gradient-to-b from-[#000] to-[#292929];
   }
