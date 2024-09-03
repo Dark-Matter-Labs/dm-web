@@ -6,15 +6,15 @@ import { useState } from 'react';
 export default function TeamGrid({ dmliens }) {
   const [hover, setHover] = useState();
   return (
-    <div className="mt-[100px] flex items-start justify-between">
-      <div className="relative h-auto w-[400px] text-white">
+    <div className="mt-[100px] flex items-start justify-between overflow-hidden">
+      <div className="relative w-[400px] min-h-[600px] text-white h-full z-10 flex justify-center items-center">
         {dmliens.map((person, id) => (
           <div
             key={id}
-            className={`${person.fullName === hover ? 'block' : 'hidden'} absolute left-0 top-0 w-auto text-white`}
+            className={`${person.fullName === hover ? 'block' : 'hidden'} sticky left-0 top-0 w-auto text-white h-full block items-center justify-center`}
           >
-            <h2 className="w-full">{person.fullName}</h2>
-            <p className="w-full">{person.bio}</p>
+            <h2 className="w-full font-SaansRegular text-5xl leading-[42px] pb-2.5">{person.fullName}</h2>
+            <p className="w-full font-SaansRegular text-xl leading-[26px]">{person.bio}</p>
           </div>
         ))}
       </div>

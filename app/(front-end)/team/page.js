@@ -1,7 +1,7 @@
-import { client } from '../../sanity/lib/client';
+import { client } from '../../../sanity/lib/client';
 import Image from 'next/image';
-import DMButton from '../../components/Button';
-import TeamGrid from '../../components/TeamGrid';
+import DMButton from '../../../components/Button';
+import TeamGrid from '../../../components/TeamGrid';
 
 const dmlienQuery = `
 *[_type == 'dmlien'] | order(fullName asc) {

@@ -29,13 +29,13 @@ const dmlien = {
       name: 'links',
       type: 'array',
       title: 'Links',
-      of: [{ type: 'link' }],
+      of: [{ type: 'linkObject' }],
     },
     {
-      name: 'initiatives',
+      name: 'inits',
       type: 'array',
       title: 'Initiatives',
-      of: [{ type: 'initiative' }],
+      of: [{ type: 'reference', to: { type: 'initiative' } }]
     },
   ],
 };

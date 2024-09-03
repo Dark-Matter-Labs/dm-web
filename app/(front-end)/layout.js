@@ -1,6 +1,6 @@
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import '../styles/global.css';
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer';
+import '../../styles/global.css';
 
 export default function RootLayout({
   // Layouts must accept a children prop.

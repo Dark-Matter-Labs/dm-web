@@ -1,5 +1,5 @@
-const link = {
-  name: 'link',
+const linkObject = {
+  name: 'linkObject',
   type: 'object',
   title: 'Link',
   fields: [
@@ -16,3 +16,5 @@ const link = {
     },
   ],
 };
+
+export default linkObject
