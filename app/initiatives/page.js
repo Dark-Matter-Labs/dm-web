@@ -1,6 +1,3 @@
 export default function Initiatives() {
-  return (
-    <div>
-    </div>
-  );
+  return <div></div>;
 }

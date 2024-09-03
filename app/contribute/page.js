@@ -1,6 +1,3 @@
 export default function Contribute() {
-  return (
-    <div>
-    </div>
-  );
+  return <div></div>;
 }

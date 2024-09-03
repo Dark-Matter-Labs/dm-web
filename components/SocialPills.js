@@ -1,5 +1,5 @@
 const navigation = {
-social: [
+  social: [
     {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/company/darkmatterlabs',
@@ -53,18 +53,18 @@ social: [
 export default function SocialPills() {
   return (
     <div className="flex space-x-6">
-    {navigation.social.map((item) => (
-      <a
-        key={item.name}
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-500 hover:text-gray-400"
-      >
-        <span className="sr-only">{item.name}</span>
-        <item.icon aria-hidden="true" className="h-6 w-6" />
-      </a>
-    ))}
-  </div>
+      {navigation.social.map((item) => (
+        <a
+          key={item.name}
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-500 hover:text-gray-400"
+        >
+          <span className="sr-only">{item.name}</span>
+          <item.icon aria-hidden="true" className="h-6 w-6" />
+        </a>
+      ))}
+    </div>
   );
 }
