@@ -2630,7 +2630,7 @@ export default function Home() {
 
                 <div className="grid grid-cols-9 gap-0">
                   <div className="">
-                    <div className="mb-1.5 flex flex-col items-center justify-end">
+                    <div className="mb-1.5 flex flex-col items-center justify-end h-[80px] w-[80px] pt-[5px] pb-[6.5px] pl-2 pr-[6px]">
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
@@ -2639,7 +2639,7 @@ export default function Home() {
                             false,
                           ),
                         }}
-                        className="h-[80px] w-[80px] pl-2 pt-[3rem] font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
+                        className="  font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                       >
                         Arcs
                       </animated.h2>
@@ -4271,11 +4271,11 @@ export default function Home() {
               </div>
               <div
                 className={classNames(
-                  activeState === 7 ? 'mt-[6.1em] block' : 'mt-[5.89em] hidden',
+                  activeState === 7 ? 'mt-[2.6em] block' : 'mt-[2.6em] hidden',
                   'text-right opacity-0',
                 )}
               >
-                <div className="">
+                <div className="flex flex-col items-center justify-end  h-[80px] w-[80px] pt-[5px] pb-[6.5px] pl-2 pr-[6px]">
                   <h2
                     className={classNames(
                       activeState === 7 ? 'text-[#A8A8A8]' : 'text-transparent',
@@ -4545,12 +4545,12 @@ export default function Home() {
                 <div
                   className={classNames(
                     activeState === 7 || activeState === 8
-                      ? 'mt-[6.1em] '
-                      : 'mt-[6.1em] ',
+                      ? 'mt-[2.61em] '
+                      : 'mt-[2.61em] ',
                     'block text-right',
                   )}
                 >
-                  <div className="flex flex-col items-center justify-end">
+                  <div className="flex flex-col items-center justify-end  h-[80px] w-[80px] pt-[5px] pb-[6.5px] pl-2 pr-[6px]">
                     <animated.h2
                       style={{
                         opacity: opacityInterpolate(
