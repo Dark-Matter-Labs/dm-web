@@ -2676,7 +2676,7 @@ export default function Home() {
                     />
 
                     <Arc
-                      title=" 7Gen Cities"
+                      title="7Gen Cities"
                       short="7G"
                       activeState={SGactive || openSG}
                       setActive={setSGActive}
@@ -2686,7 +2686,7 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="M0 Cities"
+                      title="Material 0 Cities"
                       short="M0"
                       activeState={M0active || openM0}
                       setActive={setM0Active}
@@ -2706,7 +2706,7 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="Nature as Infrastructure"
+                      title="Nature as Infrastr."
                       short="NI"
                       activeState={WIactive || openWI}
                       setActive={setWIActive}
@@ -3295,7 +3295,7 @@ export default function Home() {
 
                   <div>
                     <Lab
-                      title="Philanthropy Futures"
+                      title="Philanthr. Futures"
                       short="PF"
                       activeState={PFactive || openPF}
                       setActive={setPFActive}
@@ -3498,7 +3498,7 @@ export default function Home() {
 
                   <div>
                     <Lab
-                      title=" Property & Beyond"
+                      title="Property & Beyond"
                       short="PB"
                       activeState={PBactive || openPB}
                       setActive={setPBActive}
@@ -3885,7 +3885,7 @@ export default function Home() {
                   <div>
                     <Lab
                       title="Beyond the Rules"
-                      short="BTR"
+                      short="BR"
                       activeState={BRactive || openBR}
                       setActive={setBRActive}
                       setOpen={setOpenBR}
@@ -4087,8 +4087,8 @@ export default function Home() {
 
                   <div>
                     <Lab
-                      title="Sensing, Modeling, Mapping"
-                      short="SMM"
+                      title="Sensing & Modeling"
+                      short="SM"
                       activeState={SMactive || openSM}
                       setActive={setSMActive}
                       setOpen={setOpenSM}
@@ -4576,7 +4576,7 @@ export default function Home() {
                   />
 
                   <Studio
-                    title="Conversational Design"
+                    title="Conversat. Design"
                     short="CD"
                     activeState={CDactive || openCD}
                     setActive={setCDActive}
@@ -4609,7 +4609,7 @@ export default function Home() {
                     onMouseLeave={() => setODActive(false)}
                     onClick={() => setOpenOD(true)}
                   >
-                    <p className="text-base font-normal uppercase">Org Dev</p>
+                    <p className="text-[17px] font-normal uppercase">Org Dev</p>
                   </animated.div>
                 </div>
               </div>
@@ -4663,13 +4663,13 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainA(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight ">
                         {' '}
                         A
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-tight">
                         Ontology & Epistemology
                       </p>
                     </div>
@@ -4681,7 +4681,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Fostering a relational worldview
                       </p>
                     </div>
@@ -4693,7 +4693,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Replacing profit as the collective goal
                       </p>
                     </div>
@@ -4705,7 +4705,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         <br />
                         Building political will
                       </p>
@@ -4718,7 +4718,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Phenomenological measures of success (lived experience)
                       </p>
                     </div>
@@ -4747,12 +4747,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainB(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         B
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-tight">
                         Money & valuation logic
                       </p>
                     </div>
@@ -4761,10 +4761,10 @@ export default function Home() {
                       onClick={() => setOpenDomainB1(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className=" font-SaansRegular text-base leading-tight">
+                      <p className="font-SaansRegular text-base leading-tight">
                         B-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Demonstrating entangled and long-term value
                       </p>
                     </div>
@@ -4776,7 +4776,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Decolonised, bioregional currency stewardship
                       </p>
                     </div>
@@ -4788,7 +4788,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Alternative non-fungible currency systems
                       </p>
                     </div>
@@ -4800,7 +4800,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Visualising finite and infinite economies
                       </p>
                     </div>
@@ -4829,12 +4829,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainC(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         C
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-tight">
                         Financial processes & investment
                       </p>
                     </div>
@@ -4846,7 +4846,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Making the investment case for entangled value
                       </p>
                     </div>
@@ -4858,7 +4858,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         <br /> Bridging demand & supply
                       </p>
                     </div>
@@ -4870,7 +4870,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Structuring capital & investments
                       </p>
                     </div>
@@ -4882,7 +4882,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Enabling strategic ecosystem investments
                       </p>
                     </div>
@@ -4894,7 +4894,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-5
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
                         Socialising the supportive narratives for alternative
                         financing pathways
                       </p>
@@ -4907,7 +4907,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-6
                       </p>
-                      <p className="self-stretch font-SaansMed text-[8px] leading-tight -tracking-[0.54px]">
+                      <p className="self-stretch font-SaansRegular text-[9.97px] leading-[0.8em] tracking-tight">
                         Socialising transformational narratives for a
                         regenerative financial system
                       </p>
@@ -4927,12 +4927,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainD(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         D
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-tight">
                         Ownership, law & governance
                       </p>
                     </div>
@@ -4944,7 +4944,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
                         Using instruments to demonstrate alternative theories of
                         ownership
                       </p>
@@ -4957,7 +4957,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
                         Elevating alternative models that recouple surplus with
                         stewardship
                       </p>
@@ -4970,7 +4970,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Demonstrating multi-actor governance structures
                       </p>
                     </div>
@@ -4982,7 +4982,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Embedding data-augmented decision making
                       </p>
                     </div>
@@ -4994,7 +4994,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         D-5
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
                         Building deep respect for the other-than-human world,
                         ancestors and future generations
                       </p>
@@ -5018,13 +5018,13 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainE(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         {' '}
                         E
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-tight">
                         Institutional logic & policy
                       </p>
                     </div>
@@ -5036,7 +5036,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Enabling public-civic efficacy to transform place
                       </p>
                     </div>
@@ -5048,7 +5048,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-[0.8em] tracking-tight">
                         Building the foundations for planetary stewardship
                         institutions
                       </p>
@@ -5060,7 +5060,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Designing reflective, data-driven policy instruments
                       </p>
                     </div>
@@ -5072,7 +5072,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Place-based, policy process design
                       </p>
                     </div>
@@ -5100,12 +5100,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainF(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         F
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-tight">
                         Material, energy & land use
                       </p>
                     </div>
@@ -5117,7 +5117,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-[0.8em] tracking-tight">
                         Developing collaborative, non-extractive interfaces with
                         the physical environment
                       </p>
@@ -5130,7 +5130,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
                         Visualising material and energy flows
                       </p>
                     </div>
@@ -5141,7 +5141,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
                         Developing a stewardship data infrastructure for the
                         built environment
                       </p>
@@ -5154,7 +5154,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         F-4
                       </p>
-                      <p className="font-SaansMed text-[7px] leading-tight -tracking-[0.54px]">
+                      <p className="font-SaansRegular text-[9.97px] leading-[0.7em] tracking-tight">
                         Designing and demonstrating autonomous, regenerative and
                         affordable multi-purpose developments.
                       </p>
