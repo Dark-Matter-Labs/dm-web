@@ -2630,7 +2630,7 @@ export default function Home() {
 
                 <div className="grid grid-cols-9 gap-0">
                   <div className="">
-                    <div className="mb-1.5 flex flex-col items-center justify-end h-[80px] w-[80px] pt-[5px] pb-[6.5px] pl-2 pr-[6px]">
+                    <div className="mb-1.5 flex h-[80px] w-[80px] flex-col items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
@@ -2706,7 +2706,7 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="Nature as Infrastr."
+                      title="Nature as Infrastruct."
                       short="NI"
                       activeState={WIactive || openWI}
                       setActive={setWIActive}
@@ -4275,7 +4275,7 @@ export default function Home() {
                   'text-right opacity-0',
                 )}
               >
-                <div className="flex flex-col items-center justify-end  h-[80px] w-[80px] pt-[5px] pb-[6.5px] pl-2 pr-[6px]">
+                <div className="flex h-[80px] w-[80px] flex-col  items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                   <h2
                     className={classNames(
                       activeState === 7 ? 'text-[#A8A8A8]' : 'text-transparent',
@@ -4324,13 +4324,15 @@ export default function Home() {
                   }}
                   className={classNames(
                     ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                    'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pt-[5px] pb-[6.5px] pl-2 pr-[6px]',
+                    'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px]',
                   )}
                   onMouseOver={() => setODActive(true)}
                   onMouseLeave={() => setODActive(false)}
                   onClick={() => setOpenOD(true)}
                 >
-                  <p className="font-SaansRegular text-[17px] font-normal uppercase">Org Dev</p>
+                  <p className="font-SaansRegular text-[17px] font-normal uppercase">
+                    Org Dev
+                  </p>
                 </animated.div>
               </div>
             </animated.div>
@@ -4550,7 +4552,7 @@ export default function Home() {
                     'block text-right',
                   )}
                 >
-                  <div className="flex flex-col items-center justify-end  h-[80px] w-[80px] pt-[5px] pb-[6.5px] pl-2 pr-[6px]">
+                  <div className="flex h-[80px] w-[80px] flex-col  items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                     <animated.h2
                       style={{
                         opacity: opacityInterpolate(
@@ -4603,13 +4605,15 @@ export default function Home() {
                     }}
                     className={classNames(
                       ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pt-[5px] pb-[6.5px] pl-2 pr-[6px] tracking-wide',
+                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px] tracking-wide',
                     )}
                     onMouseOver={() => setODActive(true)}
                     onMouseLeave={() => setODActive(false)}
                     onClick={() => setOpenOD(true)}
                   >
-                    <p className="font-SaansRegular  text-[17px] font-normal uppercase leading-[125%]">Org Dev</p>
+                    <p className="font-SaansRegular  text-[17px] font-normal uppercase leading-[125%]">
+                      Org Dev
+                    </p>
                   </animated.div>
                 </div>
               </div>
@@ -4718,7 +4722,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-4
                       </p>
-                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight max-w-[80px]">
+                      <p className="max-w-[80px] font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Phenomenological measures of success (lived experience)
                       </p>
                     </div>
@@ -5117,7 +5121,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-1
                       </p>
-                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight max-w-[90px]">
+                      <p className="max-w-[90px] font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Developing collaborative, non-extractive interfaces with
                         the physical environment
                       </p>
