@@ -2621,7 +2621,7 @@ export default function Home() {
                           false,
                         ),
                       }}
-                      className="pb-4 text-base font-normal text-[#A8A8A8]"
+                      className="pb-4 font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                     >
                       Labs
                     </animated.h2>
@@ -2630,7 +2630,7 @@ export default function Home() {
 
                 <div className="grid grid-cols-9 gap-0">
                   <div className="">
-                    <div className="mb-1.5 ">
+                    <div className="mb-1.5 flex flex-col items-center justify-end">
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
@@ -2639,7 +2639,7 @@ export default function Home() {
                             false,
                           ),
                         }}
-                        className="h-[80px] w-[80px] pl-2 pt-[3rem] text-base font-normal text-[#A8A8A8]"
+                        className="h-[80px] w-[80px] pl-2 pt-[3rem] font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                       >
                         Arcs
                       </animated.h2>
@@ -4279,7 +4279,7 @@ export default function Home() {
                   <h2
                     className={classNames(
                       activeState === 7 ? 'text-[#A8A8A8]' : 'text-transparent',
-                      'text-base font-normal ',
+                      'font-SaansRegular text-[17px] font-normal ',
                     )}
                   >
                     Studios
@@ -4324,13 +4324,13 @@ export default function Home() {
                   }}
                   className={classNames(
                     ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                    'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-2',
+                    'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pt-[5px] pb-[6.5px] pl-2 pr-[6px]',
                   )}
                   onMouseOver={() => setODActive(true)}
                   onMouseLeave={() => setODActive(false)}
                   onClick={() => setOpenOD(true)}
                 >
-                  <p className="font-SaansRegular  text-[17px] font-normal uppercase">Org Dev</p>
+                  <p className="font-SaansRegular text-[17px] font-normal uppercase">Org Dev</p>
                 </animated.div>
               </div>
             </animated.div>
@@ -4376,7 +4376,7 @@ export default function Home() {
                   <div className=" text-center">
                     <h2
                       className={classNames(
-                        'pb-4 text-base font-normal opacity-0',
+                        'pb-4 font-SaansRegular text-[17px] font-normal opacity-0',
                       )}
                     >
                       Labs
@@ -4394,7 +4394,7 @@ export default function Home() {
                     <div
                       className={classNames(
                         activeState === 7 || activeState === 8 ? '' : '',
-                        `studio-layer  border-b border-l border-t border-[#262626]`,
+                        `studio-layer border-b border-l border-t border-[#262626]`,
                       )}
                     >
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
@@ -4550,7 +4550,7 @@ export default function Home() {
                     'block text-right',
                   )}
                 >
-                  <div className="">
+                  <div className="flex flex-col items-center justify-end">
                     <animated.h2
                       style={{
                         opacity: opacityInterpolate(
@@ -4559,7 +4559,7 @@ export default function Home() {
                           false,
                         ),
                       }}
-                      className="text-base font-normal text-[#A8A8A8]"
+                      className="font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                     >
                       Studios
                     </animated.h2>
@@ -4603,7 +4603,7 @@ export default function Home() {
                     }}
                     className={classNames(
                       ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-[7px] tracking-wide',
+                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pt-[5px] pb-[6.5px] pl-2 pr-[6px] tracking-wide',
                     )}
                     onMouseOver={() => setODActive(true)}
                     onMouseLeave={() => setODActive(false)}
@@ -4669,7 +4669,7 @@ export default function Home() {
                         {' '}
                         A
                       </p>
-                      <p className="font-SaansRegular text-[12px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Ontology & Epistemology
                       </p>
                     </div>
@@ -4752,7 +4752,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B
                       </p>
-                      <p className="font-SaansRegular text-[12px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Money & valuation logic
                       </p>
                     </div>
@@ -4834,7 +4834,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C
                       </p>
-                      <p className="font-SaansRegular text-[12px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Financial processes & investment
                       </p>
                     </div>
@@ -4932,7 +4932,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         D
                       </p>
-                      <p className="font-SaansRegular text-[12px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Ownership, law & governance
                       </p>
                     </div>
@@ -5024,7 +5024,7 @@ export default function Home() {
                         {' '}
                         E
                       </p>
-                      <p className="font-SaansRegular text-[12px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Institutional logic & policy
                       </p>
                     </div>
@@ -5105,7 +5105,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         F
                       </p>
-                      <p className="font-SaansRegular text-[12px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Material, energy & land use
                       </p>
                     </div>
