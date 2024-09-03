@@ -17,4 +17,4 @@ const linkObject = {
   ],
 };
 
-export default linkObject
+export default linkObject;

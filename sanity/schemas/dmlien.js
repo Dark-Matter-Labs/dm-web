@@ -35,7 +35,7 @@ const dmlien = {
       name: 'inits',
       type: 'array',
       title: 'Initiatives',
-      of: [{ type: 'reference', to: { type: 'initiative' } }]
+      of: [{ type: 'reference', to: { type: 'initiative' } }],
     },
   ],
 };

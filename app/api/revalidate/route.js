@@ -13,7 +13,9 @@ export async function POST(req) {
 
     if (!isValidSignature) {
       const message = 'Invalid signature';
-      return new Response(JSON.stringify({ message, isValidSignature, body }), { status: 401 });
+      return new Response(JSON.stringify({ message, isValidSignature, body }), {
+        status: 401,
+      });
     }
 
     if (!body?._type) {
