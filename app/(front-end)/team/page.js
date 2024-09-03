@@ -11,7 +11,7 @@ const dmlienQuery = `
 `;
 
 export async function getDmliens() {
-  const dmliens = await client.fetch(dmlienQuery);
+  const dmliens = await client.fetch(dmlienQuery, { cache: 'no-store' });
   return dmliens;
 }
 
