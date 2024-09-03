@@ -4681,7 +4681,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-1
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Fostering a relational worldview
                       </p>
                     </div>
@@ -4693,7 +4693,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-2
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Replacing profit as the collective goal
                       </p>
                     </div>
@@ -4705,7 +4705,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-3
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         <br />
                         Building political will
                       </p>
@@ -4718,7 +4718,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-4
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight max-w-[80px]">
                         Phenomenological measures of success (lived experience)
                       </p>
                     </div>
@@ -4764,7 +4764,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-1
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Demonstrating entangled and long-term value
                       </p>
                     </div>
@@ -4776,7 +4776,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-2
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Decolonised, bioregional currency stewardship
                       </p>
                     </div>
@@ -4788,7 +4788,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-3
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Alternative non-fungible currency systems
                       </p>
                     </div>
@@ -4800,7 +4800,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-4
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Visualising finite and infinite economies
                       </p>
                     </div>
@@ -4846,7 +4846,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-1
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Making the investment case for entangled value
                       </p>
                     </div>
@@ -4858,7 +4858,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-2
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         <br /> Bridging demand & supply
                       </p>
                     </div>
@@ -4870,7 +4870,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-3
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Structuring capital & investments
                       </p>
                     </div>
@@ -4882,7 +4882,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-4
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Enabling strategic ecosystem investments
                       </p>
                     </div>
@@ -4894,7 +4894,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-5
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight ">
                         Socialising the supportive narratives for alternative
                         financing pathways
                       </p>
@@ -4907,7 +4907,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-6
                       </p>
-                      <p className="self-stretch font-SaansRegular text-[9.97px] leading-[0.8em] tracking-tight">
+                      <p className="self-stretch font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Socialising transformational narratives for a
                         regenerative financial system
                       </p>
@@ -4944,7 +4944,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-1
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Using instruments to demonstrate alternative theories of
                         ownership
                       </p>
@@ -4957,7 +4957,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-2
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Elevating alternative models that recouple surplus with
                         stewardship
                       </p>
@@ -4970,7 +4970,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-3
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Demonstrating multi-actor governance structures
                       </p>
                     </div>
@@ -4982,7 +4982,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-4
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Embedding data-augmented decision making
                       </p>
                     </div>
@@ -4994,7 +4994,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         D-5
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Building deep respect for the other-than-human world,
                         ancestors and future generations
                       </p>
@@ -5036,7 +5036,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-1
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Enabling public-civic efficacy to transform place
                       </p>
                     </div>
@@ -5048,7 +5048,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-2
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[0.8em] tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Building the foundations for planetary stewardship
                         institutions
                       </p>
@@ -5060,7 +5060,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-3
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Designing reflective, data-driven policy instruments
                       </p>
                     </div>
@@ -5072,7 +5072,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-4
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Place-based, policy process design
                       </p>
                     </div>
@@ -5117,7 +5117,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-1
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[0.8em] tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight max-w-[90px]">
                         Developing collaborative, non-extractive interfaces with
                         the physical environment
                       </p>
@@ -5130,7 +5130,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-2
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-tight tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Visualising material and energy flows
                       </p>
                     </div>
@@ -5141,7 +5141,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-3
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[1em] tracking-tight">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Developing a stewardship data infrastructure for the
                         built environment
                       </p>
@@ -5154,7 +5154,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         F-4
                       </p>
-                      <p className="font-SaansRegular text-[9.97px] leading-[0.7em] tracking-tight">
+                      <p className="font-SaansRegular text-[7px] leading-tight tracking-tight">
                         Designing and demonstrating autonomous, regenerative and
                         affordable multi-purpose developments.
                       </p>
