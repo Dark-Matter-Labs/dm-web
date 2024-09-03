@@ -4330,7 +4330,7 @@ export default function Home() {
                   onMouseLeave={() => setODActive(false)}
                   onClick={() => setOpenOD(true)}
                 >
-                  <p className="text-base font-normal uppercase">Org Dev</p>
+                  <p className="font-SaansRegular  text-[17px] font-normal uppercase">Org Dev</p>
                 </animated.div>
               </div>
             </animated.div>
@@ -4603,13 +4603,13 @@ export default function Home() {
                     }}
                     className={classNames(
                       ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-2',
+                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-[7px] tracking-wide',
                     )}
                     onMouseOver={() => setODActive(true)}
                     onMouseLeave={() => setODActive(false)}
                     onClick={() => setOpenOD(true)}
                   >
-                    <p className="text-[17px] font-normal uppercase">Org Dev</p>
+                    <p className="font-SaansRegular  text-[17px] font-normal uppercase leading-[125%]">Org Dev</p>
                   </animated.div>
                 </div>
               </div>
