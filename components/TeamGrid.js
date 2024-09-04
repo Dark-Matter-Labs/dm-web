@@ -9,11 +9,24 @@ export default function TeamGrid({ dmliens }) {
   const [hover, setHover] = useState();
   const [openTeam, setOpenTeam] = useState(false);
   const [dmlien, setDmlien] = useState({});
-  const router = useRouter()
-  const searchParams = useSearchParams()
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  console.log(searchParams)
-  
+  function handleClose() {
+    setOpenTeam(false);
+    window.history.replaceState(null, '', '/team');
+    console.log('run');
+  }
+
+  useEffect(() => {
+    if (searchParams.size > 0) {
+      let fullName = searchParams.get('key');
+      let dmlien = dmliens.filter((person) => person.fullName === fullName);
+      setDmlien(dmlien[0]);
+      setOpenTeam(true);
+    }
+  }, [searchParams, dmliens]);
+
   return (
     <>
       <div className="relative mt-[100px] flex items-start justify-between">
@@ -43,7 +56,7 @@ export default function TeamGrid({ dmliens }) {
                   setOpenTeam(true);
                   setDmlien(dmlien);
                   setHover(null);
-                  router.push(`?key=${dmlien.fullName}`)
+                  router.push(`?key=${dmlien.fullName}`);
                 }}
               >
                 <Image
@@ -73,7 +86,7 @@ export default function TeamGrid({ dmliens }) {
             </li>
           ))}
         </ul>
-        <TeamPopUp openState={openTeam} setOpen={setOpenTeam} dmlien={dmlien} />
+        <TeamPopUp openState={openTeam} setOpen={handleClose} dmlien={dmlien} />
       </div>
     </>
   );
