@@ -4,8 +4,8 @@ import { React, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import dmLogo from '../images/dm-logo.png';
-import dmLogoHover from '../images/dm-logo-hover.png';
+import dmLogo from '@/images/dm-logo.png';
+import dmLogoHover from '@/images/dm-logo-hover.png';
 
 export default function Navbar() {
   const [hover, setHover] = useState(false);

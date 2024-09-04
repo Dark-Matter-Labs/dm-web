@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import SocialPills from './SocialPills';
-import dmLogo from '../images/DmLogoFull.png';
+import dmLogo from '@/images/DmLogoFull.png';
 
 const navigation = {
   solutions: [
