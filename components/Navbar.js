@@ -1,11 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import dmLogo from '@/images/dm-logo.png';
-import dmLogoHover from '@/images/dm-logo-hover.png';
+import dmLogo from '../images/dm-logo.png';
+import dmLogoHover from '../images/dm-logo-hover.png';
 
 export default function Navbar() {
   const [hover, setHover] = useState(false);
@@ -55,24 +55,24 @@ export default function Navbar() {
                         >
                           Initiatives
                         </a>
-                        <a
-                          href="https://glorious-impact-532915.framer.app/team"
+                        <Link
+                          href="/team"
                           className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
                         >
                           Team
-                        </a>
+                        </Link>
                         <a
                           href="https://glorious-impact-532915.framer.app/jobs"
                           className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
                         >
                           Jobs
                         </a>
-                        <a
-                          href="https://glorious-impact-532915.framer.app/contacts"
+                        <Link
+                          href="/contact"
                           className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
                         >
                           Contact
-                        </a>
+                        </Link>
                         <a
                           href="https://glorious-impact-532915.framer.app/contribute"
                           className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
