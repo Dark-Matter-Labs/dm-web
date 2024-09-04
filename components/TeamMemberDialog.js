@@ -36,12 +36,13 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 <h3 className="text-xl uppercase text-[#595959] ">Contacts</h3>
                 <ul>
                   <li className="text-lg text-white hover:underline">
-                    <Link href="#">{dmlien.email} <Square2StackIcon className='h-4 w-4'/></Link>
+                    <Link href="#">
+                      {dmlien.email} <Square2StackIcon className="h-4 w-4" />
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
-
             <div className="flex basis-[468px] flex-col items-start justify-start gap-[16px] border-l-[0.5px] border-[#353535]  py-[28px] pl-[28px] pr-[32px]">
               <div className="flex items-center justify-between">
                 <DialogTitle
