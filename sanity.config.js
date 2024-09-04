@@ -15,7 +15,7 @@ export default defineConfig({
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
-  useCdn: false,
+  useCdn: process.env.NODE_ENV === 'development' ? true : false,
   plugins: [
     structureTool(),
     // Vision is a tool that lets you query your content with GROQ in the studio
@@ -23,3 +23,4 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
   ],
 });
+

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
 import { useState } from 'react';
@@ -50,7 +50,7 @@ export default function TeamGrid({ dmliens }) {
                   <h2 className="font-SaansRegular text-xl leading-[21px] text-grey-1 duration-200 group-hover:opacity-80">
                     {dmlien.fullName}
                   </h2>
-                  {dmlien.location.map((loc, id) => (
+                  {dmlien?.location?.map((loc, id) => (
                     <h3
                       key={id}
                       className="font-SaansRegular text-[14px] leading-[18px] text-[#707070]"
