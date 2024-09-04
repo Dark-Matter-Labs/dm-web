@@ -1,7 +1,7 @@
-import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
 import DMButton from '@/components/Button';
 import TeamGrid from '@/components/TeamGrid';
+import { sanityFetch } from '@/sanity/lib/client';
 
 const dmlienQuery = `
 *[_type == 'dmlien'] | order(fullName asc) {
@@ -10,15 +10,11 @@ const dmlienQuery = `
 }
 `;
 
-export async function getDmliens() {
-  const dmliens = await client.fetch(dmlienQuery, {
-    next: { tags: ['dmlien', 'initiative'] },
-  });
-  return dmliens;
-}
-
 export default async function TeamPage() {
-  const dmliens = await getDmliens();
+  const dmliens = await sanityFetch({
+    query: dmlienQuery,
+    tags: ['dmlien', 'initiative'],
+  });
   return (
     <>
       <div className="mt-[100px] flex w-full items-center justify-end gap-0 text-white ">
