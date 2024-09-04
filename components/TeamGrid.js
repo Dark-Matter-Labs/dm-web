@@ -1,13 +1,19 @@
 'use client';
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import TeamPopUp from './TeamMemberDialog';
+import { useRouter, useSearchParams } from 'next/navigation';
 export default function TeamGrid({ dmliens }) {
   const [hover, setHover] = useState();
   const [openTeam, setOpenTeam] = useState(false);
   const [dmlien, setDmlien] = useState({});
+  const router = useRouter()
+  const searchParams = useSearchParams()
+
+  console.log(searchParams)
+  
   return (
     <>
       <div className="relative mt-[100px] flex items-start justify-between">
@@ -37,6 +43,7 @@ export default function TeamGrid({ dmliens }) {
                   setOpenTeam(true);
                   setDmlien(dmlien);
                   setHover(null);
+                  router.push(`?key=${dmlien.fullName}`)
                 }}
               >
                 <Image
