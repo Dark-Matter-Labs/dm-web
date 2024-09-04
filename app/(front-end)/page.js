@@ -1042,7 +1042,7 @@ export default function Home() {
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            The NZC Arc aspires to create smart cities that are carbon neutral.
+            The NZC Arc aims to enable climate-neutral and smart cities by 2030.
             This involves{' '}
             <a
               className="text-[#737EA5]"
@@ -1350,7 +1350,7 @@ export default function Home() {
         image={CDlogo}
         openState={openCD}
         setOpen={setOpenCD}
-        website=""
+        website="https://cds.darkmatterlabs.org/"
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
@@ -2288,7 +2288,7 @@ export default function Home() {
             }}
             className="mt-[1800px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Matrix</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Matrix</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               We are not a think tank or consultancy with a single, neat theory
               of change. Instead, our collaborative approach is firmly grounded
@@ -2308,7 +2308,7 @@ export default function Home() {
             }}
             className="mt-[300px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Labs</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Labs</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Each of our Labs is focused on a specific area of the
               socio-economic system and the everyday codes (e.g. norms,
@@ -2342,7 +2342,7 @@ export default function Home() {
             }}
             className="mt-[270px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Arcs</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Arcs</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Our Arc workflows are designed with clear, directional goals that
               guide our efforts toward impactful outcomes. For instance,{' '}
@@ -2353,7 +2353,7 @@ export default function Home() {
                 Net Zero Cities
               </span>{' '}
               <span className="align-super text-[9.5px] uppercase">arc</span>{' '}
-              aims to enable smart, carbon-neutral cities by 2030, while{' '}
+              aims to enable climate-neutral and smart cities by 2030, while{' '}
               <span
                 onClick={() => setOpenRC(true)}
                 className="font-SaansMed hover:cursor-crosshair"
@@ -2373,7 +2373,7 @@ export default function Home() {
             }}
             className="mt-[320px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Studios</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Studios</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Studios are the connective tissue that support both the Labs and
               Missions. The studios explore themes that help our work to be
@@ -2405,7 +2405,7 @@ export default function Home() {
             }}
             className="mt-[360px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Intersections</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Intersections</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Each project in our portfolio contributes to a number of systemic
               capabilities. In doing so they intersect with the Labs, Arcs and
@@ -2423,7 +2423,7 @@ export default function Home() {
             }}
             className="mt-[250px]"
           >
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Capabilities</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Capabilities</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               The capabilities form the core of Dm’s Mission and sit at the
               centre of the Matrix. These are the systemic goals that we have
@@ -2621,7 +2621,7 @@ export default function Home() {
                           false,
                         ),
                       }}
-                      className="pb-4 text-base font-normal text-[#A8A8A8]"
+                      className="pb-4 font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                     >
                       Labs
                     </animated.h2>
@@ -2630,7 +2630,7 @@ export default function Home() {
 
                 <div className="grid grid-cols-9 gap-0">
                   <div className="">
-                    <div className="mb-1.5 ">
+                    <div className="mb-1.5 flex h-[80px] w-[80px] flex-col items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                       <animated.h2
                         style={{
                           opacity: opacityInterpolate(
@@ -2639,7 +2639,7 @@ export default function Home() {
                             false,
                           ),
                         }}
-                        className="h-[80px] w-[80px] pl-2 pt-[3rem] text-base font-normal text-[#A8A8A8]"
+                        className="  font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                       >
                         Arcs
                       </animated.h2>
@@ -2676,7 +2676,7 @@ export default function Home() {
                     />
 
                     <Arc
-                      title=" 7Gen Cities"
+                      title="7Gen Cities"
                       short="7G"
                       activeState={SGactive || openSG}
                       setActive={setSGActive}
@@ -2686,7 +2686,7 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="M0 Cities"
+                      title="Material 0 Cities"
                       short="M0"
                       activeState={M0active || openM0}
                       setActive={setM0Active}
@@ -2706,7 +2706,7 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="Nature as Infrastructure"
+                      title="Nature as Infrastruct."
                       short="NI"
                       activeState={WIactive || openWI}
                       setActive={setWIActive}
@@ -3295,7 +3295,7 @@ export default function Home() {
 
                   <div>
                     <Lab
-                      title="Philanthropy Futures"
+                      title="Philanthr. Futures"
                       short="PF"
                       activeState={PFactive || openPF}
                       setActive={setPFActive}
@@ -3498,7 +3498,7 @@ export default function Home() {
 
                   <div>
                     <Lab
-                      title=" Property & Beyond"
+                      title="Property & Beyond"
                       short="PB"
                       activeState={PBactive || openPB}
                       setActive={setPBActive}
@@ -3885,7 +3885,7 @@ export default function Home() {
                   <div>
                     <Lab
                       title="Beyond the Rules"
-                      short="BTR"
+                      short="BR"
                       activeState={BRactive || openBR}
                       setActive={setBRActive}
                       setOpen={setOpenBR}
@@ -4087,8 +4087,8 @@ export default function Home() {
 
                   <div>
                     <Lab
-                      title="Sensing, Modeling, Mapping"
-                      short="SMM"
+                      title="Sensing & Modeling"
+                      short="SM"
                       activeState={SMactive || openSM}
                       setActive={setSMActive}
                       setOpen={setOpenSM}
@@ -4271,15 +4271,15 @@ export default function Home() {
               </div>
               <div
                 className={classNames(
-                  activeState === 7 ? 'mt-[6.1em] block' : 'mt-[5.89em] hidden',
+                  activeState === 7 ? 'mt-[2.6em] block' : 'mt-[2.6em] hidden',
                   'text-right opacity-0',
                 )}
               >
-                <div className="">
+                <div className="flex h-[80px] w-[80px] flex-col  items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                   <h2
                     className={classNames(
                       activeState === 7 ? 'text-[#A8A8A8]' : 'text-transparent',
-                      'text-base font-normal ',
+                      'font-SaansRegular text-[17px] font-normal ',
                     )}
                   >
                     Studios
@@ -4324,13 +4324,15 @@ export default function Home() {
                   }}
                   className={classNames(
                     ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                    'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-2',
+                    'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px]',
                   )}
                   onMouseOver={() => setODActive(true)}
                   onMouseLeave={() => setODActive(false)}
                   onClick={() => setOpenOD(true)}
                 >
-                  <p className="text-base font-normal uppercase">Org Dev</p>
+                  <p className="font-SaansRegular text-[17px] font-normal uppercase">
+                    Org Dev
+                  </p>
                 </animated.div>
               </div>
             </animated.div>
@@ -4376,7 +4378,7 @@ export default function Home() {
                   <div className=" text-center">
                     <h2
                       className={classNames(
-                        'pb-4 text-base font-normal opacity-0',
+                        'pb-4 font-SaansRegular text-[17px] font-normal opacity-0',
                       )}
                     >
                       Labs
@@ -4394,7 +4396,7 @@ export default function Home() {
                     <div
                       className={classNames(
                         activeState === 7 || activeState === 8 ? '' : '',
-                        `studio-layer  border-b border-l border-t border-[#262626]`,
+                        `studio-layer border-b border-l border-t border-[#262626]`,
                       )}
                     >
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
@@ -4545,12 +4547,12 @@ export default function Home() {
                 <div
                   className={classNames(
                     activeState === 7 || activeState === 8
-                      ? 'mt-[6.1em] '
-                      : 'mt-[6.1em] ',
+                      ? 'mt-[2.61em] '
+                      : 'mt-[2.61em] ',
                     'block text-right',
                   )}
                 >
-                  <div className="">
+                  <div className="flex h-[80px] w-[80px] flex-col  items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                     <animated.h2
                       style={{
                         opacity: opacityInterpolate(
@@ -4559,7 +4561,7 @@ export default function Home() {
                           false,
                         ),
                       }}
-                      className="text-base font-normal text-[#A8A8A8]"
+                      className="font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                     >
                       Studios
                     </animated.h2>
@@ -4576,7 +4578,7 @@ export default function Home() {
                   />
 
                   <Studio
-                    title="Conversational Design"
+                    title="Conversat. Design"
                     short="CD"
                     activeState={CDactive || openCD}
                     setActive={setCDActive}
@@ -4603,13 +4605,15 @@ export default function Home() {
                     }}
                     className={classNames(
                       ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
-                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start px-2 py-2',
+                      'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px] tracking-wide',
                     )}
                     onMouseOver={() => setODActive(true)}
                     onMouseLeave={() => setODActive(false)}
                     onClick={() => setOpenOD(true)}
                   >
-                    <p className="text-base font-normal uppercase">Org Dev</p>
+                    <p className="font-SaansRegular  text-[17px] font-normal uppercase leading-[125%]">
+                      Org Dev
+                    </p>
                   </animated.div>
                 </div>
               </div>
@@ -4663,13 +4667,13 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainA(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight ">
                         {' '}
                         A
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Ontology & Epistemology
                       </p>
                     </div>
@@ -4681,7 +4685,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Fostering a relational worldview
                       </p>
                     </div>
@@ -4693,7 +4697,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Replacing profit as the collective goal
                       </p>
                     </div>
@@ -4705,7 +4709,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         <br />
                         Building political will
                       </p>
@@ -4718,7 +4722,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="max-w-[80px] font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Phenomenological measures of success (lived experience)
                       </p>
                     </div>
@@ -4747,12 +4751,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainB(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         B
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Money & valuation logic
                       </p>
                     </div>
@@ -4761,10 +4765,10 @@ export default function Home() {
                       onClick={() => setOpenDomainB1(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className=" font-SaansRegular text-base leading-tight">
+                      <p className="font-SaansRegular text-base leading-tight">
                         B-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Demonstrating entangled and long-term value
                       </p>
                     </div>
@@ -4776,7 +4780,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Decolonised, bioregional currency stewardship
                       </p>
                     </div>
@@ -4788,7 +4792,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Alternative non-fungible currency systems
                       </p>
                     </div>
@@ -4800,7 +4804,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         B-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Visualising finite and infinite economies
                       </p>
                     </div>
@@ -4829,12 +4833,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainC(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         C
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Financial processes & investment
                       </p>
                     </div>
@@ -4846,7 +4850,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Making the investment case for entangled value
                       </p>
                     </div>
@@ -4858,7 +4862,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         <br /> Bridging demand & supply
                       </p>
                     </div>
@@ -4870,7 +4874,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         C-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Structuring capital & investments
                       </p>
                     </div>
@@ -4882,7 +4886,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Enabling strategic ecosystem investments
                       </p>
                     </div>
@@ -4894,7 +4898,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-5
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight ">
                         Socialising the supportive narratives for alternative
                         financing pathways
                       </p>
@@ -4907,7 +4911,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-6
                       </p>
-                      <p className="self-stretch font-SaansMed text-[8px] leading-tight -tracking-[0.54px]">
+                      <p className="self-stretch font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Socialising transformational narratives for a
                         regenerative financial system
                       </p>
@@ -4927,12 +4931,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainD(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         D
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Ownership, law & governance
                       </p>
                     </div>
@@ -4944,7 +4948,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Using instruments to demonstrate alternative theories of
                         ownership
                       </p>
@@ -4957,7 +4961,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Elevating alternative models that recouple surplus with
                         stewardship
                       </p>
@@ -4970,7 +4974,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Demonstrating multi-actor governance structures
                       </p>
                     </div>
@@ -4982,7 +4986,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Embedding data-augmented decision making
                       </p>
                     </div>
@@ -4994,7 +4998,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         D-5
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Building deep respect for the other-than-human world,
                         ancestors and future generations
                       </p>
@@ -5018,13 +5022,13 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainE(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         {' '}
                         E
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Institutional logic & policy
                       </p>
                     </div>
@@ -5036,7 +5040,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Enabling public-civic efficacy to transform place
                       </p>
                     </div>
@@ -5048,7 +5052,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Building the foundations for planetary stewardship
                         institutions
                       </p>
@@ -5060,7 +5064,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Designing reflective, data-driven policy instruments
                       </p>
                     </div>
@@ -5072,7 +5076,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-4
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Place-based, policy process design
                       </p>
                     </div>
@@ -5100,12 +5104,12 @@ export default function Home() {
                   <div className="">
                     <div
                       onClick={() => setOpenDomainF(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#FFF] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         F
                       </p>
-                      <p className="font-SaansMed text-[9.6px] leading-tight">
+                      <p className="font-SaansRegular text-[12px] leading-none">
                         Material, energy & land use
                       </p>
                     </div>
@@ -5117,7 +5121,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-1
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="max-w-[90px] font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Developing collaborative, non-extractive interfaces with
                         the physical environment
                       </p>
@@ -5130,7 +5134,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-2
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Visualising material and energy flows
                       </p>
                     </div>
@@ -5141,7 +5145,7 @@ export default function Home() {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-3
                       </p>
-                      <p className="font-SaansMed text-[8px] leading-tight tracking-tighter">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Developing a stewardship data infrastructure for the
                         built environment
                       </p>
@@ -5154,7 +5158,7 @@ export default function Home() {
                       <p className="font-SaansRegular text-base leading-tight">
                         F-4
                       </p>
-                      <p className="font-SaansMed text-[7px] leading-tight -tracking-[0.54px]">
+                      <p className="font-SaansRegular text-[7px] leading-tight tracking-tight">
                         Designing and demonstrating autonomous, regenerative and
                         affordable multi-purpose developments.
                       </p>
@@ -5199,7 +5203,7 @@ export default function Home() {
       >
         <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
           <div className="mt-[0px]">
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Contexts</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               The overarching LEE Mission allows us to contextually adjust the
               horizons of our interactions and interventions, whilst building
@@ -5302,7 +5306,7 @@ export default function Home() {
       >
         <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
           <div className="mt-20">
-            <h2 className="heading-4xl-Reg pb-2 text-grey-3">Paradigms</h2>
+            <h2 className="heading-4xl pb-2 text-grey-3">Paradigms</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               The Enlightenment, Industrial and Scientific revolutions created
               many advances for society. But what about their impact on deep
