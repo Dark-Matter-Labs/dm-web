@@ -18,7 +18,7 @@ const dmlien = {
       title: 'Email',
       type: 'string',
       validation: (Rule) =>
-        Rule.regex(
+        Rule.required().regex(
           /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
           {
             name: 'email',
