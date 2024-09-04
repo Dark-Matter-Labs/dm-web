@@ -5708,7 +5708,7 @@ export default function Home() {
                 Help us build a better future
               </h1>
               <div className="flex gap-8">
-                <DMButton href="https://glorious-impact-532915.framer.app/contacts">
+                <DMButton internal href="/contact">
                   Contact
                 </DMButton>
                 <DMButton href="https://glorious-impact-532915.framer.app/contribute">

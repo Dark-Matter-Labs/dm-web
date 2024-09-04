@@ -1,16 +1,17 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import SocialPills from './SocialPills';
 import dmLogo from '@/images/DmLogoFull.png';
 
 const navigation = {
   solutions: [
-    { name: 'Feed', href: '#' },
-    { name: 'Initiatives', href: '#' },
-    { name: 'Team', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Contact', href: '#' },
-    { name: 'Contribute', href: '#' },
-    { name: 'Provocations', href: '#' },
+    { name: 'Feed', href: '#', internal: true },
+    { name: 'Initiatives', href: '#', internal: true },
+    { name: 'Team', href: '/team', internal: true },
+    { name: 'Jobs', href: '#', internal: true },
+    { name: 'Contact', href: '/contact', internal: true },
+    { name: 'Contribute', href: '#', internal: true },
+    { name: 'Provocations', href: 'https://provocations.darkmatterlabs.org/', internal: false },
   ],
   company: [
     { country: 'Netherlands', fullName: 'Dark Matter Laboratories B.V.' },
@@ -44,7 +45,9 @@ export default function Footer() {
         <div className="mx-auto max-w-[1200px] pb-20 pt-[100px]">
           <div className="xl:grid xl:grid-cols-12">
             <div className="col-span-5 space-y-60">
+              <Link href='/'>
               <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
+              </Link>
               <SocialPills />
             </div>
             <div className="col-span-7 flex items-start justify-between ">
@@ -56,12 +59,21 @@ export default function Footer() {
                   >
                     {navigation.solutions.map((item) => (
                       <li key={item.name}>
+                        {item.internal ? 
+                         <Link
+                         href={item.href}
+                         className="p-xl-regular text-grey-1 hover:text-white"
+                       >
+                         {item.name}
+                       </Link>:
                         <a
-                          href={item.href}
-                          className="p-xl-regular text-grey-1 hover:text-white"
-                        >
-                          {item.name}
-                        </a>
+                        href={item.href}
+                        className="p-xl-regular text-grey-1 hover:text-white"
+                      >
+                        {item.name}
+                      </a>
+                        }
+                       
                       </li>
                     ))}
                   </ul>
