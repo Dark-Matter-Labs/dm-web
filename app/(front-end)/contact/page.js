@@ -1,4 +1,4 @@
-import SocialPills from '../../components/SocialPills';
+import SocialPills from '../../../components/SocialPills';
 
 export default function Contact() {
   return (

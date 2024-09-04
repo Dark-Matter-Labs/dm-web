@@ -14,6 +14,19 @@ const dmlien = {
       title: 'Full Name',
     },
     {
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.required().regex(
+          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+          {
+            name: 'email',
+            invert: false,
+          },
+        ),
+    },
+    {
       name: 'bio',
       type: 'text',
       title: 'Bio',
@@ -29,13 +42,13 @@ const dmlien = {
       name: 'links',
       type: 'array',
       title: 'Links',
-      of: [{ type: 'link' }],
+      of: [{ type: 'linkObject' }],
     },
     {
-      name: 'initiatives',
+      name: 'inits',
       type: 'array',
       title: 'Initiatives',
-      of: [{ type: 'initiative' }],
+      of: [{ type: 'reference', to: { type: 'initiative' } }],
     },
   ],
 };
