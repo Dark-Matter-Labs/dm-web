@@ -5711,9 +5711,6 @@ export default function Home() {
                 <DMButton internal href="/contact">
                   Contact
                 </DMButton>
-                <DMButton href="https://glorious-impact-532915.framer.app/contribute">
-                  Contribute
-                </DMButton>
               </div>
             </div>
           </div>

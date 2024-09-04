@@ -10,7 +10,7 @@ const navigation = {
     { name: 'Team', href: '/team', internal: true },
     { name: 'Jobs', href: '#', internal: true },
     { name: 'Contact', href: '/contact', internal: true },
-    { name: 'Contribute', href: '#', internal: true },
+    // { name: 'Contribute', href: '#', internal: true },
     { name: 'Provocations', href: 'https://provocations.darkmatterlabs.org/', internal: false },
   ],
   company: [
@@ -51,11 +51,11 @@ export default function Footer() {
               <SocialPills />
             </div>
             <div className="col-span-7 flex items-start justify-between ">
-              <div className="f">
+              <div className="">
                 <div>
                   <ul
                     role="list"
-                    className="justify-betweenitems-start flex flex-col space-y-4"
+                    className="justify-betweenitems-start flex flex-col space-y-6"
                   >
                     {navigation.solutions.map((item) => (
                       <li key={item.name}>
