@@ -3,12 +3,11 @@ import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
 import { useState } from 'react';
 
-import MyDialog from './TeamMemberDialog';
-
+import TeamPopUp from './TeamMemberDialog';
 export default function TeamGrid({ dmliens }) {
   const [hover, setHover] = useState();
-  const [openDialog, setOpenDialog] = useState(false);
-  const [teamMember, setTeamMember] = useState();
+  const [openTeam, setOpenTeam] = useState(false);
+  const [dmlien, setDmlien] = useState({});
 
   return (
     <>
@@ -36,8 +35,8 @@ export default function TeamGrid({ dmliens }) {
                 onMouseEnter={() => setHover(dmlien.fullName)}
                 onMouseLeave={() => setHover(null)}
                 onClick={() => {
-                  setOpenDialog(true);
-                  setTeamMember(dmlien);
+                  setOpenTeam(true);
+                  setDmlien(dmlien);
                   setHover(null);
                 }}
               >
@@ -60,15 +59,8 @@ export default function TeamGrid({ dmliens }) {
             </li>
           ))}
         </ul>
+        <TeamPopUp openState={openTeam} setOpen={setOpenTeam} dmlien={dmlien} />
       </div>
-      <MyDialog
-        isOpen={openDialog}
-        selectedItem={teamMember}
-        handleClose={() => {
-          setOpenDialog(false);
-          setTeamMember({});
-        }}
-      />
     </>
   );
 }

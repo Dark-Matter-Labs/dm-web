@@ -14,6 +14,19 @@ const dmlien = {
       title: 'Full Name',
     },
     {
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.regex(
+          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+          {
+            name: 'email',
+            invert: false,
+          },
+        ),
+    },
+    {
       name: 'bio',
       type: 'text',
       title: 'Bio',
