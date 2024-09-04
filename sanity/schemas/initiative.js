@@ -30,6 +30,12 @@ const initiative = {
       type: 'text',
       title: 'Initiative description',
     },
+    {
+      name: 'initiativeTeam',
+      type: 'array',
+      title: 'Initiative Team',
+      of: [{ type: 'reference', to: { type: 'dmlien' } }],
+    },
   ],
 };
 

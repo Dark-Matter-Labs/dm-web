@@ -52,7 +52,10 @@ export default function TeamGrid({ dmliens }) {
                     {dmlien.fullName}
                   </h2>
                   <h3 className="font-SaansRegular text-[14px] leading-[18px] text-[#707070]">
-                    <span className='align-super text-[9.5px]'>{dmlien.location.substring(0,2)}</span>{dmlien.location.substring(2,dmlien.location.length)}
+                    <span className="align-super text-[9.5px]">
+                      {dmlien.location.substring(0, 2)}
+                    </span>
+                    {dmlien.location.substring(2, dmlien.location.length)}
                   </h3>
                 </div>
               </button>

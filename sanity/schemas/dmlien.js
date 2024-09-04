@@ -33,22 +33,15 @@ const dmlien = {
     },
     {
       name: 'location',
-      type: 'string',
+      type: 'array',
       title: 'Location',
-      description:
-        'use an emoji for the country then add the city name like: 🇦🇺 Adelaide, if there are two cities it can be like this: 🇦🇺 Adelaide 🇫🇷 Paris',
+      of: [{ type: 'locationObject' }],
     },
     {
       name: 'links',
       type: 'array',
       title: 'Links',
       of: [{ type: 'linkObject' }],
-    },
-    {
-      name: 'inits',
-      type: 'array',
-      title: 'Initiatives',
-      of: [{ type: 'reference', to: { type: 'initiative' } }],
     },
   ],
 };
