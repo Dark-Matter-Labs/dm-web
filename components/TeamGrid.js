@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
 import { useState } from 'react';
@@ -8,7 +8,6 @@ export default function TeamGrid({ dmliens }) {
   const [hover, setHover] = useState();
   const [openTeam, setOpenTeam] = useState(false);
   const [dmlien, setDmlien] = useState({});
-
   return (
     <>
       <div className="relative mt-[100px] flex items-start justify-between">
@@ -51,9 +50,17 @@ export default function TeamGrid({ dmliens }) {
                   <h2 className="font-SaansRegular text-xl leading-[21px] text-grey-1 duration-200 group-hover:opacity-80">
                     {dmlien.fullName}
                   </h2>
-                  <h3 className="font-SaansRegular text-[14px] leading-[18px] text-[#707070]">
-                    <span className='align-super text-[9.5px]'>{dmlien.location.substring(0,2)}</span>{dmlien.location.substring(2,dmlien.location.length)}
-                  </h3>
+                  {dmlien.location.map((loc, id) => (
+                    <h3
+                      key={id}
+                      className="font-SaansRegular text-[14px] leading-[18px] text-[#707070]"
+                    >
+                      <span className="align-super text-[9.5px]">
+                        {loc.countryCode}{' '}
+                      </span>
+                      {loc.city}
+                    </h3>
+                  ))}
                 </div>
               </button>
             </li>
