@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import {
   Dialog,
   DialogBackdrop,
@@ -10,6 +13,8 @@ import { urlForImage } from '../sanity/lib/image';
 import Link from 'next/link';
 
 function TeamPopUp({ dmlien, openState, setOpen }) {
+  const [showLinkCopied, setShowLinkCopied] = useState(false);
+
   return (
     <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
       <DialogBackdrop
@@ -36,11 +41,26 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 <h3 className="text-xl uppercase text-[#595959] ">Contacts</h3>
                 <ul>
                   <li className="text-lg text-white hover:underline">
-                    <Link href="#">
-                      {dmlien.email} <Square2StackIcon className="h-4 w-4" />
-                    </Link>
+                    <div
+                      onClick={() => {
+                        navigator.clipboard.writeText(dmlien.email);
+                        setShowLinkCopied(true);
+                        setTimeout(() => {
+                          setShowLinkCopied(false);
+                        }, 2000);
+                      }}
+                      className="flex items-center gap-[8px] hover:cursor-pointer"
+                    >
+                      {dmlien.email}
+                      <span className="" title="Copy link to clipboard">
+                        <Square2StackIcon className="h-4 w-4" />
+                      </span>
+                    </div>
                   </li>
                 </ul>
+                {showLinkCopied && (
+                  <p className="p-lg-regular text-gray-100">Email copied!</p>
+                )}
               </div>
             </div>
             <div className="flex basis-[468px] flex-col items-start justify-start gap-[16px] border-l-[0.5px] border-[#353535]  py-[28px] pl-[28px] pr-[32px]">
