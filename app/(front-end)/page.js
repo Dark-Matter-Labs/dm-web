@@ -2290,8 +2290,7 @@ export default function Home() {
           >
             <h2 className="heading-4xl pb-2 text-grey-3">Matrix</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
-              We are not a think tank or consultancy with a single, neat theory
-              of change. Instead, our collaborative approach is firmly grounded
+              Our collaborative approach is firmly grounded
               in the complex, messy reality of our existing socio-economic
               systems. Step-by-step, with the support of a growing ecosystem, we
               aim to build tangible pathways towards the options that we would
@@ -2502,7 +2501,7 @@ export default function Home() {
               these things are both possible and necessary. These are bold
               aspirations and will only be achieved by a collective movement of
               diverse communities and unusual allies. This is a story of
-              practical empowerment that we are excited to put our energy
+              practical reimagining that we are excited to put our energy
               behind.
             </p>
 
