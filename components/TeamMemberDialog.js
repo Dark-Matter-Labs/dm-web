@@ -4,13 +4,12 @@ import {
   DialogPanel,
   DialogTitle,
 } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, Square2StackIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
 import Link from 'next/link';
 
 function TeamPopUp({ dmlien, openState, setOpen }) {
-  console.log(dmlien);
   return (
     <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
       <DialogBackdrop
@@ -33,11 +32,11 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                   className="w-auto"
                 />
               )}
-              <div className="flex flex-col gap-3 border-r-[0.5px] border-t-[0.5px] border-[#353535] p-[30px]">
+              <div className="flex flex-col gap-3 border-r-[0.5px] border-t-[0.5px] border-[#353535] p-[30px] font-SaansRegular">
                 <h3 className="text-xl uppercase text-[#595959] ">Contacts</h3>
                 <ul>
                   <li className="text-lg text-white hover:underline">
-                    <Link href="#">{dmlien.email}</Link>
+                    <Link href="#">{dmlien.email} <Square2StackIcon className='h-4 w-4'/></Link>
                   </li>
                 </ul>
               </div>
@@ -51,7 +50,6 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 >
                   {dmlien.fullName}
                 </DialogTitle>
-
                 <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                   <button
                     type="button"
