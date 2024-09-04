@@ -53,9 +53,9 @@ export default function TeamGrid({ dmliens }) {
                   </h2>
                   <h3 className="font-SaansRegular text-[14px] leading-[18px] text-[#707070]">
                     <span className="align-super text-[9.5px]">
-                      {dmlien.location.substring(0, 2)}
+                      {dmlien.location.countryCode}
                     </span>
-                    {dmlien.location.substring(2, dmlien.location.length)}
+                    {dmlien.location.city}
                   </h3>
                 </div>
               </button>
