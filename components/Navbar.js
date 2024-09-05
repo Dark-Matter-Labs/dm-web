@@ -1,14 +1,16 @@
 'use client';
 import Image from 'next/image';
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+
 import dmLogo from '../images/dm-logo.png';
 import dmLogoHover from '../images/dm-logo-hover.png';
 
-export default function Navbar() {
+export default function Navbar({ numberOfJobs }) {
   const [hover, setHover] = useState(false);
+
   return (
     <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
       <div className="global-margin flex items-center justify-between">
@@ -61,12 +63,26 @@ export default function Navbar() {
                         >
                           Team
                         </Link>
-                        <a
-                          href="https://glorious-impact-532915.framer.app/jobs"
-                          className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
+                        <Link
+                          href="/jobs"
+                          className="nav-xl -mt-1 py-2 text-grey-4 transition ease-in-out hover:text-white"
                         >
-                          Jobs
-                        </a>
+                          {numberOfJobs === 0 ? (
+                            <p>
+                              Jobs
+                              <span className="align-super text-[9.5px]">
+                                {numberOfJobs}
+                              </span>
+                            </p>
+                          ) : (
+                            <p>
+                              Jobs
+                              <span className="align-super text-[9.5px] text-[#737EA5]">
+                                {numberOfJobs}
+                              </span>
+                            </p>
+                          )}
+                        </Link>
                         <Link
                           href="/contact"
                           className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"

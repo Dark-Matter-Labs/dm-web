@@ -8,7 +8,7 @@ const navigation = {
     { name: 'Feed', href: '#', internal: true },
     { name: 'Initiatives', href: '#', internal: true },
     { name: 'Team', href: '/team', internal: true },
-    { name: 'Jobs', href: '#', internal: true },
+    { name: 'Jobs', href: '/jobs', internal: true },
     { name: 'Contact', href: '/contact', internal: true },
     // { name: 'Contribute', href: '#', internal: true },
     {
