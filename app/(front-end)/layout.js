@@ -1,17 +1,21 @@
+import { sanityFetch } from '@/sanity/lib/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import '../../styles/global.css';
 
-export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
-  children,
-}) {
+const jobsQuery = `
+*[_type == 'jobObject']
+`;
+
+export default async function RootLayout({ children }) {
+  const jobs = await sanityFetch({
+    query: jobsQuery,
+  });
   return (
     <html lang="en">
       <body>
         <main className="">
-          <Navbar />
+          <Navbar numberOfJobs={jobs.length} />
           <div className="global-margin">{children}</div>
           <Footer />
         </main>
