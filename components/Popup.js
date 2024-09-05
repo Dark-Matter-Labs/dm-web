@@ -6,7 +6,7 @@ import {
 } from '@headlessui/react';
 import Image from 'next/image';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-
+import { convertImage, toBase64 } from '@/utils/imageLoad';
 import test from '../images/Leee.png';
 
 function Popup({
@@ -40,6 +40,10 @@ function Popup({
                     width={200}
                     height={200}
                     alt="cover image"
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      convertImage(200, 200),
+                    )}`}
                   />
                 ) : (
                   <Image

@@ -9,7 +9,7 @@ import {
 import { XMarkIcon, Square2StackIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
-import Link from 'next/link';
+import { convertImage, toBase64 } from '@/utils/imageLoad';
 
 function TeamPopUp({ dmlien, openState, setOpen }) {
   const [showLinkCopied, setShowLinkCopied] = useState(false);
@@ -34,6 +34,10 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                   width={294}
                   height={294}
                   className="w-auto"
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    convertImage(294, 294),
+                  )}`}
                 />
               )}
               <div className="flex flex-col gap-3 border-r-[0.5px] border-t-[0.5px] border-[#353535] p-[30px] font-SaansRegular">
