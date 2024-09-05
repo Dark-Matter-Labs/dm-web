@@ -4,12 +4,11 @@ import { urlForImage } from '../sanity/lib/image';
 import { useEffect, useState } from 'react';
 
 import TeamPopUp from './TeamMemberDialog';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 export default function TeamGrid({ dmliens }) {
   const [hover, setHover] = useState();
   const [openTeam, setOpenTeam] = useState(false);
   const [dmlien, setDmlien] = useState({});
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   function handleClose() {
