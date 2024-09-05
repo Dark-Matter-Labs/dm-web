@@ -25,7 +25,7 @@ export default function TeamGrid({ dmliens }) {
       setDmlien(dmlien[0]);
       setOpenTeam(true);
     }
-  }, [searchParams, dmliens]);
+  },[searchParams, dmliens]);
 
   return (
     <>
@@ -56,7 +56,7 @@ export default function TeamGrid({ dmliens }) {
                   setOpenTeam(true);
                   setDmlien(dmlien);
                   setHover(null);
-                  router.push(`?key=${dmlien.fullName}`);
+                  window.history.pushState(null, "", `?key=${dmlien.fullName}`)
                 }}
               >
                 <Image
