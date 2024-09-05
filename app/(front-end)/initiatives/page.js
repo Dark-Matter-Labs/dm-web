@@ -15,6 +15,7 @@ export default async function Initiatives() {
     query: INITIATIVES_QUEARY,
     tags: ['initiative'],
   });
+  console.log(initiatives)
   return (
     <div className="mt-[100px] flex flex-col">
       <h1 className="mb-[30px] font-SaansRegular text-7xl text-white">
@@ -32,7 +33,7 @@ export default async function Initiatives() {
             key={id}
             className="flex flex-col border-t-[0.5px] border-[#353535] py-[34px] last:border-b-[0.5px] odd:border-r-[0.5px] odd:pr-[34px] even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px]"
           >
-            <Link href={`/initiative/${initiative.slug.current}`}>
+            <Link href={`/initiatives/${initiative.slug.current}`}>
               <div className="relative mb-[30px] h-[352px]">
                 <Image
                   src={urlForImage(initiative?.image)}
