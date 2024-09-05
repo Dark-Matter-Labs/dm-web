@@ -15,7 +15,7 @@ export default async function Initiatives() {
     query: INITIATIVES_QUEARY,
     tags: ['initiative'],
   });
-  console.log(initiatives)
+  console.log(initiatives);
   return (
     <div className="mt-[100px] flex flex-col">
       <h1 className="mb-[30px] font-SaansRegular text-7xl text-white">
