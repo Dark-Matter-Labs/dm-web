@@ -9,13 +9,16 @@ import {
 import { XMarkIcon, Square2StackIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
-import Link from 'next/link';
 
 function TeamPopUp({ dmlien, openState, setOpen }) {
   const [showLinkCopied, setShowLinkCopied] = useState(false);
 
   return (
-    <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
+    <Dialog
+      open={openState}
+      onClose={() => setOpen()}
+      className="relative z-[60]"
+    >
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-[#111112] bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
@@ -27,7 +30,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
             className="shadow-layer relative flex h-auto w-[762px] transform flex-row items-start justify-start overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             <div className="flex h-full basis-[294px] flex-col">
-              {dmlien.image && (
+              {dmlien?.image && (
                 <Image
                   src={urlForImage(dmlien?.image)}
                   alt={dmlien?.fullName}
@@ -42,7 +45,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                   <li className="text-lg text-white hover:underline">
                     <div
                       onClick={() => {
-                        navigator.clipboard.writeText(dmlien.email);
+                        navigator.clipboard.writeText(dmlien?.email);
                         setShowLinkCopied(true);
                         setTimeout(() => {
                           setShowLinkCopied(false);
@@ -50,7 +53,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                       }}
                       className="flex items-center gap-[8px] hover:cursor-pointer"
                     >
-                      {dmlien.email}
+                      {dmlien?.email}
                       <span className="" title="Copy link to clipboard">
                         <Square2StackIcon className="h-4 w-4" />
                       </span>
@@ -68,7 +71,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                   as="h3"
                   className="font-SaansRegular text-[24px] leading-13 text-white"
                 >
-                  {dmlien.fullName}
+                  {dmlien?.fullName}
                 </DialogTitle>
                 <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                   <button
@@ -82,7 +85,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 </div>
               </div>
               <div className="text-white sm:flex sm:items-start">
-                {dmlien.bio}
+                {dmlien?.bio}
               </div>
             </div>
           </DialogPanel>

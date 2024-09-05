@@ -2,6 +2,7 @@ import Image from 'next/image';
 import DMButton from '@/components/Button';
 import TeamGrid from '@/components/TeamGrid';
 import { sanityFetch } from '@/sanity/lib/client';
+import { Suspense } from 'react';
 
 const dmlienQuery = `
 *[_type == 'dmlien'] | order(fullName asc) {
@@ -30,7 +31,9 @@ export default async function TeamPage() {
           </p>
         </div>
       </div>
-      <TeamGrid dmliens={dmliens} />
+      <Suspense>
+        <TeamGrid dmliens={dmliens} />
+      </Suspense>
       <div className="mt-[100px] flex items-start justify-end">
         <div className="relative h-[400px] w-[690px] pt-[100px]">
           <Image

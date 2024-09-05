@@ -1,13 +1,31 @@
 'use client';
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import TeamPopUp from './TeamMemberDialog';
+import { useSearchParams } from 'next/navigation';
 export default function TeamGrid({ dmliens }) {
   const [hover, setHover] = useState();
   const [openTeam, setOpenTeam] = useState(false);
   const [dmlien, setDmlien] = useState({});
+  const searchParams = useSearchParams();
+
+  function handleClose() {
+    setOpenTeam(false);
+    window.history.replaceState(null, '', '/team');
+    console.log('run');
+  }
+
+  useEffect(() => {
+    if (searchParams.size > 0) {
+      let fullName = searchParams.get('key');
+      let dmlien = dmliens.filter((person) => person.fullName === fullName);
+      setDmlien(dmlien[0]);
+      setOpenTeam(true);
+    }
+  },[searchParams, dmliens]);
+
   return (
     <>
       <div className="relative mt-[100px] flex items-start justify-between">
@@ -37,6 +55,7 @@ export default function TeamGrid({ dmliens }) {
                   setOpenTeam(true);
                   setDmlien(dmlien);
                   setHover(null);
+                  window.history.pushState(null, "", `?key=${dmlien.fullName}`)
                 }}
               >
                 <Image
@@ -66,7 +85,7 @@ export default function TeamGrid({ dmliens }) {
             </li>
           ))}
         </ul>
-        <TeamPopUp openState={openTeam} setOpen={setOpenTeam} dmlien={dmlien} />
+        <TeamPopUp openState={openTeam} setOpen={handleClose} dmlien={dmlien} />
       </div>
     </>
   );
