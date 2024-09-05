@@ -28,7 +28,8 @@ const initiative = {
       options: {
         source: 'title',
         inUnique: 'true',
-        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
     },
     {
@@ -40,7 +41,7 @@ const initiative = {
       name: 'description',
       type: 'text',
       title: 'Initiative description',
-      validation: (Rule) => Rule.required().max(380)
+      validation: (Rule) => Rule.required().max(380),
     },
     {
       name: 'initiativeTeam',
