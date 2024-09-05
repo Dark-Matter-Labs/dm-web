@@ -25,6 +25,6 @@ export default async function RootLayout({ children }) {
 }
 
 export const metadata = {
-  title: 'Dark Marrer Labs',
+  title: 'Dark Matter Labs',
   description: 'We are building options for the next economies',
 };
