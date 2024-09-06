@@ -38,16 +38,39 @@ const initiative = {
       title: 'Initiative Subtitle',
     },
     {
-      name: 'description',
+      name: 'short_description',
       type: 'text',
-      title: 'Initiative description',
+      title: 'Short description for main page',
       validation: (Rule) => Rule.required().max(380),
     },
     {
-      name: 'initiativeTeam',
+      name: 'description',
+      type: 'text',
+      title: 'Full description',
+    },
+    {
+      name: 'website',
+      type: 'url',
+      title: 'Website link',
+      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
+    },
+    {
+      name: 'publication',
+      type: 'url',
+      title: 'Blog/publication link',
+      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
+    },
+    {
+      name: 'initiativeTeam', //rename to team
       type: 'array',
       title: 'Initiative Team',
       of: [{ type: 'reference', to: { type: 'dmlien' } }],
+    },
+    {
+      name: 'partners',
+      type: 'array',
+      title: 'Partners',
+      of: [{ type: 'partnerObject' }],
     },
   ],
 };

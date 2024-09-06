@@ -28,7 +28,7 @@ export default function Contact() {
       </div>
 
       <div className="col-span-5 mt-28 w-[400px]">
-        <h2 className="heading-5xl-Reg  pb-2 text-grey-3">Our offices</h2>
+        <h2 className="heading-5xl-Reg  pb-2 text-grey-3">Geographies</h2>
       </div>
       <div className={'col-span-7 mt-28 w-[690px] justify-self-end'}>
         <div className="grid grid-cols-1 gap-[24px] border-b border-b-[#353535] pb-[60px] pt-[6px]">

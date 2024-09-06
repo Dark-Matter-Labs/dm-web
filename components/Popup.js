@@ -70,7 +70,7 @@ function Popup({
                 )}
                 {publication !== '' && (
                   <div className="">
-                    <a target="_blank" href={website}>
+                    <a target="_blank" href={publication}>
                       <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
                         Blog Series ↗
                       </p>
