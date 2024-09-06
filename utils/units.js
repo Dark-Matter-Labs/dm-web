@@ -41,7 +41,7 @@ export const arcs = [
     value: 'RC',
   },
   {
-    title: 'Local Civics ',
+    title: 'Local Civics',
     value: 'LC',
   },
   {
@@ -49,7 +49,7 @@ export const arcs = [
     value: 'NZC',
   },
   {
-    title: '7Gen Cities ',
+    title: '7Gen Cities',
     value: '7G',
   },
   {
