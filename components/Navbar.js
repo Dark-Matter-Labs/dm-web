@@ -25,14 +25,12 @@ export default function Navbar({ numberOfJobs }) {
                 src={dmLogoHover}
                 alt="Dm logo animation in multiple languages"
                 width={200}
-                height={40}
               />
             ) : (
               <Image
                 src={dmLogo}
                 alt="Dm logo animation in multiple languages"
                 width={200}
-                height={40}
               />
             )}
           </Link>

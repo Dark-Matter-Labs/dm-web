@@ -15,13 +15,13 @@ export default async function Initiatives() {
     query: INITIATIVES_QUEARY,
     tags: ['initiative'],
   });
-  console.log(initiatives);
+
   return (
     <div className="mt-[100px] flex flex-col">
       <h1 className="mb-[30px] font-SaansRegular text-7xl text-white">
         Initiatives
       </h1>
-      <p className="max-w-[600px] font-SaansRegular text-xl text-white">
+      <p className="p-body2 max-w-[600px] text-white">
         Our initiatives represent areas of work where we have been able to go
         deeper and build focused expertise over time. Underpinned by strong
         partnerships, these long-term explorations have allowed us to iterate
@@ -46,7 +46,7 @@ export default async function Initiatives() {
                 {initiative.title}
               </h2>
               <p className="pb-[20px] font-SaansRegular text-xl text-[#A8A8A8]">
-                {initiative.description}
+                {initiative.short_description}
               </p>
             </Link>
           </li>
