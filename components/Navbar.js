@@ -43,18 +43,18 @@ export default function Navbar({ numberOfJobs }) {
                   <div className="">
                     <div className="hidden sm:block">
                       <div className="flex items-center justify-between">
-                        <a
-                          href="https://glorious-impact-532915.framer.app/feed"
+                        <Link
+                          href="/feed"
                           className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white "
                         >
                           Feed
-                        </a>
-                        <a
-                          href="https://glorious-impact-532915.framer.app/initiatives"
+                        </Link>
+                        <Link
+                          href="/initiatives"
                           className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
                         >
                           Initiatives
-                        </a>
+                        </Link>
                         <Link
                           href="/team"
                           className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"

@@ -43,6 +43,7 @@ import SMlogo from '@/images/labs/Sm Lab.svg';
 import CDlogo from '@/images/studios/Cd Studio.svg';
 import CTlogo from '@/images/studios/Ct Studio.svg';
 import ODlogo from '@/images/studios/Cd Studio.svg';
+import FFlogo from '@/images/studios/Ff Studio.svg';
 import DMButton from '@/components/Button';
 
 function classNames(...classes) {
@@ -1367,6 +1368,7 @@ export default function Home() {
         type="studio"
         title="Foresight & Futuring"
         openState={openFF}
+        image={FFlogo}
         setOpen={setOpenFF}
         website=""
         publication=""
