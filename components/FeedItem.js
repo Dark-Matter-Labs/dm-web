@@ -7,7 +7,7 @@ export default function FeedItem({ item }) {
       key={item.title}
       className="flex h-full flex-col items-center justify-center gap-[20px] border-b border-b-[#353535] sm:flex-row sm:items-start sm:justify-between"
     >
-      <div className="flex w-full items-center justify-center py-[20px] sm:w-[247px] sm:py-[34px] md:w-[470px]">
+      <div className="flex w-full items-center justify-center py-[20px] sm:w-[220px] sm:py-[34px] md:w-[470px]">
         <Image
           src={urlForImage(item.image)}
           alt="feed item image"
