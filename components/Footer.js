@@ -46,7 +46,7 @@ export default function Footer() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto w-[690px] pb-20 pt-[80px] md:w-[1200px]">
+        <div className="mx-auto w-[690px] pb-20 pt-[80px] sm:w-full md:w-[1200px]">
           <div className="flex flex-col gap-[60px] md:grid md:grid-cols-12">
             <div className="col-span-5 flex flex-row justify-between md:flex-col">
               <Link href="/">

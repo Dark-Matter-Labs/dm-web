@@ -2283,7 +2283,7 @@ export default function Home() {
       />
 
       <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
-        <div className="col-span-5 block w-[400px] max-w-xs">
+        <div className="col-span-5 hidden w-[400px] max-w-xs sm:block">
           <animated.div
             style={{
               opacity: sideMatrixOpacityInterpolate(),
@@ -2435,7 +2435,7 @@ export default function Home() {
             </p>
           </animated.div>
         </div>
-        <div className={`relative col-span-7 w-[690px] justify-self-end`}>
+        <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
           <div id="real" className="">
             <h1 className="heading-7xl max-w-[40rem] pb-10 text-grey-5 ">
               We are building options for the next economies
@@ -2532,7 +2532,7 @@ export default function Home() {
                 } else return 1;
               }),
             }}
-            className={`${classT2}`}
+            className={`${classT2} hidden sm:block`}
           >
             {scrollY < startSticky + 5 * step && (
               <>
@@ -5202,7 +5202,7 @@ export default function Home() {
         }}
         className={`relative mt-[400px] sm:grid sm:grid-cols-12`}
       >
-        <div className="col-span-5 block w-[400px] max-w-xs">
+        <div className="col-span-5 hidden w-[400px] max-w-xs sm:block">
           <div className="mt-[0px]">
             <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -5215,7 +5215,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className={`relative col-span-7 w-[690px] justify-self-end`}>
+        <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
           <div id="context" className="mb-20 ">
             <div className="mb-8">
               <h2 className="heading-4xl text-grey-1">Political landscapes</h2>
@@ -5305,7 +5305,7 @@ export default function Home() {
         }}
         className={`relative sm:grid sm:grid-cols-12`}
       >
-        <div className="col-span-5 block w-[400px] max-w-xs">
+        <div className="col-span-5 hidden sm:block md:w-[400px]">
           <div className="mt-20">
             <h2 className="heading-4xl pb-2 text-grey-3">Paradigms</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -5322,7 +5322,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className={`relative col-span-7 w-[690px] justify-self-end`}>
+        <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
           <div id="why">
             <div className="my-20 ">
               <div className="mb-8">
