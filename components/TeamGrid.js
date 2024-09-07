@@ -10,8 +10,8 @@ export default function TeamGrid({ dmliens }) {
   const [dmlien, setDmlien] = useState({});
   return (
     <>
-      <div className="relative mt-[100px] flex items-start justify-between">
-        <div className="sticky top-44 z-10 flex h-full w-[400px]  text-white">
+      <div className="relative mt-[40px] sm:mt-[100px] flex items-center md:items-start justify-center md:justify-between">
+        <div className="hidden md:sticky top-44 z-10 md:flex h-full w-[400px]  text-white">
           {dmliens.map((person, id) => (
             <div
               key={id}
@@ -26,7 +26,7 @@ export default function TeamGrid({ dmliens }) {
             </div>
           ))}
         </div>
-        <ul className="grid w-full max-w-[690px] grid-cols-4 gap-4 border-b border-[#353535] pb-[60px]">
+        <ul className="grid w-full max-w-[390px] sm:max-w-[690px] grid-cols-2 sm:grid-cols-4 gap-4 px-[20px] sm:px-0 border-b border-[#353535] pb-[60px]">
           {dmliens.map((dmlien, id) => (
             <li key={id} className="group cursor-pointer">
               <button
