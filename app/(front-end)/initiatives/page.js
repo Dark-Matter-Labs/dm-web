@@ -18,7 +18,7 @@ export default async function Initiatives() {
 
   return (
     <div className="mt-[40px] flex flex-col items-center justify-center sm:mt-[100px] md:items-start md:justify-start">
-      <div className="flex flex-col items-start justify-start gap-[30px]">
+      <div className="flex flex-col items-start justify-start gap-[30px] sm:w-[690px] md:w-full">
         <h1 className="heading-5xl-Reg sm:heading-7xl font-SaansRegular text-white">
           Initiatives
         </h1>
