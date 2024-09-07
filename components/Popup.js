@@ -29,9 +29,9 @@ function Popup({
         <div className="flex min-h-full items-end justify-center text-center sm:items-center">
           <DialogPanel
             transition
-            className="shadow-layer relative flex h-auto w-4/5 sm:w-[690px] transform items-center justify-center sm:items-start sm:justify-start overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            className="shadow-layer relative flex h-auto w-4/5 transform items-center justify-center overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:w-[690px] sm:items-start sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
-            <div className="flex flex-col items-start justify-start gap-[22px] sm:border-r-[0.5px] border-[#353535] pb-[80px]">
+            <div className="flex flex-col items-start justify-start gap-[22px] border-[#353535] pb-[80px] sm:border-r-[0.5px]">
               <div className="h-[200px] w-[200px]">
                 {image ? (
                   <Image
