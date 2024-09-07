@@ -94,7 +94,7 @@ const feedItem = {
       hidden: ({ parent }) => parent?.type === 'media',
     },
     {
-      name: 'Team',
+      name: 'team',
       type: 'array',
       title: 'Feed Item Team',
       of: [{ type: 'reference', to: { type: 'dmlien' } }],

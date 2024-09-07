@@ -9,9 +9,11 @@ export default async function Jobs() {
     query: jobsQuery,
   });
   return (
-    <div className={`relative mt-28 pb-[60px] sm:grid sm:grid-cols-12`}>
-      <div className="col-span-5 w-[400px]"></div>
-      <div className={'col-span-7 w-[690px] justify-self-end'}>
+    <div
+      className={`relative mt-28 flex flex-col items-center justify-center pb-[60px] md:grid md:grid-cols-12`}
+    >
+      <div className="col-span-5 hidden w-[400px] md:block"></div>
+      <div className={'col-span-7 w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[30px] border-b border-b-[#353535] pb-[100px]">
           <h1 className="heading-7xl pb-[18px] text-grey-1">Work with us</h1>
           <p className="p-body2 text-[#EBEBEB]">
@@ -20,14 +22,14 @@ export default async function Jobs() {
         </div>
       </div>
 
-      <div className="col-span-5 mt-16 w-[400px]">
-        <h2 className="heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+      <div className="col-span-5 mt-16 w-full sm:w-[690px] md:w-[400px] md:self-start">
+        <h2 className="heading-5xl-Reg pb-2 text-grey-3 md:max-w-xs">
           We’re looking to fill these roles
         </h2>
       </div>
       <div
         className={
-          'col-span-7 mt-16 flex w-[690px] flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px]'
+          'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
         }
       >
         {jobs.length > 0 ? (
@@ -69,14 +71,14 @@ export default async function Jobs() {
         </p>
       </div>
 
-      <div className="col-span-5 mt-16 w-[400px]">
-        <h2 className="heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+      <div className="col-span-5 mt-16 w-full sm:w-[690px] md:w-[400px] md:self-start">
+        <h2 className="heading-5xl-Reg pb-2 text-grey-3 md:max-w-xs">
           How we work
         </h2>
       </div>
       <div
         className={
-          'col-span-7 mt-16 flex w-[690px] flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px]'
+          'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">
@@ -128,14 +130,14 @@ export default async function Jobs() {
         </ul>
       </div>
 
-      <div className="col-span-5 mt-16 w-[400px]">
-        <h2 className="heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+      <div className="col-span-5 mt-16 w-full sm:w-[690px] md:w-[400px] md:self-start">
+        <h2 className="heading-5xl-Reg pb-2 text-grey-3 md:max-w-xs">
           Your background
         </h2>
       </div>
       <div
         className={
-          'col-span-7 mt-16 flex w-[690px] flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px]'
+          'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">
@@ -175,12 +177,12 @@ export default async function Jobs() {
         </p>
       </div>
 
-      <div className="col-span-5 mt-16 w-[400px]">
+      <div className="col-span-5 mt-16 w-full sm:w-[690px] md:w-[400px] md:self-start">
         <h2 className="heading-5xl-Reg max-w-xs pb-2 text-grey-3">Pay</h2>
       </div>
       <div
         className={
-          'col-span-7 mt-16 flex w-[690px] flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px]'
+          'flexw-full col-span-7 mt-[30px] flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">
@@ -226,14 +228,14 @@ export default async function Jobs() {
         </p>
       </div>
 
-      <div className="col-span-5 mt-16 w-[400px]">
+      <div className="col-span-5 mt-16 w-full sm:w-[690px] md:w-[400px] md:self-start">
         <h2 className="heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           We support equality
         </h2>
       </div>
       <div
         className={
-          'col-span-7 mt-16 flex w-[690px] flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px]'
+          'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">

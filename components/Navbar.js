@@ -1,9 +1,13 @@
 'use client';
 import Image from 'next/image';
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import Link from 'next/link';
-import { Disclosure } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  Disclosure,
+  DisclosurePanel,
+  DisclosureButton,
+} from '@headlessui/react';
+import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 import dmLogo from '../images/dm-logo.png';
 import dmLogoHover from '../images/dm-logo-hover.png';
@@ -12,100 +16,96 @@ export default function Navbar({ numberOfJobs }) {
   const [hover, setHover] = useState(false);
 
   return (
-    <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
-      <div className="global-margin flex items-center justify-between">
+    <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px] ">
+      <div className="global-margin flex items-center justify-between sm:w-[690px] md:w-[1200px]">
         <div
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          className="col-span-5 "
+          className="w-full md:w-auto "
         >
           <Link href="/">
             {hover ? (
               <Image
                 src={dmLogoHover}
                 alt="Dm logo animation in multiple languages"
-                width={200}
+                width={180}
               />
             ) : (
               <Image
                 src={dmLogo}
                 alt="Dm logo animation in multiple languages"
-                width={200}
+                width={180}
               />
             )}
           </Link>
         </div>
-        <div className="col-span-7 w-[690px]">
+        <div className="sm:w-[690px]">
           <Disclosure as="nav">
             {({ open }) => (
               <>
-                <div className=" ">
-                  <div className="">
-                    <div className="hidden sm:block">
-                      <div className="flex items-center justify-between">
-                        <Link
-                          href="/feed"
-                          className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white "
-                        >
-                          Feed
-                        </Link>
-                        <Link
-                          href="/initiatives"
-                          className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
-                        >
-                          Initiatives
-                        </Link>
-                        <Link
-                          href="/team"
-                          className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
-                        >
-                          Team
-                        </Link>
-                        <Link
-                          href="/jobs"
-                          className="nav-xl -mt-1 py-2 text-grey-4 transition ease-in-out hover:text-white"
-                        >
-                          {numberOfJobs === 0 ? (
-                            <p>
-                              Jobs
-                              <span className="align-super text-[9.5px]">
-                                {numberOfJobs}
-                              </span>
-                            </p>
-                          ) : (
-                            <p>
-                              Jobs
-                              <span className="align-super text-[9.5px] text-[#737EA5]">
-                                {numberOfJobs}
-                              </span>
-                            </p>
-                          )}
-                        </Link>
-                        <Link
-                          href="/contact"
-                          className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
-                        >
-                          Contact
-                        </Link>
-                        {/* <a
+                <div className="hidden sm:block">
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href="/feed"
+                      className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white "
+                    >
+                      Feed
+                    </Link>
+                    <Link
+                      href="/initiatives"
+                      className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
+                    >
+                      Initiatives
+                    </Link>
+                    <Link
+                      href="/team"
+                      className="nav-xl hidden py-2 text-grey-4 transition ease-in-out hover:text-white md:block"
+                    >
+                      Team
+                    </Link>
+                    <Link
+                      href="/jobs"
+                      className="nav-xl -mt-1 hidden py-2 text-grey-4 transition ease-in-out hover:text-white md:block"
+                    >
+                      {numberOfJobs === 0 ? (
+                        <p>
+                          Jobs
+                          <span className="align-super text-[9.5px]">
+                            {numberOfJobs}
+                          </span>
+                        </p>
+                      ) : (
+                        <p>
+                          Jobs
+                          <span className="align-super text-[9.5px] text-[#737EA5]">
+                            {numberOfJobs}
+                          </span>
+                        </p>
+                      )}
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="nav-xl hidden py-2 text-grey-4  transition ease-in-out hover:text-white md:block"
+                    >
+                      Contact
+                    </Link>
+                    {/* <a
                           href="https://glorious-impact-532915.framer.app/contribute"
                           className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
                         >
                           Contribute
                         </a> */}
-                        <a
-                          href="https://provocations.darkmatterlabs.org/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
-                        >
-                          Provocations↗
-                        </a>
-                      </div>
-                    </div>
-                    <div className="-mr-2 flex sm:hidden">
+                    <a
+                      href="https://provocations.darkmatterlabs.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
+                    >
+                      Provocations↗
+                    </a>
+                    <div className="-mr-2 flex md:hidden">
                       {/* Mobile menu button */}
-                      <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                      <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                         <span className="absolute -inset-0.5" />
                         <span className="sr-only">Open main menu</span>
                         {open ? (
@@ -114,49 +114,74 @@ export default function Navbar({ numberOfJobs }) {
                             aria-hidden="true"
                           />
                         ) : (
-                          <Bars3Icon
+                          <Bars2Icon
                             className="block h-6 w-6"
                             aria-hidden="true"
                           />
                         )}
-                      </Disclosure.Button>
+                      </DisclosureButton>
                     </div>
                   </div>
                 </div>
+                <div className="-mr-2 flex sm:hidden">
+                  {/* Mobile menu button */}
+                  <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span className="absolute -inset-0.5" />
+                    <span className="sr-only">Open main menu</span>
+                    {open ? (
+                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <Bars2Icon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </DisclosureButton>
+                </div>
 
-                <Disclosure.Panel className="sm:hidden">
+                <DisclosurePanel className="w-[100vw] md:hidden">
                   <div className="space-y-1 px-2 pb-3 pt-2">
-                    {/* TODO: update mobile menu */}
-                    <Disclosure.Button
-                      as="a"
-                      href="#"
-                      className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                    <DisclosureButton
+                      as={Link}
+                      href="/feed"
+                      className="nav-xl block py-2 text-grey-4  transition ease-in-out hover:text-white sm:hidden"
                     >
-                      Dashboard
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                      as="a"
+                      Feed
+                    </DisclosureButton>
+                    <DisclosureButton
+                      as={Link}
+                      href="/initiatives"
+                      className="nav-xl  block py-2 text-grey-4  transition ease-in-out hover:text-white sm:hidden"
+                    >
+                      Initiatives
+                    </DisclosureButton>
+                    <DisclosureButton
+                      as={Link}
                       href="/team"
-                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      className="nav-xl block py-2  text-grey-4 transition ease-in-out hover:text-white"
                     >
                       Team
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                      as="a"
-                      href="#"
-                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    </DisclosureButton>
+                    <DisclosureButton
+                      as={Link}
+                      href="/jobs"
+                      className="nav-xl block py-2  text-grey-4 transition ease-in-out hover:text-white"
                     >
-                      Projects
-                    </Disclosure.Button>
-                    <Disclosure.Button
-                      as="a"
-                      href="#"
-                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      Jobs
+                    </DisclosureButton>
+                    <DisclosureButton
+                      as={Link}
+                      href="/contact"
+                      className="nav-xl block py-2  text-grey-4 transition ease-in-out hover:text-white"
                     >
-                      Calendar
-                    </Disclosure.Button>
+                      Contact
+                    </DisclosureButton>
+                    <DisclosureButton
+                      as="a"
+                      href="https://provocations.darkmatterlabs.org/"
+                      className="nav-xl  block py-2 text-grey-4  transition ease-in-out hover:text-white sm:hidden"
+                    >
+                      Provocations↗
+                    </DisclosureButton>
                   </div>
-                </Disclosure.Panel>
+                </DisclosurePanel>
               </>
             )}
           </Disclosure>

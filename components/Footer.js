@@ -46,27 +46,29 @@ export default function Footer() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto max-w-[1200px] pb-20 pt-[100px]">
-          <div className="xl:grid xl:grid-cols-12">
-            <div className="col-span-5 space-y-60">
+        <div className="mx-auto w-[690px] pb-20 pt-[80px] md:w-[1200px]">
+          <div className="flex flex-col gap-[60px] md:grid md:grid-cols-12">
+            <div className="col-span-5 flex flex-row justify-between md:flex-col">
               <Link href="/">
                 <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
               </Link>
-              <SocialPills />
+              <div className="hidden sm:block">
+                <SocialPills />
+              </div>
             </div>
             <div className="col-span-7 flex items-start justify-between ">
               <div className="">
                 <div>
                   <ul
                     role="list"
-                    className="justify-betweenitems-start flex flex-col space-y-6"
+                    className="flex flex-col items-start justify-between space-y-2"
                   >
                     {navigation.solutions.map((item) => (
                       <li key={item.name}>
                         {item.internal ? (
                           <Link
                             href={item.href}
-                            className="p-xl-regular text-grey-1 hover:text-white"
+                            className="p-lg-regular text-grey-1 hover:text-white hover:underline"
                           >
                             {item.name}
                           </Link>
@@ -85,26 +87,33 @@ export default function Footer() {
                 <div className="mt-5">
                   <a
                     href="#"
-                    className="p-xl-regular text-[#A8A8A8] hover:text-white"
+                    className="p-lg-regular text-[#A8A8A8] hover:text-white"
                   >
                     Privacy Policy
                   </a>
                 </div>
               </div>
-              <div className="flex- col flex items-start justify-start">
+              <div className="hidden flex-col items-start justify-start sm:flex">
                 <div>
-                  <ul role="list" className=" space-y-8">
+                  <ul role="list" className=" space-y-5">
                     {navigation.company.map((item) => (
                       <li key={item.country}>
-                        <div className="nav-xl ">
-                          <p className="text-grey-1">{item.country}</p>
-                          <p className="text-[#A8A8A8]">{item.fullName}</p>
+                        <div className=" ">
+                          <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
+                            {item.country}
+                          </p>
+                          <p className="font-SaansRegular text-[13px] leading-[18px] text-[#A8A8A8]">
+                            {item.fullName}
+                          </p>
                         </div>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
+            </div>
+            <div className="block sm:hidden">
+              <SocialPills />
             </div>
           </div>
         </div>

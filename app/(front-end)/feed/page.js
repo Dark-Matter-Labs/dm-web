@@ -10,10 +10,10 @@ const feedQuery = `
     labs[]->{
     ...,
     },
-     arcs[]->{
+    arcs[]->{
     ...,
     },
-     studios[]->{
+    studios[]->{
     ...,
     },
 }
@@ -23,18 +23,18 @@ export default async function Feed() {
     query: feedQuery,
   });
   return (
-    <div>
-      <div className="mt-[100px] flex flex-col pb-[90px]">
-        <h1 className="mb-[30px] font-SaansRegular text-7xl text-white">
+    <div className="flex flex-col items-center justify-start">
+      <div className="mt-[60px] flex w-full flex-col items-start justify-center pb-[90px] sm:mt-[100px] sm:w-[690px] md:w-full">
+        <h1 className="heading-5xl-Reg sm:heading-7xl mb-[30px]  text-white">
           Latest projects and news
         </h1>
-        <p className="p-body2 max-w-[600px] text-white">
+        <p className="p-xl-regular sm:p-body2 max-w-[640px] text-white">
           Whether we’re focusing on streets, towns, cities or entire bioregions,
           we’re working to establish collective means of co-ordinating, and
           governing our common resources.
         </p>
       </div>
-      <div className="flex items-center justify-center gap-[10px] ">
+      <div className="flex w-full items-start justify-between gap-[10px] sm:w-[690px] sm:items-center sm:justify-center md:w-full">
         <div className="flex flex-col items-center justify-center pb-[150px]">
           {feedItems?.map((item) =>
             item.type === 'media' ? (

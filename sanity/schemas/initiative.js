@@ -61,7 +61,7 @@ const initiative = {
       validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
     },
     {
-      name: 'initiativeTeam', //rename to team
+      name: 'team',
       type: 'array',
       title: 'Initiative Team',
       of: [{ type: 'reference', to: { type: 'dmlien' } }],

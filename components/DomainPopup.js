@@ -17,7 +17,7 @@ function Popup({ title, openState, setOpen, content, domain }) {
         <div className="flex min-h-full items-end justify-center text-center sm:items-center">
           <DialogPanel
             transition
-            className="shadow-layer relative flex h-auto w-[690px] transform items-start justify-start overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            className="shadow-layer relative flex h-auto w-4/5 transform items-center justify-center overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:w-[690px] sm:items-start sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             {domain === 'A' ? (
               <div className="flex h-[400px]  max-w-[80px] flex-col items-center justify-center gap-[22px] bg-[#8E6413]">
