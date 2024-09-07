@@ -24,7 +24,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
         <div className="flex min-h-full items-end justify-center text-center sm:items-center">
           <DialogPanel
             transition
-            className="shadow-layer relative flex h-auto w-[762px] transform flex-row items-start justify-start overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            className="shadow-layer relative flex h-auto w-4/5 sm:w-[762px] transform flex-col sm:flex-row items-center justify-center sm:items-start sm:justify-start overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             <div className="flex h-full basis-[294px] flex-col">
               {dmlien.image && (
@@ -40,7 +40,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                   )}`}
                 />
               )}
-              <div className="flex flex-col gap-3 border-r-[0.5px] border-t-[0.5px] border-[#353535] p-[30px] font-SaansRegular">
+              <div className="flex flex-col gap-3 sm:border-r-[0.5px] border-t-[0.5px] border-[#353535] p-[30px] font-SaansRegular">
                 <h3 className="text-xl uppercase text-[#595959] ">Contacts</h3>
                 <ul>
                   <li className="text-lg text-white hover:underline">
