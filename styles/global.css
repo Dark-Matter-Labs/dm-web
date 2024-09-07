@@ -68,7 +68,7 @@ img {
 
 @layer components {
   .global-margin {
-    @apply container mx-auto max-w-[1200px] px-4;
+    @apply container mx-auto max-w-[1200px] px-5;
   }
 
   .heading-7xl {
