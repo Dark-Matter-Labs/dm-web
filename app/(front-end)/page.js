@@ -5202,7 +5202,7 @@ export default function Home() {
         }}
         className={`relative mt-[400px] sm:grid sm:grid-cols-12`}
       >
-        <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
+        <div className="block col-span-5 w-[400px] max-w-xs">
           <div className="mt-[0px]">
             <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -5305,7 +5305,7 @@ export default function Home() {
         }}
         className={`relative sm:grid sm:grid-cols-12`}
       >
-        <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
+        <div className="block col-span-5 w-[400px] max-w-xs">
           <div className="mt-20">
             <h2 className="heading-4xl pb-2 text-grey-3">Paradigms</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
