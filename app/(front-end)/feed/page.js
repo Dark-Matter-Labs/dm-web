@@ -10,10 +10,10 @@ const feedQuery = `
     labs[]->{
     ...,
     },
-     arcs[]->{
+    arcs[]->{
     ...,
     },
-     studios[]->{
+    studios[]->{
     ...,
     },
 }
