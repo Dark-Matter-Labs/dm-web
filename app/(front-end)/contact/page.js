@@ -9,9 +9,11 @@ import BHLogo from '@/images/partners/Bloxhub.png';
 
 export default function Contact() {
   return (
-    <div className={`relative mt-28 pb-[60px] sm:grid sm:grid-cols-12`}>
-      <div className="col-span-5 w-[400px]"></div>
-      <div className={'col-span-7 w-[690px] justify-self-end'}>
+    <div
+      className={`relative mt-28 flex flex-col items-center justify-center pb-[60px] md:grid md:grid-cols-12`}
+    >
+      <div className="col-span-5 hidden w-[400px] md:block"></div>
+      <div className={'col-span-7  w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[55px] border-b border-b-[#353535] pb-[60px]">
           <div>
             <h1 className="heading-5xl-Reg pb-[18px] text-grey-1">
@@ -27,10 +29,14 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="col-span-5 mt-28 w-[400px]">
+      <div className="col-span-5 mt-28 w-full sm:w-[690px] md:w-[400px] md:self-start">
         <h2 className="heading-5xl-Reg  pb-2 text-grey-3">Geographies</h2>
       </div>
-      <div className={'col-span-7 mt-28 w-[690px] justify-self-end'}>
+      <div
+        className={
+          'col-span-7 mt-[30px] justify-self-end sm:w-[690px] md:mt-28'
+        }
+      >
         <div className="grid grid-cols-1 gap-[24px] border-b border-b-[#353535] pb-[60px] pt-[6px]">
           <div>
             <h2 className="heading-4xl text-white">Netherlands</h2>
@@ -91,16 +97,16 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="col-span-5 mt-28 w-[400px]">
+      <div className="col-span-5 mt-28 w-full sm:w-[690px] md:w-[400px]">
         <h2 className="heading-5xl-Reg  pb-2 text-grey-3">Our partners</h2>
       </div>
       <div
         className={
-          'col-span-7 mt-28 w-[690px] justify-self-end border-b border-b-[#353535] pb-[60px]'
+          'col-span-7 mt-[30px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-28'
         }
       >
         <div className="pb-[60px]">
-          <div className="imagecarousel flex h-[113px] w-[720px] items-center gap-[27px] overflow-hidden pb-10">
+          <div className="imagecarousel flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
                 src={vinnovaLogo}
@@ -156,7 +162,7 @@ export default function Contact() {
               />
             </div>
           </div>
-          <div className="imagecarousel flex h-[113px] w-[720px] items-center gap-[27px] overflow-hidden pb-10">
+          <div className="imagecarousel flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
                 src={vinnovaLogo}
@@ -212,7 +218,7 @@ export default function Contact() {
               />
             </div>
           </div>
-          <div className="imagecarousel flex h-[113px] w-[720px] items-center gap-[27px] overflow-hidden pb-10">
+          <div className="imagecarousel flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
                 src={vinnovaLogo}
