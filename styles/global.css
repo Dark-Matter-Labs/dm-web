@@ -231,9 +231,13 @@ hr {
   -o-animation: slide 5s infinite alternate;
   -moz-animation: slide 5s infinite alternate;
   
+  -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
   -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
+  animation-duration: 5s;
   animation-delay: 1s;
+  -wekbkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
@@ -296,226 +300,222 @@ hr {
   }
 }
 
+@media (min-width: 810px) and (max-width: 1070px) {
+  .matirx-break {
+    @apply grid h-[550vh] grid-cols-1 justify-items-center;
+  }
 
-  @media (min-width: 810px) and (max-width: 1070px) {
-    .matirx-break {
-      @apply grid grid-cols-1 justify-items-center h-[550vh];
-    }
+  .matirx-justify {
+    @apply justify-self-center;
+  }
 
-    .matirx-justify{
-      @apply justify-self-center;
-    }
-
-    .side-display{
+  .side-display {
     @apply hidden;
-    }
-
-    .logo-w{
-      @apply w-full;
-    }
-
-    .nav-btn {
-      @apply flex;
-    }
-    .page-grid{
-      @apply flex flex-col items-center justify-center;
-    }
-    .teams-grid{
-      @apply items-start justify-center;
-    }
-    .people-grid{
-      @apply items-center justify-center;
-    }
-    .people-detail{
-      @apply hidden;
-      }
-      .initiative-grid {
-        @apply flex-col items-center justify-center;
-      }
-
-      .meta-data {
-        @apply flex-row items-start justify-center w-[690px];
-      }
-      .meta-mobile {
-        @apply block;
-      }
-      .initiative-pg {
-        @apply flex-col items-center justify-center;
-      }
-
-      .ini-list-grid {
-        @apply  w-[690px] grid-cols-1;
-      }
-
-      .feed-w {
-        @apply w-[690px];
-      }
-
-      .feed-grid {
-        @apply items-center justify-center w-[690px]
-      }
-
-      .feed-item-img {
-        @apply w-[240px];
-      }
-
-      .feed-item-img-inner {
-        @apply h-[140px] w-full;
-      }
-
-
-      .feed-item-details {
-        @apply h-[210px] w-[430px];
-      }
-
-      .project-back {
-        @apply block;
-      }
   }
 
-  @media (min-width: 1070px) {
-    .matirx-break {
-      @apply grid grid-cols-12;
-    }
-    .matirx-justify{
-      @apply justify-self-end;
-    }
-
-    .side-display{
-      @apply block;
-      }
-
-      .logo-w{
-        @apply w-auto;
-      }
-      .nav-btn {
-        @apply hidden;
-      }
-      .page-grid{
-        @apply grid grid-cols-12;
-      }
-
-      .teams-grid{
-        @apply items-center justify-end;
-      }
-
-      .people-grid{
-        @apply items-start justify-between;
-      }
-
-      .people-detail{
-        @apply flex sticky;
-        }
-
-        .initiative-grid {
-          @apply flex-row items-start justify-between;
-        }
-        .meta-data {
-          @apply flex-col justify-start w-full;
-        }
-        .meta-mobile {
-          @apply hidden;
-        }
-        .initiative-pg {
-          @apply flex-col items-start justify-start;
-        }
-
-    
-        .ini-list-grid {
-          @apply w-full grid-cols-2;
-        }
-
-        .ini-list-border {
-          @apply last:border-b-[0.5px] odd:border-r-[0.5px] odd:pr-[34px] even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px];
-        }
-
-        .feed-w {
-          @apply w-full;
-        }
-
-        .feed-grid {
-          @apply items-center justify-center w-full;
-        }
-
-        .feed-item-img {
-          @apply w-[470px];
-        }
-        .feed-item-img-inner {
-          @apply h-[266px] w-[470px];
-        }
-
-        .feed-item-details {
-          @apply h-[340px] w-[690px];
-        }
-
-        .project-back {
-          @apply hidden;
-        }
-
-        .meta-data-border {
-          @apply w-[380px] border-y border-y-[#353535]
-        }
+  .logo-w {
+    @apply w-full;
   }
 
-  @media (max-width: 810px) {
-    .side-display{
-      @apply hidden;
-      }
-      .logo-w{
-        @apply w-full;
-      }
-      .nav-btn {
-        @apply hidden;
-      }
-      .page-grid{
-        @apply flex flex-col items-center justify-center;
-      }
-      .teams-grid{
-        @apply items-start justify-center;
-      }
-      .people-grid{
-        @apply items-center justify-center;
-      }
-      .people-detail{
-        @apply hidden;
-        }
-        .initiative-grid {
-          @apply flex-col items-center justify-center;
-        }
-        .meta-data {
-          @apply flex-row items-start justify-center w-full;
-        }
-        .meta-mobile {
-          @apply block;
-        }
-        .initiative-pg {
-          @apply flex-col items-center justify-center;
-        }
-
-
-        .ini-list-grid {
-          @apply  w-full grid-cols-1;
-        }
-
-        .feed-w {
-          @apply w-full;
-        }
-
-        .feed-grid {
-          @apply items-start justify-between w-full;
-        }
-
-        .feed-item-img {
-          @apply w-full;
-        }
-        .feed-item-img-inner {
-          @apply h-full w-full;
-        }
-
-        .feed-item-details {
-          @apply h-[210px] w-full;
-        }
-        .project-back {
-          @apply block;
-        }
+  .nav-btn {
+    @apply flex;
   }
+  .page-grid {
+    @apply flex flex-col items-center justify-center;
+  }
+  .teams-grid {
+    @apply items-start justify-center;
+  }
+  .people-grid {
+    @apply items-center justify-center;
+  }
+  .people-detail {
+    @apply hidden;
+  }
+  .initiative-grid {
+    @apply flex-col items-center justify-center;
+  }
+
+  .meta-data {
+    @apply w-[690px] flex-row items-start justify-center;
+  }
+  .meta-mobile {
+    @apply block;
+  }
+  .initiative-pg {
+    @apply flex-col items-center justify-center;
+  }
+
+  .ini-list-grid {
+    @apply w-[690px] grid-cols-1;
+  }
+
+  .feed-w {
+    @apply w-[690px];
+  }
+
+  .feed-grid {
+    @apply w-[690px] items-center justify-center;
+  }
+
+  .feed-item-img {
+    @apply w-[240px];
+  }
+
+  .feed-item-img-inner {
+    @apply h-[140px] w-full;
+  }
+
+  .feed-item-details {
+    @apply h-[210px] w-[430px];
+  }
+
+  .project-back {
+    @apply block;
+  }
+}
+
+@media (min-width: 1070px) {
+  .matirx-break {
+    @apply grid grid-cols-12;
+  }
+  .matirx-justify {
+    @apply justify-self-end;
+  }
+
+  .side-display {
+    @apply block;
+  }
+
+  .logo-w {
+    @apply w-auto;
+  }
+  .nav-btn {
+    @apply hidden;
+  }
+  .page-grid {
+    @apply grid grid-cols-12;
+  }
+
+  .teams-grid {
+    @apply items-center justify-end;
+  }
+
+  .people-grid {
+    @apply items-start justify-between;
+  }
+
+  .people-detail {
+    @apply sticky flex;
+  }
+
+  .initiative-grid {
+    @apply flex-row items-start justify-between;
+  }
+  .meta-data {
+    @apply w-full flex-col justify-start;
+  }
+  .meta-mobile {
+    @apply hidden;
+  }
+  .initiative-pg {
+    @apply flex-col items-start justify-start;
+  }
+
+  .ini-list-grid {
+    @apply w-full grid-cols-2;
+  }
+
+  .ini-list-border {
+    @apply last:border-b-[0.5px] odd:border-r-[0.5px] odd:pr-[34px] even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px];
+  }
+
+  .feed-w {
+    @apply w-full;
+  }
+
+  .feed-grid {
+    @apply w-full items-center justify-center;
+  }
+
+  .feed-item-img {
+    @apply w-[470px];
+  }
+  .feed-item-img-inner {
+    @apply h-[266px] w-[470px];
+  }
+
+  .feed-item-details {
+    @apply h-[340px] w-[690px];
+  }
+
+  .project-back {
+    @apply hidden;
+  }
+
+  .meta-data-border {
+    @apply w-[380px] border-y border-y-[#353535];
+  }
+}
+
+@media (max-width: 810px) {
+  .side-display {
+    @apply hidden;
+  }
+  .logo-w {
+    @apply w-full;
+  }
+  .nav-btn {
+    @apply hidden;
+  }
+  .page-grid {
+    @apply flex flex-col items-center justify-center;
+  }
+  .teams-grid {
+    @apply items-start justify-center;
+  }
+  .people-grid {
+    @apply items-center justify-center;
+  }
+  .people-detail {
+    @apply hidden;
+  }
+  .initiative-grid {
+    @apply flex-col items-center justify-center;
+  }
+  .meta-data {
+    @apply w-full flex-row items-start justify-center;
+  }
+  .meta-mobile {
+    @apply block;
+  }
+  .initiative-pg {
+    @apply flex-col items-center justify-center;
+  }
+
+  .ini-list-grid {
+    @apply w-full grid-cols-1;
+  }
+
+  .feed-w {
+    @apply w-full;
+  }
+
+  .feed-grid {
+    @apply w-full items-start justify-between;
+  }
+
+  .feed-item-img {
+    @apply w-full;
+  }
+  .feed-item-img-inner {
+    @apply h-full w-full;
+  }
+
+  .feed-item-details {
+    @apply h-[210px] w-full;
+  }
+  .project-back {
+    @apply block;
+  }
+}
