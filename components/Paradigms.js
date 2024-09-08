@@ -21,7 +21,7 @@ export default function Paradigms({
 }) {
   return (
     <>
-      <div className="col-span-5 hidden sm:block md:w-[400px]">
+      <div className="side-display col-span-5 md:w-[400px]">
         <div className="mt-20">
           <h2 className="heading-4xl pb-2 text-grey-3">Paradigms</h2>
           <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -38,7 +38,7 @@ export default function Paradigms({
           </p>
         </div>
       </div>
-      <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
+      <div className={`matrix-justify relative col-span-7 sm:w-[690px]`}>
         <div id="why">
           <div className="my-8 sm:my-20 ">
             <div className="mb-8">

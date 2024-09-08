@@ -47,6 +47,10 @@ import CTlogo from '@/images/studios/Ct Studio.svg';
 import ODlogo from '@/images/studios/Cd Studio.svg';
 import FFlogo from '@/images/studios/Ff Studio.svg';
 
+import matrixMobile1 from '@/images/Matrix1.png';
+import matrixMobile2 from '@/images/Matrix2.png';
+import matrixMobile3 from '@/images/Matrix3.png';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -106,7 +110,7 @@ export default function Home() {
       setActiveState(2);
 
       setClassT('');
-
+      console.log('yes');
       setClassT2('t2');
       setAnimateOn('');
     }
@@ -2283,8 +2287,8 @@ export default function Home() {
         }
       />
 
-      <div className={`relative mt-10 sm:mt-28 sm:grid sm:grid-cols-12`}>
-        <div className="col-span-5 hidden w-[400px] max-w-xs sm:block">
+      <div className={`matirx-break relative mt-10 sm:mt-28`}>
+        <div className="col-span-5 hidden w-[400px] max-w-xs matirx:block">
           <animated.div
             style={{
               opacity: sideMatrixOpacityInterpolate(),
@@ -2436,7 +2440,7 @@ export default function Home() {
             </p>
           </animated.div>
         </div>
-        <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
+        <div className={`matirx-justify relative col-span-7 sm:w-[690px]`}>
           <div id="real" className="">
             <h1 className="heading-7xl max-w-[40rem] pb-10 text-grey-5 ">
               We are building options for the next economies
@@ -2513,6 +2517,30 @@ export default function Home() {
                 How do we structure our response? ↓
               </p>
             </div>
+          </div>
+
+          <div className='block sm:hidden'>
+            <Image 
+            src={matrixMobile1}
+            width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
+            />
+             <Image 
+            src={matrixMobile2}
+            width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto',paddingBottom: '20px' }}
+            />
+             <Image 
+            src={matrixMobile3}
+            width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto' }}
+            />
           </div>
 
           <animated.div
@@ -5201,7 +5229,7 @@ export default function Home() {
             ),
           ),
         }}
-        className={`relative mt-[400px] hidden sm:grid sm:grid-cols-12`}
+        className={`relative mt-[400px] hidden sm:grid sm:grid-cols-1 matirx:grid-cols-12`}
       >
         <Contexts />
       </animated.div>
@@ -5219,7 +5247,7 @@ export default function Home() {
             ),
           ),
         }}
-        className={`relative hidden sm:grid sm:grid-cols-12`}
+        className={`matrix:justify-items-auto relative hidden sm:grid sm:grid-cols-1 sm:justify-items-center matirx:grid-cols-12`}
       >
         <Paradigms
           setOpenNE={setOpenNE}
