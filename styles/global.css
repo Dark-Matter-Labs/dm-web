@@ -309,6 +309,14 @@ hr {
     .side-display{
     @apply hidden;
     }
+
+    .logo-w{
+      @apply w-full;
+    }
+
+    .nav-btn {
+      @apply flex;
+    }
   }
 
   @media (min-width: 1070px) {
@@ -322,10 +330,23 @@ hr {
     .side-display{
       @apply block;
       }
+
+      .logo-w{
+        @apply w-auto;
+      }
+      .nav-btn {
+        @apply hidden;
+      }
   }
 
   @media (max-width: 810px) {
     .side-display{
       @apply hidden;
+      }
+      .logo-w{
+        @apply w-full;
+      }
+      .nav-btn {
+        @apply hidden;
       }
   }
