@@ -35,7 +35,7 @@ export default async function Initiatives() {
         {initiatives.map((initiative, id) => (
           <li
             key={id}
-            className="flex flex-col border-t-[0.5px] border-[#353535] py-[34px] last:border-b-[0.5px] md:odd:border-r-[0.5px] md:odd:pr-[34px] md:even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px]"
+            className="flex flex-col border-t-[0.5px] border-[#353535] py-[34px] last:border-b-[0.5px] md:odd:border-r-[0.5px] md:odd:pr-[34px] md:even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px] group"
           >
             <Link href={`/initiatives/${initiative.slug.current}`}>
               <div className="relative mb-[30px] h-[352px]">
@@ -47,12 +47,12 @@ export default async function Initiatives() {
               (max-width: 768px) 90vw,
               (max-width: 1200px) 60vw,
               90vw"
-                  className="w-full object-cover"
+                  className="w-full object-cover group-hover:opacity-80"
                   placeholder="blur"
                   blurDataURL={initiative?.metadata.lqip}
                 />
               </div>
-              <h2 className="mb-[18px] font-SaansRegular text-5xl text-white">
+              <h2 className="mb-[18px] font-SaansRegular text-5xl text-white group-hover:opacity-80">
                 {initiative.title}
               </h2>
               <p className="pb-[20px] font-SaansRegular text-xl text-[#A8A8A8]">

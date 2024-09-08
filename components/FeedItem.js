@@ -5,13 +5,13 @@ export default function FeedItem({ item }) {
   return (
     <div
       key={item.title}
-      className="flex h-full flex-col items-center justify-center gap-[20px] border-b border-b-[#353535] sm:flex-row sm:items-start sm:justify-between"
+      className="flex h-full flex-col items-center justify-center gap-[20px] border-b border-b-[#353535] sm:flex-row sm:items-start sm:justify-between group"
     >
       <div className="flex w-full items-center justify-center py-[20px] sm:w-[240px] sm:py-[34px] md:w-[470px]">
         <Image
           src={urlForImage(item.image)}
           alt="feed item image"
-          className="h-full w-full sm:h-[140px] md:h-[266px] md:w-[470px]"
+          className="h-full w-full sm:h-[140px] md:h-[266px] md:w-[470px] group-hover:opacity-80"
           width={0}
           height={0}
           sizes="100vw"
@@ -21,7 +21,7 @@ export default function FeedItem({ item }) {
       </div>
       <div className="flex h-[210px] w-full flex-col items-start justify-between py-[20px] sm:w-[430px] sm:py-[34px] md:h-[340px] md:w-[690px]">
         <div className="flex flex-col items-start justify-between gap-[2px] md:justify-start">
-          <h2 className="max-w-[400px] font-SaansRegular text-4xl leading-[28px] text-white md:max-w-full md:text-5xl md:leading-[36px]">
+          <h2 className="max-w-[400px] font-SaansRegular text-4xl leading-[28px] text-white md:max-w-full md:text-5xl md:leading-[36px] group-hover:opacity-80">
             {item.title}
           </h2>
           <h3 className="p-body2 hidden text-grey-3 md:block">
