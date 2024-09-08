@@ -124,11 +124,11 @@ img {
   }
 
   .t1 {
-    @apply relative;
+    @apply relative -mt-24;
   }
 
   .t2 {
-    @apply sticky;
+    @apply sticky -mt-24;
     top: calc(50% - 500px);
   }
 

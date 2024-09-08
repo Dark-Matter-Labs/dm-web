@@ -2517,14 +2517,14 @@ export default function Home() {
           <animated.div
             style={{
               opacity: scrollYProgress.to(() => {
-                if (scrollY < startSticky - step) {
+                if (scrollY < startSticky - step - 400) {
                   return 0;
                 } else if (
-                  scrollY >= startSticky - step &&
+                  scrollY >= startSticky - step - 400 &&
                   scrollY <= startSticky
                 ) {
                   return matrixOpacityInterpolateMult(
-                    startSticky - step,
+                    startSticky - step - 400,
                     startSticky,
                     false,
                     1,
