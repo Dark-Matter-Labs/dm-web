@@ -24,8 +24,8 @@ export default async function Feed() {
     query: feedQuery,
   });
   return (
-    <div className="flex flex-col items-center justify-start">
-      <div className="mt-[60px] flex w-full flex-col items-start justify-center pb-[90px] sm:mt-[100px] sm:w-[690px] md:w-full">
+    <div className="flex flex-col items-center justify-start ">
+      <div className="feed-w mt-[60px] flex flex-col items-start justify-center pb-[90px] sm:mt-[100px]">
         <h1 className="heading-5xl-Reg sm:heading-7xl mb-[30px]  text-white">
           Latest projects and news
         </h1>
@@ -35,7 +35,7 @@ export default async function Feed() {
           governing our common resources.
         </p>
       </div>
-      <div className="flex w-full items-start justify-between gap-[10px] sm:w-[690px] sm:items-center sm:justify-center md:w-full">
+      <div className="feed-grid flex gap-[10px] ">
         <div className="flex flex-col items-center justify-center pb-[150px]">
           {feedItems?.map((item) =>
             item.type === 'media' ? (

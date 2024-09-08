@@ -18,7 +18,7 @@ export default async function TeamPage() {
   });
   return (
     <>
-      <div className="mt-[40px] flex w-full items-start justify-center gap-0 text-white sm:mt-[100px] md:items-center md:justify-end ">
+      <div className="teams-grid mt-[40px] flex w-full gap-0 text-white sm:mt-[100px]">
         <div className="max-w-[690px] border-b border-[#353535] font-SaansRegular">
           <div className="heading-5xl-Reg sm:heading-7xl mb-[30px] text-white">
             Team
@@ -33,7 +33,7 @@ export default async function TeamPage() {
         </div>
       </div>
       <TeamGrid dmliens={dmliens} />
-      <div className="mt-[40px] flex items-center justify-center px-[20px] sm:mt-[100px] sm:items-start sm:px-0 md:justify-end">
+      <div className="teams-grid mt-[40px] flex px-[20px] sm:mt-[100px] sm:px-0">
         <div className="relative h-[220px] w-4/5 pt-[100px] sm:h-[400px] sm:w-[690px]">
           <Image
             src="/team.avif"
@@ -43,7 +43,7 @@ export default async function TeamPage() {
           />
         </div>
       </div>
-      <div className="mb-[30px] mt-[63px] flex items-center justify-center px-[20px] sm:px-0 md:items-start md:justify-end">
+      <div className="teams-grid mb-[30px] mt-[63px] flex justify-center px-[20px] sm:px-0">
         <div className="flex w-4/5 flex-col items-center justify-center sm:w-[690px] md:items-start md:justify-end">
           <p className=" text-white">
             We are a distributed global team collaborating at the intersection

@@ -18,7 +18,7 @@ export default async function Initiatives() {
   });
 
   return (
-    <div className="mt-[40px] flex flex-col items-center justify-center sm:mt-[100px] md:items-start md:justify-start">
+    <div className="initiative-pg mt-[40px] flex pb-[80px] sm:mt-[100px]">
       <div className="flex flex-col items-start justify-start gap-[30px] sm:w-[690px] md:w-full">
         <h1 className="heading-5xl-Reg sm:heading-7xl font-SaansRegular text-white">
           Initiatives
@@ -31,11 +31,11 @@ export default async function Initiatives() {
         </p>
       </div>
 
-      <ul className="mt-[40px] grid w-full grid-cols-1 sm:mt-[100px] sm:w-[690px] md:w-full md:grid-cols-2">
+      <ul className="ini-list-grid mt-[40px] grid sm:mt-[100px]">
         {initiatives.map((initiative, id) => (
           <li
             key={id}
-            className="flex flex-col border-t-[0.5px] border-[#353535] py-[34px] last:border-b-[0.5px] md:odd:border-r-[0.5px] md:odd:pr-[34px] md:even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px] group"
+            className="ini-list-border group flex flex-col border-t-[0.5px] border-[#353535] py-[34px]"
           >
             <Link href={`/initiatives/${initiative.slug.current}`}>
               <div className="relative mb-[30px] h-[352px]">

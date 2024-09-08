@@ -9,10 +9,8 @@ import BHLogo from '@/images/partners/Bloxhub.png';
 
 export default function Contact() {
   return (
-    <div
-      className={`relative mt-28 flex flex-col items-center justify-center pb-[60px] md:grid md:grid-cols-12`}
-    >
-      <div className="col-span-5 hidden w-[400px] md:block"></div>
+    <div className={`page-grid relative mt-28 pb-[60px]`}>
+      <div className="side-display col-span-5 w-[400px]"></div>
       <div className={'col-span-7  w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[55px] border-b border-b-[#353535] pb-[60px]">
           <div>
@@ -29,7 +27,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="col-span-5 mt-28 w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5  mt-[30px] w-full sm:w-[690px] md:mt-28 md:w-[400px] md:self-start">
         <h2 className="heading-5xl-Reg  pb-2 text-grey-3">Geographies</h2>
       </div>
       <div
@@ -97,7 +95,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="col-span-5 mt-28 w-full sm:w-[690px] md:w-[400px]">
+      <div className="col-span-5  mt-[30px] w-full sm:w-[690px] md:mt-28 md:w-[400px]">
         <h2 className="heading-5xl-Reg  pb-2 text-grey-3">Our partners</h2>
       </div>
       <div

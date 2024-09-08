@@ -104,7 +104,7 @@ export default function Paradigms({
               Ecosystem Matrix, as we seek to test them in different contexts.
             </p>
             <h2 className="heading-4xl text-grey-1">Worldview philosophies</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 py-8 ">
+            <div className="grid grid-cols-1 gap-10 py-8 sm:grid-cols-3 ">
               <div>
                 <h3 className="p-lg-regular pb-3 text-grey-6">
                   Rooted in the recognition of the full web of life
@@ -221,7 +221,7 @@ export default function Paradigms({
             <h2 className="heading-4xl text-grey-1">
               Proposed structural shifts
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-10 gap-y-8 py-8">
+            <div className="grid grid-cols-1 gap-x-10 gap-y-8 py-8 sm:grid-cols-3">
               <div>
                 <h3 className="p-lg-regular pb-3 text-grey-6">
                   Beyond Property

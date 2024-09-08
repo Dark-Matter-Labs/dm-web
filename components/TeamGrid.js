@@ -10,8 +10,8 @@ export default function TeamGrid({ dmliens }) {
   const [dmlien, setDmlien] = useState({});
   return (
     <>
-      <div className="relative mt-[40px] flex items-center justify-center sm:mt-[100px] md:items-start md:justify-between">
-        <div className="top-44 z-10 hidden h-full w-[400px] text-white md:sticky  md:flex">
+      <div className="people-grid relative mt-[40px] flex sm:mt-[100px] ">
+        <div className="people-detail top-44 z-10 h-full w-[400px] text-white">
           {dmliens.map((person, id) => (
             <div
               key={id}
