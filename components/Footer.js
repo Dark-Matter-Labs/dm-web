@@ -46,8 +46,8 @@ export default function Footer() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto w-[690px] pb-20 pt-[80px] sm:w-full md:w-[1200px]">
-          <div className="flex flex-col sm:grid sm:grid-cols-12 md:gap-[40px]">
+        <div className="mx-auto w-[690px] pb-20 pt-12 sm:w-full sm:pt-[80px] md:w-[1200px]">
+          <div className="flex flex-col gap-[40px] sm:grid sm:grid-cols-12">
             <div className="col-span-5 flex flex-row justify-between sm:flex-col">
               <Link href="/">
                 <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
