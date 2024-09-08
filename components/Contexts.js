@@ -1,7 +1,7 @@
 export default function Contexts() {
   return (
     <>
-      <div className="col-span-5 hidden w-[400px] max-w-xs sm:block">
+      <div className="side-display col-span-5 w-[400px] max-w-xs ">
         <div className="mt-[0px]">
           <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
           <p className="p-xl-regular max-w-[380px] text-grey-3">
@@ -13,7 +13,7 @@ export default function Contexts() {
           </p>
         </div>
       </div>
-      <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
+      <div className={`matirx-justify relative col-span-7 sm:w-[690px]`}>
         <div id="context" className="mb-20 ">
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Political landscapes</h2>

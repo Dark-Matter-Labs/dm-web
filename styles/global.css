@@ -295,3 +295,31 @@ hr {
     transform: rotate(360deg);
   }
 }
+
+
+  @media (min-width: 810px) and (max-width: 1070px) {
+    .matirx-break {
+      @apply grid grid-cols-1 justify-items-center h-[550vh];
+    }
+
+    .matirx-justify{
+      @apply justify-self-center;
+    }
+
+    .side-display{
+    @apply hidden;
+    }
+  }
+
+  @media (min-width: 1070px) {
+    .matirx-break {
+      @apply grid grid-cols-12;
+    }
+    .matirx-justify{
+      @apply justify-self-end;
+    }
+
+    .side-display{
+      @apply block;
+      }
+  }
