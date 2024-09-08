@@ -18,11 +18,11 @@ export default function Navbar({ numberOfJobs }) {
 
   return (
     <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px] ">
-      <div className="global-margin flex items-center justify-between  sm:w-full md:w-[1200px]">
+      <div className="global-margin flex items-center justify-between sm:w-full matrix:w-[1200px]">
         <div
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          className="w-full md:w-auto "
+          className="logo-w "
         >
           <Link href="/">
             {hover ? (
@@ -60,13 +60,13 @@ export default function Navbar({ numberOfJobs }) {
                     </Link>
                     <Link
                       href="/team"
-                      className="nav-xl hidden py-2 text-grey-4 transition ease-in-out hover:text-white md:block"
+                      className="nav-xl hidden py-2 text-grey-4 transition ease-in-out hover:text-white side-display"
                     >
                       Team
                     </Link>
                     <Link
                       href="/jobs"
-                      className="nav-xl -mt-1 hidden py-2 text-grey-4 transition ease-in-out hover:text-white md:block"
+                      className="nav-xl -mt-1 hidden py-2 text-grey-4 transition ease-in-out hover:text-white side-display"
                     >
                       {numberOfJobs === 0 ? (
                         <p>
@@ -86,7 +86,7 @@ export default function Navbar({ numberOfJobs }) {
                     </Link>
                     <Link
                       href="/contact"
-                      className="nav-xl hidden py-2 text-grey-4  transition ease-in-out hover:text-white md:block"
+                      className="nav-xl hidden py-2 text-grey-4  transition ease-in-out hover:text-white side-display"
                     >
                       Contact
                     </Link>
@@ -104,7 +104,7 @@ export default function Navbar({ numberOfJobs }) {
                     >
                       Provocations↗
                     </a>
-                    <div className="-mr-2 flex md:hidden">
+                    <div className="-mr-2 flex nav-btn">
                       {/* Mobile menu button */}
                       <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition ease-in-out hover:text-white">
                         <span className="absolute -inset-0.5" />
@@ -139,7 +139,7 @@ export default function Navbar({ numberOfJobs }) {
 
                 <DisclosurePanel
                   transition
-                  className="overlay shadow-layer h-[100vh] w-[100vw] origin-top overflow-hidden px-5 backdrop-blur-md transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 sm:px-28 md:hidden"
+                  className="overlay shadow-layer h-[100vh] w-[100vw] origin-top overflow-hidden px-5 backdrop-blur-md transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 sm:px-8 md:hidden"
                 >
                   <DisclosureButton className="relative float-right inline-flex items-center justify-center rounded-md p-2 pt-[34px] text-gray-400  hover:text-white ">
                     <span className="absolute -inset-0.5" />
