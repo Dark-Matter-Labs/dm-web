@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { sanityFetch } from '@/sanity/lib/client';
+import Loading from './loading';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import '../../styles/global.css';
@@ -14,11 +16,13 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <main className="">
-          <Navbar numberOfJobs={jobs.length} />
-          <div className="global-margin">{children}</div>
-          <Footer />
-        </main>
+        <Suspense fallback={<Loading />}>
+          <main className="">
+            <Navbar numberOfJobs={jobs.length} />
+            <div className="global-margin">{children}</div>
+            <Footer />
+          </main>
+        </Suspense>
       </body>
     </html>
   );
