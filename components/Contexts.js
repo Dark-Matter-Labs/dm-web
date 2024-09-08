@@ -1,7 +1,7 @@
 export default function Contexts() {
   return (
     <>
-      <div className="side-display col-span-5 w-[400px] max-w-xs ">
+      <div className="side-display col-span-5 w-[400px] max-w-xs">
         <div className="mt-[0px]">
           <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
           <p className="p-xl-regular max-w-[380px] text-grey-3">

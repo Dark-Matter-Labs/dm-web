@@ -47,6 +47,10 @@ import CTlogo from '@/images/studios/Ct Studio.svg';
 import ODlogo from '@/images/studios/Cd Studio.svg';
 import FFlogo from '@/images/studios/Ff Studio.svg';
 
+import matrixMobile1 from '@/images/Matrix1.png';
+import matrixMobile2 from '@/images/Matrix2.png';
+import matrixMobile3 from '@/images/Matrix3.png';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -2513,6 +2517,30 @@ export default function Home() {
                 How do we structure our response? ↓
               </p>
             </div>
+          </div>
+
+          <div className='block sm:hidden'>
+            <Image 
+            src={matrixMobile1}
+            width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
+            />
+             <Image 
+            src={matrixMobile2}
+            width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto',paddingBottom: '20px' }}
+            />
+             <Image 
+            src={matrixMobile3}
+            width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto' }}
+            />
           </div>
 
           <animated.div

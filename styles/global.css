@@ -323,3 +323,9 @@ hr {
       @apply block;
       }
   }
+
+  @media (max-width: 810px) {
+    .side-display{
+      @apply hidden;
+      }
+  }
