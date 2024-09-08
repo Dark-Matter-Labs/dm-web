@@ -185,7 +185,7 @@ export default function Privacy() {
           We use an analytics software run through{' '}
           <a href="https://www.cloudflare.com/">Cloudflare</a>, a service that
           adopts a privacy-first analytics approach. This means that they enable
-          us to analyze traffic to our website, without compromising our users'
+          us to analyze traffic to our website, without compromising our users’
           privacy. Their approach to customer data is outlined in their{' '}
           <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a>{' '}
           and the data that we have access to is only visible for 30 days
@@ -280,7 +280,7 @@ export default function Privacy() {
       >
         <p className="p-xl-regular text-[#EBEBEB]">
           As a discovery organisation, research is an important part of our
-          work: it helps us understand people's needs and build better products
+          work: it helps us understand people’s needs and build better products
           and services. We treat all the notes, recordings and other data you
           collect during our research as personal data.
         </p>
@@ -398,7 +398,7 @@ export default function Privacy() {
       </div>
       <div className="col-span-5 mt-16 w-full sm:w-[690px] md:w-[400px] md:self-start">
         <h2 className="heading-5xl-Reg max-w-xs pb-2 text-grey-3">
-          Attendees of DML's events
+          Attendees of DML’s events
         </h2>
       </div>
       <div
@@ -504,7 +504,7 @@ export default function Privacy() {
 
         <h2 className="heading-4xl text-[#EBEBEB]">Keeping data secure</h2>
         <p className="p-xl-regular text-[#EBEBEB]">
-          We carefully choose our services and tools at Dark Matter Labs. We've
+          We carefully choose our services and tools at Dark Matter Labs. We’ve
           reviewed the privacy policies and security practices of everything we
           use.
         </p>
@@ -527,12 +527,12 @@ export default function Privacy() {
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">
-          In the event of an unlawful data breach of this website's database or
+          In the event of an unlawful data breach of this website’s database or
           the database(s) of any of our third-party data processors, it will be
           assessed and, if appropriate, reported to any and all affected persons
           and relevant authorities without undue delay, and if feasible, within
           72 hours of the discovery of the breach. In the event of a data
-          breach, we are also required to notify the Information Commissioner's
+          breach, we are also required to notify the Information Commissioner’s
           Office. We will do so following their guidance.
         </p>
       </div>
@@ -696,8 +696,8 @@ export default function Privacy() {
         </p>
 
         <p className="p-xl-regular text-[#EBEBEB]">
-          If you aren't satisfied with our response, you can contact the
-          Information Commissioner's Office.
+          If you aren’t satisfied with our response, you can contact the
+          Information Commissioner’s Office.
         </p>
       </div>
 
