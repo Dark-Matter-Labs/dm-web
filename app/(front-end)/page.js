@@ -5192,7 +5192,6 @@ export default function Home() {
         </div>
       </div>
 
-
       <animated.div
         style={{
           opacity: scrollYProgress.to(() =>
@@ -5202,12 +5201,12 @@ export default function Home() {
             ),
           ),
         }}
-        className={`hidden relative mt-[400px] sm:grid sm:grid-cols-12`}
+        className={`relative mt-[400px] hidden sm:grid sm:grid-cols-12`}
       >
         <Contexts />
       </animated.div>
 
-      <div className='relative mt-20 sm:hidden'>
+      <div className="relative mt-20 sm:hidden">
         <Contexts />
       </div>
 
@@ -5220,49 +5219,49 @@ export default function Home() {
             ),
           ),
         }}
-        className={`hidden relative sm:grid sm:grid-cols-12`}
+        className={`relative hidden sm:grid sm:grid-cols-12`}
       >
-        <Paradigms 
-        setOpenNE={setOpenNE}
-        setOpenRC={setOpenRC}
-        setOpenSM={setOpenSM} 
-        setOpenRE={setOpenRE} 
-        setOpenCT={setOpenCT} 
-        setOpenPC={setOpenPC}
-        setOpenPB={setOpenPB} 
-        setOpenBR={setOpenBR}
-        setOpenCD={setOpenCD}
-        setOpenQD={setOpenQD} 
-        setOpenETC={setOpenETC}
-        setOpenOD={setOpenOD}
-        setOpenBE={setOpenBE}
-        setOpenSG={setOpenSG}
-        setOpenCS={setOpenCS}
-        setOpenM0={setOpenM0}
-        setOpenNZ={setOpenNZ}
+        <Paradigms
+          setOpenNE={setOpenNE}
+          setOpenRC={setOpenRC}
+          setOpenSM={setOpenSM}
+          setOpenRE={setOpenRE}
+          setOpenCT={setOpenCT}
+          setOpenPC={setOpenPC}
+          setOpenPB={setOpenPB}
+          setOpenBR={setOpenBR}
+          setOpenCD={setOpenCD}
+          setOpenQD={setOpenQD}
+          setOpenETC={setOpenETC}
+          setOpenOD={setOpenOD}
+          setOpenBE={setOpenBE}
+          setOpenSG={setOpenSG}
+          setOpenCS={setOpenCS}
+          setOpenM0={setOpenM0}
+          setOpenNZ={setOpenNZ}
         />
       </animated.div>
 
-      <div className='relative mt-20 sm:hidden'>
-      <Paradigms 
-      setOpenNE={setOpenNE}
-      setOpenRC={setOpenRC}
-      setOpenSM={setOpenSM} 
-      setOpenRE={setOpenRE} 
-      setOpenCT={setOpenCT} 
-      setOpenPC={setOpenPC}
-      setOpenPB={setOpenPB} 
-      setOpenBR={setOpenBR}
-      setOpenCD={setOpenCD}
-      setOpenQD={setOpenQD} 
-      setOpenETC={setOpenETC}
-      setOpenOD={setOpenOD}
-      setOpenBE={setOpenBE}
-      setOpenSG={setOpenSG}
-      setOpenCS={setOpenCS}
-      setOpenM0={setOpenM0}
-      setOpenNZ={setOpenNZ}
-      />
+      <div className="relative mt-20 sm:hidden">
+        <Paradigms
+          setOpenNE={setOpenNE}
+          setOpenRC={setOpenRC}
+          setOpenSM={setOpenSM}
+          setOpenRE={setOpenRE}
+          setOpenCT={setOpenCT}
+          setOpenPC={setOpenPC}
+          setOpenPB={setOpenPB}
+          setOpenBR={setOpenBR}
+          setOpenCD={setOpenCD}
+          setOpenQD={setOpenQD}
+          setOpenETC={setOpenETC}
+          setOpenOD={setOpenOD}
+          setOpenBE={setOpenBE}
+          setOpenSG={setOpenSG}
+          setOpenCS={setOpenCS}
+          setOpenM0={setOpenM0}
+          setOpenNZ={setOpenNZ}
+        />
       </div>
     </div>
   );
