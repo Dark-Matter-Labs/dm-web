@@ -317,6 +317,60 @@ hr {
     .nav-btn {
       @apply flex;
     }
+    .page-grid{
+      @apply flex flex-col items-center justify-center;
+    }
+    .teams-grid{
+      @apply items-start justify-center;
+    }
+    .people-grid{
+      @apply items-center justify-center;
+    }
+    .people-detail{
+      @apply hidden;
+      }
+      .initiative-grid {
+        @apply flex-col items-center justify-center;
+      }
+
+      .meta-data {
+        @apply flex-row items-start justify-center w-[690px];
+      }
+      .meta-mobile {
+        @apply block;
+      }
+      .initiative-pg {
+        @apply flex-col items-center justify-center;
+      }
+
+      .ini-list-grid {
+        @apply  w-[690px] grid-cols-1;
+      }
+
+      .feed-w {
+        @apply w-[690px];
+      }
+
+      .feed-grid {
+        @apply items-center justify-center w-[690px]
+      }
+
+      .feed-item-img {
+        @apply w-[240px];
+      }
+
+      .feed-item-img-inner {
+        @apply h-[140px] w-full;
+      }
+
+
+      .feed-item-details {
+        @apply h-[210px] w-[430px];
+      }
+
+      .project-back {
+        @apply block;
+      }
   }
 
   @media (min-width: 1070px) {
@@ -337,6 +391,70 @@ hr {
       .nav-btn {
         @apply hidden;
       }
+      .page-grid{
+        @apply grid grid-cols-12;
+      }
+
+      .teams-grid{
+        @apply items-center justify-end;
+      }
+
+      .people-grid{
+        @apply items-start justify-between;
+      }
+
+      .people-detail{
+        @apply flex sticky;
+        }
+
+        .initiative-grid {
+          @apply flex-row items-start justify-between;
+        }
+        .meta-data {
+          @apply flex-col justify-start w-full;
+        }
+        .meta-mobile {
+          @apply hidden;
+        }
+        .initiative-pg {
+          @apply flex-col items-start justify-start;
+        }
+
+    
+        .ini-list-grid {
+          @apply w-full grid-cols-2;
+        }
+
+        .ini-list-border {
+          @apply last:border-b-[0.5px] odd:border-r-[0.5px] odd:pr-[34px] even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px];
+        }
+
+        .feed-w {
+          @apply w-full;
+        }
+
+        .feed-grid {
+          @apply items-center justify-center w-full;
+        }
+
+        .feed-item-img {
+          @apply w-[470px];
+        }
+        .feed-item-img-inner {
+          @apply h-[266px] w-[470px];
+        }
+
+        .feed-item-details {
+          @apply h-[340px] w-[690px];
+        }
+
+        .project-back {
+          @apply hidden;
+        }
+
+        .meta-data-border {
+          @apply w-[380px] border-y border-y-[#353535]
+        }
   }
 
   @media (max-width: 810px) {
@@ -349,4 +467,55 @@ hr {
       .nav-btn {
         @apply hidden;
       }
+      .page-grid{
+        @apply flex flex-col items-center justify-center;
+      }
+      .teams-grid{
+        @apply items-start justify-center;
+      }
+      .people-grid{
+        @apply items-center justify-center;
+      }
+      .people-detail{
+        @apply hidden;
+        }
+        .initiative-grid {
+          @apply flex-col items-center justify-center;
+        }
+        .meta-data {
+          @apply flex-row items-start justify-center w-full;
+        }
+        .meta-mobile {
+          @apply block;
+        }
+        .initiative-pg {
+          @apply flex-col items-center justify-center;
+        }
+
+
+        .ini-list-grid {
+          @apply  w-full grid-cols-1;
+        }
+
+        .feed-w {
+          @apply w-full;
+        }
+
+        .feed-grid {
+          @apply items-start justify-between w-full;
+        }
+
+        .feed-item-img {
+          @apply w-full;
+        }
+        .feed-item-img-inner {
+          @apply h-full w-full;
+        }
+
+        .feed-item-details {
+          @apply h-[210px] w-full;
+        }
+        .project-back {
+          @apply block;
+        }
   }

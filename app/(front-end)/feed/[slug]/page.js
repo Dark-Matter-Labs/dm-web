@@ -27,12 +27,12 @@ export default async function feed_itemPage({ params }) {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center pb-[100px] pt-[60px] sm:pt-28 md:flex-row md:items-start md:justify-between">
-      <div className="hidden md:block">
-        <ProjectMetadata initiative={feed_item} />
+    <div className="initiative-grid flex pb-[100px] pt-[60px] sm:pt-28">
+      <div className="side-display">
+        <ProjectMetadata initiative={feed_item} back_text={'back to feed'} />
       </div>
       <div className="flex w-full flex-col items-start justify-center gap-[30px] sm:w-[690px]">
-        <div className="block md:hidden">
+        <div className="project-back">
           <BackButton text="back to feed" />
         </div>
         <Image
@@ -47,8 +47,8 @@ export default async function feed_itemPage({ params }) {
         />
         <h1 className="heading-5xl-Reg text-grey-1">{feed_item.title}</h1>
         <h2 className="heading-4xl text-grey-3">{feed_item.subtitle}</h2>
-        <div className="block md:hidden">
-          <ProjectMetadata initiative={feed_item} />
+        <div className="meta-mobile">
+          <ProjectMetadata initiative={feed_item} back_text={'back to feed'} />
         </div>
         <div className="border-y border-y-[#353535] pb-[100px] pt-[30px]">
           <p className="p-xl-regular text-[#EBEBEB]">{feed_item.description}</p>

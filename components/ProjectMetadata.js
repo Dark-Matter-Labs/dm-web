@@ -2,13 +2,13 @@ import Image from 'next/image';
 import { urlForImage } from '@/sanity/lib/image';
 import BackButton from '@/components/BackButton';
 
-export default function ProjectMetadata({ initiative }) {
+export default function ProjectMetadata({ initiative, back_text }) {
   return (
-    <div className="flex w-full flex-row items-start justify-center gap-[20px] sm:w-[690px] sm:gap-0 md:w-full md:flex-col md:justify-start">
-      <div className="hidden md:block">
-        <BackButton text="back to initiatives" />
+    <div className="meta-data flex gap-[20px] sm:gap-0 ">
+      <div className="side-display">
+        <BackButton text={back_text} />
       </div>
-      <div className="flex w-full flex-col items-start justify-center gap-[10px] py-[20px] md:w-[380px] md:border-y md:border-y-[#353535]">
+      <div className="meta-data-border flex w-full flex-col items-start justify-center gap-[10px] py-[20px] ">
         <p className="pb-[12px] font-SaansMed text-xl uppercase text-[#595959]">
           Links
         </p>
