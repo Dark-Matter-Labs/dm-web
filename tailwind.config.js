@@ -39,9 +39,8 @@ module.exports = {
         16: '60px',
       },
       screens: {
-      'sm': '810px',
-      'md': '1600px',
-
+        sm: '810px',
+        md: '1600px',
       },
       container: {
         center: true,
