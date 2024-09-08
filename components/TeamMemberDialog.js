@@ -9,7 +9,6 @@ import {
 import { XMarkIcon, Square2StackIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { urlForImage } from '../sanity/lib/image';
-import { convertImage, toBase64 } from '@/utils/imageLoad';
 
 function TeamPopUp({ dmlien, openState, setOpen }) {
   const [showLinkCopied, setShowLinkCopied] = useState(false);
@@ -21,7 +20,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
         className="fixed inset-0 bg-[#111112] bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
       />
       <div className="fixed inset-0 overflow-y-auto">
-        <div className="flex  py-24 min-h-full items-end justify-center text-center sm:items-center">
+        <div className="flex  min-h-full items-end justify-center py-24 text-center sm:items-center">
           <DialogPanel
             transition
             className="shadow-layer relative flex h-auto w-4/5 transform flex-col items-center justify-center overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:w-[762px] sm:flex-row sm:items-start sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
@@ -35,9 +34,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                   height={294}
                   className="w-auto"
                   placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    convertImage(294, 294),
-                  )}`}
+                  blurDataURL={dmlien?.metadata.lqip}
                 />
               )}
               <div className="flex flex-col gap-3 border-t-[0.5px] border-[#353535] p-[30px] font-SaansRegular sm:border-r-[0.5px]">

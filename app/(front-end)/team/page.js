@@ -6,6 +6,7 @@ import { sanityFetch } from '@/sanity/lib/client';
 const dmlienQuery = `
 *[_type == 'dmlien'] | order(fullName asc) {
     "image": headshot.asset->.url,
+    "metadata": headshot.asset->metadata,
     ...,
 }
 `;

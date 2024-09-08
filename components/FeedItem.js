@@ -15,6 +15,8 @@ export default function FeedItem({ item }) {
           width={0}
           height={0}
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={item?.metadata.lqip}
         />
       </div>
       <div className="flex h-[210px] w-full flex-col items-start justify-between py-[20px] sm:w-[470px] sm:py-[34px] md:h-[340px] md:w-[690px]">
