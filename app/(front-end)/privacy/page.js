@@ -121,7 +121,7 @@ export default function Privacy() {
           the specific reason you collected it and nothing else.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
-          Data minimization: don't process any more data than you need.
+          Data minimization: don’t process any more data than you need.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Accuracy: Make sure that any personal data you hold is adequate and
@@ -129,7 +129,7 @@ export default function Privacy() {
         </p>
 
         <p className="p-xl-regular text-[#EBEBEB]">
-          Storage limitation: Don't store personal data for longer than you need
+          Storage limitation: Don’t store personal data for longer than you need
           to.
         </p>
 
