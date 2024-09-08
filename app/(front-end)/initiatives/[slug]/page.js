@@ -7,6 +7,7 @@ import BackButton from '@/components/BackButton';
 const INITIATIVE_SLUG_QUERY = `
 *[_type == "initiative" && slug.current == $slug][0] {
   ...,
+   "metadata": image.asset->metadata,
   team[]->{
   ...,
   "image": headshot.asset->.url
@@ -37,6 +38,8 @@ export default async function InitiativePage({ params }) {
           height={0}
           sizes="100vw"
           style={{ width: '100%', height: 'auto' }}
+          placeholder="blur"
+          blurDataURL={initiative.metadata.lqip}
         />
         <h1 className="heading-5xl-Reg text-grey-1">{initiative.title}</h1>
         <h2 className="heading-4xl text-grey-3">{initiative.subtitle}</h2>

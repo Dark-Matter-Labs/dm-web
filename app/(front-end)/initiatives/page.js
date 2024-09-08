@@ -6,6 +6,7 @@ import Link from 'next/link';
 const INITIATIVES_QUEARY = `
 *[_type == 'initiative'] {
  "image": image.asset->.url,
+  "metadata": image.asset->metadata,
 ...
 }
 `;
@@ -42,7 +43,13 @@ export default async function Initiatives() {
                   src={urlForImage(initiative?.image)}
                   alt={initiative.image.alt}
                   fill
+                  sizes="
+              (max-width: 768px) 90vw,
+              (max-width: 1200px) 60vw,
+              90vw"
                   className="w-full object-cover"
+                  placeholder="blur"
+                  blurDataURL={initiative?.metadata.lqip}
                 />
               </div>
               <h2 className="mb-[18px] font-SaansRegular text-5xl text-white">

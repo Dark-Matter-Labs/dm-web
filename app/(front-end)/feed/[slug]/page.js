@@ -7,6 +7,7 @@ import BackButton from '@/components/BackButton';
 const feed_project_query = `
 *[_type == "feedItem" && slug.current == $slug][0] {
   ...,
+  "metadata": image.asset->metadata,
   team[]->{
   ...,
   "image": headshot.asset->.url,
@@ -41,6 +42,8 @@ export default async function feed_itemPage({ params }) {
           height={0}
           sizes="100vw"
           style={{ width: '100%', height: 'auto' }}
+          placeholder="blur"
+          blurDataURL={feed_item.metadata.lqip}
         />
         <h1 className="heading-5xl-Reg text-grey-1">{feed_item.title}</h1>
         <h2 className="heading-4xl text-grey-3">{feed_item.subtitle}</h2>
