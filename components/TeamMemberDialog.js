@@ -21,7 +21,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
         className="fixed inset-0 bg-[#111112] bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
       />
       <div className="fixed inset-0 overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center text-center sm:items-center">
+        <div className="flex  py-24 min-h-full items-end justify-center text-center sm:items-center">
           <DialogPanel
             transition
             className="shadow-layer relative flex h-auto w-4/5 transform flex-col items-center justify-center overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:w-[762px] sm:flex-row sm:items-start sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"

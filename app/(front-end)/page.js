@@ -14,6 +14,8 @@ import StudioInitiative from '@/components/StudioInitiative';
 import StudioLabInitiative from '@/components/StudioLabInitiative';
 import Popup from '@/components/Popup';
 import DomainPopup from '@/components/DomainPopup';
+import Contexts from '@/components/Contexts';
+import Paradigms from '@/components/Paradigms';
 
 import labsOverlay from '@/images/labs.svg';
 import arcsOverlay from '@/images/arcs.svg';
@@ -44,7 +46,6 @@ import CDlogo from '@/images/studios/Cd Studio.svg';
 import CTlogo from '@/images/studios/Ct Studio.svg';
 import ODlogo from '@/images/studios/Cd Studio.svg';
 import FFlogo from '@/images/studios/Ff Studio.svg';
-import DMButton from '@/components/Button';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -2282,7 +2283,7 @@ export default function Home() {
         }
       />
 
-      <div className={`relative mt-28 sm:grid sm:grid-cols-12`}>
+      <div className={`relative mt-10 sm:mt-28 sm:grid sm:grid-cols-12`}>
         <div className="col-span-5 hidden w-[400px] max-w-xs sm:block">
           <animated.div
             style={{
@@ -5191,6 +5192,7 @@ export default function Home() {
         </div>
       </div>
 
+
       <animated.div
         style={{
           opacity: scrollYProgress.to(() =>
@@ -5200,99 +5202,14 @@ export default function Home() {
             ),
           ),
         }}
-        className={`relative mt-[400px] sm:grid sm:grid-cols-12`}
+        className={`hidden relative mt-[400px] sm:grid sm:grid-cols-12`}
       >
-        <div className="col-span-5 hidden w-[400px] max-w-xs sm:block">
-          <div className="mt-[0px]">
-            <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
-            <p className="p-xl-regular max-w-[380px] text-grey-3">
-              The overarching LEE Mission allows us to contextually adjust the
-              horizons of our interactions and interventions, whilst building
-              towards a coherent field of influence and change. A single theory
-              of change feels wildly inadequate; instead we are holding open
-              questions in a continuous process of landscape scanning and
-              action:
-            </p>
-          </div>
-        </div>
-        <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
-          <div id="context" className="mb-20 ">
-            <div className="mb-8">
-              <h2 className="heading-4xl text-grey-1">Political landscapes</h2>
-              <p className="p-3xl pb-4 text-grey-7">
-                How can we work intelligently with the constraints and
-                opportunities of political ideologies?
-              </p>
-              <p className="p-3xl text-grey-1">
-                A right wing context may provide more fertile ground for rapidly
-                mobilising complex technologies than a liberal context. Or
-                perhaps in a context like Ukraine where crisis and instability
-                has become an everyday reality, the motivation for citizens to
-                drive alternative governance models is heightened. This could
-                start from a desire to support the military via voluntary
-                crowdfunding and extend to new sectors and patterns of
-                behaviour.
-              </p>
-            </div>
-
-            <div className="mb-8">
-              <h2 className="heading-4xl text-grey-1">
-                Geographical landscapes
-              </h2>
-              <p className="p-3xl pb-4 text-grey-7">
-                What can we leverage by deliberating targeting lead or
-                established markets to test a tool or concept?
-              </p>
-              <p className="p-3xl text-grey-1">
-                In some cases we may need to look to edge communities for an
-                idea to gain traction (e.g. a distributed currency), whereas in
-                others a supportive social infrastructure is needed to establish
-                agency (e.g. a material registry). Each country has something to
-                teach us; from land laws in Scotland to open data systems in
-                Taiwan, we are open to how our work can weave and adapt to local
-                contexts.
-              </p>
-            </div>
-
-            <div className="mb-8 ">
-              <h2 className="heading-4xl text-grey-1">Time horizons</h2>
-              <p className="p-3xl pb-4 text-grey-7">
-                How can we leverage the broad spectrum of realities represented
-                across the global context?
-              </p>
-              <p className="p-3xl text-grey-1">
-                Recognising that a speculative policy in one context might
-                already be triage response in another can increase our
-                collective learning and ability to test edge ideas. This could
-                mean working with Indigenous communities on Turtle Island (North
-                America) to urgently finance the regeneration of indigenous
-                lands. It could also entail supporting marginalised communities
-                in England to seed alternative housing models in response to the
-                systemic crisis crisis.
-              </p>
-            </div>
-
-            <div className="mb-8 ">
-              <h2 className="heading-4xl text-grey-1">Alliances</h2>
-              <p className="p-3xl pb-4 text-grey-7">
-                What could be unleashed if we can identify and engage unusual
-                (and often powerful actors) with converging aspirations?
-              </p>
-              <p className="p-3xl text-grey-1">
-                On the surface a central bank and an ecological activist may
-                have little in common. Yet, central banks have a mandate to
-                preserve stability, which in the future could involve recoupling
-                money issuance to ecological rights? This logic might also
-                extend to cultural intersectional points, such as indigenous
-                perspectives and state mandates in locations such as Australia
-                and India.
-              </p>
-            </div>
-          </div>
-
-          <hr className="text-[#333333]" />
-        </div>
+        <Contexts />
       </animated.div>
+
+      <div className='relative mt-20 sm:hidden'>
+        <Contexts />
+      </div>
 
       <animated.div
         style={{
@@ -5303,424 +5220,50 @@ export default function Home() {
             ),
           ),
         }}
-        className={`relative sm:grid sm:grid-cols-12`}
+        className={`hidden relative sm:grid sm:grid-cols-12`}
       >
-        <div className="col-span-5 hidden sm:block md:w-[400px]">
-          <div className="mt-20">
-            <h2 className="heading-4xl pb-2 text-grey-3">Paradigms</h2>
-            <p className="p-xl-regular max-w-[380px] text-grey-3">
-              The Enlightenment, Industrial and Scientific revolutions created
-              many advances for society. But what about their impact on deep
-              ways of being and knowing? From the concept of thingification to
-              the devaluation of mother earth, the psychological baseline of our
-              many societies was fundamentally altered. From our perspective,
-              the worldview that condoned the treatment of land and living
-              beings as disposable, exploitable resources, was also at play in
-              the coding of our dominant socioeconomic systems. Dark Matter Labs
-              sets out to reject the concept of separation and to reimagine our
-              foundational economic relationships. For example:
-            </p>
-          </div>
-        </div>
-        <div className={`relative col-span-7 justify-self-end sm:w-[690px]`}>
-          <div id="why">
-            <div className="my-20 ">
-              <div className="mb-8">
-                <h2 className="heading-4xl text-grey-1">Property</h2>
-                <p className="p-3xl pt-4 text-grey-1">
-                  Words like property and ownership are often associated with
-                  ideas of dominion and control, allowing us to treat elements
-                  of the living world (such as land and rare earth minerals) as
-                  objects. Deep down though, do we really believe that timber
-                  holds more value than a forest? Or that a whale’s life is
-                  interchangeable with a barrel of oil? What would it mean to
-                  explore systems of organising that move beyond the paradigm of
-                  control?
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="heading-4xl text-grey-1">Technology</h2>
-                <p className="p-3xl pt-4 text-grey-1">
-                  Emergent technologies can be framed as a threat, but they
-                  could also facilitate a new freedom to care. The field of
-                  quantum physics has enabled a granular visualisation of the
-                  shapeshifting and relational nature of living systems. Perhaps
-                  what we have previously framed as{' '}
-                  <a
-                    className="underline"
-                    target="_blank"
-                    href="https://provocations.darkmatterlabs.org/the-necessity-of-a-boring-revolution-a71b1ae6f956"
-                  >
-                    a boring revolution
-                  </a>{' '}
-                  is also an invitation to sense and see the world through a
-                  quantum lens. Perhaps in the future our governing institutions
-                  will exist to advance and scaffold the continuous learning of
-                  a self-aware system.
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="heading-4xl text-grey-1">Money</h2>
-                <p className="p-3xl pt-4 text-grey-1">
-                  Recognising that financial capital is intertwined and enabled
-                  by living and social systems is foundational to our work.
-                  Imagine how our relationship to finance might change if we
-                  understood the act of investing to be a commitment to our
-                  collective futures? What would a system look like where the
-                  ways of creating and stewarding money are decentralised and
-                  respectful of non-comparable value flows?
-                </p>
-              </div>
-            </div>
-
-            <hr className="text-[#333333]" />
-
-            <div className="py-20">
-              <p className="p-3xl-regular max-w-3xl pb-10 text-grey-6">
-                Based on this new paradigm we are proposing three worldview
-                philosophies that we think could underpin a desirable future
-                economy. From there, we have identified six structural shifts
-                that we are hypothesising would need to occur for that to become
-                a reality. The philosophies and shifts are not fixed, instead
-                they are narratives that thread through the different dimensions
-                of our Ecosystem Matrix, as we seek to test them in different
-                contexts.
-              </p>
-              <h2 className="heading-4xl text-grey-1">
-                Worldview philosophies
-              </h2>
-              <div className="grid grid-cols-3 gap-10 py-8 ">
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Rooted in the recognition of the full web of life
-                  </h3>
-                  <p className="p-lg-regular text-grey-6 opacity-60">
-                    From violence, scarcity and separation to a thriving
-                    planetary community of interbecoming. <br />
-                    <span
-                      onClick={() => setOpenNE(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      NE
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenRC(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      RC
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenPC(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      PC
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenCD(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      CD
-                    </span>
-                    <span className="align-super text-[9px] uppercase">S</span>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Grounded in a non-bounded understanding of value
-                  </h3>
-                  <p className="p-lg-regular  text-grey-6 opacity-60">
-                    From extractive profit-driven goals to entangled,
-                    intergenerational and distributed value systems. <br />
-                    <span
-                      onClick={() => setOpenNE(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      NE
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenCS(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      CS
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenBE(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      BE
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenM0(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      M0
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenCD(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      CD
-                      <span className="align-super text-[9px] uppercase">
-                        S
-                      </span>
-                    </span>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Enabled by technological ecosystems of care
-                  </h3>
-                  <p className="p-lg-regular text-grey-6 opacity-60">
-                    From the utilitarian ‘othering’ of technology to animistic
-                    interfaces of wisdom and care.{' '}
-                    <span
-                      onClick={() => setOpenNE(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      NE
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenNZ(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      NZ
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenCT(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      CT
-                    </span>
-                    <span className="align-super text-[9px] uppercase">S</span>
-                  </p>
-                </div>
-              </div>
-
-              <h2 className="heading-4xl text-grey-1">
-                Proposed structural shifts
-              </h2>
-              <div className="grid grid-cols-3 gap-x-10 gap-y-8 py-8">
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Beyond Property
-                  </h3>
-                  <p className="p-lg-regular  text-grey-6 opacity-60">
-                    From exerting control over ‘objects’ to seeking reciprocal
-                    relationships with the full web of life. <br />
-                    <span
-                      onClick={() => setOpenPB(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      PB
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenRC(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      RC
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Beyond Labour
-                  </h3>
-                  <p className="p-lg-regular text-grey-6 opacity-60">
-                    From humans employed as resources to vocations of
-                    creativity, purpose and care.{' '}
-                    <span
-                      onClick={() => setOpenNE(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      NE
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenSG(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      7G
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenETC(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      LC
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenOD(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      OD
-                    </span>
-                    <span className="align-super text-[9px] uppercase">S</span>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Beyond Extraction
-                  </h3>
-                  <p className="p-lg-regular text-grey-6 opacity-60">
-                    From extractive resource claims to the infinite guardianship
-                    of the global commons. <br />
-                    <span
-                      onClick={() => setOpenSM(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      SM
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenM0(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      M0
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenPC(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      PC
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenRE(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      RN
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Beyond Private Contracts
-                  </h3>
-                  <p className="p-lg-regular text-grey-6 opacity-60">
-                    From linear agreements that optimise for the few to
-                    multi-party, dynamic, digital treaties of respect. <br />
-                    <span
-                      onClick={() => setOpenBR(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      BTR
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenRC(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      RC
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>{' '}
-                    <span
-                      onClick={() => setOpenETC(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      LC
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Beyond Governance
-                  </h3>
-                  <p className="p-lg-regular  text-grey-6 opacity-60">
-                    From centralised enforcement to nurturing institutions of
-                    stewardship. <br />
-                    <span
-                      onClick={() => setOpenQD(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      SD
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenBR(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      BTR
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenNZ(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      NZ
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="p-lg-regular pb-3 text-grey-6">
-                    Beyond Monetary Capital
-                  </h3>
-                  <p className="p-lg-regular text-grey-6 opacity-60">
-                    From the accumulation of financial wealth to a social
-                    contract that regeneratively stewards the diverse capitals
-                    of life. <br />
-                    <span
-                      onClick={() => setOpenCS(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      CS
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenNE(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      NE
-                    </span>
-                    <span className="align-super text-[9px] uppercase">L</span>{' '}
-                    <span
-                      onClick={() => setOpenSG(true)}
-                      className="font-SaansMed hover:cursor-crosshair"
-                    >
-                      7G
-                    </span>
-                    <span className="align-super text-[9px] uppercase">A</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <hr className="text-[#333333]" />
-
-            <div className="pb-60 pt-20">
-              <h1 className="heading-7xl max-w-[22.8rem] pb-10 text-grey-5 ">
-                Help us build a better future
-              </h1>
-              <div className="flex gap-8">
-                <DMButton internal href="/contact">
-                  Contact
-                </DMButton>
-                {/* <DMButton href="https://glorious-impact-532915.framer.app/contribute">
-                  Contribute
-                </DMButton> */}
-              </div>
-            </div>
-          </div>
-        </div>
+        <Paradigms 
+        setOpenNE={setOpenNE}
+        setOpenRC={setOpenRC}
+        setOpenSM={setOpenSM} 
+        setOpenRE={setOpenRE} 
+        setOpenCT={setOpenCT} 
+        setOpenPC={setOpenPC}
+        setOpenPB={setOpenPB} 
+        setOpenBR={setOpenBR}
+        setOpenCD={setOpenCD}
+        setOpenQD={setOpenQD} 
+        setOpenETC={setOpenETC}
+        setOpenOD={setOpenOD}
+        setOpenBE={setOpenBE}
+        setOpenSG={setOpenSG}
+        setOpenCS={setOpenCS}
+        setOpenM0={setOpenM0}
+        setOpenNZ={setOpenNZ}
+        />
       </animated.div>
+
+      <div className='relative mt-20 sm:hidden'>
+      <Paradigms 
+      setOpenNE={setOpenNE}
+      setOpenRC={setOpenRC}
+      setOpenSM={setOpenSM} 
+      setOpenRE={setOpenRE} 
+      setOpenCT={setOpenCT} 
+      setOpenPC={setOpenPC}
+      setOpenPB={setOpenPB} 
+      setOpenBR={setOpenBR}
+      setOpenCD={setOpenCD}
+      setOpenQD={setOpenQD} 
+      setOpenETC={setOpenETC}
+      setOpenOD={setOpenOD}
+      setOpenBE={setOpenBE}
+      setOpenSG={setOpenSG}
+      setOpenCS={setOpenCS}
+      setOpenM0={setOpenM0}
+      setOpenNZ={setOpenNZ}
+      />
+      </div>
     </div>
   );
 }

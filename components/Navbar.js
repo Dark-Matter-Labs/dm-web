@@ -178,14 +178,14 @@ export default function Navbar({ numberOfJobs }) {
                         {numberOfJobs === 0 ? (
                           <p>
                             Jobs
-                            <span className="align-super text-[9.5px]">
+                            <span className="align-super text-[12px]">
                               {numberOfJobs}
                             </span>
                           </p>
                         ) : (
                           <p>
                             Jobs
-                            <span className="align-super text-[9.5px] text-[#737EA5]">
+                            <span className="align-super text-[12px] text-[#737EA5]">
                               {numberOfJobs}
                             </span>
                           </p>

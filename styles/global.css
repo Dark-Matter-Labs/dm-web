@@ -226,9 +226,15 @@ hr {
 }
 
 .imagecarousel .img:first-child {
-  -moz-animation: slide 5s infinite alternate;
   -webkit-animation: slide 5s infinite alternate;
   animation: slide 5s infinite alternate;
+  -o-animation: slide 5s infinite alternate;
+  -moz-animation: slide 5s infinite alternate;
+  
+  -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes slide {
