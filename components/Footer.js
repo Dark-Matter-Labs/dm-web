@@ -85,12 +85,12 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div className="mt-5">
-                  <a
-                    href="#"
+                  <Link
+                    href="/privacy"
                     className="p-lg-regular text-[#A8A8A8] hover:text-white"
                   >
                     Privacy Policy
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="hidden flex-col items-start justify-start sm:flex">
