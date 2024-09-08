@@ -47,7 +47,7 @@ export default function Footer() {
           Footer
         </h2>
         <div className="mx-auto w-[690px] pb-20 pt-[80px] sm:w-full md:w-[1200px]">
-          <div className="flex flex-col md:gap-[40px] sm:grid sm:grid-cols-12">
+          <div className="flex flex-col sm:grid sm:grid-cols-12 md:gap-[40px]">
             <div className="col-span-5 flex flex-row justify-between sm:flex-col">
               <Link href="/">
                 <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
@@ -85,12 +85,12 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div className="mt-5">
-                  <a
-                    href="#"
+                  <Link
+                    href="/privacy"
                     className="p-lg-regular text-[#A8A8A8] hover:text-white"
                   >
                     Privacy Policy
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="hidden flex-col items-start justify-start sm:flex">

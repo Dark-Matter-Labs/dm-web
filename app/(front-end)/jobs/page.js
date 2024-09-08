@@ -182,7 +182,7 @@ export default async function Jobs() {
       </div>
       <div
         className={
-          'flexw-full col-span-7 mt-[30px] flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
+          'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">

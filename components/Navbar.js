@@ -18,7 +18,7 @@ export default function Navbar({ numberOfJobs }) {
 
   return (
     <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px] ">
-      <div className="global-margin flex items-center justify-between sm:w-full matrix:w-[1200px]">
+      <div className="global-margin matrix:w-[1200px] flex items-center justify-between sm:w-full">
         <div
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
@@ -60,13 +60,13 @@ export default function Navbar({ numberOfJobs }) {
                     </Link>
                     <Link
                       href="/team"
-                      className="nav-xl hidden py-2 text-grey-4 transition ease-in-out hover:text-white side-display"
+                      className="nav-xl side-display hidden py-2 text-grey-4 transition ease-in-out hover:text-white"
                     >
                       Team
                     </Link>
                     <Link
                       href="/jobs"
-                      className="nav-xl -mt-1 hidden py-2 text-grey-4 transition ease-in-out hover:text-white side-display"
+                      className="nav-xl side-display -mt-1 hidden py-2 text-grey-4 transition ease-in-out hover:text-white"
                     >
                       {numberOfJobs === 0 ? (
                         <p>
@@ -86,7 +86,7 @@ export default function Navbar({ numberOfJobs }) {
                     </Link>
                     <Link
                       href="/contact"
-                      className="nav-xl hidden py-2 text-grey-4  transition ease-in-out hover:text-white side-display"
+                      className="nav-xl side-display hidden py-2  text-grey-4 transition ease-in-out hover:text-white"
                     >
                       Contact
                     </Link>
@@ -104,7 +104,7 @@ export default function Navbar({ numberOfJobs }) {
                     >
                       Provocations↗
                     </a>
-                    <div className="-mr-2 flex nav-btn">
+                    <div className="nav-btn -mr-2 flex">
                       {/* Mobile menu button */}
                       <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition ease-in-out hover:text-white">
                         <span className="absolute -inset-0.5" />
