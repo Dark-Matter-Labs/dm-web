@@ -2519,27 +2519,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='block sm:hidden'>
-            <Image 
-            src={matrixMobile1}
-            width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
+          <div className="block sm:hidden">
+            <Image
+              src={matrixMobile1}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
-             <Image 
-            src={matrixMobile2}
-            width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%', height: 'auto',paddingBottom: '20px' }}
+            <Image
+              src={matrixMobile2}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
-             <Image 
-            src={matrixMobile3}
-            width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%', height: 'auto' }}
+            <Image
+              src={matrixMobile3}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
 
