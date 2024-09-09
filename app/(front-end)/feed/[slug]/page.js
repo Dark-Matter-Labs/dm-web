@@ -17,6 +17,9 @@ const feed_project_query = `
   ...,
     "image": image.asset->.url,
   },
+  partners[]->{
+  ...,
+  },
 }
 `;
 
