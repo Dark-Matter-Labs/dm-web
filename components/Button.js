@@ -6,7 +6,7 @@ export default function DMButton({ children, href, internal }) {
       {internal ? (
         <Link
           href={href}
-          className="flex flex-col items-end justify-start gap-[1px]"
+          className="flex flex-col items-end justify-start gap-[1px] hover:cursor-crosshair"
         >
           <p className="font-SaansRegular text-[16px] leading-[1em]">{'↗'}</p>
           <p className="font-SaansRegular text-2xl leading-[1em]">{children}</p>

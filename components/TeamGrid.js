@@ -28,9 +28,9 @@ export default function TeamGrid({ dmliens }) {
         </div>
         <ul className="grid w-full max-w-[390px] grid-cols-2 gap-4 border-b border-[#353535] px-[20px] pb-[60px] sm:max-w-[690px] sm:grid-cols-4 sm:px-0">
           {dmliens.map((dmlien, id) => (
-            <li key={id} className="group cursor-pointer">
+            <li key={id} className="group">
               <button
-                className="flex h-full w-full flex-col items-start justify-start"
+                className="flex h-full w-full flex-col items-start justify-start hover:cursor-crosshair"
                 onMouseEnter={() => setHover(dmlien.fullName)}
                 onMouseLeave={() => setHover(null)}
                 onClick={() => {
