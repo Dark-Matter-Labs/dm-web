@@ -38,9 +38,9 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 />
               )}
               <div className="flex flex-col gap-3 border-t-[0.5px] border-[#353535] p-[30px] font-SaansRegular sm:border-r-[0.5px]">
-                <h3 className="text-xl uppercase text-[#595959] ">Contacts</h3>
+                <h3 className="font-SaansMed text-xl uppercase text-[#595959] ">Contacts</h3>
                 <ul>
-                  <li className="text-lg text-white hover:underline">
+                  <li className="font-SaansRegular text-lg text-white hover:underline">
                     <div
                       onClick={() => {
                         navigator.clipboard.writeText(dmlien.email);
@@ -82,7 +82,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                   </button>
                 </div>
               </div>
-              <div className="text-white sm:flex sm:items-start">
+              <div className="font-SaansRegular text-white sm:flex sm:items-start">
                 {dmlien.bio}
               </div>
             </div>

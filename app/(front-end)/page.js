@@ -110,7 +110,6 @@ export default function Home() {
       setActiveState(2);
 
       setClassT('');
-      console.log('yes');
       setClassT2('t2');
       setAnimateOn('');
     }
@@ -2525,6 +2524,7 @@ export default function Home() {
               width={0}
               height={0}
               sizes="100vw"
+              alt='mobile matrx'
               style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
             <Image
@@ -2532,6 +2532,7 @@ export default function Home() {
               width={0}
               height={0}
               sizes="100vw"
+               alt='mobile matrx'
               style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
             <Image
@@ -2539,6 +2540,7 @@ export default function Home() {
               width={0}
               height={0}
               sizes="100vw"
+               alt='mobile matrx'
               style={{ width: '100%', height: 'auto' }}
             />
           </div>

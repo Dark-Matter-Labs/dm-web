@@ -45,7 +45,7 @@ export default async function TeamPage() {
       </div>
       <div className="teams-grid mb-[30px] mt-[63px] flex justify-center px-[20px] sm:px-0">
         <div className="flex w-4/5 flex-col items-center justify-center sm:w-[690px] md:items-start md:justify-end">
-          <p className=" text-white">
+          <p className="p-xl-regular text-white">
             We are a distributed global team collaborating at the intersection
             of continents, languages, time zones and cultural backgrounds. A
             critical part of our annual rhythm is for the full team to gather
