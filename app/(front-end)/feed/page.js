@@ -6,7 +6,7 @@ import FeedItem from '@/components/FeedItem';
 const feedQuery = `
 *[_type == 'feedItem'] | order(date desc) {
     "image": image.asset->.url,
-     "metadata": image.asset->metadata,
+    "metadata": image.asset->metadata,
     ...,
     labs[]->{
     ...,

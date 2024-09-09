@@ -7,10 +7,11 @@ import BackButton from '@/components/BackButton';
 const INITIATIVE_SLUG_QUERY = `
 *[_type == "initiative" && slug.current == $slug][0] {
   ...,
-   "metadata": image.asset->metadata,
+  "metadata": image.asset->metadata,
   team[]->{
   ...,
-  "image": headshot.asset->.url
+  "image": headshot.asset->.url,
+  "metadata": headshot.asset->metadata,
   }
 }
 `;

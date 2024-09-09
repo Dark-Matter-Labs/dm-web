@@ -11,6 +11,7 @@ const feed_project_query = `
   team[]->{
   ...,
   "image": headshot.asset->.url,
+  "metadata": headshot.asset->metadata,
   },
   labs[]->{
   ...,
