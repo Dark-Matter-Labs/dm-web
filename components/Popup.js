@@ -31,8 +31,8 @@ function Popup({
             transition
             className="shadow-layer relative flex h-auto w-4/5 transform flex-col items-center justify-center overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:w-[690px] sm:flex-row sm:items-start sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
-            <div className="flex flex-col items-start justify-start gap-[22px] border-[#353535] pb-4 sm:border-r-[0.5px] sm:pb-[80px]">
-              <div className="h-[200px] w-[200px] py-4 sm:py-0">
+            <div className="flex flex-col items-start justify-start gap-[22px] border-[#353535] pb-4 sm:border-r-[0.5px] sm:pb-[80px] sm:h-[50vh]">
+              <div className="h-[200px] w-[200px] py-4 sm:py-0 border-[#353535] border-b-[0.5px]">
                 {image ? (
                   <Image
                     src={image}
@@ -79,7 +79,7 @@ function Popup({
                 )}
               </div>
             </div>
-            <div className="flex flex-col items-start justify-start gap-[16px] border-l-[0.5px] border-[#353535] px-4 py-8  sm:py-[28px] sm:pl-[28px] sm:pr-[32px]">
+            <div className="flex flex-col items-start justify-start gap-[16px] px-4 py-8  sm:py-[28px] sm:pl-[28px] sm:pr-[32px]">
               <div className="flex items-center justify-between ">
                 {type === 'arc' ? (
                   <DialogTitle
