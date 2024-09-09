@@ -104,7 +104,7 @@ const feedItem = {
       name: 'partners',
       type: 'array',
       title: 'Partners',
-      of: [{ type: 'partnerObject' }],
+      of: [{ type: 'reference', to: { type: 'partnerObject' } }],
       hidden: ({ parent }) => parent?.type === 'media',
     },
     {
