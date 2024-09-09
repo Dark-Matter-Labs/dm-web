@@ -39,6 +39,10 @@ export default async function TeamPage() {
             src="/team.avif"
             alt="team photo"
             fill
+            sizes="
+            (max-width: 768px) 90vw,
+            (max-width: 1200px) 60vw,
+            90vw"
             className="absolute object-cover"
           />
         </div>
