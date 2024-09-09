@@ -52,7 +52,7 @@ import CDlogo from '@/images/studios/Cd Studio.svg';
 import CTlogo from '@/images/studios/Ct Studio.svg';
 import ODlogo from '@/images/studios/Od Studio.svg';
 import FFlogo from '@/images/studios/Ff Studio.svg';
-import SGlogo from '@/images/arcs/Arc_7G.svg'
+import SGlogo from '@/images/arcs/Arc_7G.svg';
 
 import CIconceptPic from '@/images/concepts/Concept_Collective inelligence of cities.jpg';
 import BRconceptPic from '@/images/concepts/Concept_Resilient bioregional food systems.jpg';
@@ -1130,7 +1130,7 @@ export default function Home() {
             The Rn Arc is working towards resilient, sustainable and high
             quality food systems. Within this aspiration, cities are a key area
             of focus and the team are working across diverse sectors to identify
-            and respond to likey pressure points.
+            and respond to likely pressure points.
           </p>
         }
       />
@@ -1236,7 +1236,7 @@ export default function Home() {
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            the Btr Lab practises new forms of organising and governance. The
+            The Btr Lab practises new forms of organising and governance. The
             Lab is particularly interested in the deep, thoughtful and highly
             creative work required to rewrite, reinvent or reimagine rules,
             norms and laws that hold us in the current system. The Lab is
@@ -1257,7 +1257,7 @@ export default function Home() {
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            the Sm Lab is working to improve the{' '}
+            The Sm Lab is working to improve the{' '}
             <a
               className="text-[#737EA5]"
               target="_blank"
@@ -1351,7 +1351,7 @@ export default function Home() {
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            this Arc recognises the transformative potential of communities and
+            This Arc recognises the transformative potential of communities and
             neighbourhoods to design and steward their own futures. There are a
             diverse range of initiatives driving towards this goal; from citizen
             designed indicators and city scale goals to neighbourhood
@@ -1427,7 +1427,7 @@ export default function Home() {
         publication=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            the Ni Arc is developing practical pathways to support regenerative,
+            The Ni Arc is developing practical pathways to support regenerative,
             respectful and resilient collaborations between human and natural
             infrastructures. These interventions are grounded in system dynamics
             such as finance, regulation and data enabled decision making.
@@ -2545,7 +2545,7 @@ export default function Home() {
               width={0}
               height={0}
               sizes="100vw"
-              alt='mobile matrx'
+              alt="mobile matrx"
               style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
             <Image
@@ -2553,7 +2553,7 @@ export default function Home() {
               width={0}
               height={0}
               sizes="100vw"
-               alt='mobile matrx'
+              alt="mobile matrx"
               style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
             <Image
@@ -2561,7 +2561,7 @@ export default function Home() {
               width={0}
               height={0}
               sizes="100vw"
-               alt='mobile matrx'
+              alt="mobile matrx"
               style={{ width: '100%', height: 'auto' }}
             />
           </div>

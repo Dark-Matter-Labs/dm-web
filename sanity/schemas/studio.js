@@ -26,8 +26,55 @@ const studioObject = {
         },
       ],
     },
+    {
+      title: 'Description',
+      name: 'content',
+      type: 'array',
+      description: 'Description of the lab',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+            ],
+            annotations: [
+              {
+                title: 'URL',
+                name: 'link',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url',
+                  },
+                  {
+                    title: 'Open in new window',
+                    name: 'blank',
+                    type: 'boolean',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      name: 'website',
+      type: 'url',
+      title: 'Website link',
+      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
+    },
+    {
+      name: 'publication',
+      type: 'url',
+      title: 'Blog/publication link',
+      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
+    },
   ],
 };
-// TODO: add description as portable text, link, publication, team
 
 export default studioObject;

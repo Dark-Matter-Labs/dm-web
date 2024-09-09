@@ -37,7 +37,10 @@ export default async function Initiatives() {
             key={id}
             className="ini-list-border group flex flex-col border-t-[0.5px] border-[#353535] py-[34px]"
           >
-            <Link className='hover:cursor-crosshair' href={`/initiatives/${initiative.slug.current}`}>
+            <Link
+              className="hover:cursor-crosshair"
+              href={`/initiatives/${initiative.slug.current}`}
+            >
               <div className="relative mb-[30px] h-[352px]">
                 <Image
                   src={urlForImage(initiative?.image)}

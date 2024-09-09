@@ -9,7 +9,7 @@ import BHLogo from '@/images/partners/Bloxhub.png';
 
 export default function Contact() {
   return (
-    <div className={`page-grid relative mt-[40px] sm:mt-28 pb-[60px]`}>
+    <div className={`page-grid relative mt-[40px] pb-[60px] sm:mt-28`}>
       <div className="side-display col-span-5 w-[400px]"></div>
       <div className={'col-span-7  w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[55px] border-b border-b-[#353535] pb-[60px]">

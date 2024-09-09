@@ -30,8 +30,8 @@ const partnerObj = {
       title: 'Show on partners gallery?',
       name: 'showGallery',
       type: 'boolean',
-      initialValue: false
-    }
+      initialValue: false,
+    },
   ],
 };
 
