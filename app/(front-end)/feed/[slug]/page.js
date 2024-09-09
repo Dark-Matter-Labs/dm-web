@@ -15,7 +15,18 @@ const feed_project_query = `
   },
   labs[]->{
   ...,
-    "image": image.asset->.url,
+  "image": image.asset->.url,
+   "metadata": image.asset->metadata,
+  },
+  arcs[]->{
+  ...,
+  "image": image.asset->.url,
+   "metadata": image.asset->metadata,
+  },
+  studios[]->{
+  ...,
+  "image": image.asset->.url,
+   "metadata": image.asset->metadata,
   },
   partners[]->{
   ...,

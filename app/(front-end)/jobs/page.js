@@ -9,11 +9,13 @@ export default async function Jobs() {
     query: jobsQuery,
   });
   return (
-    <div className={`page-grid relative mt-[40px] sm:mt-28 pb-[60px] `}>
+    <div className={`page-grid relative mt-[40px] pb-[60px] sm:mt-28 `}>
       <div className="side-display col-span-5 w-[400px]"></div>
       <div className={'col-span-7 w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[30px] border-b border-b-[#353535] pb-[100px]">
-          <h1 className="heading-5xl-Reg sm:heading-7xl pb-[18px] text-grey-1">Work with us</h1>
+          <h1 className="heading-5xl-Reg sm:heading-7xl pb-[18px] text-grey-1">
+            Work with us
+          </h1>
           <p className="p-body2 text-[#EBEBEB]">
             Want to make an impact? <br /> Join our team.
           </p>
@@ -176,7 +178,9 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">Pay</h2>
+        <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+          Pay
+        </h2>
       </div>
       <div
         className={
