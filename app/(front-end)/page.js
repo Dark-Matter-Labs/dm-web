@@ -26,9 +26,15 @@ import LEElogo from '@/images/popups/LEE.png';
 import RClogo from '@/images/arcs/RC.png';
 import NZZlogo from '@/images/arcs/NZC.png';
 import PBlogo from '@/images/labs/PB.png';
-import BTRlogo from '@/images/labs/BTR.png';
-import TAIlogo from '@/images/projects/TreesAI_logo.png';
-import CLlogo from '@/images/projects/CL.png';
+import BTRlogo from '@/images/labs/BTR.jpg';
+import TAIlogo from '@/images/projects/Intersection_TreesAI.jpg';
+import CLlogo from '@/images/projects/Intersection_CircuLaw.jpg';
+import PtCpic from '@/images/projects/Intersection_Permissioning the city.jpg';
+import retrofitPic from '@/images/projects/Intersection_Retrofit.jpg';
+import CIpic from '@/images/projects/Intersection_Cornerstone Indicators.jpg';
+import matrPic from '@/images/projects/Intersection_MatR.jpg';
+import MCPic from '@/images/projects/Intersection_Multivalent Currencies.jpg';
+import NETPic from '@/images/projects/Intersection_New Economic Thinking.jpg';
 
 import BElogo from '@/images/arcs/Be Arc.svg';
 import LClogo from '@/images/arcs/Lc Arc.svg';
@@ -44,8 +50,12 @@ import SDlogo from '@/images/labs/Sd Lab.svg';
 import SMlogo from '@/images/labs/Sm Lab.svg';
 import CDlogo from '@/images/studios/Cd Studio.svg';
 import CTlogo from '@/images/studios/Ct Studio.svg';
-import ODlogo from '@/images/studios/Cd Studio.svg';
+import ODlogo from '@/images/studios/Od Studio.svg';
 import FFlogo from '@/images/studios/Ff Studio.svg';
+import SGlogo from '@/images/arcs/Arc_7G.svg'
+
+import CIconceptPic from '@/images/concepts/Concept_Collective inelligence of cities.jpg';
+import BRconceptPic from '@/images/concepts/Concept_Resilient bioregional food systems.jpg';
 
 import matrixMobile1 from '@/images/Matrix1.png';
 import matrixMobile2 from '@/images/Matrix2.png';
@@ -1066,6 +1076,7 @@ export default function Home() {
       <Popup
         type="arc"
         title="7Gen Cities"
+        image={SGlogo}
         openState={openSG}
         setOpen={setOpenSG}
         website="https://www.7gencities.org/"
@@ -1429,6 +1440,7 @@ export default function Home() {
         title="Multivalent Currencies"
         openState={openMC}
         setOpen={setOpenMC}
+        image={MCPic}
         website=""
         publication="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
         content={
@@ -1474,6 +1486,7 @@ export default function Home() {
         title="New Economic Thinking"
         openState={openNET}
         setOpen={setOpenNET}
+        image={NETPic}
         website=""
         publication="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
         content={
@@ -1545,6 +1558,7 @@ export default function Home() {
       <Popup
         type="project"
         title="Cornerstone Indicators"
+        image={CIpic}
         openState={openCI}
         setOpen={setOpenCI}
         website=""
@@ -1570,6 +1584,7 @@ export default function Home() {
       <Popup
         type="project"
         title="Permissioning the City"
+        image={PtCpic}
         openState={openPTC}
         setOpen={setOpenPTC}
         website="https://www.permissioning.city/"
@@ -1593,6 +1608,7 @@ export default function Home() {
       <Popup
         type="project"
         title="MatR"
+        image={matrPic}
         openState={openMATR}
         setOpen={setOpenMATR}
         website=""
@@ -1623,6 +1639,7 @@ export default function Home() {
       <Popup
         type="project"
         title="Property & Beyond portfolio"
+        image={PBlogo}
         openState={openPBP}
         setOpen={setOpenPBP}
         website="https://www.darkmatterlabs.property/"
@@ -1646,6 +1663,7 @@ export default function Home() {
       <Popup
         type="project"
         title="City & Community Retrofit"
+        image={retrofitPic}
         openState={openCCR}
         setOpen={setOpenCCR}
         website=""
@@ -1714,6 +1732,7 @@ export default function Home() {
       <Popup
         type="content"
         title="City-scale tree canopies"
+        image={TAIlogo}
         openState={openCTC}
         setOpen={setOpenCTC}
         website=""
@@ -1737,6 +1756,7 @@ export default function Home() {
       <Popup
         type="content"
         title="Collective intelligence of cities"
+        image={CIconceptPic}
         openState={openCIC}
         setOpen={setOpenCIC}
         website=""
@@ -1765,6 +1785,7 @@ export default function Home() {
       <Popup
         type="content"
         title="Resilient bioregional food systems"
+        image={BRconceptPic}
         openState={openRBF}
         setOpen={setOpenRBF}
         website=""
