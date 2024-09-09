@@ -1,6 +1,6 @@
 const partnerObj = {
   name: 'partnerObject',
-  type: 'object',
+  type: 'document',
   title: 'Partner',
   fields: [
     {
@@ -14,6 +14,24 @@ const partnerObj = {
       type: 'url',
       validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
     },
+    {
+      name: 'image',
+      type: 'image',
+      title: 'Partner Logo',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Caption',
+        },
+      ],
+    },
+    {
+      title: 'Show on partners gallery?',
+      name: 'showGallery',
+      type: 'boolean',
+      initialValue: false
+    }
   ],
 };
 
