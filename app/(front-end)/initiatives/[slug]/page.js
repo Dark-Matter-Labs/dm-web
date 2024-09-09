@@ -12,7 +12,10 @@ const INITIATIVE_SLUG_QUERY = `
   ...,
   "image": headshot.asset->.url,
   "metadata": headshot.asset->metadata,
-  }
+  },
+  partners[]->{
+  ...,
+  },
 }
 `;
 
