@@ -1,8 +1,14 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
 import { urlForImage } from '@/sanity/lib/image';
 import BackButton from '@/components/BackButton';
+import TeamPopUp from '@/components/TeamMemberDialog';
 
 export default function ProjectMetadata({ initiative, back_text }) {
+  const [openTeam, setOpenTeam] = useState(false);
+  const [dmlien, setDmlien] = useState({});
   return (
     <div className="meta-data flex gap-[20px] sm:gap-0 ">
       <div className="side-display">
@@ -39,7 +45,11 @@ export default function ProjectMetadata({ initiative, back_text }) {
         {initiative?.team?.map((person) => (
           <div
             key={person.fullName}
-            className="flex items-center justify-center gap-[10px]"
+            onClick={() => {
+              setOpenTeam(true);
+              setDmlien(person);
+            }}
+            className="flex items-center justify-center gap-[10px] hover:cursor-crosshair"
           >
             <div className="h-[22px] w-[22px]">
               <Image
@@ -72,6 +82,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
           </div>
         ))}
       </div>
+      <TeamPopUp openState={openTeam} setOpen={setOpenTeam} dmlien={dmlien} />
     </div>
   );
 }
