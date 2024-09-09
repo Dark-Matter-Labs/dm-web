@@ -45,6 +45,8 @@ export default function TeamGrid({ dmliens }) {
                   width={157}
                   height={157}
                   className="mb-4 w-auto duration-200 group-hover:opacity-80"
+                  placeholder="blur"
+                  blurDataURL={dmlien.metadata.lqip}
                 />
                 <div className="flex w-full flex-col items-start text-left">
                   <h2 className="font-SaansRegular text-xl leading-[21px] text-grey-1 duration-200 group-hover:opacity-80">
