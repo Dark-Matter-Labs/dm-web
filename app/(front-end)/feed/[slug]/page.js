@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
 import { sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import ProjectMetadata from '@/components/ProjectMetadata';
 import BackButton from '@/components/BackButton';
+import { portableTextComponents } from '@/sanity/lib/portable-text/pt-componets';
 
 const feed_project_query = `
 *[_type == "feedItem" && slug.current == $slug][0] {
@@ -66,7 +68,10 @@ export default async function feed_itemPage({ params }) {
           <ProjectMetadata initiative={feed_item} back_text={'back to feed'} />
         </div>
         <div className="border-y border-y-[#353535] pb-[100px] pt-[30px]">
-          <p className="p-xl-regular text-[#EBEBEB]">{feed_item.description}</p>
+          <PortableText
+            value={feed_item.description}
+            components={portableTextComponents}
+          />
         </div>
       </div>
     </div>
