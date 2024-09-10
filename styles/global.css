@@ -301,7 +301,7 @@ hr {
     @apply relative mt-[218rem];
   }
   .context-margin {
-    @apply mt-[1000px];
+    @apply mt-[300px];
   }
   .matirx-break {
     @apply grid h-[550vh] grid-cols-1 justify-items-center;
