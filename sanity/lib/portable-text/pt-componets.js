@@ -8,6 +8,9 @@ import {
 export const portableTextComponents = {
   block: {
     normal: normalTextComponent,
+    description: ({children}) => (
+      <p className="p-xl-regular text-[#EBEBEB]">{children}</p>
+    ),
   },
   marks: {
     link: linkComponent,
