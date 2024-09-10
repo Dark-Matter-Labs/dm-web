@@ -58,11 +58,11 @@ export default async function InitiativePage({ params }) {
             back_text={'back to initiatives'}
           />
         </div>
-        <div className="border-y border-y-[#353535] pb-[100px] pt-[30px] p-xl-regular text-[#EBEBEB]">
-        <PortableText
-                  value={initiative.description}
-                  components={portableTextComponents}
-                />
+        <div className="p-xl-regular border-y border-y-[#353535] pb-[100px] pt-[30px] text-[#EBEBEB]">
+          <PortableText
+            value={initiative.description}
+            components={portableTextComponents}
+          />
         </div>
       </div>
     </div>

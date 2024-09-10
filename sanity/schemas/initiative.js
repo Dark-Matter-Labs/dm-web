@@ -51,9 +51,7 @@ const initiative = {
       of: [
         {
           type: 'block',
-          styles: [
-            {title: 'Description text', value: 'description'},
-          ],
+          styles: [{ title: 'Description text', value: 'description' }],
           marks: {
             decorators: [
               { title: 'Strong', value: 'strong' },
