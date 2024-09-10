@@ -23,21 +23,21 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
         <div className="flex min-h-full items-end justify-center py-24 text-center sm:items-center">
           <DialogPanel
             transition
-            className="shadow-layer relative flex sm:min-h-full w-4/5 transform flex-col items-center justify-between overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:w-[762px] sm:flex-row sm:items-stretch sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            className="shadow-layer relative flex w-4/5 transform flex-col items-center justify-between overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:min-h-full sm:w-[762px] sm:flex-row sm:items-stretch sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
-            <div className="flex sm:min-h-full basis-[394px] flex-col relative border-[#353535] border-r-[0.5px] self-stretch">
+            <div className="relative flex basis-[394px] flex-col self-stretch border-r-[0.5px] border-[#353535] sm:min-h-full">
               {dmlien.image && (
                 <Image
                   src={urlForImage(dmlien?.image)}
                   alt={dmlien?.fullName}
                   width={294}
                   height={294}
-                  className="w-auto border-[#353535] border-b-[0.5px]"
+                  className="w-auto border-b-[0.5px] border-[#353535]"
                   placeholder="blur"
                   blurDataURL={dmlien?.metadata.lqip}
                 />
               )}
-              <div className="flex flex-col gap-3 p-[30px] font-SaansRegular self-stretch h-full">
+              <div className="flex h-full flex-col gap-3 self-stretch p-[30px] font-SaansRegular">
                 <h3 className="font-SaansMed text-xl uppercase text-[#595959] ">
                   Contacts
                 </h3>
