@@ -397,7 +397,7 @@ hr {
     @apply justify-items-center grid-cols-12;
   }
   .t3 {
-    @apply relative mt-[238rem];
+    @apply relative mt-[226rem] md:mt-[232rem];
   }
   .context-margin {
     @apply mt-[400px];

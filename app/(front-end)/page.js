@@ -2461,7 +2461,7 @@ export default function Home() {
           </animated.div>
         </div>
         <div className={`matrix-justify relative col-span-7 sm:w-[690px]`}>
-          <div id="real" className="sm:-mb-24">
+          <div id="real" className="">
             <h1 className="heading-7xl max-w-[40rem] pb-10 text-grey-5 ">
               We are building options for the next economies
             </h1>
@@ -2569,14 +2569,14 @@ export default function Home() {
           <animated.div
             style={{
               opacity: scrollYProgress.to(() => {
-                if (scrollY < startSticky - step - 100) {
+                if (scrollY < startSticky - step ) {
                   return 0;
                 } else if (
-                  scrollY >= startSticky - step - 100 &&
+                  scrollY >= startSticky - step  &&
                   scrollY <= startSticky
                 ) {
                   return matrixOpacityInterpolateMult(
-                    startSticky - step - 100,
+                    startSticky - step ,
                     startSticky,
                     false,
                     1,
