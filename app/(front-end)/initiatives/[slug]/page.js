@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
 import { sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import ProjectMetadata from '@/components/ProjectMetadata';
 import BackButton from '@/components/BackButton';
+import { portableTextComponents } from '@/sanity/lib/portable-text/pt-componets';
 
 const INITIATIVE_SLUG_QUERY = `
 *[_type == "initiative" && slug.current == $slug][0] {
@@ -56,10 +58,11 @@ export default async function InitiativePage({ params }) {
             back_text={'back to initiatives'}
           />
         </div>
-        <div className="border-y border-y-[#353535] pb-[100px] pt-[30px]">
-          <p className="p-xl-regular text-[#EBEBEB]">
-            {initiative.description}
-          </p>
+        <div className="border-y border-y-[#353535] pb-[100px] pt-[30px] p-xl-regular text-[#EBEBEB]">
+        <PortableText
+                  value={initiative.description}
+                  components={portableTextComponents}
+                />
         </div>
       </div>
     </div>

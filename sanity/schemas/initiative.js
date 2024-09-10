@@ -44,9 +44,43 @@ const initiative = {
       validation: (Rule) => Rule.required().max(380),
     },
     {
+      title: 'Description',
       name: 'description',
-      type: 'text',
-      title: 'Full description',
+      type: 'array',
+      description: 'Description',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            {title: 'Description text', value: 'description'},
+          ],
+          marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+            ],
+            annotations: [
+              {
+                title: 'URL',
+                name: 'link',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url',
+                  },
+                  {
+                    title: 'Open in new window',
+                    name: 'blank',
+                    type: 'boolean',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
     },
     {
       name: 'website',
