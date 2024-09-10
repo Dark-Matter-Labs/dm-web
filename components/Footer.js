@@ -46,13 +46,13 @@ export default function Footer() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto w-[690px] pb-20 pt-12 sm:w-full sm:pt-[80px] md:w-[1200px]">
-          <div className="flex flex-col gap-[40px] sm:grid sm:grid-cols-12">
+        <div className="nav-w mx-auto pb-20 pt-12  sm:pt-[80px]">
+          <div className="footer-grid flex flex-col gap-[40px]">
             <div className="col-span-5 flex flex-row justify-between sm:flex-col">
               <Link href="/">
                 <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
               </Link>
-              <div className="hidden sm:block">
+              <div className="side-display">
                 <SocialPills />
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="block sm:hidden">
+            <div className="meta-mobile">
               <SocialPills />
             </div>
           </div>

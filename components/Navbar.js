@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { React, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   Disclosure,
   DisclosurePanel,
@@ -13,12 +14,17 @@ import SocialPills from './SocialPills';
 import dmLogo from '../images/dm-logo.png';
 import dmLogoHover from '../images/dm-logo-hover.png';
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
 export default function Navbar({ numberOfJobs }) {
+  const pathname = usePathname();
   const [hover, setHover] = useState(false);
 
   return (
     <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px] ">
-      <div className="global-margin matrix:w-[1200px] flex items-center justify-between sm:w-full">
+      <div className="global-margin nav-w flex items-center justify-between">
         <div
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
@@ -48,25 +54,45 @@ export default function Navbar({ numberOfJobs }) {
                   <div className="flex items-center justify-between">
                     <Link
                       href="/feed"
-                      className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white "
+                      className={classNames(
+                        pathname === '/feed'
+                          ? 'text-white'
+                          : 'text-grey-4 hover:text-white',
+                        'nav-xl py-2 transition ease-in-out  ',
+                      )}
                     >
                       Feed
                     </Link>
                     <Link
                       href="/initiatives"
-                      className="nav-xl py-2 text-grey-4 transition ease-in-out hover:text-white"
+                      className={classNames(
+                        pathname === '/initiatives'
+                          ? 'text-white'
+                          : 'text-grey-4 hover:text-white',
+                        'nav-xl py-2 transition ease-in-out  ',
+                      )}
                     >
                       Initiatives
                     </Link>
                     <Link
                       href="/team"
-                      className="nav-xl side-display hidden py-2 text-grey-4 transition ease-in-out hover:text-white"
+                      className={classNames(
+                        pathname === '/team'
+                          ? 'text-white'
+                          : 'text-grey-4 hover:text-white',
+                        'nav-xl side-display hidden py-2 transition ease-in-out  ',
+                      )}
                     >
                       Team
                     </Link>
                     <Link
                       href="/jobs"
-                      className="nav-xl side-display -mt-1 hidden py-2 text-grey-4 transition ease-in-out hover:text-white"
+                      className={classNames(
+                        pathname === '/jobs'
+                          ? 'text-white'
+                          : 'text-grey-4 hover:text-white',
+                        'nav-xl side-display hidden py-2 transition ease-in-out  ',
+                      )}
                     >
                       {numberOfJobs === 0 ? (
                         <p>
@@ -86,16 +112,15 @@ export default function Navbar({ numberOfJobs }) {
                     </Link>
                     <Link
                       href="/contact"
-                      className="nav-xl side-display hidden py-2  text-grey-4 transition ease-in-out hover:text-white"
+                      className={classNames(
+                        pathname === '/contact'
+                          ? 'text-white'
+                          : 'text-grey-4 hover:text-white',
+                        'nav-xl side-display hidden py-2 transition ease-in-out  ',
+                      )}
                     >
                       Contact
                     </Link>
-                    {/* <a
-                          href="https://glorious-impact-532915.framer.app/contribute"
-                          className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
-                        >
-                          Contribute
-                        </a> */}
                     <a
                       href="https://provocations.darkmatterlabs.org/"
                       target="_blank"
