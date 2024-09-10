@@ -91,7 +91,7 @@ export default function Navbar({ numberOfJobs }) {
                         pathname === '/jobs'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display hidden py-2 transition ease-in-out  ',
+                        'nav-xl side-display hidden py-2 transition ease-in-out -mt-1 ',
                       )}
                     >
                       {numberOfJobs === 0 ? (
