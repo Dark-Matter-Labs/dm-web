@@ -13,7 +13,7 @@ export default function Contexts() {
           </p>
         </div>
       </div>
-      <div className={`matirx-justify relative col-span-7 sm:w-[690px]`}>
+      <div className={`matrix-justify relative col-span-7 sm:w-[690px]`}>
         <div id="context" className="mb-20 ">
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Political landscapes</h2>

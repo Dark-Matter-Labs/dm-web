@@ -131,10 +131,6 @@ img {
     @apply sticky;
     top: calc(50% - 500px);
   }
-
-  .t3 {
-    @apply relative mt-[238rem];
-  }
 }
 
 .studio-layer {
@@ -301,11 +297,17 @@ hr {
   } 
 
 @media (min-width: 810px) and (max-width: 1070px) {
+  .t3 {
+    @apply relative mt-[218rem];
+  }
+  .context-margin {
+    @apply mt-[1000px];
+  }
   .matirx-break {
     @apply grid h-[550vh] grid-cols-1 justify-items-center;
   }
 
-  .matirx-justify {
+  .matrix-justify {
     @apply justify-self-center;
   }
 
@@ -385,13 +387,25 @@ hr {
   .footer-grid {
     @apply flex flex-col;
   }
+  .paradigm{
+    @apply justify-items-center grid grid-cols-1;
+  }
 }
 
 @media (min-width: 1070px) {
+  .paradigm{
+    @apply justify-items-center grid-cols-12;
+  }
+  .t3 {
+    @apply relative mt-[238rem];
+  }
+  .context-margin {
+    @apply mt-[400px];
+  }
   .matirx-break {
     @apply grid grid-cols-12;
   }
-  .matirx-justify {
+  .matrix-justify {
     @apply justify-self-end;
   }
 

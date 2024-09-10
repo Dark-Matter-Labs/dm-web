@@ -21,7 +21,7 @@ export default function Paradigms({
 }) {
   return (
     <>
-      <div className="side-display col-span-5 md:w-[400px]">
+      <div className="side-display col-span-5 w-[400px] ">
         <div className="mt-20">
           <h2 className="heading-4xl pb-2 text-grey-3">Paradigms</h2>
           <p className="p-xl-regular max-w-[380px] text-grey-3">

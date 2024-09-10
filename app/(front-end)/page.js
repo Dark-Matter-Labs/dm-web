@@ -2460,7 +2460,7 @@ export default function Home() {
             </p>
           </animated.div>
         </div>
-        <div className={`matirx-justify relative col-span-7 sm:w-[690px]`}>
+        <div className={`matrix-justify relative col-span-7 sm:w-[690px]`}>
           <div id="real" className="sm:-mb-24">
             <h1 className="heading-7xl max-w-[40rem] pb-10 text-grey-5 ">
               We are building options for the next economies
@@ -5252,7 +5252,7 @@ export default function Home() {
             ),
           ),
         }}
-        className={`relative mt-[400px] hidden sm:grid sm:grid-cols-1 matirx:grid-cols-12`}
+        className={`context-margin sm;items-center relative hidden sm:flex sm:justify-center matirx:grid matirx:grid-cols-12 `}
       >
         <Contexts />
       </animated.div>
@@ -5270,7 +5270,7 @@ export default function Home() {
             ),
           ),
         }}
-        className={`matrix:justify-items-auto relative hidden sm:grid sm:grid-cols-1 sm:justify-items-center matirx:grid-cols-12`}
+        className={`sm;items-center relative hidden sm:flex sm:justify-center matirx:grid matirx:grid-cols-12 `}
       >
         <Paradigms
           setOpenNE={setOpenNE}

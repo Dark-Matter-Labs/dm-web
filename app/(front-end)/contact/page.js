@@ -104,7 +104,7 @@ export default function Contact() {
           <div className="imagecarousel flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
-                src='/partners/Partner_AA.svg'
+                src="/partners/Partner_AA.svg"
                 alt="Vinnova logo"
                 width={100}
                 height={100}
@@ -113,7 +113,7 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_ARUP.svg'
+                src="/partners/Partner_ARUP.svg"
                 alt="Viable Cities logo"
                 width={100}
                 height={100}
@@ -122,7 +122,7 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_Bloomberg_Philanthropies.svg'
+                src="/partners/Partner_Bloomberg_Philanthropies.svg"
                 alt="EIT CliamateKIC logo"
                 width={100}
                 height={100}
@@ -131,45 +131,45 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_Blox Hub.png'
+                src="/partners/Partner_Blox Hub.png"
                 alt="Arup logo"
                 width={0}
                 height={0}
                 sizes="100vw"
-                style={{ width: '100%',  height: '100%' }}
+                style={{ width: '100%', height: '100%' }}
                 className="img"
               />
             </div>
             <div>
               <Image
-                src='/partners/Partner_CivicSquare.png'
+                src="/partners/Partner_CivicSquare.png"
                 alt="Bloxhub logo"
                 width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%',  height: '100%' }}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: '100%' }}
                 className="img"
               />
             </div>
             <div>
               <Image
-                src='/partners/Partner_Climate KIC.png'
+                src="/partners/Partner_Climate KIC.png"
                 alt="Vinnova logo"
                 width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%',  height: '100%' }}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: '100%' }}
                 className="img"
               />
             </div>
             <div>
               <Image
-                src='/partners/Partner_Vinnova.png'
+                src="/partners/Partner_Vinnova.png"
                 alt="Viable Cities logo"
                 width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%',  height: '100%' }}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: '100%' }}
                 className="img"
               />
             </div>
@@ -177,7 +177,7 @@ export default function Contact() {
           <div className="imagecarousel flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
-                src='/partners/Partner_Community Fund.svg'
+                src="/partners/Partner_Community Fund.svg"
                 alt="Vinnova logo"
                 width={100}
                 height={100}
@@ -186,7 +186,7 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_Google.svg'
+                src="/partners/Partner_Google.svg"
                 alt="Viable Cities logo"
                 width={100}
                 height={100}
@@ -195,18 +195,18 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_Laudes Foundation.png'
+                src="/partners/Partner_Laudes Foundation.png"
                 alt="EIT CliamateKIC logo"
                 width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%',  height: '100%' }}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: '100%' }}
                 className="img"
               />
             </div>
             <div>
               <Image
-                src='/partners/Partner_Nesta.svg'
+                src="/partners/Partner_Nesta.svg"
                 alt="Arup logo"
                 width={100}
                 height={100}
@@ -215,7 +215,7 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_Royal Academy of Arts.svg'
+                src="/partners/Partner_Royal Academy of Arts.svg"
                 alt="Bloxhub logo"
                 width={100}
                 height={100}
@@ -224,7 +224,7 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_UNDP.svg'
+                src="/partners/Partner_UNDP.svg"
                 alt="Vinnova logo"
                 width={100}
                 height={100}
@@ -233,12 +233,12 @@ export default function Contact() {
             </div>
             <div>
               <Image
-                src='/partners/Partner_Viable Cities.png'
+                src="/partners/Partner_Viable Cities.png"
                 alt="Vinnova logo"
                 width={0}
                 height={0}
                 sizes="100vw"
-                 className="img"
+                className="img"
                 style={{ width: '100%', height: '100%' }}
               />
             </div>
