@@ -22,17 +22,19 @@ const feedQuery = `
 export default async function Feed() {
   const feedItems = await sanityFetch({
     query: feedQuery,
+    tags: ['feedItem'],
   });
   return (
     <div className="flex flex-col items-center justify-start ">
       <div className="feed-w mt-[60px] flex flex-col items-start justify-center pb-[90px] sm:mt-[100px]">
         <h1 className="heading-5xl-Reg sm:heading-7xl mb-[30px]  text-white">
-          Latest projects and news
+          Recent projects and news
         </h1>
         <p className="p-xl-regular sm:p-body2 max-w-[640px] text-white">
           Whether we’re focusing on streets, towns, cities or entire bioregions,
           we’re working to establish collective means of co-ordinating, and
-          governing our common resources.
+          governing our common resources. Here you can find our latest projects,
+          news, podcasts and articles from our team members.
         </p>
       </div>
       <div className="feed-grid flex gap-[10px] ">

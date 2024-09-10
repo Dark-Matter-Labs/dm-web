@@ -20,7 +20,9 @@ export default function Contact() {
               </a>
             </h1>
             <p className="p-body2 text-[#EBEBEB]">
-              For more information on the work we are developing…
+              We are endlessly curious to hear thoughts, ideas and feedback from
+              our ecosystem. Please do get in touch if you have something to
+              share.
             </p>
           </div>
           <SocialPills />
@@ -274,7 +276,10 @@ export default function Contact() {
           </div>
         </div>
         <p className="p-xl-regular text-[#EBEBEB]">
-          We work with partners, clients, and collaborators across the world.
+          It is impossible to overstate the importance of the people and
+          organisations who we are grateful to be in partnership with. Liminal
+          leadership can only exist as a function of dynamic, reciprocal
+          relationships as we build together towards our collective futures.
         </p>
       </div>
     </div>
