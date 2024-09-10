@@ -5,7 +5,7 @@ export default function FeedItem({ item }) {
   return (
     <div
       key={item.title}
-      className="group flex h-full flex-col items-center justify-center border-b border-b-[#353535] hover:cursor-crosshair sm:flex-row sm:items-start sm:justify-between sm:gap-[40px]"
+      className="group flex h-full flex-col items-center justify-center sm:gap-[40px] border-b border-b-[#353535] sm:flex-row sm:items-start sm:justify-between"
     >
       <div className="feed-item-img flex items-center justify-center py-[20px] sm:py-[34px]">
         <Image
