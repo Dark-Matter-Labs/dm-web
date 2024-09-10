@@ -86,7 +86,7 @@ export default function Footer() {
                 </div>
                 <div className="mt-5">
                   <Link
-                    href="/privacy"
+                    href="/privacy-policy"
                     className="p-lg-regular text-[#A8A8A8] hover:text-white"
                   >
                     Privacy Policy
