@@ -35,31 +35,31 @@ img {
 }
 
 @font-face {
-  font-family: 'SaansTRIAL-Medium';
+  font-family: 'SaansMedium';
   src:
     local('SaansTRIAL-Medium'),
-    url('../fonts/SaansTRIAL-Medium.woff') format('woff');
+    url('../fonts/SaansMedium.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'SaansTRIAL-Medium';
+  font-family: 'SaansMedium';
   src:
-    local('SaansTRIAL-Medium'),
-    url('../fonts/SaansTRIAL-Medium.woff2') format('woff2');
+    local('SaansMedium'),
+    url('../fonts/SaansMedium.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'SaansTRIAL-Regular';
+  font-family: 'SaansRegular';
   src:
-    local('SaansTRIAL-Regular'),
-    url('../fonts/SaansTRIAL-Regular.woff') format('woff');
+    local('SaansRegular'),
+    url('../fonts/SaansRegular.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'SaansTRIAL-Regular';
+  font-family: 'SaansRegular';
   src:
-    local('SaansTRIAL-Regular'),
-    url('../fonts/SaansTRIAL-Regular.woff2') format('woff2');
+    local('SaansRegular'),
+    url('../fonts/SaansRegular.woff2') format('woff2');
 }
 
 .bg-alpha {
@@ -68,7 +68,7 @@ img {
 
 @layer components {
   .global-margin {
-    @apply container mx-auto max-w-[1200px] overflow-x-hidden px-5 sm:overflow-x-visible md:px-0;
+    @apply container mx-auto max-w-[1200px] overflow-x-hidden sm:overflow-x-visible global-px;
   }
 
   .heading-7xl {
@@ -373,6 +373,18 @@ hr {
   .project-back {
     @apply block;
   }
+
+  .nav-w {
+    @apply w-[690px];
+  }
+
+  .global-px {
+    @apply px-0;
+  }
+
+  .footer-grid {
+    @apply flex flex-col;
+  }
 }
 
 @media (min-width: 1070px) {
@@ -456,6 +468,15 @@ hr {
   .meta-data-border {
     @apply w-[380px] border-y border-y-[#353535];
   }
+  .nav-w {
+    @apply w-[1200px];
+  }
+  .global-px {
+    @apply px-0;
+  }
+  .footer-grid {
+    @apply grid grid-cols-12;
+  }
 }
 
 @media (max-width: 810px) {
@@ -517,5 +538,14 @@ hr {
   }
   .project-back {
     @apply block;
+  }
+  .nav-w {
+    @apply w-full;
+  }
+  .global-px {
+    @apply px-5;
+  }
+  .footer-grid {
+    @apply flex flex-col;
   }
 }

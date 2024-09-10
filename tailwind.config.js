@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        SaansRegular: ['SaansTRIAL-Regular', 'system-ui'],
-        SaansMed: ['SaansTRIAL-Medium', 'system-ui'],
+        SaansRegular: ['SaansRegular', 'system-ui'],
+        SaansMed: ['SaansMedium', 'system-ui'],
       },
       colors: {
         'grey-1': '#E2E2E2',
