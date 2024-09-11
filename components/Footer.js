@@ -98,27 +98,30 @@ export default function Footer() {
                   <ul role="list" className=" space-y-5">
                     {navigation.company.map((item) => (
                       <li key={item.country}>
-                        {item.country === 'South Korea'?
-                        <a href="https://kr.darkmatterlabs.org/"  target="_blank"
-                        rel="noopener noreferrer" className="hover:text-white ">
-                        <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
-                          {item.country}
-                        </p>
-                        <p className="font-SaansRegular text-[13px] leading-[18px] text-[#A8A8A8]">
-                          {item.fullName}
-                        </p>
-                      </a>
-                      :
-                      <div className=" ">
-                          <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
-                            {item.country}
-                          </p>
-                          <p className="font-SaansRegular text-[13px] leading-[18px] text-[#A8A8A8]">
-                            {item.fullName}
-                          </p>
-                        </div>
-                        }
-                        
+                        {item.country === 'South Korea' ? (
+                          <a
+                            href="https://kr.darkmatterlabs.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-white "
+                          >
+                            <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
+                              {item.country}
+                            </p>
+                            <p className="font-SaansRegular text-[13px] leading-[18px] text-[#A8A8A8]">
+                              {item.fullName}
+                            </p>
+                          </a>
+                        ) : (
+                          <div className=" ">
+                            <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
+                              {item.country}
+                            </p>
+                            <p className="font-SaansRegular text-[13px] leading-[18px] text-[#A8A8A8]">
+                              {item.fullName}
+                            </p>
+                          </div>
+                        )}
                       </li>
                     ))}
                   </ul>

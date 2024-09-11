@@ -46,12 +46,16 @@ export default async function Feed() {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className='hover:cursor-pointer'
+                className="hover:cursor-pointer"
               >
                 <FeedItem item={item} />
               </a>
             ) : (
-              <Link className='hover:cursor-crosshair' key={item.title} href={`/feed/${item.slug.current}`}>
+              <Link
+                className="hover:cursor-crosshair"
+                key={item.title}
+                href={`/feed/${item.slug.current}`}
+              >
                 <FeedItem item={item} />
               </Link>
             ),

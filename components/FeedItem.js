@@ -5,16 +5,18 @@ export default function FeedItem({ item }) {
   return (
     <div
       key={item.title}
-      className="group flex h-full flex-col items-center justify-center sm:gap-[40px] border-b border-b-[#353535] sm:flex-row sm:items-start sm:justify-between"
+      className="group flex h-full flex-col items-center justify-center border-b border-b-[#353535] sm:flex-row sm:items-start sm:justify-between sm:gap-[40px]"
     >
-      <div className="feed-item-img flex items-center justify-center py-[20px] sm:py-[34px]">
+      <div className="feed-item-img  feed-item-img-inner relative py-[20px] sm:my-[34px]">
         <Image
           src={urlForImage(item.image)}
           alt="feed item image"
-          className="feed-item-img-inner group-hover:opacity-80"
-          width={0}
-          height={0}
-          sizes="100vw"
+          className=" h-full w-full object-cover group-hover:opacity-80"
+          fill
+          sizes="
+              (max-width: 768px) 90vw,
+              (max-width: 1200px) 60vw,
+              90vw"
           placeholder="blur"
           blurDataURL={item?.metadata.lqip}
         />

@@ -360,12 +360,8 @@ hr {
     @apply w-[690px] items-center justify-center;
   }
 
-  .feed-item-img {
-    @apply w-[240px];
-  }
-
   .feed-item-img-inner {
-    @apply h-[140px] w-full;
+    @apply h-[140px] w-[247px];
   }
 
   .feed-item-details {
@@ -464,9 +460,6 @@ hr {
     @apply w-full items-center justify-center;
   }
 
-  .feed-item-img {
-    @apply w-[470px];
-  }
   .feed-item-img-inner {
     @apply h-[266px] w-[470px];
   }
@@ -540,11 +533,8 @@ hr {
     @apply w-full items-start justify-between;
   }
 
-  .feed-item-img {
-    @apply w-full;
-  }
   .feed-item-img-inner {
-    @apply h-full w-full;
+    @apply h-[221px] w-[92vw];
   }
 
   .feed-item-details {
