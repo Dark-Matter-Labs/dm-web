@@ -14,13 +14,13 @@ const initiative = {
           title: 'Caption',
         },
       ],
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'title',
       type: 'string',
       title: 'Initiative Title',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -39,7 +39,7 @@ const initiative = {
       name: 'subtitle',
       type: 'string',
       title: 'Initiative Subtitle',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'short_description',
