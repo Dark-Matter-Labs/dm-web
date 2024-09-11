@@ -76,7 +76,7 @@ export default function Contexts() {
               On the surface a central bank and an ecological activist may have
               little in common. Yet, central banks have a mandate to preserve
               stability, which in the future could involve recoupling money
-              issuance to ecological rights? This logic might also extend to
+              issuance to ecological rights. This logic might also extend to
               cultural intersectional points, such as indigenous perspectives
               and state mandates in locations such as Australia and India.
             </p>

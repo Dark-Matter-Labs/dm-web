@@ -28,7 +28,7 @@ export default function Paradigms({
             The Enlightenment, Industrial and Scientific revolutions created
             many advances for society. But what about their impact on deep ways
             of being and knowing? From the concept of thingification to the
-            devaluation of mother earth, the psychological baseline of our many
+            devaluation of mother earth, the psychological baseline of many
             societies was fundamentally altered. From our perspective, the
             worldview that condoned the treatment of land and living beings as
             disposable, exploitable resources, was also at play in the coding of
