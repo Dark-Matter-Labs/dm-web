@@ -386,6 +386,9 @@ hr {
   .paradigm{
     @apply justify-items-center grid grid-cols-1;
   }
+  .feed-top {
+    @apply flex-col items-start justify-start w-[690px];
+  }
 }
 
 @media (min-width: 1070px) {
@@ -453,7 +456,7 @@ hr {
   }
 
   .feed-w {
-    @apply w-full;
+    @apply w-[1600px];
   }
 
   .feed-grid {
@@ -483,6 +486,10 @@ hr {
   }
   .footer-grid {
     @apply grid grid-cols-12;
+  }
+
+  .feed-top {
+    @apply flex-row items-end justify-between w-[1200px];
   }
 }
 
@@ -552,4 +559,8 @@ hr {
   .footer-grid {
     @apply flex flex-col;
   }
+  .feed-top {
+    @apply flex-col items-start justify-center w-full;
+  }
 }
+
