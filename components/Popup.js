@@ -56,9 +56,16 @@ function Popup({
                 )}
               </div>
               <div className=" pl-0 sm:pl-[20px]">
-                <p className="pb-2 font-SaansMed text-xl uppercase text-[#595959] sm:pb-[12px]">
-                  Links
-                </p>
+                {website !== '' || publication !== '' ? (
+                  <p className="pb-2 font-SaansMed text-xl uppercase text-[#595959] sm:pb-[12px]">
+                    Links
+                  </p>
+                ) : (
+                  <p className="pb-2 font-SaansRegular text-xl uppercase text-[#595959] sm:pb-[12px]">
+                    In development
+                  </p>
+                )}
+
                 {website !== '' && (
                   <div className="">
                     <a target="_blank" href={website}>
