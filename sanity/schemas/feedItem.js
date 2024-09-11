@@ -26,16 +26,19 @@ const feedItem = {
           title: 'Caption',
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'title',
       type: 'string',
       title: 'Feed Item Title',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'subtitle',
       type: 'string',
       title: 'Feed Item Subtitle',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'date',

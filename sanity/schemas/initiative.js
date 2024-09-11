@@ -14,17 +14,20 @@ const initiative = {
           title: 'Caption',
         },
       ],
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'title',
       type: 'string',
       title: 'Initiative Title',
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Page slug',
       description: 'make sure there are no special characters',
+      validation: (Rule) => Rule.required(),
       options: {
         source: 'title',
         inUnique: 'true',
@@ -36,6 +39,7 @@ const initiative = {
       name: 'subtitle',
       type: 'string',
       title: 'Initiative Subtitle',
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'short_description',
