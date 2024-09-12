@@ -55,9 +55,9 @@ export default function ProjectMetadata({ initiative, back_text }) {
               setDmlien(person);
               setOpenTeam(true);
             }}
-            className="flex items-center justify-center gap-[10px] hover:cursor-crosshair"
+            className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
           >
-            <div className="h-[22px] w-[22px]">
+            <div className="h-[22px] w-[22px] group-hover:opacity-80">
               <Image
                 src={urlForImage(person.image)}
                 alt={person.fullName}
@@ -66,7 +66,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
                 style={{ objectFit: 'fill' }}
               />
             </div>
-            <p className=" font-SaansRegular text-xl text-[#EBEBEB]">
+            <p className=" font-SaansRegular text-xl text-[#EBEBEB] group-hover:opacity-80">
               {person.fullName}
             </p>
           </div>
@@ -81,14 +81,14 @@ export default function ProjectMetadata({ initiative, back_text }) {
           initiative?.labs?.map((lab) => (
             <div
               key={lab.title}
-              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair"
+              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
               onClick={() => {
                 setUnitType('lab');
                 setActiveUnit(lab);
                 setOpenUnit(true);
               }}
             >
-              <div className="h-[22px] w-[22px]">
+              <div className="h-[22px] w-[22px] group-hover:opacity-80">
                 <img
                   src={urlForImage(lab.image)}
                   alt={lab.title}
@@ -97,7 +97,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
                   style={{ objectFit: 'fill' }}
                 />
               </div>
-              <p className=" font-SaansRegular text-xl text-[#EBEBEB]">
+              <p className=" font-SaansRegular text-xl text-[#EBEBEB] group-hover:opacity-80">
                 {lab.title}
               </p>
             </div>
@@ -106,14 +106,14 @@ export default function ProjectMetadata({ initiative, back_text }) {
           initiative?.arcs?.map((arc) => (
             <div
               key={arc.title}
-              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair"
+              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
               onClick={() => {
                 setUnitType('arc');
                 setActiveUnit(arc);
                 setOpenUnit(true);
               }}
             >
-              <div className="h-[22px] w-[22px]">
+              <div className="h-[22px] w-[22px] group-hover:opacity-80">
                 <img
                   src={urlForImage(arc.image)}
                   alt={arc.title}
@@ -122,7 +122,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
                   style={{ objectFit: 'fill' }}
                 />
               </div>
-              <p className=" font-SaansRegular text-xl text-[#EBEBEB]">
+              <p className=" font-SaansRegular text-xl text-[#EBEBEB] group-hover:opacity-80">
                 {arc.title}
               </p>
             </div>
@@ -131,14 +131,14 @@ export default function ProjectMetadata({ initiative, back_text }) {
           initiative?.studios?.map((studio) => (
             <div
               key={studio.title}
-              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair"
+              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
               onClick={() => {
                 setUnitType('studio');
                 setActiveUnit(studio);
                 setOpenUnit(true);
               }}
             >
-              <div className="h-[22px] w-[22px]">
+              <div className="h-[22px] w-[22px] group-hover:opacity-80">
                 <img
                   src={urlForImage(studio.image)}
                   alt={studio.title}
@@ -147,7 +147,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
                   style={{ objectFit: 'fill' }}
                 />
               </div>
-              <p className=" font-SaansRegular text-xl text-[#EBEBEB]">
+              <p className=" font-SaansRegular text-xl text-[#EBEBEB] group-hover:opacity-80">
                 {studio.title}
               </p>
             </div>
