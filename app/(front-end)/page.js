@@ -1098,7 +1098,7 @@ export default function Home() {
         image={M0logo}
         setOpen={setOpenM0}
         website=""
-        publication="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+        publication="https://www.irresistiblecircularsociety.eu/assets/uploads/News/DML-NEBE-White-paper-_-Desire-Sep2024.pdf"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The M0 Arc is aiming to reimagine how we use and steward materials
@@ -1106,7 +1106,7 @@ export default function Home() {
             <a
               className="text-[#737EA5]"
               target="_blank"
-              href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+              href="https://www.irresistiblecircularsociety.eu/assets/uploads/News/DML-NEBE-White-paper-_-Desire-Sep2024.pdf"
             >
               a regenerative built environment
             </a>
