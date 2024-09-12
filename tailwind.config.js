@@ -39,6 +39,7 @@ module.exports = {
         16: '60px',
       },
       screens: {
+        xs: '640px',
         sm: '810px',
         matirx: '1210px',
         md: '1600px',
