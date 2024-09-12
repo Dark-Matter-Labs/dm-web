@@ -7,11 +7,13 @@ const dmlien = {
       name: 'headshot',
       type: 'image',
       title: 'Headshot',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'fullName',
       type: 'string',
       title: 'Full Name',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'email',
@@ -35,6 +37,7 @@ const dmlien = {
       name: 'location',
       type: 'array',
       title: 'Location',
+      validation: (Rule) => Rule.required(),
       of: [{ type: 'locationObject' }],
     },
     {

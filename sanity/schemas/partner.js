@@ -7,6 +7,7 @@ const partnerObj = {
       name: 'Name',
       type: 'string',
       title: 'Name of the org',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Link/website',

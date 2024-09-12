@@ -26,6 +26,7 @@ const initiative = {
       name: 'slug',
       type: 'slug',
       title: 'Page slug',
+      validation: (Rule) => Rule.required(),
       description: 'make sure there are no special characters',
       validation: (Rule) => Rule.required(),
       options: {

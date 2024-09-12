@@ -7,6 +7,7 @@ const labObject = {
       name: 'title',
       type: 'string',
       title: 'Name of the lab',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: '2 letter abbreviation',
@@ -18,6 +19,7 @@ const labObject = {
       name: 'image',
       type: 'image',
       title: 'Lab Image',
+      validation: (Rule) => Rule.required(),
       fields: [
         {
           name: 'alt',

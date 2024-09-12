@@ -7,6 +7,7 @@ const studioObject = {
       name: 'title',
       type: 'string',
       title: 'Name of the studio',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: '2 letter abbreviation',
@@ -18,6 +19,7 @@ const studioObject = {
       name: 'image',
       type: 'image',
       title: 'Studio Image',
+      validation: (Rule) => Rule.required(),
       fields: [
         {
           name: 'alt',

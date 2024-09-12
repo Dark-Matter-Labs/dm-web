@@ -44,6 +44,7 @@ const feedItem = {
       name: 'date',
       type: 'date',
       title: 'Post date',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Labs',
@@ -66,6 +67,7 @@ const feedItem = {
     {
       name: 'slug',
       type: 'slug',
+      validation: (Rule) => Rule.required(),
       title: 'Page slug',
       hidden: ({ parent }) => parent?.type === 'media',
       description: 'make sure there are no special characters',

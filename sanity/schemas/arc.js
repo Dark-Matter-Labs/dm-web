@@ -7,6 +7,7 @@ const arcObject = {
       name: 'title',
       type: 'string',
       title: 'Name of the arc',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: '2 letter abbreviation',
@@ -18,6 +19,7 @@ const arcObject = {
       name: 'image',
       type: 'image',
       title: 'Arc Image',
+      validation: (Rule) => Rule.required(),
       fields: [
         {
           name: 'alt',
