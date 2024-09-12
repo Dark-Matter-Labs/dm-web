@@ -79,31 +79,12 @@ export default function FeedList({ feed_list }) {
       </div>
       <div className="feed-grid flex gap-[10px] ">
         <div className="flex flex-col items-center justify-center pb-[150px]">
-          {filterType.value !== 'all'
-            ? feed_list
-                ?.filter((item) => item.type === filterType.value)
-                .map((item) =>
-                  item.type === 'media' ? (
-                    <a
-                      key={item.title}
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:cursor-pointer"
-                    >
-                      <FeedItem item={item} />
-                    </a>
-                  ) : (
-                    <Link
-                      className="hover:cursor-crosshair"
-                      key={item.title}
-                      href={`/feed/${item.slug.current}`}
-                    >
-                      <FeedItem item={item} />
-                    </Link>
-                  ),
-                )
-            : feed_list?.map((item) =>
+          {filterType.value !== 'all' &&
+          feed_list?.filter((item) => item.type === filterType.value).length >
+            0 ? (
+            feed_list
+              ?.filter((item) => item.type === filterType.value)
+              .map((item) =>
                 item.type === 'media' ? (
                   <a
                     key={item.title}
@@ -123,7 +104,34 @@ export default function FeedList({ feed_list }) {
                     <FeedItem item={item} />
                   </Link>
                 ),
-              )}
+              )
+          ) : filterType.value !== 'all' &&
+            feed_list?.filter((item) => item.type === filterType.value)
+              .length === 0 ? (
+            <p className="p-xl-regular text-grey-1">No results found.</p>
+          ) : (
+            feed_list?.map((item) =>
+              item.type === 'media' ? (
+                <a
+                  key={item.title}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:cursor-pointer"
+                >
+                  <FeedItem item={item} />
+                </a>
+              ) : (
+                <Link
+                  className="hover:cursor-crosshair"
+                  key={item.title}
+                  href={`/feed/${item.slug.current}`}
+                >
+                  <FeedItem item={item} />
+                </Link>
+              ),
+            )
+          )}
         </div>
       </div>
     </div>
