@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { PortableText } from '@portabletext/react';
 import { sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
@@ -42,6 +43,10 @@ export default async function feed_itemPage({ params }) {
     tags: ['feedItem'],
     qParams: { slug: params.slug },
   });
+
+  if (!feed_item) {
+    notFound();
+  }
 
   return (
     <div className="initiative-grid flex pb-[100px] pt-[60px] sm:pt-28">

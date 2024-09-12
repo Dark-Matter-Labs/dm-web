@@ -1,4 +1,4 @@
-import { sanityFetch } from '@/sanity/lib/client';
+import { client, sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,6 +10,15 @@ const INITIATIVES_QUEARY = `
 ...
 }
 `;
+
+export const INITIATIVE_PATHS_QUERY = `
+*[_type == "initiative" && defined(slug.current)][].slug.current
+`;
+
+export async function generateStaticParams() {
+  const slugs = await client.fetch(INITIATIVE_PATHS_QUERY);
+  return slugs.map((slug) => ({ slug }));
+}
 
 export default async function Initiatives() {
   const initiatives = await sanityFetch({
@@ -44,7 +53,7 @@ export default async function Initiatives() {
               <div className="relative mb-[30px] h-[352px]">
                 <Image
                   src={urlForImage(initiative?.image)}
-                  alt={initiative.image.alt}
+                  alt={'initiative cover'}
                   fill
                   sizes="
               (max-width: 768px) 90vw,

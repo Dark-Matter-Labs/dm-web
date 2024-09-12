@@ -26,9 +26,7 @@ export default function FeedItem({ item }) {
           <h2 className="max-w-[400px] font-SaansRegular text-4xl leading-[28px] text-white group-hover:opacity-80 md:max-w-full md:text-5xl md:leading-[36px]">
             {item.title}
           </h2>
-          <h3 className="text-grey-3 feed-sub">
-            {item.subtitle}
-          </h3>
+          <h3 className="feed-sub text-grey-3">{item.subtitle}</h3>
         </div>
         <div className="flex items-start justify-start">
           <div className="flex w-[120px] flex-col items-start justify-center gap-[6px]">
