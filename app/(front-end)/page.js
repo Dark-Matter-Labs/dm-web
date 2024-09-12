@@ -2540,6 +2540,19 @@ export default function Home() {
           </div>
 
           <div className="block sm:hidden">
+            <div className='flex flex-col justify-center items-center py-8'>
+            <h2 className="p-3xl-regular pb-4 text-grey-3">Matrix</h2>
+            <p className="p-xl-regular max-w-[380px] text-grey-3">
+              Our collaborative approach is firmly grounded in the complex,
+              messy reality of our existing socio-economic systems.
+              Step-by-step, with the support of a growing ecosystem, we aim to
+              build tangible pathways towards the options that we would like to
+              manifest in the world. We have visualised our organisation’s
+              response strategy across a three-dimensional matrix. The Matrix
+              represents the dynamic interplay of our systemic goals,
+              collaborations and context specific initiatives.
+            </p>
+            </div>
             <Image
               src={matrixMobile1}
               width={0}
@@ -2548,6 +2561,18 @@ export default function Home() {
               alt="mobile matrx"
               style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
+            <div className='flex flex-col justify-center items-center py-8'>
+             <h2 className="heading-3xl-regular pb-4 text-grey-3">Intersections</h2>
+            <p className="p-xl-regular max-w-[380px] text-grey-3">
+              Each project in our portfolio contributes to a number of systemic
+              capabilities. In doing so they intersect with the Labs, Arcs and
+              Studios in various configurations. This allows us to prioritise
+              flexible, compound learning across our internal and external
+              ecosystems. Some projects are not part of an Arc, but each is
+              attached to a Lab (or multiple Labs) where they contribute to
+              building systemic capabilities.
+            </p>
+            </div>
             <Image
               src={matrixMobile2}
               width={0}
@@ -2556,6 +2581,17 @@ export default function Home() {
               alt="mobile matrx"
               style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
             />
+             <div className='flex flex-col justify-center items-center py-8'>
+             <h2 className="heading-3xl-regular pb-4 text-grey-3">Capabilities</h2>
+            <p className="p-xl-regular max-w-[380px] text-grey-3">
+              The capabilities form the core of Dm’s Mission and sit at the
+              centre of the Matrix. These are the systemic goals that we have
+              set for ourselves as we strive to build pathways towards
+              Life-Ennobling Economies. Some examples include decolonising
+              currency stewardship, embedding data-augmented decision making and
+              building the foundations for planetary stewardship institutions.
+            </p>
+            </div>
             <Image
               src={matrixMobile3}
               width={0}

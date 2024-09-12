@@ -19,21 +19,29 @@ const feed_project_query = `
   labs[]->{
   ...,
   "image": image.asset->.url,
-   "metadata": image.asset->metadata,
+  "metadata": image.asset->metadata,
   },
   arcs[]->{
   ...,
   "image": image.asset->.url,
-   "metadata": image.asset->metadata,
+  "metadata": image.asset->metadata,
   },
   studios[]->{
   ...,
   "image": image.asset->.url,
-   "metadata": image.asset->metadata,
+  "metadata": image.asset->metadata,
   },
   partners[]->{
   ...,
   },
+  "next": *[_type == "feedItem" && type == 'project' && date < ^.date] | order(date desc)[0] { 
+  title,
+    "image": image.asset->.url,
+  },
+  "previous": *[_type == "feedItem" && type == 'project' && date > ^.date] | order(date desc)[0] { 
+  title,
+    "image": image.asset->.url,
+  }
 }
 `;
 
