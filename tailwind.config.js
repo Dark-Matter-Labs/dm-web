@@ -40,7 +40,7 @@ module.exports = {
       },
       screens: {
         sm: '810px',
-        matirx: '1070px',
+        matirx: '1210px',
         md: '1600px',
       },
       container: {

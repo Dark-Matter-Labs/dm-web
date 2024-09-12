@@ -296,7 +296,7 @@ hr {
   }
   } 
 
-@media (min-width: 810px) and (max-width: 1070px) {
+@media (min-width: 810px) and (max-width: 1210px) {
   .t3 {
     @apply relative mt-[218rem];
   }
@@ -389,9 +389,12 @@ hr {
   .feed-top {
     @apply flex-col items-start justify-start w-[690px];
   }
+  .feed-sub {
+    @apply  block max-w-xl p-xl-regular;
+  }
 }
 
-@media (min-width: 1070px) {
+@media (min-width: 1210px) {
   .paradigm{
     @apply justify-items-center grid-cols-12;
   }
@@ -491,6 +494,10 @@ hr {
   .feed-top {
     @apply flex-row items-end justify-between w-[1200px];
   }
+
+  .feed-sub {
+    @apply block p-body2;
+  }
 }
 
 @media (max-width: 810px) {
@@ -561,6 +568,9 @@ hr {
   }
   .feed-top {
     @apply flex-col items-start justify-center w-full;
+  }
+  .feed-sub {
+    @apply hidden;
   }
 }
 

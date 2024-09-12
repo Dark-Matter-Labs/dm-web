@@ -26,7 +26,7 @@ export default function FeedItem({ item }) {
           <h2 className="max-w-[400px] font-SaansRegular text-4xl leading-[28px] text-white group-hover:opacity-80 md:max-w-full md:text-5xl md:leading-[36px]">
             {item.title}
           </h2>
-          <h3 className="p-body2 hidden text-grey-3 md:block">
+          <h3 className="text-grey-3 feed-sub">
             {item.subtitle}
           </h3>
         </div>
