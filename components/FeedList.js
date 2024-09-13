@@ -78,7 +78,7 @@ export default function FeedList({ feed_list }) {
         </div>
       </div>
       <div className="feed-grid flex gap-[10px] ">
-        <div className="flex flex-col items-center justify-center pb-[150px] gap-[60px] sm:gap-0">
+        <div className="flex flex-col items-center justify-center gap-[60px] pb-[150px] sm:gap-0">
           {filterType.value !== 'all' &&
           feed_list?.filter((item) => item.type === filterType.value).length >
             0 ? (
