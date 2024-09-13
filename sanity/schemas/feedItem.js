@@ -67,7 +67,7 @@ const feedItem = {
     {
       name: 'slug',
       type: 'slug',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>  Rule.custom((slug, context) => context.document.type !== 'media' && slug === undefined ? "Slug required for projects and updates" : true),
       title: 'Page slug',
       hidden: ({ parent }) => parent?.type === 'media',
       description: 'make sure there are no special characters',
