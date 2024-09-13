@@ -95,17 +95,17 @@ export default async function feed_itemPage({ params }) {
           {feed_item.previous && (
             <Link href={feed_item.previous.slug.current}>
               <div className="flex flex-row items-start justify-center gap-[16px] hover:cursor-crosshair">
-                <div className="">
+                {/* <div className="">
                   <Image
                     src={urlForImage(feed_item.previous.image)}
                     alt="previous project image"
                     width={80}
                     height={50}
                   />
-                </div>
+                </div> */}
                 <div className="flex h-full w-full flex-col items-start justify-start gap-[0px] sm:w-[189px] sm:justify-center">
                   <div>
-                    <button className="p-xl-medium flex items-center justify-center uppercase text-grey-3 hover:cursor-crosshair">
+                    <button className="p-xl-medium flex items-center justify-center uppercase text-grey-3  hover:cursor-crosshair">
                       <ChevronLeftIcon className="h-4 w-4" aria-hidden="true" />
                       <span>previous</span>
                     </button>
@@ -120,21 +120,21 @@ export default async function feed_itemPage({ params }) {
 
           {feed_item.next && (
             <Link href={feed_item.next.slug.current}>
-              <div className="flex flex-row items-start justify-end gap-[16px] hover:cursor-crosshair sm:justify-center">
-                <div className="">
+              <div className="flex flex-row items-start justify-end gap-[16px] hover:cursor-crosshair">
+                {/* <div className="">
                   <Image
                     src={urlForImage(feed_item.next.image)}
                     alt="next project image"
                     width={80}
                     height={50}
                   />
-                </div>
-                <div className="flex h-full flex-col items-end justify-center gap-[0px] sm:items-start">
+                </div> */}
+                <div className="flex h-full flex-col items-end justify-center gap-[0px] ">
                   <span className="p-xl-regular text-[#EBEBEB]">
                     {feed_item.next.title}
                   </span>
                   <div>
-                    <button className="p-xl-medium flex items-center justify-end uppercase text-grey-3 hover:cursor-crosshair sm:justify-center">
+                    <button className="p-xl-medium flex items-center justify-end uppercase text-grey-3 hover:opacity-80  hover:cursor-crosshair sm:justify-center">
                       <span>next</span>
                       <ChevronRightIcon
                         className="h-4 w-4"
