@@ -83,6 +83,7 @@ const feedItem = {
       name: 'description',
       type: 'array',
       description: 'Description',
+      hidden: ({ parent }) => parent?.type === 'media',
       of: [
         {
           type: 'block',
