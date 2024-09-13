@@ -55,7 +55,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
               setDmlien(person);
               setOpenTeam(true);
             }}
-            className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
+            className="group flex items-center justify-center gap-[10px] hover:cursor-crosshair"
           >
             <div className="h-[22px] w-[22px] group-hover:opacity-80">
               <Image
@@ -81,7 +81,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
           initiative?.labs?.map((lab) => (
             <div
               key={lab.title}
-              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
+              className="group flex items-center justify-center gap-[10px] hover:cursor-crosshair"
               onClick={() => {
                 setUnitType('lab');
                 setActiveUnit(lab);
@@ -106,7 +106,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
           initiative?.arcs?.map((arc) => (
             <div
               key={arc.title}
-              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
+              className="group flex items-center justify-center gap-[10px] hover:cursor-crosshair"
               onClick={() => {
                 setUnitType('arc');
                 setActiveUnit(arc);
@@ -131,7 +131,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
           initiative?.studios?.map((studio) => (
             <div
               key={studio.title}
-              className="flex items-center justify-center gap-[10px] hover:cursor-crosshair group"
+              className="group flex items-center justify-center gap-[10px] hover:cursor-crosshair"
               onClick={() => {
                 setUnitType('studio');
                 setActiveUnit(studio);
