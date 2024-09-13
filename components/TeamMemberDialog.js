@@ -65,7 +65,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 )}
               </div>
             </div>
-            <div className="flex sm:basis-[468px] flex-col items-start justify-start gap-[16px] py-[28px] pl-[28px] pr-[32px] sm:min-h-full">
+            <div className="flex flex-col items-start justify-start gap-[16px] py-[28px] pl-[28px] pr-[32px] sm:min-h-full sm:basis-[468px]">
               <div className="flex items-center justify-between">
                 <DialogTitle
                   as="h3"

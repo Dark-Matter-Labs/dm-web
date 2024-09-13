@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Privacy() {
   return (
     <div className={`page-grid relative mt-[40px] pb-[60px] sm:mt-28`}>
@@ -8,6 +10,9 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="p-body2 text-[#EBEBEB]">How DML uses data</p>
+          <p className="p-lg-regular text-[#EBEBEB]">
+            This page was last updated on 13 September 2024.
+          </p>
         </div>
       </div>
 
@@ -26,8 +31,7 @@ export default function Privacy() {
             Dark Matter Labs (DML) is a strategic discovery, design and
             development lab working to transition society in response to
             technological revolution and climate breakdown. We run this website
-            (darkmatterlabs.org/) and its subdomains
-            (http://provocations.darkmatterlabs.org/).
+            (darkmatterlabs.org/) and its subdomains.
           </p>
         </div>
         <p className="p-xl-regular text-[#EBEBEB]">
@@ -39,10 +43,23 @@ export default function Privacy() {
         <p className="p-xl-regular text-[#EBEBEB]">
           At Dark Matter Labs, we want every individual to know what personal
           data we collect, why we are collecting it, and for you to know what we
-          do with it. We firmly believe in the right for every individual as a
-          data subject to know how their personal data is being used by a data
-          controller such as DML, so please get familiar with our Privacy Policy
-          and if you have any questions at all you can reach out to
+          do with it. We firmly believe in the right for every individual as a{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://www.itgovernance.co.uk/blog/what-are-the-data-subject-rights-under-the-gdpr#:~:text=a%20data%20subject%3F-,What%20is%20a%20data%20subject%3F,address%20or%20credit%20card%20number."
+          >
+            data subject
+          </a>{' '}
+          to know how their personal data is being used by a{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://www.atinternet.com/en/glossary/data-controller/#:~:text=A%20data%20controller%20is%20a,Article%204.7%20of%20the%20GDPR."
+          >
+            {' '}
+            data controller
+          </a>{' '}
+          such as DML, so please get familiar with our Privacy Policy and if you
+          have any questions at all you can reach out to
           info@darkmatterlabs.org.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
@@ -72,26 +89,27 @@ export default function Privacy() {
         <p className="p-xl-regular text-[#EBEBEB]">
           Site Visitor: You are a site visitor when you visit and interact with
           our web sites, web pages, blogs and content on darkmatterlabs.org.
-          Jump to Site Visitor.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Research Participant: You are a Research Participant when you have
           agreed to take part in research that Dark Matter Labs is conducting.
-          Jump to Research Participant.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Partner: You are an existing Partner once you have engaged with Dark
-          Matter Labs in a contract. Jump to Partner.
+          Matter Labs in a contract.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Prospective Applicant: You are a Prospective Applicant when you apply
-          to a position at Dark Matter Labs that are found here. Jump to
-          Prospective Applicant.
+          to a position at Dark Matter Labs that are found{' '}
+          <Link className="text-[#737EA5]" href="/jobs">
+            here
+          </Link>
+          .
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Event Attendee: We occasionally host events at Dark Matter Labs that
           require your registration, you are an Event Attendee once you have
-          registered for an event that we are hosting. Jump to Event Attendee.
+          registered for an event that we are hosting.
         </p>
       </div>
 
@@ -107,9 +125,12 @@ export default function Privacy() {
       >
         <p className="p-xl-regular text-[#EBEBEB]">
           Firstly, we want to make you aware of six principles for which all
-          personal data must be processed according to Article 5 of the GDPR.
-          These principles outline what any company that has a digital presence
-          need to keep accountable towards:
+          personal data must be processed according to{' '}
+          <a className="text-[#737EA5]" href="https://gdpr-info.eu/art-5-gdpr/">
+            Article 5
+          </a>{' '}
+          of the GDPR. These principles outline what any company that has a
+          digital presence need to keep accountable towards:
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Lawfulness, fairness, and transparency: Obey the law, only process
@@ -138,7 +159,7 @@ export default function Privacy() {
         </p>
 
         <p className="p-xl-regular text-[#EBEBEB]">
-          hese principles build the foundation for why data is being collected
+          These principles build the foundation for why data is being collected
           and all of the data that DML is collecting has to fall in line with
           one of these six principles.
         </p>
@@ -183,21 +204,56 @@ export default function Privacy() {
         </h2>
         <p className="p-xl-regular text-[#EBEBEB]">
           We use an analytics software run through{' '}
-          <a href="https://www.cloudflare.com/">Cloudflare</a>, a service that
-          adopts a privacy-first analytics approach. This means that they enable
-          us to analyze traffic to our website, without compromising our users’
-          privacy. Their approach to customer data is outlined in their{' '}
-          <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a>{' '}
+          <a className="text-[#737EA5]" href="https://www.cloudflare.com/">
+            Cloudflare
+          </a>
+          , a service that adopts a privacy-first analytics approach. This means
+          that they enable us to analyze traffic to our website, without
+          compromising our users’ privacy. Their approach to customer data is
+          outlined in their{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://www.cloudflare.com/privacypolicy/"
+          >
+            privacy policy
+          </a>{' '}
           and the data that we have access to is only visible for 30 days
         </p>
         <h2 className="heading-4xl text-[#EBEBEB]">Opt-out of collection</h2>
         <p className="p-xl-regular text-[#EBEBEB] ">
           You can opt out of our analytics by turning on Do Not Track in your
-          browser. Find out how to do this for Google Chrome, Firefox, Safari,
-          Internet Explorer and Microsoft Edge. If you do not opt-out, clicking
-          any link on our website is taken as implied consent to our analytics
-          run through Cloudflare on your device, unless you have disabled them
-          in your browser as described above.
+          browser. Find out how to do this for{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://support.google.com/chrome/answer/2790761?co=GENIE.Platform%3DDesktop&hl=en"
+          >
+            Google Chrome
+          </a>
+          ,{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature"
+          >
+            Firefox
+          </a>
+          ,{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://support.apple.com/en-gb/guide/safari/sfri40732/mac"
+          >
+            Safari
+          </a>
+          , and{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy"
+          >
+            Microsoft Edge
+          </a>
+          . If you do not opt-out, clicking any link on our website is taken as
+          implied consent to our analytics run through Cloudflare on your
+          device, unless you have disabled them in your browser as described
+          above.
         </p>
         <h2 className="heading-4xl text-[#EBEBEB]">Third-party services</h2>
         <p className="p-xl-regular text-[#EBEBEB]">
@@ -207,18 +263,38 @@ export default function Privacy() {
 
         <h3 className="heading-4xl text-[#EBEBEB]">Vercel</h3>
         <p className="p-xl-regular text-[#EBEBEB]">
-          DML’s website is hosted by Vercel, their approach to GDPR is
-          highlighted here and also reflected in their{' '}
-          <a href="https://vercel.com/legal/privacy-policy">Privacy Policy</a>.
+          DML’s website is hosted by{' '}
+          <a className="text-[#737EA5]" href="https://vercel.com">
+            Vercel
+          </a>
+          , their approach to GDPR is highlighted here and also reflected in
+          their{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://vercel.com/legal/privacy-policy"
+          >
+            Privacy Policy
+          </a>
+          .
         </p>
 
         <h3 className="heading-4xl text-[#EBEBEB]">Medium</h3>
         <p className="p-xl-regular text-[#EBEBEB]">
-          We host our blog on Medium, because its infrastructure is better
-          suited to delivering blog content than our own. Find out more about
-          how they use data in their privacy statement. Any reference to an
-          identifiable individual in our blog space has been obtained with their
-          consent, and all of our data is collected in this way.
+          We host our blog on{' '}
+          <a className="text-[#737EA5]" href="https://medium.com/">
+            Medium
+          </a>
+          , because its infrastructure is better suited to delivering blog
+          content than our own. Find out more about how they use data in their{' '}
+          <a
+            className="text-[#737EA5]"
+            href="https://policy.medium.com/medium-privacy-policy-f03bf92035c9"
+          >
+            privacy statement
+          </a>
+          . Any reference to an identifiable individual in our blog space has
+          been obtained with their consent, and all of our data is collected in
+          this way.
         </p>
 
         <p className="p-xl-regular text-[#EBEBEB]">
@@ -243,27 +319,71 @@ export default function Privacy() {
         <ul className="p-xl-regular text-[#EBEBEB]">
           <li>
             Dark Matter Labs on{' '}
-            <a href="#" className="text-link">
-              Twitter (Privacy policy)
+            <a
+              href="https://twitter.com/DarkMatter_Labs"
+              className="text-[#737EA5]"
+            >
+              Twitter
+            </a>{' '}
+            ({' '}
+            <a
+              href="https://twitter.com/en/privacy#update"
+              className="text-[#737EA5]"
+            >
+              Privacy policy
             </a>
+            )
           </li>
           <li>
             Dark Matter Labs on{' '}
-            <a href="#" className="text-link">
-              LinkedIn (Privacy policy)
+            <a
+              href="https://www.linkedin.com/company/darkmatterlabs"
+              className="text-[#737EA5]"
+            >
+              LinkedIn
+            </a>{' '}
+            (
+            <a
+              href="https://www.linkedin.com/legal/privacy-policy"
+              className="text-[#737EA5]"
+            >
+              Privacy policy
             </a>
+            )
           </li>
           <li>
             Dark Matter Labs on{' '}
-            <a href="#" className="text-link">
-              Medium (Privacy policy)
+            <a
+              href="https://provocations.darkmatterlabs.org/"
+              className="text-[#737EA5]"
+            >
+              Medium
+            </a>{' '}
+            ({' '}
+            <a
+              href="https://medium.com/policy/medium-privacy-policy-f03bf92035c9"
+              className="text-[#737EA5]"
+            >
+              Privacy policy
             </a>
+            )
           </li>
           <li>
             Dark Matter Labs on{' '}
-            <a href="#" className="text-link">
-              Instagram (Privacy policy)
+            <a
+              href="https://www.instagram.com/darkmatter_labs/"
+              className="text-[#737EA5]"
+            >
+              Instagram
+            </a>{' '}
+            ({' '}
+            <a
+              href="https://help.instagram.com/155833707900388"
+              className="text-[#737EA5]"
+            >
+              Privacy policy
             </a>
+            )
           </li>
         </ul>
       </div>
@@ -446,8 +566,14 @@ export default function Privacy() {
         <h3 className="heading-4xl text-[#EBEBEB]">Third-party services</h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           We also use third-party services to plan, deliver and host event
-          content. You can find out more about each of these services below:
-          Eventbrite Privacy Policy.
+          content. You can find out more about each of these services below:{' '}
+          <a
+            href="https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-privacy-policy?lg=en_US"
+            className="text-[#737EA5]"
+          >
+            Eventbrite Privacy Policy
+          </a>
+          .
         </p>
 
         <h3 className="heading-4xl text-[#EBEBEB]">Opt-out of collection</h3>
@@ -483,7 +609,29 @@ export default function Privacy() {
           <li>Covering letter</li>
           <li>References</li>
           <li>Phone number</li>
+          <li>Recruitment platform profile</li>
+          <li>Notes from interviews</li>
         </ul>
+
+        <p className="p-xl-regular text-[#EBEBEB]">
+          If you progress to the final round of interviews, we may ask you
+          explicitly if we can record your interview as we work in a distributed
+          team spread across multiple timezones. This constitutes as{' '}
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/special-category-data/"
+            className="text-[#737EA5]"
+          >
+            special category data
+          </a>
+          , only the recruiting team has access to the recordings, and they are
+          deleted as soon as the job is filled.
+        </p>
+
+        <p className="p-xl-regular text-[#EBEBEB]">
+          We do not ask for background checks, sexual orientation, biometrics,
+          health history, race or ethnicity, or any political memberships as
+          part of the application process.
+        </p>
 
         <h3 className="heading-4xl text-[#EBEBEB]">
           Why we collect recruitment data
@@ -502,7 +650,64 @@ export default function Privacy() {
           consent is given, we may store CVs for up to 1 year.
         </p>
 
-        <h2 className="heading-4xl text-[#EBEBEB]">Keeping data secure</h2>
+        <h3 className="heading-4xl text-[#EBEBEB]">
+          Where recruitment data is processed and stored
+        </h3>
+        <p className="p-xl-regular text-[#EBEBEB]">
+          We use several services to help us find people to join our team. At
+          the moment, these include:{' '}
+          <a href="https://www.beapplied.com/" className="text-[#737EA5]">
+            Applied
+          </a>{' '}
+          (
+          <a
+            href="https://www.beapplied.com/privacy"
+            className="text-[#737EA5]"
+          >
+            Privacy Policy
+          </a>
+          )
+        </p>
+      </div>
+
+      <div className="md:mt16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+        <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+          Things we don’t do
+        </h2>
+      </div>
+      <div
+        className={
+          'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
+        }
+      >
+        <p className="p-xl-regular text-[#EBEBEB]">
+          DML doesn’t participate in the following data processing activities:
+        </p>
+        <ul className="p-xl-regular list-disc pl-3 text-[#EBEBEB]">
+          <li>Buying or selling marketing lists</li>
+          <li>
+            Entering into data sharing agreements with other organisations
+          </li>
+          <li>Postal marketing</li>
+          <li>CCTV surveillance</li>
+        </ul>
+
+        <p className="p-xl-regular text-[#EBEBEB]">
+          We don’t use “soft opt-in”, meaning you won’t receive any marketing
+          communications from us unless you’ve specifically agreed to it.
+        </p>
+      </div>
+
+      <div className="md:mt16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+        <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+          Keeping data secure
+        </h2>
+      </div>
+      <div
+        className={
+          'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
+        }
+      >
         <p className="p-xl-regular text-[#EBEBEB]">
           We carefully choose our services and tools at Dark Matter Labs. We’ve
           reviewed the privacy policies and security practices of everything we
@@ -533,7 +738,14 @@ export default function Privacy() {
           and relevant authorities without undue delay, and if feasible, within
           72 hours of the discovery of the breach. In the event of a data
           breach, we are also required to notify the Information Commissioner’s
-          Office. We will do so following their guidance.
+          Office. We will do so following{' '}
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/personal-data-breaches/"
+            className="text-[#737EA5]"
+          >
+            their guidance
+          </a>
+          .
         </p>
       </div>
 
@@ -569,8 +781,15 @@ export default function Privacy() {
         <p className="p-xl-regular text-[#EBEBEB]">
           There are exemptions to data protection regulations that may require
           us to share data about you, including requests by law enforcement. A
-          full list of exemptions is listed on the ICO website - this also
-          applies to data held about you by third-party services we use.
+          full list of exemptions is listed on the{' '}
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/exemptions/"
+            className="text-[#737EA5]"
+          >
+            ICO website
+          </a>{' '}
+          - this also applies to data held about you by third-party services we
+          use.
         </p>
       </div>
 
@@ -615,34 +834,67 @@ export default function Privacy() {
           provided links to understand each right in more detail.
         </p>
 
-        <h3 className="heading-4xl text-[#EBEBEB]">Right to be informed</h3>
+        <h3 className="heading-4xl text-[#EBEBEB]">
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-be-informed/"
+            className="text-[#737EA5]"
+          >
+            Right to be informed
+          </a>
+        </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           You have the right to be informed about how Dark Matter Labs is using
           your personal information, and this privacy policy is an attempt to
           make that process very transparent.
         </p>
 
-        <h3 className="heading-4xl text-[#EBEBEB]">Right of access</h3>
+        <h3 className="heading-4xl text-[#EBEBEB]">
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/"
+            className="text-[#737EA5]"
+          >
+            Right of access
+          </a>
+        </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           You have the right to request Dark Matter Labs for copies of your
           personal data. We may charge you a small fee for this service to cover
           the admin time required to deliver on this request.
         </p>
 
-        <h3 className="heading-4xl text-[#EBEBEB]">Right to rectification</h3>
+        <h3 className="heading-4xl text-[#EBEBEB]">
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-rectification/"
+            className="text-[#737EA5]"
+          >
+            Right to rectification
+          </a>
+        </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           You have the right to request that Dark Matter Labs correct any
           information you believe is inaccurate or incomplete.
         </p>
 
-        <h3 className="heading-4xl text-[#EBEBEB]">Right to erasure</h3>
+        <h3 className="heading-4xl text-[#EBEBEB]">
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-erasure/"
+            className="text-[#737EA5]"
+          >
+            Right to erasure
+          </a>
+        </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           You have the right to request that Dark Matter Labs erase your
           personal data under certain conditions.
         </p>
 
         <h3 className="heading-4xl text-[#EBEBEB]">
-          Right to restrict processing
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-restrict-processing/"
+            className="text-[#737EA5]"
+          >
+            Right to restrict processing
+          </a>
         </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           You have the right to request that Dark Matter Labs restrict the
@@ -650,15 +902,13 @@ export default function Privacy() {
         </p>
 
         <h3 className="heading-4xl text-[#EBEBEB]">
-          Right to object to processing
-        </h3>
-        <p className="p-xl-regular text-[#EBEBEB]">
-          You have the right to object to Dark Matter Labs processing your
-          personal data under certain conditions.
-        </p>
-
-        <h3 className="heading-4xl text-[#EBEBEB]">
-          Right to data portability
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/"
+            className="text-[#737EA5]"
+          >
+            {' '}
+            Right to data portability
+          </a>
         </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           You have the right to request that Dark Matter Labs transfer the data
@@ -667,7 +917,13 @@ export default function Privacy() {
         </p>
 
         <h3 className="heading-4xl text-[#EBEBEB]">
-          Right to object to your data processing
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-object/"
+            className="text-[#737EA5]"
+          >
+            {' '}
+            Right to object to your data processing
+          </a>
         </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           You have the right to object to your data processing, including
@@ -678,7 +934,12 @@ export default function Privacy() {
         </p>
 
         <h3 className="heading-4xl text-[#EBEBEB]">
-          Rights related to automated decision-making, including profiling
+          <a
+            href="https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/rights-related-to-automated-decision-making-including-profiling/"
+            className="text-[#737EA5]"
+          >
+            Rights related to automated decision-making, including profiling
+          </a>
         </h3>
         <p className="p-xl-regular text-[#EBEBEB]">
           At Dark Matter Labs, we do not use any automated decision-making tools
@@ -696,8 +957,11 @@ export default function Privacy() {
         </p>
 
         <p className="p-xl-regular text-[#EBEBEB]">
-          If you aren’t satisfied with our response, you can contact the
-          Information Commissioner’s Office.
+          If you aren’t satisfied with our response, you can contact the{' '}
+          <a href="https://ico.org.uk/concerns/" className="text-[#737EA5]">
+            Information Commissioner’s Office
+          </a>
+          .
         </p>
       </div>
 
@@ -712,8 +976,14 @@ export default function Privacy() {
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">
-          Thanks to IF for publishing their Privacy Policy, which we were able
-          to fork and add to.
+          Thanks to IF for publishing their{' '}
+          <a
+            href="https://www.projectsbyif.com/how-if-uses-data"
+            className="text-[#737EA5]"
+          >
+            Privacy Policy
+          </a>
+          , which we were able to fork and add to.
         </p>
       </div>
     </div>
