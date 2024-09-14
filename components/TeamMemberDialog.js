@@ -33,7 +33,9 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                     alt={dmlien?.fullName}
                     width={0}
                     height={0}
-                    sizes="10vw"
+                    sizes="
+              (max-width: 768px) 40vw,
+              20vw"
                     style={{ width: '100%' }}
                     className="w-auto border-b-[0.5px] border-[#353535]"
                     placeholder="blur"
