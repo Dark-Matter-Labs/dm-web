@@ -92,7 +92,7 @@ export default async function feed_itemPage({ params }) {
         </div>
 
         <div className="flex w-full flex-col items-stretch justify-center gap-[30px] sm:flex-row sm:justify-between sm:gap-0 ">
-          {feed_item.previous && (
+          {feed_item.previous ? (
             <Link href={feed_item.previous.slug.current}>
               <div className="flex flex-row items-start justify-center gap-[16px] hover:cursor-crosshair">
                 <div className="h-[50px] w-[80px]">
@@ -101,7 +101,7 @@ export default async function feed_itemPage({ params }) {
                     alt="previous project image"
                     width={0}
                     height={0}
-                    sizes="100vw"
+                    sizes="10vw"
                     style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
@@ -118,6 +118,8 @@ export default async function feed_itemPage({ params }) {
                 </div>
               </div>
             </Link>
+          ) : (
+            <div></div>
           )}
 
           {feed_item.next && (
