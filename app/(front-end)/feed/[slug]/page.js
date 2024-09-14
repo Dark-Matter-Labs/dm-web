@@ -95,7 +95,7 @@ export default async function feed_itemPage({ params }) {
           {feed_item.previous ? (
             <Link href={feed_item.previous.slug.current}>
               <div className="flex flex-row items-start justify-center gap-[16px] hover:cursor-crosshair">
-                <div className="h-[50px] w-[80px]">
+                <div className="h-[50px] w-[80px] overflow-hidden">
                   <Image
                     src={urlForImage(feed_item.previous.image)}
                     alt="previous project image"
@@ -139,7 +139,7 @@ export default async function feed_itemPage({ params }) {
                     </button>
                   </div>
                 </div>
-                <div className="h-[50]px w-[80px]">
+                <div className="h-[50px] w-[80px] overflow-hidden">
                   <Image
                     src={urlForImage(feed_item.next.image)}
                     alt="next project image"
