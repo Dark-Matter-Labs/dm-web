@@ -101,7 +101,7 @@ export default function Contact() {
         }
       >
         <div className="pb-[60px]">
-          <div className="imagecarousel flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
+          <div className=" flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
                 src="/partners/Partner_AA.svg"
@@ -174,7 +174,7 @@ export default function Contact() {
               />
             </div>
           </div>
-          <div className="imagecarousel flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
+          <div className=" flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
                 src="/partners/Partner_Community Fund.svg"
