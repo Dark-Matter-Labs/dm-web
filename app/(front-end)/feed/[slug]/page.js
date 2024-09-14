@@ -95,14 +95,14 @@ export default async function feed_itemPage({ params }) {
           {feed_item.previous && (
             <Link href={feed_item.previous.slug.current}>
               <div className="flex flex-row items-start justify-center gap-[16px] hover:cursor-crosshair">
-                <div className="w-[80px] h-[50px]">
+                <div className="h-[50px] w-[80px]">
                   <Image
                     src={urlForImage(feed_item.previous.image)}
                     alt="previous project image"
                     width={0}
                     height={0}
                     sizes="100vw"
-          style={{ width: '100%', height: 'auto' }}
+                    style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
                 <div className="flex h-full w-full flex-col items-start justify-start gap-[0px] sm:w-[189px] sm:justify-center">
@@ -112,7 +112,7 @@ export default async function feed_itemPage({ params }) {
                       <span>previous</span>
                     </button>
                   </div>
-                  <span className="p-xl-regular text-[#EBEBEB] max-w-[189px]">
+                  <span className="p-xl-regular max-w-[189px] text-[#EBEBEB]">
                     {feed_item.previous.title}
                   </span>
                 </div>
@@ -122,8 +122,8 @@ export default async function feed_itemPage({ params }) {
 
           {feed_item.next && (
             <Link href={feed_item.next.slug.current}>
-              <div className="flex flex-row items-start justify-end gap-[16px] hover:cursor-crosshair sm:justify-center w-full ">
-                <div className="flex h-full flex-col items-end justify-center gap-[0px] w-[189px] text-right ">
+              <div className="flex w-full flex-row items-start justify-end gap-[16px] hover:cursor-crosshair sm:justify-center ">
+                <div className="flex h-full w-[189px] flex-col items-end justify-center gap-[0px] text-right ">
                   <span className="p-xl-regular text-[#EBEBEB]">
                     {feed_item.next.title}
                   </span>
@@ -137,14 +137,14 @@ export default async function feed_itemPage({ params }) {
                     </button>
                   </div>
                 </div>
-                <div className="w-[80px] h-[50]px">
+                <div className="h-[50]px w-[80px]">
                   <Image
                     src={urlForImage(feed_item.next.image)}
                     alt="next project image"
                     width={0}
                     height={0}
                     sizes="10vw"
-          style={{ width: '100%', height: 'auto' }}
+                    style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
               </div>
