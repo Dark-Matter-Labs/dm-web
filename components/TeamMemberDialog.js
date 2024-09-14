@@ -26,23 +26,18 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
             className="shadow-layer relative flex w-4/5 transform flex-col items-center justify-between overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:min-h-full sm:w-[762px] sm:flex-row sm:items-stretch sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             <div className="relative flex flex-col self-stretch border-r-[0.5px] border-[#353535] sm:min-h-full">
-              <div className="h-full w-full sm:h-[294px] sm:w-[294px]">
-                {dmlien.image && (
-                  <Image
-                    src={urlForImage(dmlien?.image)}
-                    alt={dmlien?.fullName}
-                    width={0}
-                    height={0}
-                    sizes="
-              (max-width: 768px) 40vw,
-              20vw"
-                    style={{ width: '100%' }}
-                    className="w-auto border-b-[0.5px] border-[#353535]"
-                    placeholder="blur"
-                    blurDataURL={dmlien?.metadata.lqip}
-                  />
-                )}
-              </div>
+              {dmlien.image && (
+                <Image
+                  src={urlForImage(dmlien?.image)}
+                  alt={dmlien?.fullName}
+                  placeholder="blur"
+                  blurDataURL={dmlien?.metadata.lqip}
+                  width={294}
+                  height={294}
+                  className="w-auto border-b-[0.5px] border-[#353535] object-cover sm:w-full"
+                />
+              )}
+
               <div className="flex h-full flex-col gap-3 self-stretch p-[30px] font-SaansRegular">
                 <h3 className="font-SaansMed text-xl uppercase text-[#595959] ">
                   Contacts
