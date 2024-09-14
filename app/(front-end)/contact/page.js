@@ -101,7 +101,7 @@ export default function Contact() {
         }
       >
         <div className="pb-[60px]">
-          <div className=" flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
+          <div className="grid w-full grid-cols-2 items-center justify-items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px] sm:grid-cols-7">
             <div>
               <Image
                 src="/partners/Partner_AA.svg"
@@ -173,8 +173,6 @@ export default function Contact() {
                 className="img"
               />
             </div>
-          </div>
-          <div className=" flex h-[113px] w-full items-center gap-[27px] overflow-hidden pb-10 sm:w-[720px]">
             <div>
               <Image
                 src="/partners/Partner_Community Fund.svg"
