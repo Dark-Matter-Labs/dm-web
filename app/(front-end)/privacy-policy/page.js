@@ -76,7 +76,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg pb-2 text-grey-3 md:max-w-xs">
           User type
         </h2>
@@ -113,7 +113,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg pb-2 text-grey-3 md:max-w-xs">
           Principles
         </h2>
@@ -165,7 +165,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Site Visitor
         </h2>
@@ -388,7 +388,7 @@ export default function Privacy() {
         </ul>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Research participants
         </h2>
@@ -468,7 +468,7 @@ export default function Privacy() {
           .
         </p>
       </div>
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Potential and existing partners
         </h2>
@@ -516,7 +516,7 @@ export default function Privacy() {
           for Google are in the EU.
         </p>
       </div>
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Attendees of DML’s events
         </h2>
@@ -587,7 +587,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Prospective Job applicants
         </h2>
@@ -670,7 +670,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Things we don’t do
         </h2>
@@ -698,7 +698,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Keeping data secure
         </h2>
@@ -721,7 +721,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Data breach
         </h2>
@@ -749,7 +749,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Data transfer outside the EEA
         </h2>
@@ -768,7 +768,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Exemptions
         </h2>
@@ -793,7 +793,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Changes to the Privacy Policy
         </h2>
@@ -818,7 +818,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Your rights and getting in touch
         </h2>
@@ -965,7 +965,7 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="md:mt-16 col-span-5 mt-[30px] w-full sm:w-[690px] md:w-[400px] md:self-start">
+      <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
         <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
           Credits
         </h2>
