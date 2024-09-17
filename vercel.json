@@ -1,0 +1,34 @@
+{
+  "redirects": [
+      { 
+          "source": "/Jobs", 
+          "destination": "/jobs", 
+          "permanent": true 
+      },
+      { 
+        "source": "/Privacy-Policy", 
+        "destination": "/privacy-policy", 
+        "permanent": true 
+      },
+      { 
+        "source": "/About", 
+        "destination": "/", 
+        "permanent": true 
+      },
+      { 
+        "source": "/Projects", 
+        "destination": "/feed", 
+        "permanent": true 
+      },
+      { 
+        "source": "/Team", 
+        "destination": "/team", 
+        "permanent": true 
+      },
+      { 
+        "source": "/Contact", 
+        "destination": "/contact", 
+        "permanent": true 
+      }
+  ]
+}
