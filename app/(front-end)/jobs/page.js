@@ -7,6 +7,7 @@ const jobsQuery = `
 export default async function Jobs() {
   const jobs = await sanityFetch({
     query: jobsQuery,
+    tags: ['jobObject'],
   });
   return (
     <div className={`page-grid relative mt-[40px] pb-[60px] sm:mt-28 `}>

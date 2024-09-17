@@ -12,6 +12,7 @@ const jobsQuery = `
 export default async function RootLayout({ children }) {
   const jobs = await sanityFetch({
     query: jobsQuery,
+    tags: ['jobObject'],
   });
   return (
     <html lang="en">
