@@ -49,6 +49,16 @@
         "source": "/Re-Permissioning-the-City", 
         "destination": "/feed/re-permissioning-the-city", 
         "permanent": true 
+      },
+      { 
+        "source": "/CircuLaw", 
+        "destination": "/feed/circulaw", 
+        "permanent": true 
+      },
+      { 
+        "source": "/Les-Materialistes", 
+        "destination": "/feed/les-materialistes", 
+        "permanent": true 
       }
   ]
 }
