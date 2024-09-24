@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { PortableText } from '@portabletext/react';
-import { sanityFetch } from '@/sanity/lib/client';
+import { client, sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import ProjectMetadata from '@/components/ProjectMetadata';
 import BackButton from '@/components/BackButton';
@@ -156,4 +156,27 @@ export default async function feed_itemPage({ params }) {
       </div>
     </div>
   );
+}
+
+export async function generateMetadata({ params }, parent) {
+  // read route params
+  const slug = params.slug;
+  // fetch data
+  const feedData = await client.fetch(
+    feed_project_query,
+    { slug },
+    {
+      next: { tags: ['feedItem'] },
+    },
+  );
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: feedData.title + ' - Dark Matter Labs',
+    description: feedData.subtitle,
+    openGraph: {
+      images: [urlForImage(feedData.image), ...previousImages],
+    },
+  };
 }

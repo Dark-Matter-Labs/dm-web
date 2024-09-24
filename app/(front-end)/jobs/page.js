@@ -256,3 +256,8 @@ export default async function Jobs() {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'Jobs - Dark Matter Labs',
+  description: 'Want to make an impact? Join our team.',
+};

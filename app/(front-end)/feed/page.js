@@ -35,3 +35,9 @@ export default async function Feed() {
   });
   return <FeedList feed_list={feedItems} />;
 }
+
+export const metadata = {
+  title: 'Feed - Dark Matter Labs',
+  description:
+    'Whether we’re focusing on streets, towns, cities or entire bioregions, we’re working to establish collective means of co-ordinating, and governing our common resources. Here you can find our latest projects, news, podcasts and articles from our team members.',
+};
