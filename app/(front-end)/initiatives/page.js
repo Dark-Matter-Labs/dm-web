@@ -77,3 +77,9 @@ export default async function Initiatives() {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'Initiatives - Dark Matter Labs',
+  description:
+    'Our initiatives represent areas of work where we have been able to go deeper and build focused expertise over time. Underpinned by strong partnerships, these long-term explorations have allowed us to iterate our approach and lean into adjacent opportunities.',
+};

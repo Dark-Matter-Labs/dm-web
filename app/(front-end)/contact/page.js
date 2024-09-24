@@ -252,3 +252,9 @@ export default function Contact() {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'Contact - Dark Matter Labs',
+  description:
+    'We are endlessly curious to hear thoughts, ideas and feedback from our ecosystem. Please do get in touch if you have something to share.',
+};

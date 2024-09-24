@@ -65,3 +65,9 @@ export default async function TeamPage() {
     </>
   );
 }
+
+export const metadata = {
+  title: 'Team - Dark Matter Labs',
+  description:
+    'We’re a multidisciplinary team with a shared passion for applying innovative approaches to complex societal challenges. With expertise in disciplines ranging from accountancy, policy and law through to urban design and organisational culture, we work in fluid teams to ensure compound learning.',
+};

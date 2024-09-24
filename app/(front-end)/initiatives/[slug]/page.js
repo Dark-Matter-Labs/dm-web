@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { PortableText } from '@portabletext/react';
-import { sanityFetch } from '@/sanity/lib/client';
+import { client, sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import ProjectMetadata from '@/components/ProjectMetadata';
 import BackButton from '@/components/BackButton';
@@ -72,4 +72,27 @@ export default async function InitiativePage({ params }) {
       </div>
     </div>
   );
+}
+
+export async function generateMetadata({ params }, parent) {
+  // read route params
+  const slug = params.slug;
+  // fetch data
+  const initiativeData = await client.fetch(
+    INITIATIVE_SLUG_QUERY,
+    { slug },
+    {
+      next: { tags: ['initiative'] },
+    },
+  );
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: initiativeData.title + ' - Dark Matter Labs',
+    description: initiativeData.subtitle,
+    openGraph: {
+      images: [urlForImage(initiativeData.image), ...previousImages],
+    },
+  };
 }

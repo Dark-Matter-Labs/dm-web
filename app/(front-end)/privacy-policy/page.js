@@ -989,3 +989,8 @@ export default function Privacy() {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'Privacy Policy - Dark Matter Labs',
+  description: 'How DML uses data',
+};
