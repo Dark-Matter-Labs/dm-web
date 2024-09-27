@@ -172,11 +172,13 @@ export async function generateMetadata({ params }, parent) {
 
   const previousImages = (await parent).openGraph?.images || [];
 
-  return {
-    title: feedData.title + ' - Dark Matter Labs',
-    description: feedData.subtitle,
-    openGraph: {
-      images: [urlForImage(feedData.image), ...previousImages],
-    },
-  };
+  if (feedData) {
+    return {
+      title: feedData.title + ' - Dark Matter Labs',
+      description: feedData.subtitle,
+      openGraph: {
+        images: [urlForImage(feedData.image), ...previousImages],
+      },
+    };
+  }
 }
