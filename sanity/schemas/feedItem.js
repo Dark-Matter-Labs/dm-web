@@ -122,20 +122,6 @@ const feedItem = {
       ],
     },
     {
-      name: 'website',
-      type: 'url',
-      title: 'Website link',
-      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
-      hidden: ({ parent }) => parent?.type === 'media',
-    },
-    {
-      name: 'publication',
-      type: 'url',
-      title: 'Blog/publication link',
-      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
-      hidden: ({ parent }) => parent?.type === 'media',
-    },
-    {
       name: 'links',
       type: 'array',
       title: 'Links',
