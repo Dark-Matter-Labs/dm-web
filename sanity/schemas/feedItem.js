@@ -136,6 +136,13 @@ const feedItem = {
       hidden: ({ parent }) => parent?.type === 'media',
     },
     {
+      name: 'links',
+      type: 'array',
+      title: 'Links',
+      of: [{ type: 'linkObject' }],
+      hidden: ({ parent }) => parent?.type === 'media',
+    },
+    {
       name: 'team',
       type: 'array',
       title: 'Feed Item Team',

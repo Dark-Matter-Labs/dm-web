@@ -9,8 +9,8 @@ const linkObject = {
       title: 'Link Text',
     },
     {
-      title: 'Link',
-      name: 'link',
+      title: 'Link URL',
+      name: 'linkUrl',
       type: 'url',
       validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
     },

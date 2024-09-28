@@ -98,6 +98,13 @@ const initiative = {
       validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
     },
     {
+      name: 'links',
+      type: 'array',
+      title: 'Links',
+      of: [{ type: 'linkObject' }],
+      hidden: ({ parent }) => parent?.type === 'media',
+    },
+    {
       name: 'team',
       type: 'array',
       title: 'Initiative Team',

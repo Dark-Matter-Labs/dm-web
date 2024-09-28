@@ -24,25 +24,15 @@ export default function ProjectMetadata({ initiative, back_text }) {
         <p className="pb-[12px] font-SaansMed text-xl uppercase text-[#595959]">
           Links
         </p>
-        {initiative.website && (
-          <div className="">
-            <a target="_blank" href={initiative.website}>
+        {initiative.links?.map((link) => (
+          <div key={link.linkUrl} className="">
+            <a target="_blank" href={link.linkUrl}>
               <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                Website ↗
+                {link.linkText} ↗
               </p>
             </a>
           </div>
-        )}
-
-        {initiative.publication && (
-          <div className="">
-            <a target="_blank" href={initiative.publication}>
-              <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                Blog Series ↗
-              </p>
-            </a>
-          </div>
-        )}
+        ))}
       </div>
       <div className="flex w-full flex-col items-start justify-center gap-[10px] py-[20px] md:w-[380px] md:border-b md:border-b-[#353535]">
         <p className="pb-[12px] font-SaansMed text-xl uppercase text-[#595959]">
