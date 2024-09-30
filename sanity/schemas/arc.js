@@ -65,18 +65,6 @@ const arcObject = {
       ],
     },
     {
-      name: 'website',
-      type: 'url',
-      title: 'Website link',
-      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
-    },
-    {
-      name: 'publication',
-      type: 'url',
-      title: 'Blog/publication link',
-      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
-    },
-    {
       name: 'links',
       type: 'array',
       title: 'Links',
