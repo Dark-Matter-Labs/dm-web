@@ -169,6 +169,7 @@ export default function ProjectMetadata({ initiative, back_text }) {
         setOpen={setOpenUnit}
         website={activeUnit.website}
         publication={activeUnit.publication}
+        links={activeUnit.links}
         content={activeUnit.content}
       />
     </div>

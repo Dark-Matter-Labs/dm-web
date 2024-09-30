@@ -15,8 +15,7 @@ function SanityPopup({
   title,
   openState,
   setOpen,
-  website,
-  publication,
+  links,
   content,
   type,
   image,
@@ -57,7 +56,7 @@ function SanityPopup({
                 )}
               </div>
               <div className=" pl-0 sm:pl-[20px]">
-                {website?.length > 0 || publication?.length > 0 ? (
+                {links?.length > 0 ? (
                   <p className="pb-2 font-SaansMed text-xl uppercase text-[#595959] sm:pb-[12px]">
                     Links
                   </p>
@@ -66,24 +65,15 @@ function SanityPopup({
                     In development
                   </p>
                 )}
-                {website?.length > 0 && (
-                  <div className="">
-                    <a target="_blank" href={website}>
+                {links?.map((link) => (
+                  <div key={link.linkUrl} className="">
+                    <a target="_blank" href={link.linkUrl}>
                       <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                        Website ↗
+                        {link.linkText} ↗
                       </p>
                     </a>
                   </div>
-                )}
-                {publication?.length > 0 && (
-                  <div className="">
-                    <a target="_blank" href={publication}>
-                      <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                        Blog Series ↗
-                      </p>
-                    </a>
-                  </div>
-                )}
+                ))}
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[16px] px-4 py-8  sm:py-[28px] sm:pl-[28px] sm:pr-[32px]">

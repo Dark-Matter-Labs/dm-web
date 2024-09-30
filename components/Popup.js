@@ -15,6 +15,7 @@ function Popup({
   setOpen,
   website,
   publication,
+  publicationLabel,
   content,
   type,
   image,
@@ -79,7 +80,7 @@ function Popup({
                   <div className="">
                     <a target="_blank" href={publication}>
                       <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                        Blog Series ↗
+                        {publicationLabel} ↗
                       </p>
                     </a>
                   </div>

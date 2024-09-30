@@ -999,6 +999,7 @@ export default function Home() {
         setOpen={setOpenCS}
         website="https://darkmatterlabs.capital/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#EBEBEB]">
             The DmCS Lab is working to reframe what is possible within the
@@ -1027,6 +1028,7 @@ export default function Home() {
         setOpen={setOpenRC}
         website="https://radiclecivics.cc/"
         publication=""
+        publicationLabel=""
         image={RClogo}
         content={
           <p className="font-SaansRegular text-base text-[#EBEBEB]">
@@ -1055,6 +1057,7 @@ export default function Home() {
         setOpen={setOpenNZ}
         website="https://netzerocities.eu/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The NZC Arc aims to enable climate-neutral and smart cities by 2030.
@@ -1081,6 +1084,7 @@ export default function Home() {
         setOpen={setOpenSG}
         website="https://www.7gencities.org/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             This collaborative arc fosters transformative thinking and action
@@ -1099,6 +1103,7 @@ export default function Home() {
         setOpen={setOpenM0}
         website=""
         publication="https://www.irresistiblecircularsociety.eu/assets/uploads/News/DML-NEBE-White-paper-_-Desire-Sep2024.pdf"
+        publicationLabel="Whitepaper"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The M0 Arc is aiming to reimagine how we use and steward materials
@@ -1125,6 +1130,7 @@ export default function Home() {
         setOpen={setOpenRE}
         website=""
         publication="https://medium.com/9outof10-protein-shift-innovation-platform/universal-basic-nutrient-income-institutional-infrastructure-for-2040-food-preparedness-f00f70a84510"
+        publicationLabel="Blog"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Rn Arc is working towards resilient, sustainable and high
@@ -1143,6 +1149,7 @@ export default function Home() {
         setOpen={setOpenBE}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Be Arc is aiming to support the creation of nested economies
@@ -1164,6 +1171,7 @@ export default function Home() {
         setOpen={setOpenPC}
         website=""
         publication="https://www.youtube.com/watch?v=zQJjfCSPvJI"
+        publicationLabel="Keynote"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Pc Arc is looking at how we can match the scale of our planetary
@@ -1184,6 +1192,7 @@ export default function Home() {
         setOpen={setOpenNE}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Ne Lab embodies the core philosophies of LEE. It aims to
@@ -1215,6 +1224,7 @@ export default function Home() {
         setOpen={setOpenPB}
         website="https://www.darkmatterlabs.property/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Pb Lab rejects the values of control and dominion as a basis for
@@ -1234,6 +1244,7 @@ export default function Home() {
         setOpen={setOpenBR}
         website="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Btr Lab practises new forms of organising and governance. The
@@ -1255,6 +1266,7 @@ export default function Home() {
         setOpen={setOpenSM}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Sm Lab is working to improve the{' '}
@@ -1280,6 +1292,7 @@ export default function Home() {
         setOpen={setOpenBL}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             We are interested in exploring the future of work in relation to a
@@ -1298,6 +1311,7 @@ export default function Home() {
         setOpen={setOpenPF}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Pf Lab will explore the potential for philanthropic capital to
@@ -1314,6 +1328,7 @@ export default function Home() {
         setOpen={setOpenQD}
         website="https://sdl.darkmatterlabs.org/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Sd Lab is still nascent. Once launched, it will aim to build
@@ -1330,6 +1345,7 @@ export default function Home() {
         setOpen={setOpenCT}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Civic Tech Studio helps mould theory and vision from the Dm
@@ -1349,6 +1365,7 @@ export default function Home() {
         setOpen={setOpenETC}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             This Arc recognises the transformative potential of communities and
@@ -1368,6 +1385,7 @@ export default function Home() {
         setOpen={setOpenCD}
         website="https://cds.darkmatterlabs.org/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             This studio is fundamental to how we communicate. What exactly is
@@ -1387,6 +1405,7 @@ export default function Home() {
         setOpen={setOpenFF}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             This studio works across the ecosystem to build the craft of
@@ -1406,6 +1425,7 @@ export default function Home() {
         setOpen={setOpenOD}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The OrgDev (organisational development) Studio provides the critical
@@ -1425,6 +1445,7 @@ export default function Home() {
         setOpen={setOpenWI}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The Ni Arc is developing practical pathways to support regenerative,
@@ -1443,6 +1464,7 @@ export default function Home() {
         image={MCPic}
         website=""
         publication="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
+        publicationLabel="Blog"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The NE lab is exploring the interaction between our monetary systems
@@ -1469,6 +1491,7 @@ export default function Home() {
         setOpen={setOpenTAI}
         website="https://treesasinfrastructure.com/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Trees As Infrastructure (TreesAI) is a cloud-based platform that
@@ -1489,6 +1512,7 @@ export default function Home() {
         image={NETPic}
         website=""
         publication="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
+        publicationLabel="Report"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The
@@ -1517,6 +1541,7 @@ export default function Home() {
         setOpen={setOpenCL}
         website="https://www.circulaw.nl/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             CircuLaw emerged from Dm’s relationship with the City of Amsterdam.
@@ -1536,6 +1561,7 @@ export default function Home() {
         image={LEElogo}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The NE lab and Conversational Design Studio worked as an integrated
@@ -1563,6 +1589,7 @@ export default function Home() {
         setOpen={setOpenCI}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             <a
@@ -1589,6 +1616,7 @@ export default function Home() {
         setOpen={setOpenPTC}
         website="https://www.permissioning.city/"
         publication="https://provocations.darkmatterlabs.org/re-permissioning-the-city-unlocking-cities-growing-underutilised-spatial-assets-for-an-emergent-1550997714a4"
+        publicationLabel="Blog"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             <a
@@ -1613,6 +1641,7 @@ export default function Home() {
         setOpen={setOpenMATR}
         website=""
         publication="https://drive.google.com/file/d/1y-GW6fJet4LrX7X3iDjqaeIDCTvijX38/view"
+        publicationLabel="Deck"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             <a
@@ -1644,6 +1673,7 @@ export default function Home() {
         setOpen={setOpenPBP}
         website="https://www.darkmatterlabs.property/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             <a
@@ -1668,6 +1698,7 @@ export default function Home() {
         setOpen={setOpenCCR}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             City & Community Retrofit is a portfolio of work in{' '}
@@ -1693,6 +1724,7 @@ export default function Home() {
         setOpen={setOpenLEE}
         website="https://lee.darkmatterlabs.org/"
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Life-Ennobling Economics is a propositional vision and a call to
@@ -1737,6 +1769,7 @@ export default function Home() {
         setOpen={setOpenCTC}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             City-scale tree canopies: as a pathway towards this ambition, the{' '}
@@ -1761,6 +1794,7 @@ export default function Home() {
         setOpen={setOpenCIC}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Collective intelligence of a city: the{' '}
@@ -1790,6 +1824,7 @@ export default function Home() {
         setOpen={setOpenRBF}
         website=""
         publication=""
+        publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Resilient bioregional food systems: we are working towards this
