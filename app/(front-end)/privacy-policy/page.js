@@ -177,7 +177,7 @@ export default function Privacy() {
       >
         <h2 className="heading-4xl text-[#EBEBEB]">What data we collect</h2>
         <p className="p-xl-regular text-[#EBEBEB]">
-          We use Cloudlfare analytics and it collects the following personal
+          We use SimpleAnalytics and it collects the following personal
           information about visitors to our website www.darkmatterlabs.org.
         </p>
         <ul className="p-xl-regular list-disc pl-3 text-[#EBEBEB]">
@@ -204,8 +204,8 @@ export default function Privacy() {
         </h2>
         <p className="p-xl-regular text-[#EBEBEB]">
           We use an analytics software run through{' '}
-          <a className="text-[#737EA5]" href="https://www.cloudflare.com/">
-            Cloudflare
+          <a className="text-[#737EA5]" href="https://www.simpleanalytics.com/">
+            SimpleAnalytics
           </a>
           , a service that adopts a privacy-first analytics approach. This means
           that they enable us to analyze traffic to our website, without
@@ -213,11 +213,10 @@ export default function Privacy() {
           outlined in their{' '}
           <a
             className="text-[#737EA5]"
-            href="https://www.cloudflare.com/privacypolicy/"
+            href="https://dashboard.simpleanalytics.com/privacy-policy"
           >
-            privacy policy
-          </a>{' '}
-          and the data that we have access to is only visible for 30 days
+            privacy policy.
+          </a>
         </p>
         <h2 className="heading-4xl text-[#EBEBEB]">Opt-out of collection</h2>
         <p className="p-xl-regular text-[#EBEBEB] ">

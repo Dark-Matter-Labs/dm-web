@@ -12,7 +12,7 @@ const navigation = {
     { name: 'Contact', href: '/contact', internal: true },
     // { name: 'Contribute', href: '#', internal: true },
     {
-      name: 'Provocations',
+      name: 'Provocations↗',
       href: 'https://provocations.darkmatterlabs.org/',
       internal: false,
     },
@@ -68,7 +68,7 @@ export default function Footer() {
                         {item.internal ? (
                           <Link
                             href={item.href}
-                            className="p-lg-regular text-grey-1 hover:text-white hover:underline"
+                            className="p-lg-regular text-grey-1 hover:text-white"
                           >
                             {item.name}
                           </Link>
