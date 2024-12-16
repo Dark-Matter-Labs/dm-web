@@ -268,7 +268,7 @@ export default function Paradigms({
                     onClick={() => setOpenETC(true)}
                     className="font-SaansMed hover:cursor-crosshair"
                   >
-                    LC
+                    NF
                   </span>
                   <span className="align-super text-[9px] uppercase">A</span>{' '}
                   <span
@@ -342,7 +342,7 @@ export default function Paradigms({
                     onClick={() => setOpenETC(true)}
                     className="font-SaansMed hover:cursor-crosshair"
                   >
-                    LC
+                    NF
                   </span>
                   <span className="align-super text-[9px] uppercase">A</span>
                 </p>
