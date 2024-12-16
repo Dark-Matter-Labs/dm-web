@@ -1359,11 +1359,11 @@ export default function Home() {
 
       <Popup
         type="arc"
-        title="Local Civics"
+        title="Neighbourhood Futures "
         image={LClogo}
         openState={openETC}
         setOpen={setOpenETC}
-        website=""
+        website="https://darkmatterlabs.notion.site/DML-Retrofit-4159fbbb94064df88ee8053101847ca7?pvs=74"
         publication=""
         publicationLabel=""
         content={
@@ -1587,7 +1587,7 @@ export default function Home() {
         image={CIpic}
         openState={openCI}
         setOpen={setOpenCI}
-        website=""
+        website="https://cornerstoneindicators.com/"
         publication=""
         publicationLabel=""
         content={
@@ -1801,7 +1801,7 @@ export default function Home() {
             <a
               className="text-[#737EA5]"
               target="_blank"
-              href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
+              href="https://cornerstoneindicators.com/"
             >
               Cornerstone Indicator initiative
             </a>{' '}
@@ -2785,8 +2785,8 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="Local Civics"
-                      short="LC"
+                      title="Neighbour. Futures"
+                      short="NF"
                       activeState={ETCactive || openETC}
                       setActive={setETCActive}
                       setOpen={setOpenETC}
