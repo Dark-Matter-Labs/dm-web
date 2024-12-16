@@ -3271,7 +3271,7 @@ export default function Home() {
 
                     <Initiative
                       title="City & Community Retrofit"
-                      arc="LC"
+                      arc="NF"
                       lab="CS"
                       activeState={(ETCactive && CSactive) || openCCR}
                       hoverState={ETCactive || CSactive}
