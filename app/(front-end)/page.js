@@ -1326,7 +1326,7 @@ export default function Home() {
         image={SDlogo}
         openState={openQD}
         setOpen={setOpenQD}
-        website="https://sdl.darkmatterlabs.org/"
+        website=""
         publication=""
         publicationLabel=""
         content={
