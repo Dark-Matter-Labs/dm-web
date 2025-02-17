@@ -1169,7 +1169,7 @@ export default function Home() {
         image={PClogo}
         openState={openPC}
         setOpen={setOpenPC}
-        website=""
+        website="https://www.planetarycivics.net/"
         publication="https://www.youtube.com/watch?v=zQJjfCSPvJI"
         publicationLabel="Keynote"
         content={
