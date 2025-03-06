@@ -61,7 +61,7 @@ export default function Navbar({ numberOfJobs }) {
                         'nav-xl py-2 transition ease-in-out  ',
                       )}
                     >
-                      Feed
+                      Projects
                     </Link>
                     <Link
                       href="/initiatives"
@@ -179,7 +179,7 @@ export default function Navbar({ numberOfJobs }) {
                         href="/feed"
                         className="heading-4xl block py-2 text-white  transition ease-in-out hover:text-white sm:hidden"
                       >
-                        Feed
+                        Projects
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}

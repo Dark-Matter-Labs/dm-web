@@ -5,7 +5,7 @@ import dmLogo from '@/images/DmLogoFull.png';
 
 const navigation = {
   solutions: [
-    { name: 'Feed', href: '/feed', internal: true },
+    { name: 'Projects', href: '/feed', internal: true },
     { name: 'Initiatives', href: '/initiatives', internal: true },
     { name: 'Team', href: '/team', internal: true },
     { name: 'Jobs', href: '/jobs', internal: true },
