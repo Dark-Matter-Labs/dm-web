@@ -66,10 +66,10 @@ export default async function Jobs() {
             you soon.
           </p>
         </div>
-        <p className="p-xl-regular text-[#EBEBEB]">
+        {/* <p className="p-xl-regular text-[#EBEBEB]">
           If you have any questions, contact us <br />
           <a href="mailto: join@darkmatterlabs.org">join@darkmatterlabs.org</a>
-        </p>
+        </p> */}
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
