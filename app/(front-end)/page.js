@@ -1147,7 +1147,7 @@ export default function Home() {
         image={BElogo}
         openState={openBE}
         setOpen={setOpenBE}
-        website=""
+        website="https://bioregions.darkmatterlabs.org/"
         publication=""
         publicationLabel=""
         content={
