@@ -1359,7 +1359,7 @@ export default function Home() {
 
       <Popup
         type="arc"
-        title="Neighbourhood Futures "
+        title="Neighbourhood Futures"
         image={LClogo}
         openState={openETC}
         setOpen={setOpenETC}
@@ -1559,7 +1559,7 @@ export default function Home() {
         openState={openLEED}
         setOpen={setOpenLEED}
         image={LEElogo}
-        website=""
+        website="https://led.darkmatterlabs.org/"
         publication=""
         publicationLabel=""
         content={
