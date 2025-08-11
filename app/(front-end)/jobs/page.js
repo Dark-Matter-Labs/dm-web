@@ -189,45 +189,46 @@ export default async function Jobs() {
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">
-          Our approach to pay is not based on favoring one skill over another or
-          rewarding hierarchical power dynamics. Instead, we recognize that
-          everyone possesses unique and exceptional skills, and we remove the
-          process of valuing and comparing them. This allows us to focus on
-          unleashing those skills in diverse ways based on the specific context.
-          It gives us the freedom to determine, assign, and assess roles based
-          on what is most suitable for each situation, rather than being
-          constrained by predefined roles tied to compensation.
+          Our approach to pay has always been a participatory and collective
+          process involving the entire team. Over time, we’ve experimented with
+          different models, and we’ve recently launched our new Base Pay
+          Formula, which is composed of the following elements:
+        </p>
+        <ul className="p-xl-regular list-disc pl-3 text-[#EBEBEB]">
+          <li>Geographic living costs</li>
+          <li>
+            Starting assets each individual brings into their Dm role upon
+            joining in the following categories:
+          </li>
+          <ul className="p-xl-regular list-disc pl-6 text-[#EBEBEB]">
+            <li>Professional Standard Accreditation</li>
+            <li>Relevant Relationship & Network</li>
+            <li>Renowned and Trusted Reputation in the Field</li>
+            <li>Applied Technical Skills</li>
+            <li>Commitment to the Mission</li>
+          </ul>
+          <li>Tenure at Dm</li>
+        </ul>
+        <p className="p-xl-regular text-[#EBEBEB]">
+          You can estimate your pay using{' '}
+          <a href="https://dm-pay.vercel.app/" className="text-[#737EA5]">
+            this calculator
+          </a>
+          . We recognize that no formula can fully reflect the unique context of
+          every individual. That’s why we also have a Pay Rebalancing process in
+          place, reviewed annually, to accommodate individual circumstances.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
-          As a result, our pay is designed not to reward people for tasks done,
-          but to cover living costs so that we are freed to create what we
-          believe is needed in the world.Our current base pay for everyone on
-          the team is:
+          In addition, we offer Shared Benefits and Leave Budgets, which are
+          added to the gross salary. These were set collectively by the team and
+          vary based on statutory provisions in different geographies. We’ll be
+          happy to confirm the specific approach relevant to your location and
+          contract type.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
-          Formula = (Years experience + 23 (+ 8.82 for freelancers)) *1000 =
-          gross pro rata pay in GBP.
-        </p>
-        <p className="p-xl-regular text-[#EBEBEB] opacity-50">
-          *Years experience includes all experience after school completion age
-          (18) - inc work, education, unpaid work (care, volunteering, etc).
-        </p>
-        <p className="p-xl-regular text-[#EBEBEB]">
-          We recognise that no formula that tries to do this can fully account
-          for the unique contexts of every person. Therefore we also have a
-          rebalancing process in place to accommodate individual circumstances.
-        </p>
-        <p className="p-xl-regular text-[#EBEBEB]">
-          We have recently put in place a range of benefits support across the
-          team, including coaching, learning funds, sabbatical and secondment
-          support, learning funds, workspace funds and more. These were set
-          collectively by the team and vary according to statutory provisions in
-          different geographies - we’ll be happy to confirm the relevant
-          approach for your geography and contract type.
-        </p>
-        <p className="p-xl-regular text-[#EBEBEB]">
-          Our holiday policy is a minimum of 28 days/year pro-rata, but we
-          encourage you to take all of the time that you need to properly rest.
+          Our holiday policy includes a minimum of 28 days per year (pro-rata),
+          but we encourage you to take as much time as you need to truly rest
+          and recharge.
         </p>
       </div>
 

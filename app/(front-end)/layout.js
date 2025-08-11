@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { sanityFetch } from '@/sanity/lib/client';
-import Script from 'next/script'
+import Script from 'next/script';
 import Loading from './loading';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
