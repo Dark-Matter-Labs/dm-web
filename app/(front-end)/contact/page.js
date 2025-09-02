@@ -60,9 +60,9 @@ export default function Contact() {
               Laboratoires de Matière sombre / Dark Matter Labs
             </p>
             <p className="font-SaansRegular text-lg leading-11 text-[#E3E3E3] opacity-60">
-              Organisation à but non-lucratif canadien / Canadian not-for-profit{' '}
-              <br /> 6107 Av. de Monkland <br /> Montréal, Québec H4A 1H5 <br />
-              Numéro de l&apos;organisation / Corporation number: 1196376-7
+              Organisation à but non-lucratif /  Not-for-profit Corporation{' '}
+              <br /> 413 Ch. Lavallée <br /> Hemmingford, Québec J0L 1H0 <br />
+              Numéro d&apos;entreprise / Corporation number: 1196376-7
             </p>
           </div>
 
