@@ -1343,7 +1343,7 @@ export default function Home() {
         image={CTlogo}
         openState={openCT}
         setOpen={setOpenCT}
-        website=""
+        website="https://civictech.darkmatterlabs.org/"
         publication=""
         publicationLabel=""
         content={
