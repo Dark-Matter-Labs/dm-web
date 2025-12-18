@@ -40,7 +40,10 @@ export default async function RootLayout({ children }) {
           </main>
         </Suspense>
       </body>
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      <Script
+        src="https://scripts.simpleanalyticscdn.com/latest.js"
+        strategy="lazyOnload"
+      />
     </html>
   );
 }
