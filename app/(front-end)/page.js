@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import { useScroll, animated } from '@react-spring/web';
 
 import { startSticky, step } from '@/utils/constants';
+import { throttle } from '@/utils/throttle';
 
 import Arc from '@/components/Arc';
 import Lab from '@/components/Lab';
@@ -66,12 +67,6 @@ function classNames(...classes) {
 }
 
 export default function Home() {
-  useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
-
-    return () => window.removeEventListener('scroll', listenScrollEvent);
-  }, []);
-
   const [classT, setClassT] = useState('');
   const [scrollFraction, setScrollFraction] = useState();
 
@@ -84,113 +79,134 @@ export default function Home() {
   const [animateOn, setAnimateOn] = useState('');
   const [scrollY, setScrollY] = useState(0);
 
-  const animationStart = startSticky + step * 4;
-  let newY;
+  const animationStart = useMemo(() => startSticky + step * 4, []);
 
   const { scrollYProgress } = useScroll();
 
-  const listenScrollEvent = () => {
-    setScrollY(window.scrollY);
+  const listenScrollEvent = useCallback(() => {
+    // Guard against SSR - window and document may not be available
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
 
-    let scrollFrac =
-      Math.min(
-        (window.scrollY - animationStart) /
-          (document.body.scrollHeight - window.innerHeight),
-        1,
-      ) * 10;
-    let easeFrac = Math.pow(scrollFrac, 3);
+    const scrollY = window.scrollY;
+    setScrollY(scrollY);
+
+    const bodyHeight = document.body.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const maxScroll = bodyHeight - windowHeight;
+
+    // Guard against division by zero or invalid calculations
+    if (maxScroll <= 0) {
+      return;
+    }
+
+    const scrollFrac =
+      Math.min((scrollY - animationStart) / maxScroll, 1) * 10;
+    const easeFrac = Math.pow(scrollFrac, 3);
     setScrollFraction(easeFrac);
 
     // base state
-    if (window.scrollY < startSticky) {
+    if (scrollY < startSticky) {
       setClassT('');
       setClassA('');
       setClassAB('');
-
       setActiveState(1);
-
       setClassT2('t1');
       setAnimateOn('');
     }
     // matrix sticky state
-    else if (
-      window.scrollY >= startSticky &&
-      window.scrollY < startSticky + step
-    ) {
+    else if (scrollY >= startSticky && scrollY < startSticky + step) {
       setActiveState(2);
-
       setClassT('');
       setClassT2('t2');
       setAnimateOn('');
     }
     // labs colour state
     else if (
-      window.scrollY >= startSticky + step &&
-      window.scrollY < startSticky + 2 * step
+      scrollY >= startSticky + step &&
+      scrollY < startSticky + 2 * step
     ) {
       setActiveState(3);
-
       setClassT2('t2');
       setAnimateOn('');
     }
     // arcs colour state
     else if (
-      window.scrollY >= startSticky + 2 * step &&
-      window.scrollY < startSticky + 3 * step
+      scrollY >= startSticky + 2 * step &&
+      scrollY < startSticky + 3 * step
     ) {
       setActiveState(4);
-
       setClassT2('t2');
       setAnimateOn('');
     }
     // studio colour state +
     else if (
-      window.scrollY >= startSticky + 3 * step &&
-      window.scrollY < startSticky + 4 * step
+      scrollY >= startSticky + 3 * step &&
+      scrollY < startSticky + 4 * step
     ) {
       setActiveState(5);
       setAnimateOn('');
-
       setClassT2('t2');
     }
     //  2d projects state
     else if (
-      window.scrollY >= startSticky + step * 4 &&
-      window.scrollY < startSticky + step * 5 + 500
+      scrollY >= startSticky + step * 4 &&
+      scrollY < startSticky + step * 5 + 500
     ) {
       setActiveState(7);
-
-      if (window.scrollY > animationStart) {
+      if (scrollY > animationStart) {
         setAnimateOn('animate');
       }
-
       setClassT2('t2');
     }
     // capability 2D state
     else if (
-      window.scrollY >= startSticky + step * 5 + 500 &&
-      window.scrollY < startSticky + step * 6
+      scrollY >= startSticky + step * 5 + 500 &&
+      scrollY < startSticky + step * 6
     ) {
       setActiveState(8);
-
       setClassT2('t2');
     }
 
     // matrix non sticky state
-    if (window.scrollY >= startSticky + step * 6 + 200) {
+    if (scrollY >= startSticky + step * 6 + 200) {
       setClassT2('t3');
     }
 
     if (
-      window.scrollY >= startSticky + step * 6 &&
-      window.scrollY < startSticky + step * 7 + 1200
+      scrollY >= startSticky + step * 6 &&
+      scrollY < startSticky + step * 7 + 1200
     ) {
       setActiveState(9);
     }
-    if (window.scrollY >= startSticky + step * 6 + 1200) {
+    if (scrollY >= startSticky + step * 6 + 1200) {
       setActiveState(10);
     }
-  };
+  }, [animationStart]);
+
+  // Throttle scroll event to improve performance (16ms ≈ 60fps)
+  const throttledScrollHandler = useMemo(
+    () => throttle(listenScrollEvent, 16),
+    [listenScrollEvent],
+  );
+
+  useEffect(() => {
+    // Guard against SSR
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    window.addEventListener('scroll', throttledScrollHandler, {
+      passive: true,
+    });
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', throttledScrollHandler);
+      }
+    };
+  }, [throttledScrollHandler]);
 
   // arcs states
   const [RCactive, setRCActive] = useState(false);
@@ -298,26 +314,39 @@ export default function Home() {
   const [openDomainF3, setOpenDomainF3] = useState(false);
   const [openDomainF4, setOpenDomainF4] = useState(false);
 
-  const scrollInterpolate = (toInterpolate) => {
-    let startScroll = startSticky + step * 4;
-    let endScroll = startSticky + step * 5;
-
-    let scrollFrac = Math.min(
-      (scrollY - startScroll) / (endScroll - startScroll),
-      1,
-    );
-    let easeFrac = Math.pow(scrollFrac, 3);
-
-    if (toInterpolate - toInterpolate * easeFrac > 0) {
-      if (animateOn === 'animate') {
-        return toInterpolate - toInterpolate * easeFrac;
-      } else {
+  const scrollInterpolate = useCallback(
+    (toInterpolate) => {
+      // Guard against SSR and invalid scrollY
+      if (typeof window === 'undefined' || scrollY === undefined) {
         return toInterpolate;
       }
-    } else {
-      return 0;
-    }
-  };
+
+      const startScroll = startSticky + step * 4;
+      const endScroll = startSticky + step * 5;
+
+      // Guard against division by zero
+      if (endScroll <= startScroll) {
+        return toInterpolate;
+      }
+
+      const scrollFrac = Math.min(
+        (scrollY - startScroll) / (endScroll - startScroll),
+        1,
+      );
+      const easeFrac = Math.pow(scrollFrac, 3);
+
+      if (toInterpolate - toInterpolate * easeFrac > 0) {
+        if (animateOn === 'animate') {
+          return toInterpolate - toInterpolate * easeFrac;
+        } else {
+          return toInterpolate;
+        }
+      } else {
+        return 0;
+      }
+    },
+    [scrollY, animateOn],
+  );
 
   const opacityInterpolate = (startScroll, endScroll, flip) => {
     // Normalize the scroll position within the defined range
@@ -661,7 +690,12 @@ export default function Home() {
     } else return `rgb(${startColor.r}, ${startColor.g}, ${startColor.b})`;
   };
 
-  const arcOverlayOpacityInterpolate = () => {
+  const arcOverlayOpacityInterpolate = useCallback(() => {
+    // Guard against SSR and invalid scrollY
+    if (typeof window === 'undefined' || scrollY === undefined) {
+      return 0;
+    }
+
     if (scrollY <= startSticky) {
       return 0;
     } else if (scrollY > startSticky && scrollY <= startSticky + step) {
@@ -743,9 +777,14 @@ export default function Home() {
 
       return 0.2 - scrollFactor * 0.2;
     } else return 0;
-  };
+  }, [scrollY]);
 
-  const labOverlayOpacityInterpolate = () => {
+  const labOverlayOpacityInterpolate = useCallback(() => {
+    // Guard against SSR and invalid scrollY
+    if (typeof window === 'undefined' || scrollY === undefined) {
+      return 0;
+    }
+
     if (scrollY > startSticky && scrollY <= startSticky + step) {
       // Define the scroll range where the opacity change should happen
       let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
@@ -800,9 +839,14 @@ export default function Home() {
 
       return 0.2 - scrollFactor * 0.2;
     } else return 0;
-  };
+  }, [scrollY]);
 
-  const studioOverlayOpacityInterpolate = () => {
+  const studioOverlayOpacityInterpolate = useCallback(() => {
+    // Guard against SSR and invalid scrollY
+    if (typeof window === 'undefined' || scrollY === undefined) {
+      return 0;
+    }
+
     if (scrollY > startSticky && scrollY <= startSticky + step) {
       // Define the scroll range where the opacity change should happen
       let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
@@ -870,9 +914,14 @@ export default function Home() {
 
       return 1 - newOpacity;
     } else return 0;
-  };
+  }, [scrollY]);
 
-  const orgOverlayOpacityInterpolate = () => {
+  const orgOverlayOpacityInterpolate = useCallback(() => {
+    // Guard against SSR and invalid scrollY
+    if (typeof window === 'undefined' || scrollY === undefined) {
+      return 0;
+    }
+
     if (scrollY > startSticky && scrollY <= startSticky + step) {
       // Define the scroll range where the opacity change should happen
       let startScroll = startSticky; // Offset for the start of the range (scroll position in pixels)
@@ -926,33 +975,52 @@ export default function Home() {
 
       return 0.2 - scrollFactor * 0.2;
     } else return 0;
-  };
+  }, [scrollY]);
 
-  const scrollYInterpolate = () => {
-    let startScroll = startSticky + step * 4;
-    let endScroll = startSticky + step * 5;
+  const scrollYInterpolate = useCallback(() => {
+    // Guard against SSR and invalid scrollY
+    if (typeof window === 'undefined' || scrollY === undefined) {
+      return 0;
+    }
 
-    let scrollFrac = Math.min(
+    const startScroll = startSticky + step * 4;
+    const endScroll = startSticky + step * 5;
+
+    // Guard against division by zero
+    if (endScroll <= startScroll) {
+      return 0;
+    }
+
+    const scrollFrac = Math.min(
       (scrollY - startScroll) / (endScroll - startScroll),
       1,
     );
-    let easeFrac = Math.pow(scrollFrac, 3);
+    const easeFrac = Math.pow(scrollFrac, 3);
 
     if (easeFrac >= 1) {
       return 110;
     }
 
     if (scrollY >= startScroll && scrollY < endScroll) {
-      newY = startSticky * easeFrac * 0.1;
-
+      const newY = startSticky * easeFrac * 0.1;
       return newY;
     }
     return 0;
-  };
+  }, [scrollY]);
 
-  const scaleInterpolate = () => {
+  const scaleInterpolate = useCallback(() => {
+    // Guard against SSR and invalid scrollY
+    if (typeof window === 'undefined' || scrollY === undefined) {
+      return 0.6; // Return default start scale
+    }
+
     const startScroll = startSticky + step * 4; // Start of the scroll range
     const endScroll = startSticky + step * 5; // End of the scroll range
+
+    // Guard against division by zero
+    if (endScroll <= startScroll) {
+      return 0.6;
+    }
 
     // Define the scale range
     const startScale = 0.6; // Starting scale value
@@ -972,7 +1040,7 @@ export default function Home() {
       return endScale;
     }
     return startScale;
-  };
+  }, [scrollY]);
 
   const divOpacityInterpolate = (startScroll, endScroll) => {
     // Define the opacity range

@@ -50,7 +50,9 @@ const navigation = {
   ],
 };
 
-export default function SocialPills() {
+import { memo } from 'react';
+
+function SocialPills() {
   return (
     <div className="flex space-x-6">
       {navigation.social.map((item) => (
@@ -68,3 +70,5 @@ export default function SocialPills() {
     </div>
   );
 }
+
+export default memo(SocialPills);

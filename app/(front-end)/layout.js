@@ -39,11 +39,11 @@ export default async function RootLayout({ children }) {
             <Footer />
           </main>
         </Suspense>
+        <Script
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+          strategy="lazyOnload"
+        />
       </body>
-      <Script
-        src="https://scripts.simpleanalyticscdn.com/latest.js"
-        strategy="lazyOnload"
-      />
     </html>
   );
 }

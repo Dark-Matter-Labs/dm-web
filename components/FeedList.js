@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
   Label,
   Listbox,
@@ -19,6 +19,13 @@ const typeOptions = [
 
 export default function FeedList({ feed_list }) {
   const [filterType, setFilterType] = useState(typeOptions[0]);
+
+  // Memoize filtered feed items to avoid recalculating on every render
+  const filteredFeedItems = useMemo(() => {
+    if (!feed_list) return [];
+    if (filterType.value === 'all') return feed_list;
+    return feed_list.filter((item) => item.type === filterType.value);
+  }, [feed_list, filterType.value]);
 
   return (
     <div className="flex flex-col items-center justify-start">
@@ -79,41 +86,11 @@ export default function FeedList({ feed_list }) {
       </div>
       <div className="feed-grid flex gap-[10px] ">
         <div className="flex flex-col items-center justify-center gap-[60px] pb-[150px] sm:gap-0">
-          {filterType.value !== 'all' &&
-          feed_list?.filter((item) => item.type === filterType.value).length >
-            0 ? (
-            feed_list
-              ?.filter((item) => item.type === filterType.value)
-              .map((item) =>
-                item.type === 'media' ? (
-                  <a
-                    key={item.title}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:cursor-pointer"
-                  >
-                    <FeedItem item={item} />
-                  </a>
-                ) : (
-                  <Link
-                    className="hover:cursor-crosshair"
-                    key={item.title}
-                    href={`/feed/${item.slug.current}`}
-                  >
-                    <FeedItem item={item} />
-                  </Link>
-                ),
-              )
-          ) : filterType.value !== 'all' &&
-            feed_list?.filter((item) => item.type === filterType.value)
-              .length === 0 ? (
-            <p className="p-xl-regular text-grey-1">No results found.</p>
-          ) : (
-            feed_list?.map((item) =>
+          {filteredFeedItems.length > 0 ? (
+            filteredFeedItems.map((item) =>
               item.type === 'media' ? (
                 <a
-                  key={item.title}
+                  key={item._id || item.title}
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -124,13 +101,15 @@ export default function FeedList({ feed_list }) {
               ) : (
                 <Link
                   className="hover:cursor-crosshair"
-                  key={item.title}
+                  key={item._id || item.title}
                   href={`/feed/${item.slug.current}`}
                 >
                   <FeedItem item={item} />
                 </Link>
               ),
             )
+          ) : (
+            <p className="p-xl-regular text-grey-1">No results found.</p>
           )}
         </div>
       </div>
