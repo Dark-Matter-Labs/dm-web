@@ -50,7 +50,13 @@ export default function Footer() {
           <div className="footer-grid flex flex-col gap-[40px]">
             <div className="col-span-5 flex flex-row justify-between sm:flex-col">
               <Link href="/">
-                <Image src={dmLogo} alt="Dark Matter Labs logo" height={40} />
+                <Image
+                  src={dmLogo}
+                  alt="Dark Matter Labs logo"
+                  width={180}
+                  height={40}
+                  priority
+                />
               </Link>
               <div className="side-display">
                 <SocialPills />

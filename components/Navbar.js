@@ -1,6 +1,6 @@
 'use client';
+import { useState, useCallback } from 'react';
 import Image from 'next/image';
-import { React, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -22,26 +22,33 @@ export default function Navbar({ numberOfJobs }) {
   const pathname = usePathname();
   const [hover, setHover] = useState(false);
 
+  const handleMouseEnter = useCallback(() => setHover(true), []);
+  const handleMouseLeave = useCallback(() => setHover(false), []);
+
   return (
     <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px] ">
       <div className="global-margin nav-w flex items-center justify-between">
         <div
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           className="logo-w "
         >
           <Link href="/">
             {hover ? (
               <Image
                 src={dmLogoHover}
-                alt="Dm logo animation in multiple languages"
+                alt="Dark Matter Labs logo"
                 width={180}
+                height={40}
+                priority
               />
             ) : (
               <Image
                 src={dmLogo}
-                alt="Dm logo animation in multiple languages"
+                alt="Dark Matter Labs logo"
                 width={180}
+                height={40}
+                priority
               />
             )}
           </Link>
