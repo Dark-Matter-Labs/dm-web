@@ -97,6 +97,14 @@ export default function Footer() {
                   >
                     Privacy Policy
                   </Link>
+                  </div>
+                  <div className="">
+                    <Link
+                      href="/lineage-and-intellectual-responsibility"
+                      className="p-lg-regular text-[#A8A8A8] hover:text-white"
+                    >
+                      Lineage and Intellectual Responsibility
+                    </Link>
                 </div>
               </div>
               <div className="hidden flex-col items-start justify-start sm:flex">
