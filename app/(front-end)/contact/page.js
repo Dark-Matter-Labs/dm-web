@@ -55,18 +55,6 @@ export default function Contact() {
           </div>
 
           <div>
-            <h2 className="heading-4xl text-white">Canada</h2>
-            <p className="font-SaansRegular text-lg leading-11 text-[#E3E3E3]">
-              Laboratoires de Matière sombre / Dark Matter Labs
-            </p>
-            <p className="font-SaansRegular text-lg leading-11 text-[#E3E3E3] opacity-60">
-              Organisation à but non-lucratif /  Not-for-profit Corporation{' '}
-              <br /> 413 Ch. Lavallée <br /> Hemmingford, Québec J0L 1H0 <br />
-              Numéro d&apos;entreprise / Corporation number: 1196376-7
-            </p>
-          </div>
-
-          <div>
             <h2 className="heading-4xl text-white">South Korea</h2>
             <p className="font-SaansRegular text-lg leading-11 text-[#E3E3E3]">
               주식회사 다크매터랩스코리아 / Dark Matter Labs Korea Co., Ltd

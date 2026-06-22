@@ -353,7 +353,7 @@ export default function Privacy() {
           <li>
             Dark Matter Labs on{' '}
             <a
-              href="https://provocations.darkmatterlabs.org/"
+              href="https://darkmatter-labs.medium.com/" // change back
               className="text-[#737EA5]"
             >
               Medium

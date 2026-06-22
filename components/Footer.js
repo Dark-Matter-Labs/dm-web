@@ -13,17 +13,13 @@ const navigation = {
     // { name: 'Contribute', href: '#', internal: true },
     {
       name: 'Provocations↗',
-      href: 'https://provocations.darkmatterlabs.org/',
+      href: 'https://darkmatter-labs.medium.com/', //change back
       internal: false,
     },
   ],
   company: [
     { country: 'Netherlands', fullName: 'Dark Matter Laboratories B.V.' },
     { country: 'United Kingdom', fullName: 'Dark Matter Laboratories Limited' },
-    {
-      country: 'Canada',
-      fullName: 'Laboratoires de Matière sombre / Dark Matter Labs',
-    },
     {
       country: 'South Korea',
       fullName: '주식회사 다크매터랩스코리아 / Dark Matter Labs Korea Co., Ltd',
