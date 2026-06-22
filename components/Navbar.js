@@ -129,7 +129,7 @@ export default function Navbar({ numberOfJobs }) {
                       Contact
                     </Link>
                     <a
-                      href="https://darkmatter-labs.medium.com/" //change back
+                      href="https://provocations.darkmatterlabs.org/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
@@ -232,7 +232,7 @@ export default function Navbar({ numberOfJobs }) {
                       </DisclosureButton>
                       <DisclosureButton
                         as="a"
-                        href="https://darkmatter-labs.medium.com/" //change back
+                        href="https://provocations.darkmatterlabs.org/"
                         className="heading-4xl  block py-2 text-white  transition ease-in-out hover:text-white sm:hidden"
                       >
                         Provocations↗

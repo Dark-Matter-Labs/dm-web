@@ -13,7 +13,7 @@ const navigation = {
     // { name: 'Contribute', href: '#', internal: true },
     {
       name: 'Provocations↗',
-      href: 'https://darkmatter-labs.medium.com/', //change back
+      href: 'https://provocations.darkmatterlabs.org/',
       internal: false,
     },
   ],

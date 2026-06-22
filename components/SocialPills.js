@@ -14,7 +14,7 @@ const navigation = {
     },
     {
       name: 'Medium',
-      href: 'https://darkmatter-labs.medium.com/', // change back
+      href: 'https://provocations.darkmatterlabs.org/',
       icon: (props) => (
         <svg fill="white" {...props} viewBox="0 0 24 24">
           <path
