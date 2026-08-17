@@ -59,10 +59,10 @@ export default async function Jobs() {
             applications over the next 6 to 12 months.
           </p>
         </div>
-        <p className="p-xl-regular text-[#EBEBEB]">
-          IWe may still open specific roles during this time, and you’re warmly
+        <p className="p-xl-regular text-[#EBEBEB] opacity-50">
+          We may still open specific roles during this time, and you’re warmly
           welcome to apply to any that feel right for you. If you’d like to get
-          in touch beyond that, you can reach us at
+          in touch beyond that, you can reach us at{' '}
           <a href="mailto: join@darkmatterlabs.org">join@darkmatterlabs.org</a>
         </p>
       </div>
