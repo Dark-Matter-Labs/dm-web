@@ -4,9 +4,7 @@ import { urlForImage } from '@/sanity/lib/image';
 
 function FeedItem({ item }) {
   return (
-    <div
-      className="group flex h-full flex-col items-center justify-center border-b border-b-[#353535] first:border-t first:border-t-[#353535] sm:flex-row sm:items-start sm:justify-between sm:gap-[40px]"
-    >
+    <div className="group flex h-full flex-col items-center justify-center border-b border-b-[#353535] first:border-t first:border-t-[#353535] sm:flex-row sm:items-start sm:justify-between sm:gap-[40px]">
       <div className="feed-item-img  feed-item-img-inner relative py-[20px] sm:my-[34px]">
         <Image
           src={urlForImage(item.image)}

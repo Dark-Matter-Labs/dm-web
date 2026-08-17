@@ -50,26 +50,21 @@ export default async function Jobs() {
           </p>
         )}
         <div>
-          <a
-            href="https://app.beapplied.com/apply/z6mfyppjuz?utm_source=DMWeb"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h3 className="heading-4xl  text-white">Open Application ↗</h3>
-          </a>
+          <h3 className="heading-4xl  text-white">Open Application</h3>
           <p className="p-xl-regular text-[#EBEBEB] opacity-50">
-            Due to capacity constraints, we might take up to a couple of months
-            to give you feedback about your open application, though it is our
-            intention to review and reply to each application received. We will
-            reach out to you directly in case we open a role that may fit your
-            interests and skills. Thanks for your patience, and we hope to meet
-            you soon.
+            Thank you for your interest in Dark Matter Labs. It means a great
+            deal to us that you’re drawn to the work and considering how you
+            might contribute. Given our current pathways pipeline and project
+            line-up, we won’t be taking on people through speculative
+            applications over the next 6 to 12 months.
           </p>
         </div>
-        {/* <p className="p-xl-regular text-[#EBEBEB]">
-          If you have any questions, contact us <br />
+        <p className="p-xl-regular text-[#EBEBEB]">
+          IWe may still open specific roles during this time, and you’re warmly
+          welcome to apply to any that feel right for you. If you’d like to get
+          in touch beyond that, you can reach us at
           <a href="mailto: join@darkmatterlabs.org">join@darkmatterlabs.org</a>
-        </p> */}
+        </p>
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">

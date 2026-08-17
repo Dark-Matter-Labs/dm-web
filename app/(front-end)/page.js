@@ -101,8 +101,7 @@ export default function Home() {
       return;
     }
 
-    const scrollFrac =
-      Math.min((scrollY - animationStart) / maxScroll, 1) * 10;
+    const scrollFrac = Math.min((scrollY - animationStart) / maxScroll, 1) * 10;
     const easeFrac = Math.pow(scrollFrac, 3);
     setScrollFraction(easeFrac);
 

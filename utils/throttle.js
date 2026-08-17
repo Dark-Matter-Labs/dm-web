@@ -8,10 +8,10 @@ export function throttle(func, limit) {
   if (typeof func !== 'function') {
     throw new TypeError('Expected a function');
   }
-  
+
   let inThrottle;
   let timeoutId;
-  
+
   return function (...args) {
     if (!inThrottle) {
       func.apply(this, args);
