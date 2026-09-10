@@ -62,10 +62,13 @@ export async function generateStaticParams() {
 }
 
 export default async function feed_itemPage({ params }) {
+  // `params` is a Promise in Next 16.
+  const { slug } = await params;
+
   const feed_item = await sanityFetch({
     query: feed_project_query,
     tags: ['feedItem'],
-    qParams: { slug: params.slug },
+    qParams: { slug },
   });
 
   if (!feed_item) {
@@ -179,8 +182,7 @@ export default async function feed_itemPage({ params }) {
 }
 
 export async function generateMetadata({ params }, parent) {
-  // read route params
-  const slug = params.slug;
+  const { slug } = await params;
   // fetch data
   const feedData = await client.fetch(
     feed_project_query,
