@@ -1051,7 +1051,7 @@ export default function Homepage({ units }) {
             </a>{' '}
             work provided mapping and analysis of a just transition in relation
             to Europe’s built environment. The work sat at the intersection of
-            the Ne Lab and M0 Arc, exploring the physical constraints and
+            the Ne Lab and X0 Arc, exploring the physical constraints and
             potential response strategies for a material light and socially just
             transition.
           </p>

@@ -174,7 +174,7 @@ export default function Paradigms({
                     onClick={() => setOpenM0(true)}
                     className="font-SaansMed hover:cursor-crosshair"
                   >
-                    M0
+                    X0
                   </span>
                   <span className="align-super text-[9px] uppercase">A</span>{' '}
                   <span
@@ -291,7 +291,7 @@ export default function Paradigms({
                     onClick={() => setOpenSM(true)}
                     className="font-SaansMed hover:cursor-crosshair"
                   >
-                    SM
+                    RI
                   </span>
                   <span className="align-super text-[9px] uppercase">L</span>{' '}
                   <span
@@ -312,7 +312,7 @@ export default function Paradigms({
                     onClick={() => setOpenRE(true)}
                     className="font-SaansMed hover:cursor-crosshair"
                   >
-                    RN
+                    RF
                   </span>
                   <span className="align-super text-[9px] uppercase">A</span>
                 </p>

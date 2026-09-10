@@ -1,4 +1,4 @@
-// TODO: bring all content here including popup copy, links and images
+// TODO: rm this
 
 export const labs = [
   {
