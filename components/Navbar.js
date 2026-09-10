@@ -98,7 +98,12 @@ export default function Navbar({ numberOfJobs }) {
                         pathname === '/jobs'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display -mt-1 hidden py-2 transition ease-in-out ',
+                        // -mt-1 offsets the superscript counter, which
+                        // raises the line box and would otherwise push Jobs
+                        // below its siblings. Applied only when the counter
+                        // renders, so Jobs stays aligned when there are none.
+                        numberOfJobs > 0 ? '-mt-1' : '',
+                        'nav-xl side-display hidden py-2 transition ease-in-out ',
                       )}
                     >
                       <p>
