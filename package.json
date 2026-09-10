@@ -13,7 +13,6 @@
     "@portabletext/react": "^8.0.1",
     "@react-spring/web": "^10.1.2",
     "@sanity/client": "^7.13.2",
-    "@sanity/icons": "^5.2.2",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^4.22.1",
     "next": "15.5.25",

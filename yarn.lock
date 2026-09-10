@@ -3215,7 +3215,7 @@
   resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-3.8.0.tgz#20c83dd37c8b158b6f9ca41ce064165d63d16ff3"
   integrity sha512-LXa8eoE6U2e46L/9Pk6VU1aOWNxEqEG1osTb2YWItPIAa8MyXkICRwdNRWwW3kr5gmf+Sh2ZmfKol/Q+oGKSqw==
 
-"@sanity/icons@^5.2.1", "@sanity/icons@^5.2.2":
+"@sanity/icons@^5.2.1":
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/@sanity/icons/-/icons-5.2.2.tgz#5cc195040fdfc404018bf348944ddf013d9848df"
   integrity sha512-v+5dMjYJ6pC4x8IS/4O/GvQBet5GqsXsqJxBiiS6WHZt21EgntpW+q5hxU3dO4q/njiyR8O1JsdLAs3NranoXA==
