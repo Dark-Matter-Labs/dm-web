@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import Image from 'next/image';
 import { useScroll, animated } from '@react-spring/web';
 
@@ -17,6 +17,8 @@ import Popup from '@/components/Popup';
 import DomainPopup from '@/components/DomainPopup';
 import Contexts from '@/components/Contexts';
 import Paradigms from '@/components/Paradigms';
+import MatrixGrid from '@/components/home/MatrixGrid';
+import { ArcColumn, StudioRow } from '@/components/home/UnitTiles';
 
 import labsOverlay from '@/images/labs.svg';
 import arcsOverlay from '@/images/arcs.svg';
@@ -66,12 +68,53 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Homepage({ units }) {
-  const [classT, setClassT] = useState('');
-  const [scrollFraction, setScrollFraction] = useState();
+// Frozen empty array so the initial active-set keeps a stable identity.
+const EMPTY_ACTIVE = [];
 
-  const [classA, setClassA] = useState('');
-  const [classAB, setClassAB] = useState('');
+export default function Homepage({ units }) {
+  // Codes of the units currently lit up. Replaces 21 separate booleans;
+  // some cells activate two or three at once, so the setters below compose
+  // through functional updates rather than overwriting each other.
+  const [activeUnits, setActiveUnits] = useState(EMPTY_ACTIVE);
+
+  // Only one popup is ever open, so one id replaces 68 booleans.
+  const [openPopup, setOpenPopup] = useState(null);
+
+  const isActive = useCallback(
+    (code) => activeUnits.includes(code),
+    [activeUnits],
+  );
+
+  // Cached so each code keeps one stable setter identity across renders,
+  // which is what lets the memoised Matrix cells skip re-rendering.
+  const setterCache = useRef(new Map());
+  const unitSetter = useCallback((code) => {
+    if (!setterCache.current.has(code)) {
+      setterCache.current.set(code, (on) =>
+        setActiveUnits((prev) =>
+          on
+            ? prev.includes(code)
+              ? prev
+              : [...prev, code]
+            : prev.filter((c) => c !== code),
+        ),
+      );
+    }
+    return setterCache.current.get(code);
+  }, []);
+
+  const openerCache = useRef(new Map());
+  const openPopupFor = useCallback((id) => {
+    if (!openerCache.current.has(id)) {
+      // Headless UI closes with onClose(false), so anything falsy closes.
+      openerCache.current.set(id, (on = true) => setOpenPopup(on ? id : null));
+    }
+    return openerCache.current.get(id);
+  }, []);
+
+  const closePopup = useCallback(() => setOpenPopup(null), []);
+
+  const [scrollFraction, setScrollFraction] = useState();
 
   const [classT2, setClassT2] = useState('t1');
   const [activeState, setActiveState] = useState(1);
@@ -107,9 +150,6 @@ export default function Homepage({ units }) {
 
     // base state
     if (scrollY < startSticky) {
-      setClassT('');
-      setClassA('');
-      setClassAB('');
       setActiveState(1);
       setClassT2('t1');
       setAnimateOn('');
@@ -117,7 +157,6 @@ export default function Homepage({ units }) {
     // matrix sticky state
     else if (scrollY >= startSticky && scrollY < startSticky + step) {
       setActiveState(2);
-      setClassT('');
       setClassT2('t2');
       setAnimateOn('');
     }
@@ -208,110 +247,12 @@ export default function Homepage({ units }) {
   }, [throttledScrollHandler]);
 
   // arcs states
-  const [RCactive, setRCActive] = useState(false);
-  const [ETCactive, setETCActive] = useState(false);
-  const [NZactive, setNZActive] = useState(false);
-  const [SGactive, setSGActive] = useState(false);
-  const [M0active, setM0Active] = useState(false);
-  const [REactive, setREActive] = useState(false);
-  const [WIactive, setWIActive] = useState(false);
-  const [BEactive, setBEActive] = useState(false);
-  const [PCactive, setPCActive] = useState(false);
 
   //labs states
-  const [NEactive, setNEActive] = useState(false);
-  const [BLactive, setBLActive] = useState(false);
-  const [CSactive, setCSActive] = useState(false);
-  const [PFactive, setPFActive] = useState(false);
-  const [PBactive, setPBActive] = useState(false);
-  const [QDactive, setQDActive] = useState(false);
-  const [BRactive, setBRActive] = useState(false);
-  const [SMactive, setSMActive] = useState(false);
 
   //studio states
-  const [CTactive, setCTActive] = useState(false);
-  const [CDactive, setCDActive] = useState(false);
-  const [FFactive, setFFActive] = useState(false);
-  const [ODactive, setODActive] = useState(false);
 
   // open modal states
-  const [openLEE, setOpenLEE] = useState(false);
-  const [openCTC, setOpenCTC] = useState(false);
-  const [openCIC, setOpenCIC] = useState(false);
-  const [openRBF, setOpenRBF] = useState(false);
-  const [openMC, setOpenMC] = useState(false);
-  const [openTAI, setOpenTAI] = useState(false);
-  const [openCL, setOpenCL] = useState(false);
-  const [openRC, setOpenRC] = useState(false);
-  const [openNZ, setOpenNZ] = useState(false);
-  const [openSG, setOpenSG] = useState(false);
-  const [openM0, setOpenM0] = useState(false);
-  const [openNET, setOpenNET] = useState(false);
-  const [openRE, setOpenRE] = useState(false);
-  const [openBE, setOpenBE] = useState(false);
-  const [openPC, setOpenPC] = useState(false);
-  const [openETC, setOpenETC] = useState(false);
-  const [openWI, setOpenWI] = useState(false);
-
-  const [openNE, setOpenNE] = useState(false);
-  const [openBL, setOpenBL] = useState(false);
-  const [openCS, setOpenCS] = useState(false);
-  const [openPF, setOpenPF] = useState(false);
-  const [openPB, setOpenPB] = useState(false);
-  const [openQD, setOpenQD] = useState(false);
-  const [openBR, setOpenBR] = useState(false);
-  const [openSM, setOpenSM] = useState(false);
-
-  const [openCT, setOpenCT] = useState(false);
-  const [openCD, setOpenCD] = useState(false);
-  const [openFF, setOpenFF] = useState(false);
-  const [openOD, setOpenOD] = useState(false);
-
-  const [openLEED, setOpenLEED] = useState(false);
-  const [openCI, setOpenCI] = useState(false);
-  const [openPTC, setOpenPTC] = useState(false);
-  const [openMATR, setOpenMATR] = useState(false);
-  const [openPBP, setOpenPBP] = useState(false);
-  const [openCCR, setOpenCCR] = useState(false);
-
-  const [openDomainA, setOpenDomainA] = useState(false);
-  const [openDomainA1, setOpenDomainA1] = useState(false);
-  const [openDomainA2, setOpenDomainA2] = useState(false);
-  const [openDomainA3, setOpenDomainA3] = useState(false);
-  const [openDomainA4, setOpenDomainA4] = useState(false);
-
-  const [openDomainB, setOpenDomainB] = useState(false);
-  const [openDomainB1, setOpenDomainB1] = useState(false);
-  const [openDomainB2, setOpenDomainB2] = useState(false);
-  const [openDomainB3, setOpenDomainB3] = useState(false);
-  const [openDomainB4, setOpenDomainB4] = useState(false);
-
-  const [openDomainC, setOpenDomainC] = useState(false);
-  const [openDomainC1, setOpenDomainC1] = useState(false);
-  const [openDomainC2, setOpenDomainC2] = useState(false);
-  const [openDomainC3, setOpenDomainC3] = useState(false);
-  const [openDomainC4, setOpenDomainC4] = useState(false);
-  const [openDomainC5, setOpenDomainC5] = useState(false);
-  const [openDomainC6, setOpenDomainC6] = useState(false);
-
-  const [openDomainD, setOpenDomainD] = useState(false);
-  const [openDomainD1, setOpenDomainD1] = useState(false);
-  const [openDomainD2, setOpenDomainD2] = useState(false);
-  const [openDomainD3, setOpenDomainD3] = useState(false);
-  const [openDomainD4, setOpenDomainD4] = useState(false);
-  const [openDomainD5, setOpenDomainD5] = useState(false);
-
-  const [openDomainE, setOpenDomainE] = useState(false);
-  const [openDomainE1, setOpenDomainE1] = useState(false);
-  const [openDomainE2, setOpenDomainE2] = useState(false);
-  const [openDomainE3, setOpenDomainE3] = useState(false);
-  const [openDomainE4, setOpenDomainE4] = useState(false);
-
-  const [openDomainF, setOpenDomainF] = useState(false);
-  const [openDomainF1, setOpenDomainF1] = useState(false);
-  const [openDomainF2, setOpenDomainF2] = useState(false);
-  const [openDomainF3, setOpenDomainF3] = useState(false);
-  const [openDomainF4, setOpenDomainF4] = useState(false);
 
   const scrollInterpolate = useCallback(
     (toInterpolate) => {
@@ -1062,8 +1003,8 @@ export default function Homepage({ units }) {
         type="lab"
         image={CSlogo}
         title="Capital Systems"
-        openState={openCS}
-        setOpen={setOpenCS}
+        openState={openPopup === 'CS'}
+        setOpen={openPopupFor('CS')}
         website="https://darkmatterlabs.capital/"
         publication=""
         publicationLabel=""
@@ -1091,8 +1032,8 @@ export default function Homepage({ units }) {
       <Popup
         type="arc"
         title="Radicle Civics"
-        openState={openRC}
-        setOpen={setOpenRC}
+        openState={openPopup === 'RC'}
+        setOpen={openPopupFor('RC')}
         website="https://radiclecivics.cc/"
         publication=""
         publicationLabel=""
@@ -1120,8 +1061,8 @@ export default function Homepage({ units }) {
         type="arc"
         title="Net Zero Cities"
         image={NZZlogo}
-        openState={openNZ}
-        setOpen={setOpenNZ}
+        openState={openPopup === 'NZC'}
+        setOpen={openPopupFor('NZC')}
         website="https://netzerocities.eu/"
         publication=""
         publicationLabel=""
@@ -1147,8 +1088,8 @@ export default function Homepage({ units }) {
         type="arc"
         title="7Gen Cities"
         image={SGlogo}
-        openState={openSG}
-        setOpen={setOpenSG}
+        openState={openPopup === '7G'}
+        setOpen={openPopupFor('7G')}
         website="https://www.7gencities.org/"
         publication=""
         publicationLabel=""
@@ -1165,9 +1106,9 @@ export default function Homepage({ units }) {
       <Popup
         type="arc"
         title="X0 Economy"
-        openState={openM0}
+        openState={openPopup === 'X0'}
         image={M0logo}
-        setOpen={setOpenM0}
+        setOpen={openPopupFor('X0')}
         website=""
         publication="https://www.irresistiblecircularsociety.eu/assets/uploads/News/DML-NEBE-White-paper-_-Desire-Sep2024.pdf"
         publicationLabel="Whitepaper"
@@ -1193,8 +1134,8 @@ export default function Homepage({ units }) {
         type="arc"
         title="Resilient Food Systems"
         image={RNlogo}
-        openState={openRE}
-        setOpen={setOpenRE}
+        openState={openPopup === 'RF'}
+        setOpen={openPopupFor('RF')}
         website="https://food.darkmatterlabs.org/"
         publication="https://medium.com/9outof10-protein-shift-innovation-platform/universal-basic-nutrient-income-institutional-infrastructure-for-2040-food-preparedness-f00f70a84510"
         publicationLabel="Blog"
@@ -1212,8 +1153,8 @@ export default function Homepage({ units }) {
         type="arc"
         title="Bioregional Economics"
         image={BElogo}
-        openState={openBE}
-        setOpen={setOpenBE}
+        openState={openPopup === 'BE'}
+        setOpen={openPopupFor('BE')}
         website="https://bioregions.darkmatterlabs.org/"
         publication=""
         publicationLabel=""
@@ -1234,8 +1175,8 @@ export default function Homepage({ units }) {
         type="arc"
         title="Planetary Civics"
         image={PClogo}
-        openState={openPC}
-        setOpen={setOpenPC}
+        openState={openPopup === 'PC'}
+        setOpen={openPopupFor('PC')}
         website="https://www.planetarycivics.net/"
         publication="https://www.youtube.com/watch?v=zQJjfCSPvJI"
         publicationLabel="Keynote"
@@ -1255,8 +1196,8 @@ export default function Homepage({ units }) {
         type="lab"
         title="Next Economics"
         image={NElogo}
-        openState={openNE}
-        setOpen={setOpenNE}
+        openState={openPopup === 'NE'}
+        setOpen={openPopupFor('NE')}
         website=""
         publication=""
         publicationLabel=""
@@ -1286,9 +1227,9 @@ export default function Homepage({ units }) {
       <Popup
         type="lab"
         title="Property & Beyond"
-        openState={openPB}
+        openState={openPopup === 'PB'}
         image={PBlogo}
-        setOpen={setOpenPB}
+        setOpen={openPopupFor('PB')}
         website="https://www.darkmatterlabs.property/"
         publication=""
         publicationLabel=""
@@ -1307,8 +1248,8 @@ export default function Homepage({ units }) {
         type="lab"
         title="Beyond the Rules"
         image={BTRlogo}
-        openState={openBR}
-        setOpen={setOpenBR}
+        openState={openPopup === 'BR'}
+        setOpen={openPopupFor('BR')}
         website="https://darkmatterlabs.notion.site/Beyond-the-Rules-19e692bf98f54b44971ca34700e246fd"
         publication=""
         publicationLabel=""
@@ -1329,14 +1270,18 @@ export default function Homepage({ units }) {
         type="lab"
         title="Risk Intelligence"
         image={SMlogo}
-        openState={openSM}
-        setOpen={setOpenSM}
+        openState={openPopup === 'RI'}
+        setOpen={openPopupFor('RI')}
         website=""
         publication=""
         publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            The RI Lab builds Dm’s capability across Dm and our wider ecosystem to sense, calculate, and map systemic risk, from community-held knowledge of lived risk, to value-at-risk frameworks for shocks like climate change and food crises, to spatial analysis of how risk is distributed.
+            The RI Lab builds Dm’s capability across Dm and our wider ecosystem
+            to sense, calculate, and map systemic risk, from community-held
+            knowledge of lived risk, to value-at-risk frameworks for shocks like
+            climate change and food crises, to spatial analysis of how risk is
+            distributed.
           </p>
         }
       />
@@ -1345,8 +1290,8 @@ export default function Homepage({ units }) {
         type="lab"
         title="Beyond Labour"
         image={BLlogo}
-        openState={openBL}
-        setOpen={setOpenBL}
+        openState={openPopup === 'BL'}
+        setOpen={openPopupFor('BL')}
         website=""
         publication=""
         publicationLabel=""
@@ -1364,8 +1309,8 @@ export default function Homepage({ units }) {
         type="lab"
         title="Philanthropy Futures"
         image={PFlogo}
-        openState={openPF}
-        setOpen={setOpenPF}
+        openState={openPopup === 'PF'}
+        setOpen={openPopupFor('PF')}
         website=""
         publication=""
         publicationLabel=""
@@ -1381,8 +1326,8 @@ export default function Homepage({ units }) {
         type="lab"
         title="Societal Decisions"
         image={SDlogo}
-        openState={openQD}
-        setOpen={setOpenQD}
+        openState={openPopup === 'SD'}
+        setOpen={openPopupFor('SD')}
         website=""
         publication=""
         publicationLabel=""
@@ -1398,8 +1343,8 @@ export default function Homepage({ units }) {
         type="studio"
         title="Civic Tech"
         image={CTlogo}
-        openState={openCT}
-        setOpen={setOpenCT}
+        openState={openPopup === 'CT'}
+        setOpen={openPopupFor('CT')}
         website="https://civictech.darkmatterlabs.org/"
         publication=""
         publicationLabel=""
@@ -1418,8 +1363,8 @@ export default function Homepage({ units }) {
         type="arc"
         title="Neighbourhood Futures"
         image={LClogo}
-        openState={openETC}
-        setOpen={setOpenETC}
+        openState={openPopup === 'NF'}
+        setOpen={openPopupFor('NF')}
         website="https://darkmatterlabs.notion.site/DML-Retrofit-4159fbbb94064df88ee8053101847ca7?pvs=74"
         publication=""
         publicationLabel=""
@@ -1438,8 +1383,8 @@ export default function Homepage({ units }) {
         type="studio"
         title="Conversation Design"
         image={CDlogo}
-        openState={openCD}
-        setOpen={setOpenCD}
+        openState={openPopup === 'CD'}
+        setOpen={openPopupFor('CD')}
         website="https://cds.darkmatterlabs.org/"
         publication=""
         publicationLabel=""
@@ -1457,9 +1402,9 @@ export default function Homepage({ units }) {
       <Popup
         type="studio"
         title="Foresight & Futuring"
-        openState={openFF}
+        openState={openPopup === 'FF'}
         image={FFlogo}
-        setOpen={setOpenFF}
+        setOpen={openPopupFor('FF')}
         website=""
         publication=""
         publicationLabel=""
@@ -1478,8 +1423,8 @@ export default function Homepage({ units }) {
         type="studio"
         title="Org Dev"
         image={ODlogo}
-        openState={openOD}
-        setOpen={setOpenOD}
+        openState={openPopup === 'OD'}
+        setOpen={openPopupFor('OD')}
         website=""
         publication=""
         publicationLabel=""
@@ -1498,8 +1443,8 @@ export default function Homepage({ units }) {
         type="arc"
         title="Nature as Infrastructure"
         image={NIlogo}
-        openState={openWI}
-        setOpen={setOpenWI}
+        openState={openPopup === 'NI'}
+        setOpen={openPopupFor('NI')}
         website=""
         publication=""
         publicationLabel=""
@@ -1516,8 +1461,8 @@ export default function Homepage({ units }) {
       <Popup
         type="project"
         title="Multivalent Currencies"
-        openState={openMC}
-        setOpen={setOpenMC}
+        openState={openPopup === 'MC'}
+        setOpen={openPopupFor('MC')}
         image={MCPic}
         website=""
         publication="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
@@ -1544,8 +1489,8 @@ export default function Homepage({ units }) {
         type="project"
         title="TreesAI"
         image={TAIlogo}
-        openState={openTAI}
-        setOpen={setOpenTAI}
+        openState={openPopup === 'TAI'}
+        setOpen={openPopupFor('TAI')}
         website="https://treesasinfrastructure.com/"
         publication=""
         publicationLabel=""
@@ -1564,8 +1509,8 @@ export default function Homepage({ units }) {
       <Popup
         type="project"
         title="New Economic Thinking"
-        openState={openNET}
-        setOpen={setOpenNET}
+        openState={openPopup === 'NET'}
+        setOpen={openPopupFor('NET')}
         image={NETPic}
         website=""
         publication="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
@@ -1594,8 +1539,8 @@ export default function Homepage({ units }) {
         type="project"
         title="CircuLaw"
         image={CLlogo}
-        openState={openCL}
-        setOpen={setOpenCL}
+        openState={openPopup === 'CL'}
+        setOpen={openPopupFor('CL')}
         website="https://www.circulaw.nl/"
         publication=""
         publicationLabel=""
@@ -1613,8 +1558,8 @@ export default function Homepage({ units }) {
       <Popup
         type="project"
         title="Life-Ennobling Economics dialogue"
-        openState={openLEED}
-        setOpen={setOpenLEED}
+        openState={openPopup === 'LEED'}
+        setOpen={openPopupFor('LEED')}
         image={LEElogo}
         website="https://led.darkmatterlabs.org/"
         publication=""
@@ -1642,8 +1587,8 @@ export default function Homepage({ units }) {
         type="project"
         title="Cornerstone Indicators"
         image={CIpic}
-        openState={openCI}
-        setOpen={setOpenCI}
+        openState={openPopup === 'CI'}
+        setOpen={openPopupFor('CI')}
         website="https://cornerstoneindicators.com/"
         publication=""
         publicationLabel=""
@@ -1669,8 +1614,8 @@ export default function Homepage({ units }) {
         type="project"
         title="Permissioning the City"
         image={PtCpic}
-        openState={openPTC}
-        setOpen={setOpenPTC}
+        openState={openPopup === 'PTC'}
+        setOpen={openPopupFor('PTC')}
         website="https://www.permissioning.city/"
         publication="https://provocations.darkmatterlabs.org/re-permissioning-the-city-unlocking-cities-growing-underutilised-spatial-assets-for-an-emergent-1550997714a4"
         publicationLabel="Blog"
@@ -1694,8 +1639,8 @@ export default function Homepage({ units }) {
         type="project"
         title="MatR"
         image={matrPic}
-        openState={openMATR}
-        setOpen={setOpenMATR}
+        openState={openPopup === 'MATR'}
+        setOpen={openPopupFor('MATR')}
         website=""
         publication="https://drive.google.com/file/d/1y-GW6fJet4LrX7X3iDjqaeIDCTvijX38/view"
         publicationLabel="Deck"
@@ -1726,8 +1671,8 @@ export default function Homepage({ units }) {
         type="project"
         title="Property & Beyond portfolio"
         image={PBlogo}
-        openState={openPBP}
-        setOpen={setOpenPBP}
+        openState={openPopup === 'PBP'}
+        setOpen={openPopupFor('PBP')}
         website="https://www.darkmatterlabs.property/"
         publication=""
         publicationLabel=""
@@ -1751,8 +1696,8 @@ export default function Homepage({ units }) {
         type="project"
         title="City & Community Retrofit"
         image={retrofitPic}
-        openState={openCCR}
-        setOpen={setOpenCCR}
+        openState={openPopup === 'CCR'}
+        setOpen={openPopupFor('CCR')}
         website=""
         publication=""
         publicationLabel=""
@@ -1777,8 +1722,8 @@ export default function Homepage({ units }) {
         type="content"
         title="Life-Ennobling Economics"
         image={LEElogo}
-        openState={openLEE}
-        setOpen={setOpenLEE}
+        openState={openPopup === 'LEE'}
+        setOpen={openPopupFor('LEE')}
         website="https://lee.darkmatterlabs.org/"
         publication=""
         publicationLabel=""
@@ -1822,8 +1767,8 @@ export default function Homepage({ units }) {
         type="content"
         title="City-scale tree canopies"
         image={TAIlogo}
-        openState={openCTC}
-        setOpen={setOpenCTC}
+        openState={openPopup === 'CTC'}
+        setOpen={openPopupFor('CTC')}
         website=""
         publication=""
         publicationLabel=""
@@ -1847,8 +1792,8 @@ export default function Homepage({ units }) {
         type="content"
         title="Collective intelligence of cities"
         image={CIconceptPic}
-        openState={openCIC}
-        setOpen={setOpenCIC}
+        openState={openPopup === 'CIC'}
+        setOpen={openPopupFor('CIC')}
         website=""
         publication=""
         publicationLabel=""
@@ -1877,8 +1822,8 @@ export default function Homepage({ units }) {
         type="content"
         title="Resilient bioregional food systems"
         image={BRconceptPic}
-        openState={openRBF}
-        setOpen={setOpenRBF}
+        openState={openPopup === 'RBF'}
+        setOpen={openPopupFor('RBF')}
         website=""
         publication=""
         publicationLabel=""
@@ -1906,8 +1851,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="A"
         title="A: Ontology & epistemology"
-        openState={openDomainA}
-        setOpen={setOpenDomainA}
+        openState={openPopup === 'DomainA'}
+        setOpen={openPopupFor('DomainA')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Domain A relates to the values, wisdom, spirituality, ways of being
@@ -1922,8 +1867,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="B"
         title="B: Money & valuation logic"
-        openState={openDomainB}
-        setOpen={setOpenDomainB}
+        openState={openPopup === 'DomainB'}
+        setOpen={openPopupFor('DomainB')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Expresses the underlying theory of value that drives our investment
@@ -1937,8 +1882,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="C"
         title="C: Financial processes & Investment"
-        openState={openDomainC}
-        setOpen={setOpenDomainC}
+        openState={openPopup === 'DomainC'}
+        setOpen={openPopupFor('DomainC')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Represents how we structure and allocate capital stocks (this is
@@ -1953,8 +1898,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="D"
         title="D: Ownership, law & governance"
-        openState={openDomainD}
-        setOpen={setOpenDomainD}
+        openState={openPopup === 'DomainD'}
+        setOpen={openPopupFor('DomainD')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             This domain determines who has the rights to the social surplus and
@@ -1967,8 +1912,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="E"
         title="E: Institutional logic and policy"
-        openState={openDomainE}
-        setOpen={setOpenDomainE}
+        openState={openPopup === 'DomainE'}
+        setOpen={openPopupFor('DomainE')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             This domain looks at the institutions and blueprints that
@@ -1982,8 +1927,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="F"
         title="F: Material, energy & land use"
-        openState={openDomainF}
-        setOpen={setOpenDomainF}
+        openState={openPopup === 'DomainF'}
+        setOpen={openPopupFor('DomainF')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             The physical domain represents the material and ecological
@@ -1996,8 +1941,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="A"
         title="A1: Fostering a relational worldview"
-        openState={openDomainA1}
-        setOpen={setOpenDomainA1}
+        openState={openPopup === 'DomainA1'}
+        setOpen={openPopupFor('DomainA1')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Helping people to see that relationships are the fundamental basis
@@ -2011,8 +1956,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="A"
         title="A2: Replacing profit as the collective goal"
-        openState={openDomainA2}
-        setOpen={setOpenDomainA2}
+        openState={openPopup === 'DomainA2'}
+        setOpen={openPopupFor('DomainA2')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             We want to show that profit is no longer an appropriate signal of
@@ -2028,8 +1973,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="A"
         title="A3: Building political will"
-        openState={openDomainA3}
-        setOpen={setOpenDomainA3}
+        openState={openPopup === 'DomainA3'}
+        setOpen={openPopupFor('DomainA3')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Finding new ways of understanding common issues, together with a
@@ -2044,8 +1989,8 @@ export default function Homepage({ units }) {
         domain="A"
         title="A4: Phenomenological measures of success (lived
                       experience)"
-        openState={openDomainA4}
-        setOpen={setOpenDomainA4}
+        openState={openPopup === 'DomainA4'}
+        setOpen={openPopupFor('DomainA4')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Defining and testing quantitative measures of sensory experience. We
@@ -2057,8 +2002,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="B"
         title="B1: Demonstrating entangled and long-term value"
-        openState={openDomainB1}
-        setOpen={setOpenDomainB1}
+        openState={openPopup === 'DomainB1'}
+        setOpen={openPopupFor('DomainB1')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             In our current economy, price is synonymous with value. We need to
@@ -2072,8 +2017,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="B"
         title="B2: Decolonised, bioregional currency stewardship"
-        openState={openDomainB2}
-        setOpen={setOpenDomainB2}
+        openState={openPopup === 'DomainB2'}
+        setOpen={openPopupFor('DomainB2')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Finding ways to balance the need to exchange freely between regions
@@ -2086,8 +2031,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="B"
         title="B3: Alternative non-fungible currency systems"
-        openState={openDomainB3}
-        setOpen={setOpenDomainB3}
+        openState={openPopup === 'DomainB3'}
+        setOpen={openPopupFor('DomainB3')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Demonstrating the potential for new tokens of exchange that are
@@ -2102,8 +2047,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="B"
         title="B4: Visualising finite and infinite economies"
-        openState={openDomainB4}
-        setOpen={setOpenDomainB4}
+        openState={openPopup === 'DomainB4'}
+        setOpen={openPopupFor('DomainB4')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             We need to communicate a vision that opens up the future rather than
@@ -2119,8 +2064,8 @@ export default function Homepage({ units }) {
         domain="C"
         title="C1: Making the investment case for entangled value (DEMAND
                       SIDE)"
-        openState={openDomainC1}
-        setOpen={setOpenDomainC1}
+        openState={openPopup === 'DomainC1'}
+        setOpen={openPopupFor('DomainC1')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Helping &#39;project developers&#39; and those that steward assets
@@ -2133,8 +2078,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="C"
         title="C2: Bridging demand & supply"
-        openState={openDomainC2}
-        setOpen={setOpenDomainC2}
+        openState={openPopup === 'DomainC2'}
+        setOpen={openPopupFor('DomainC2')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Building the protective governance and agreement structures that
@@ -2147,8 +2092,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="C"
         title=" C3: Structuring capital & investments"
-        openState={openDomainC3}
-        setOpen={setOpenDomainC3}
+        openState={openPopup === 'DomainC3'}
+        setOpen={openPopupFor('DomainC3')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Developing the necessary instruments that allow current capital
@@ -2160,8 +2105,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="C"
         title="C4: Enabling strategic ecosystem investments"
-        openState={openDomainC4}
-        setOpen={setOpenDomainC4}
+        openState={openPopup === 'DomainC4'}
+        setOpen={openPopupFor('DomainC4')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Transforming investment logics and frameworks to strategically
@@ -2177,8 +2122,8 @@ export default function Homepage({ units }) {
         domain="C"
         title="C5: Socialising the supportive narratives for alternative
                       financing pathways"
-        openState={openDomainC5}
-        setOpen={setOpenDomainC5}
+        openState={openPopup === 'DomainC5'}
+        setOpen={openPopupFor('DomainC5')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Opening the Overton window for public and private actors in the
@@ -2191,8 +2136,8 @@ export default function Homepage({ units }) {
         domain="C"
         title="C6: Socialising transformational narratives for a
                       regenerative financial system"
-        openState={openDomainC6}
-        setOpen={setOpenDomainC6}
+        openState={openPopup === 'DomainC6'}
+        setOpen={openPopupFor('DomainC6')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Exploring the role of the financial system in the global transition.
@@ -2207,8 +2152,8 @@ export default function Homepage({ units }) {
         domain="D"
         title="D1: Using instruments (e.g contracts) to demonstrate
                       alternative theories of ownership"
-        openState={openDomainD1}
-        setOpen={setOpenDomainD1}
+        openState={openPopup === 'DomainD1'}
+        setOpen={openPopupFor('DomainD1')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Practical demonstration of contracts and operating agreements that
@@ -2224,8 +2169,8 @@ export default function Homepage({ units }) {
         domain="D"
         title="D2: Elevating alternative models that recouple surplus
                       with stewardship"
-        openState={openDomainD2}
-        setOpen={setOpenDomainD2}
+        openState={openPopup === 'DomainD2'}
+        setOpen={openPopupFor('DomainD2')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Prevent extraction over time due perverse incentives that are
@@ -2238,8 +2183,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="D"
         title="D3: Demonstrating multi-actor governance structures"
-        openState={openDomainD3}
-        setOpen={setOpenDomainD3}
+        openState={openPopup === 'DomainD3'}
+        setOpen={openPopupFor('DomainD3')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Practical demonstration of ways of organising and governing
@@ -2253,8 +2198,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="D"
         title="D4: Embedding data-augmented decision making"
-        openState={openDomainD4}
-        setOpen={setOpenDomainD4}
+        openState={openPopup === 'DomainD4'}
+        setOpen={openPopupFor('DomainD4')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Using modern technologies to collate and compute wide-ranging data
@@ -2268,8 +2213,8 @@ export default function Homepage({ units }) {
         domain="D"
         title="D5: Building deep respect for the other-than-human world,
                       ancestors and future generations"
-        openState={openDomainD5}
-        setOpen={setOpenDomainD5}
+        openState={openPopup === 'DomainD5'}
+        setOpen={openPopupFor('DomainD5')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Supporting pathways that can practically embed the reconciliation of
@@ -2283,8 +2228,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="E"
         title="E1: Enabling public-civic efficacy to transform place"
-        openState={openDomainE1}
-        setOpen={setOpenDomainE1}
+        openState={openPopup === 'DomainE1'}
+        setOpen={openPopupFor('DomainE1')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Supporting the learning, capabilities and power of public-civic
@@ -2298,8 +2243,8 @@ export default function Homepage({ units }) {
         domain="E"
         title="E2: Building the foundations for planetary stewardship
                       institutions"
-        openState={openDomainE2}
-        setOpen={setOpenDomainE2}
+        openState={openPopup === 'DomainE2'}
+        setOpen={openPopupFor('DomainE2')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Developing the foundations for stewardship institutions that extend
@@ -2311,8 +2256,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="E"
         title="E3: Designing reflective, data-driven policy instruments"
-        openState={openDomainE3}
-        setOpen={setOpenDomainE3}
+        openState={openPopup === 'DomainE3'}
+        setOpen={openPopupFor('DomainE3')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Creation of instruments that are framed within ecological and social
@@ -2326,8 +2271,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="E"
         title="E4: Place-based, policy process design"
-        openState={openDomainE4}
-        setOpen={setOpenDomainE4}
+        openState={openPopup === 'DomainE4'}
+        setOpen={openPopupFor('DomainE4')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Policy design processes shaped by the geographical context, which
@@ -2342,8 +2287,8 @@ export default function Homepage({ units }) {
         domain="F"
         title="F1: Developing collaborative, non-extractive interfaces
                       with the physical environment"
-        openState={openDomainF1}
-        setOpen={setOpenDomainF1}
+        openState={openPopup === 'DomainF1'}
+        setOpen={openPopupFor('DomainF1')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Building the infrastructure that will allow human activities to hold
@@ -2358,8 +2303,8 @@ export default function Homepage({ units }) {
       <DomainPopup
         domain="F"
         title="F2: Visualising material and energy flows"
-        openState={openDomainF2}
-        setOpen={setOpenDomainF2}
+        openState={openPopup === 'DomainF2'}
+        setOpen={openPopupFor('DomainF2')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Developing tools and methodologies to both track and clearly
@@ -2373,8 +2318,8 @@ export default function Homepage({ units }) {
         domain="F"
         title="F3: Developing a stewardship data infrastructure for the
                       built environment"
-        openState={openDomainF3}
-        setOpen={setOpenDomainF3}
+        openState={openPopup === 'DomainF3'}
+        setOpen={openPopupFor('DomainF3')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Building a new data infrastructure that can hold cities, regions and
@@ -2389,8 +2334,8 @@ export default function Homepage({ units }) {
         domain="F"
         title="F4: Designing and demonstrating autonomous, regenerative
                       and affordable multi-purpose developments."
-        openState={openDomainF4}
-        setOpen={setOpenDomainF4}
+        openState={openPopup === 'DomainF4'}
+        setOpen={openPopupFor('DomainF4')}
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
             Exploring how we can re-common and repurpose land and building in
@@ -2435,7 +2380,7 @@ export default function Homepage({ units }) {
               within and beyond the current structures, and working to develop
               technical expertise in those areas. For example, the{' '}
               <span
-                onClick={() => setOpenBR(true)}
+                onClick={() => openPopupFor('BR')(true)}
                 className="font-SaansMed hover:cursor-crosshair"
               >
                 Beyond The Rules{' '}
@@ -2444,7 +2389,7 @@ export default function Homepage({ units }) {
               focuses on aspects such as demonstrating multi-actor governance
               structures whereas the{' '}
               <span
-                onClick={() => setOpenCS(true)}
+                onClick={() => openPopupFor('CS')(true)}
                 className="font-SaansMed hover:cursor-crosshair"
               >
                 Capital Systems
@@ -2465,7 +2410,7 @@ export default function Homepage({ units }) {
               Our Arc workflows are designed with clear, directional goals that
               guide our efforts toward impactful outcomes. For instance,{' '}
               <span
-                onClick={() => setOpenNZ(true)}
+                onClick={() => openPopupFor('NZC')(true)}
                 className="font-SaansMed hover:cursor-crosshair"
               >
                 Net Zero Cities
@@ -2473,7 +2418,7 @@ export default function Homepage({ units }) {
               <span className="align-super text-[9.5px] uppercase">arc</span>{' '}
               aims to enable climate-neutral and smart cities by 2030, while{' '}
               <span
-                onClick={() => setOpenRC(true)}
+                onClick={() => openPopupFor('RC')(true)}
                 className="font-SaansMed hover:cursor-crosshair"
               >
                 Radicle Civics
@@ -2497,7 +2442,7 @@ export default function Homepage({ units }) {
               Arcs. The studios explore themes that help our work to be
               implemented and more widely understood. For instance, the{' '}
               <span
-                onClick={() => setOpenCT(true)}
+                onClick={() => openPopupFor('CT')(true)}
                 className="font-SaansMed hover:cursor-crosshair"
               >
                 Civic Tech
@@ -2506,7 +2451,7 @@ export default function Homepage({ units }) {
               develops the technological tools and knowledge for prototypes
               tested across the Dm ecosystem. Meanwhile, the{' '}
               <span
-                onClick={() => setOpenOD(true)}
+                onClick={() => openPopupFor('OD')(true)}
                 className="font-SaansMed hover:cursor-crosshair"
               >
                 Org Dev
@@ -2576,7 +2521,7 @@ export default function Homepage({ units }) {
               a shift towards{' '}
               <span
                 className="underline hover:cursor-crosshair"
-                onClick={() => setOpenLEE(true)}
+                onClick={() => openPopupFor('LEE')(true)}
               >
                 Life-Ennobling Economies.
               </span>
@@ -2594,14 +2539,14 @@ export default function Homepage({ units }) {
               investment opportunities for{' '}
               <span
                 className="underline hover:cursor-crosshair"
-                onClick={() => setOpenCTC(true)}
+                onClick={() => openPopupFor('CTC')(true)}
               >
                 city-scale tree canopies
               </span>
               , community endowments and{' '}
               <span
                 className="underline hover:cursor-crosshair"
-                onClick={() => setOpenRBF(true)}
+                onClick={() => openPopupFor('RBF')(true)}
               >
                 resilient bioregional food systems
               </span>
@@ -2609,7 +2554,7 @@ export default function Homepage({ units }) {
               mental health of communities and the{' '}
               <span
                 className="underline hover:cursor-crosshair"
-                onClick={() => setOpenCIC(true)}
+                onClick={() => openPopupFor('CIC')(true)}
               >
                 collective intelligence of cities
               </span>{' '}
@@ -2831,1628 +2776,26 @@ export default function Homepage({ units }) {
                       </animated.h2>
                     </div>
 
-                    <Arc
-                      title="Radicle Civics"
-                      short="RC"
-                      activeState={RCactive || openRC}
-                      setActive={setRCActive}
-                      setOpen={setOpenRC}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="Neighbour. Futures"
-                      short="NF"
-                      activeState={ETCactive || openETC}
-                      setActive={setETCActive}
-                      setOpen={setOpenETC}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="Net Zero Cities"
-                      short="NZC"
-                      activeState={NZactive || openNZ}
-                      setActive={setNZActive}
-                      setOpen={setOpenNZ}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="7Gen Cities"
-                      short="7G"
-                      activeState={SGactive || openSG}
-                      setActive={setSGActive}
-                      setOpen={setOpenSG}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="X0 Economy"
-                      short="X0"
-                      activeState={M0active || openM0}
-                      setActive={setM0Active}
-                      setOpen={setOpenM0}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="Resilient Food Systems "
-                      short="RF"
-                      activeState={REactive || openRE}
-                      setActive={setREActive}
-                      setOpen={setOpenRE}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="Nature as Infrastruct."
-                      short="NI"
-                      activeState={WIactive || openWI}
-                      setActive={setWIActive}
-                      setOpen={setOpenWI}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="Bioregional Economics"
-                      short="BE"
-                      activeState={BEactive || openBE}
-                      setActive={setBEActive}
-                      setOpen={setOpenBE}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Arc
-                      title="Planetary Civics"
-                      short="PC"
-                      activeState={PCactive || openPC}
-                      setActive={setPCActive}
-                      setOpen={setOpenPC}
+                    <ArcColumn
+                      units={units}
+                      isActive={isActive}
+                      unitSetter={unitSetter}
+                      openPopup={openPopup}
+                      openPopupFor={openPopupFor}
                       scrollYProgress={scrollYProgress}
                       bgHoverInterpolate={bgHoverInterpolate}
                     />
                   </div>
-                  <div>
-                    <Lab
-                      title="Next Economics"
-                      short="NE"
-                      activeState={NEactive || openNE}
-                      setActive={setNEActive}
-                      setOpen={setOpenNE}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Initiative
-                      title="Multivalent currencies"
-                      arc="RC"
-                      lab="NE"
-                      activeState={(RCactive && NEactive) || openMC}
-                      hoverState={RCactive || NEactive}
-                      setActiveLab={setNEActive}
-                      setActiveArc={setRCActive}
-                      setOpen={setOpenMC}
-                    />
-
-                    <StudioInitiative
-                      title="Life-Ennobling Economics dialogue"
-                      arc="NE"
-                      studio="CD"
-                      activeState={
-                        (CDactive && NEactive && !BEactive) || openLEED
-                      }
-                      hoverState={ETCactive || NEactive}
-                      setActiveStudio={setCDActive}
-                      setActiveArc={setNEActive}
-                      setOpen={setOpenLEED}
-                    />
-
-                    {NZactive || NEactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setNZActive(false);
-                          setNEActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setNZActive(true);
-                          setNEActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {SGactive || NEactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setSGActive(false);
-                          setNEActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setSGActive(true);
-                          setNEActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    <Initiative
-                      title="New Economic Thinking"
-                      arc="X0"
-                      lab="NE"
-                      activeState={(M0active && NEactive) || openNET}
-                      hoverState={M0active || NEactive}
-                      setActiveLab={setNEActive}
-                      setActiveArc={setM0Active}
-                      setOpen={setOpenNET}
-                    />
-
-                    {REactive || NEactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setNEActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setNEActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {WIactive || NEactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setWIActive(false);
-                          setNEActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setWIActive(true);
-                          setNEActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    <StudioLabInitiative
-                      title="Cornerstone Indicators"
-                      arc="NE"
-                      studio="CD"
-                      activeState={(CDactive && NEactive && BEactive) || openCI}
-                      hoverState={BEactive || NEactive}
-                      setActiveStudio={setCDActive}
-                      setActiveArc={setBEActive}
-                      setActiveLab={setNEActive}
-                      setOpen={setOpenCI}
-                    />
-
-                    {PCactive || NEactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setNEActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classA} ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setNEActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <Lab
-                      title="Beyond Labour"
-                      short="BL"
-                      activeState={BLactive || openBL}
-                      setActive={setBLActive}
-                      setOpen={setOpenBL}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    {RCactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setRCActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setRCActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {ETCactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setETCActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setETCActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {NZactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setNZActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setNZActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {SGactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setSGActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setSGActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {M0active || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setM0Active(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setM0Active(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {REactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {WIactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setWIActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setWIActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {BEactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setBEActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setBEActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {PCactive || BLactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setBLActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setBLActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <Lab
-                      title="Capital Systems"
-                      short="CS"
-                      activeState={openCS || CSactive}
-                      setActive={setCSActive}
-                      setOpen={setOpenCS}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    {RCactive || CSactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setRCActive(false);
-                          setCSActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setRCActive(true);
-                          setCSActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    <Initiative
-                      title="City & Community Retrofit"
-                      arc="NF"
-                      lab="CS"
-                      activeState={(ETCactive && CSactive) || openCCR}
-                      hoverState={ETCactive || CSactive}
-                      setActiveLab={setCSActive}
-                      setActiveArc={setETCActive}
-                      setOpen={setOpenCCR}
-                    />
-
-                    {NZactive || CSactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setNZActive(false);
-                          setCSActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setNZActive(true);
-                          setCSActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {SGactive || CSactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setSGActive(false);
-                          setCSActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setSGActive(true);
-                          setCSActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {M0active || CSactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setM0Active(false);
-                          setCSActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setM0Active(true);
-                          setCSActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {REactive || CSactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setCSActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setCSActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    <Initiative
-                      title="TreesAI"
-                      arc="NI"
-                      lab="CS"
-                      activeState={(WIactive && CSactive) || openTAI}
-                      hoverState={WIactive || CSactive}
-                      setActiveLab={setCSActive}
-                      setActiveArc={setWIActive}
-                      setOpen={setOpenTAI}
-                    />
-
-                    {BEactive || CSactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setBEActive(false);
-                          setCSActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setBEActive(true);
-                          setCSActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {PCactive || CSactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setCSActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setCSActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <Lab
-                      title="Philanthr. Futures"
-                      short="PF"
-                      activeState={PFactive || openPF}
-                      setActive={setPFActive}
-                      setOpen={setOpenPF}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    {RCactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setRCActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setRCActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {ETCactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setETCActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setETCActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {NZactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setNZActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setNZActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {SGactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setSGActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setSGActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {M0active || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setM0Active(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setM0Active(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {REactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {WIactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setWIActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setWIActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {BEactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setBEActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setBEActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {PCactive || PFactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setPFActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setPFActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <Lab
-                      title="Property & Beyond"
-                      short="PB"
-                      activeState={PBactive || openPB}
-                      setActive={setPBActive}
-                      setOpen={setOpenPB}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    {RCactive || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setRCActive(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setRCActive(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {ETCactive || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setETCActive(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setETCActive(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {NZactive || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setNZActive(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setNZActive(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    <Initiative
-                      title="Property & Beyond portfolio"
-                      arc="7G"
-                      lab="PB"
-                      activeState={(SGactive && PBactive) || openPBP}
-                      hoverState={SGactive || PBactive}
-                      setActiveLab={setPBActive}
-                      setActiveArc={setSGActive}
-                      setOpen={setOpenPBP}
-                    />
-
-                    {M0active || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setM0Active(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setM0Active(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {REactive || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {WIactive || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setWIActive(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setWIActive(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {BEactive || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setBEActive(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setBEActive(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {PCactive || PBactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setPBActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setPBActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <Lab
-                      title="Societal Decisions"
-                      short="SD"
-                      activeState={QDactive || openQD}
-                      setActive={setQDActive}
-                      setOpen={setOpenQD}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    <Initiative
-                      title="Permissioning the City"
-                      arc="RC"
-                      lab="SD"
-                      activeState={(RCactive && QDactive) || openPTC}
-                      hoverState={RCactive || QDactive}
-                      setActiveLab={setQDActive}
-                      setActiveArc={setRCActive}
-                      setOpen={setOpenPTC}
-                    />
-
-                    {ETCactive || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setETCActive(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setETCActive(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {NZactive || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setNZActive(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setNZActive(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {SGactive || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setSGActive(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setSGActive(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {M0active || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setM0Active(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setM0Active(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {REactive || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {WIactive || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setWIActive(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setWIActive(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {BEactive || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setBEActive(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setBEActive(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {PCactive || QDactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setQDActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2  ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setQDActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2  ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <Lab
-                      title="Beyond the Rules"
-                      short="BR"
-                      activeState={BRactive || openBR}
-                      setActive={setBRActive}
-                      setOpen={setOpenBR}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    {RCactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setRCActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setRCActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {ETCactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setETCActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setETCActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {NZactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setNZActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setNZActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {SGactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setSGActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setSGActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {M0active || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setM0Active(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setM0Active(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    {REactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {WIactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setWIActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setWIActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {BEactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setBEActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setBEActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {PCactive || BRactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setBRActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classA}  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setBRActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classA}  ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <Lab
-                      title="Risk Intelligence"
-                      short="RI"
-                      activeState={SMactive || openSM}
-                      setActive={setSMActive}
-                      setOpen={setOpenSM}
-                      scrollYProgress={scrollYProgress}
-                      bgHoverInterpolate={bgHoverInterpolate}
-                    />
-
-                    {RCactive || SMactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setRCActive(false);
-                          setSMActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setRCActive(true);
-                          setSMActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {ETCactive || SMactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setETCActive(false);
-                          setSMActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setETCActive(true);
-                          setSMActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    <StudioInitiative
-                      title="CircuLaw"
-                      arc="NZ"
-                      studio="CT"
-                      activeState={(NZactive && CTactive) || openCL}
-                      hoverState={NZactive || SMactive}
-                      setActiveStudio={setCTActive}
-                      setActiveArc={setNZActive}
-                      setOpen={setOpenCL}
-                    />
-
-                    {SGactive || SMactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setSGActive(false);
-                          setSMActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setSGActive(true);
-                          setSMActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-
-                    <Initiative
-                      title="MatR"
-                      arc="M0"
-                      lab="SM"
-                      activeState={(M0active && SMactive) || openMATR}
-                      hoverState={M0active || SMactive}
-                      setActiveLab={setSMActive}
-                      setActiveArc={setM0Active}
-                      setOpen={setOpenMATR}
-                    />
-
-                    {REactive || SMactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setREActive(false);
-                          setSMActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setREActive(true);
-                          setSMActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {WIactive || SMactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setWIActive(false);
-                          setSMActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setWIActive(true);
-                          setSMActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {BEactive || SMactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setBEActive(false);
-                          setSMActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setBEActive(true);
-                          setSMActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classT} ${classA}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                    {PCactive || SMactive ? (
-                      <div
-                        onMouseLeave={() => {
-                          setPCActive(false);
-                          setSMActive(false);
-                        }}
-                        className={`my-1.5 bg-[#292929] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    ) : (
-                      <div
-                        onMouseEnter={() => {
-                          setPCActive(true);
-                          setSMActive(true);
-                        }}
-                        className={`my-1.5 bg-[#212121] p-2 ${classA}  ${classT} ${classAB}  h-[80px] w-[80px] `}
-                      >
-                        {' '}
-                      </div>
-                    )}
-                  </div>
+                  <MatrixGrid
+                    units={units}
+                    isActive={isActive}
+                    unitSetter={unitSetter}
+                    openPopup={openPopup}
+                    openPopupFor={openPopupFor}
+                    closePopup={closePopup}
+                    scrollYProgress={scrollYProgress}
+                    bgHoverInterpolate={bgHoverInterpolate}
+                  />
                 </div>
               </div>
               <div
@@ -4472,32 +2815,12 @@ export default function Homepage({ units }) {
                   </h2>
                 </div>
 
-                <Studio
-                  title="Civic Tech"
-                  short="CT"
-                  activeState={CTactive || openCT}
-                  setActive={setCTActive}
-                  setOpen={setOpenCT}
-                  scrollYProgress={scrollYProgress}
-                  bgHoverInterpolate={bgHoverInterpolate}
-                />
-
-                <Studio
-                  title="Conversational Design"
-                  short="CD"
-                  activeState={CDactive || openCD}
-                  setActive={setCDActive}
-                  setOpen={setOpenCD}
-                  scrollYProgress={scrollYProgress}
-                  bgHoverInterpolate={bgHoverInterpolate}
-                />
-
-                <Studio
-                  title="Foresight & Futuring"
-                  short="FF"
-                  activeState={FFactive || openFF}
-                  setActive={setFFActive}
-                  setOpen={setOpenFF}
+                <StudioRow
+                  units={units}
+                  isActive={isActive}
+                  unitSetter={unitSetter}
+                  openPopup={openPopup}
+                  openPopupFor={openPopupFor}
                   scrollYProgress={scrollYProgress}
                   bgHoverInterpolate={bgHoverInterpolate}
                 />
@@ -4505,16 +2828,21 @@ export default function Homepage({ units }) {
                 <animated.div
                   style={{
                     backgroundColor: scrollYProgress.to(() =>
-                      bgHoverInterpolate(3, ODactive || openOD),
+                      bgHoverInterpolate(
+                        3,
+                        isActive('OD') || openPopup === 'OD',
+                      ),
                     ),
                   }}
                   className={classNames(
-                    ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
+                    isActive('OD') || openPopup === 'OD'
+                      ? ' text-white'
+                      : ' text-[#A8A8A8]',
                     'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px]',
                   )}
-                  onMouseOver={() => setODActive(true)}
-                  onMouseLeave={() => setODActive(false)}
-                  onClick={() => setOpenOD(true)}
+                  onMouseOver={() => unitSetter('OD')(true)}
+                  onMouseLeave={() => unitSetter('OD')(false)}
+                  onClick={() => openPopupFor('OD')(true)}
                 >
                   <p className="font-SaansRegular text-[17px] font-normal uppercase">
                     Org Dev
@@ -4753,32 +3081,12 @@ export default function Homepage({ units }) {
                     </animated.h2>
                   </div>
 
-                  <Studio
-                    title="Civic Tech"
-                    short="CT"
-                    activeState={CTactive || openCT}
-                    setActive={setCTActive}
-                    setOpen={setOpenCT}
-                    scrollYProgress={scrollYProgress}
-                    bgHoverInterpolate={bgHoverInterpolate}
-                  />
-
-                  <Studio
-                    title="Conversat. Design"
-                    short="CD"
-                    activeState={CDactive || openCD}
-                    setActive={setCDActive}
-                    setOpen={setOpenCD}
-                    scrollYProgress={scrollYProgress}
-                    bgHoverInterpolate={bgHoverInterpolate}
-                  />
-
-                  <Studio
-                    title="Foresight & Futuring"
-                    short="FF"
-                    activeState={FFactive || openFF}
-                    setActive={setFFActive}
-                    setOpen={setOpenFF}
+                  <StudioRow
+                    units={units}
+                    isActive={isActive}
+                    unitSetter={unitSetter}
+                    openPopup={openPopup}
+                    openPopupFor={openPopupFor}
                     scrollYProgress={scrollYProgress}
                     bgHoverInterpolate={bgHoverInterpolate}
                   />
@@ -4786,16 +3094,21 @@ export default function Homepage({ units }) {
                   <animated.div
                     style={{
                       backgroundColor: scrollYProgress.to(() =>
-                        bgHoverInterpolate(3, ODactive || openOD),
+                        bgHoverInterpolate(
+                          3,
+                          isActive('OD') || openPopup === 'OD',
+                        ),
                       ),
                     }}
                     className={classNames(
-                      ODactive || openOD ? ' text-white' : ' text-[#A8A8A8]',
+                      isActive('OD') || openPopup === 'OD'
+                        ? ' text-white'
+                        : ' text-[#A8A8A8]',
                       'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px] tracking-wide',
                     )}
-                    onMouseOver={() => setODActive(true)}
-                    onMouseLeave={() => setODActive(false)}
-                    onClick={() => setOpenOD(true)}
+                    onMouseOver={() => unitSetter('OD')(true)}
+                    onMouseLeave={() => unitSetter('OD')(false)}
+                    onClick={() => openPopupFor('OD')(true)}
                   >
                     <p className="font-SaansRegular  text-[17px] font-normal uppercase leading-[125%]">
                       Org Dev
@@ -4852,7 +3165,7 @@ export default function Homepage({ units }) {
                 <div className="mb-1.5 ml-4 grid grid-cols-6">
                   <div className="">
                     <div
-                      onClick={() => setOpenDomainA(true)}
+                      onClick={() => openPopupFor('DomainA')(true)}
                       className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight ">
@@ -4865,7 +3178,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainA1(true)}
+                      onClick={() => openPopupFor('DomainA1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4877,7 +3190,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainA2(true)}
+                      onClick={() => openPopupFor('DomainA2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4889,7 +3202,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainA3(true)}
+                      onClick={() => openPopupFor('DomainA3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4902,7 +3215,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainA4(true)}
+                      onClick={() => openPopupFor('DomainA4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4936,7 +3249,7 @@ export default function Homepage({ units }) {
 
                   <div className="">
                     <div
-                      onClick={() => setOpenDomainB(true)}
+                      onClick={() => openPopupFor('DomainB')(true)}
                       className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4948,7 +3261,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainB1(true)}
+                      onClick={() => openPopupFor('DomainB1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4960,7 +3273,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainB2(true)}
+                      onClick={() => openPopupFor('DomainB2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4972,7 +3285,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainB3(true)}
+                      onClick={() => openPopupFor('DomainB3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -4984,7 +3297,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainB4(true)}
+                      onClick={() => openPopupFor('DomainB4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5018,7 +3331,7 @@ export default function Homepage({ units }) {
 
                   <div className="">
                     <div
-                      onClick={() => setOpenDomainC(true)}
+                      onClick={() => openPopupFor('DomainC')(true)}
                       className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#206B35] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5030,7 +3343,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainC1(true)}
+                      onClick={() => openPopupFor('DomainC1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5042,7 +3355,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainC2(true)}
+                      onClick={() => openPopupFor('DomainC2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5054,7 +3367,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainC3(true)}
+                      onClick={() => openPopupFor('DomainC3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5066,7 +3379,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainC4(true)}
+                      onClick={() => openPopupFor('DomainC4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5078,7 +3391,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainC5(true)}
+                      onClick={() => openPopupFor('DomainC5')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5091,7 +3404,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainC6(true)}
+                      onClick={() => openPopupFor('DomainC6')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pl-2 pr-1 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5116,7 +3429,7 @@ export default function Homepage({ units }) {
 
                   <div className="">
                     <div
-                      onClick={() => setOpenDomainD(true)}
+                      onClick={() => openPopupFor('DomainD')(true)}
                       className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#205793] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5128,7 +3441,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainD1(true)}
+                      onClick={() => openPopupFor('DomainD1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5141,7 +3454,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainD2(true)}
+                      onClick={() => openPopupFor('DomainD2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5154,7 +3467,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainD3(true)}
+                      onClick={() => openPopupFor('DomainD3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5166,7 +3479,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainD4(true)}
+                      onClick={() => openPopupFor('DomainD4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5178,7 +3491,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainD5(true)}
+                      onClick={() => openPopupFor('DomainD5')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5207,7 +3520,7 @@ export default function Homepage({ units }) {
 
                   <div className="">
                     <div
-                      onClick={() => setOpenDomainE(true)}
+                      onClick={() => openPopupFor('DomainE')(true)}
                       className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8D2D55] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5220,7 +3533,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainE1(true)}
+                      onClick={() => openPopupFor('DomainE1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5232,7 +3545,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainE2(true)}
+                      onClick={() => openPopupFor('DomainE2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5244,7 +3557,7 @@ export default function Homepage({ units }) {
                       </p>
                     </div>
                     <div
-                      onClick={() => setOpenDomainE3(true)}
+                      onClick={() => openPopupFor('DomainE3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5256,7 +3569,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainE4(true)}
+                      onClick={() => openPopupFor('DomainE4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5289,7 +3602,7 @@ export default function Homepage({ units }) {
 
                   <div className="">
                     <div
-                      onClick={() => setOpenDomainF(true)}
+                      onClick={() => openPopupFor('DomainF')(true)}
                       className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#808080] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5301,7 +3614,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainF1(true)}
+                      onClick={() => openPopupFor('DomainF1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5314,7 +3627,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainF2(true)}
+                      onClick={() => openPopupFor('DomainF2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5325,7 +3638,7 @@ export default function Homepage({ units }) {
                       </p>
                     </div>
                     <div
-                      onClick={() => setOpenDomainF3(true)}
+                      onClick={() => openPopupFor('DomainF3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
@@ -5338,7 +3651,7 @@ export default function Homepage({ units }) {
                     </div>
 
                     <div
-                      onClick={() => setOpenDomainF4(true)}
+                      onClick={() => openPopupFor('DomainF4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
@@ -5406,45 +3719,45 @@ export default function Homepage({ units }) {
         className={`relative hidden sm:flex sm:justify-center matrix:grid matrix:grid-cols-12 `}
       >
         <Paradigms
-          setOpenNE={setOpenNE}
-          setOpenRC={setOpenRC}
-          setOpenSM={setOpenSM}
-          setOpenRE={setOpenRE}
-          setOpenCT={setOpenCT}
-          setOpenPC={setOpenPC}
-          setOpenPB={setOpenPB}
-          setOpenBR={setOpenBR}
-          setOpenCD={setOpenCD}
-          setOpenQD={setOpenQD}
-          setOpenETC={setOpenETC}
-          setOpenOD={setOpenOD}
-          setOpenBE={setOpenBE}
-          setOpenSG={setOpenSG}
-          setOpenCS={setOpenCS}
-          setOpenM0={setOpenM0}
-          setOpenNZ={setOpenNZ}
+          setOpenNE={openPopupFor('NE')}
+          setOpenRC={openPopupFor('RC')}
+          setOpenSM={openPopupFor('RI')}
+          setOpenRE={openPopupFor('RF')}
+          setOpenCT={openPopupFor('CT')}
+          setOpenPC={openPopupFor('PC')}
+          setOpenPB={openPopupFor('PB')}
+          setOpenBR={openPopupFor('BR')}
+          setOpenCD={openPopupFor('CD')}
+          setOpenQD={openPopupFor('SD')}
+          setOpenETC={openPopupFor('NF')}
+          setOpenOD={openPopupFor('OD')}
+          setOpenBE={openPopupFor('BE')}
+          setOpenSG={openPopupFor('7G')}
+          setOpenCS={openPopupFor('CS')}
+          setOpenM0={openPopupFor('X0')}
+          setOpenNZ={openPopupFor('NZC')}
         />
       </animated.div>
 
       <div className="relative mt-20 sm:hidden">
         <Paradigms
-          setOpenNE={setOpenNE}
-          setOpenRC={setOpenRC}
-          setOpenSM={setOpenSM}
-          setOpenRE={setOpenRE}
-          setOpenCT={setOpenCT}
-          setOpenPC={setOpenPC}
-          setOpenPB={setOpenPB}
-          setOpenBR={setOpenBR}
-          setOpenCD={setOpenCD}
-          setOpenQD={setOpenQD}
-          setOpenETC={setOpenETC}
-          setOpenOD={setOpenOD}
-          setOpenBE={setOpenBE}
-          setOpenSG={setOpenSG}
-          setOpenCS={setOpenCS}
-          setOpenM0={setOpenM0}
-          setOpenNZ={setOpenNZ}
+          setOpenNE={openPopupFor('NE')}
+          setOpenRC={openPopupFor('RC')}
+          setOpenSM={openPopupFor('RI')}
+          setOpenRE={openPopupFor('RF')}
+          setOpenCT={openPopupFor('CT')}
+          setOpenPC={openPopupFor('PC')}
+          setOpenPB={openPopupFor('PB')}
+          setOpenBR={openPopupFor('BR')}
+          setOpenCD={openPopupFor('CD')}
+          setOpenQD={openPopupFor('SD')}
+          setOpenETC={openPopupFor('NF')}
+          setOpenOD={openPopupFor('OD')}
+          setOpenBE={openPopupFor('BE')}
+          setOpenSG={openPopupFor('7G')}
+          setOpenCS={openPopupFor('CS')}
+          setOpenM0={openPopupFor('X0')}
+          setOpenNZ={openPopupFor('NZC')}
         />
       </div>
     </div>
