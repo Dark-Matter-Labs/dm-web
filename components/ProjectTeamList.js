@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 import { urlForImage } from '@/sanity/lib/image';
 
-function TeamRow({ person, onSelect, dimmed }) {
+function TeamRow({ person, onSelect }) {
   return (
     <button
       type="button"
@@ -16,19 +16,10 @@ function TeamRow({ person, onSelect, dimmed }) {
           alt=""
           width={22}
           height={22}
-          className={
-            dimmed
-              ? 'grayscale duration-200 group-hover:grayscale-0'
-              : undefined
-          }
           style={{ objectFit: 'fill' }}
         />
       </div>
-      <span
-        className={`font-SaansRegular text-xl group-hover:opacity-80 ${
-          dimmed ? 'text-grey-3' : 'text-[#EBEBEB]'
-        }`}
-      >
+      <span className="font-SaansRegular text-xl text-[#EBEBEB] group-hover:opacity-80">
         {person.fullName}
       </span>
     </button>
@@ -38,9 +29,10 @@ function TeamRow({ person, onSelect, dimmed }) {
 /**
  * Team block for a project or initiative page.
  *
- * Current team members are listed first. Anyone marked as alumni in Sanity is
- * grouped under a "Past team" sub-heading below them, in a quieter register,
- * so credit is preserved without implying they are still reachable at Dm.
+ * Current team members are listed first, with headshot and a dialog. Anyone
+ * marked as alumni in Sanity is listed by name alone under "Past team", so
+ * credit is preserved without implying they are still reachable at Dm — and
+ * because we hold no headshot or bio for most of them.
  */
 export default function ProjectTeamList({ team, onSelect }) {
   const { current, alumni } = useMemo(() => {
@@ -74,13 +66,15 @@ export default function ProjectTeamList({ team, onSelect }) {
           <p className="font-SaansMed text-xl uppercase text-label">
             Past team
           </p>
+          {/* Names only, and not interactive — there is no headshot or bio
+              behind an alumnus to open. */}
           {alumni.map((person) => (
-            <TeamRow
+            <p
               key={person._id ?? person.fullName}
-              person={person}
-              onSelect={onSelect}
-              dimmed
-            />
+              className="font-SaansRegular text-xl text-grey-3"
+            >
+              {person.fullName}
+            </p>
           ))}
         </div>
       )}

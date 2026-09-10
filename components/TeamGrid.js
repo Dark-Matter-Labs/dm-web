@@ -23,9 +23,11 @@ export default function TeamGrid({ dmliens }) {
     };
   }, [dmliens]);
 
+  // Only current team can be hovered, so the bio panel never needs to
+  // consider alumni.
   const hoveredPerson = useMemo(
-    () => (dmliens ?? []).find((person) => person.fullName === hover),
-    [dmliens, hover],
+    () => current.find((person) => person.fullName === hover),
+    [current, hover],
   );
 
   const handleSelect = useCallback((person) => {
@@ -48,11 +50,6 @@ export default function TeamGrid({ dmliens }) {
               <h2 className="w-full pb-2.5 font-SaansRegular text-5xl leading-[42px]">
                 {hoveredPerson.fullName}
               </h2>
-              {hoveredPerson.alumni && (
-                <p className="w-full pb-2.5 font-SaansMed text-xl uppercase text-grey-3">
-                  Alumni
-                </p>
-              )}
               <p className="w-full font-SaansRegular text-xl leading-[26px]">
                 {hoveredPerson.bio}
               </p>
@@ -87,15 +84,26 @@ export default function TeamGrid({ dmliens }) {
                   contribution stays part of the record.
                 </p>
               </div>
-              <ul className={GRID_CLASSES}>
+              {/* Names only, and not interactive: we hold no headshot, bio or
+                  current location for most alumni, so there is nothing for a
+                  hover or a dialog to show.
+
+                  Multi-column rather than a grid. In a grid, one name that
+                  wraps to two lines makes its whole row taller and leaves a
+                  gap under every single-line name beside it. Columns flow the
+                  names as text, so a long one simply takes the space it needs
+                  and the next name follows. Three columns at 690px gives
+                  ~220px a column, which fits every current name on one line
+                  anyway; `break-inside-avoid` keeps any future longer one
+                  from splitting across a column break. */}
+              <ul className="columns-2 gap-x-[24px] border-b border-[#353535] pb-[60px] sm:columns-3">
                 {alumni.map((person) => (
-                  <TeamMemberCard
+                  <li
                     key={person._id ?? person.fullName}
-                    person={person}
-                    onSelect={handleSelect}
-                    onHoverStart={handleHoverStart}
-                    onHoverEnd={handleHoverEnd}
-                  />
+                    className="break-inside-avoid pb-[10px] font-SaansRegular text-xl leading-[26px] text-grey-3"
+                  >
+                    {person.fullName}
+                  </li>
                 ))}
               </ul>
             </section>

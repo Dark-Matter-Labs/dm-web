@@ -6,13 +6,10 @@ import { urlForImage } from '@/sanity/lib/image';
 /**
  * A single person tile in the team grid.
  *
- * Alumni are rendered in a deliberately quieter register — desaturated
- * headshot and a dimmer name — which resolves to the full-colour treatment on
- * hover or keyboard focus. This reads as "past team" without looking broken.
+ * Current team only. Alumni are listed by name in `TeamGrid` because we hold
+ * no headshot, bio or current location for most of them.
  */
 function TeamMemberCard({ person, onSelect, onHoverStart, onHoverEnd }) {
-  const isAlumni = Boolean(person.alumni);
-
   return (
     <li className="group">
       <button
@@ -29,20 +26,12 @@ function TeamMemberCard({ person, onSelect, onHoverStart, onHoverEnd }) {
           alt={person.fullName}
           width={157}
           height={157}
-          className={`mb-4 w-auto duration-200 group-hover:opacity-80 ${
-            isAlumni
-              ? 'opacity-75 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0'
-              : ''
-          }`}
+          className="mb-4 w-auto duration-200 group-hover:opacity-80"
           placeholder={person.metadata?.lqip ? 'blur' : 'empty'}
           blurDataURL={person.metadata?.lqip}
         />
         <div className="flex w-full flex-col items-start text-left">
-          <h3
-            className={`font-SaansRegular text-xl leading-[21px] duration-200 group-hover:opacity-80 ${
-              isAlumni ? 'text-grey-3' : 'text-grey-1'
-            }`}
-          >
+          <h3 className="font-SaansRegular text-xl leading-[21px] text-grey-1 duration-200 group-hover:opacity-80">
             {person.fullName}
           </h3>
           {person?.location?.map((loc, id) => (
