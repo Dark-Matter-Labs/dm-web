@@ -53,10 +53,9 @@ export const BASE_STUDIO = 'OD';
  * `activeNot` — none of these may be active.
  * `hoverAny`  — any of these triggers the cell's hover styling.
  * `sets`      — the codes hovering this cell makes active.
- * `labels`    — the small codes drawn on the cell face. Two of these still
- *                use pre-rename codes: CircuLaw shows NZ (not NZC) and MatR
- *                shows M0 + SM (not X0 + RI). Kept verbatim so the page does
- *                not change; correcting them is a content decision.
+ * `labels`    — the small codes drawn on the cell face. CircuLaw and MatR
+ *                previously showed the pre-rename codes NZ, M0 and SM; these
+ *                are now NZC, X0 and RI to match the units they refer to.
  */
 export const INITIATIVES = [
   {
@@ -154,7 +153,7 @@ export const INITIATIVES = [
     popup: 'CL',
     variant: 'studio',
     title: 'CircuLaw',
-    labels: { arc: 'NZ', studio: 'CT' },
+    labels: { arc: 'NZC', studio: 'CT' },
     activeAll: ['NZC', 'CT'],
     hoverAny: ['NZC', 'RI'],
     sets: { studio: 'CT', arc: 'NZC' },
@@ -165,7 +164,7 @@ export const INITIATIVES = [
     popup: 'MATR',
     variant: 'lab-arc',
     title: 'MatR',
-    labels: { arc: 'M0', lab: 'SM' },
+    labels: { arc: 'X0', lab: 'RI' },
     activeAll: ['X0', 'RI'],
     hoverAny: ['X0', 'RI'],
     sets: { lab: 'RI', arc: 'X0' },

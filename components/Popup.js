@@ -9,6 +9,13 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import { convertImage, toBase64 } from '@/utils/imageLoad';
 import test from '../images/Leee.png';
 
+/**
+ * Popup for a Matrix unit, project or concept.
+ *
+ * Links can arrive two ways: as a `links` array (Sanity-driven units) or as
+ * the older `website` / `publication` pair (the project and concept popups
+ * that are still hardcoded).
+ */
 function Popup({
   title,
   openState,
@@ -16,10 +23,23 @@ function Popup({
   website,
   publication,
   publicationLabel,
+  links,
   content,
   type,
   image,
 }) {
+  const linkList =
+    links && links.length > 0
+      ? links
+      : [
+          website ? { linkText: 'Website', linkUrl: website } : null,
+          publication
+            ? {
+                linkText: publicationLabel || 'Publication',
+                linkUrl: publication,
+              }
+            : null,
+        ].filter(Boolean);
   return (
     <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
       <DialogBackdrop
@@ -57,7 +77,7 @@ function Popup({
                 )}
               </div>
               <div className=" pl-0 sm:pl-[20px]">
-                {website !== '' || publication !== '' ? (
+                {linkList.length > 0 ? (
                   <p className="pb-2 font-SaansMed text-xl uppercase text-label sm:pb-[12px]">
                     Links
                   </p>
@@ -67,24 +87,15 @@ function Popup({
                   </p>
                 )}
 
-                {website !== '' && (
-                  <div className="">
-                    <a target="_blank" href={website}>
+                {linkList.map((link) => (
+                  <div key={link.linkUrl}>
+                    <a target="_blank" href={link.linkUrl}>
                       <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                        Website ↗
+                        {link.linkText} ↗
                       </p>
                     </a>
                   </div>
-                )}
-                {publication !== '' && (
-                  <div className="">
-                    <a target="_blank" href={publication}>
-                      <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
-                        {publicationLabel} ↗
-                      </p>
-                    </a>
-                  </div>
-                )}
+                ))}
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[16px] px-4 py-8  sm:py-[28px] sm:pl-[28px] sm:pr-[32px]">
