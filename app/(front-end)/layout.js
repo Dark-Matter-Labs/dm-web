@@ -1,14 +1,10 @@
 import { Suspense } from 'react';
-import { sanityFetch } from '@/sanity/lib/client';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JobsCount from '@/components/JobsCount';
 import Loading from './loading';
 import '../../styles/global.css';
-
-const jobsQuery = `
-*[_type == 'jobObject']
-`;
 
 export const metadata = {
   metadataBase: new URL('https://darkmatterlabs.org'),
@@ -23,20 +19,31 @@ export const metadata = {
   },
 };
 
-export default async function RootLayout({ children }) {
-  const jobs = await sanityFetch({
-    query: jobsQuery,
-    tags: ['jobObject'],
-  });
-
+/**
+ * No longer async. The layout used to `await` the jobs query before
+ * rendering anything, so one Sanity request for a superscript number in the
+ * nav gated the first paint of every page. The counter now streams in on
+ * its own, behind a null fallback, and the chrome paints immediately.
+ */
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <main>
-          {/* The Suspense boundary wraps only the page content. It previously
-              wrapped the navbar and footer too, so any slow page-level fetch
-              replaced the whole site chrome with a bare spinner. */}
-          <Navbar numberOfJobs={jobs.length} />
+          <Navbar
+            jobsCount={
+              <Suspense fallback={null}>
+                <JobsCount className="text-[9.5px]" />
+              </Suspense>
+            }
+            jobsCountMobile={
+              <Suspense fallback={null}>
+                <JobsCount className="text-[12px]" />
+              </Suspense>
+            }
+          />
+          {/* Boundary wraps only the page content, so a slow page fetch
+              never replaces the navbar and footer with a bare spinner. */}
           <div className="global-margin">
             <Suspense fallback={<Loading />}>{children}</Suspense>
           </div>

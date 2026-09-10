@@ -40,9 +40,9 @@ import NETPic from '@/images/projects/Intersection_New Economic Thinking.jpg';
 import CIconceptPic from '@/images/concepts/Concept_Collective inelligence of cities.jpg';
 import BRconceptPic from '@/images/concepts/Concept_Resilient bioregional food systems.jpg';
 
-import matrixMobile1 from '@/images/Matrix1.png';
-import matrixMobile2 from '@/images/Matrix2.png';
-import matrixMobile3 from '@/images/Matrix3.png';
+import matrixMobile1 from '@/images/Matrix1.webp';
+import matrixMobile2 from '@/images/Matrix2.webp';
+import matrixMobile3 from '@/images/Matrix3.webp';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -2115,11 +2115,11 @@ export default function Homepage({ units }) {
             </div>
             <Image
               src={matrixMobile1}
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="mobile matrx"
-              style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
+              alt=""
+              sizes="92vw"
+              placeholder="blur"
+              className="h-auto w-full"
+              style={{ paddingBottom: '20px' }}
             />
             <div className="flex flex-col items-center justify-center py-8">
               <h2 className="heading-3xl-regular pb-4 text-grey-3">
@@ -2137,11 +2137,11 @@ export default function Homepage({ units }) {
             </div>
             <Image
               src={matrixMobile2}
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="mobile matrx"
-              style={{ width: '100%', height: 'auto', paddingBottom: '20px' }}
+              alt=""
+              sizes="92vw"
+              placeholder="blur"
+              className="h-auto w-full"
+              style={{ paddingBottom: '20px' }}
             />
             <div className="flex flex-col items-center justify-center py-8">
               <h2 className="heading-3xl-regular pb-4 text-grey-3">
@@ -2159,11 +2159,10 @@ export default function Homepage({ units }) {
             </div>
             <Image
               src={matrixMobile3}
-              width={0}
-              height={0}
-              sizes="100vw"
-              alt="mobile matrx"
-              style={{ width: '100%', height: 'auto' }}
+              alt=""
+              sizes="92vw"
+              placeholder="blur"
+              className="h-auto w-full"
             />
           </div>
 
@@ -3221,14 +3220,10 @@ export default function Homepage({ units }) {
             ),
           ),
         }}
-        className={`context-margin relative hidden sm:flex sm:justify-center matrix:grid matrix:grid-cols-12 `}
+        className={`context-margin mobile-always-visible relative flex justify-center matrix:grid matrix:grid-cols-12`}
       >
         <Contexts />
       </animated.div>
-
-      <div className="relative mt-20 sm:hidden">
-        <Contexts />
-      </div>
 
       <animated.div
         style={{
@@ -3239,7 +3234,7 @@ export default function Homepage({ units }) {
             ),
           ),
         }}
-        className={`relative hidden sm:flex sm:justify-center matrix:grid matrix:grid-cols-12 `}
+        className={`mobile-always-visible relative flex justify-center matrix:grid matrix:grid-cols-12`}
       >
         <Paradigms
           setOpenNE={openPopupFor('NE')}
@@ -3261,28 +3256,6 @@ export default function Homepage({ units }) {
           setOpenNZ={openPopupFor('NZC')}
         />
       </animated.div>
-
-      <div className="relative mt-20 sm:hidden">
-        <Paradigms
-          setOpenNE={openPopupFor('NE')}
-          setOpenRC={openPopupFor('RC')}
-          setOpenSM={openPopupFor('RI')}
-          setOpenRE={openPopupFor('RF')}
-          setOpenCT={openPopupFor('CT')}
-          setOpenPC={openPopupFor('PC')}
-          setOpenPB={openPopupFor('PB')}
-          setOpenBR={openPopupFor('BR')}
-          setOpenCD={openPopupFor('CD')}
-          setOpenQD={openPopupFor('SD')}
-          setOpenETC={openPopupFor('NF')}
-          setOpenOD={openPopupFor('OD')}
-          setOpenBE={openPopupFor('BE')}
-          setOpenSG={openPopupFor('7G')}
-          setOpenCS={openPopupFor('CS')}
-          setOpenM0={openPopupFor('X0')}
-          setOpenNZ={openPopupFor('NZC')}
-        />
-      </div>
     </div>
   );
 }
