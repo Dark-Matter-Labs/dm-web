@@ -2,9 +2,9 @@ export default function Contexts() {
   return (
     <>
       <div className="side-display col-span-5 w-[400px] max-w-xs">
-        <div className="mt-[0px]">
-          <h2 className="heading-4xl pb-2 text-grey-3">Contexts</h2>
-          <p className="p-xl-regular max-w-[380px] text-grey-3">
+        <div className="mt-0">
+          <h2 className="heading-4xl text-grey-3 pb-2">Contexts</h2>
+          <p className="p-xl-regular text-grey-3 max-w-[380px]">
             The overarching LEE Mission allows us to contextually adjust the
             horizons of our interactions and interventions, whilst building
             towards a coherent field of influence and change. A single theory of
@@ -14,10 +14,10 @@ export default function Contexts() {
         </div>
       </div>
       <div className={`matrix-justify relative col-span-7 sm:w-[690px]`}>
-        <div id="context" className="mb-20 ">
+        <div id="context" className="mb-20">
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Political landscapes</h2>
-            <p className="p-3xl pb-4 text-grey-7">
+            <p className="p-3xl text-grey-7 pb-4">
               How can we work intelligently with the constraints and
               opportunities of political ideologies?
             </p>
@@ -34,7 +34,7 @@ export default function Contexts() {
 
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Geographical landscapes</h2>
-            <p className="p-3xl pb-4 text-grey-7">
+            <p className="p-3xl text-grey-7 pb-4">
               What can we leverage by deliberately targeting lead or established
               markets to test a tool or concept?
             </p>
@@ -48,9 +48,9 @@ export default function Contexts() {
             </p>
           </div>
 
-          <div className="mb-8 ">
+          <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Time horizons</h2>
-            <p className="p-3xl pb-4 text-grey-7">
+            <p className="p-3xl text-grey-7 pb-4">
               How can we leverage the broad spectrum of realities represented
               across the global context?
             </p>
@@ -65,9 +65,9 @@ export default function Contexts() {
             </p>
           </div>
 
-          <div className="mb-8 ">
+          <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Alliances</h2>
-            <p className="p-3xl pb-4 text-grey-7">
+            <p className="p-3xl text-grey-7 pb-4">
               What could be unleashed if we can identify and engage unusual (and
               often powerful) actors with converging aspirations?
             </p>

@@ -20,7 +20,7 @@ function FeedItem({ item }) {
 
   return (
     <article className="group flex h-full w-full min-w-0 flex-col border-t border-t-[#353535] pt-[20px]">
-      <div className="relative mb-[20px] aspect-[3/2] w-full overflow-hidden">
+      <div className="relative mb-[20px] aspect-3/2 w-full overflow-hidden">
         <Image
           src={urlForImage(item.image)}
           alt=""
@@ -34,7 +34,7 @@ function FeedItem({ item }) {
 
       <div className="flex flex-1 flex-col gap-[8px]">
         <div className="flex items-baseline gap-[10px]">
-          <span className="nav-xl uppercase text-label">
+          <span className="nav-xl text-label uppercase">
             {TYPE_LABELS[item.type] ?? item.type}
           </span>
           <span aria-hidden="true" className="nav-xl text-label">
@@ -47,20 +47,20 @@ function FeedItem({ item }) {
             })}
           </span>
           {item.type === 'media' && (
-            <span className="nav-xl ml-auto text-label" aria-hidden="true">
+            <span className="nav-xl text-label ml-auto" aria-hidden="true">
               ↗
             </span>
           )}
         </div>
 
-        <h2 className="break-words font-SaansRegular text-4xl leading-[28px] text-white transition-opacity duration-200 group-hover:opacity-80 md:text-5xl md:leading-[36px]">
+        <h2 className="font-SaansRegular text-4xl leading-[28px] wrap-break-word text-white transition-opacity duration-200 group-hover:opacity-80 md:text-5xl md:leading-[36px]">
           {item.title}
         </h2>
 
         <h3 className="feed-sub text-grey-3">{item.subtitle}</h3>
 
         {units.length > 0 && (
-          <p className="nav-xl mt-auto pt-[10px] text-grey-3">
+          <p className="nav-xl text-grey-3 mt-auto pt-[10px]">
             <span className="sr-only">Units: </span>
             {units.map((unit) => unit.title).join(', ')}
           </p>

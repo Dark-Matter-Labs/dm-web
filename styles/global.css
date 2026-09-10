@@ -1,40 +1,168 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-html,
-body {
-  background-color: #111112;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@theme {
+  --font-SaansRegular: SaansRegular, system-ui;
+  --font-SaansMed: SaansMedium, system-ui;
+
+  --color-grey-1: #e2e2e2;
+  --color-grey-2: #585858;
+  --color-grey-3: #a8a8a8;
+  --color-grey-4: #808080;
+  --color-grey-5: #e1e1e1;
+  --color-grey-6: #e3e3e3;
+  --color-grey-7: #848484;
+  --color-label: #8a8a8a;
+
+  --text-lg: 15px;
+  --text-xl: 16px;
+  --text-2xl: 18px;
+  --text-3xl: 20px;
+  --text-4xl: 24px;
+  --text-5xl: 32px;
+  --text-6xl: 36px;
+  --text-7xl: 56px;
+
+  --leading-11: 24px;
+  --leading-12: 26px;
+  --leading-13: 34px;
+  --leading-14: 42px;
+  --leading-15: 54.7px;
+  --leading-16: 60px;
+
+  --breakpoint-xs: 640px;
+  --breakpoint-sm: 810px;
+  --breakpoint-matrix: 1210px;
+  --breakpoint-md: 1600px;
 }
 
-a:hover,
-a:focus {
-  outline: none;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-button:hover,
-button:focus {
-  outline: none;
+/* Padding was previously reached through an @apply of a custom
+ * `global-px` class that was itself only defined inside media queries.
+ * Tailwind 4 cannot @apply a plain class like that, and the indirection
+ * bought nothing — `global-px` was never used as a class in any template.
+ * Inlined to the same effective values: 1.25rem below the sm breakpoint
+ * (810px), 0 at and above it. */
+@utility global-margin {
+  @apply container mx-auto max-w-[1200px] overflow-x-hidden px-5 sm:overflow-x-visible sm:px-0;
 }
 
-* {
-  box-sizing: border-box;
+@utility heading-7xl {
+  @apply font-SaansRegular text-7xl leading-16;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+@utility heading-4xl {
+  @apply font-SaansRegular text-4xl leading-13;
 }
 
-/* Saans, licensed for web use.
+@utility heading-5xl-Reg {
+  @apply font-SaansRegular text-5xl leading-14;
+}
+
+@utility nav-xl {
+  @apply font-SaansRegular text-xl leading-[1.2em];
+}
+
+@utility nav-2xl {
+  @apply font-SaansMed text-2xl;
+}
+
+@utility p-4xl-medium {
+  @apply font-SaansMed text-4xl leading-14;
+}
+
+@utility p-3xl-regular {
+  @apply font-SaansRegular text-3xl leading-13;
+}
+
+@utility p-xl-regular {
+  @apply font-SaansRegular text-xl leading-[1.6em];
+}
+
+@utility p-xl-medium {
+  @apply font-SaansMed text-xl leading-12;
+}
+
+@utility p-lg-regular {
+  @apply font-SaansRegular text-lg leading-12;
+}
+
+@utility p-3xl {
+  @apply font-SaansRegular text-xl leading-12;
+}
+
+@utility p-body2 {
+  @apply font-SaansRegular text-[20.12px] leading-[29.99px];
+}
+
+@utility studio {
+  @apply bg-linear-to-b from-black to-[#292929];
+}
+
+@utility t1 {
+  @apply relative;
+}
+
+@utility t2 {
+  @apply sticky;
+  top: calc(50% - 500px);
+}
+
+@layer utilities {
+  html,
+  body {
+    background-color: #111112;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    outline: none;
+  }
+
+  button:hover,
+  button:focus {
+    outline: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Saans, licensed for web use.
  *
  * Previously each family was declared twice — once for the .woff and once
  * for the .woff2 — so the second declaration simply overrode the first and
@@ -49,114 +177,48 @@ img {
  * font-display: swap renders in the fallback face immediately rather than
  * leaving text invisible while the font downloads. */
 
-@font-face {
-  font-family: 'SaansRegular';
-  src:
-    url('../fonts/SaansRegular.woff2') format('woff2'),
-    url('../fonts/SaansRegular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SaansRegular';
-  src:
-    url('../fonts/SaansRegularItalic.woff2') format('woff2'),
-    url('../fonts/SaansRegularItalic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SaansMedium';
-  src:
-    url('../fonts/SaansMedium.woff2') format('woff2'),
-    url('../fonts/SaansMedium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SaansMedium';
-  src:
-    url('../fonts/SaansMediumItalic.woff2') format('woff2'),
-    url('../fonts/SaansMediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-.bg-alpha {
-  background: rgba(37, 36, 36, 1);
-}
-
-@layer components {
-  .global-margin {
-    @apply global-px container mx-auto max-w-[1200px] overflow-x-hidden sm:overflow-x-visible;
+  @font-face {
+    font-family: 'SaansRegular';
+    src:
+      url('../fonts/SaansRegular.woff2') format('woff2'),
+      url('../fonts/SaansRegular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
   }
 
-  .heading-7xl {
-    @apply font-SaansRegular text-7xl leading-16;
+  @font-face {
+    font-family: 'SaansRegular';
+    src:
+      url('../fonts/SaansRegularItalic.woff2') format('woff2'),
+      url('../fonts/SaansRegularItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
   }
 
-  .heading-4xl {
-    @apply font-SaansRegular text-4xl leading-13;
+  @font-face {
+    font-family: 'SaansMedium';
+    src:
+      url('../fonts/SaansMedium.woff2') format('woff2'),
+      url('../fonts/SaansMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
   }
 
-  .heading-5xl-Reg {
-    @apply font-SaansRegular text-5xl leading-14;
+  @font-face {
+    font-family: 'SaansMedium';
+    src:
+      url('../fonts/SaansMediumItalic.woff2') format('woff2'),
+      url('../fonts/SaansMediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
   }
 
-  .nav-xl {
-    @apply font-SaansRegular text-xl leading-[1.2em];
-  }
-
-  .nav-2xl {
-    @apply font-SaansMed text-2xl;
-  }
-
-  .p-4xl-medium {
-    @apply font-SaansMed text-4xl leading-14;
-  }
-
-  .p-3xl-regular {
-    @apply font-SaansRegular text-3xl leading-13;
-  }
-
-  .p-xl-regular {
-    @apply font-SaansRegular text-xl leading-[1.6em];
-  }
-
-  .p-xl-medium {
-    @apply font-SaansMed text-xl leading-12;
-  }
-
-  .p-lg-regular {
-    @apply font-SaansRegular text-lg leading-12;
-  }
-
-  .p-3xl {
-    @apply font-SaansRegular text-xl leading-12;
-  }
-
-  .p-body2 {
-    @apply font-SaansRegular text-[20.12px] leading-[29.99px];
-  }
-
-  .studio {
-    @apply bg-gradient-to-b from-[#000] to-[#292929];
-  }
-
-  .t1 {
-    @apply relative;
-  }
-
-  .t2 {
-    @apply sticky;
-    top: calc(50% - 500px);
+  .bg-alpha {
+    background: rgba(37, 36, 36, 1);
   }
 }
 
@@ -401,10 +463,6 @@ hr {
     @apply w-[690px];
   }
 
-  .global-px {
-    @apply px-0;
-  }
-
   .footer-grid {
     @apply flex flex-col;
   }
@@ -480,7 +538,7 @@ hr {
   }
 
   .ini-list-border {
-    @apply last:border-b-[0.5px] odd:border-r-[0.5px] odd:pr-[34px] even:pl-[34px] [&:nth-last-child(2)]:border-b-[0.5px];
+    @apply last:border-b-[0.5px] odd:border-r-[0.5px] odd:pr-[34px] even:pl-[34px] nth-last-2:border-b-[0.5px];
   }
 
   .feed-w {
@@ -499,9 +557,6 @@ hr {
   }
   .nav-w {
     @apply w-[1200px];
-  }
-  .global-px {
-    @apply px-0;
   }
   .footer-grid {
     @apply grid grid-cols-12;
@@ -564,9 +619,6 @@ hr {
   }
   .nav-w {
     @apply w-full;
-  }
-  .global-px {
-    @apply px-5;
   }
   .footer-grid {
     @apply flex flex-col;

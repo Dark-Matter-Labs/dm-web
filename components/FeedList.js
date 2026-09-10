@@ -124,7 +124,7 @@ export default function FeedList({ feed_list }) {
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="p-xl-regular text-label underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+                  className="p-xl-regular text-label focus-visible:outline-grey-3 underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   Clear
                 </button>
@@ -137,7 +137,7 @@ export default function FeedList({ feed_list }) {
       {/* Grid shares the header's measure exactly — 690px at sm, 1200px at
           the matrix breakpoint — so cards line up with the h1 above them. */}
       <div className="flex w-full justify-center px-[20px] sm:px-0">
-        <div className="flex w-full flex-col items-stretch pb-[150px] sm:w-[690px] matrix:w-[1200px]">
+        <div className="matrix:w-[1200px] flex w-full flex-col items-stretch pb-[150px] sm:w-[690px]">
           {shown.length > 0 ? (
             <>
               <ul className="grid grid-cols-1 gap-x-[40px] gap-y-[50px] sm:grid-cols-2">
@@ -178,7 +178,7 @@ export default function FeedList({ feed_list }) {
                   <button
                     type="button"
                     onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                    className="p-xl-regular border border-[#606060] px-[24px] py-[10px] text-white hover:bg-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+                    className="p-xl-regular focus-visible:outline-grey-3 border border-[#606060] px-[24px] py-[10px] text-white hover:bg-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   >
                     Load {Math.min(remaining, PAGE_SIZE)} more
                     <span className="text-label"> · {remaining} left</span>
@@ -194,7 +194,7 @@ export default function FeedList({ feed_list }) {
               <button
                 type="button"
                 onClick={clearFilters}
-                className="p-xl-regular text-label underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+                className="p-xl-regular text-label focus-visible:outline-grey-3 underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               >
                 Clear filters
               </button>

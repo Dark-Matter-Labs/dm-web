@@ -8,7 +8,7 @@ function TeamRow({ person, onSelect }) {
     <button
       type="button"
       onClick={() => onSelect(person)}
-      className="group flex items-center justify-start gap-[10px] text-left hover:cursor-crosshair focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+      className="group focus-visible:outline-grey-3 flex items-center justify-start gap-[10px] text-left hover:cursor-crosshair focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
     >
       <div className="h-[22px] w-[22px] shrink-0 group-hover:opacity-80">
         <Image
@@ -47,7 +47,7 @@ export default function ProjectTeamList({ team, onSelect }) {
 
   return (
     <>
-      <p className="pb-[12px] font-SaansMed text-xl uppercase text-label">
+      <p className="font-SaansMed text-label pb-[12px] text-xl uppercase">
         Team
       </p>
 
@@ -63,7 +63,7 @@ export default function ProjectTeamList({ team, onSelect }) {
 
       {alumni.length > 0 && (
         <div className="mt-[20px] flex w-full flex-col items-start gap-[10px] border-t border-t-[#353535] pt-[18px]">
-          <p className="font-SaansMed text-xl uppercase text-label">
+          <p className="font-SaansMed text-label text-xl uppercase">
             Past team
           </p>
           {/* Names only, and not interactive — there is no headshot or bio
@@ -71,7 +71,7 @@ export default function ProjectTeamList({ team, onSelect }) {
           {alumni.map((person) => (
             <p
               key={person._id ?? person.fullName}
-              className="font-SaansRegular text-xl text-grey-3"
+              className="font-SaansRegular text-grey-3 text-xl"
             >
               {person.fullName}
             </p>

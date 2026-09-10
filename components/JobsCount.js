@@ -27,7 +27,7 @@ export default async function JobsCount({ className = '' }) {
 
   return (
     <span
-      className={`absolute left-full top-0 pl-[1px] text-[#737EA5] ${className}`}
+      className={`absolute top-0 left-full pl-px text-[#737EA5] ${className}`}
     >
       {count}
       <span className="sr-only"> open positions</span>

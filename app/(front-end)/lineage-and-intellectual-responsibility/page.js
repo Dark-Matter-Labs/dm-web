@@ -4,7 +4,7 @@ export default function LineageAndIntellectualResponsibility() {
       <div className="side-display col-span-5 w-[400px]"></div>
       <div className={'col-span-7 w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[30px] border-b border-b-[#353535] pb-[100px]">
-          <h1 className="heading-5xl-Reg sm:heading-7xl pb-[18px] text-grey-1">
+          <h1 className="heading-5xl-Reg sm:heading-7xl text-grey-1 pb-[18px]">
             On Lineage and Intellectual Responsibility
           </h1>
         </div>

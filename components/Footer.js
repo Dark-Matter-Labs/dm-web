@@ -34,7 +34,7 @@ const navigation = {
 export default function Footer() {
   return (
     <div className="">
-      <div className="h-14 w-full bg-gradient-to-t from-[#E3E3E3]/5"></div>
+      <div className="h-14 w-full bg-linear-to-t from-[#E3E3E3]/5"></div>
       <footer
         aria-labelledby="footer-heading"
         className="global-margin bg-[#111112]"
@@ -42,7 +42,7 @@ export default function Footer() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="nav-w mx-auto pb-20 pt-12  sm:pt-[80px]">
+        <div className="nav-w mx-auto pt-12 pb-20 sm:pt-[80px]">
           <div className="footer-grid flex flex-col gap-[40px]">
             <div className="col-span-5 flex flex-row justify-between sm:flex-col">
               <Link href="/">
@@ -58,7 +58,7 @@ export default function Footer() {
                 <SocialPills />
               </div>
             </div>
-            <div className="col-span-7 flex items-start justify-between ">
+            <div className="col-span-7 flex items-start justify-between">
               <div className="">
                 <div>
                   <ul
@@ -89,7 +89,7 @@ export default function Footer() {
                 <div className="mt-5">
                   <Link
                     href="/privacy-policy"
-                    className="p-lg-regular text-[#A8A8A8] hover:text-white"
+                    className="p-lg-regular text-grey-3 hover:text-white"
                   >
                     Privacy Policy
                   </Link>
@@ -97,7 +97,7 @@ export default function Footer() {
                 <div className="">
                   <Link
                     href="/lineage-and-intellectual-responsibility"
-                    className="p-lg-regular text-[#A8A8A8] hover:text-white"
+                    className="p-lg-regular text-grey-3 hover:text-white"
                   >
                     Lineage and Intellectual Responsibility
                   </Link>
@@ -105,7 +105,7 @@ export default function Footer() {
               </div>
               <div className="hidden flex-col items-start justify-start sm:flex">
                 <div>
-                  <ul role="list" className=" space-y-5">
+                  <ul role="list" className="space-y-5">
                     {navigation.company.map((item) => (
                       <li key={item.country}>
                         {item.country === 'South Korea' ? (
@@ -113,21 +113,21 @@ export default function Footer() {
                             href="https://kr.darkmatterlabs.org/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-white "
+                            className="hover:text-white"
                           >
-                            <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
+                            <p className="font-SaansRegular text-grey-1 text-[15px] leading-[18px]">
                               {item.country}
                             </p>
-                            <p className="font-SaansRegular text-[13px] leading-[18px] text-[#A8A8A8]">
+                            <p className="font-SaansRegular text-grey-3 text-[13px] leading-[18px]">
                               {item.fullName}
                             </p>
                           </a>
                         ) : (
                           <div className=" ">
-                            <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
+                            <p className="font-SaansRegular text-grey-1 text-[15px] leading-[18px]">
                               {item.country}
                             </p>
-                            <p className="font-SaansRegular text-[13px] leading-[18px] text-[#A8A8A8]">
+                            <p className="font-SaansRegular text-grey-3 text-[13px] leading-[18px]">
                               {item.fullName}
                             </p>
                           </div>

@@ -5,7 +5,7 @@ export default function NotFound() {
     <>
       <main className="flex flex-col items-center justify-center gap-[8px] px-6 py-24 sm:py-32 lg:px-8">
         <p className="heading-4xl text-grey-1">404</p>
-        <h1 className=" sm:heading-7xl text-3xl font-bold tracking-tight text-grey-3">
+        <h1 className="sm:heading-7xl text-grey-3 text-3xl font-bold tracking-tight">
           Page not found
         </h1>
         <p className="p-xl-regular my-6 text-white">
