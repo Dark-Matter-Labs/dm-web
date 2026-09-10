@@ -1,5 +1,7 @@
 import { memo } from 'react';
 
+import { MATRIX } from './matrix-theme';
+
 /**
  * An empty cell in the Matrix — a lab x arc intersection with no project.
  * It only exists to light up when either its lab or its arc is hovered.
@@ -14,7 +16,10 @@ function MatrixCell({ active, onEnter, onLeave }) {
     <div
       onMouseEnter={active ? undefined : onEnter}
       onMouseLeave={active ? onLeave : undefined}
-      className={`my-1.5 ${active ? 'bg-[#292929]' : 'bg-[#212121]'} h-[80px] w-[80px] p-2`}
+      style={{
+        backgroundColor: active ? MATRIX.cellRowActive : MATRIX.cell,
+      }}
+      className="my-1.5 h-[80px] w-[80px] p-2"
     >
       {' '}
     </div>
