@@ -1,0 +1,89 @@
+'use client';
+import { useMemo } from 'react';
+import Image from 'next/image';
+import { urlForImage } from '@/sanity/lib/image';
+
+function TeamRow({ person, onSelect, dimmed }) {
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(person)}
+      className="group flex items-center justify-start gap-[10px] text-left hover:cursor-crosshair focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+    >
+      <div className="h-[22px] w-[22px] shrink-0 group-hover:opacity-80">
+        <Image
+          src={urlForImage(person.image)}
+          alt=""
+          width={22}
+          height={22}
+          className={
+            dimmed
+              ? 'grayscale duration-200 group-hover:grayscale-0'
+              : undefined
+          }
+          style={{ objectFit: 'fill' }}
+        />
+      </div>
+      <span
+        className={`font-SaansRegular text-xl group-hover:opacity-80 ${
+          dimmed ? 'text-grey-3' : 'text-[#EBEBEB]'
+        }`}
+      >
+        {person.fullName}
+      </span>
+    </button>
+  );
+}
+
+/**
+ * Team block for a project or initiative page.
+ *
+ * Current team members are listed first. Anyone marked as alumni in Sanity is
+ * grouped under a "Past team" sub-heading below them, in a quieter register,
+ * so credit is preserved without implying they are still reachable at Dm.
+ */
+export default function ProjectTeamList({ team, onSelect }) {
+  const { current, alumni } = useMemo(() => {
+    const people = team ?? [];
+    return {
+      current: people.filter((person) => !person.alumni),
+      alumni: people.filter((person) => person.alumni),
+    };
+  }, [team]);
+
+  if (current.length === 0 && alumni.length === 0) return null;
+
+  return (
+    <>
+      <p className="pb-[12px] font-SaansMed text-xl uppercase text-label">
+        Team
+      </p>
+
+      <div className="flex flex-col items-start gap-[10px]">
+        {current.map((person) => (
+          <TeamRow
+            key={person._id ?? person.fullName}
+            person={person}
+            onSelect={onSelect}
+          />
+        ))}
+      </div>
+
+      {alumni.length > 0 && (
+        <div className="mt-[20px] flex w-full flex-col items-start gap-[10px] border-t border-t-[#353535] pt-[18px]">
+          <p className="font-SaansMed text-xl uppercase text-label">
+            Past team
+          </p>
+          {alumni.map((person) => (
+            <TeamRow
+              key={person._id ?? person.fullName}
+              person={person}
+              onSelect={onSelect}
+              dimmed
+            />
+          ))}
+        </div>
+      )}
+    </>
+  );
+}

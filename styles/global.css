@@ -303,7 +303,7 @@ hr {
   .context-margin {
     @apply mt-[300px];
   }
-  .matirx-break {
+  .matrix-break {
     @apply grid h-[550vh] grid-cols-1 justify-items-center;
   }
 
@@ -356,18 +356,6 @@ hr {
     @apply w-[690px];
   }
 
-  .feed-grid {
-    @apply w-[690px] items-center justify-center;
-  }
-
-  .feed-item-img-inner {
-    @apply h-[140px] w-[247px];
-  }
-
-  .feed-item-details {
-    @apply h-[210px] w-[430px];
-  }
-
   .project-back {
     @apply block;
   }
@@ -404,7 +392,7 @@ hr {
   .context-margin {
     @apply mt-[400px];
   }
-  .matirx-break {
+  .matrix-break {
     @apply grid grid-cols-12;
   }
   .matrix-justify {
@@ -459,19 +447,10 @@ hr {
   }
 
   .feed-w {
-    @apply w-[1600px];
-  }
-
-  .feed-grid {
-    @apply w-full items-center justify-center;
-  }
-
-  .feed-item-img-inner {
-    @apply h-[266px] w-[470px];
-  }
-
-  .feed-item-details {
-    @apply h-[340px] w-[690px];
+    /* Was w-[1600px], which broke out of .global-margin's 1200px cap and
+       overflowed the page horizontally on every viewport between 1210px and
+       1600px - i.e. most laptops. */
+    @apply w-full;
   }
 
   .project-back {
@@ -543,17 +522,6 @@ hr {
     @apply w-full;
   }
 
-  .feed-grid {
-    @apply w-full items-start justify-between;
-  }
-
-  .feed-item-img-inner {
-    @apply h-[221px] w-[92vw];
-  }
-
-  .feed-item-details {
-    @apply h-[210px] w-full;
-  }
   .project-back {
     @apply block;
   }

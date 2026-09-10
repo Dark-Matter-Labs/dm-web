@@ -49,6 +49,18 @@ const feed_project_query = `
 }
 `;
 
+export const FEED_PATHS_QUERY = `
+*[_type == "feedItem" && defined(slug.current)][].slug.current
+`;
+
+// Prerender every feed detail page at build time. Previously this lived on the
+// feed *list* route, which has no dynamic segment, so it never took effect and
+// all 70+ detail pages were rendered on demand.
+export async function generateStaticParams() {
+  const slugs = await client.fetch(FEED_PATHS_QUERY);
+  return slugs.map((slug) => ({ slug }));
+}
+
 export default async function feed_itemPage({ params }) {
   const feed_item = await sanityFetch({
     query: feed_project_query,
@@ -63,7 +75,11 @@ export default async function feed_itemPage({ params }) {
   return (
     <div className="initiative-grid flex pb-[100px] pt-[60px] sm:pt-28">
       <div className="side-display">
-        <ProjectMetadata initiative={feed_item} back_text={'back to feed'} />
+        <ProjectMetadata
+          initiative={feed_item}
+          back_text={'back to feed'}
+          showUnits
+        />
       </div>
       <div className="flex w-full flex-col items-start justify-center gap-[30px] sm:w-[690px]">
         <div className="project-back">
@@ -82,7 +98,11 @@ export default async function feed_itemPage({ params }) {
         <h1 className="heading-5xl-Reg text-grey-1">{feed_item.title}</h1>
         <h2 className="heading-4xl text-grey-3">{feed_item.subtitle}</h2>
         <div className="meta-mobile">
-          <ProjectMetadata initiative={feed_item} back_text={'back to feed'} />
+          <ProjectMetadata
+            initiative={feed_item}
+            back_text={'back to feed'}
+            showUnits
+          />
         </div>
         <div className="border-y border-y-[#353535] pb-[100px] pt-[30px]">
           <PortableText

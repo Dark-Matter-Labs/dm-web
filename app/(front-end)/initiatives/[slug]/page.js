@@ -22,6 +22,18 @@ const INITIATIVE_SLUG_QUERY = `
 }
 `;
 
+export const INITIATIVE_PATHS_QUERY = `
+*[_type == "initiative" && defined(slug.current)][].slug.current
+`;
+
+// Prerender every initiative detail page at build time. Previously this lived
+// on the initiatives *list* route, which has no dynamic segment, so it never
+// took effect.
+export async function generateStaticParams() {
+  const slugs = await client.fetch(INITIATIVE_PATHS_QUERY);
+  return slugs.map((slug) => ({ slug }));
+}
+
 export default async function InitiativePage({ params }) {
   const initiative = await sanityFetch({
     query: INITIATIVE_SLUG_QUERY,

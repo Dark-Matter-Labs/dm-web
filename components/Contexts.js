@@ -35,7 +35,7 @@ export default function Contexts() {
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Geographical landscapes</h2>
             <p className="p-3xl pb-4 text-grey-7">
-              What can we leverage by deliberating targeting lead or established
+              What can we leverage by deliberately targeting lead or established
               markets to test a tool or concept?
             </p>
             <p className="p-3xl text-grey-1">
@@ -61,8 +61,7 @@ export default function Contexts() {
               Indigenous communities on Turtle Island (North America) to
               urgently finance the regeneration of indigenous lands. It could
               also entail supporting marginalised communities in England to seed
-              alternative housing models in response to the systemic crisis
-              crisis.
+              alternative housing models in response to the systemic crisis.
             </p>
           </div>
 
@@ -70,7 +69,7 @@ export default function Contexts() {
             <h2 className="heading-4xl text-grey-1">Alliances</h2>
             <p className="p-3xl pb-4 text-grey-7">
               What could be unleashed if we can identify and engage unusual (and
-              often powerful actors) with converging aspirations?
+              often powerful) actors with converging aspirations?
             </p>
             <p className="p-3xl text-grey-1">
               On the surface a central bank and an ecological activist may have

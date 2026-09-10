@@ -2409,8 +2409,8 @@ export default function Home() {
         }
       />
 
-      <div className={`matirx-break relative mt-10 sm:mt-28`}>
-        <div className="col-span-5 hidden w-[400px] max-w-xs matirx:block">
+      <div className={`matrix-break relative mt-10 sm:mt-28`}>
+        <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
           <animated.div
             style={{
               opacity: sideMatrixOpacityInterpolate(),
@@ -2600,7 +2600,7 @@ export default function Home() {
               the transformation that is required? We cannot be sure how the
               future will play out or the specific infrastructures that will be
               required. However, we can build towards a range of economic
-              options that are likely to be needed. We are imaging new
+              options that are likely to be needed. We are imagining new
               investment opportunities for{' '}
               <span
                 className="underline hover:cursor-crosshair"
@@ -5395,7 +5395,7 @@ export default function Home() {
             ),
           ),
         }}
-        className={`context-margin sm;items-center relative hidden sm:flex sm:justify-center matirx:grid matirx:grid-cols-12 `}
+        className={`context-margin relative hidden sm:flex sm:justify-center matrix:grid matrix:grid-cols-12 `}
       >
         <Contexts />
       </animated.div>
@@ -5413,7 +5413,7 @@ export default function Home() {
             ),
           ),
         }}
-        className={`sm;items-center relative hidden sm:flex sm:justify-center matirx:grid matirx:grid-cols-12 `}
+        className={`relative hidden sm:flex sm:justify-center matrix:grid matrix:grid-cols-12 `}
       >
         <Paradigms
           setOpenNE={setOpenNE}

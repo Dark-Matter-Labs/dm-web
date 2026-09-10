@@ -101,21 +101,15 @@ export default function Navbar({ numberOfJobs }) {
                         'nav-xl side-display -mt-1 hidden py-2 transition ease-in-out ',
                       )}
                     >
-                      {numberOfJobs === 0 ? (
-                        <p>
-                          Jobs
-                          <span className="align-super text-[9.5px]">
-                            {numberOfJobs}
-                          </span>
-                        </p>
-                      ) : (
-                        <p>
-                          Jobs
+                      <p>
+                        Jobs
+                        {numberOfJobs > 0 && (
                           <span className="align-super text-[9.5px] text-[#737EA5]">
                             {numberOfJobs}
+                            <span className="sr-only"> open positions</span>
                           </span>
-                        </p>
-                      )}
+                        )}
+                      </p>
                     </Link>
                     <Link
                       href="/contact"
@@ -207,21 +201,15 @@ export default function Navbar({ numberOfJobs }) {
                         href="/jobs"
                         className="heading-4xl block py-2  text-white transition ease-in-out hover:text-white"
                       >
-                        {numberOfJobs === 0 ? (
-                          <p>
-                            Jobs
-                            <span className="align-super text-[12px]">
-                              {numberOfJobs}
-                            </span>
-                          </p>
-                        ) : (
-                          <p>
-                            Jobs
+                        <p>
+                          Jobs
+                          {numberOfJobs > 0 && (
                             <span className="align-super text-[12px] text-[#737EA5]">
                               {numberOfJobs}
+                              <span className="sr-only"> open positions</span>
                             </span>
-                          </p>
-                        )}
+                          )}
+                        </p>
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}
