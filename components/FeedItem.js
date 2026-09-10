@@ -2,73 +2,71 @@ import { memo } from 'react';
 import Image from 'next/image';
 import { urlForImage } from '@/sanity/lib/image';
 
+const TYPE_LABELS = {
+  project: 'Project',
+  media: 'Media',
+  update: 'Update',
+};
+
+/**
+ * A feed card, sized for the two-column grid on /feed.
+ *
+ * Type is a label here rather than a filter, because 89% of the archive is a
+ * single type. Units are the useful axis, so all of them are listed — the
+ * previous row layout showed only `labs[0]` and silently dropped the rest.
+ */
 function FeedItem({ item }) {
+  const units = item.units ?? [];
+
   return (
-    <div className="group flex h-full flex-col items-center justify-center border-b border-b-[#353535] first:border-t first:border-t-[#353535] sm:flex-row sm:items-start sm:justify-between sm:gap-[40px]">
-      <div className="feed-item-img  feed-item-img-inner relative py-[20px] sm:my-[34px]">
+    <article className="group flex h-full w-full min-w-0 flex-col border-t border-t-[#353535] pt-[20px]">
+      <div className="relative mb-[20px] aspect-[3/2] w-full overflow-hidden">
         <Image
           src={urlForImage(item.image)}
-          alt="feed item image"
-          className=" h-full w-full object-cover group-hover:opacity-80"
+          alt=""
+          className="h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-80"
           fill
-          sizes="
-              (max-width: 768px) 90vw,
-              (max-width: 1200px) 60vw,
-              90vw"
-          placeholder="blur"
-          blurDataURL={item?.metadata.lqip}
+          sizes="(max-width: 810px) 92vw, (max-width: 1600px) 46vw, 640px"
+          placeholder={item.lqip ? 'blur' : 'empty'}
+          blurDataURL={item.lqip}
         />
       </div>
-      <div className="feed-item-details flex flex-col items-start justify-between py-[20px]  sm:py-[34px]">
-        <div className="flex flex-col items-start justify-between gap-[2px] md:justify-start">
-          <h2 className="max-w-[400px] font-SaansRegular text-4xl leading-[28px] text-white group-hover:opacity-80 md:max-w-full md:text-5xl md:leading-[36px]">
-            {item.title}
-          </h2>
-          <h3 className="feed-sub text-grey-3">{item.subtitle}</h3>
+
+      <div className="flex flex-1 flex-col gap-[8px]">
+        <div className="flex items-baseline gap-[10px]">
+          <span className="nav-xl uppercase text-label">
+            {TYPE_LABELS[item.type] ?? item.type}
+          </span>
+          <span aria-hidden="true" className="nav-xl text-label">
+            ·
+          </span>
+          <span className="nav-xl text-label">
+            {new Date(item.date).toLocaleDateString('en-GB', {
+              month: 'short',
+              year: 'numeric',
+            })}
+          </span>
+          {item.type === 'media' && (
+            <span className="nav-xl ml-auto text-label" aria-hidden="true">
+              ↗
+            </span>
+          )}
         </div>
-        <div className="flex items-start justify-start">
-          <div className="flex w-[120px] flex-col items-start justify-center gap-[6px]">
-            <p className="nav-xl uppercase text-[#595959]">Type</p>
-            <p className="nav-xl capitalize text-grey-3">{item.type}</p>
-          </div>
-          <div className="flex w-[120px] flex-col items-start justify-center gap-[6px]">
-            <p className="nav-xl uppercase text-[#595959]">Date</p>
-            <p className="nav-xl capitalize text-grey-3">
-              {new Date(item.date).toLocaleDateString('en-GB', {
-                month: 'short',
-                year: 'numeric',
-              })}
-            </p>
-          </div>
-          <div className="flex flex-col items-start justify-center gap-[6px]">
-            <p className="nav-xl uppercase text-[#595959]">Units</p>
-            <div className="flex flex-col gap-0.5 md:flex-row">
-              {item.labs && (
-                <p className="nav-xl capitalize text-grey-3">
-                  {item.labs[0].title}
-                  {(item.arcs || item.studios) && (
-                    <span className="nav-xl text-grey-3">,</span>
-                  )}
-                </p>
-              )}
-              {item.arcs && (
-                <p className="nav-xl capitalize text-grey-3">
-                  {item.arcs[0].title}
-                  {item.studios && (
-                    <span className="nav-xl text-grey-3">,</span>
-                  )}
-                </p>
-              )}
-              {item.studios && (
-                <p className="nav-xl capitalize text-grey-3">
-                  {item.studios[0].title}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
+
+        <h2 className="break-words font-SaansRegular text-4xl leading-[28px] text-white transition-opacity duration-200 group-hover:opacity-80 md:text-5xl md:leading-[36px]">
+          {item.title}
+        </h2>
+
+        <h3 className="feed-sub text-grey-3">{item.subtitle}</h3>
+
+        {units.length > 0 && (
+          <p className="nav-xl mt-auto pt-[10px] text-grey-3">
+            <span className="sr-only">Units: </span>
+            {units.map((unit) => unit.title).join(', ')}
+          </p>
+        )}
       </div>
-    </div>
+    </article>
   );
 }
 

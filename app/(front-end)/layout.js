@@ -32,13 +32,16 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={<Loading />}>
-          <main>
-            <Navbar numberOfJobs={jobs.length} />
-            <div className="global-margin">{children}</div>
-            <Footer />
-          </main>
-        </Suspense>
+        <main>
+          {/* The Suspense boundary wraps only the page content. It previously
+              wrapped the navbar and footer too, so any slow page-level fetch
+              replaced the whole site chrome with a bare spinner. */}
+          <Navbar numberOfJobs={jobs.length} />
+          <div className="global-margin">
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+          </div>
+          <Footer />
+        </main>
         <Script
           src="https://scripts.simpleanalyticscdn.com/latest.js"
           strategy="lazyOnload"

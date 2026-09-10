@@ -12,6 +12,7 @@ import { urlForImage } from '../sanity/lib/image';
 
 function TeamPopUp({ dmlien, openState, setOpen }) {
   const [showLinkCopied, setShowLinkCopied] = useState(false);
+  const isAlumni = Boolean(dmlien?.alumni);
 
   return (
     <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
@@ -25,13 +26,26 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
             transition
             className="shadow-layer relative flex w-4/5 transform flex-col items-center justify-between overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:min-h-full sm:w-[762px] sm:flex-row sm:items-stretch sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
+            {/* Close control is available at every breakpoint — on mobile the
+                only previous way out was tapping the backdrop. */}
+            <div className="absolute right-0 top-0 z-10 pr-4 pt-4">
+              <button
+                type="button"
+                className="rounded-md bg-transparent text-grey-3 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+                onClick={() => setOpen(false)}
+              >
+                <span className="sr-only">Close</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+
             <div className="relative flex flex-col self-stretch border-r-[0.5px] border-[#353535] sm:min-h-full">
               {dmlien.image && (
                 <Image
                   src={urlForImage(dmlien?.image)}
                   alt={dmlien?.fullName}
-                  placeholder="blur"
-                  blurDataURL={dmlien?.metadata.lqip}
+                  placeholder={dmlien?.metadata?.lqip ? 'blur' : 'empty'}
+                  blurDataURL={dmlien?.metadata?.lqip}
                   width={294}
                   height={294}
                   className="w-auto border-b-[0.5px] border-[#353535] object-cover sm:w-full"
@@ -39,30 +53,55 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
               )}
 
               <div className="flex h-full flex-col gap-3 self-stretch p-[30px] font-SaansRegular">
-                <h3 className="font-SaansMed text-xl uppercase text-[#595959] ">
-                  Contacts
-                </h3>
-                <ul>
-                  <li className="font-SaansRegular text-lg text-white hover:underline">
-                    <div
-                      onClick={() => {
-                        navigator.clipboard.writeText(dmlien.email);
-                        setShowLinkCopied(true);
-                        setTimeout(() => {
-                          setShowLinkCopied(false);
-                        }, 2000);
-                      }}
-                      className="flex items-center gap-[8px] hover:cursor-pointer"
+                {isAlumni ? (
+                  <>
+                    <h3 className="font-SaansMed text-xl uppercase text-label">
+                      Alumni
+                    </h3>
+                    <p className="font-SaansRegular text-lg text-grey-3">
+                      No longer at Dm. For anything relating to this work,
+                      contact{' '}
+                      <a
+                        className="text-[#737EA5] hover:underline"
+                        href="mailto:info@darkmatterlabs.org"
+                      >
+                        info@darkmatterlabs.org
+                      </a>
+                      .
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="font-SaansMed text-xl uppercase text-label">
+                      Contacts
+                    </h3>
+                    <ul>
+                      <li className="font-SaansRegular text-lg text-white hover:underline">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            navigator.clipboard.writeText(dmlien.email);
+                            setShowLinkCopied(true);
+                            setTimeout(() => {
+                              setShowLinkCopied(false);
+                            }, 2000);
+                          }}
+                          className="flex items-center gap-[8px] text-left hover:cursor-pointer"
+                        >
+                          {dmlien.email}
+                          <span title="Copy email to clipboard">
+                            <Square2StackIcon className="h-4 w-4" />
+                          </span>
+                        </button>
+                      </li>
+                    </ul>
+                    <p
+                      aria-live="polite"
+                      className="p-lg-regular text-gray-100"
                     >
-                      {dmlien.email}
-                      <span className="" title="Copy link to clipboard">
-                        <Square2StackIcon className="h-4 w-4" />
-                      </span>
-                    </div>
-                  </li>
-                </ul>
-                {showLinkCopied && (
-                  <p className="p-lg-regular text-gray-100">Email copied!</p>
+                      {showLinkCopied ? 'Email copied!' : ''}
+                    </p>
+                  </>
                 )}
               </div>
             </div>
@@ -74,16 +113,6 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 >
                   {dmlien.fullName}
                 </DialogTitle>
-                <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                  <button
-                    type="button"
-                    className="rounded-md bg-transparent text-[#9B9B9B] hover:text-gray-500"
-                    onClick={() => setOpen(false)}
-                  >
-                    <span className="sr-only">Close</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
               </div>
               <div className="font-SaansRegular text-white sm:flex sm:items-start">
                 {dmlien.bio}

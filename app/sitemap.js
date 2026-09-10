@@ -31,6 +31,7 @@ export default async function sitemap() {
     '/contact',
     '/contribute',
     '/privacy-policy',
+    '/lineage-and-intellectual-responsibility',
   ].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date().toISOString(),

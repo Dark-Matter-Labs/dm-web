@@ -1,4 +1,4 @@
-import { client, sanityFetch } from '@/sanity/lib/client';
+import { sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,15 +10,6 @@ const INITIATIVES_QUEARY = `
 ...
 }
 `;
-
-export const INITIATIVE_PATHS_QUERY = `
-*[_type == "initiative" && defined(slug.current)][].slug.current
-`;
-
-export async function generateStaticParams() {
-  const slugs = await client.fetch(INITIATIVE_PATHS_QUERY);
-  return slugs.map((slug) => ({ slug }));
-}
 
 export default async function Initiatives() {
   const initiatives = await sanityFetch({

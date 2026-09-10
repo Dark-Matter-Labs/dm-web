@@ -18,8 +18,8 @@ function Initiative({
         activeState
           ? 'bg-[#595959] text-white'
           : hoverState
-            ? 'bg-[#292929]  text-[#595959]'
-            : ' bg-[#212121] text-[#595959]',
+            ? 'bg-[#292929]  text-label'
+            : ' bg-[#212121] text-label',
         'my-1.5 flex h-[80px]  w-[80px] flex-col  items-center justify-center hover:cursor-crosshair ',
       )}
       onMouseEnter={() => {

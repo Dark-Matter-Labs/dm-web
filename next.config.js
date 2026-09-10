@@ -14,12 +14,8 @@ const nextConfig = {
   },
   // Enable React strict mode for better development experience
   reactStrictMode: true,
-  // Optimize production builds
-  swcMinify: true,
   // Compress responses
   compress: true,
-  // Optimize fonts
-  optimizeFonts: true,
 };
 
 module.exports = nextConfig;

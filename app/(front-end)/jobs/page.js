@@ -104,7 +104,7 @@ export default async function Jobs() {
           </li>
           <li>
             We run on a series of digital tools that we use daily to coordinate,
-            learn and govern together (Slack, Notion, Google Worklace, Miro
+            learn and govern together (Slack, Notion, Google Workspace, Miro
             among them)
           </li>
           <li>
@@ -116,7 +116,7 @@ export default async function Jobs() {
           <li>
             This setup allows us to be a platform organisation and to nurture
             and grow ideas the team are passionate about and believe are needed,
-            and align advance our core values and mission.
+            and align and advance our core values and mission.
           </li>
           <li>
             In time and experience, we invite everyone to grow our portfolio of

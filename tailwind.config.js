@@ -15,10 +15,16 @@ module.exports = {
         'grey-1': '#E2E2E2',
         'grey-2': '#585858',
         'grey-3': '#A8A8A8',
-        'grey-4': '#7D7D7D',
+        // Used only for inactive nav links. Nudged from #7D7D7D (4.40:1)
+        // to clear the WCAG AA 4.5:1 threshold against #111112.
+        'grey-4': '#808080',
         'grey-5': '#E1E1E1',
         'grey-6': '#E3E3E3',
         'grey-7': '#848484',
+        // Label grey. Replaces #595959, which sat at 2.69:1 against the
+        // #111112 page background and failed WCAG AA for small text.
+        // #8A8A8A gives 5.47:1.
+        label: '#8A8A8A',
       },
       fontSize: {
         lg: '15px',
@@ -41,7 +47,7 @@ module.exports = {
       screens: {
         xs: '640px',
         sm: '810px',
-        matirx: '1210px',
+        matrix: '1210px',
         md: '1600px',
       },
       container: {
