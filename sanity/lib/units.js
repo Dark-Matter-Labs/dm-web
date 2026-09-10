@@ -8,10 +8,22 @@ import { sanityFetch } from './client';
  * `components/home/matrix-layout.js`) because Sanity holds 90x90 rasters of
  * them while the repo has the vectors, and the popup renders at 200x200.
  */
+// Named fields rather than a `...` spread: the spread also carried _rev,
+// _createdAt, _updatedAt and the whole image object for all 21 units into
+// the page payload, none of which the Matrix uses.
+const UNIT_FIELDS = `
+  "kind": $kind,
+  title,
+  homepage_matrix_name,
+  value,
+  content,
+  links
+`;
+
 const UNITS_QUERY = `{
-  "labs": *[_type == 'labObject'] { ..., "kind": "lab" },
-  "arcs": *[_type == 'arcObject'] { ..., "kind": "arc" },
-  "studios": *[_type == 'studioObject'] { ..., "kind": "studio" }
+  "labs": *[_type == 'labObject'] { ${UNIT_FIELDS.replace('$kind', '"lab"')} },
+  "arcs": *[_type == 'arcObject'] { ${UNIT_FIELDS.replace('$kind', '"arc"')} },
+  "studios": *[_type == 'studioObject'] { ${UNIT_FIELDS.replace('$kind', '"studio"')} }
 }`;
 
 function normalise(doc) {

@@ -18,7 +18,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar({ numberOfJobs }) {
+export default function Navbar({ jobsCount, jobsCountMobile }) {
   const pathname = usePathname();
   const [hover, setHover] = useState(false);
 
@@ -98,22 +98,14 @@ export default function Navbar({ numberOfJobs }) {
                         pathname === '/jobs'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        // -mt-1 offsets the superscript counter, which
-                        // raises the line box and would otherwise push Jobs
-                        // below its siblings. Applied only when the counter
-                        // renders, so Jobs stays aligned when there are none.
-                        numberOfJobs > 0 ? '-mt-1' : '',
                         'nav-xl side-display hidden py-2 transition ease-in-out ',
                       )}
                     >
-                      <p>
+                      {/* The counter is positioned out of flow, so it cannot
+                          shift this label whether it renders or not. */}
+                      <p className="relative">
                         Jobs
-                        {numberOfJobs > 0 && (
-                          <span className="align-super text-[9.5px] text-[#737EA5]">
-                            {numberOfJobs}
-                            <span className="sr-only"> open positions</span>
-                          </span>
-                        )}
+                        {jobsCount}
                       </p>
                     </Link>
                     <Link
@@ -206,14 +198,9 @@ export default function Navbar({ numberOfJobs }) {
                         href="/jobs"
                         className="heading-4xl block py-2  text-white transition ease-in-out hover:text-white"
                       >
-                        <p>
+                        <p className="relative inline-block">
                           Jobs
-                          {numberOfJobs > 0 && (
-                            <span className="align-super text-[12px] text-[#737EA5]">
-                              {numberOfJobs}
-                              <span className="sr-only"> open positions</span>
-                            </span>
-                          )}
+                          {jobsCountMobile}
                         </p>
                       </DisclosureButton>
                       <DisclosureButton

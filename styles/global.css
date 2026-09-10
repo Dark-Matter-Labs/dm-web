@@ -34,32 +34,59 @@ img {
   height: auto;
 }
 
-@font-face {
-  font-family: 'SaansMedium';
-  src:
-    local('SaansTRIAL-Medium'),
-    url('../fonts/SaansMedium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'SaansMedium';
-  src:
-    local('SaansMedium'),
-    url('../fonts/SaansMedium.woff2') format('woff2');
-}
+/* Saans, licensed for web use.
+ *
+ * Previously each family was declared twice — once for the .woff and once
+ * for the .woff2 — so the second declaration simply overrode the first and
+ * the .woff was never a real fallback. Both formats now sit in one `src`
+ * list, woff2 first, which is how the browser is meant to choose.
+ *
+ * The `local()` lookups are gone too. One of them still referenced
+ * 'SaansTRIAL-Medium', and matching on a locally installed font by name
+ * means a visitor who happens to have an unrelated font of that name would
+ * see it instead of ours.
+ *
+ * font-display: swap renders in the fallback face immediately rather than
+ * leaving text invisible while the font downloads. */
 
 @font-face {
   font-family: 'SaansRegular';
   src:
-    local('SaansRegular'),
+    url('../fonts/SaansRegular.woff2') format('woff2'),
     url('../fonts/SaansRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'SaansRegular';
   src:
-    local('SaansRegular'),
-    url('../fonts/SaansRegular.woff2') format('woff2');
+    url('../fonts/SaansRegularItalic.woff2') format('woff2'),
+    url('../fonts/SaansRegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SaansMedium';
+  src:
+    url('../fonts/SaansMedium.woff2') format('woff2'),
+    url('../fonts/SaansMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SaansMedium';
+  src:
+    url('../fonts/SaansMediumItalic.woff2') format('woff2'),
+    url('../fonts/SaansMediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }
 
 .bg-alpha {
@@ -68,7 +95,7 @@ img {
 
 @layer components {
   .global-margin {
-    @apply container mx-auto max-w-[1200px] overflow-x-hidden sm:overflow-x-visible global-px;
+    @apply global-px container mx-auto max-w-[1200px] overflow-x-hidden sm:overflow-x-visible;
   }
 
   .heading-7xl {
@@ -213,7 +240,6 @@ hr {
 }
 
 .img {
- 
   transition: transform 0.5s ease-in-out;
 }
 
@@ -226,7 +252,7 @@ hr {
   animation: slide 5s infinite alternate;
   -o-animation: slide 5s infinite alternate;
   -moz-animation: slide 5s infinite alternate;
-  
+
   -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
   -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
   animation-duration: 5s;
@@ -279,22 +305,33 @@ hr {
 .loader {
   width: 48px;
   height: 48px;
-  border: 5px solid #FFF;
+  border: 5px solid #fff;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  }
+}
 
-  @keyframes rotation {
+@keyframes rotation {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  } 
+}
+
+/* Sections whose desktop reveal is driven by a scroll-linked inline opacity.
+ * Below the sm breakpoint there is no sticky Matrix to reveal them against,
+ * so they should simply be visible. `!important` is what lets a stylesheet
+ * win against the inline style react-spring writes, which means these
+ * sections can be rendered once for both breakpoints instead of twice. */
+@media (max-width: 810px) {
+  .mobile-always-visible {
+    opacity: 1 !important;
+  }
+}
 
 @media (min-width: 810px) and (max-width: 1210px) {
   .t3 {
@@ -371,20 +408,20 @@ hr {
   .footer-grid {
     @apply flex flex-col;
   }
-  .paradigm{
-    @apply justify-items-center grid grid-cols-1;
+  .paradigm {
+    @apply grid grid-cols-1 justify-items-center;
   }
   .feed-top {
-    @apply flex-col items-start justify-start w-[690px];
+    @apply w-[690px] flex-col items-start justify-start;
   }
   .feed-sub {
-    @apply  block max-w-xl p-xl-regular;
+    @apply p-xl-regular block max-w-xl;
   }
 }
 
 @media (min-width: 1210px) {
-  .paradigm{
-    @apply justify-items-center grid-cols-12;
+  .paradigm {
+    @apply grid-cols-12 justify-items-center;
   }
   .t3 {
     @apply relative mt-[226rem] md:mt-[232rem];
@@ -471,11 +508,11 @@ hr {
   }
 
   .feed-top {
-    @apply flex-row items-end justify-between w-[1200px];
+    @apply w-[1200px] flex-row items-end justify-between;
   }
 
   .feed-sub {
-    @apply block p-body2;
+    @apply p-body2 block;
   }
 }
 
@@ -535,10 +572,9 @@ hr {
     @apply flex flex-col;
   }
   .feed-top {
-    @apply flex-col items-start justify-center w-full;
+    @apply w-full flex-col items-start justify-center;
   }
   .feed-sub {
     @apply hidden;
   }
 }
-

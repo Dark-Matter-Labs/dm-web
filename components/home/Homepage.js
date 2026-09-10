@@ -3221,14 +3221,10 @@ export default function Homepage({ units }) {
             ),
           ),
         }}
-        className={`context-margin relative hidden sm:flex sm:justify-center matrix:grid matrix:grid-cols-12 `}
+        className={`context-margin mobile-always-visible relative flex justify-center matrix:grid matrix:grid-cols-12`}
       >
         <Contexts />
       </animated.div>
-
-      <div className="relative mt-20 sm:hidden">
-        <Contexts />
-      </div>
 
       <animated.div
         style={{
@@ -3239,7 +3235,7 @@ export default function Homepage({ units }) {
             ),
           ),
         }}
-        className={`relative hidden sm:flex sm:justify-center matrix:grid matrix:grid-cols-12 `}
+        className={`mobile-always-visible relative flex justify-center matrix:grid matrix:grid-cols-12`}
       >
         <Paradigms
           setOpenNE={openPopupFor('NE')}
@@ -3261,28 +3257,6 @@ export default function Homepage({ units }) {
           setOpenNZ={openPopupFor('NZC')}
         />
       </animated.div>
-
-      <div className="relative mt-20 sm:hidden">
-        <Paradigms
-          setOpenNE={openPopupFor('NE')}
-          setOpenRC={openPopupFor('RC')}
-          setOpenSM={openPopupFor('RI')}
-          setOpenRE={openPopupFor('RF')}
-          setOpenCT={openPopupFor('CT')}
-          setOpenPC={openPopupFor('PC')}
-          setOpenPB={openPopupFor('PB')}
-          setOpenBR={openPopupFor('BR')}
-          setOpenCD={openPopupFor('CD')}
-          setOpenQD={openPopupFor('SD')}
-          setOpenETC={openPopupFor('NF')}
-          setOpenOD={openPopupFor('OD')}
-          setOpenBE={openPopupFor('BE')}
-          setOpenSG={openPopupFor('7G')}
-          setOpenCS={openPopupFor('CS')}
-          setOpenM0={openPopupFor('X0')}
-          setOpenNZ={openPopupFor('NZC')}
-        />
-      </div>
     </div>
   );
 }
