@@ -23,9 +23,11 @@ export default function TeamGrid({ dmliens }) {
     };
   }, [dmliens]);
 
+  // Only current team can be hovered, so the bio panel never needs to
+  // consider alumni.
   const hoveredPerson = useMemo(
-    () => (dmliens ?? []).find((person) => person.fullName === hover),
-    [dmliens, hover],
+    () => current.find((person) => person.fullName === hover),
+    [current, hover],
   );
 
   const handleSelect = useCallback((person) => {
@@ -48,11 +50,6 @@ export default function TeamGrid({ dmliens }) {
               <h2 className="w-full pb-2.5 font-SaansRegular text-5xl leading-[42px]">
                 {hoveredPerson.fullName}
               </h2>
-              {hoveredPerson.alumni && (
-                <p className="w-full pb-2.5 font-SaansMed text-xl uppercase text-grey-3">
-                  Alumni
-                </p>
-              )}
               <p className="w-full font-SaansRegular text-xl leading-[26px]">
                 {hoveredPerson.bio}
               </p>
@@ -87,15 +84,17 @@ export default function TeamGrid({ dmliens }) {
                   contribution stays part of the record.
                 </p>
               </div>
-              <ul className={GRID_CLASSES}>
+              {/* Names only, and not interactive: we hold no headshot, bio or
+                  current location for most alumni, so there is nothing for a
+                  hover or a dialog to show. */}
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-[10px] border-b border-[#353535] pb-[60px] xs:grid-cols-3 sm:grid-cols-4">
                 {alumni.map((person) => (
-                  <TeamMemberCard
+                  <li
                     key={person._id ?? person.fullName}
-                    person={person}
-                    onSelect={handleSelect}
-                    onHoverStart={handleHoverStart}
-                    onHoverEnd={handleHoverEnd}
-                  />
+                    className="font-SaansRegular text-xl leading-[26px] text-grey-3"
+                  >
+                    {person.fullName}
+                  </li>
                 ))}
               </ul>
             </section>

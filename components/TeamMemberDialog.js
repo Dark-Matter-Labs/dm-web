@@ -12,7 +12,6 @@ import { urlForImage } from '../sanity/lib/image';
 
 function TeamPopUp({ dmlien, openState, setOpen }) {
   const [showLinkCopied, setShowLinkCopied] = useState(false);
-  const isAlumni = Boolean(dmlien?.alumni);
 
   return (
     <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
@@ -53,56 +52,32 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
               )}
 
               <div className="flex h-full flex-col gap-3 self-stretch p-[30px] font-SaansRegular">
-                {isAlumni ? (
-                  <>
-                    <h3 className="font-SaansMed text-xl uppercase text-label">
-                      Alumni
-                    </h3>
-                    <p className="font-SaansRegular text-lg text-grey-3">
-                      No longer at Dm. For anything relating to this work,
-                      contact{' '}
-                      <a
-                        className="text-[#737EA5] hover:underline"
-                        href="mailto:info@darkmatterlabs.org"
-                      >
-                        info@darkmatterlabs.org
-                      </a>
-                      .
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <h3 className="font-SaansMed text-xl uppercase text-label">
-                      Contacts
-                    </h3>
-                    <ul>
-                      <li className="font-SaansRegular text-lg text-white hover:underline">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            navigator.clipboard.writeText(dmlien.email);
-                            setShowLinkCopied(true);
-                            setTimeout(() => {
-                              setShowLinkCopied(false);
-                            }, 2000);
-                          }}
-                          className="flex items-center gap-[8px] text-left hover:cursor-pointer"
-                        >
-                          {dmlien.email}
-                          <span title="Copy email to clipboard">
-                            <Square2StackIcon className="h-4 w-4" />
-                          </span>
-                        </button>
-                      </li>
-                    </ul>
-                    <p
-                      aria-live="polite"
-                      className="p-lg-regular text-gray-100"
+                <h3 className="font-SaansMed text-xl uppercase text-label">
+                  Contacts
+                </h3>
+                <ul>
+                  <li className="font-SaansRegular text-lg text-white hover:underline">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard.writeText(dmlien.email);
+                        setShowLinkCopied(true);
+                        setTimeout(() => {
+                          setShowLinkCopied(false);
+                        }, 2000);
+                      }}
+                      className="flex items-center gap-[8px] text-left hover:cursor-pointer"
                     >
-                      {showLinkCopied ? 'Email copied!' : ''}
-                    </p>
-                  </>
-                )}
+                      {dmlien.email}
+                      <span title="Copy email to clipboard">
+                        <Square2StackIcon className="h-4 w-4" />
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+                <p aria-live="polite" className="p-lg-regular text-gray-100">
+                  {showLinkCopied ? 'Email copied!' : ''}
+                </p>
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[16px] py-[28px] pl-[28px] pr-[32px] sm:min-h-full sm:basis-[468px]">

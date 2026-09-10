@@ -78,6 +78,27 @@ export default function Contact() {
               Registration number: 559305-1047
             </p>
           </div>
+
+          {/* Berlin is a studio space rather than a registered entity, so it
+              carries no company number. Said plainly, since every other
+              entry here lists one. */}
+          <div>
+            <h2 className="heading-4xl text-white">Germany</h2>
+            <p className="font-SaansRegular text-lg leading-11 text-[#E3E3E3]">
+              <a
+                href="https://medulla.city/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80"
+              >
+                Medulla ↗
+              </a>
+            </p>
+            <p className="font-SaansRegular text-lg leading-11 text-[#E3E3E3] opacity-60">
+              Dresdener Str. 113B <br /> Berlin <br />
+              Studio space, not a registered entity
+            </p>
+          </div>
         </div>
       </div>
       <div className="col-span-5  mt-[30px] w-full sm:w-[690px] md:mt-28 md:w-[400px]">
