@@ -86,12 +86,21 @@ export default function TeamGrid({ dmliens }) {
               </div>
               {/* Names only, and not interactive: we hold no headshot, bio or
                   current location for most alumni, so there is nothing for a
-                  hover or a dialog to show. */}
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-[10px] border-b border-[#353535] pb-[60px] xs:grid-cols-3 sm:grid-cols-4">
+                  hover or a dialog to show.
+
+                  Multi-column rather than a grid. In a grid, one name that
+                  wraps to two lines makes its whole row taller and leaves a
+                  gap under every single-line name beside it. Columns flow the
+                  names as text, so a long one simply takes the space it needs
+                  and the next name follows. Three columns at 690px gives
+                  ~220px a column, which fits every current name on one line
+                  anyway; `break-inside-avoid` keeps any future longer one
+                  from splitting across a column break. */}
+              <ul className="columns-2 gap-x-[24px] border-b border-[#353535] pb-[60px] sm:columns-3">
                 {alumni.map((person) => (
                   <li
                     key={person._id ?? person.fullName}
-                    className="font-SaansRegular text-xl leading-[26px] text-grey-3"
+                    className="break-inside-avoid pb-[10px] font-SaansRegular text-xl leading-[26px] text-grey-3"
                   >
                     {person.fullName}
                   </li>
