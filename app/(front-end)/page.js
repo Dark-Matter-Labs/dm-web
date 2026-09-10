@@ -1164,7 +1164,7 @@ export default function Home() {
 
       <Popup
         type="arc"
-        title="M0 Cities"
+        title="X0 Economy"
         openState={openM0}
         image={M0logo}
         setOpen={setOpenM0}
@@ -1173,7 +1173,7 @@ export default function Home() {
         publicationLabel="Whitepaper"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            The M0 Arc is aiming to reimagine how we use and steward materials
+            The X0 Arc is aiming to reimagine how we use and steward materials
             in service of{' '}
             <a
               className="text-[#737EA5]"
@@ -1191,16 +1191,16 @@ export default function Home() {
 
       <Popup
         type="arc"
-        title="Regen Nutrition"
+        title="Resilient Food Systems"
         image={RNlogo}
         openState={openRE}
         setOpen={setOpenRE}
-        website=""
+        website="https://food.darkmatterlabs.org/"
         publication="https://medium.com/9outof10-protein-shift-innovation-platform/universal-basic-nutrient-income-institutional-infrastructure-for-2040-food-preparedness-f00f70a84510"
         publicationLabel="Blog"
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            The Rn Arc is working towards resilient, sustainable and high
+            The Rf Arc is working towards resilient, sustainable and high
             quality food systems. Within this aspiration, cities are a key area
             of focus and the team are working across diverse sectors to identify
             and respond to likely pressure points.
@@ -1327,7 +1327,7 @@ export default function Home() {
 
       <Popup
         type="lab"
-        title="Sensing, Modeling & Mapping"
+        title="Risk Intelligence"
         image={SMlogo}
         openState={openSM}
         setOpen={setOpenSM}
@@ -1336,17 +1336,7 @@ export default function Home() {
         publicationLabel=""
         content={
           <p className="font-SaansRegular text-base text-[#C6C6C6]">
-            The Sm Lab is working to improve the{' '}
-            <a
-              className="text-[#737EA5]"
-              target="_blank"
-              href="https://docs.google.com/presentation/d/1fq-hmMDV5DnaDk8fSYhsQmQbvw_yo4SAzsGozWzWhw0/edit#slide=id.g1dcfb843b9e_0_167"
-            >
-              visibility of our interactions with the physical world
-            </a>
-            . From material and energy flows to land use, the Lab is building
-            tools and mapping systems that leverage technology to build a
-            dynamic understanding of how the system is responding.
+            The RI Lab builds Dm’s capability across Dm and our wider ecosystem to sense, calculate, and map systemic risk, from community-held knowledge of lived risk, to value-at-risk frameworks for shocks like climate change and food crises, to spatial analysis of how risk is distributed.
           </p>
         }
       />
@@ -2504,13 +2494,13 @@ export default function Home() {
             <h2 className="heading-4xl pb-2 text-grey-3">Studios</h2>
             <p className="p-xl-regular max-w-[380px] text-grey-3">
               Studios are the connective tissue that support both the Labs and
-              Missions. The studios explore themes that help our work to be
+              Arcs. The studios explore themes that help our work to be
               implemented and more widely understood. For instance, the{' '}
               <span
                 onClick={() => setOpenCT(true)}
                 className="font-SaansMed hover:cursor-crosshair"
               >
-                Civ Tech
+                Civic Tech
               </span>{' '}
               <span className="align-super text-[9.5px] uppercase">Studio</span>{' '}
               develops the technological tools and knowledge for prototypes
@@ -2882,8 +2872,8 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="Material 0 Cities"
-                      short="M0"
+                      title="X0 Economy"
+                      short="X0"
                       activeState={M0active || openM0}
                       setActive={setM0Active}
                       setOpen={setOpenM0}
@@ -2892,8 +2882,8 @@ export default function Home() {
                     />
 
                     <Arc
-                      title="Regen Nutrition"
-                      short="RN"
+                      title="Resilient Food Systems "
+                      short="RF"
                       activeState={REactive || openRE}
                       setActive={setREActive}
                       setOpen={setOpenRE}
@@ -3012,7 +3002,7 @@ export default function Home() {
 
                     <Initiative
                       title="New Economic Thinking"
-                      arc="M0"
+                      arc="X0"
                       lab="NE"
                       activeState={(M0active && NEactive) || openNET}
                       hoverState={M0active || NEactive}
@@ -4283,8 +4273,8 @@ export default function Home() {
 
                   <div>
                     <Lab
-                      title="Sensing & Modeling"
-                      short="SM"
+                      title="Risk Intelligence"
+                      short="RI"
                       activeState={SMactive || openSM}
                       setActive={setSMActive}
                       setOpen={setOpenSM}
