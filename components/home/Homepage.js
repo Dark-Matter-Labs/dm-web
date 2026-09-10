@@ -20,7 +20,6 @@ import Paradigms from '@/components/Paradigms';
 import MatrixGrid from '@/components/home/MatrixGrid';
 import { ArcColumn, StudioRow } from '@/components/home/UnitTiles';
 import UnitPopups from '@/components/home/UnitPopups';
-import MobileMatrix from '@/components/home/MobileMatrix';
 
 import labsOverlay from '@/images/labs.svg';
 import arcsOverlay from '@/images/arcs.svg';
@@ -40,6 +39,10 @@ import NETPic from '@/images/projects/Intersection_New Economic Thinking.jpg';
 
 import CIconceptPic from '@/images/concepts/Concept_Collective inelligence of cities.jpg';
 import BRconceptPic from '@/images/concepts/Concept_Resilient bioregional food systems.jpg';
+
+import matrixMobile1 from '@/images/Matrix1.webp';
+import matrixMobile2 from '@/images/Matrix2.webp';
+import matrixMobile3 from '@/images/Matrix3.webp';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -2110,7 +2113,14 @@ export default function Homepage({ units }) {
                 collaborations and context specific initiatives.
               </p>
             </div>
-            <MobileMatrix units={units} openPopupFor={openPopupFor} />
+            <Image
+              src={matrixMobile1}
+              alt=""
+              sizes="92vw"
+              placeholder="blur"
+              className="h-auto w-full"
+              style={{ paddingBottom: '20px' }}
+            />
             <div className="flex flex-col items-center justify-center py-8">
               <h2 className="heading-3xl-regular pb-4 text-grey-3">
                 Intersections
@@ -2125,6 +2135,14 @@ export default function Homepage({ units }) {
                 contribute to building systemic capabilities.
               </p>
             </div>
+            <Image
+              src={matrixMobile2}
+              alt=""
+              sizes="92vw"
+              placeholder="blur"
+              className="h-auto w-full"
+              style={{ paddingBottom: '20px' }}
+            />
             <div className="flex flex-col items-center justify-center py-8">
               <h2 className="heading-3xl-regular pb-4 text-grey-3">
                 Capabilities
@@ -2139,6 +2157,13 @@ export default function Homepage({ units }) {
                 institutions.
               </p>
             </div>
+            <Image
+              src={matrixMobile3}
+              alt=""
+              sizes="92vw"
+              placeholder="blur"
+              className="h-auto w-full"
+            />
           </div>
 
           <animated.div
