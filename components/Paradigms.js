@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import DMButton from '@/components/Button';
 
-export default function Paradigms({
+function Paradigms({
   setOpenNE,
   setOpenRC,
   setOpenSM,
@@ -432,3 +433,7 @@ export default function Paradigms({
     </>
   );
 }
+
+// Static content with referentially stable props: without memo this
+// re-rendered on every scroll tick along with the rest of the homepage.
+export default memo(Paradigms);

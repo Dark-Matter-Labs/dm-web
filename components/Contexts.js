@@ -1,4 +1,6 @@
-export default function Contexts() {
+import { memo } from 'react';
+
+function Contexts() {
   return (
     <>
       <div className="side-display col-span-5 w-[400px] max-w-xs">
@@ -87,3 +89,7 @@ export default function Contexts() {
     </>
   );
 }
+
+// Static content with referentially stable props: without memo this
+// re-rendered on every scroll tick along with the rest of the homepage.
+export default memo(Contexts);
