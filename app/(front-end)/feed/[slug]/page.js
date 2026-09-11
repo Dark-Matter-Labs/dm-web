@@ -88,9 +88,13 @@ export default async function feed_itemPage({ params }) {
         <div className="project-back">
           <BackButton text="back to feed" />
         </div>
+        {/* Was alt="team member", copy-pasted from the team grid and wrong on
+            every one of these pages. Sanity has an alt field on the image and
+            the `...` spread above already returns it; nothing had ever read it.
+            Falls back to the title, which the schema requires. */}
         <Image
           src={urlForImage(feed_item.image)}
-          alt="team member"
+          alt={feed_item.image?.alt || feed_item.title}
           width={0}
           height={0}
           sizes="100vw"
@@ -119,9 +123,12 @@ export default async function feed_itemPage({ params }) {
             <Link href={feed_item.previous.slug.current}>
               <div className="flex flex-row items-start justify-center gap-[16px] hover:cursor-crosshair">
                 <div className="h-[50px] w-[80px] overflow-hidden">
+                  {/* Decorative: the link already carries "previous" and
+                      the project title, so describing the thumbnail only adds
+                      noise for a screen reader. */}
                   <Image
                     src={urlForImage(feed_item.previous.image)}
-                    alt="previous project image"
+                    alt=""
                     width={0}
                     height={0}
                     sizes="10vw"
@@ -163,9 +170,10 @@ export default async function feed_itemPage({ params }) {
                   </div>
                 </div>
                 <div className="h-[50px] w-[80px] overflow-hidden">
+                  {/* Decorative, as above. */}
                   <Image
                     src={urlForImage(feed_item.next.image)}
-                    alt="next project image"
+                    alt=""
                     width={0}
                     height={0}
                     sizes="10vw"

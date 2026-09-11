@@ -60,9 +60,12 @@ export default async function InitiativePage({ params }) {
         <div className="project-back">
           <BackButton text="back to initiatives" />
         </div>
+        {/* Same copy-paste as the feed detail page had: the hero image was
+            announced as "team member" on every initiative. Sanity carries an
+            alt on the image and the `...` spread above returns it. */}
         <Image
           src={urlForImage(initiative.image)}
-          alt="team member"
+          alt={initiative.image?.alt || initiative.title}
           width={0}
           height={0}
           sizes="100vw"
