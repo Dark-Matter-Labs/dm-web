@@ -14,23 +14,23 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
   const [showLinkCopied, setShowLinkCopied] = useState(false);
 
   return (
-    <Dialog open={openState} onClose={setOpen} className="relative z-[60]">
+    <Dialog open={openState} onClose={setOpen} className="relative z-60">
       <DialogBackdrop
         transition
-        className="fixed inset-0 bg-[#111112] bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+        className="fixed inset-0 bg-[#111112]/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
       />
       <div className="fixed inset-0 overflow-y-auto">
         <div className="flex min-h-full items-end justify-center py-24 text-center sm:items-center">
           <DialogPanel
             transition
-            className="shadow-layer relative flex w-4/5 transform flex-col items-center justify-between overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:min-h-full sm:w-[762px] sm:flex-row sm:items-stretch sm:justify-start data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            className="shadow-layer relative flex w-4/5 transform flex-col items-center justify-between overflow-hidden border-[0.5px] border-[#353535] bg-[#161618] text-left transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:min-h-full sm:w-[762px] sm:flex-row sm:items-stretch sm:justify-start data-closed:sm:translate-y-0 data-closed:sm:scale-95"
           >
             {/* Close control is available at every breakpoint — on mobile the
                 only previous way out was tapping the backdrop. */}
-            <div className="absolute right-0 top-0 z-10 pr-4 pt-4">
+            <div className="absolute top-0 right-0 z-10 pt-4 pr-4">
               <button
                 type="button"
-                className="rounded-md bg-transparent text-grey-3 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+                className="text-grey-3 focus-visible:outline-grey-3 rounded-md bg-transparent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 onClick={() => setOpen(false)}
               >
                 <span className="sr-only">Close</span>
@@ -51,8 +51,8 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 />
               )}
 
-              <div className="flex h-full flex-col gap-3 self-stretch p-[30px] font-SaansRegular">
-                <h3 className="font-SaansMed text-xl uppercase text-label">
+              <div className="font-SaansRegular flex h-full flex-col gap-3 self-stretch p-[30px]">
+                <h3 className="font-SaansMed text-label text-xl uppercase">
                   Contacts
                 </h3>
                 <ul>
@@ -80,7 +80,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-start justify-start gap-[16px] py-[28px] pl-[28px] pr-[32px] sm:min-h-full sm:basis-[468px]">
+            <div className="flex flex-col items-start justify-start gap-[16px] py-[28px] pr-[32px] pl-[28px] sm:min-h-full sm:basis-[468px]">
               <div className="flex items-center justify-between">
                 <DialogTitle
                   as="h3"

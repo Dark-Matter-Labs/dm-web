@@ -21,7 +21,7 @@ export default function ProjectUnitList({ item, onSelect }) {
 
   return (
     <>
-      <p className="pb-[12px] pt-4 font-SaansMed text-xl uppercase text-label">
+      <p className="font-SaansMed text-label pt-4 pb-[12px] text-xl uppercase">
         Units
       </p>
       {units.map(({ unit, type }) => (
@@ -29,7 +29,7 @@ export default function ProjectUnitList({ item, onSelect }) {
           key={`${type}-${unit._id ?? unit.title}`}
           type="button"
           onClick={() => onSelect(type, unit)}
-          className="group flex items-center justify-start gap-[10px] text-left hover:cursor-crosshair focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
+          className="group focus-visible:outline-grey-3 flex items-center justify-start gap-[10px] text-left hover:cursor-crosshair focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
         >
           <div className="h-[22px] w-[22px] shrink-0 group-hover:opacity-80">
             <Image

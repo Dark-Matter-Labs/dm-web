@@ -26,12 +26,12 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
   const handleMouseLeave = useCallback(() => setHover(false), []);
 
   return (
-    <div className="sticky top-0 z-[90] bg-gradient-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px] ">
+    <div className="sticky top-0 z-90 bg-linear-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
       <div className="global-margin nav-w flex items-center justify-between">
         <div
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="logo-w "
+          className="logo-w"
         >
           <Link href="/">
             {hover ? (
@@ -65,7 +65,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/feed'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl py-2 transition ease-in-out  ',
+                        'nav-xl py-2 transition ease-in-out',
                       )}
                     >
                       Projects
@@ -76,7 +76,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/initiatives'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl py-2 transition ease-in-out  ',
+                        'nav-xl py-2 transition ease-in-out',
                       )}
                     >
                       Initiatives
@@ -87,7 +87,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/team'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display hidden py-2 transition ease-in-out  ',
+                        'nav-xl side-display hidden py-2 transition ease-in-out',
                       )}
                     >
                       Team
@@ -98,7 +98,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/jobs'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display hidden py-2 transition ease-in-out ',
+                        'nav-xl side-display hidden py-2 transition ease-in-out',
                       )}
                     >
                       {/* The counter is positioned out of flow, so it cannot
@@ -114,7 +114,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/contact'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display hidden py-2 transition ease-in-out  ',
+                        'nav-xl side-display hidden py-2 transition ease-in-out',
                       )}
                     >
                       Contact
@@ -123,7 +123,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                       href="https://provocations.darkmatterlabs.org/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="nav-xl py-2  text-grey-4 transition ease-in-out hover:text-white"
+                      className="nav-xl text-grey-4 py-2 transition ease-in-out hover:text-white"
                     >
                       Provocations↗
                     </a>
@@ -149,7 +149,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                 </div>
                 <div className="-mr-2 flex sm:hidden">
                   {/* Mobile menu button */}
-                  <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-white ">
+                  <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-white">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open main menu</span>
                     {open ? (
@@ -162,41 +162,41 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
 
                 <DisclosurePanel
                   transition
-                  className="overlay shadow-layer h-[100vh] w-[100vw] origin-top overflow-hidden px-5 backdrop-blur-md transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 sm:px-8 md:hidden"
+                  className="overlay shadow-layer h-screen w-screen origin-top overflow-hidden px-5 backdrop-blur-md transition duration-200 ease-out data-closed:-translate-y-6 data-closed:opacity-0 sm:px-8 md:hidden"
                 >
-                  <DisclosureButton className="relative float-right inline-flex items-center justify-center rounded-md p-2 pt-[34px] text-gray-400  hover:text-white ">
+                  <DisclosureButton className="relative float-right inline-flex items-center justify-center rounded-md p-2 pt-[34px] text-gray-400 hover:text-white">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open main menu</span>
 
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   </DisclosureButton>
                   <div className="flex h-[95%] flex-col justify-between">
-                    <div className="space-y-1 px-2 pb-3 pt-[100px]">
+                    <div className="space-y-1 px-2 pt-[100px] pb-3">
                       <DisclosureButton
                         as={Link}
                         href="/feed"
-                        className="heading-4xl block py-2 text-white  transition ease-in-out hover:text-white sm:hidden"
+                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white sm:hidden"
                       >
                         Projects
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}
                         href="/initiatives"
-                        className="heading-4xl  block py-2 text-white transition ease-in-out hover:text-white sm:hidden"
+                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white sm:hidden"
                       >
                         Initiatives
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}
                         href="/team"
-                        className="heading-4xl block py-2  text-white transition ease-in-out hover:text-white"
+                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white"
                       >
                         Team
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}
                         href="/jobs"
-                        className="heading-4xl block py-2  text-white transition ease-in-out hover:text-white"
+                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white"
                       >
                         <p className="relative inline-block">
                           Jobs
@@ -206,14 +206,14 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                       <DisclosureButton
                         as={Link}
                         href="/contact"
-                        className="heading-4xl block py-2  text-white transition ease-in-out hover:text-white"
+                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white"
                       >
                         Contact
                       </DisclosureButton>
                       <DisclosureButton
                         as="a"
                         href="https://provocations.darkmatterlabs.org/"
-                        className="heading-4xl  block py-2 text-white  transition ease-in-out hover:text-white sm:hidden"
+                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white sm:hidden"
                       >
                         Provocations↗
                       </DisclosureButton>

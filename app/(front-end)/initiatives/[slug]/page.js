@@ -49,7 +49,7 @@ export default async function InitiativePage({ params }) {
   }
 
   return (
-    <div className="initiative-grid flex pb-[100px] pt-[60px] sm:pt-28">
+    <div className="initiative-grid flex pt-[60px] pb-[100px] sm:pt-28">
       <div className="side-display">
         <ProjectMetadata
           initiative={initiative}
@@ -72,13 +72,13 @@ export default async function InitiativePage({ params }) {
         />
         <h1 className="heading-5xl-Reg text-grey-1">{initiative.title}</h1>
         <h2 className="heading-4xl text-grey-3">{initiative.subtitle}</h2>
-        <div className="meta-mobile ">
+        <div className="meta-mobile">
           <ProjectMetadata
             initiative={initiative}
             back_text={'back to initiatives'}
           />
         </div>
-        <div className="p-xl-regular border-y border-y-[#353535] pb-[100px] pt-[30px] text-[#EBEBEB]">
+        <div className="p-xl-regular border-y border-y-[#353535] pt-[30px] pb-[100px] text-[#EBEBEB]">
           <PortableText
             value={initiative.description}
             components={portableTextComponents}

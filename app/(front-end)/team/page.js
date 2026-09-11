@@ -19,7 +19,7 @@ export default async function TeamPage() {
   return (
     <>
       <div className="teams-grid mt-[40px] flex w-full gap-0 text-white sm:mt-[100px]">
-        <div className="max-w-[690px] border-b border-[#353535] font-SaansRegular">
+        <div className="font-SaansRegular max-w-[690px] border-b border-[#353535]">
           <div className="heading-5xl-Reg sm:heading-7xl mb-[30px] text-white">
             Team
           </div>
@@ -47,7 +47,7 @@ export default async function TeamPage() {
           />
         </div>
       </div>
-      <div className="teams-grid mb-[30px] mt-[63px] flex justify-center px-[20px] sm:px-0">
+      <div className="teams-grid mt-[63px] mb-[30px] flex justify-center px-[20px] sm:px-0">
         <div className="flex w-4/5 flex-col items-center justify-center sm:w-[690px] md:items-start md:justify-end">
           <p className="p-xl-regular text-white">
             We are a distributed global team collaborating at the intersection

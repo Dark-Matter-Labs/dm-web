@@ -10,11 +10,11 @@ export default async function Jobs() {
     tags: ['jobObject'],
   });
   return (
-    <div className={`page-grid relative mt-[40px] pb-[60px] sm:mt-28 `}>
+    <div className={`page-grid relative mt-[40px] pb-[60px] sm:mt-28`}>
       <div className="side-display col-span-5 w-[400px]"></div>
       <div className={'col-span-7 w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[30px] border-b border-b-[#353535] pb-[100px]">
-          <h1 className="heading-5xl-Reg sm:heading-7xl pb-[18px] text-grey-1">
+          <h1 className="heading-5xl-Reg sm:heading-7xl text-grey-1 pb-[18px]">
             Work with us
           </h1>
           <p className="p-body2 text-[#EBEBEB]">
@@ -24,7 +24,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg pb-2 text-grey-3 sm:max-w-xs">
+        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 pb-2 sm:max-w-xs">
           We’re looking to fill these roles
         </h2>
       </div>
@@ -37,9 +37,7 @@ export default async function Jobs() {
           jobs.map((job) => (
             <div key={job.positionName} className="">
               <a href={job.link} target="_blank" rel="noopener noreferrer">
-                <h3 className="heading-4xl  text-white">
-                  {job.positionName} ↗
-                </h3>
+                <h3 className="heading-4xl text-white">{job.positionName} ↗</h3>
               </a>
               {/* TODO: add job meta data */}
             </div>
@@ -50,7 +48,7 @@ export default async function Jobs() {
           </p>
         )}
         <div>
-          <h3 className="heading-4xl  text-white">Open Application</h3>
+          <h3 className="heading-4xl text-white">Open Application</h3>
           <p className="p-xl-regular text-[#EBEBEB] opacity-50">
             Thank you for your interest in Dark Matter Labs. It means a great
             deal to us that you’re drawn to the work and considering how you
@@ -68,7 +66,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg pb-2 text-grey-3 md:max-w-xs">
+        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 pb-2 md:max-w-xs">
           How we work
         </h2>
       </div>
@@ -127,7 +125,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg pb-2 text-grey-3 md:max-w-xs">
+        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 pb-2 md:max-w-xs">
           Your background
         </h2>
       </div>
@@ -174,7 +172,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 max-w-xs pb-2">
           Pay
         </h2>
       </div>
@@ -228,7 +226,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg max-w-xs pb-2 text-grey-3">
+        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 max-w-xs pb-2">
           We support equality
         </h2>
       </div>

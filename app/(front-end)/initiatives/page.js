@@ -55,10 +55,10 @@ export default async function Initiatives() {
                   blurDataURL={initiative?.metadata.lqip}
                 />
               </div>
-              <h2 className="mb-[18px] font-SaansRegular text-5xl text-white group-hover:opacity-80">
+              <h2 className="font-SaansRegular mb-[18px] text-5xl text-white group-hover:opacity-80">
                 {initiative.title}
               </h2>
-              <p className="pb-[20px] font-SaansRegular text-xl text-[#A8A8A8]">
+              <p className="font-SaansRegular text-grey-3 pb-[20px] text-xl">
                 {initiative.short_description}
               </p>
             </Link>
