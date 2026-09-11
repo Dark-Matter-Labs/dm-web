@@ -28,7 +28,7 @@ export default function LineageAndIntellectualResponsibility() {
             className="text-[#737EA5]"
             href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
           >
             Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
           </a>{' '}
@@ -37,7 +37,7 @@ export default function LineageAndIntellectualResponsibility() {
             className="text-[#737EA5]"
             href="https://www.gnu.org/licenses/gpl-3.0.en.html"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
           >
             GNU General Public License v3.0 (GPLv3)
           </a>

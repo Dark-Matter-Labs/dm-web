@@ -68,7 +68,7 @@ export default function JobCard({ job }) {
 
   return (
     <div>
-      <a href={job.link} target="_blank" rel="noopener noreferrer">
+      <a href={job.link} target="_blank" rel="noopener">
         <h3 className="heading-4xl text-white">{job.positionName} ↗</h3>
       </a>
       {meta.length > 0 && (

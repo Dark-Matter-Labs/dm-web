@@ -151,7 +151,7 @@ export default function FeedList({ feed_list }) {
                         <a
                           href={item.link}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener"
                           className="flex w-full hover:cursor-pointer"
                         >
                           <FeedItem item={item} />
