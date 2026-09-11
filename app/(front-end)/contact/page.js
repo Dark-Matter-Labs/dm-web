@@ -95,7 +95,7 @@ export default function Contact() {
               </a>
             </p>
             <p className="font-SaansRegular text-grey-6 text-lg leading-11 opacity-60">
-              Dresdener Str. 113B <br /> Berlin <br />
+              Dresdener Str. 113B <br /> 10179, Berlin <br />
               Studio space
             </p>
           </div>
