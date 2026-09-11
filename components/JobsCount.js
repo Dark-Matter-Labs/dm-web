@@ -1,8 +1,13 @@
 import { sanityFetch } from '@/sanity/lib/client';
+import { openJobsFilter, openJobsParams } from '@/sanity/lib/jobs';
 
 // Only the number is needed, so count in the query rather than fetching
 // every job document to call .length on it.
-const jobsCountQuery = `count(*[_type == 'jobObject'])`;
+//
+// Shares `openJobsFilter` with the jobs page on purpose. Counting every
+// jobObject while the page listed only unexpired ones would put a number in
+// the nav that the page it links to contradicts.
+const jobsCountQuery = `count(*[${openJobsFilter}])`;
 
 /**
  * The open-roles counter beside "Jobs" in the nav.
@@ -20,6 +25,7 @@ const jobsCountQuery = `count(*[_type == 'jobObject'])`;
 export default async function JobsCount({ className = '' }) {
   const count = await sanityFetch({
     query: jobsCountQuery,
+    qParams: openJobsParams(),
     tags: ['jobObject'],
   });
 

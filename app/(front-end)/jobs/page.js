@@ -1,12 +1,31 @@
 import { sanityFetch } from '@/sanity/lib/client';
+import { openJobsFilter, openJobsParams } from '@/sanity/lib/jobs';
+import JobCard from '@/components/JobCard';
 
+/**
+ * The list used to `order(close_date asc)` without ever filtering on it, so
+ * a role whose closing date had passed still rendered as open.
+ *
+ * Roles with no closing date sort last: GROQ orders null after every other
+ * value ascending, which puts the open-ended roles below the ones a reader
+ * has a deadline for.
+ */
 const jobsQuery = `
-*[_type == 'jobObject'] | order(close_date asc)
+*[${openJobsFilter}] | order(close_date asc) {
+  _id,
+  positionName,
+  link,
+  contract_type,
+  length,
+  close_date,
+  location[]{ countryCode, city }
+}
 `;
 
 export default async function Jobs() {
   const jobs = await sanityFetch({
     query: jobsQuery,
+    qParams: openJobsParams(),
     tags: ['jobObject'],
   });
   const hasOpenRoles = jobs.length > 0;
@@ -38,14 +57,7 @@ export default async function Jobs() {
         }
       >
         {hasOpenRoles ? (
-          jobs.map((job) => (
-            <div key={job.positionName} className="">
-              <a href={job.link} target="_blank" rel="noopener noreferrer">
-                <h3 className="heading-4xl text-white">{job.positionName} ↗</h3>
-              </a>
-              {/* TODO: add job meta data */}
-            </div>
-          ))
+          jobs.map((job) => <JobCard key={job._id} job={job} />)
         ) : (
           <p className="p-xl-regular text-[#EBEBEB]">
             We don’t have any open roles at the moment.
