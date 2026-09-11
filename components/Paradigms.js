@@ -67,7 +67,7 @@ function Paradigms({
                 <a
                   className="underline hover:cursor-crosshair"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   href="https://provocations.darkmatterlabs.org/the-necessity-of-a-boring-revolution-a71b1ae6f956"
                 >
                   a boring revolution

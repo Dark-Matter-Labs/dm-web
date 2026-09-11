@@ -112,7 +112,7 @@ export default function Footer() {
                           <a
                             href="https://kr.darkmatterlabs.org/"
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noopener"
                             className="hover:text-white"
                           >
                             <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">

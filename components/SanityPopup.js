@@ -67,7 +67,7 @@ function SanityPopup({
                 )}
                 {links?.map((link) => (
                   <div key={link.linkUrl} className="">
-                    <a target="_blank" href={link.linkUrl}>
+                    <a target="_blank" rel="noopener" href={link.linkUrl}>
                       <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
                         {link.linkText} ↗
                       </p>

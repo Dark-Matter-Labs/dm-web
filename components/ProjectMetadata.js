@@ -41,7 +41,7 @@ export default function ProjectMetadata({
         </p>
         {initiative.links?.map((link) => (
           <div key={link.linkUrl} className="">
-            <a target="_blank" href={link.linkUrl}>
+            <a target="_blank" rel="noopener" href={link.linkUrl}>
               <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB] hover:opacity-80">
                 {link.linkText} ↗
               </p>
@@ -67,7 +67,7 @@ export default function ProjectMetadata({
 
         {initiative?.partners?.map((partner) => (
           <div key={partner.Name} className="flex">
-            <a href={partner.link} target="_blank" rel="noopener noreferrer">
+            <a href={partner.link} target="_blank" rel="noopener">
               <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB] hover:opacity-80">
                 {partner.Name}
               </p>

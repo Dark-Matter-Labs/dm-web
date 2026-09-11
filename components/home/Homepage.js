@@ -1027,6 +1027,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
             >
               distributed bioregional bank
@@ -1072,6 +1073,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://drive.google.com/file/d/19yPUJg-DZgdXVhaK3Hh_Rqj7NdEe-7ZT/view"
             >
               {' '}
@@ -1122,6 +1124,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://drive.google.com/file/d/1B3x9hYWM3n0zqyTnFzetGDSdlnspRzOr/view?usp=sharing"
             >
               first conversational publications
@@ -1148,6 +1151,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://drive.google.com/file/d/176CNiZYM1v2xcEzDVO4SHuEfRQoosCVL/view"
             >
               The Cornerstone Indicators
@@ -1175,6 +1179,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://provocations.darkmatterlabs.org/re-permissioning-the-city-unlocking-cities-growing-underutilised-spatial-assets-for-an-emergent-1550997714a4"
             >
               Permissioning the City
@@ -1200,6 +1205,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://drive.google.com/file/d/1y-GW6fJet4LrX7X3iDjqaeIDCTvijX38/view"
             >
               MatR (Material Registry)
@@ -1208,6 +1214,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://provocations.darkmatterlabs.org/datas-role-for-a-post-carbon-built-environment-7a31b4ebc934"
             >
               web tool
@@ -1232,6 +1239,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://www.darkmatterlabs.property/"
             >
               The Property & Beyond
@@ -1258,6 +1266,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://medium.com/neighbourhood-public-square/3%C2%BAc-neighbourhood-582903b050b2"
             >
               Birmingham
@@ -1295,6 +1304,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://www.pik-potsdam.de/en/news/latest-news/covid-19-climate-change-armed-conflicts-world2019s-crises-can-lead-to-interconnected-polycrisis"
             >
               polycrisis
@@ -1305,6 +1315,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://lee.darkmatterlabs.org/"
             >
               LEE here
@@ -1329,6 +1340,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://treesasinfrastructure.com/"
             >
               TreesAI
@@ -1354,6 +1366,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://cornerstoneindicators.com/"
             >
               Cornerstone Indicator initiative
@@ -1390,6 +1403,7 @@ export default function Homepage({ units }) {
             <a
               className="text-[#737EA5]"
               target="_blank"
+              rel="noopener"
               href="https://provocations.darkmatterlabs.org/towards-multivalent-currencies-bioregional-monetary-stewardship-and-a-distributed-global-reserve-dac459dc844e"
             >
               stewarding the regenerative health of a bioregion

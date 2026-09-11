@@ -88,7 +88,7 @@ export default function Contact() {
               <a
                 href="https://medulla.city/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="hover:opacity-80"
               >
                 Medulla ↗

@@ -6,7 +6,7 @@ export const linkComponent = ({ children, value }) =>
           className="font-SaansRegular text-base text-[#737EA5]"
           href={value?.href}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener"
         >
           <span className="">{children}</span>
         </a>

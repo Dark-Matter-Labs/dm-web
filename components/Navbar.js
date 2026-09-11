@@ -122,7 +122,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                     <a
                       href="https://provocations.darkmatterlabs.org/"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       className="py-2 nav-xl text-grey-4 transition ease-in-out hover:text-white"
                     >
                       Provocations↗
