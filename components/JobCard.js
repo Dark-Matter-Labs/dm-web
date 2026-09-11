@@ -36,6 +36,7 @@ function formatLength(months) {
  */
 export default function JobCard({ job }) {
   const locations = (job.location ?? []).filter((loc) => loc?.city);
+  const closingDate = job.close_date ? formatClosingDate(job.close_date) : null;
 
   const meta = [
     CONTRACT_TYPE_LABELS[job.contract_type] ?? null,
@@ -55,11 +56,12 @@ export default function JobCard({ job }) {
         ))}
       </>
     ) : null,
-    // Expired roles are filtered out of the query, so "Closes" is always
-    // still true by the time it reaches the page.
-    job.close_date && formatClosingDate(job.close_date) ? (
-      <time dateTime={job.close_date}>
-        Closes {formatClosingDate(job.close_date)}
+    // Expired roles are filtered out of the query, so "Closes" is still
+    // true by the time it reaches the page. Kept on one line: a date broken
+    // across two is the one thing here a reader is scanning for.
+    closingDate ? (
+      <time className="whitespace-nowrap" dateTime={job.close_date}>
+        Closes {closingDate}
       </time>
     ) : null,
   ].filter(Boolean);
