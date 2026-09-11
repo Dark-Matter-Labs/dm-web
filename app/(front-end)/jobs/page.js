@@ -9,6 +9,7 @@ export default async function Jobs() {
     query: jobsQuery,
     tags: ['jobObject'],
   });
+  const hasOpenRoles = jobs.length > 0;
   return (
     <div className={`page-grid relative mt-[40px] pb-[60px] sm:mt-28`}>
       <div className="side-display col-span-5 w-[400px]"></div>
@@ -24,8 +25,11 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
+        {/* Conditional: with no jobs in Sanity this heading used to sit
+            directly above "we do not have any open positions", telling the
+            visitor two opposite things. */}
         <h2 className="pb-2 heading-4xl text-grey-3 sm:max-w-xs sm:heading-5xl-Reg">
-          We’re looking to fill these roles
+          {hasOpenRoles ? 'We’re looking to fill these roles' : 'Open roles'}
         </h2>
       </div>
       <div
@@ -33,7 +37,7 @@ export default async function Jobs() {
           'col-span-7 mt-[30px] flex w-full flex-col gap-[28px] justify-self-end border-b border-b-[#353535] pb-[60px] sm:w-[690px] md:mt-16'
         }
       >
-        {jobs.length > 0 ? (
+        {hasOpenRoles ? (
           jobs.map((job) => (
             <div key={job.positionName} className="">
               <a href={job.link} target="_blank" rel="noopener noreferrer">
@@ -44,24 +48,30 @@ export default async function Jobs() {
           ))
         ) : (
           <p className="p-xl-regular text-[#EBEBEB]">
-            At this time, we do not have any open positions available.
+            We don’t have any open roles at the moment.
           </p>
         )}
+        {/* Not dimmed with opacity-50 any more. This is the answer to the
+            question the page's 1.5k monthly visitors came to ask, so it was
+            the last thing that should have been the faintest text here. */}
         <div>
           <h3 className="heading-4xl text-white">Open Application</h3>
-          <p className="p-xl-regular text-[#EBEBEB] opacity-50">
+          <p className="p-xl-regular text-[#EBEBEB]">
             Thank you for your interest in Dark Matter Labs. It means a great
             deal to us that you’re drawn to the work and considering how you
             might contribute. Given our current pathways pipeline and project
-            line-up, we won’t be taking on people through speculative
-            applications over the next 6 to 12 months.
+            line-up, we’re not taking on people through speculative applications
+            at the moment.
           </p>
         </div>
-        <p className="p-xl-regular text-[#EBEBEB] opacity-50">
-          We may still open specific roles during this time, and you’re warmly
-          welcome to apply to any that feel right for you. If you’d like to get
-          in touch beyond that, you can reach us at{' '}
-          <a href="mailto: join@darkmatterlabs.org">join@darkmatterlabs.org</a>
+        <p className="p-xl-regular text-[#EBEBEB]">
+          We do still open specific roles, and you’re warmly welcome to apply to
+          any that feel right for you. If you’d like to get in touch beyond
+          that, you can reach us at{' '}
+          <a className="text-[#737EA5]" href="mailto:join@darkmatterlabs.org">
+            join@darkmatterlabs.org
+          </a>
+          .
         </p>
       </div>
 
@@ -77,13 +87,13 @@ export default async function Jobs() {
       >
         <p className="p-xl-regular text-[#EBEBEB]">
           We’re a multi-disciplinary and distributed team based around the
-          globe. What’s important to us is using the context and local
-          conditions of projects to grow our knowledge and use it to iterate our
-          knowledge and practice across all of our work. We pride ourselves on
-          learning, experimentation and intuition, and look to provide members
-          of the team ways in which they can grow their own knowledge and
-          practice. We view projects, processes and how we work as an evolving
-          design that you would be part of shaping.
+          globe. What matters to us is learning from the context and local
+          conditions of each project, and letting that reshape our practice
+          across all of our work. We pride ourselves on learning,
+          experimentation and intuition, and look to give everyone on the team
+          ways to grow their own knowledge and practice. We view projects,
+          processes and how we work as an evolving design that you would be part
+          of shaping.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Here’s a little on how we currently organise:
@@ -135,11 +145,10 @@ export default async function Jobs() {
         }
       >
         <p className="p-xl-regular text-[#EBEBEB]">
-          We highly value lived experience as a form of expertise and we
-          consider having a broad and diverse range of lived experience within
-          the team, as being critical for us to be able to do our best possible
-          work together and to create a range of spaces and accommodate a broad
-          spectrum of life experience into our planetary team.
+          We highly value lived experience as a form of expertise. A broad and
+          diverse range of it within the team is critical to doing our best
+          possible work together, and to making room for the full spectrum of
+          life experience in a planetary team.
         </p>
         <p className="p-xl-regular text-[#EBEBEB]">
           Dark Matter Labs continues to educate, question and critically review
@@ -207,7 +216,7 @@ export default async function Jobs() {
           <a href="https://dm-pay.vercel.app/" className="text-[#737EA5]">
             this calculator
           </a>
-          . We recognize that no formula can fully reflect the unique context of
+          . We recognise that no formula can fully reflect the unique context of
           every individual. That’s why we also have a Pay Rebalancing process in
           place, reviewed annually, to accommodate individual circumstances.
         </p>
@@ -237,14 +246,11 @@ export default async function Jobs() {
       >
         <p className="p-xl-regular text-[#EBEBEB]">
           Dark Matter Labs is an equal opportunities employer, and we continue
-          to educate ourselves on how we can improve. Humans from all
+          to educate ourselves on how we can improve. Humans of every
           nationality, race, sex, religion, disability, sexual orientation and
-          identity are welcome. We recognise and celebrate the true value of a
-          safe and accepting working environment that only a diverse team can
-          unlock, and work to address our underlying biases that can prevent
-          that from materialising. Our projects and partners are spread across
-          the globe and we aim to reflect the same diversity on multiple levels
-          in our team and with the partners we work with.
+          identity are welcome. Our projects and partners are spread across the
+          globe, and we aim to reflect that same diversity in our team and in
+          who we choose to work with.
         </p>
       </div>
     </div>
