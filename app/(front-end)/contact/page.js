@@ -117,7 +117,6 @@ export default function Contact() {
                 alt="AA logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -128,7 +127,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -137,7 +135,6 @@ export default function Contact() {
                 alt="Viable Cities logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -148,7 +145,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -157,7 +153,6 @@ export default function Contact() {
                 alt="EIT CliamateKIC logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -168,7 +163,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -179,7 +173,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -190,7 +183,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -201,7 +193,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -210,7 +201,6 @@ export default function Contact() {
                 alt="Community Fund logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -221,7 +211,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -232,7 +221,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -243,7 +231,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -254,7 +241,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -263,7 +249,6 @@ export default function Contact() {
                 alt="Google logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -274,7 +259,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -285,7 +269,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -296,7 +279,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -307,7 +289,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -316,7 +297,6 @@ export default function Contact() {
                 alt="Nesta logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -327,7 +307,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -338,7 +317,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -349,7 +327,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -358,7 +335,6 @@ export default function Contact() {
                 alt="RAA logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -369,7 +345,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -378,7 +353,6 @@ export default function Contact() {
                 alt="UNDP logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -388,7 +362,6 @@ export default function Contact() {
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="img"
                 style={{ width: '100%', height: '100%' }}
               />
             </div>
@@ -400,7 +373,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
           </div>

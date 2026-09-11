@@ -251,10 +251,6 @@ hr {
   overflow: hidden;
 }
 
-.img {
-  transition: transform 0.5s ease-in-out;
-}
-
 .overlay {
   position: absolute;
   top: 0;
