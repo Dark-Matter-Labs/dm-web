@@ -20,16 +20,6 @@ export const metadata = {
 };
 
 /**
- * Pages are otherwise only rebuilt when Sanity fires the revalidate webhook
- * for an edit. That is enough for content that changes when someone edits
- * it, but a role expiring is a change nobody makes: its closing date simply
- * passes. Without a time-based window the filtered jobs list and the nav
- * counter would both stay frozen at whatever "today" was when the page was
- * last built. An hour is far finer than the day boundary they turn on.
- */
-export const revalidate = 3600;
-
-/**
  * No longer async. The layout used to `await` the jobs query before
  * rendering anything, so one Sanity request for a superscript number in the
  * nav gated the first paint of every page. The counter now streams in on

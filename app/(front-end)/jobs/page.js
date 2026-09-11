@@ -22,6 +22,23 @@ const jobsQuery = `
 }
 `;
 
+/**
+ * Pages are otherwise only rebuilt when Sanity fires the revalidate webhook
+ * for an edit. That is enough for content that changes when someone edits
+ * it, but a role expiring is a change nobody makes: its closing date simply
+ * passes, no webhook fires, and the filtered list above would stay frozen at
+ * whatever "today" was when this page was last built. An hour is far finer
+ * than the day boundary it turns on.
+ *
+ * Scoped to this route rather than the layout, so the rest of the site keeps
+ * rebuilding on the webhook alone. The trade: `JobsCount` in the nav shares
+ * this page's filter but renders on every route, so on a page that has not
+ * been rebuilt since a role expired the counter can briefly overcount. It
+ * corrects itself on that route's next revalidation, and this page — the one
+ * the counter links to — is always right.
+ */
+export const revalidate = 3600;
+
 export default async function Jobs() {
   const jobs = await sanityFetch({
     query: jobsQuery,
