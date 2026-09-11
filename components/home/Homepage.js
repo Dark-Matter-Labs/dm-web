@@ -93,6 +93,35 @@ export default function Homepage({ units }) {
 
   const closePopup = useCallback(() => setOpenPopup(null), []);
 
+  // Paradigms renders 434 lines of static prose and takes 17 popup setters.
+  // Built inline as `openPopupFor('NE')` they were fresh closures on every
+  // render, so wrapping Paradigms in memo() would never have hit. Built once
+  // here, its props are referentially stable and it renders once rather than
+  // on every scroll tick.
+  const paradigmSetters = useMemo(
+    () =>
+      Object.freeze({
+        setOpenNE: openPopupFor('NE'),
+        setOpenRC: openPopupFor('RC'),
+        setOpenSM: openPopupFor('RI'),
+        setOpenRE: openPopupFor('RF'),
+        setOpenCT: openPopupFor('CT'),
+        setOpenPC: openPopupFor('PC'),
+        setOpenPB: openPopupFor('PB'),
+        setOpenBR: openPopupFor('BR'),
+        setOpenCD: openPopupFor('CD'),
+        setOpenQD: openPopupFor('SD'),
+        setOpenETC: openPopupFor('NF'),
+        setOpenOD: openPopupFor('OD'),
+        setOpenBE: openPopupFor('BE'),
+        setOpenSG: openPopupFor('7G'),
+        setOpenCS: openPopupFor('CS'),
+        setOpenM0: openPopupFor('X0'),
+        setOpenNZ: openPopupFor('NZC'),
+      }),
+    [openPopupFor],
+  );
+
   const [scrollFraction, setScrollFraction] = useState();
 
   const [classT2, setClassT2] = useState('t1');
@@ -3235,25 +3264,7 @@ export default function Homepage({ units }) {
         }}
         className={`mobile-always-visible relative flex justify-center matrix:grid matrix:grid-cols-12`}
       >
-        <Paradigms
-          setOpenNE={openPopupFor('NE')}
-          setOpenRC={openPopupFor('RC')}
-          setOpenSM={openPopupFor('RI')}
-          setOpenRE={openPopupFor('RF')}
-          setOpenCT={openPopupFor('CT')}
-          setOpenPC={openPopupFor('PC')}
-          setOpenPB={openPopupFor('PB')}
-          setOpenBR={openPopupFor('BR')}
-          setOpenCD={openPopupFor('CD')}
-          setOpenQD={openPopupFor('SD')}
-          setOpenETC={openPopupFor('NF')}
-          setOpenOD={openPopupFor('OD')}
-          setOpenBE={openPopupFor('BE')}
-          setOpenSG={openPopupFor('7G')}
-          setOpenCS={openPopupFor('CS')}
-          setOpenM0={openPopupFor('X0')}
-          setOpenNZ={openPopupFor('NZC')}
-        />
+        <Paradigms {...paradigmSetters} />
       </animated.div>
     </div>
   );
