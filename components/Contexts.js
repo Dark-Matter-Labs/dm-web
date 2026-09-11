@@ -24,13 +24,12 @@ function Contexts() {
               opportunities of political ideologies?
             </p>
             <p className="p-3xl text-grey-1">
-              A right wing context may provide more fertile ground for rapidly
-              mobilising complex technologies than a liberal context. Or perhaps
-              in a context like Ukraine where crisis and instability has become
-              an everyday reality, the motivation for citizens to drive
-              alternative governance models is heightened. This could start from
-              a desire to support the military via voluntary crowdfunding and
-              extend to new sectors and patterns of behaviour.
+              The appetite for rapidly mobilising complex technologies does not
+              map neatly onto a left-right spectrum. And where crisis and
+              instability have become an everyday reality, as in Ukraine, the
+              motivation for citizens to build alternative governance models can
+              rise sharply - reaching into sectors and everyday behaviours well
+              beyond where it started.
             </p>
           </div>
 

@@ -5,3 +5,7 @@ build
 public
 yarn.lock
 fonts
+
+# Spinning off a background task creates a git worktree here. Without this,
+# `yarn format` walks into another checkout and can rewrite its files.
+.claude
