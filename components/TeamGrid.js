@@ -80,8 +80,8 @@ export default function TeamGrid({ dmliens }) {
                   Alumni
                 </h2>
                 <p className="max-w-[520px] font-SaansRegular text-xl leading-12 text-grey-3">
-                  People who shaped this work and have since moved on. Their
-                  contribution stays part of the record.
+                  People who shaped and contributed to this work since we began
+                  in 2016 - with thanks to all their contributions.
                 </p>
               </div>
               {/* Names only, and not interactive: we hold no headshot, bio or
