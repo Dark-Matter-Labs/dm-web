@@ -3,8 +3,8 @@ export default function Contexts() {
     <>
       <div className="side-display col-span-5 w-[400px] max-w-xs">
         <div className="mt-0">
-          <h2 className="heading-4xl text-grey-3 pb-2">Contexts</h2>
-          <p className="p-xl-regular text-grey-3 max-w-[380px]">
+          <h2 className="pb-2 heading-4xl text-grey-3">Contexts</h2>
+          <p className="max-w-[380px] p-xl-regular text-grey-3">
             The overarching LEE Mission allows us to contextually adjust the
             horizons of our interactions and interventions, whilst building
             towards a coherent field of influence and change. A single theory of
@@ -17,7 +17,7 @@ export default function Contexts() {
         <div id="context" className="mb-20">
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Political landscapes</h2>
-            <p className="p-3xl text-grey-7 pb-4">
+            <p className="pb-4 p-3xl text-grey-7">
               How can we work intelligently with the constraints and
               opportunities of political ideologies?
             </p>
@@ -34,7 +34,7 @@ export default function Contexts() {
 
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Geographical landscapes</h2>
-            <p className="p-3xl text-grey-7 pb-4">
+            <p className="pb-4 p-3xl text-grey-7">
               What can we leverage by deliberately targeting lead or established
               markets to test a tool or concept?
             </p>
@@ -50,7 +50,7 @@ export default function Contexts() {
 
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Time horizons</h2>
-            <p className="p-3xl text-grey-7 pb-4">
+            <p className="pb-4 p-3xl text-grey-7">
               How can we leverage the broad spectrum of realities represented
               across the global context?
             </p>
@@ -67,7 +67,7 @@ export default function Contexts() {
 
           <div className="mb-8">
             <h2 className="heading-4xl text-grey-1">Alliances</h2>
-            <p className="p-3xl text-grey-7 pb-4">
+            <p className="pb-4 p-3xl text-grey-7">
               What could be unleashed if we can identify and engage unusual (and
               often powerful) actors with converging aspirations?
             </p>

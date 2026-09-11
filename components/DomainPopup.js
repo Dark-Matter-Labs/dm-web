@@ -50,7 +50,7 @@ function Popup({ title, openState, setOpen, content, domain }) {
                 </p>
               </div>
             ) : (
-              <div className="bg-grey-4 flex h-[400px] max-w-[80px] flex-col items-center justify-center gap-[22px]">
+              <div className="flex h-[400px] max-w-[80px] flex-col items-center justify-center gap-[22px] bg-grey-4">
                 <p className="rotatae90 font-SaansRegular text-[20px] leading-[28px] text-white">
                   F: Material, energy & land use
                 </p>

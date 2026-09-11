@@ -1,64 +1,64 @@
 {
   "redirects": [
-      { 
-          "source": "/Jobs", 
-          "destination": "/jobs", 
-          "permanent": true 
-      },
-      { 
-        "source": "/Privacy-Policy", 
-        "destination": "/privacy-policy", 
-        "permanent": true 
-      },
-      { 
-        "source": "/About", 
-        "destination": "/", 
-        "permanent": true 
-      },
-      { 
-        "source": "/Projects", 
-        "destination": "/feed", 
-        "permanent": true 
-      },
-      { 
-        "source": "/Team", 
-        "destination": "/team", 
-        "permanent": true 
-      },
-      { 
-        "source": "/Contact", 
-        "destination": "/contact", 
-        "permanent": true 
-      },
-      { 
-        "source": "/Bioregional-Financing-Facilities", 
-        "destination": "/feed/bioregional-financing-facilities", 
-        "permanent": true 
-      },
-      { 
-        "source": "/New-Economic-Thinking", 
-        "destination": "/feed/new-economic-thinking", 
-        "permanent": true 
-      },
-      { 
-        "source": "/Designing-Our-Futures", 
-        "destination": "/feed/designing-our-futures", 
-        "permanent": true 
-      },
-      { 
-        "source": "/Re-Permissioning-the-City", 
-        "destination": "/feed/re-permissioning-the-city", 
-        "permanent": true 
-      },
-      { 
-        "source": "/CircuLaw", 
-        "destination": "/feed/circulaw", 
-        "permanent": true 
-      },
-      { 
-        "source": "/Les-Materialistes", 
-        "destination": "/feed/les-materialistes", 
-        "permanent": true 
-      }
+    {
+      "source": "/Jobs",
+      "destination": "/jobs",
+      "permanent": true
+    },
+    {
+      "source": "/Privacy-Policy",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/About",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Projects",
+      "destination": "/feed",
+      "permanent": true
+    },
+    {
+      "source": "/Team",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/Contact",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/Bioregional-Financing-Facilities",
+      "destination": "/feed/bioregional-financing-facilities",
+      "permanent": true
+    },
+    {
+      "source": "/New-Economic-Thinking",
+      "destination": "/feed/new-economic-thinking",
+      "permanent": true
+    },
+    {
+      "source": "/Designing-Our-Futures",
+      "destination": "/feed/designing-our-futures",
+      "permanent": true
+    },
+    {
+      "source": "/Re-Permissioning-the-City",
+      "destination": "/feed/re-permissioning-the-city",
+      "permanent": true
+    },
+    {
+      "source": "/CircuLaw",
+      "destination": "/feed/circulaw",
+      "permanent": true
+    },
+    {
+      "source": "/Les-Materialistes",
+      "destination": "/feed/les-materialistes",
+      "permanent": true
+    }
   ]
 }

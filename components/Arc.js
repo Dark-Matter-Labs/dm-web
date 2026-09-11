@@ -29,7 +29,7 @@ function Arc({
       onClick={() => setOpen(true)}
     >
       <p className="font-SaansRegular text-[17px] font-normal">{short}</p>
-      <p className="font-SaansRegular max-w-[60px] text-[12px] leading-[125%] font-normal">
+      <p className="max-w-[60px] font-SaansRegular text-[12px] leading-[125%] font-normal">
         {title}
       </p>
     </animated.div>

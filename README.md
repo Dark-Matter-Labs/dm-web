@@ -113,4 +113,3 @@ On deploy, Vercel will:
 - Build the Next.js app
 - Host static assets and dynamic routes
 - Provide the `sitemap.xml` and `robots.txt` endpoints automatically from the `app/` and `public/` setup.
-

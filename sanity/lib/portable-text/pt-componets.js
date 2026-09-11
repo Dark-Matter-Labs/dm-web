@@ -9,7 +9,7 @@ export const portableTextComponents = {
   block: {
     normal: normalTextComponent,
     description: ({ children }) => (
-      <p className="p-xl-regular pb-4 text-[#EBEBEB]">{children}</p>
+      <p className="pb-4 p-xl-regular text-[#EBEBEB]">{children}</p>
     ),
   },
   marks: {

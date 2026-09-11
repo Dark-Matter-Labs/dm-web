@@ -78,11 +78,11 @@ function Popup({
               </div>
               <div className="pl-0 sm:pl-[20px]">
                 {linkList.length > 0 ? (
-                  <p className="font-SaansMed text-label pb-2 text-xl uppercase sm:pb-[12px]">
+                  <p className="pb-2 font-SaansMed text-xl text-label uppercase sm:pb-[12px]">
                     Links
                   </p>
                 ) : (
-                  <p className="font-SaansRegular text-label pb-2 text-xl uppercase sm:pb-[12px]">
+                  <p className="pb-2 font-SaansRegular text-xl text-label uppercase sm:pb-[12px]">
                     In development
                   </p>
                 )}
@@ -90,7 +90,7 @@ function Popup({
                 {linkList.map((link) => (
                   <div key={link.linkUrl}>
                     <a target="_blank" href={link.linkUrl}>
-                      <p className="font-SaansRegular pb-[4px] text-xl text-[#EBEBEB]">
+                      <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB]">
                         {link.linkText} ↗
                       </p>
                     </a>

@@ -5,7 +5,8 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint .",
-    "clean": "prettier --write \"(app|sanity|utils|components)/**/*.+(js|jsx|json|css|md)\" --config ./.prettierrc.json"
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",

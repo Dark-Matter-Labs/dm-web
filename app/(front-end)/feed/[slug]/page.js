@@ -130,12 +130,12 @@ export default async function feed_itemPage({ params }) {
                 </div>
                 <div className="flex h-full w-full flex-col items-start justify-start gap-0 sm:w-[189px] sm:justify-center">
                   <div>
-                    <button className="p-xl-medium text-grey-3 flex items-center justify-center uppercase hover:cursor-crosshair">
+                    <button className="flex items-center justify-center p-xl-medium text-grey-3 uppercase hover:cursor-crosshair">
                       <ChevronLeftIcon className="h-4 w-4" aria-hidden="true" />
                       <span>previous</span>
                     </button>
                   </div>
-                  <span className="p-xl-regular max-w-[189px] text-[#EBEBEB]">
+                  <span className="max-w-[189px] p-xl-regular text-[#EBEBEB]">
                     {feed_item.previous.title}
                   </span>
                 </div>
@@ -153,7 +153,7 @@ export default async function feed_itemPage({ params }) {
                     {feed_item.next.title}
                   </span>
                   <div>
-                    <button className="p-xl-medium text-grey-3 flex items-center justify-end uppercase hover:cursor-crosshair sm:justify-center">
+                    <button className="flex items-center justify-end p-xl-medium text-grey-3 uppercase hover:cursor-crosshair sm:justify-center">
                       <span>next</span>
                       <ChevronRightIcon
                         className="h-4 w-4"

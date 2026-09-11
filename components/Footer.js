@@ -115,19 +115,19 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             className="hover:text-white"
                           >
-                            <p className="font-SaansRegular text-grey-1 text-[15px] leading-[18px]">
+                            <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
                               {item.country}
                             </p>
-                            <p className="font-SaansRegular text-grey-3 text-[13px] leading-[18px]">
+                            <p className="font-SaansRegular text-[13px] leading-[18px] text-grey-3">
                               {item.fullName}
                             </p>
                           </a>
                         ) : (
                           <div className=" ">
-                            <p className="font-SaansRegular text-grey-1 text-[15px] leading-[18px]">
+                            <p className="font-SaansRegular text-[15px] leading-[18px] text-grey-1">
                               {item.country}
                             </p>
-                            <p className="font-SaansRegular text-grey-3 text-[13px] leading-[18px]">
+                            <p className="font-SaansRegular text-[13px] leading-[18px] text-grey-3">
                               {item.fullName}
                             </p>
                           </div>

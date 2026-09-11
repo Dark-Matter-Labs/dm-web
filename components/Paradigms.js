@@ -23,8 +23,8 @@ export default function Paradigms({
     <>
       <div className="side-display col-span-5 w-[400px]">
         <div className="mt-20">
-          <h2 className="heading-4xl text-grey-3 pb-2">Paradigms</h2>
-          <p className="p-xl-regular text-grey-3 max-w-[380px]">
+          <h2 className="pb-2 heading-4xl text-grey-3">Paradigms</h2>
+          <p className="max-w-[380px] p-xl-regular text-grey-3">
             The Enlightenment, Industrial and Scientific revolutions created
             many advances for society. But what about their impact on deep ways
             of being and knowing? From the concept of thingification to the
@@ -43,7 +43,7 @@ export default function Paradigms({
           <div className="my-8 sm:my-20">
             <div className="mb-8">
               <h2 className="heading-4xl text-grey-1">Property</h2>
-              <p className="p-3xl text-grey-1 pt-4">
+              <p className="pt-4 p-3xl text-grey-1">
                 Words like property and ownership are often associated with
                 ideas of dominion and control, allowing us to treat elements of
                 the living world (such as land and rare earth minerals) as
@@ -57,7 +57,7 @@ export default function Paradigms({
 
             <div className="mb-8">
               <h2 className="heading-4xl text-grey-1">Technology</h2>
-              <p className="p-3xl text-grey-1 pt-4">
+              <p className="pt-4 p-3xl text-grey-1">
                 Emergent technologies can be framed as a threat, but they could
                 also facilitate a new freedom to care. The field of quantum
                 physics has enabled a granular visualisation of the
@@ -79,7 +79,7 @@ export default function Paradigms({
 
             <div className="mb-8">
               <h2 className="heading-4xl text-grey-1">Money</h2>
-              <p className="p-3xl text-grey-1 pt-4">
+              <p className="pt-4 p-3xl text-grey-1">
                 Recognising that financial capital is intertwined and enabled by
                 living and social systems is foundational to our work. Imagine
                 how our relationship to finance might change if we understood
@@ -94,7 +94,7 @@ export default function Paradigms({
           <hr className="text-[#333333]" />
 
           <div className="py-20">
-            <p className="p-3xl-regular text-grey-6 max-w-3xl pb-10">
+            <p className="max-w-3xl pb-10 p-3xl-regular text-grey-6">
               Based on this new paradigm we are proposing three worldview
               philosophies that we think could underpin a desirable future
               economy. From there, we have identified six structural shifts that
@@ -106,7 +106,7 @@ export default function Paradigms({
             <h2 className="heading-4xl text-grey-1">Worldview philosophies</h2>
             <div className="grid grid-cols-1 gap-10 py-8 sm:grid-cols-3">
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Rooted in the recognition of the full web of life
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -143,7 +143,7 @@ export default function Paradigms({
                 </p>
               </div>
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Grounded in a non-bounded understanding of value
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -187,7 +187,7 @@ export default function Paradigms({
                 </p>
               </div>
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Enabled by technological ecosystems of care
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -223,7 +223,7 @@ export default function Paradigms({
             </h2>
             <div className="grid grid-cols-1 gap-x-10 gap-y-8 py-8 sm:grid-cols-3">
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Beyond Property
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -246,7 +246,7 @@ export default function Paradigms({
                 </p>
               </div>
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">Beyond Labour</h3>
+                <h3 className="pb-3 p-lg-regular text-grey-6">Beyond Labour</h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
                   From humans employed as resources to vocations of creativity,
                   purpose and care.{' '}
@@ -281,7 +281,7 @@ export default function Paradigms({
                 </p>
               </div>
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Beyond Extraction
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -318,7 +318,7 @@ export default function Paradigms({
                 </p>
               </div>
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Beyond Private Contracts
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -348,7 +348,7 @@ export default function Paradigms({
                 </p>
               </div>
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Beyond Governance
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -379,7 +379,7 @@ export default function Paradigms({
               </div>
 
               <div>
-                <h3 className="p-lg-regular text-grey-6 pb-3">
+                <h3 className="pb-3 p-lg-regular text-grey-6">
                   Beyond Monetary Capital
                 </h3>
                 <p className="p-lg-regular text-grey-6 opacity-60">
@@ -415,7 +415,7 @@ export default function Paradigms({
           <hr className="text-[#333333]" />
 
           <div className="pt-20 pb-60">
-            <h1 className="heading-7xl text-grey-5 max-w-[22.8rem] pb-10">
+            <h1 className="max-w-[22.8rem] pb-10 heading-7xl text-grey-5">
               Help us build a better future
             </h1>
             <div className="flex gap-8">
