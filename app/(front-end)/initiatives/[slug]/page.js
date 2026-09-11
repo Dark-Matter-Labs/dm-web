@@ -35,10 +35,13 @@ export async function generateStaticParams() {
 }
 
 export default async function InitiativePage({ params }) {
+  // `params` is a Promise in Next 16.
+  const { slug } = await params;
+
   const initiative = await sanityFetch({
     query: INITIATIVE_SLUG_QUERY,
     tags: ['initiative'],
-    qParams: { slug: params.slug },
+    qParams: { slug },
   });
 
   if (!initiative) {
@@ -87,8 +90,7 @@ export default async function InitiativePage({ params }) {
 }
 
 export async function generateMetadata({ params }, parent) {
-  // read route params
-  const slug = params.slug;
+  const { slug } = await params;
   // fetch data
   const initiativeData = await client.fetch(
     INITIATIVE_SLUG_QUERY,

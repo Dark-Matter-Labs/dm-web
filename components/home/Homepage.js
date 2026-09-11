@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import { useScroll, animated } from '@react-spring/web';
 
@@ -65,32 +65,31 @@ export default function Homepage({ units }) {
     [activeUnits],
   );
 
-  // Cached so each code keeps one stable setter identity across renders,
-  // which is what lets the memoised Matrix cells skip re-rendering.
-  const setterCache = useRef(new Map());
-  const unitSetter = useCallback((code) => {
-    if (!setterCache.current.has(code)) {
-      setterCache.current.set(code, (on) =>
-        setActiveUnits((prev) =>
-          on
-            ? prev.includes(code)
-              ? prev
-              : [...prev, code]
-            : prev.filter((c) => c !== code),
-        ),
-      );
-    }
-    return setterCache.current.get(code);
-  }, []);
+  // Plain factories, not caches. An earlier version memoised these per code
+  // so the memoised Matrix cells could skip re-rendering — but those cells
+  // also receive inline arrow closures for onEnter/onLeave, so their memo
+  // missed on every render regardless and the cache bought nothing. Both
+  // react-hooks/refs and react-hooks/immutability flagged the cache, and
+  // there was no benefit to weigh against them.
+  const unitSetter = useCallback(
+    (code) => (on) =>
+      setActiveUnits((prev) =>
+        on
+          ? prev.includes(code)
+            ? prev
+            : [...prev, code]
+          : prev.filter((c) => c !== code),
+      ),
+    [],
+  );
 
-  const openerCache = useRef(new Map());
-  const openPopupFor = useCallback((id) => {
-    if (!openerCache.current.has(id)) {
-      // Headless UI closes with onClose(false), so anything falsy closes.
-      openerCache.current.set(id, (on = true) => setOpenPopup(on ? id : null));
-    }
-    return openerCache.current.get(id);
-  }, []);
+  // Headless UI closes with onClose(false), so anything falsy closes.
+  const openPopupFor = useCallback(
+    (id) =>
+      (on = true) =>
+        setOpenPopup(on ? id : null),
+    [],
+  );
 
   const closePopup = useCallback(() => setOpenPopup(null), []);
 
@@ -2022,7 +2021,7 @@ export default function Homepage({ units }) {
         </div>
         <div className={`matrix-justify relative col-span-7 sm:w-[690px]`}>
           <div id="real" className="">
-            <h1 className="heading-7xl max-w-[40rem] pb-10 text-grey-5 ">
+            <h1 className="heading-7xl max-w-[40rem] pb-10 text-grey-5">
               We are building options for the next economies
             </h1>
             <p className="p-3xl max-w-[42rem] text-grey-6">
@@ -2292,7 +2291,7 @@ export default function Homepage({ units }) {
                             false,
                           ),
                         }}
-                        className="  font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
+                        className="font-SaansRegular text-[17px] font-normal text-[#A8A8A8]"
                       >
                         Arcs
                       </animated.h2>
@@ -2326,11 +2325,11 @@ export default function Homepage({ units }) {
                   'text-right opacity-0',
                 )}
               >
-                <div className="flex h-[80px] w-[80px] flex-col  items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
+                <div className="flex h-[80px] w-[80px] flex-col items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                   <h2
                     className={classNames(
                       activeState === 7 ? 'text-[#A8A8A8]' : 'text-transparent',
-                      'font-SaansRegular text-[17px] font-normal ',
+                      'font-SaansRegular text-[17px] font-normal',
                     )}
                   >
                     Studios
@@ -2358,8 +2357,8 @@ export default function Homepage({ units }) {
                   }}
                   className={classNames(
                     isActive('OD') || openPopup === 'OD'
-                      ? ' text-white'
-                      : ' text-[#A8A8A8]',
+                      ? 'text-white'
+                      : 'text-[#A8A8A8]',
                     'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px]',
                   )}
                   onMouseOver={() => unitSetter('OD')(true)}
@@ -2400,18 +2399,18 @@ export default function Homepage({ units }) {
               }}
               className={classNames(
                 activeState === 7 || activeState === 8 ? '' : '',
-                ` absolute z-30`,
+                `absolute z-30`,
               )}
             >
               <div
                 className={classNames(
                   scrollY > startSticky + step * 6 ? 'hidden' : 'block',
-                  ` backdrop-div w-[778px]`,
+                  `backdrop-div w-[778px]`,
                 )}
               ></div>
               <div className="content-div shadow-layer grid w-[854px] grid-cols-12">
                 <div className="col-span-11">
-                  <div className=" text-center">
+                  <div className="text-center">
                     <h2
                       className={classNames(
                         'pb-4 font-SaansRegular text-[17px] font-normal opacity-0',
@@ -2424,7 +2423,7 @@ export default function Homepage({ units }) {
                   <div
                     className={classNames(
                       scrollFraction >= 1 ? 'opacity-0' : 'opacity-100',
-                      `mt-[87px] grid w-[778px] grid-cols-9 `,
+                      `mt-[87px] grid w-[778px] grid-cols-9`,
                     )}
                   >
                     <div className="studio-layer opacity-0"></div>
@@ -2437,27 +2436,9 @@ export default function Homepage({ units }) {
                     >
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer border-b border-t border-[#262626]">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
@@ -2473,27 +2454,9 @@ export default function Homepage({ units }) {
                     <div className="studio-layer border-b border-t border-[#262626]">
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer border-b border-t border-[#262626]">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
@@ -2509,27 +2472,9 @@ export default function Homepage({ units }) {
                     <div className="studio-layer border-b border-t border-[#262626]">
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
-                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
-                    </div>
-                    <div className="studio-layer border-b border-t border-[#262626]">
-                      <div className={`h-[80px] w-[80px] p-2`}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
-
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
@@ -2545,9 +2490,63 @@ export default function Homepage({ units }) {
                     <div className="studio-layer border-b border-t border-[#262626]">
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                    </div>
+                    <div className="studio-layer border-b border-t border-[#262626]">
+                      <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                    </div>
+                    <div className="studio-layer border-b border-t border-[#262626]">
+                      <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}></div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+                      <div className={`mt-1.5 h-[80px] w-[80px] p-2`}> </div>
+                    </div>
+                    <div className="studio-layer border-b border-t border-[#262626]">
+                      <div className={`h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
+
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
@@ -2563,9 +2562,9 @@ export default function Homepage({ units }) {
                     <div className="studio-layer border-b border-r border-t border-[#262626]">
                       <div className={`h-[80px] w-[80px] p-2`}> </div>
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
-                      <div className={`my-1.5 h-[80px] w-[80px] p-2 `}> </div>
+                      <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
                       <div className={`my-1.5 h-[80px] w-[80px] p-2`}> </div>
 
@@ -2583,12 +2582,12 @@ export default function Homepage({ units }) {
                 <div
                   className={classNames(
                     activeState === 7 || activeState === 8
-                      ? 'mt-[2.61em] '
-                      : 'mt-[2.61em] ',
+                      ? 'mt-[2.61em]'
+                      : 'mt-[2.61em]',
                     'block text-right',
                   )}
                 >
-                  <div className="flex h-[80px] w-[80px] flex-col  items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
+                  <div className="flex h-[80px] w-[80px] flex-col items-center justify-end pb-[6.5px] pl-2 pr-[6px] pt-[5px]">
                     <animated.h2
                       style={{
                         opacity: opacityInterpolate(
@@ -2624,15 +2623,15 @@ export default function Homepage({ units }) {
                     }}
                     className={classNames(
                       isActive('OD') || openPopup === 'OD'
-                        ? ' text-white'
-                        : ' text-[#A8A8A8]',
+                        ? 'text-white'
+                        : 'text-[#A8A8A8]',
                       'my-1.5 flex h-[80px] w-[80px] cursor-crosshair items-end justify-start pb-[6.5px] pl-2 pr-[6px] pt-[5px] tracking-wide',
                     )}
                     onMouseOver={() => unitSetter('OD')(true)}
                     onMouseLeave={() => unitSetter('OD')(false)}
                     onClick={() => openPopupFor('OD')(true)}
                   >
-                    <p className="font-SaansRegular  text-[17px] font-normal uppercase leading-[125%]">
+                    <p className="font-SaansRegular text-[17px] font-normal uppercase leading-[125%]">
                       Org Dev
                     </p>
                   </animated.div>
@@ -2665,14 +2664,14 @@ export default function Homepage({ units }) {
                 }),
               }}
               className={classNames(
-                scrollY >= startSticky + step * 5 + 310 ? 'z-50' : 'z-20 ',
+                scrollY >= startSticky + step * 5 + 310 ? 'z-50' : 'z-20',
                 `shadow-layer absolute grid w-[854px] grid-cols-12 font-SaansRegular`,
               )}
             >
               <div className="col-span-1">
                 <div className="ml-4"></div>
               </div>
-              <div className="col-span-10 ">
+              <div className="col-span-10">
                 <div className="mx-auto max-w-xl text-center">
                   <h2
                     className={classNames(
@@ -2690,7 +2689,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainA')(true)}
                       className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#8E6413] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
-                      <p className="font-SaansRegular text-base leading-tight ">
+                      <p className="font-SaansRegular text-base leading-tight">
                         {' '}
                         A
                       </p>
@@ -2738,7 +2737,7 @@ export default function Homepage({ units }) {
 
                     <div
                       onClick={() => openPopupFor('DomainA4')(true)}
-                      className={`my-1.5 flex h-[80px] w-[109px]  flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
+                      className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D29F3D] bg-[#212121] px-2 py-2 text-[#D29F3D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         A-4
@@ -2772,7 +2771,7 @@ export default function Homepage({ units }) {
                   <div className="">
                     <div
                       onClick={() => openPopupFor('DomainB')(true)}
-                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30]  p-2 text-[#212121] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-[#903C30] p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         B
@@ -2784,7 +2783,7 @@ export default function Homepage({ units }) {
 
                     <div
                       onClick={() => openPopupFor('DomainB1')(true)}
-                      className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between  border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
+                      className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D46E61] bg-[#212121] px-2 py-2 text-[#D46E61] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         B-1
@@ -2919,7 +2918,7 @@ export default function Homepage({ units }) {
                       <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-5
                       </p>
-                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight ">
+                      <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Socialising the supportive narratives for alternative
                         financing pathways
                       </p>
