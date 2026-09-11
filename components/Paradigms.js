@@ -65,8 +65,9 @@ function Paradigms({
                 shapeshifting and relational nature of living systems. Perhaps
                 what we have previously framed as{' '}
                 <a
-                  className="underline"
+                  className="underline hover:cursor-crosshair"
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://provocations.darkmatterlabs.org/the-necessity-of-a-boring-revolution-a71b1ae6f956"
                 >
                   a boring revolution
