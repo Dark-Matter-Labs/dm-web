@@ -17,12 +17,18 @@ import prettierRecommended from 'eslint-plugin-prettier/recommended';
  */
 const config = [
   {
+    // Globbed with `**/` rather than anchored at the root. Spinning off a
+    // background task creates a full git worktree under .claude/worktrees/,
+    // each with its own .next, and anchored patterns did not match those -
+    // so `yarn lint` walked into them and reported hundreds of errors in
+    // minified build chunks belonging to another checkout.
     ignores: [
-      '.next/**',
-      'node_modules/**',
-      'out/**',
-      'build/**',
-      'public/**',
+      '**/.next/**',
+      '**/node_modules/**',
+      '**/out/**',
+      '**/build/**',
+      '**/public/**',
+      '.claude/**',
       'next-env.d.ts',
     ],
   },
