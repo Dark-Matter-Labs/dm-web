@@ -14,7 +14,7 @@ export default async function Jobs() {
       <div className="side-display col-span-5 w-[400px]"></div>
       <div className={'col-span-7 w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[30px] border-b border-b-[#353535] pb-[100px]">
-          <h1 className="heading-5xl-Reg sm:heading-7xl text-grey-1 pb-[18px]">
+          <h1 className="pb-[18px] heading-5xl-Reg text-grey-1 sm:heading-7xl">
             Work with us
           </h1>
           <p className="p-body2 text-[#EBEBEB]">
@@ -24,7 +24,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 pb-2 sm:max-w-xs">
+        <h2 className="pb-2 heading-4xl text-grey-3 sm:max-w-xs sm:heading-5xl-Reg">
           We’re looking to fill these roles
         </h2>
       </div>
@@ -66,7 +66,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 pb-2 md:max-w-xs">
+        <h2 className="pb-2 heading-4xl text-grey-3 sm:heading-5xl-Reg md:max-w-xs">
           How we work
         </h2>
       </div>
@@ -88,7 +88,7 @@ export default async function Jobs() {
         <p className="p-xl-regular text-[#EBEBEB]">
           Here’s a little on how we currently organise:
         </p>
-        <ul className="p-xl-regular list-disc pl-3 text-[#EBEBEB]">
+        <ul className="list-disc pl-3 p-xl-regular text-[#EBEBEB]">
           <li>
             We all work remotely, with flexible working hours around schedules
             (most people do main hours between 9-6).
@@ -125,7 +125,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 pb-2 md:max-w-xs">
+        <h2 className="pb-2 heading-4xl text-grey-3 sm:heading-5xl-Reg md:max-w-xs">
           Your background
         </h2>
       </div>
@@ -172,7 +172,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 max-w-xs pb-2">
+        <h2 className="max-w-xs pb-2 heading-4xl text-grey-3 sm:heading-5xl-Reg">
           Pay
         </h2>
       </div>
@@ -187,13 +187,13 @@ export default async function Jobs() {
           different models, and we’ve recently launched our new Base Pay
           Formula, which is composed of the following elements:
         </p>
-        <ul className="p-xl-regular list-disc pl-3 text-[#EBEBEB]">
+        <ul className="list-disc pl-3 p-xl-regular text-[#EBEBEB]">
           <li>Geographic living costs</li>
           <li>
             Starting assets each individual brings into their Dm role upon
             joining in the following categories:
           </li>
-          <ul className="p-xl-regular list-disc pl-6 text-[#EBEBEB]">
+          <ul className="list-disc pl-6 p-xl-regular text-[#EBEBEB]">
             <li>Professional Standard Accreditation</li>
             <li>Relevant Relationship & Network</li>
             <li>Renowned and Trusted Reputation in the Field</li>
@@ -226,7 +226,7 @@ export default async function Jobs() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-16 md:w-[400px] md:self-start">
-        <h2 className="heading-4xl sm:heading-5xl-Reg text-grey-3 max-w-xs pb-2">
+        <h2 className="max-w-xs pb-2 heading-4xl text-grey-3 sm:heading-5xl-Reg">
           We support equality
         </h2>
       </div>

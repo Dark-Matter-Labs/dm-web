@@ -19,11 +19,11 @@ export default async function TeamPage() {
   return (
     <>
       <div className="teams-grid mt-[40px] flex w-full gap-0 text-white sm:mt-[100px]">
-        <div className="font-SaansRegular max-w-[690px] border-b border-[#353535]">
-          <div className="heading-5xl-Reg sm:heading-7xl mb-[30px] text-white">
+        <div className="max-w-[690px] border-b border-[#353535] font-SaansRegular">
+          <div className="mb-[30px] heading-5xl-Reg text-white sm:heading-7xl">
             Team
           </div>
-          <p className="p-xl-regular sm:p-body2 mb-[60px]">
+          <p className="mb-[60px] p-xl-regular sm:p-body2">
             We’re a multidisciplinary team with a shared passion for applying
             innovative approaches to complex societal challenges. With expertise
             in disciplines ranging from accountancy, policy and law through to

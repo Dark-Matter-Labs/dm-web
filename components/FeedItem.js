@@ -47,7 +47,7 @@ function FeedItem({ item }) {
             })}
           </span>
           {item.type === 'media' && (
-            <span className="nav-xl text-label ml-auto" aria-hidden="true">
+            <span className="ml-auto nav-xl text-label" aria-hidden="true">
               ↗
             </span>
           )}
@@ -60,7 +60,7 @@ function FeedItem({ item }) {
         <h3 className="feed-sub text-grey-3">{item.subtitle}</h3>
 
         {units.length > 0 && (
-          <p className="nav-xl text-grey-3 mt-auto pt-[10px]">
+          <p className="mt-auto pt-[10px] nav-xl text-grey-3">
             <span className="sr-only">Units: </span>
             {units.map((unit) => unit.title).join(', ')}
           </p>

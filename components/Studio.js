@@ -34,7 +34,7 @@ function Studio({
           Civic <br /> Tech
         </p>
       ) : (
-        <p className="font-SaansRegular max-w-[60px] text-[12px] leading-[125%] font-normal">
+        <p className="max-w-[60px] font-SaansRegular text-[12px] leading-[125%] font-normal">
           {title}
         </p>
       )}

@@ -47,10 +47,10 @@ export default function TeamGrid({ dmliens }) {
         <div className="people-detail top-44 z-10 h-full w-[400px] text-white">
           {hoveredPerson && (
             <div className="top-0 left-0 block h-full w-auto items-center justify-center text-white">
-              <h2 className="font-SaansRegular w-full pb-2.5 text-5xl leading-14">
+              <h2 className="w-full pb-2.5 font-SaansRegular text-5xl leading-14">
                 {hoveredPerson.fullName}
               </h2>
-              <p className="font-SaansRegular w-full text-xl leading-12">
+              <p className="w-full font-SaansRegular text-xl leading-12">
                 {hoveredPerson.bio}
               </p>
             </div>
@@ -75,11 +75,11 @@ export default function TeamGrid({ dmliens }) {
               <div className="flex flex-col gap-[10px] pt-[60px] pb-[30px]">
                 <h2
                   id="team-alumni-heading"
-                  className="font-SaansMed text-label text-xl uppercase"
+                  className="font-SaansMed text-xl text-label uppercase"
                 >
                   Alumni
                 </h2>
-                <p className="font-SaansRegular text-grey-3 max-w-[520px] text-xl leading-12">
+                <p className="max-w-[520px] font-SaansRegular text-xl leading-12 text-grey-3">
                   People who shaped this work and have since moved on. Their
                   contribution stays part of the record.
                 </p>
@@ -100,7 +100,7 @@ export default function TeamGrid({ dmliens }) {
                 {alumni.map((person) => (
                   <li
                     key={person._id ?? person.fullName}
-                    className="font-SaansRegular text-grey-3 break-inside-avoid pb-[10px] text-xl leading-12"
+                    className="break-inside-avoid pb-[10px] font-SaansRegular text-xl leading-12 text-grey-3"
                   >
                     {person.fullName}
                   </li>

@@ -36,13 +36,13 @@ export default function ProjectMetadata({
         <BackButton text={back_text} />
       </div>
       <div className="meta-data-border flex w-full flex-col items-start justify-center gap-[10px] py-[20px]">
-        <p className="font-SaansMed text-label pb-[12px] text-xl uppercase">
+        <p className="pb-[12px] font-SaansMed text-xl text-label uppercase">
           Links
         </p>
         {initiative.links?.map((link) => (
           <div key={link.linkUrl} className="">
             <a target="_blank" href={link.linkUrl}>
-              <p className="font-SaansRegular pb-[4px] text-xl text-[#EBEBEB] hover:opacity-80">
+              <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB] hover:opacity-80">
                 {link.linkText} ↗
               </p>
             </a>
@@ -61,14 +61,14 @@ export default function ProjectMetadata({
       </div>
 
       <div className="flex w-full flex-col items-start justify-center gap-[10px] py-[20px] md:w-[380px]">
-        <p className="font-SaansMed text-label pb-[12px] text-xl uppercase">
+        <p className="pb-[12px] font-SaansMed text-xl text-label uppercase">
           Partners
         </p>
 
         {initiative?.partners?.map((partner) => (
           <div key={partner.Name} className="flex">
             <a href={partner.link} target="_blank" rel="noopener noreferrer">
-              <p className="font-SaansRegular pb-[4px] text-xl text-[#EBEBEB] hover:opacity-80">
+              <p className="pb-[4px] font-SaansRegular text-xl text-[#EBEBEB] hover:opacity-80">
                 {partner.Name}
               </p>
             </a>

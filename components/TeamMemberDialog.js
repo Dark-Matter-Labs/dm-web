@@ -30,7 +30,7 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
             <div className="absolute top-0 right-0 z-10 pt-4 pr-4">
               <button
                 type="button"
-                className="text-grey-3 focus-visible:outline-grey-3 rounded-md bg-transparent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                className="rounded-md bg-transparent text-grey-3 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
                 onClick={() => setOpen(false)}
               >
                 <span className="sr-only">Close</span>
@@ -51,8 +51,8 @@ function TeamPopUp({ dmlien, openState, setOpen }) {
                 />
               )}
 
-              <div className="font-SaansRegular flex h-full flex-col gap-3 self-stretch p-[30px]">
-                <h3 className="font-SaansMed text-label text-xl uppercase">
+              <div className="flex h-full flex-col gap-3 self-stretch p-[30px] font-SaansRegular">
+                <h3 className="font-SaansMed text-xl text-label uppercase">
                   Contacts
                 </h3>
                 <ul>

@@ -1867,15 +1867,15 @@ export default function Homepage({ units }) {
       />
 
       <div className={`matrix-break relative mt-10 sm:mt-28`}>
-        <div className="matrix:block col-span-5 hidden w-[400px] max-w-xs">
+        <div className="col-span-5 hidden w-[400px] max-w-xs matrix:block">
           <animated.div
             style={{
               opacity: sideMatrixOpacityInterpolate(),
             }}
             className="mt-[1800px]"
           >
-            <h2 className="heading-4xl text-grey-3 pb-2">Matrix</h2>
-            <p className="p-xl-regular text-grey-3 max-w-[380px]">
+            <h2 className="pb-2 heading-4xl text-grey-3">Matrix</h2>
+            <p className="max-w-[380px] p-xl-regular text-grey-3">
               Our collaborative approach is firmly grounded in the complex,
               messy reality of our existing socio-economic systems.
               Step-by-step, with the support of a growing ecosystem, we aim to
@@ -1893,8 +1893,8 @@ export default function Homepage({ units }) {
             }}
             className="mt-[300px]"
           >
-            <h2 className="heading-4xl text-grey-3 pb-2">Labs</h2>
-            <p className="p-xl-regular text-grey-3 max-w-[380px]">
+            <h2 className="pb-2 heading-4xl text-grey-3">Labs</h2>
+            <p className="max-w-[380px] p-xl-regular text-grey-3">
               Each of our Labs is focused on a specific area of the
               socio-economic system and the everyday codes (e.g. norms,
               behaviours and institutional logic) that form its structural
@@ -1927,8 +1927,8 @@ export default function Homepage({ units }) {
             }}
             className="mt-[270px]"
           >
-            <h2 className="heading-4xl text-grey-3 pb-2">Arcs</h2>
-            <p className="p-xl-regular text-grey-3 max-w-[380px]">
+            <h2 className="pb-2 heading-4xl text-grey-3">Arcs</h2>
+            <p className="max-w-[380px] p-xl-regular text-grey-3">
               Our Arc workflows are designed with clear, directional goals that
               guide our efforts toward impactful outcomes. For instance,{' '}
               <span
@@ -1958,8 +1958,8 @@ export default function Homepage({ units }) {
             }}
             className="mt-[320px]"
           >
-            <h2 className="heading-4xl text-grey-3 pb-2">Studios</h2>
-            <p className="p-xl-regular text-grey-3 max-w-[380px]">
+            <h2 className="pb-2 heading-4xl text-grey-3">Studios</h2>
+            <p className="max-w-[380px] p-xl-regular text-grey-3">
               Studios are the connective tissue that support both the Labs and
               Arcs. The studios explore themes that help our work to be
               implemented and more widely understood. For instance, the{' '}
@@ -1990,8 +1990,8 @@ export default function Homepage({ units }) {
             }}
             className="mt-[360px]"
           >
-            <h2 className="heading-4xl text-grey-3 pb-2">Intersections</h2>
-            <p className="p-xl-regular text-grey-3 max-w-[380px]">
+            <h2 className="pb-2 heading-4xl text-grey-3">Intersections</h2>
+            <p className="max-w-[380px] p-xl-regular text-grey-3">
               Each project in our portfolio contributes to a number of systemic
               capabilities. In doing so they intersect with the Labs, Arcs and
               Studios in various configurations. This allows us to prioritise
@@ -2008,8 +2008,8 @@ export default function Homepage({ units }) {
             }}
             className="mt-[250px]"
           >
-            <h2 className="heading-4xl text-grey-3 pb-2">Capabilities</h2>
-            <p className="p-xl-regular text-grey-3 max-w-[380px]">
+            <h2 className="pb-2 heading-4xl text-grey-3">Capabilities</h2>
+            <p className="max-w-[380px] p-xl-regular text-grey-3">
               The capabilities form the core of Dm’s Mission and sit at the
               centre of the Matrix. These are the systemic goals that we have
               set for ourselves as we strive to build pathways towards
@@ -2021,10 +2021,10 @@ export default function Homepage({ units }) {
         </div>
         <div className={`matrix-justify relative col-span-7 sm:w-[690px]`}>
           <div id="real" className="">
-            <h1 className="heading-7xl text-grey-5 max-w-160 pb-10">
+            <h1 className="max-w-160 pb-10 heading-7xl text-grey-5">
               We are building options for the next economies
             </h1>
-            <p className="p-3xl text-grey-6 max-w-2xl">
+            <p className="max-w-2xl p-3xl text-grey-6">
               At Dark Matter Labs, we view the interconnected crises of our time
               as symptoms of a deeper, structural miscoding of our economic
               systems. We understand these codes to be physical (e.g.
@@ -2033,7 +2033,7 @@ export default function Homepage({ units }) {
               and psychological (e.g. failure of the imagination). 
             </p>
 
-            <p className="p-3xl text-grey-6 max-w-2xl pt-10">
+            <p className="max-w-2xl pt-10 p-3xl text-grey-6">
               Recognising the complex, entangled reality of living systems, we
               are exploring alternative pathways for organising society and
               stewarding the shared planetary commons. Our working hypothesis is
@@ -2049,10 +2049,10 @@ export default function Homepage({ units }) {
               </span>
             </p>
 
-            <h2 className="heading-4xl text-grey-1 pt-20">
+            <h2 className="pt-20 heading-4xl text-grey-1">
               Economic options are bold directional aspirations
             </h2>
-            <p className="p-3xl text-grey-6 pt-8">
+            <p className="pt-8 p-3xl text-grey-6">
               What would it mean to align societal ambition to the magnitude of
               the transformation that is required? We cannot be sure how the
               future will play out or the specific infrastructures that will be
@@ -2100,8 +2100,8 @@ export default function Homepage({ units }) {
 
           <div className="block sm:hidden">
             <div className="flex flex-col items-center justify-center py-8">
-              <h2 className="p-3xl-regular text-grey-3 pb-4">Matrix</h2>
-              <p className="p-xl-regular text-grey-3 max-w-[380px]">
+              <h2 className="pb-4 p-3xl-regular text-grey-3">Matrix</h2>
+              <p className="max-w-[380px] p-xl-regular text-grey-3">
                 Our collaborative approach is firmly grounded in the complex,
                 messy reality of our existing socio-economic systems.
                 Step-by-step, with the support of a growing ecosystem, we aim to
@@ -2121,10 +2121,10 @@ export default function Homepage({ units }) {
               style={{ paddingBottom: '20px' }}
             />
             <div className="flex flex-col items-center justify-center py-8">
-              <h2 className="heading-3xl-regular text-grey-3 pb-4">
+              <h2 className="heading-3xl-regular pb-4 text-grey-3">
                 Intersections
               </h2>
-              <p className="p-xl-regular text-grey-3 max-w-[380px]">
+              <p className="max-w-[380px] p-xl-regular text-grey-3">
                 Each project in our portfolio contributes to a number of
                 systemic capabilities. In doing so they intersect with the Labs,
                 Arcs and Studios in various configurations. This allows us to
@@ -2143,10 +2143,10 @@ export default function Homepage({ units }) {
               style={{ paddingBottom: '20px' }}
             />
             <div className="flex flex-col items-center justify-center py-8">
-              <h2 className="heading-3xl-regular text-grey-3 pb-4">
+              <h2 className="heading-3xl-regular pb-4 text-grey-3">
                 Capabilities
               </h2>
-              <p className="p-xl-regular text-grey-3 max-w-[380px]">
+              <p className="max-w-[380px] p-xl-regular text-grey-3">
                 The capabilities form the core of Dm’s Mission and sit at the
                 centre of the Matrix. These are the systemic goals that we have
                 set for ourselves as we strive to build pathways towards
@@ -2273,7 +2273,7 @@ export default function Homepage({ units }) {
                           false,
                         ),
                       }}
-                      className="font-SaansRegular text-grey-3 pb-4 text-[17px] font-normal"
+                      className="pb-4 font-SaansRegular text-[17px] font-normal text-grey-3"
                     >
                       Labs
                     </animated.h2>
@@ -2291,7 +2291,7 @@ export default function Homepage({ units }) {
                             false,
                           ),
                         }}
-                        className="font-SaansRegular text-grey-3 text-[17px] font-normal"
+                        className="font-SaansRegular text-[17px] font-normal text-grey-3"
                       >
                         Arcs
                       </animated.h2>
@@ -2413,7 +2413,7 @@ export default function Homepage({ units }) {
                   <div className="text-center">
                     <h2
                       className={classNames(
-                        'font-SaansRegular pb-4 text-[17px] font-normal opacity-0',
+                        'pb-4 font-SaansRegular text-[17px] font-normal opacity-0',
                       )}
                     >
                       Labs
@@ -2596,7 +2596,7 @@ export default function Homepage({ units }) {
                           false,
                         ),
                       }}
-                      className="font-SaansRegular text-grey-3 text-[17px] font-normal"
+                      className="font-SaansRegular text-[17px] font-normal text-grey-3"
                     >
                       Studios
                     </animated.h2>
@@ -2665,7 +2665,7 @@ export default function Homepage({ units }) {
               }}
               className={classNames(
                 scrollY >= startSticky + step * 5 + 310 ? 'z-50' : 'z-20',
-                `shadow-layer font-SaansRegular absolute grid w-[854px] grid-cols-12`,
+                `shadow-layer absolute grid w-[854px] grid-cols-12 font-SaansRegular`,
               )}
             >
               <div className="col-span-1">
@@ -2742,7 +2742,7 @@ export default function Homepage({ units }) {
                       <p className="font-SaansRegular text-base leading-tight">
                         A-4
                       </p>
-                      <p className="font-SaansRegular max-w-[80px] text-[8px] leading-tight tracking-tight">
+                      <p className="max-w-[80px] font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Phenomenological measures of success (lived experience)
                       </p>
                     </div>
@@ -2903,7 +2903,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainC4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-4
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -2915,7 +2915,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainC5')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] px-2 py-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-5
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -2928,10 +2928,10 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainC6')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4CA866] bg-[#212121] py-2 pr-1 pl-2 text-[#4CA866] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         C-6
                       </p>
-                      <p className="font-SaansRegular self-stretch text-[8px] leading-tight tracking-tight">
+                      <p className="self-stretch font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Socialising transformational narratives for a
                         regenerative financial system
                       </p>
@@ -2965,7 +2965,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainD1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-1
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -2978,7 +2978,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainD2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-2
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -2991,7 +2991,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainD3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-3
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3003,7 +3003,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainD4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#4D90D8] bg-[#212121] px-2 py-2 text-[#4D90D8] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         D-4
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3057,7 +3057,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainE1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-1
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3069,7 +3069,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainE2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-2
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3081,7 +3081,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainE3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-3
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3093,7 +3093,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainE4')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#D15C8D] bg-[#212121] px-2 py-2 text-[#D15C8D] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         E-4
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3124,7 +3124,7 @@ export default function Homepage({ units }) {
                   <div className="">
                     <div
                       onClick={() => openPopupFor('DomainF')(true)}
-                      className={`bg-grey-4 flex h-[80px] w-[109px] flex-col justify-between p-2 text-[#212121] hover:cursor-crosshair`}
+                      className={`flex h-[80px] w-[109px] flex-col justify-between bg-grey-4 p-2 text-[#212121] hover:cursor-crosshair`}
                     >
                       <p className="font-SaansRegular text-base leading-tight">
                         F
@@ -3138,10 +3138,10 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainF1')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] py-2 pl-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-1
                       </p>
-                      <p className="font-SaansRegular max-w-[90px] text-[8px] leading-tight tracking-tight">
+                      <p className="max-w-[90px] font-SaansRegular text-[8px] leading-tight tracking-tight">
                         Developing collaborative, non-extractive interfaces with
                         the physical environment
                       </p>
@@ -3151,7 +3151,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainF2')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-2
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3162,7 +3162,7 @@ export default function Homepage({ units }) {
                       onClick={() => openPopupFor('DomainF3')(true)}
                       className={`my-1.5 flex h-[80px] w-[109px] flex-col justify-between border border-[#C2C2C2] bg-[#212121] px-2 py-2 text-[#C2C2C2] hover:cursor-crosshair hover:bg-[#353535]`}
                     >
-                      <p className="font-SaansRegular pb-2 text-base leading-tight">
+                      <p className="pb-2 font-SaansRegular text-base leading-tight">
                         F-3
                       </p>
                       <p className="font-SaansRegular text-[8px] leading-tight tracking-tight">
@@ -3219,7 +3219,7 @@ export default function Homepage({ units }) {
             ),
           ),
         }}
-        className={`context-margin mobile-always-visible matrix:grid matrix:grid-cols-12 relative flex justify-center`}
+        className={`context-margin mobile-always-visible relative flex justify-center matrix:grid matrix:grid-cols-12`}
       >
         <Contexts />
       </animated.div>
@@ -3233,7 +3233,7 @@ export default function Homepage({ units }) {
             ),
           ),
         }}
-        className={`mobile-always-visible matrix:grid matrix:grid-cols-12 relative flex justify-center`}
+        className={`mobile-always-visible relative flex justify-center matrix:grid matrix:grid-cols-12`}
       >
         <Paradigms
           setOpenNE={openPopupFor('NE')}

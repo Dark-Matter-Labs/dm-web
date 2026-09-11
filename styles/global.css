@@ -1,10 +1,5 @@
 @import 'tailwindcss';
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
 @theme {
   --font-SaansRegular: SaansRegular, system-ui;
   --font-SaansMed: SaansMedium, system-ui;
@@ -64,8 +59,14 @@
  * bought nothing — `global-px` was never used as a class in any template.
  * Inlined to the same effective values: 1.25rem below the sm breakpoint
  * (810px), 0 at and above it. */
+/* `container` was here instead of `w-full`. Tailwind 4's built-in container
+ * also emits a max-width per breakpoint, so it put seven max-width rules
+ * (up to 1600px) in the cascade against the 1200px cap below. They all lost
+ * on source order, so nothing was broken - but reordering this @apply list
+ * would have silently uncapped the page above 1210px. `w-full` is the only
+ * declaration container actually contributed here. */
 @utility global-margin {
-  @apply container mx-auto max-w-[1200px] overflow-x-hidden px-5 sm:overflow-x-visible sm:px-0;
+  @apply mx-auto w-full max-w-[1200px] overflow-x-hidden px-5 sm:overflow-x-visible sm:px-0;
 }
 
 @utility heading-7xl {
@@ -82,14 +83,6 @@
 
 @utility nav-xl {
   @apply font-SaansRegular text-xl leading-[1.2em];
-}
-
-@utility nav-2xl {
-  @apply font-SaansMed text-2xl;
-}
-
-@utility p-4xl-medium {
-  @apply font-SaansMed text-4xl leading-14;
 }
 
 @utility p-3xl-regular {
@@ -216,10 +209,6 @@
     font-style: italic;
     font-display: swap;
   }
-
-  .bg-alpha {
-    background: rgba(37, 36, 36, 1);
-  }
 }
 
 .studio-layer {
@@ -241,15 +230,6 @@
   filter: drop-shadow(0px 40px 80px rgba(17, 17, 18, 0.9));
 }
 
-.heading_animate {
-  transition: 0.3s ease-in-out;
-}
-
-.text_animate {
-  transition: 0.3s ease-in-out;
-  transform-origin: center;
-}
-
 ::selection {
   background: #a28cc6;
   color: white;
@@ -261,12 +241,6 @@ hr {
   border: 0;
 }
 
-.shadow-footer {
-  -webkit-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
-  box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
-}
-
 .rotatae90 {
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
@@ -275,81 +249,6 @@ hr {
   transform: rotate(-90deg);
   white-space: nowrap;
   overflow: hidden;
-}
-
-.imagecarousel {
-  position: relative;
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(0, 0, 0, 0)
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(0, 0, 0, 0)
-  );
-}
-
-/* Optional styling for images inside */
-.imagecarousel .img {
-  width: 100%;
-  display: block;
-}
-
-.img {
-  transition: transform 0.5s ease-in-out;
-}
-
-.imagecarousel .img:not(:first-child) {
-  margin-left: -100%;
-}
-
-.imagecarousel .img:first-child {
-  -webkit-animation: slide 5s infinite alternate;
-  animation: slide 5s infinite alternate;
-  -o-animation: slide 5s infinite alternate;
-  -moz-animation: slide 5s infinite alternate;
-
-  -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
-  -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
-  animation-duration: 5s;
-  animation-delay: 1s;
-  -wekbkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes slide {
-  0% {
-    -webkit-transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@-moz-keyframes slide {
-  0% {
-    -moz-transform: translateX(0);
-  }
-  100% {
-    -moz-transform: translateX(-100%);
-  }
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
 }
 
 .overlay {
@@ -473,7 +372,7 @@ hr {
     @apply w-[690px] flex-col items-start justify-start;
   }
   .feed-sub {
-    @apply p-xl-regular block max-w-xl;
+    @apply block max-w-xl p-xl-regular;
   }
 }
 
@@ -567,7 +466,7 @@ hr {
   }
 
   .feed-sub {
-    @apply p-body2 block;
+    @apply block p-body2;
   }
 }
 

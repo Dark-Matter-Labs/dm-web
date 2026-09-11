@@ -27,7 +27,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
 
   return (
     <div className="sticky top-0 z-90 bg-linear-to-b from-[#111112FF] via-[#111112B3] to-[#11111200] py-[30px]">
-      <div className="global-margin nav-w flex items-center justify-between">
+      <div className="nav-w global-margin flex items-center justify-between">
         <div
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -65,7 +65,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/feed'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl py-2 transition ease-in-out',
+                        'py-2 nav-xl transition ease-in-out',
                       )}
                     >
                       Projects
@@ -76,7 +76,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/initiatives'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl py-2 transition ease-in-out',
+                        'py-2 nav-xl transition ease-in-out',
                       )}
                     >
                       Initiatives
@@ -87,7 +87,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/team'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display hidden py-2 transition ease-in-out',
+                        'side-display hidden py-2 nav-xl transition ease-in-out',
                       )}
                     >
                       Team
@@ -98,7 +98,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/jobs'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display hidden py-2 transition ease-in-out',
+                        'side-display hidden py-2 nav-xl transition ease-in-out',
                       )}
                     >
                       {/* The counter is positioned out of flow, so it cannot
@@ -114,7 +114,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                         pathname === '/contact'
                           ? 'text-white'
                           : 'text-grey-4 hover:text-white',
-                        'nav-xl side-display hidden py-2 transition ease-in-out',
+                        'side-display hidden py-2 nav-xl transition ease-in-out',
                       )}
                     >
                       Contact
@@ -123,7 +123,7 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                       href="https://provocations.darkmatterlabs.org/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="nav-xl text-grey-4 py-2 transition ease-in-out hover:text-white"
+                      className="py-2 nav-xl text-grey-4 transition ease-in-out hover:text-white"
                     >
                       Provocations↗
                     </a>
@@ -175,28 +175,28 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                       <DisclosureButton
                         as={Link}
                         href="/feed"
-                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white sm:hidden"
+                        className="block py-2 heading-4xl text-white transition ease-in-out hover:text-white sm:hidden"
                       >
                         Projects
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}
                         href="/initiatives"
-                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white sm:hidden"
+                        className="block py-2 heading-4xl text-white transition ease-in-out hover:text-white sm:hidden"
                       >
                         Initiatives
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}
                         href="/team"
-                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white"
+                        className="block py-2 heading-4xl text-white transition ease-in-out hover:text-white"
                       >
                         Team
                       </DisclosureButton>
                       <DisclosureButton
                         as={Link}
                         href="/jobs"
-                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white"
+                        className="block py-2 heading-4xl text-white transition ease-in-out hover:text-white"
                       >
                         <p className="relative inline-block">
                           Jobs
@@ -206,14 +206,14 @@ export default function Navbar({ jobsCount, jobsCountMobile }) {
                       <DisclosureButton
                         as={Link}
                         href="/contact"
-                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white"
+                        className="block py-2 heading-4xl text-white transition ease-in-out hover:text-white"
                       >
                         Contact
                       </DisclosureButton>
                       <DisclosureButton
                         as="a"
                         href="https://provocations.darkmatterlabs.org/"
-                        className="heading-4xl block py-2 text-white transition ease-in-out hover:text-white sm:hidden"
+                        className="block py-2 heading-4xl text-white transition ease-in-out hover:text-white sm:hidden"
                       >
                         Provocations↗
                       </DisclosureButton>

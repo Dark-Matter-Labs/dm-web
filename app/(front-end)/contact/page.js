@@ -9,7 +9,7 @@ export default function Contact() {
       <div className={'col-span-7 w-full justify-self-end sm:w-[690px]'}>
         <div className="flex flex-col items-start justify-center gap-[55px] border-b border-b-[#353535] pb-[60px]">
           <div>
-            <h1 className="heading-5xl-Reg text-grey-1 pb-[18px]">
+            <h1 className="pb-[18px] heading-5xl-Reg text-grey-1">
               <a href="mailto:info@darkmatterlabs.org">
                 info@darkmatterlabs.org
               </a>
@@ -25,7 +25,7 @@ export default function Contact() {
       </div>
 
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-28 md:w-[400px] md:self-start">
-        <h2 className="heading-5xl-Reg text-grey-3 pb-2">Geographies</h2>
+        <h2 className="pb-2 heading-5xl-Reg text-grey-3">Geographies</h2>
       </div>
       <div
         className={
@@ -35,20 +35,20 @@ export default function Contact() {
         <div className="grid grid-cols-1 gap-[24px] border-b border-b-[#353535] pt-[6px] pb-[60px]">
           <div>
             <h2 className="heading-4xl text-white">Netherlands</h2>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6">
               Dark Matter Laboratories B.V.
             </p>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11 opacity-60">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6 opacity-60">
               Daalwijkdreef 47 <br /> 1103 AD Amsterdam <br />
               KvK number: 75174405
             </p>
           </div>
           <div>
             <h2 className="heading-4xl text-white">United Kingdom</h2>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6">
               Dark Matter Laboratories Limited
             </p>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11 opacity-60">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6 opacity-60">
               217 Mare Street <br /> London, E8 3QE <br />
               Company number: 13294211
             </p>
@@ -56,10 +56,10 @@ export default function Contact() {
 
           <div>
             <h2 className="heading-4xl text-white">South Korea</h2>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6">
               주식회사 다크매터랩스코리아 / Dark Matter Labs Korea Co., Ltd
             </p>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11 opacity-60">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6 opacity-60">
               #301, Pyeongtaek 5-ro 20beon-gil 8, <br /> Pyeongtaek-si,
               Gyeonggi-do, 17902 <br />
               경기도 평택시 평택5로 20번길 8, 301호, 우편번호 17902
@@ -70,10 +70,10 @@ export default function Contact() {
 
           <div>
             <h2 className="heading-4xl text-white">Sweden</h2>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6">
               Mörk Materia Laboratoriet AB / Dark Matter Labs Sweden
             </p>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11 opacity-60">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6 opacity-60">
               Amiralsgatan 76 <br /> 21437, Malmö <br />
               Registration number: 559305-1047
             </p>
@@ -84,7 +84,7 @@ export default function Contact() {
               entry here lists one. */}
           <div>
             <h2 className="heading-4xl text-white">Germany</h2>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6">
               <a
                 href="https://medulla.city/"
                 target="_blank"
@@ -94,7 +94,7 @@ export default function Contact() {
                 Medulla ↗
               </a>
             </p>
-            <p className="font-SaansRegular text-grey-6 text-lg leading-11 opacity-60">
+            <p className="font-SaansRegular text-lg leading-11 text-grey-6 opacity-60">
               Dresdener Str. 113B <br /> 10179, Berlin <br />
               Studio space
             </p>
@@ -102,7 +102,7 @@ export default function Contact() {
         </div>
       </div>
       <div className="col-span-5 mt-[30px] w-full sm:w-[690px] md:mt-28 md:w-[400px]">
-        <h2 className="heading-5xl-Reg text-grey-3 pb-2">Our partners</h2>
+        <h2 className="pb-2 heading-5xl-Reg text-grey-3">Our partners</h2>
       </div>
       <div
         className={
@@ -117,7 +117,6 @@ export default function Contact() {
                 alt="AA logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -128,7 +127,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -137,7 +135,6 @@ export default function Contact() {
                 alt="Viable Cities logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -148,7 +145,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -157,7 +153,6 @@ export default function Contact() {
                 alt="EIT CliamateKIC logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -168,7 +163,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -179,7 +173,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -190,7 +183,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -201,7 +193,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -210,7 +201,6 @@ export default function Contact() {
                 alt="Community Fund logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -221,7 +211,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -232,7 +221,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -243,7 +231,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -254,7 +241,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -263,7 +249,6 @@ export default function Contact() {
                 alt="Google logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -274,7 +259,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -285,7 +269,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -296,7 +279,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -307,7 +289,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -316,7 +297,6 @@ export default function Contact() {
                 alt="Nesta logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -327,7 +307,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -338,7 +317,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -349,7 +327,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -358,7 +335,6 @@ export default function Contact() {
                 alt="RAA logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -369,7 +345,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
             <div>
@@ -378,7 +353,6 @@ export default function Contact() {
                 alt="UNDP logo"
                 width={100}
                 height={100}
-                className="img"
               />
             </div>
             <div>
@@ -388,7 +362,6 @@ export default function Contact() {
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="img"
                 style={{ width: '100%', height: '100%' }}
               />
             </div>
@@ -400,7 +373,6 @@ export default function Contact() {
                 height={0}
                 sizes="100vw"
                 style={{ width: '100%', height: '100%' }}
-                className="img"
               />
             </div>
           </div>

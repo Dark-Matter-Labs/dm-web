@@ -18,8 +18,8 @@ function Initiative({
         activeState
           ? 'bg-[#595959] text-white'
           : hoverState
-            ? 'text-label bg-[#292929]'
-            : 'text-label bg-[#212121]',
+            ? 'bg-[#292929] text-label'
+            : 'bg-[#212121] text-label',
         'my-1.5 flex h-[80px] w-[80px] flex-col items-center justify-center hover:cursor-crosshair',
       )}
       onMouseEnter={() => {
@@ -35,7 +35,7 @@ function Initiative({
       }}
     >
       {activeState ? (
-        <p className="font-SaansRegular px-1 text-center text-[12px] leading-[125%] font-normal">
+        <p className="px-1 text-center font-SaansRegular text-[12px] leading-[125%] font-normal">
           {title}
         </p>
       ) : (

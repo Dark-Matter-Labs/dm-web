@@ -91,10 +91,10 @@ export default function FeedList({ feed_list }) {
       <div className="feed-w mt-[60px] flex items-center justify-center pb-[50px] sm:mt-[100px]">
         <div className="feed-top flex flex-col gap-[36px]">
           <div className="w-auto flex-col items-start justify-center">
-            <h1 className="heading-5xl-Reg sm:heading-7xl mb-[30px] text-white">
+            <h1 className="mb-[30px] heading-5xl-Reg text-white sm:heading-7xl">
               Recent projects and news
             </h1>
-            <p className="p-xl-regular sm:p-body2 max-w-[640px] text-white">
+            <p className="max-w-[640px] p-xl-regular text-white sm:p-body2">
               Whether we’re focusing on streets, towns, cities or entire
               bioregions, we’re working to establish collective means of
               co-ordinating, and governing our common resources. Here you can
@@ -124,7 +124,7 @@ export default function FeedList({ feed_list }) {
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="p-xl-regular text-label focus-visible:outline-grey-3 underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  className="p-xl-regular text-label underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
                 >
                   Clear
                 </button>
@@ -137,7 +137,7 @@ export default function FeedList({ feed_list }) {
       {/* Grid shares the header's measure exactly — 690px at sm, 1200px at
           the matrix breakpoint — so cards line up with the h1 above them. */}
       <div className="flex w-full justify-center px-[20px] sm:px-0">
-        <div className="matrix:w-[1200px] flex w-full flex-col items-stretch pb-[150px] sm:w-[690px]">
+        <div className="flex w-full flex-col items-stretch pb-[150px] sm:w-[690px] matrix:w-[1200px]">
           {shown.length > 0 ? (
             <>
               <ul className="grid grid-cols-1 gap-x-[40px] gap-y-[50px] sm:grid-cols-2">
@@ -178,7 +178,7 @@ export default function FeedList({ feed_list }) {
                   <button
                     type="button"
                     onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                    className="p-xl-regular focus-visible:outline-grey-3 border border-[#606060] px-[24px] py-[10px] text-white hover:bg-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="border border-[#606060] px-[24px] py-[10px] p-xl-regular text-white hover:bg-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
                   >
                     Load {Math.min(remaining, PAGE_SIZE)} more
                     <span className="text-label"> · {remaining} left</span>
@@ -194,7 +194,7 @@ export default function FeedList({ feed_list }) {
               <button
                 type="button"
                 onClick={clearFilters}
-                className="p-xl-regular text-label focus-visible:outline-grey-3 underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                className="p-xl-regular text-label underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3"
               >
                 Clear filters
               </button>

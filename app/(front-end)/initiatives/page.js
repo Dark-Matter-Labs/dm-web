@@ -20,10 +20,10 @@ export default async function Initiatives() {
   return (
     <div className="initiative-pg mt-[40px] flex pb-[80px] sm:mt-[100px]">
       <div className="flex flex-col items-start justify-start gap-[30px] sm:w-[690px] md:w-full">
-        <h1 className="heading-5xl-Reg sm:heading-7xl font-SaansRegular text-white">
+        <h1 className="heading-5xl-Reg font-SaansRegular text-white sm:heading-7xl">
           Initiatives
         </h1>
-        <p className="p-xl-regular sm:p-body2 max-w-md text-white sm:max-w-[600px]">
+        <p className="max-w-md p-xl-regular text-white sm:max-w-[600px] sm:p-body2">
           Our initiatives represent areas of work where we have been able to go
           deeper and build focused expertise over time. Underpinned by strong
           partnerships, these long-term explorations have allowed us to iterate
@@ -55,10 +55,10 @@ export default async function Initiatives() {
                   blurDataURL={initiative?.metadata.lqip}
                 />
               </div>
-              <h2 className="font-SaansRegular mb-[18px] text-5xl text-white group-hover:opacity-80">
+              <h2 className="mb-[18px] font-SaansRegular text-5xl text-white group-hover:opacity-80">
                 {initiative.title}
               </h2>
-              <p className="font-SaansRegular text-grey-3 pb-[20px] text-xl">
+              <p className="pb-[20px] font-SaansRegular text-xl text-grey-3">
                 {initiative.short_description}
               </p>
             </Link>

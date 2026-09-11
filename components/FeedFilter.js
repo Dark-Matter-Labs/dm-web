@@ -20,8 +20,8 @@ export default function FeedFilter({ label, value, options, onChange }) {
       <div className="flex flex-col items-start justify-center gap-[8px]">
         <Label className="p-xl-regular text-label uppercase">{label}</Label>
         <div className="relative">
-          <ListboxButton className="focus-visible:outline-grey-3 flex w-[190px] items-center justify-between gap-[8px] border border-[#606060] bg-transparent px-[12px] py-[6px] text-left hover:bg-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
-            <span className="p-xl-regular truncate text-white">
+          <ListboxButton className="flex w-[190px] items-center justify-between gap-[8px] border border-[#606060] bg-transparent px-[12px] py-[6px] text-left hover:bg-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-3">
+            <span className="truncate p-xl-regular text-white">
               {value.title}
             </span>
             <span aria-hidden="true" className="p-xl-regular text-label">
@@ -37,9 +37,9 @@ export default function FeedFilter({ label, value, options, onChange }) {
               <ListboxOption
                 key={option.value}
                 value={option}
-                className="p-xl-regular group text-grey-3 data-focus:bg-grey-2 flex cursor-default items-center justify-between gap-[10px] p-[10px] select-none data-focus:text-white"
+                className="group flex cursor-default items-center justify-between gap-[10px] p-[10px] p-xl-regular text-grey-3 select-none data-focus:bg-grey-2 data-focus:text-white"
               >
-                <span className="group-data-selected:p-xl-medium font-normal">
+                <span className="font-normal group-data-selected:p-xl-medium">
                   {option.title}
                 </span>
                 {typeof option.count === 'number' && (
