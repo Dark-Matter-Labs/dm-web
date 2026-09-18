@@ -5,6 +5,7 @@ import { client, sanityFetch } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import ProjectMetadata from '@/components/ProjectMetadata';
 import BackButton from '@/components/BackButton';
+import JsonLd, { workSchema } from '@/components/JsonLd';
 import { portableTextComponents } from '@/sanity/lib/portable-text/pt-componets';
 
 const INITIATIVE_SLUG_QUERY = `
@@ -50,6 +51,26 @@ export default async function InitiativePage({ params }) {
 
   return (
     <div className="initiative-grid flex pt-[60px] pb-[100px] sm:pt-28">
+      {/* Names the licence and who to credit, in machine-readable
+          form, and points at the Markdown version of this page. */}
+      <JsonLd
+        data={workSchema(
+          {
+            ...initiative,
+            units: [
+              ...(initiative.labs ?? []).map((u) => u.title),
+              ...(initiative.arcs ?? []).map((u) => u.title),
+              ...(initiative.studios ?? []).map((u) => u.title),
+            ],
+          },
+          'initiatives',
+        )}
+      />
+      <link
+        rel="alternate"
+        type="text/markdown"
+        href={`/initiatives/${initiative.slug?.current ?? ''}/index.md`}
+      />
       <div className="side-display">
         <ProjectMetadata
           initiative={initiative}
