@@ -1,7 +1,22 @@
-# *
+# Dark Matter Labs — https://darkmatterlabs.org
+#
+# Our work is typically licensed CC BY-SA 4.0, and our code GPLv3:
+# https://darkmatterlabs.org/lineage-and-intellectual-responsibility
+#
+# The Content-Signal line below is the Content Signals Policy
+# (https://contentsignals.org). It declares how automated systems may use
+# this content, and it says yes to all three categories — which is what our
+# licence already says. The licence still asks for attribution and
+# share-alike in return; see the JSON-LD on each page, which names the
+# licence and the author in machine-readable form.
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-# Host
-Host: https://darkmatterlabs.org/
+# Plain-text summaries of this site, for agents that would rather not parse
+# the HTML. https://llmstxt.org
+# /llms.txt        — index of the site with one-line descriptions
+# /llms-full.txt   — the same, with the full text of every page
 
+Sitemap: https://darkmatterlabs.org/sitemap.xml

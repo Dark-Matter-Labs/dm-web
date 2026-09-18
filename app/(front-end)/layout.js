@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JsonLd, { organisationSchema } from '@/components/JsonLd';
 import JobsCount from '@/components/JobsCount';
 import Loading from './loading';
 import '../../styles/global.css';
@@ -49,6 +50,15 @@ export default function RootLayout({ children }) {
           </div>
           <Footer />
         </main>
+        <JsonLd data={organisationSchema()} />
+        {/* Points agents at the plain-text index of the site. llmstxt.org
+            asks for rel="describedby"; the Markdown alternates live on the
+            individual project and initiative pages. */}
+        <link
+          rel="describedby"
+          type="text/plain"
+          href="https://darkmatterlabs.org/llms.txt"
+        />
         <Script
           src="https://scripts.simpleanalyticscdn.com/latest.js"
           strategy="lazyOnload"
