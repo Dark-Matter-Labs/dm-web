@@ -59,6 +59,26 @@
       "source": "/Les-Materialistes",
       "destination": "/feed/les-materialistes",
       "permanent": true
+    },
+    {
+      "source": "/feed/rz-studio",
+      "destination": "/initiatives/rz-studio",
+      "permanent": true
+    },
+    {
+      "source": "/feed/rz-studio/index.md",
+      "destination": "/initiatives/rz-studio/index.md",
+      "permanent": true
+    },
+    {
+      "source": "/feed/planetary-civics-inquiry",
+      "destination": "/initiatives/planetary-civics-inquiry",
+      "permanent": true
+    },
+    {
+      "source": "/feed/planetary-civics-inquiry/index.md",
+      "destination": "/initiatives/planetary-civics-inquiry/index.md",
+      "permanent": true
     }
   ]
 }
