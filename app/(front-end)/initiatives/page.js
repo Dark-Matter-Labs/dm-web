@@ -3,8 +3,13 @@ import { urlForImage } from '@/sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// Newest first, by when each initiative was created in Sanity. `title` breaks
+// ties: documents created in one transaction (the two moved over from the
+// feed share a timestamp to the second) would otherwise come back in an
+// arbitrary order. Without any order() this was ordered by _id, so position
+// was whatever the id happened to sort as.
 const INITIATIVES_QUEARY = `
-*[_type == 'initiative'] {
+*[_type == 'initiative'] | order(_createdAt desc, title asc) {
  "image": image.asset->.url,
   "metadata": image.asset->metadata,
 ...
