@@ -263,26 +263,6 @@ hr {
   z-index: 9999;
 }
 
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #fff;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /* Sections whose desktop reveal is driven by a scroll-linked inline opacity.
  * Below the sm breakpoint there is no sticky Matrix to reveal them against,
  * so they should simply be visible. `!important` is what lets a stylesheet

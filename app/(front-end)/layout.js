@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import JsonLd, { organisationSchema } from '@/components/JsonLd';
 import JobsCount from '@/components/JobsCount';
-import Loading from './loading';
 import '../../styles/global.css';
 
 export const metadata = {
@@ -43,11 +42,17 @@ export default function RootLayout({ children }) {
               </Suspense>
             }
           />
-          {/* Boundary wraps only the page content, so a slow page fetch
-              never replaces the navbar and footer with a bare spinner. */}
-          <div className="global-margin">
-            <Suspense fallback={<Loading />}>{children}</Suspense>
-          </div>
+          {/* Deliberately NOT wrapped in <Suspense>, and there is no
+              loading.js in this segment. Either one is a boundary above the
+              page, and a boundary lets the response start streaming - with a
+              200 status line already sent - before a page has had the chance
+              to call notFound(). Every unknown URL then came back 200 with
+              the "Page not found" UI inside it: a soft 404. Removing both is
+              what makes them real 404s; removing only one changes nothing.
+              Nearly every route is prerendered, so the spinner these
+              provided could only ever show for a page created in Sanity
+              after the last deploy. */}
+          <div className="global-margin">{children}</div>
           <Footer />
         </main>
         <JsonLd data={organisationSchema()} />
